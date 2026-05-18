@@ -227,7 +227,8 @@ def nominal_decision_vector(ctx: ForwardContext) -> np.ndarray:
     )
 
 
-def run_de(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
+def run_de(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.ndarray, int, float]:
+    budget = int(fev if fev is not None else FEV)
     rng = np.random.default_rng(seed)
     npop = 15
     d = len(ctx.param_ids)
@@ -236,13 +237,10 @@ def run_de(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     pop[0] = nominal_decision_vector(ctx)
     fit = np.array([forward_mse_and_preds(ctx, pop[i])[0] for i in range(npop)])
     n_eval = npop
-    bi0 = int(np.argmin(fit))
-    gb_x = pop[bi0].copy()
-    gb_f = float(fit[bi0])
     f_w, cr = 0.8, 0.9
-    while n_eval < FEV:
+    while n_eval < budget:
         for i in range(npop):
-            if n_eval >= FEV:
+            if n_eval >= budget:
                 break
             choices = [j for j in range(npop) if j != i]
             a, b, c = rng.choice(choices, 3, replace=False)
@@ -258,10 +256,8 @@ def run_de(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
             if ft <= fit[i]:
                 pop[i] = trial
                 fit[i] = ft
-                if ft < gb_f:
-                    gb_f = float(ft)
-                    gb_x = trial.copy()
-    return gb_x, n_eval, gb_f
+    bi = int(np.argmin(fit))
+    return pop[bi].copy(), n_eval, float(fit[bi])
 
 
 def _tournament(rng: np.random.Generator, pop: np.ndarray, fit: np.ndarray, k: int) -> int:
@@ -292,7 +288,8 @@ def _mutate_polynomial(rng: np.random.Generator, x: np.ndarray, lb: np.ndarray, 
     return y
 
 
-def run_ga(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
+def run_ga(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.ndarray, int, float]:
+    budget = int(fev if fev is not None else FEV)
     rng = np.random.default_rng(seed)
     npop = 20
     d = len(ctx.param_ids)
@@ -300,7 +297,7 @@ def run_ga(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     pop = rng.uniform(lb, ub, (npop, d))
     fit = np.array([forward_mse_and_preds(ctx, pop[i])[0] for i in range(npop)])
     n_eval = npop
-    while n_eval < FEV:
+    while n_eval < budget:
         i1 = _tournament(rng, pop, fit, 3)
         i2 = _tournament(rng, pop, fit, 3)
         if rng.random() < 0.9:
@@ -319,15 +316,16 @@ def run_ga(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     return pop[bi].copy(), n_eval, float(fit[bi])
 
 
-def run_cma(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
+def run_cma(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.ndarray, int, float]:
     import cma
 
+    budget = int(fev if fev is not None else FEV)
     x0 = (ctx.lb + ctx.ub) / 2.0
     sigma0 = 0.2 * float(np.mean(ctx.ub - ctx.lb))
     opts = {
         "bounds": [ctx.lb.tolist(), ctx.ub.tolist()],
         "seed": int(seed),
-        "maxfevals": FEV,
+        "maxfevals": budget,
         "verbose": -9,
     }
     es = cma.CMAEvolutionStrategy(x0, sigma0, opts)
@@ -341,7 +339,8 @@ def run_cma(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     return xb, ne, fb
 
 
-def run_pso(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
+def run_pso(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.ndarray, int, float]:
+    budget = int(fev if fev is not None else FEV)
     rng = np.random.default_rng(seed)
     s = 20
     d = len(ctx.param_ids)
@@ -354,9 +353,9 @@ def run_pso(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     pbest_fit = fit.copy()
     g_idx = int(np.argmin(pbest_fit))
     w, c1, c2 = 0.72, 1.496, 1.496
-    while n_eval < FEV:
+    while n_eval < budget:
         for i in range(s):
-            if n_eval >= FEV:
+            if n_eval >= budget:
                 break
             r1, r2 = rng.random(d), rng.random(d)
             v[i] = w * v[i] + c1 * r1 * (pbest[i] - x[i]) + c2 * r2 * (pbest[g_idx] - x[i])
@@ -373,21 +372,23 @@ def run_pso(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     return pbest[g_idx].copy(), n_eval, float(pbest_fit[g_idx])
 
 
-def run_rs(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
+def run_rs(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.ndarray, int, float]:
+    budget = int(fev if fev is not None else FEV)
     rng = np.random.default_rng(seed)
     best_x = None
     best_f = float("inf")
-    for _ in range(FEV):
+    for _ in range(budget):
         x = rng.uniform(ctx.lb, ctx.ub)
         f, _ = forward_mse_and_preds(ctx, x)
         if f < best_f:
             best_f = f
             best_x = x.copy()
     assert best_x is not None
-    return best_x, FEV, best_f
+    return best_x, budget, best_f
 
 
-def run_sa(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
+def run_sa(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.ndarray, int, float]:
+    budget = int(fev if fev is not None else FEV)
     bounds = [(float(lo), float(hi)) for lo, hi in zip(ctx.lb, ctx.ub, strict=True)]
 
     def wrapped(z):
@@ -396,12 +397,12 @@ def run_sa(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     ret = dual_annealing(
         wrapped,
         bounds=bounds,
-        maxfun=FEV,
+        maxfun=budget,
         seed=seed,
         no_local_search=True,
     )
     x_best = np.clip(np.asarray(ret.x, dtype=float).ravel(), ctx.lb, ctx.ub)
-    n_eval = int(getattr(ret, "nfev", FEV))
+    n_eval = int(getattr(ret, "nfev", budget))
     return x_best, n_eval, float(ret.fun)
 
 
