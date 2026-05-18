@@ -7,6 +7,12 @@ Decision-vector box: for each optimized parameter, lower = nominal/100, upper = 
 Outputs use a **canonical column layout** for downstream analysis (params, runs_metrics, preds_wide).
 See ``CANONICAL_PARAMS_COLS``, ``CANONICAL_RUNS_METRICS_COLS``.
 
+Checkpoints every **5** successful global runs:
+``checkpoint_every5_ckNNN_params.csv`` and ``checkpoint_every5_ckNNN_runs_metrics.csv``.
+
+With ``--fresh``, runs a **preflight** of 6 jobs (one per algorithm, TrueSeed=2026) before the
+main loop; ``(method, rep=0)`` is marked done so those rows are not duplicated.
+
 Resume: ``{PREFIX}_partial_params.csv`` with Metodo, Seed, TrueSeed + 18 kinetics + fixed σ.
 Use ``--fresh`` to delete prior campaign files.
 """
@@ -38,6 +44,8 @@ PREFIX = "brannmark_TIGHT_nom100_R100_B2000"
 N_RUNS = 100
 FEV = 2000
 SEED0 = 2026
+# Successful-run checkpoint interval (also used in progress log + metadata).
+CHECKPOINT_EVERY_N = 5
 
 OBS_ORDER = list(bm.OBSERVABLES_MSE)  # IR1_P, IRS1_P, IRS1_P_DosR
 
@@ -127,6 +135,11 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
         default=None,
         help="Override function-evaluation budget per run (default: 2000).",
     )
+    p.add_argument(
+        "--no-preflight",
+        action="store_true",
+        help="With --fresh, skip the 6-method TrueSeed=2026 preflight (not recommended).",
+    )
     return p.parse_args(argv)
 
 
@@ -136,11 +149,25 @@ def _fresh_cleanup(out_dir: Path, prefix: str) -> list[str]:
         if path.is_file():
             path.unlink()
             removed.append(path.name)
+    for path in sorted(out_dir.glob(f"checkpoint_every{CHECKPOINT_EVERY_N}_*.csv")):
+        if path.is_file():
+            path.unlink()
+            removed.append(path.name)
+    for path in sorted(out_dir.glob("checkpoint_every10_*.csv")):
+        if path.is_file():
+            path.unlink()
+            removed.append(path.name)
     for path in sorted(out_dir.glob("checkpoint_every50_*.csv")):
         if path.is_file():
             path.unlink()
             removed.append(path.name)
-    for name in ("progress_every10.txt", "params.csv", "runs_metrics.csv", "preds_wide.csv"):
+    for name in (
+        "progress_every5.txt",
+        "progress_every10.txt",
+        "params.csv",
+        "runs_metrics.csv",
+        "preds_wide.csv",
+    ):
         pth = out_dir / name
         if pth.is_file():
             pth.unlink()
@@ -431,7 +458,7 @@ def main(argv: list[str] | None = None) -> None:
     args = _parse_args(argv)
     t0_all = time.perf_counter()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    progress_path = OUT_DIR / "progress_every10.txt"
+    progress_path = OUT_DIR / "progress_every5.txt"
     fev_budget = int(args.fev) if args.fev is not None else FEV
 
     if args.fresh:
@@ -515,7 +542,85 @@ def main(argv: list[str] | None = None) -> None:
         meta["smoke_test_de_runs"] = n_reps
     if completed:
         meta["resumed_unix"] = time.time()
+    meta["checkpoint_every_n_successful_runs"] = CHECKPOINT_EVERY_N
     (OUT_DIR / f"{PREFIX}_metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
+
+    def flush_partials_and_checkpoint() -> int:
+        """Write partial CSVs; return current successful run count."""
+        df_p = pd.DataFrame(params_canonical, columns=list(CANONICAL_PARAMS_COLS))
+        df_p.to_csv(partial_params_path, index=False)
+        df_m_c = pd.DataFrame(runs_metrics_canonical, columns=list(CANONICAL_RUNS_METRICS_COLS))
+        df_m_c.to_csv(partial_rm_path, index=False)
+        n_ok = len(runs_metrics_canonical)
+        if n_ok % CHECKPOINT_EVERY_N == 0:
+            tail = f"progress: {n_ok} successful runs (checkpoint every {CHECKPOINT_EVERY_N})\n"
+            with open(progress_path, "a", encoding="utf-8") as fp:
+                fp.write(tail)
+        if n_ok > 0 and n_ok % CHECKPOINT_EVERY_N == 0:
+            ck = f"checkpoint_every{CHECKPOINT_EVERY_N}_ck{n_ok:03d}"
+            df_p.to_csv(OUT_DIR / f"{ck}_params.csv", index=False)
+            df_m_c.to_csv(OUT_DIR / f"{ck}_runs_metrics.csv", index=False)
+        return n_ok
+
+    # --- Preflight: one completed run per algorithm, TrueSeed = SEED0 (2026), Seed = 1 ---
+    if (
+        args.fresh
+        and not args.test_de
+        and not args.no_preflight
+        and len(completed) == 0
+    ):
+        print(
+            "=== PREFLIGHT: 6 methods × TrueSeed=2026 (Seed=1) before full campaign ===",
+            flush=True,
+        )
+        pf_seed = seeds[0]
+        preflight_r2: list[float] = []
+        for label, key, runner in ALGO_SPECS:
+            rep = 0
+            t0 = time.perf_counter()
+            try:
+                x_best, n_eval, obj = runner(ctx, pf_seed, fev_budget)
+                _, preds = bm.forward_mse_and_preds(ctx, x_best)
+            except Exception as exc:
+                elapsed = time.perf_counter() - t0
+                print(f"[PREFLIGHT | {label} | FAILED] {exc!r}", flush=True)
+                continue
+            elapsed = time.perf_counter() - t0
+            per = per_observable_fit_metrics(ctx.df_m, preds)
+            agg = aggregate_three_obs(per)
+            prow_c = build_canonical_params_row(ctx, key, rep, pf_seed, x_best)
+            mrow_c = build_canonical_runs_metrics_row(
+                key, rep, pf_seed, n_eval, elapsed, per, agg
+            )
+            params_canonical.append(prow_c)
+            runs_metrics_canonical.append(mrow_c)
+            preds_by_run[(key, rep)] = preds.copy()
+            preflight_r2.append(float(agg["R2"]))
+            line = (
+                f"[PREFLIGHT | {label} | run {rep + 1}/{N_RUNS} | seed={pf_seed}] "
+                f"R2_mean={agg['R2']:.6f}  IR1_P={per['IR1_P']['R2']:.6f}  "
+                f"IRS1_P={per['IRS1_P']['R2']:.6f}  IRS1_P_DosR={per['IRS1_P_DosR']['R2']:.6f}  "
+                f"mse_mean={obj:.6g}  FEV={n_eval}  t={elapsed:.1f}s"
+            )
+            print(line, flush=True)
+            if obj < best[key]["mse"]:
+                best[key]["mse"] = float(obj)
+                best[key]["x"] = x_best.copy()
+                best[key]["preds"] = preds.copy()
+            completed.add((key, 0))
+            flush_partials_and_checkpoint()
+        u = len({round(x, 6) for x in preflight_r2})
+        if len(preflight_r2) == 6 and u == 6:
+            print(
+                "PREFLIGHT OK: R2 (mean over observables) differs across all 6 methods.",
+                flush=True,
+            )
+        elif len(preflight_r2) == 6:
+            print(
+                f"WARNING: only {u} distinct R2 values in preflight (rounded to 6 decimals).",
+                flush=True,
+            )
+        print("=== Full campaign (remaining runs) ===", flush=True)
 
     for label, key, runner in algo_loop:
         for rep in range(n_reps):
@@ -560,21 +665,7 @@ def main(argv: list[str] | None = None) -> None:
                 best[key]["x"] = x_best.copy()
                 best[key]["preds"] = preds.copy()
 
-            df_p = pd.DataFrame(params_canonical, columns=list(CANONICAL_PARAMS_COLS))
-            df_p.to_csv(partial_params_path, index=False)
-
-            df_m_c = pd.DataFrame(runs_metrics_canonical, columns=list(CANONICAL_RUNS_METRICS_COLS))
-            df_m_c.to_csv(OUT_DIR / f"{PREFIX}_partial_runs_metrics.csv", index=False)
-
-            n_ok = len(runs_metrics_canonical)
-            if n_ok % 10 == 0:
-                tail = f"progress: {n_ok} successful runs (checkpoint every 50)\n"
-                with open(progress_path, "a", encoding="utf-8") as fp:
-                    fp.write(tail)
-
-            if n_ok > 0 and n_ok % 50 == 0:
-                df_p.to_csv(OUT_DIR / f"checkpoint_every50_ck{n_ok:03d}_params.csv", index=False)
-                df_m_c.to_csv(OUT_DIR / f"checkpoint_every50_ck{n_ok:03d}_runs_metrics.csv", index=False)
+            flush_partials_and_checkpoint()
 
     # If resume: merge saved partial with newly built lists — reload from disk for simplicity
     if partial_params_path.is_file():
