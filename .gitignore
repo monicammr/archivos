@@ -1,4 +1,6 @@
 Benchmark-Models-PEtab/
 smoke_brannmark_output/
 BRANNMARK_P1/
+# Copia local para descargar desde Cursor (espejo de BRANNMARK_P1)
+descarga_Brannmark_P1/
 scripts/__pycache__/
