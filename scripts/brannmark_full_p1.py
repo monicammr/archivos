@@ -3,12 +3,18 @@
 
 Decision-vector box: for each optimized parameter, lower = nominal/100, upper = nominal×100
 (PEtab nominals); sigma* noise parameters stay fixed at nominal.
+
+Each successful run is appended to ``*_partial_runs.csv`` and every 50 runs to
+``checkpoint_every50_ckNNN_full.csv`` with **all 18 kinetic parameters** (not metrics-only).
+
+Resume: only from a complete ``*_partial_runs.csv``. Use ``--fresh`` to delete prior campaign
+outputs and start again from run 1/600.
 """
 
 from __future__ import annotations
 
+import argparse
 import json
-import re
 import sys
 import time
 import warnings
@@ -33,31 +39,42 @@ N_RUNS = 100
 FEV = 2000
 SEED0 = 2026
 
-# Optional full state (metrics + params + R²) after each successful run — enables resume without redoing jobs.
+# After each successful run: full snapshot (18 kinetic + fixed σ + R² + MSE) in this file — required for resume.
 PARTIAL_SUFFIX = "_partial_runs.csv"
 
-# Log line from this script (tight-bounds campaign); used to reconstruct metrics for resume when partial file absent.
-_LOG_LINE_RE = re.compile(
-    r"^\[(?P<label>[^\]]+?)\s*\|\s*run\s+(?P<run>\d+)/(?P<nrun>\d+)\s*\|\s*seed=(?P<seed>\d+)\]\s*"
-    r"R2_mean=(?P<r2m>[-+0-9.eE]+)\s+"
-    r"IR1_P=(?P<ir1>[-+0-9.eE]+)\s+"
-    r"IRS1_P=(?P<irs>[-+0-9.eE]+)\s+"
-    r"IRS1_P_DosR=(?P<dos>[-+0-9.eE]+)\s+"
-    r"mse_mean=(?P<mse>[-+0-9.eE]+)\s+"
-    r"FEV=(?P<fev>\d+)"
-)
 
-LABEL_TO_KEY = {
-    "DE": "de",
-    "GA": "ga",
-    "CMA": "cma",
-    "CMA-ES": "cma",
-    "PSO": "pso",
-    "SA": "sa",
-    "RS": "rs",
-}
+def _parse_args(argv: list[str] | None) -> argparse.Namespace:
+    p = argparse.ArgumentParser(
+        description="Brannmark_JBC2010: 6 optimizers × 100 runs, tight bounds, mean-MSE objective."
+    )
+    p.add_argument(
+        "--fresh",
+        action="store_true",
+        help=(
+            "Remove prior campaign files for this PREFIX (partial_runs, checkpoints, "
+            "master_run.log, progress) and start from run 1/600 with no resume."
+        ),
+    )
+    return p.parse_args(argv)
 
-R2_METRIC_KEYS = ("r2_mean", "r2_IR1_P", "r2_IRS1_P", "r2_IRS1_P_DosR")
+
+def _fresh_cleanup(out_dir: Path, prefix: str) -> list[str]:
+    removed: list[str] = []
+    for path in sorted(out_dir.glob(f"{prefix}*")):
+        if path.is_file():
+            path.unlink()
+            removed.append(path.name)
+    for path in sorted(out_dir.glob("checkpoint_every50_*.csv")):
+        if path.is_file():
+            path.unlink()
+            removed.append(path.name)
+    for name in ("master_run.log", "progress_every10.txt"):
+        p = out_dir / name
+        if p.is_file():
+            p.unlink()
+            removed.append(name)
+    return removed
+
 
 ALGO_SPECS: list[tuple[str, str, object]] = [
     ("DE", "de", bm.run_de),
@@ -67,6 +84,8 @@ ALGO_SPECS: list[tuple[str, str, object]] = [
     ("SA", "sa", bm.run_sa),
     ("RS", "rs", bm.run_rs),
 ]
+
+R2_METRIC_KEYS = ("r2_mean", "r2_IR1_P", "r2_IRS1_P", "r2_IRS1_P_DosR")
 
 
 def benchmark_dir() -> Path:
@@ -98,37 +117,28 @@ def _algo_index(key: str) -> int:
     return keys.index(key)
 
 
-def _empty_params_row_template(
-    ctx,
-    row_id: int,
-    key: str,
-    label: str,
-    rep: int,
-    seed: int,
-) -> dict:
-    prow: dict = {
-        "global_run_index": row_id,
-        "algorithm": key,
-        "algorithm_label": label,
-        "run_within_algo": rep,
-        "seed": seed,
-        "fevals": FEV,
-        "wall_seconds": float("nan"),
-        "mse_objective_mean": float("nan"),
-    }
-    for sid in sorted(bm.SIGMA_PARAM_IDS):
-        prow[f"fixed_{sid}"] = float(ctx.p_template[sid])
-    for pid in ctx.param_ids:
-        prow[pid] = float("nan")
-    return prow
-
-
 def _rows_from_partial_csv(path: Path, ctx: bm.ForwardContext) -> tuple[list[dict], list[dict], dict[str, dict]] | None:
     if not path.is_file():
         return None
     df = pd.read_csv(path)
     if df.empty:
         return None
+    for pid in ctx.param_ids:
+        if pid not in df.columns:
+            print(
+                f"Resume rejected: {path.name} has no column {pid!r} (need all 18 kinetic parameters). "
+                "Use --fresh for a clean run.",
+                flush=True,
+            )
+            return None
+    for _, row in df.iterrows():
+        for pid in ctx.param_ids:
+            if not np.isfinite(float(row[pid])):
+                print(
+                    f"Resume rejected: {path.name} has missing/invalid kinetic values. Use --fresh for a clean run.",
+                    flush=True,
+                )
+                return None
     metrics_rows: list[dict] = []
     params_rows: list[dict] = []
     best: dict[str, dict] = {
@@ -168,106 +178,6 @@ def _rows_from_partial_csv(path: Path, ctx: bm.ForwardContext) -> tuple[list[dic
     return metrics_rows, params_rows, best
 
 
-def _parse_master_run_log(path: Path, ctx: bm.ForwardContext) -> tuple[list[dict], list[dict]]:
-    """Recover metric rows (+ params with NaN) from a previous ``master_run.log``."""
-    if not path.is_file():
-        return [], []
-    metrics_rows: list[dict] = []
-    params_rows: list[dict] = []
-    row_id = 0
-    text = path.read_text(encoding="utf-8", errors="replace")
-    for line in text.splitlines():
-        m = _LOG_LINE_RE.match(line.strip())
-        if not m:
-            continue
-        label = m.group("label").strip()
-        key = LABEL_TO_KEY.get(label)
-        if key is None:
-            continue
-        rep = int(m.group("run")) - 1
-        seed = int(m.group("seed"))
-        r2m = float(m.group("r2m"))
-        a = float(m.group("ir1"))
-        b = float(m.group("irs"))
-        c = float(m.group("dos"))
-        mse = float(m.group("mse"))
-        fev = int(m.group("fev"))
-        mrow = {
-            "global_run_index": row_id,
-            "algorithm": key,
-            "run_within_algo": rep,
-            "seed": seed,
-            "fevals": fev,
-            "wall_seconds": float("nan"),
-            "mse_objective_mean": mse,
-            "r2_mean": r2m,
-            "r2_IR1_P": a,
-            "r2_IRS1_P": b,
-            "r2_IRS1_P_DosR": c,
-        }
-        metrics_rows.append(mrow)
-        label_compact = ALGO_SPECS[_algo_index(key)][0]
-        prow = _empty_params_row_template(ctx, row_id, key, label_compact, rep, seed)
-        prow["fevals"] = fev
-        prow["mse_objective_mean"] = mse
-        params_rows.append(prow)
-        row_id += 1
-    return metrics_rows, params_rows
-
-
-def _merge_log_into_partial_recovery(
-    ctx: bm.ForwardContext,
-) -> tuple[list[dict], list[dict], dict[str, dict]]:
-    """Load ``master_run.log`` + latest ``checkpoint_every50_*.csv`` if log shorter."""
-    log_m, log_p = _parse_master_run_log(OUT_DIR / "master_run.log", ctx)
-    ck_files = sorted(OUT_DIR.glob("checkpoint_every50_ck*.csv"))
-    if not log_m and not ck_files:
-        return [], [], {key: {"mse": float("inf"), "x": None, "preds": None} for _, key, _ in ALGO_SPECS}
-    best: dict[str, dict] = {
-        key: {"mse": float("inf"), "x": None, "preds": None} for _, key, _ in ALGO_SPECS
-    }
-    # Prefer log lines; fill from largest checkpoint only where log missing (same global order).
-    if log_m:
-        metrics_rows = log_m
-        params_rows = log_p
-    else:
-        df_ck = pd.read_csv(ck_files[-1])
-        metrics_rows = []
-        params_rows = []
-        for mr in df_ck.to_dict("records"):
-            mr = dict(mr)
-            mr["global_run_index"] = int(mr["global_run_index"])
-            metrics_rows.append(mr)
-            key = str(mr["algorithm"])
-            rep = int(mr["run_within_algo"])
-            seed = int(mr["seed"])
-            label_compact = ALGO_SPECS[_algo_index(key)][0]
-            prow = _empty_params_row_template(ctx, int(mr["global_run_index"]), key, label_compact, rep, seed)
-            prow["fevals"] = int(mr["fevals"])
-            prow["wall_seconds"] = float(mr["wall_seconds"])
-            prow["mse_objective_mean"] = float(mr["mse_objective_mean"])
-            params_rows.append(prow)
-    metrics_rows, params_rows = _dedupe_by_algo_rep(metrics_rows, params_rows)
-    metrics_rows, params_rows = _sort_resume_rows(metrics_rows, params_rows)
-    # Renumber global_run_index contiguously
-    for i, (mr, pr) in enumerate(zip(metrics_rows, params_rows, strict=True)):
-        mr["global_run_index"] = i
-        pr["global_run_index"] = i
-    return metrics_rows, params_rows, best
-
-
-def _dedupe_by_algo_rep(
-    metrics_rows: list[dict], params_rows: list[dict]
-) -> tuple[list[dict], list[dict]]:
-    """One row per (algorithm, run_within_algo); if duplicates (e.g. log appended twice), last wins."""
-    merged: dict[tuple[str, int], tuple[dict, dict]] = {}
-    for mr, pr in zip(metrics_rows, params_rows, strict=True):
-        k = (str(mr["algorithm"]), int(mr["run_within_algo"]))
-        merged[k] = (mr, pr)
-    order = sorted(merged.keys(), key=lambda x: (_algo_index(x[0]), x[1]))
-    return [merged[k][0] for k in order], [merged[k][1] for k in order]
-
-
 def _sort_resume_rows(
     metrics_rows: list[dict], params_rows: list[dict]
 ) -> tuple[list[dict], list[dict]]:
@@ -284,16 +194,23 @@ def _completed_pairs(metrics_rows: list[dict]) -> set[tuple[str, int]]:
     return {(str(r["algorithm"]), int(r["run_within_algo"])) for r in metrics_rows}
 
 
-def _save_partial_runs(path: Path, params_rows: list[dict], metrics_rows: list[dict]) -> None:
+def _dataframe_full_runs(params_rows: list[dict], metrics_rows: list[dict]) -> pd.DataFrame:
+    """One row per successful run: metadata, fixed σ, 18 kinetic parameters, R², MSE."""
     if not params_rows:
-        return
+        return pd.DataFrame()
     keys = list(params_rows[0].keys()) + list(R2_METRIC_KEYS)
     rows: list[dict] = []
     for pr, mr in zip(params_rows, metrics_rows, strict=True):
         row = dict(pr)
         row.update({k: mr[k] for k in R2_METRIC_KEYS})
         rows.append(row)
-    pd.DataFrame(rows, columns=keys).to_csv(path, index=False)
+    return pd.DataFrame(rows, columns=keys)
+
+
+def _save_partial_runs(path: Path, params_rows: list[dict], metrics_rows: list[dict]) -> None:
+    df = _dataframe_full_runs(params_rows, metrics_rows)
+    if not df.empty:
+        df.to_csv(path, index=False)
 
 
 def plot_best_fits(
@@ -346,10 +263,15 @@ def plot_best_fits(
     plt.close(fig)
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
+    args = _parse_args(argv)
     t0_all = time.perf_counter()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     progress_path = OUT_DIR / "progress_every10.txt"
+
+    if args.fresh:
+        removed = _fresh_cleanup(OUT_DIR, PREFIX)
+        print(f"--fresh: removed {len(removed)} file(s) from campaign output directory.", flush=True)
 
     ctx0 = bm.build_context()
     nom = np.array([float(ctx0.p_template[pid]) for pid in ctx0.param_ids], dtype=float)
@@ -373,19 +295,9 @@ def main() -> None:
     if loaded is not None:
         metrics_rows, params_rows, best = loaded
         print(
-            f"Resume from {partial_path.name}: {len(metrics_rows)} completed runs "
-            "(parameters present where this file was written).",
+            f"Resume from {partial_path.name}: {len(metrics_rows)} completed runs (kinetic parameters OK).",
             flush=True,
         )
-    else:
-        m2, p2, b2 = _merge_log_into_partial_recovery(ctx)
-        if m2:
-            metrics_rows, params_rows, best = m2, p2, b2
-            print(
-                f"Resume from master_run.log / checkpoints: {len(metrics_rows)} metric rows recovered. "
-                "Parameters are NaN for log-only rows (first run after resume will fill partial_runs.csv).",
-                flush=True,
-            )
 
     completed = _completed_pairs(metrics_rows)
 
@@ -394,7 +306,7 @@ def main() -> None:
         raise ValueError(f"Expected last seed 2125, got {seeds[-1]}")
 
     started = time.time()
-    if meta_path.is_file():
+    if meta_path.is_file() and not args.fresh:
         try:
             old_meta = json.loads(meta_path.read_text(encoding="utf-8"))
             started = float(old_meta.get("started_unix", started))
@@ -497,8 +409,8 @@ def main() -> None:
                     fp.write(tail)
 
             if n_ok > 0 and n_ok % 50 == 0:
-                ck = OUT_DIR / f"checkpoint_every50_ck{n_ok:03d}.csv"
-                pd.DataFrame(metrics_rows).to_csv(ck, index=False)
+                ck = OUT_DIR / f"checkpoint_every50_ck{n_ok:03d}_full.csv"
+                _dataframe_full_runs(params_rows, metrics_rows).to_csv(ck, index=False)
 
     df_p = pd.DataFrame(params_rows)
     df_m = pd.DataFrame(metrics_rows)
