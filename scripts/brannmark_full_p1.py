@@ -51,8 +51,8 @@ def _parse_args(argv: list[str] | None) -> argparse.Namespace:
         "--fresh",
         action="store_true",
         help=(
-            "Remove prior campaign files for this PREFIX (partial_runs, checkpoints, "
-            "master_run.log, progress) and start from run 1/600 with no resume."
+            "Remove prior campaign files for this PREFIX (partial_runs, checkpoints, progress). "
+            "Does not remove master_run.log (delete/truncate that file yourself before launch if you want a clean log)."
         ),
     )
     return p.parse_args(argv)
@@ -68,7 +68,10 @@ def _fresh_cleanup(out_dir: Path, prefix: str) -> list[str]:
         if path.is_file():
             path.unlink()
             removed.append(path.name)
-    for name in ("master_run.log", "progress_every10.txt"):
+    # Do not delete master_run.log here: if the user starts with `>> master_run.log`, the shell may
+    # open the file before Python runs --fresh; deleting the path breaks the redirect. Truncate or
+    # remove the log manually when you want a clean file.
+    for name in ("progress_every10.txt",):
         p = out_dir / name
         if p.is_file():
             p.unlink()
