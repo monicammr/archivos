@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
-"""Smoke test: 10 runs × (DE, GA, CMA-ES, PSO, RS, SA) with FEV=500 on Brannmark_JBC2010.
+"""Brannmark_JBC2010 smoke / optimization helpers (DE, GA, CMA-ES, PSO, RS, SA).
 
-Objective: sum of squared *standardized* residuals (noise sigma taken from the current
-candidate vector), matching a Gaussian negative log-likelihood up to constants. With
-only 500 evaluations this smoke run is not meant to converge; optimizers may shrink
-chi² by inflating sigma parameters within bounds while predictions stay poor, so R²
-can be negative even when chi² is small.
+**Objective (default):** mean of per-observable mean squared errors (MSE), across
+``IR1_P``, ``IRS1_P``, and ``IRS1_P_DosR``. Each MSE is ``mean((y_meas - y_sim)^2)``
+over all measurement rows for that observable.
 
-Integrator: LSODA (SciPy) for the forward problem during optimization for robustness on
-stiff trajectories; warnings from the solver are suppressed.
+**Noise / scale:** all ``sigma*`` parameters from the PEtab parameters table are **fixed**
+at their nominal TSV values and are **not** part of the optimization vector. Only the
+remaining ``estimate=1`` parameters (18 kinetic / scaling parameters in this benchmark)
+are optimized.
+
+Integrator during search: LSODA (SciPy). LSODA warnings are filtered.
 """
 
 from __future__ import annotations
@@ -31,8 +33,23 @@ if str(_SCRIPT_DIR) not in sys.path:
 
 import brannmark_nominal_r2 as core
 
-N_REPS = 10
+# Full multi-algorithm smoke (slow): set ``SMOKE_ALL_ALGORITHMS = True``.
+SMOKE_ALL_ALGORITHMS = False
+N_REPS_FULL = 10
+N_REPS_DE_SMOKE = 5
 FEV = 500
+
+# PEtab noise-parameter IDs (fixed at nominal; excluded from the decision vector).
+SIGMA_PARAM_IDS = frozenset(
+    {
+        "sigmaY1TimR",  # IR1_P
+        "sigmaY2Step",  # IRS1_P (two-step experiment)
+        "sigmaY2TimR",  # IRS1_P (one-step time course)
+        "sigmaYDosR",  # IRS1_P_DosR
+    }
+)
+
+OBSERVABLES_MSE = ("IR1_P", "IRS1_P", "IRS1_P_DosR")
 
 
 def benchmark_dir() -> Path:
@@ -98,9 +115,10 @@ def build_context() -> ForwardContext:
 
     p_template = {row.parameterId: float(row.nominalValue) for row in df_p.itertuples(index=False)}
     est = df_p[df_p["estimate"].astype(int) == 1]
-    param_ids = [str(x) for x in est["parameterId"].tolist()]
-    lb = np.array([float(r.lowerBound) for r in est.itertuples(index=False)], dtype=float)
-    ub = np.array([float(r.upperBound) for r in est.itertuples(index=False)], dtype=float)
+    est_opt = est[~est["parameterId"].astype(str).isin(SIGMA_PARAM_IDS)]
+    param_ids = [str(x) for x in est_opt["parameterId"].tolist()]
+    lb = np.array([float(r.lowerBound) for r in est_opt.itertuples(index=False)], dtype=float)
+    ub = np.array([float(r.upperBound) for r in est_opt.itertuples(index=False)], dtype=float)
 
     conditions = {}
     for row in df_c.itertuples(index=False):
@@ -136,7 +154,17 @@ def vec_to_params(ctx: ForwardContext, x: np.ndarray) -> dict[str, float]:
     return p
 
 
-def forward_chi2_and_preds(ctx: ForwardContext, x: np.ndarray) -> tuple[float, np.ndarray]:
+def combined_mean_mse(df_m: pd.DataFrame, preds: np.ndarray) -> float:
+    mses: list[float] = []
+    for oid in OBSERVABLES_MSE:
+        mask = (df_m["observableId"].to_numpy() == oid).astype(bool)
+        y_t = df_m.loc[mask, "measurement"].to_numpy(dtype=float)
+        y_p = preds[mask]
+        mses.append(float(np.mean((y_t - y_p) ** 2)))
+    return float(np.mean(mses))
+
+
+def forward_mse_and_preds(ctx: ForwardContext, x: np.ndarray) -> tuple[float, np.ndarray]:
     p = vec_to_params(ctx, x)
     try:
         y_ss = preequilibrate_opt(ctx.y_ic, p, ctx.conditions[ctx.preeq_id])
@@ -153,7 +181,6 @@ def forward_chi2_and_preds(ctx: ForwardContext, x: np.ndarray) -> tuple[float, n
             cache[(preeq_id2, sim_id)] = (t_out, y_traj, state_at_t)
 
         preds: list[float] = []
-        chi2 = 0.0
         for row in ctx.df_m.itertuples(index=False):
             key = (str(row.preequilibrationConditionId), str(row.simulationConditionId))
             t_out, y_traj, state_at_t = cache[key]
@@ -168,14 +195,11 @@ def forward_chi2_and_preds(ctx: ForwardContext, x: np.ndarray) -> tuple[float, n
                 yq = np.array([np.interp(tt, t_out, y_traj[i, :]) for i in range(y_traj.shape[0])])
             scale = float(p[str(row.observableParameters)])
             yhat = core.predict_observable(str(row.observableId), yq, scale)
-            meas = float(row.measurement)
-            sig = float(p[str(row.noiseParameters)])
-            if sig <= 0 or not np.isfinite(yhat):
+            if not np.isfinite(yhat):
                 return 1e12, np.full(len(ctx.df_m), np.nan)
-            r = (yhat - meas) / sig
-            chi2 += r * r
             preds.append(yhat)
-        return float(chi2), np.array(preds, dtype=float)
+        pred_arr = np.array(preds, dtype=float)
+        return combined_mean_mse(ctx.df_m, pred_arr), pred_arr
     except Exception:
         return 1e12, np.full(len(ctx.df_m), np.nan)
 
@@ -195,14 +219,26 @@ def r2_mean(r2s: dict[str, float]) -> float:
     return float(np.mean(vals)) if vals else float("nan")
 
 
+def nominal_decision_vector(ctx: ForwardContext) -> np.ndarray:
+    return np.clip(
+        np.array([ctx.p_template[pid] for pid in ctx.param_ids], dtype=float),
+        ctx.lb,
+        ctx.ub,
+    )
+
+
 def run_de(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     rng = np.random.default_rng(seed)
     npop = 15
     d = len(ctx.param_ids)
     lb, ub = ctx.lb, ctx.ub
     pop = rng.uniform(lb, ub, (npop, d))
-    fit = np.array([forward_chi2_and_preds(ctx, pop[i])[0] for i in range(npop)])
+    pop[0] = nominal_decision_vector(ctx)
+    fit = np.array([forward_mse_and_preds(ctx, pop[i])[0] for i in range(npop)])
     n_eval = npop
+    bi0 = int(np.argmin(fit))
+    gb_x = pop[bi0].copy()
+    gb_f = float(fit[bi0])
     f_w, cr = 0.8, 0.9
     while n_eval < FEV:
         for i in range(npop):
@@ -217,13 +253,15 @@ def run_de(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
             for j in range(d):
                 if rng.random() < cr or j == j_rand:
                     trial[j] = mutant[j]
-            ft = forward_chi2_and_preds(ctx, trial)[0]
+            ft = forward_mse_and_preds(ctx, trial)[0]
             n_eval += 1
             if ft <= fit[i]:
                 pop[i] = trial
                 fit[i] = ft
-    bi = int(np.argmin(fit))
-    return pop[bi].copy(), n_eval, float(fit[bi])
+                if ft < gb_f:
+                    gb_f = float(ft)
+                    gb_x = trial.copy()
+    return gb_x, n_eval, gb_f
 
 
 def _tournament(rng: np.random.Generator, pop: np.ndarray, fit: np.ndarray, k: int) -> int:
@@ -260,7 +298,7 @@ def run_ga(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     d = len(ctx.param_ids)
     lb, ub = ctx.lb, ctx.ub
     pop = rng.uniform(lb, ub, (npop, d))
-    fit = np.array([forward_chi2_and_preds(ctx, pop[i])[0] for i in range(npop)])
+    fit = np.array([forward_mse_and_preds(ctx, pop[i])[0] for i in range(npop)])
     n_eval = npop
     while n_eval < FEV:
         i1 = _tournament(rng, pop, fit, 3)
@@ -271,7 +309,7 @@ def run_ga(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
             child = pop[i1].copy() if fit[i1] < fit[i2] else pop[i2].copy()
         child = _mutate_polynomial(rng, child, lb, ub, 20.0)
         child = np.clip(child, lb, ub)
-        fc = forward_chi2_and_preds(ctx, child)[0]
+        fc = forward_mse_and_preds(ctx, child)[0]
         n_eval += 1
         worst = int(np.argmax(fit))
         if fc < fit[worst]:
@@ -295,7 +333,7 @@ def run_cma(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     es = cma.CMAEvolutionStrategy(x0, sigma0, opts)
     while not es.stop():
         xs = es.ask()
-        ar = [forward_chi2_and_preds(ctx, np.clip(np.asarray(x, dtype=float), ctx.lb, ctx.ub))[0] for x in xs]
+        ar = [forward_mse_and_preds(ctx, np.clip(np.asarray(x, dtype=float), ctx.lb, ctx.ub))[0] for x in xs]
         es.tell(xs, ar)
     xb = np.clip(np.asarray(es.result.xfavorite, dtype=float), ctx.lb, ctx.ub)
     ne = int(es.result.evaluations)
@@ -311,7 +349,7 @@ def run_pso(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     x = rng.uniform(lb, ub, (s, d))
     v = rng.uniform(-0.05, 0.05, (s, d)) * (ub - lb)
     pbest = x.copy()
-    fit = np.array([forward_chi2_and_preds(ctx, x[i])[0] for i in range(s)])
+    fit = np.array([forward_mse_and_preds(ctx, x[i])[0] for i in range(s)])
     n_eval = s
     pbest_fit = fit.copy()
     g_idx = int(np.argmin(pbest_fit))
@@ -325,7 +363,7 @@ def run_pso(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
             vmax = (ub - lb) * 0.5
             v[i] = np.clip(v[i], -vmax, vmax)
             x[i] = np.clip(x[i] + v[i], lb, ub)
-            fi = forward_chi2_and_preds(ctx, x[i])[0]
+            fi = forward_mse_and_preds(ctx, x[i])[0]
             n_eval += 1
             if fi < pbest_fit[i]:
                 pbest[i] = x[i].copy()
@@ -341,7 +379,7 @@ def run_rs(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     best_f = float("inf")
     for _ in range(FEV):
         x = rng.uniform(ctx.lb, ctx.ub)
-        f, _ = forward_chi2_and_preds(ctx, x)
+        f, _ = forward_mse_and_preds(ctx, x)
         if f < best_f:
             best_f = f
             best_x = x.copy()
@@ -353,7 +391,7 @@ def run_sa(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
     bounds = [(float(lo), float(hi)) for lo, hi in zip(ctx.lb, ctx.ub, strict=True)]
 
     def wrapped(z):
-        return forward_chi2_and_preds(ctx, np.asarray(z, dtype=float))[0]
+        return forward_mse_and_preds(ctx, np.asarray(z, dtype=float))[0]
 
     ret = dual_annealing(
         wrapped,
@@ -370,31 +408,36 @@ def run_sa(ctx: ForwardContext, seed: int) -> tuple[np.ndarray, int, float]:
 def main() -> None:
     ctx = build_context()
 
+    if SMOKE_ALL_ALGORITHMS:
+        n_rep = N_REPS_FULL
+        algos = [
+            ("de", run_de),
+            ("ga", run_ga),
+            ("cma", run_cma),
+            ("pso", run_pso),
+            ("rs", run_rs),
+            ("sa", run_sa),
+        ]
+    else:
+        n_rep = N_REPS_DE_SMOKE
+        algos = [("de", run_de)]
+
     out_dir = Path(__file__).resolve().parent.parent / "smoke_brannmark_output"
     out_dir.mkdir(parents=True, exist_ok=True)
     params_rows: list[dict] = []
     metrics_rows: list[dict] = []
 
-    algos = [
-        ("de", run_de),
-        ("ga", run_ga),
-        ("cma", run_cma),
-        ("pso", run_pso),
-        ("rs", run_rs),
-        ("sa", run_sa),
-    ]
-
     run_id = 0
     for algo_name, runner in algos:
-        for rep in range(N_REPS):
+        for rep in range(n_rep):
             seed = 10_000 + run_id
-            x_best, n_eval, chi2_best = runner(ctx, seed)
-            _, preds = forward_chi2_and_preds(ctx, x_best)
+            x_best, n_eval, obj_best = runner(ctx, seed)
+            _, preds = forward_mse_and_preds(ctx, x_best)
             r2s = r2_per_observable(ctx.df_m, preds)
             rm = r2_mean(r2s)
             print(
-                f"[{algo_name.upper()} rep {rep + 1}/{N_REPS}] "
-                f"fevals={n_eval} chi2={chi2_best:.4g} "
+                f"[{algo_name.upper()} rep {rep + 1}/{n_rep}] "
+                f"fevals={n_eval} mse_objective={obj_best:.6g} "
                 f"R2_mean={rm:.6f} "
                 + " ".join(f"R2_{k}={v:.6f}" for k, v in sorted(r2s.items())),
                 flush=True,
@@ -405,8 +448,10 @@ def main() -> None:
                 "algorithm": algo_name,
                 "replication": rep,
                 "fevals": n_eval,
-                "chi2_best": chi2_best,
+                "mse_objective_mean": obj_best,
             }
+            for sid in sorted(SIGMA_PARAM_IDS):
+                prow[f"fixed_{sid}"] = float(ctx.p_template[sid])
             for pid, val in zip(ctx.param_ids, x_best, strict=True):
                 prow[pid] = val
             params_rows.append(prow)
@@ -416,7 +461,7 @@ def main() -> None:
                 "algorithm": algo_name,
                 "replication": rep,
                 "fevals": n_eval,
-                "chi2_best": chi2_best,
+                "mse_objective_mean": obj_best,
                 "r2_mean": rm,
             }
             mrow.update({f"r2_{k}": v for k, v in sorted(r2s.items())})
@@ -429,6 +474,22 @@ def main() -> None:
     m_csv = out_dir / "runs_metrics.csv"
     df_params.to_csv(p_csv, index=False)
     df_metrics.to_csv(m_csv, index=False)
+
+    all_pos = True
+    for _, row in df_metrics.iterrows():
+        for oid in OBSERVABLES_MSE:
+            v = float(row[f"r2_{oid}"])
+            if not (v > 0.0 and np.isfinite(v)):
+                all_pos = False
+                break
+        if not all_pos:
+            break
+    r2m = df_metrics["r2_mean"].to_numpy(dtype=float)
+    print(
+        f"\nAll per-observable R² > 0 in every run: {all_pos} "
+        f"(R2_mean min={float(np.nanmin(r2m)):.6f})",
+        flush=True,
+    )
 
     print("\n--- params.csv (first 10 rows) ---", flush=True)
     print(df_params.head(10).to_string(), flush=True)
