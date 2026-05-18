@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Brannmark_JBC2010 full benchmark: 100 runs × 6 algorithms, FEV=2000, mean-MSE objective."""
+"""Brannmark_JBC2010 full benchmark: 100 runs × 6 algorithms, FEV=2000, mean-MSE objective.
+
+Decision-vector box: for each optimized parameter, lower = nominal/100, upper = nominal×100
+(PEtab nominals); sigma* noise parameters stay fixed at nominal.
+"""
 
 from __future__ import annotations
 
@@ -7,6 +11,7 @@ import json
 import sys
 import time
 import warnings
+from dataclasses import replace
 from pathlib import Path
 
 warnings.filterwarnings("ignore", message="lsoda:")
@@ -22,7 +27,7 @@ if str(_SCRIPT_DIR) not in sys.path:
 import brannmark_smoke_optim as bm
 
 OUT_DIR = Path(__file__).resolve().parent.parent / "BRANNMARK_P1"
-PREFIX = "brannmark_REAL_noReg_R100_B2000"
+PREFIX = "brannmark_TIGHT_nom100_R100_B2000"
 N_RUNS = 100
 FEV = 2000
 SEED0 = 2026
@@ -115,7 +120,11 @@ def main() -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     progress_path = OUT_DIR / "progress_every10.txt"
 
-    ctx = bm.build_context()
+    ctx0 = bm.build_context()
+    nom = np.array([float(ctx0.p_template[pid]) for pid in ctx0.param_ids], dtype=float)
+    lb_t = nom / 100.0
+    ub_t = nom * 100.0
+    ctx = replace(ctx0, lb=lb_t, ub=ub_t)
     base = benchmark_dir()
     df_c = pd.read_csv(base / "experimentalCondition_Brannmark_JBC2010.tsv", sep="\t")
     plot_x_arr = merge_plot_x(ctx.df_m, df_c).to_numpy(dtype=float)
@@ -134,6 +143,7 @@ def main() -> None:
         "benchmark": "Brannmark_JBC2010",
         "objective": "mean(MSE_IR1_P, MSE_IRS1_P, MSE_IRS1_P_DosR)",
         "n_params_optimized": len(ctx.param_ids),
+        "decision_bounds": "per-parameter [nominal/100, nominal*100] from PEtab nominalValue",
         "sigma_fixed": sorted(bm.SIGMA_PARAM_IDS),
         "fev_per_run": FEV,
         "n_runs_per_algorithm": N_RUNS,
