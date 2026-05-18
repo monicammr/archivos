@@ -126,7 +126,6 @@ def main() -> None:
         key: {"mse": float("inf"), "x": None, "preds": None} for _, key, _ in ALGO_SPECS
     }
 
-    global_idx = 0
     seeds = [SEED0 + k for k in range(N_RUNS)]
     if seeds[-1] != 2125:
         raise ValueError(f"Expected last seed 2125, got {seeds[-1]}")
@@ -159,7 +158,6 @@ def main() -> None:
                 print(line, flush=True)
                 with open(progress_path, "a", encoding="utf-8") as fp:
                     fp.write(line + "\n")
-                global_idx += 1
                 continue
 
             elapsed = time.perf_counter() - t0
@@ -170,8 +168,8 @@ def main() -> None:
             c = float(r2s["IRS1_P_DosR"])
             line = (
                 f"[{label} | run {rep + 1}/{N_RUNS} | seed={seed}] "
-                f"R2_mean={rm:.6f} [IR1_P={a:.6f} IRS1_P={b:.6f} IRS1_P_DosR={c:.6f}] "
-                f"FEV={n_eval} t={elapsed:.1f}s"
+                f"R2_mean={rm:.6f}  IR1_P={a:.6f}  IRS1_P={b:.6f}  IRS1_P_DosR={c:.6f}  "
+                f"mse_mean={obj:.6g}  FEV={n_eval}  t={elapsed:.1f}s"
             )
             print(line, flush=True)
 
@@ -180,8 +178,7 @@ def main() -> None:
                 best[key]["x"] = x_best.copy()
                 best[key]["preds"] = preds.copy()
 
-            row_id = global_idx
-            global_idx += 1
+            row_id = len(metrics_rows)
 
             prow = {
                 "global_run_index": row_id,
@@ -214,13 +211,14 @@ def main() -> None:
             }
             metrics_rows.append(mrow)
 
-            if global_idx % 10 == 0:
-                tail = f"checkpoint progress: {global_idx}/600 runs completed\n"
+            n_ok = len(metrics_rows)
+            if n_ok % 10 == 0:
+                tail = f"progress: {n_ok} successful runs completed (checkpoint every 50)\n"
                 with open(progress_path, "a", encoding="utf-8") as fp:
                     fp.write(tail)
 
-            if global_idx % 50 == 0 and global_idx > 0:
-                ck = OUT_DIR / f"checkpoint_every50_ck{global_idx:03d}.csv"
+            if n_ok > 0 and n_ok % 50 == 0:
+                ck = OUT_DIR / f"checkpoint_every50_ck{n_ok:03d}.csv"
                 pd.DataFrame(metrics_rows).to_csv(ck, index=False)
 
     df_p = pd.DataFrame(params_rows)
