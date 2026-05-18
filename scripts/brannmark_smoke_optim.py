@@ -10,7 +10,8 @@ at their nominal TSV values and are **not** part of the optimization vector. Onl
 remaining ``estimate=1`` parameters (18 kinetic / scaling parameters in this benchmark)
 are optimized.
 
-Integrator during search: LSODA (SciPy). LSODA warnings are filtered.
+**DE:** population is drawn uniformly at random in box bounds (no seeded nominal
+individual). Returned solution is the best member of the final population.
 """
 
 from __future__ import annotations
@@ -219,14 +220,6 @@ def r2_mean(r2s: dict[str, float]) -> float:
     return float(np.mean(vals)) if vals else float("nan")
 
 
-def nominal_decision_vector(ctx: ForwardContext) -> np.ndarray:
-    return np.clip(
-        np.array([ctx.p_template[pid] for pid in ctx.param_ids], dtype=float),
-        ctx.lb,
-        ctx.ub,
-    )
-
-
 def run_de(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.ndarray, int, float]:
     budget = int(fev if fev is not None else FEV)
     rng = np.random.default_rng(seed)
@@ -234,7 +227,6 @@ def run_de(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.n
     d = len(ctx.param_ids)
     lb, ub = ctx.lb, ctx.ub
     pop = rng.uniform(lb, ub, (npop, d))
-    pop[0] = nominal_decision_vector(ctx)
     fit = np.array([forward_mse_and_preds(ctx, pop[i])[0] for i in range(npop)])
     n_eval = npop
     f_w, cr = 0.8, 0.9
@@ -320,7 +312,8 @@ def run_cma(ctx: ForwardContext, seed: int, fev: int | None = None) -> tuple[np.
     import cma
 
     budget = int(fev if fev is not None else FEV)
-    x0 = (ctx.lb + ctx.ub) / 2.0
+    rng = np.random.default_rng(seed)
+    x0 = rng.uniform(ctx.lb, ctx.ub)
     sigma0 = 0.2 * float(np.mean(ctx.ub - ctx.lb))
     opts = {
         "bounds": [ctx.lb.tolist(), ctx.ub.tolist()],
