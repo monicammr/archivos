@@ -21,11 +21,19 @@ while true; do
       break
     fi
   done < <(pgrep -f "$PATTERN" || true) || true
+  cp_err=""
   if [[ -n "$pid" ]]; then
-    cp "/proc/$pid/fd/1" "$LOG" 2>/dev/null || true
+    # Keep the monitor alive across transient copy failures, but surface the
+    # reason in the digest instead of discarding it silently.
+    if ! cp_err=$(cp "/proc/$pid/fd/1" "$LOG" 2>&1); then
+      cp_err="cp failed: ${cp_err}"
+    else
+      cp_err=""
+    fi
   fi
   {
     echo "======== $(date -Iseconds) last 10 lines of $LOG (pid=${pid:-none}) ========"
+    [[ -n "$cp_err" ]] && printf 'WARNING: %s\n' "$cp_err"
     tail -n 10 "$LOG" 2>/dev/null || printf '%s\n' "(unavailable)"
     echo
   } >>"$DIGEST"

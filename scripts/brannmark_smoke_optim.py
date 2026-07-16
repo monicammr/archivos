@@ -16,6 +16,7 @@ individual). Returned solution is the best member of the final population.
 
 from __future__ import annotations
 
+import logging
 import sys
 import warnings
 from dataclasses import dataclass
@@ -33,6 +34,25 @@ if str(_SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPT_DIR))
 
 import brannmark_nominal_r2 as core
+
+logger = logging.getLogger(__name__)
+
+# Objective value returned when a forward simulation is infeasible (integration
+# fails or the prediction is non-finite), so the optimizers can move past bad
+# parameter vectors instead of crashing.
+PENALTY = 1e12
+
+# Exceptions expected when integrating an infeasible parameter vector
+# (integrator non-convergence surfaces as RuntimeError, numeric blow-ups as
+# overflow/floating-point errors, singular systems as LinAlgError). These are
+# turned into ``PENALTY``. Any other exception signals a bug or misconfiguration
+# and is deliberately allowed to propagate rather than be silently swallowed.
+_SIM_FAILURE_EXC = (
+    RuntimeError,
+    FloatingPointError,
+    OverflowError,
+    np.linalg.LinAlgError,
+)
 
 # Full multi-algorithm smoke (slow): set ``SMOKE_ALL_ALGORITHMS = True``.
 SMOKE_ALL_ALGORITHMS = False
@@ -197,12 +217,13 @@ def forward_mse_and_preds(ctx: ForwardContext, x: np.ndarray) -> tuple[float, np
             scale = float(p[str(row.observableParameters)])
             yhat = core.predict_observable(str(row.observableId), yq, scale)
             if not np.isfinite(yhat):
-                return 1e12, np.full(len(ctx.df_m), np.nan)
+                return PENALTY, np.full(len(ctx.df_m), np.nan)
             preds.append(yhat)
         pred_arr = np.array(preds, dtype=float)
         return combined_mean_mse(ctx.df_m, pred_arr), pred_arr
-    except Exception:
-        return 1e12, np.full(len(ctx.df_m), np.nan)
+    except _SIM_FAILURE_EXC as exc:
+        logger.debug("forward simulation failed; applying penalty: %r", exc)
+        return PENALTY, np.full(len(ctx.df_m), np.nan)
 
 
 def r2_per_observable(df_m: pd.DataFrame, preds: np.ndarray) -> dict[str, float]:
