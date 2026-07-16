@@ -520,8 +520,12 @@ def main(argv: list[str] | None = None) -> None:
         try:
             old_meta = json.loads(meta_path.read_text(encoding="utf-8"))
             started = float(old_meta.get("started_unix", started))
-        except (json.JSONDecodeError, OSError):
-            pass
+        except (json.JSONDecodeError, OSError, ValueError) as exc:
+            print(
+                f"WARNING: could not read start time from prior metadata "
+                f"{meta_path.name} ({exc!r}); using current time.",
+                flush=True,
+            )
 
     meta: dict = {
         "benchmark": "Brannmark_JBC2010",

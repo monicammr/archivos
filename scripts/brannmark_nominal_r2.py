@@ -34,6 +34,12 @@ def load_species_ic(sbml_path: Path) -> np.ndarray:
         sid = sp.get("id")
         ic0 = float(sp.get("initialConcentration", "0"))
         ic[sid] = ic0
+    missing = [s for s in SPECIES_IDS if s not in ic]
+    if missing:
+        raise ValueError(
+            f"SBML model {sbml_path} is missing initial concentrations for "
+            f"species {missing}; found {sorted(ic)}."
+        )
     return np.array([ic[s] for s in SPECIES_IDS], dtype=float)
 
 
