@@ -10,4 +10,5 @@ require mathlib from git
 lean_lib «CertifiedReduction» where
   roots := #[`FirstOrderErrorBound, `TrajectoryErrorBound, `GlobalLipschitzODE,
     `ParamDiffODE, `CertifiedODEReduction, `IdentifiabilityConditioning,
-    `GreedySelection, `CosineCertificate, `NumericalRobustness, `PatternMechanisms]
+    `GreedySelection, `CosineCertificate, `NumericalRobustness, `PatternMechanisms,
+    `SensitivityLipschitz, `CertifiedFiniteODE]

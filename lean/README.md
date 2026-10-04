@@ -38,6 +38,8 @@ descartados fijados en su valor nominal).
 
 | `CosineCertificate.lean` | cos Δ ≥ c a partir del error relativo; cota explícita (no asintótica) para perturbaciones finitas con derivada Lipschitz; certificado de cos Δ por escenario |
 | `NumericalRobustness.lean` | Error de diferencias finitas; R_var, κ y VIF certificados a partir de cantidades calculadas con margen de error |
+| `SensitivityLipschitz.lean` | Cota formal de `Lc`: trayectorias y sensibilidades Lipschitz en θ (Grönwall), con constantes explícitas en `M₁`, `M₂`, `T` |
+| `CertifiedFiniteODE.lean` | Certificado de cos Δ para la EDO con `Lc = √N·M₂e²(e−1)/M₁`, `e = exp(M₁T)` |
 | `PatternMechanisms.lean` | Mecanismos de los patrones D (efectos opuestos ⇒ no identificabilidad) y A (energía nula ⇒ reducción exacta) |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
@@ -53,6 +55,8 @@ descartados fijados en su valor nominal).
 | El algoritmo greedy devuelve un subconjunto que cumple κ/VIF; el descarte permanente es correcto | `GreedySelection.greedy_kappa_vif_guarantee` |
 | Perturbaciones finitas: cota explícita del error de trayectoria | `CosineCertificate.finite_trajectory_error` |
 | cos Δ ≥ c para un escenario concreto (certificado verificable por escenario) | `CosineCertificate.finite_cos_certificate` |
+| **Lc acotado formalmente**: la sensibilidad es Lipschitz en θ con constante explícita M₂e²(e−1)/M₁ | `SensitivityLipschitz.sens_lipschitz` (y `traj_lipschitz`, `sens_bound`) |
+| **cos Δ ≥ c para la EDO, con Lc = √N·M₂e²(e−1)/M₁** (sin suponer Lc) | `CertifiedFiniteODE.certified_cos_ode` |
 | Diferencias finitas aproximan J con error ≤ Lc·δ | `NumericalRobustness.fd_column_error` |
 | La comprobación de R_var sobre J̃ (con margen) implica R_var(J) ≥ r | `NumericalRobustness.rvar_certified_from_approx` |
 | Las comprobaciones de κ y VIF sobre Z̃ (con margen) implican κ ≤ κ₀ y VIF ≤ V₀ para Z | `NumericalRobustness.kappa_certified_from_approx`, `vif_certified_from_approx` |
@@ -62,8 +66,8 @@ descartados fijados en su valor nominal).
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que
   requerirían integración de EDOs verificada (aritmética de intervalos);
-* la constante `Lc` (Lipschitz de la sensibilidad) y la cota `τ` del error numérico, que los
-  certificados reciben como datos de entrada;
+* las cotas `M₁`, `M₂` de las derivadas de `f` en la región `K` y que las trayectorias permanecen
+  en `K` (hipótesis del certificado, calculables para cada modelo), y la cota `τ` del error numérico;
 * la clasificación empírica de los 36 sistemas en patrones A–D (sí están demostrados los mecanismos).
 
 ## Hipótesis que permanecen (explícitas en el enunciado)

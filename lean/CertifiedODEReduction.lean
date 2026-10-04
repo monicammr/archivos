@@ -104,4 +104,3 @@ theorem certified_parameter_reduction
 
 end CertifiedODEReduction
 
-#print axioms CertifiedODEReduction.certified_parameter_reduction
