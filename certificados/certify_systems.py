@@ -109,6 +109,9 @@ class Sys:
         gp = set(self.m.model.getGlobalParameterIds())
         self.in_model = np.array([n in gp for n in self.names])
         self.species = list(self.m.model.getFloatingSpeciesIds())
+        # especies definidas por reglas de asignación (no son estados del EDO)
+        self.ruled = set(self.m.getAssignmentRuleIds()) & set(self.species)
+        self.state_idx = [i for i, sid in enumerate(self.species) if sid not in self.ruled]
 
     def set_params(self, theta):
         for n, v, ok in zip(self.names, theta, self.in_model):
@@ -132,18 +135,23 @@ class Sys:
         if set_params:
             self.set_params(theta)
         em.setTime(float(t))
-        em.setFloatingSpeciesConcentrations(np.asarray(x, dtype=float))
+        if self.ruled:
+            for i, sid in enumerate(self.species):
+                if sid not in self.ruled:
+                    self.m["[" + sid + "]"] = float(x[i])
+        else:
+            em.setFloatingSpeciesConcentrations(np.asarray(x, dtype=float))
         return np.asarray(em.getFloatingSpeciesConcentrationRates(), dtype=float)
 
     def Df(self, x, theta, t, rel=1e-6):
         """A = ∂f/∂x, B = ∂f/∂θ por diferencias centradas (asignando θ una sola vez)."""
-        n, p = len(x), len(theta)
+        n, p = len(self.state_idx), len(theta)
         A = np.zeros((n, n)); B = np.zeros((n, p))
         self.set_params(theta)
-        for i in range(n):
+        for c, i in enumerate(self.state_idx):
             h = rel * max(abs(x[i]), 1e-8)
             xp = x.copy(); xm = x.copy(); xp[i] += h; xm[i] -= h
-            A[:, i] = (self.rhs(xp, theta, t, False) - self.rhs(xm, theta, t, False)) / (2 * h)
+            A[:, c] = (self.rhs(xp, theta, t, False) - self.rhs(xm, theta, t, False)) / (2 * h)
         for j in np.nonzero(self.in_model)[0]:
             name = self.names[j]
             h = rel * max(abs(theta[j]), 1e-12)
