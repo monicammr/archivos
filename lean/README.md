@@ -34,6 +34,7 @@ descartados fijados en su valor nominal).
 | `GlobalLipschitzODE.lean` | Existencia global en `[a,b]` para EDOs con campo globalmente Lipschitz (pegando Picard–Lindelöf) |
 | `ParamDiffODE.lean` | **Dependencia diferenciable respecto a parámetros** (`hasFDerivAt_solution_param_init`; corolarios `_on` y global): θ ↦ x(θ,t) es diferenciable y su derivada resuelve la ecuación variacional. Usa Grönwall (Mathlib), linealización uniforme en compactos e inducción continua |
 | `CertifiedODEReduction.lean` | Une todo en el teorema principal |
+| `IdentifiabilityConditioning.lean` | **κ y VIF ⇒ identificabilidad (sección 2.2).** Ecuaciones normales; con columnas L2-normalizadas y κ(Z) ≤ κ, dos ajustes por mínimos cuadrados cumplen ‖D(θ̂ − θ̂')‖ ≤ κ‖y − y'‖ (unicidad y estabilidad); si VIF_j = ((ZᵀZ)⁻¹)_jj ≤ V, el parámetro j cumple \|Δv_j\| ≤ √V‖Δy‖ |
 
 ## Hipótesis que permanecen (explícitas en el enunciado)
 
