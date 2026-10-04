@@ -36,6 +36,23 @@ descartados fijados en su valor nominal).
 | `CertifiedODEReduction.lean` | Une todo en el teorema principal |
 | `IdentifiabilityConditioning.lean` | **κ y VIF ⇒ identificabilidad (sección 2.2).** Ecuaciones normales; con columnas L2-normalizadas y κ(Z) ≤ κ, dos ajustes por mínimos cuadrados cumplen ‖D(θ̂ − θ̂')‖ ≤ κ‖y − y'‖ (unicidad y estabilidad); si VIF_j = ((ZᵀZ)⁻¹)_jj ≤ V, el parámetro j cumple \|Δv_j\| ≤ √V‖Δy‖ |
 
+| `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
+
+## Qué afirmación del artículo respalda cada teorema
+
+| Afirmación del artículo | Teorema Lean |
+|---|---|
+| E_j = (JᵀJ)_jj; R_var = energía conservada / tr(JᵀJ) | `FirstOrderErrorBound.total_eq_kept_add_removed` |
+| J es la derivada de la trayectoria y resuelve la ecuación variacional | `ODEParamDiff.hasFDerivAt_solution_param_init` |
+| R_var(S) ≥ r ⇒ fijar los parámetros descartados preserva la trayectoria (local) | `CertifiedODEReduction.certified_parameter_reduction` |
+| κ ≤ 10 ⇒ ecuaciones normales bien condicionadas, estimación única y estable | `Identifiability.ls_param_kappa_stability`, `Identifiability.ls_unique` |
+| VIF ≤ 10 ⇒ cada parámetro conservado es identificable individualmente | `Identifiability.ls_vif_inverse_stability` |
+| El algoritmo greedy devuelve un subconjunto que cumple κ/VIF; el descarte permanente es correcto | `GreedySelection.greedy_kappa_vif_guarantee` |
+
+Lo que **no** está formalizado (y es empírico en el artículo): validez para perturbaciones finitas
+(±5–50 %), umbral cos Δ ≥ 0,90, patrones de robustez A–D, y que el cálculo numérico (diferencias
+finitas, SVD) coincide con las cantidades exactas.
+
 ## Hipótesis que permanecen (explícitas en el enunciado)
 
 1. `f` es C¹ en un abierto que contiene la trayectoria nominal (cubre acción de masas,

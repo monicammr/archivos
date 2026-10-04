@@ -9,4 +9,5 @@ require mathlib from git
 @[default_target]
 lean_lib «CertifiedReduction» where
   roots := #[`FirstOrderErrorBound, `TrajectoryErrorBound, `GlobalLipschitzODE,
-    `ParamDiffODE, `CertifiedODEReduction, `IdentifiabilityConditioning]
+    `ParamDiffODE, `CertifiedODEReduction, `IdentifiabilityConditioning,
+    `GreedySelection]
