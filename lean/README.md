@@ -36,6 +36,9 @@ descartados fijados en su valor nominal).
 | `CertifiedODEReduction.lean` | Une todo en el teorema principal |
 | `IdentifiabilityConditioning.lean` | **κ y VIF ⇒ identificabilidad (sección 2.2).** Ecuaciones normales; con columnas L2-normalizadas y κ(Z) ≤ κ, dos ajustes por mínimos cuadrados cumplen ‖D(θ̂ − θ̂')‖ ≤ κ‖y − y'‖ (unicidad y estabilidad); si VIF_j = ((ZᵀZ)⁻¹)_jj ≤ V, el parámetro j cumple \|Δv_j\| ≤ √V‖Δy‖ |
 
+| `CosineCertificate.lean` | cos Δ ≥ c a partir del error relativo; cota explícita (no asintótica) para perturbaciones finitas con derivada Lipschitz; certificado de cos Δ por escenario |
+| `NumericalRobustness.lean` | Error de diferencias finitas; R_var, κ y VIF certificados a partir de cantidades calculadas con margen de error |
+| `PatternMechanisms.lean` | Mecanismos de los patrones D (efectos opuestos ⇒ no identificabilidad) y A (energía nula ⇒ reducción exacta) |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -48,10 +51,20 @@ descartados fijados en su valor nominal).
 | κ ≤ 10 ⇒ ecuaciones normales bien condicionadas, estimación única y estable | `Identifiability.ls_param_kappa_stability`, `Identifiability.ls_unique` |
 | VIF ≤ 10 ⇒ cada parámetro conservado es identificable individualmente | `Identifiability.ls_vif_inverse_stability` |
 | El algoritmo greedy devuelve un subconjunto que cumple κ/VIF; el descarte permanente es correcto | `GreedySelection.greedy_kappa_vif_guarantee` |
+| Perturbaciones finitas: cota explícita del error de trayectoria | `CosineCertificate.finite_trajectory_error` |
+| cos Δ ≥ c para un escenario concreto (certificado verificable por escenario) | `CosineCertificate.finite_cos_certificate` |
+| Diferencias finitas aproximan J con error ≤ Lc·δ | `NumericalRobustness.fd_column_error` |
+| La comprobación de R_var sobre J̃ (con margen) implica R_var(J) ≥ r | `NumericalRobustness.rvar_certified_from_approx` |
+| Las comprobaciones de κ y VIF sobre Z̃ (con margen) implican κ ≤ κ₀ y VIF ≤ V₀ para Z | `NumericalRobustness.kappa_certified_from_approx`, `vif_certified_from_approx` |
+| Patrón D: efectos opuestos ⇒ κ rechaza y no hay identificabilidad | `PatternMechanisms.not_okKappa_of_kernel`, `ls_not_unique_of_kernel`, `opposing_pair_kernel` |
+| Patrón A: energía descartada nula ⇒ reducción exacta a primer orden | `PatternMechanisms.exact_reduction_of_zero_energy` |
 
-Lo que **no** está formalizado (y es empírico en el artículo): validez para perturbaciones finitas
-(±5–50 %), umbral cos Δ ≥ 0,90, patrones de robustez A–D, y que el cálculo numérico (diferencias
-finitas, SVD) coincide con las cantidades exactas.
+Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
+* los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que
+  requerirían integración de EDOs verificada (aritmética de intervalos);
+* la constante `Lc` (Lipschitz de la sensibilidad) y la cota `τ` del error numérico, que los
+  certificados reciben como datos de entrada;
+* la clasificación empírica de los 36 sistemas en patrones A–D (sí están demostrados los mecanismos).
 
 ## Hipótesis que permanecen (explícitas en el enunciado)
 
