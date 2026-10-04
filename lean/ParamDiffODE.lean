@@ -34,35 +34,39 @@ section Linearization
 variable {G H : Type*} [NormedAddCommGroup G] [NormedSpace ℝ G] [ProperSpace G]
   [NormedAddCommGroup H] [NormedSpace ℝ H]
 
-/-- **Linealización uniforme** de una función C¹ cerca de un compacto `K₀`. -/
-theorem uniform_linearization {g : G → H} (hg : ContDiff ℝ 1 g) {K₀ : Set G}
-    (hK₀ : IsCompact K₀) {η : ℝ} (hη : 0 < η) :
-    ∃ δ > 0, δ ≤ 1 ∧ ∀ z ∈ K₀, ∀ w, ‖w - z‖ ≤ δ →
+/-- **Linealización uniforme** de una función C¹ en un abierto `U`, cerca de un compacto `K₀`
+cuyo engrosamiento cerrado de radio `R` está contenido en `U`. -/
+theorem uniform_linearization {g : G → H} {U : Set G} (hU : IsOpen U) (hg : ContDiffOn ℝ 1 g U)
+    {K₀ : Set G} (hK₀ : IsCompact K₀) {R : ℝ} (hR : 0 < R) (hKU : cthickening R K₀ ⊆ U)
+    {η : ℝ} (hη : 0 < η) :
+    ∃ δ > 0, δ ≤ R ∧ ∀ z ∈ K₀, ∀ w, ‖w - z‖ ≤ δ →
       ‖g w - g z - fderiv ℝ g z (w - z)‖ ≤ η * ‖w - z‖ := by
-  have hK₁ : IsCompact (cthickening 1 K₀) := hK₀.cthickening
-  have hDg : Continuous (fderiv ℝ g) := hg.continuous_fderiv le_rfl
-  have hunif := hK₁.uniformContinuousOn_of_continuous hDg.continuousOn
+  have hK₁ : IsCompact (cthickening R K₀) := hK₀.cthickening
+  have hDg : ContinuousOn (fderiv ℝ g) (cthickening R K₀) :=
+    (hg.continuousOn_fderiv_of_isOpen hU le_rfl).mono hKU
+  have hunif := hK₁.uniformContinuousOn_of_continuous hDg
   rw [Metric.uniformContinuousOn_iff] at hunif
   obtain ⟨δ₂, hδ₂, hδ₂'⟩ := hunif η hη
-  refine ⟨min (δ₂ / 2) 1, by positivity, min_le_right _ _, ?_⟩
+  refine ⟨min (δ₂ / 2) R, by positivity, min_le_right _ _, ?_⟩
   intro z hz w hw
-  have hzK₁ : z ∈ cthickening 1 K₀ := self_subset_cthickening _ hz
+  have hzK₁ : z ∈ cthickening R K₀ := self_subset_cthickening _ hz
+  have hball : ∀ u ∈ closedBall z (min (δ₂ / 2) R), u ∈ cthickening R K₀ := fun u hu =>
+    mem_cthickening_of_dist_le u z R K₀ hz ((mem_closedBall.1 hu).trans (min_le_right _ _))
   set φ : G → H := fun u => g u - fderiv ℝ g z u with hφ
-  have hdiff : ∀ u, HasFDerivAt φ (fderiv ℝ g u - fderiv ℝ g z) u := fun u =>
-    ((hg.differentiable le_rfl u).hasFDerivAt).sub (fderiv ℝ g z).hasFDerivAt
-  have hbound : ∀ u ∈ closedBall z (min (δ₂ / 2) 1), ‖fderiv ℝ φ u‖ ≤ η := by
+  have hdiff : ∀ u ∈ closedBall z (min (δ₂ / 2) R),
+      HasFDerivAt φ (fderiv ℝ g u - fderiv ℝ g z) u := fun u hu =>
+    (((hg.contDiffAt (hU.mem_nhds (hKU (hball u hu)))).differentiableAt le_rfl).hasFDerivAt).sub
+      (fderiv ℝ g z).hasFDerivAt
+  have hbound : ∀ u ∈ closedBall z (min (δ₂ / 2) R), ‖fderiv ℝ φ u‖ ≤ η := by
     intro u hu
-    rw [(hdiff u).fderiv]
-    have hu' := mem_closedBall.1 hu
-    have huK : u ∈ cthickening 1 K₀ :=
-      mem_cthickening_of_dist_le u z 1 K₀ hz (hu'.trans (min_le_right _ _))
+    rw [(hdiff u hu).fderiv]
     have hdist : dist u z < δ₂ :=
-      lt_of_le_of_lt (hu'.trans (min_le_left _ _)) (by linarith)
-    have := hδ₂' u huK z hzK₁ hdist
+      lt_of_le_of_lt ((mem_closedBall.1 hu).trans (min_le_left _ _)) (by linarith)
+    have := hδ₂' u (hball u hu) z hzK₁ hdist
     rw [dist_eq_norm] at this
     exact this.le
-  have hmv := (convex_closedBall z (min (δ₂ / 2) 1)).norm_image_sub_le_of_norm_fderiv_le
-    (fun u _ => (hdiff u).differentiableAt) hbound
+  have hmv := (convex_closedBall z (min (δ₂ / 2) R)).norm_image_sub_le_of_norm_fderiv_le
+    (fun u hu => (hdiff u hu).differentiableAt) hbound
     (mem_closedBall_self (by positivity)) (mem_closedBall.2 (by rw [dist_eq_norm]; exact hw))
   have heq : φ w - φ z = g w - g z - fderiv ℝ g z (w - z) := by
     simp only [hφ, map_sub]; abel
@@ -86,11 +90,15 @@ theorem tube_gronwall {T ρ σ εg : ℝ} {K : ℝ≥0} (hK : 0 < (K : ℝ)) (hT
     (hyh : ∀ t ∈ Icc 0 T, HasDerivWithinAt yh (yh' t) (Icc 0 T) t)
     (hdef : ∀ t ∈ Icc 0 T, dist (yh' t) (v (yh t)) ≤ εg)
     (hσ : ∀ t ∈ Icc 0 T, dist (yh t) (x₀ t) ≤ σ) (hσρ : σ ≤ ρ)
-    (h0 : xθ 0 = yh 0) (hεg : 0 ≤ εg)
-    (hsmall : εg * ((Real.exp (K * T) - 1) / K) + σ < ρ / 2) :
-    ∀ t ∈ Icc 0 T, dist (xθ t) (yh t) ≤ εg * ((Real.exp (K * T) - 1) / K) := by
+    {δ0 : ℝ} (h0 : dist (xθ 0) (yh 0) ≤ δ0) (hεg : 0 ≤ εg)
+    (hsmall : δ0 * Real.exp (K * T) + εg * ((Real.exp (K * T) - 1) / K) + σ < ρ / 2) :
+    ∀ t ∈ Icc 0 T, dist (xθ t) (yh t)
+      ≤ δ0 * Real.exp (K * T) + εg * ((Real.exp (K * T) - 1) / K) := by
   obtain ⟨CT, hCT⟩ : ∃ CT, CT = (Real.exp (K * T) - 1) / K := ⟨_, rfl⟩
-  rw [← hCT] at hsmall ⊢
+  obtain ⟨EK, hEK⟩ : ∃ EK, EK = Real.exp (K * T) := ⟨_, rfl⟩
+  rw [← hCT, ← hEK] at hsmall ⊢
+  have hEK1 : 1 ≤ EK := hEK ▸ Real.one_le_exp (mul_nonneg hK.le hT)
+  have hδ0 : 0 ≤ δ0 := le_trans dist_nonneg h0
   have hCT0 : 0 ≤ CT := by
     rw [hCT]; apply div_nonneg _ hK.le
     linarith [Real.one_le_exp (mul_nonneg hK.le hT)]
@@ -99,7 +107,7 @@ theorem tube_gronwall {T ρ σ εg : ℝ} {K : ℝ≥0} (hK : 0 < (K : ℝ)) (hT
   have hyhm : ∀ t ∈ Icc 0 T, yh t ∈ closedBall (x₀ t) ρ := fun t ht =>
     mem_closedBall.2 ((hσ t ht).trans hσρ)
   have gron : ∀ b ∈ Icc 0 T, (∀ u ∈ Ico 0 b, xθ u ∈ closedBall (x₀ u) ρ) →
-      ∀ u ∈ Icc 0 b, dist (xθ u) (yh u) ≤ εg * CT := by
+      ∀ u ∈ Icc 0 b, dist (xθ u) (yh u) ≤ δ0 * EK + εg * CT := by
     intro b hb hmem u hu
     have hsub : Icc 0 b ⊆ Icc 0 T := Icc_subset_Icc le_rfl hb.2
     have hIci : ∀ t ∈ Ico 0 b, Icc 0 T ∈ 𝓝[Ici t] t := fun t ht =>
@@ -107,7 +115,7 @@ theorem tube_gronwall {T ρ σ εg : ℝ} {K : ℝ≥0} (hK : 0 < (K : ℝ)) (hT
     have key := dist_le_of_approx_trajectories_ODE_of_mem
       (v := fun _ y => v y) (s := fun t => closedBall (x₀ t) ρ) (K := K)
       (f := xθ) (f' := fun t => v (xθ t)) (εf := 0)
-      (g := yh) (g' := yh') (εg := εg) (δ := 0)
+      (g := yh) (g' := yh') (εg := εg) (δ := δ0)
       (fun t ht => hLip t (hsub (Ico_subset_Icc_self ht)))
       (hxθc.mono hsub)
       (fun t ht => (hxθ t (hsub (Ico_subset_Icc_self ht))).mono_of_mem_nhdsWithin (hIci t ht))
@@ -117,15 +125,19 @@ theorem tube_gronwall {T ρ σ εg : ℝ} {K : ℝ≥0} (hK : 0 < (K : ℝ)) (hT
       (fun t ht => (hyh t (hsub (Ico_subset_Icc_self ht))).mono_of_mem_nhdsWithin (hIci t ht))
       (fun t ht => hdef t (hsub (Ico_subset_Icc_self ht)))
       (fun t ht => hyhm t (hsub (Ico_subset_Icc_self ht)))
-      (by simp [h0])
+      h0
       u hu
     refine key.trans ?_
-    simp only [gronwallBound_of_K_ne_0 hK.ne', zero_mul, zero_add, sub_zero]
+    simp only [gronwallBound_of_K_ne_0 hK.ne', zero_add, sub_zero]
     have hexp : Real.exp (K * u) ≤ Real.exp (K * T) :=
       Real.exp_le_exp.2 (mul_le_mul_of_nonneg_left (hu.2.trans hb.2) hK.le)
-    calc εg / K * (Real.exp (K * u) - 1) ≤ εg / K * (Real.exp (K * T) - 1) :=
-          mul_le_mul_of_nonneg_left (by linarith) (div_nonneg hεg hK.le)
-      _ = εg * CT := by rw [hCT]; ring
+    have h1 : δ0 * Real.exp (K * u) ≤ δ0 * EK := by
+      rw [hEK]; exact mul_le_mul_of_nonneg_left hexp hδ0
+    have h2 : εg / K * (Real.exp (K * u) - 1) ≤ εg * CT := by
+      calc εg / K * (Real.exp (K * u) - 1) ≤ εg / K * (Real.exp (K * T) - 1) :=
+            mul_le_mul_of_nonneg_left (by linarith) (div_nonneg hεg hK.le)
+        _ = εg * CT := by rw [hCT]; ring
+    linarith
   -- confinamiento por inducción continua
   have hdc : ContinuousOn (fun u => dist (xθ u) (x₀ u)) (Icc 0 T) := continuous_dist.comp_continuousOn (hxθc.prodMk hx₀)
   have hconf : Icc 0 T ⊆ (fun u => dist (xθ u) (x₀ u)) ⁻¹' Iic (ρ / 2) := by
@@ -134,15 +146,16 @@ theorem tube_gronwall {T ρ σ εg : ℝ} {K : ℝ≥0} (hK : 0 < (K : ℝ)) (hT
       rwa [inter_comm] at this
     refine hclosed.Icc_subset_of_forall_mem_nhdsGT_of_Icc_subset ?_ ?_
     · show dist (xθ 0) (x₀ 0) ≤ ρ / 2
-      rw [h0]
       have := hσ 0 ⟨le_rfl, hT⟩
+      have := dist_triangle (xθ 0) (yh 0) (x₀ 0)
+      have : δ0 ≤ δ0 * EK := le_mul_of_one_le_right hδ0 hEK1
       nlinarith [mul_nonneg hεg hCT0]
     · intro t ht hsubt
       have htT : t ∈ Icc 0 T := ⟨ht.1, ht.2.le⟩
       have hmem : ∀ u ∈ Ico 0 t, xθ u ∈ closedBall (x₀ u) ρ := fun u hu =>
         mem_closedBall.2 ((show dist (xθ u) (x₀ u) ≤ ρ / 2 from hsubt ⟨hu.1, hu.2.le⟩).trans
-          (by nlinarith [mul_nonneg hεg hCT0, dist_nonneg (x := yh 0) (y := x₀ 0),
-            hσ 0 ⟨le_rfl, hT⟩]))
+          (by nlinarith [mul_nonneg hεg hCT0, mul_nonneg hδ0 (zero_le_one.trans hEK1),
+            dist_nonneg (x := yh 0) (y := x₀ 0), hσ 0 ⟨le_rfl, hT⟩]))
       have hg := gron t htT hmem t ⟨ht.1, le_rfl⟩
       have hlt : dist (xθ t) (x₀ t) < ρ / 2 := by
         have := dist_triangle (xθ t) (yh t) (x₀ t)
@@ -154,7 +167,8 @@ theorem tube_gronwall {T ρ σ εg : ℝ} {K : ℝ≥0} (hK : 0 < (K : ℝ)) (hT
           (Ioc_subset_Icc_self.trans (Icc_subset_Icc ht.1 le_rfl)))
       exact (hev.filter_mono hle).mono fun u hu => (show dist (xθ u) (x₀ u) ≤ ρ / 2 from hu.le)
   have hρ : 0 ≤ ρ := by
-    nlinarith [mul_nonneg hεg hCT0, dist_nonneg (x := yh 0) (y := x₀ 0), hσ 0 ⟨le_rfl, hT⟩]
+    nlinarith [mul_nonneg hεg hCT0, mul_nonneg hδ0 (zero_le_one.trans hEK1),
+      dist_nonneg (x := yh 0) (y := x₀ 0), hσ 0 ⟨le_rfl, hT⟩]
   exact gron T ⟨hT, le_rfl⟩ fun u hu =>
     mem_closedBall.2 ((show dist (xθ u) (x₀ u) ≤ ρ / 2 from hconf ⟨hu.1, hu.2.le⟩).trans
       (by linarith))
@@ -184,18 +198,18 @@ lemma clm_prod_apply_split (L : E × P →L[ℝ] E) (u : E) (k : P) :
 
 omit [FiniteDimensional ℝ E] [FiniteDimensional ℝ P] in
 /-- Lipschitz de `y ↦ f y θ` en una bola, a partir de una cota de la derivada conjunta. -/
-lemma lipschitzOn_slice (f : E → P → E) (hf : ContDiff ℝ 1 (fun z : E × P => f z.1 z.2))
-    (θ : P) (c : E) (ρ : ℝ) (Kset : Set (E × P)) (M : ℝ≥0)
+lemma lipschitzOn_slice (f : E → P → E) (θ : P) (c : E) (ρ : ℝ) (Kset : Set (E × P)) (M : ℝ≥0)
+    (hdiffK : ∀ z ∈ Kset, HasFDerivAt (fun z : E × P => f z.1 z.2)
+      (fderiv ℝ (fun z : E × P => f z.1 z.2) z) z)
     (hM : ∀ z ∈ Kset, ‖fderiv ℝ (fun z : E × P => f z.1 z.2) z‖ ≤ M)
     (hball : ∀ y ∈ closedBall c ρ, (y, θ) ∈ Kset) :
     LipschitzOnWith M (fun y => f y θ) (closedBall c ρ) := by
   have hder : ∀ y ∈ closedBall c ρ, HasFDerivWithinAt (fun y => f y θ)
       ((fderiv ℝ (fun z : E × P => f z.1 z.2) (y, θ)).comp
         ((ContinuousLinearMap.id ℝ E).prod 0)) (closedBall c ρ) y := by
-    intro y _
+    intro y hy
     have h1 : HasFDerivAt (fun z : E × P => f z.1 z.2)
-        (fderiv ℝ (fun z : E × P => f z.1 z.2) (y, θ)) (y, θ) :=
-      (hf.differentiable le_rfl (y, θ)).hasFDerivAt
+        (fderiv ℝ (fun z : E × P => f z.1 z.2) (y, θ)) (y, θ) := hdiffK _ (hball y hy)
     have h2 : HasFDerivAt (fun y : E => (y, θ)) ((ContinuousLinearMap.id ℝ E).prod 0) y :=
       (hasFDerivAt_id y).prodMk (hasFDerivAt_const θ y)
     exact (h1.comp y h2).hasFDerivWithinAt
@@ -222,31 +236,41 @@ Hipótesis: `f` es C¹ en `(x, θ)`; para `θ` cerca de `θ₀`, `x θ` resuelve
 Conclusión: existe `S : ℝ → (P →L[ℝ] E)` con `S 0 = 0`, que resuelve la ecuación
 variacional `S' = (∂ₓf)·S + ∂_θ f` a lo largo de `x θ₀`, y tal que para todo
 `t ∈ [0, T]`, `HasFDerivAt (fun θ => x θ t) (S t) θ₀`. -/
-theorem hasFDerivAt_solution_param
-    (f : E → P → E) (hf : ContDiff ℝ 1 (fun z : E × P => f z.1 z.2))
+theorem hasFDerivAt_solution_param_init
+    (f : E → P → E) {U : Set (E × P)} (hU : IsOpen U)
+    (hf : ContDiffOn ℝ 1 (fun z : E × P => f z.1 z.2) U)
     {T : ℝ} (hT : 0 ≤ T) (x : P → ℝ → E) (θ₀ : P)
+    (hγU : ∀ t ∈ Icc 0 T, (x θ₀ t, θ₀) ∈ U)
     (hsol : ∀ᶠ θ in 𝓝 θ₀, ∀ t ∈ Icc 0 T, HasDerivWithinAt (x θ) (f (x θ t) θ) (Icc 0 T) t)
-    (hinit : ∀ᶠ θ in 𝓝 θ₀, x θ 0 = x θ₀ 0) :
-    ∃ S : ℝ → (P →L[ℝ] E), S 0 = 0 ∧
+    (x0 : P → E) (D0 : P →L[ℝ] E) (hx0 : HasFDerivAt x0 D0 θ₀)
+    (hinit : ∀ᶠ θ in 𝓝 θ₀, x θ 0 = x0 θ) :
+    ∃ S : ℝ → (P →L[ℝ] E), S 0 = D0 ∧
       (∀ t ∈ Icc 0 T, HasDerivWithinAt S
         ((fderiv ℝ (fun z : E × P => f z.1 z.2) (x θ₀ t, θ₀)).comp
             (ContinuousLinearMap.inl ℝ E P) ∘L S t
           + (fderiv ℝ (fun z : E × P => f z.1 z.2) (x θ₀ t, θ₀)).comp
             (ContinuousLinearMap.inr ℝ E P)) (Icc 0 T) t) ∧
       ∀ t ∈ Icc 0 T, HasFDerivAt (fun θ => x θ t) (S t) θ₀ := by
+  have hinit0 : x θ₀ 0 = x0 θ₀ := hinit.self_of_nhds
+  have hx0o := isLittleO_iff.1 (hasFDerivAt_iff_isLittleO_nhds_zero.1 hx0)
   obtain ⟨g, hg⟩ : ∃ g : E × P → E, g = fun z => f z.1 z.2 := ⟨_, rfl⟩
   rw [← hg] at hf ⊢
-  have hDg : Continuous (fderiv ℝ g) := hf.continuous_fderiv le_rfl
   have hsol0 := hsol.self_of_nhds
   have hx0cont : ContinuousOn (x θ₀) (Icc 0 T) := fun t ht => (hsol0 t ht).continuousWithinAt
   have hγcont : ContinuousOn (fun t => (x θ₀ t, θ₀)) (Icc 0 T) := hx0cont.prodMk continuousOn_const
   obtain ⟨K₀, hK₀def⟩ : ∃ K₀ : Set (E × P), K₀ = (fun t => (x θ₀ t, θ₀)) '' Icc 0 T := ⟨_, rfl⟩
   have hK₀ : IsCompact K₀ := hK₀def ▸ isCompact_Icc.image_of_continuousOn hγcont
   have hγK₀ : ∀ t ∈ Icc 0 T, (x θ₀ t, θ₀) ∈ K₀ := fun t ht => hK₀def ▸ mem_image_of_mem _ ht
-  have hK₁ : IsCompact (cthickening 1 K₀) := hK₀.cthickening
-  obtain ⟨M, hM⟩ := hK₁.exists_bound_of_continuousOn hDg.continuousOn
+  obtain ⟨R, hR, hRU⟩ := hK₀.exists_cthickening_subset_open hU
+    (by rw [hK₀def]; rintro _ ⟨t, ht, rfl⟩; exact hγU t ht)
+  have hK₁ : IsCompact (cthickening R K₀) := hK₀.cthickening
+  have hDg : ContinuousOn (fderiv ℝ g) (cthickening R K₀) :=
+    (hf.continuousOn_fderiv_of_isOpen hU le_rfl).mono hRU
+  have hdiffK : ∀ z ∈ cthickening R K₀, HasFDerivAt g (fderiv ℝ g z) z := fun z hz =>
+    ((hf.contDiffAt (hU.mem_nhds (hRU hz))).differentiableAt le_rfl).hasFDerivAt
+  obtain ⟨M, hM⟩ := hK₁.exists_bound_of_continuousOn hDg
   obtain ⟨M', hM'pos, hMM'⟩ : ∃ M' : ℝ≥0, (0 : ℝ) < M' ∧
-      ∀ z ∈ cthickening 1 K₀, ‖fderiv ℝ g z‖ ≤ M' :=
+      ∀ z ∈ cthickening R K₀, ‖fderiv ℝ g z‖ ≤ M' :=
     ⟨⟨max M 0 + 1, by positivity⟩, by simp only [NNReal.coe_mk]; positivity,
       fun z hz => by simp only [NNReal.coe_mk]; linarith [hM z hz, le_max_left M 0]⟩
   -- (1) Ecuación variacional: existencia global de `S`
@@ -262,13 +286,13 @@ theorem hasFDerivAt_solution_param
     exact (ContinuousLinearMap.opNorm_comp_le _ _).trans
       (mul_le_mul_of_nonneg_right (hAbound t ht) (norm_nonneg _))
   have hDgγ : ContinuousOn (fun t => fderiv ℝ g (x θ₀ t, θ₀)) (Icc 0 T) :=
-    hDg.comp_continuousOn hγcont
+    hDg.comp hγcont (fun t ht => self_subset_cthickening _ (hγK₀ t ht))
   have hwcont : ∀ S : P →L[ℝ] E, ContinuousOn (fun t =>
       (fderiv ℝ g (x θ₀ t, θ₀)).comp (ContinuousLinearMap.inl ℝ E P) ∘L S
         + (fderiv ℝ g (x θ₀ t, θ₀)).comp (ContinuousLinearMap.inr ℝ E P)) (Icc 0 T) :=
     fun S => ((hDgγ.clm_comp continuousOn_const).clm_comp continuousOn_const).add
       (hDgγ.clm_comp continuousOn_const)
-  obtain ⟨S, hS0, hS⟩ := exists_solution_Icc _ M' hT hwLip hwcont 0
+  obtain ⟨S, hS0, hS⟩ := exists_solution_Icc _ M' hT hwLip hwcont D0
   have hScont : ContinuousOn S (Icc 0 T) := fun t ht => (hS t ht).continuousWithinAt
   obtain ⟨Smax, hSmax⟩ := isCompact_Icc.exists_bound_of_continuousOn hScont
   obtain ⟨Sm, hSm0, hSbound⟩ : ∃ Sm : ℝ, 0 ≤ Sm ∧ ∀ t ∈ Icc 0 T, ‖S t‖ ≤ Sm :=
@@ -280,31 +304,41 @@ theorem hasFDerivAt_solution_param
     intro ε hε
     obtain ⟨CT, hCT, hCT0⟩ : ∃ CT : ℝ, CT = (Real.exp (M' * T) - 1) / M' ∧ 0 ≤ CT :=
       ⟨_, rfl, div_nonneg (by linarith [Real.one_le_exp (mul_nonneg hM'pos.le hT)]) hM'pos.le⟩
-    obtain ⟨η, hη, hηdef⟩ : ∃ η : ℝ, 0 < η ∧ η * (Sm + 1) * CT ≤ ε := by
-      refine ⟨ε / ((CT + 1) * (Sm + 1)), by positivity, ?_⟩
-      have e : ε / ((CT + 1) * (Sm + 1)) * (Sm + 1) * CT = ε * (CT / (CT + 1)) := by
+    obtain ⟨η, hη, hηdef⟩ : ∃ η : ℝ, 0 < η ∧ η * (Sm + 1) * CT ≤ ε / 2 := by
+      refine ⟨ε / 2 / ((CT + 1) * (Sm + 1)), by positivity, ?_⟩
+      have e : ε / 2 / ((CT + 1) * (Sm + 1)) * (Sm + 1) * CT = ε / 2 * (CT / (CT + 1)) := by
         field_simp
       rw [e]
-      exact mul_le_of_le_one_right hε.le ((div_le_one (by positivity)).2 (by linarith))
-    obtain ⟨δ₁, hδ₁, hδ₁1, hlin⟩ := uniform_linearization hf hK₀ hη
+      exact mul_le_of_le_one_right (by positivity) ((div_le_one (by positivity)).2 (by linarith))
+    obtain ⟨EK, hEK, hEK1⟩ : ∃ EK : ℝ, EK = Real.exp (M' * T) ∧ 1 ≤ EK :=
+      ⟨_, rfl, Real.one_le_exp (mul_nonneg hM'pos.le hT)⟩
+    have hε₁ : 0 < ε / 2 / EK := by positivity
+    obtain ⟨δ₁, hδ₁, hδ₁1, hlin⟩ := uniform_linearization hU hf hK₀ hR hRU hη
     obtain ⟨c, hc, hc0⟩ : ∃ c : ℝ, c = η * (Sm + 1) * CT ∧ 0 ≤ c := ⟨_, rfl, by positivity⟩
-    obtain ⟨r, hr, hr1, hr2⟩ : ∃ r : ℝ, 0 < r ∧ (Sm + 1) * r ≤ δ₁ ∧ (c + Sm + 1) * r ≤ δ₁ / 2 := by
-      refine ⟨min (δ₁ / (Sm + 1)) (δ₁ / (2 * (c + Sm + 1))), by positivity, ?_, ?_⟩
+    obtain ⟨r, hr, hr1, hr2⟩ : ∃ r : ℝ, 0 < r ∧ (Sm + 1) * r ≤ δ₁ ∧
+        (ε / 2 + c + Sm + 1) * r ≤ δ₁ / 2 := by
+      refine ⟨min (δ₁ / (Sm + 1)) (δ₁ / (2 * (ε / 2 + c + Sm + 1))), by positivity, ?_, ?_⟩
       · rw [mul_comm, ← le_div_iff₀ (by positivity)]; exact min_le_left _ _
       · rw [mul_comm, ← le_div_iff₀ (by positivity), div_div]; exact min_le_right _ _
     have htend : Tendsto (fun h : P => θ₀ + h) (𝓝 0) (𝓝 θ₀) := by
       simpa using (tendsto_const_nhds (x := θ₀)).add (tendsto_id (x := 𝓝 (0 : P)))
-    filter_upwards [htend.eventually (hsol.and hinit), Metric.ball_mem_nhds (0 : P) hr]
-      with h hsh hh
+    filter_upwards [htend.eventually (hsol.and hinit), Metric.ball_mem_nhds (0 : P) hr,
+      hx0o hε₁] with h hsh hh hx0h
     obtain ⟨hsolh, hinith⟩ := hsh
     rw [mem_ball_zero_iff] at hh
     have hh1 : (Sm + 1) * ‖h‖ ≤ δ₁ :=
       le_trans (mul_le_mul_of_nonneg_left hh.le (by positivity)) hr1
-    have hh2 : (c + Sm) * ‖h‖ < δ₁ / 2 := by
-      have h1 : (c + Sm) * ‖h‖ ≤ (c + Sm) * r :=
+    have hh2 : (ε / 2 + c + Sm) * ‖h‖ < δ₁ / 2 := by
+      have h1 : (ε / 2 + c + Sm) * ‖h‖ ≤ (ε / 2 + c + Sm) * r :=
         mul_le_mul_of_nonneg_left hh.le (by positivity)
-      have h2 : (c + Sm) * r < (c + Sm + 1) * r := by linarith
+      have h2 : (ε / 2 + c + Sm) * r < (ε / 2 + c + Sm + 1) * r := by linarith
       linarith
+    set δ0 := ‖x0 (θ₀ + h) - x0 θ₀ - D0 h‖ with hδ0
+    have hδ0EK : δ0 * EK ≤ ε / 2 * ‖h‖ := by
+      have : δ0 ≤ ε / 2 / EK * ‖h‖ := by simpa [hδ0] using hx0h
+      calc δ0 * EK ≤ ε / 2 / EK * ‖h‖ * EK :=
+            mul_le_mul_of_nonneg_right this (by linarith)
+        _ = ε / 2 * ‖h‖ := by field_simp
     have hhle : ‖h‖ ≤ (Sm + 1) * ‖h‖ := le_mul_of_one_le_left (norm_nonneg _) (by linarith)
     have hSmle : Sm * ‖h‖ ≤ (Sm + 1) * ‖h‖ :=
       mul_le_mul_of_nonneg_right (by linarith) (norm_nonneg _)
@@ -323,9 +357,9 @@ theorem hasFDerivAt_solution_param
       (fun t => x θ₀ t + S t h)
       (fun t => f (x θ₀ t) θ₀ + ((fderiv ℝ g (x θ₀ t, θ₀)).comp (ContinuousLinearMap.inl ℝ E P)
           ∘L S t + (fderiv ℝ g (x θ₀ t, θ₀)).comp (ContinuousLinearMap.inr ℝ E P)) h)
-      (fun t ht => lipschitzOn_slice f (hg ▸ hf) (θ₀ + h) (x θ₀ t) δ₁ (cthickening 1 K₀) M'
-        (fun z hz => hg ▸ hMM' z hz) (fun y hy => by
-          apply mem_cthickening_of_dist_le (y, θ₀ + h) (x θ₀ t, θ₀) 1 K₀ (hγK₀ t ht)
+      (fun t ht => lipschitzOn_slice f (θ₀ + h) (x θ₀ t) δ₁ (cthickening R K₀) M'
+        (fun z hz => hg ▸ hdiffK z hz) (fun z hz => hg ▸ hMM' z hz) (fun y hy => by
+          apply mem_cthickening_of_dist_le (y, θ₀ + h) (x θ₀ t, θ₀) R K₀ (hγK₀ t ht)
           rw [Prod.dist_eq]
           apply max_le
           · exact (mem_closedBall.1 hy).trans hδ₁1
@@ -356,25 +390,65 @@ theorem hasFDerivAt_solution_param
           _ = η * (Sm + 1) * ‖h‖ := by ring)
       (fun t ht => by rw [dist_self_add_left]; exact hSth t ht)
       (hSmle.trans hh1)
-      (by simp [hinith, hS0])
+      (δ0 := δ0)
+      (by
+        show dist (x (θ₀ + h) 0) (x θ₀ 0 + S 0 h) ≤ δ0
+        rw [hinith, hS0, hinit0, dist_eq_norm, hδ0]
+        apply le_of_eq; congr 1; abel)
       (by positivity)
       (by
-        rw [← hCT]
+        rw [← hCT, ← hEK]
         have : η * (Sm + 1) * ‖h‖ * CT + Sm * ‖h‖ = (c + Sm) * ‖h‖ := by rw [hc]; ring
-        rw [this]; exact hh2)
+        nlinarith [hh2, hδ0EK])
     intro t ht
     have hk := key t ht
-    rw [← hCT, dist_eq_norm] at hk
+    rw [← hCT, ← hEK, dist_eq_norm] at hk
     have : x (θ₀ + h) t - x θ₀ t - S t h = x (θ₀ + h) t - (x θ₀ t + S t h) := by abel
     rw [this]
     refine hk.trans ?_
-    calc η * (Sm + 1) * ‖h‖ * CT = (η * (Sm + 1) * CT) * ‖h‖ := by ring
-      _ ≤ ε * ‖h‖ := mul_le_mul_of_nonneg_right hηdef (norm_nonneg _)
+    have h3 : η * (Sm + 1) * ‖h‖ * CT ≤ ε / 2 * ‖h‖ := by
+      calc η * (Sm + 1) * ‖h‖ * CT = (η * (Sm + 1) * CT) * ‖h‖ := by ring
+        _ ≤ ε / 2 * ‖h‖ := mul_le_mul_of_nonneg_right hηdef (norm_nonneg _)
+    linarith
   intro t ht
   rw [hasFDerivAt_iff_isLittleO_nhds_zero, isLittleO_iff]
   intro ε hε
   filter_upwards [main ε hε] with h hh
   exact hh t ht
+
+/-- Versión con dato inicial fijo y `f` de clase C¹ en un abierto `U`. -/
+theorem hasFDerivAt_solution_param_on
+    (f : E → P → E) {U : Set (E × P)} (hU : IsOpen U)
+    (hf : ContDiffOn ℝ 1 (fun z : E × P => f z.1 z.2) U)
+    {T : ℝ} (hT : 0 ≤ T) (x : P → ℝ → E) (θ₀ : P)
+    (hγU : ∀ t ∈ Icc 0 T, (x θ₀ t, θ₀) ∈ U)
+    (hsol : ∀ᶠ θ in 𝓝 θ₀, ∀ t ∈ Icc 0 T, HasDerivWithinAt (x θ) (f (x θ t) θ) (Icc 0 T) t)
+    (hinit : ∀ᶠ θ in 𝓝 θ₀, x θ 0 = x θ₀ 0) :
+    ∃ S : ℝ → (P →L[ℝ] E), S 0 = 0 ∧
+      (∀ t ∈ Icc 0 T, HasDerivWithinAt S
+        ((fderiv ℝ (fun z : E × P => f z.1 z.2) (x θ₀ t, θ₀)).comp
+            (ContinuousLinearMap.inl ℝ E P) ∘L S t
+          + (fderiv ℝ (fun z : E × P => f z.1 z.2) (x θ₀ t, θ₀)).comp
+            (ContinuousLinearMap.inr ℝ E P)) (Icc 0 T) t) ∧
+      ∀ t ∈ Icc 0 T, HasFDerivAt (fun θ => x θ t) (S t) θ₀ :=
+  hasFDerivAt_solution_param_init f hU hf hT x θ₀ hγU hsol (fun _ => x θ₀ 0) 0
+    (hasFDerivAt_const _ _) hinit
+
+/-- Versión global: `f` de clase C¹ en todo `E × P`. -/
+theorem hasFDerivAt_solution_param
+    (f : E → P → E) (hf : ContDiff ℝ 1 (fun z : E × P => f z.1 z.2))
+    {T : ℝ} (hT : 0 ≤ T) (x : P → ℝ → E) (θ₀ : P)
+    (hsol : ∀ᶠ θ in 𝓝 θ₀, ∀ t ∈ Icc 0 T, HasDerivWithinAt (x θ) (f (x θ t) θ) (Icc 0 T) t)
+    (hinit : ∀ᶠ θ in 𝓝 θ₀, x θ 0 = x θ₀ 0) :
+    ∃ S : ℝ → (P →L[ℝ] E), S 0 = 0 ∧
+      (∀ t ∈ Icc 0 T, HasDerivWithinAt S
+        ((fderiv ℝ (fun z : E × P => f z.1 z.2) (x θ₀ t, θ₀)).comp
+            (ContinuousLinearMap.inl ℝ E P) ∘L S t
+          + (fderiv ℝ (fun z : E × P => f z.1 z.2) (x θ₀ t, θ₀)).comp
+            (ContinuousLinearMap.inr ℝ E P)) (Icc 0 T) t) ∧
+      ∀ t ∈ Icc 0 T, HasFDerivAt (fun θ => x θ t) (S t) θ₀ :=
+  hasFDerivAt_solution_param_on f isOpen_univ hf.contDiffOn hT x θ₀ (fun _ _ => mem_univ _)
+    hsol hinit
 
 end Main
 

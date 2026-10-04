@@ -35,10 +35,13 @@ noncomputable def sensMatrix
 
 /-- **Teorema principal (certificado de reducción para EDOs).**
 
-Hipótesis: `f` es C¹; para `θ` cerca de `θ₀` las soluciones `x θ` existen en `[0, T]` con el
-mismo dato inicial; los instantes de muestreo `t_k` están en `[0, T]`.
+Hipótesis: `f` es C¹ en un abierto `U` que contiene la trayectoria nominal (basta para
+cinéticas de acción de masas, Michaelis–Menten o Hill); para `θ` cerca de `θ₀` las soluciones
+`x θ` existen en `[0, T]` con dato inicial `x θ 0 = x0 θ`, donde `x0` es diferenciable en `θ₀`
+con derivada `D0` (`D0 = 0` si el dato inicial no depende de los parámetros); los instantes de
+muestreo `t_k` están en `[0, T]`.
 
-Conclusión: existe la sensibilidad `S` (solución de la ecuación variacional, `S 0 = 0`) tal
+Conclusión: existe la sensibilidad `S` (solución de la ecuación variacional, `S 0 = D0`) tal
 que, para todo subconjunto `Sset` de parámetros conservados con `R_var(Sset) ≥ r` medido sobre
 la matriz de sensibilidad muestreada `J`, y para todo `η > 0`, si `Δθ` es suficientemente
 pequeño:
@@ -49,16 +52,21 @@ donde `F` es la trayectoria muestreada y `F(θ₀+Δθ_S)` la del modelo reducid
 descartados fijados en su valor nominal). -/
 theorem certified_parameter_reduction
     (f : EuclideanSpace ℝ (Fin n) → EuclideanSpace ℝ (Fin p) → EuclideanSpace ℝ (Fin n))
-    (hf : ContDiff ℝ 1 (fun z : EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p) =>
-      f z.1 z.2))
+    {U : Set (EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p))} (hU : IsOpen U)
+    (hf : ContDiffOn ℝ 1 (fun z : EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p) =>
+      f z.1 z.2) U)
     {T : ℝ} (hT : 0 ≤ T) (x : EuclideanSpace ℝ (Fin p) → ℝ → EuclideanSpace ℝ (Fin n))
     (θ₀ : EuclideanSpace ℝ (Fin p))
+    (hγU : ∀ t ∈ Icc 0 T, (x θ₀ t, θ₀) ∈ U)
     (hsol : ∀ᶠ θ in 𝓝 θ₀, ∀ t ∈ Icc 0 T,
       HasDerivWithinAt (x θ) (f (x θ t) θ) (Icc 0 T) t)
-    (hinit : ∀ᶠ θ in 𝓝 θ₀, x θ 0 = x θ₀ 0)
+    (x0 : EuclideanSpace ℝ (Fin p) → EuclideanSpace ℝ (Fin n))
+    (D0 : EuclideanSpace ℝ (Fin p) →L[ℝ] EuclideanSpace ℝ (Fin n))
+    (hx0 : HasFDerivAt x0 D0 θ₀)
+    (hinit : ∀ᶠ θ in 𝓝 θ₀, x θ 0 = x0 θ)
     (tk : Fin N → ℝ) (htk : ∀ k, tk k ∈ Icc 0 T) :
     ∃ S : ℝ → (EuclideanSpace ℝ (Fin p) →L[ℝ] EuclideanSpace ℝ (Fin n)),
-      S 0 = 0 ∧
+      S 0 = D0 ∧
       (∀ t ∈ Icc 0 T, HasDerivWithinAt S
         ((fderiv ℝ (fun z : EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p) => f z.1 z.2)
             (x θ₀ t, θ₀)).comp (ContinuousLinearMap.inl ℝ _ _) ∘L S t
@@ -69,7 +77,8 @@ theorem certified_parameter_reduction
         ∀ η > 0, ∀ᶠ Δθ in 𝓝 (0 : EuclideanSpace ℝ (Fin p)),
           ‖sampled x tk (θ₀ + Δθ) - sampled x tk (θ₀ + keepS Sset Δθ)‖
             ≤ (Real.sqrt ((1 - r) * totalColumnEnergy (sensMatrix S tk)) + η) * ‖Δθ‖ := by
-  obtain ⟨S, hS0, hSvar, hSder⟩ := hasFDerivAt_solution_param f hf hT x θ₀ hsol hinit
+  obtain ⟨S, hS0, hSvar, hSder⟩ :=
+    hasFDerivAt_solution_param_init f hU hf hT x θ₀ hγU hsol x0 D0 hx0 hinit
   refine ⟨S, hS0, hSvar, ?_⟩
   -- derivada de cada coordenada muestreada
   set e := (finProdFinEquiv : Fin N × Fin n ≃ Fin (N * n)).symm with he
