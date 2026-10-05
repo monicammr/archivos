@@ -6,7 +6,7 @@ Verificado con Lean 4.23.0 y Mathlib `v4.23.0`. Ningún archivo usa `sorry` ni a
 ```
 lake exe cache get   # descarga Mathlib precompilado
 lake build            # teoría
-lake build Models     # los modelos (Chen tarda ~10 min)
+lake build Models     # los modelos (Chen ~10 min; Froehlich necesita > 14 GB de RAM)
 ```
 
 ## Teorema principal
