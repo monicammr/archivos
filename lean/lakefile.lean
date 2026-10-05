@@ -13,4 +13,4 @@ lean_lib «CertifiedReduction» where
     `GreedySelection, `CosineCertificate, `NumericalRobustness, `PatternMechanisms,
     `SensitivityLipschitz, `CertifiedFiniteODE, `ExactLinearCertificate,
     `SpectralConditioning, `LocalExistence, `NominalCertificate,
-    `KineticRegularity, `EventSystems]
+    `KineticRegularity, `EventSystems, `PositivityInvariance]

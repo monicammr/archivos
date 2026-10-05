@@ -46,6 +46,7 @@ descartados fijados en su valor nominal).
 | `NominalCertificate.lean` | Encadena A4 + diferenciabilidad + A2: certificado local de cos Δ con hipótesis mínimas (solo f C¹ y la trayectoria nominal) |
 | `KineticRegularity.lean` | **Hipótesis 1 demostrada para modelos cinéticos.** Lenguaje `KExpr` de leyes de velocidad (constantes, concentraciones, parámetros, +, −, ×, /, potencias enteras y reales, exp): todo modelo así es C^∞ en el abierto donde los denominadores no se anulan. Michaelis–Menten y Hill están bien definidas con K > 0 y concentraciones ≥ 0; acción de masas pura: dominio = todo el espacio. Versiones cinéticas de la diferenciabilidad y del certificado local de cos Δ |
 | `EventSystems.lean` | **Hipótesis 2: eventos en tiempos fijos** (Smith_BMCSystBiol2013). Tramos con campos C¹ y mapas de reinicio diferenciables: las soluciones existen cerca de θ₀ y la trayectoria es diferenciable en θ₀ en todos los tramos |
+| `PositivityInvariance.lean` | **Positividad.** Si el modelo es cuasi-positivo (una especie con concentración 0 no puede consumirse) y C¹, las concentraciones que empiezan ≥ 0 siguen ≥ 0 (Grönwall sobre Σ min(xᵢ,0)² + inducción continua). Para modelos cinéticos cuyo dominio contiene el ortante ≥ 0 (MM y Hill con K > 0), la trayectoria queda en el dominio automáticamente. Ejemplo verificado: producción + degradación de Michaelis–Menten |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -76,6 +77,8 @@ descartados fijados en su valor nominal).
 | Los modelos (acción de masas, Michaelis–Menten, Hill) cumplen la regularidad C¹ | `KineticRegularity.contDiffOn_field`, `ok_mm`, `ok_hill`, `ok_hillR`, `domain_eq_univ` |
 | La metodología vale con la única condición de que ningún denominador se anule sobre la trayectoria nominal | `KineticRegularity.kinetic_hasFDerivAt`, `kinetic_local_cos` |
 | Sistemas con eventos en tiempos fijos (Smith) | `EventSystems.event_hasFDerivAt` |
+| Las concentraciones permanecen ≥ 0 (modelos cuasi-positivos) | `PositivityInvariance.nonneg_of_quasiPositive`, `kinetic_nonneg` |
+| Diferenciabilidad para modelos cinéticos con solo: dominio ⊇ ortante ≥ 0, cuasi-positividad y dato inicial ≥ 0 | `PositivityInvariance.kinetic_hasFDerivAt_of_nonneg` |
 
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que
@@ -91,8 +94,9 @@ No se formalizó (por decisión): la variante de Grönwall con norma logarítmic
 ## Hipótesis que permanecen (explícitas en el enunciado)
 
 1. `f` es C¹ en un abierto que contiene la trayectoria nominal — **demostrado** para todo modelo
-   escrito con `KExpr` (`KineticRegularity`); queda solo comprobar que ningún denominador se
-   anula sobre la trayectoria nominal (automático en MM/Hill con K > 0 y concentraciones ≥ 0).
+   escrito con `KExpr` (`KineticRegularity`); que la trayectoria no anule ningún denominador es
+   **automático** si el dominio contiene el ortante ≥ 0 (MM/Hill con K > 0), el modelo es
+   cuasi-positivo y el dato inicial es ≥ 0 (`PositivityInvariance`).
    Falta la traducción automática SBML → `KExpr` (hoy la correspondencia se comprueba a mano).
 1b. Eventos: **demostrado** para eventos en tiempos fijos (`EventSystems`); no cubre eventos
    disparados por el estado (umbrales).
