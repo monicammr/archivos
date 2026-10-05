@@ -98,6 +98,9 @@ Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/s
   * Fiedler: la entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) es ≥ 0, pero el comprobador
     sintáctico no lo detecta (fallo conservador).
 * **Smith**: no se traduce (eventos SBML); está cubierto en teoría por `EventSystems`.
-* **Froehlich** (1228 estados, 4088 parámetros): ver la tabla.
+* **Froehlich** (1228 estados, 4088 parámetros): el archivo Lean se genera y la réplica en Python
+  del comprobador predice que pasa, pero Lean se quedó sin memoria (~14 GB, 51 min) en este
+  contenedor. **No está verificado en Lean**; haría falta una máquina con más memoria o dividir
+  la comprobación por especie.
 
 `resultados/sbml_lean/lean_log.txt` es el registro de compilación de Lean.

@@ -51,6 +51,8 @@ for f in sorted(D.glob("*.json")):
     elif d.get("prediccion_check") is False and out.strip() == "":
         res = f"❌ Lean demuestra que la comprobación falla ({t})"
         notas.append(MOTIVO.get(nm, ""))
+    elif "SIN MEMORIA" in out:
+        res = f"⏸ sin verificar: Lean sin memoria ({t}); Python predice que pasa"
     elif not out:
         res = "pendiente"
     else:

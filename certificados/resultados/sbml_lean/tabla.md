@@ -10,7 +10,7 @@
 | Crauste_CellSystems2017 | 5 | 12 | ✅ verificado (5s) |  |
 | Elowitz_Nature2000 | 8 | 18 | ❌ Lean demuestra que la comprobación falla (3s) | Hill con exponente estimado sobre una concentración (x^θ no es C¹ en x = 0 si θ < 1) |
 | Fiedler_BMCSystBiol2016 | 6 | 12 | ❌ Lean demuestra que la comprobación falla (2s) | tiempo como estado; entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) ≥ 0, pero el comprobador sintáctico no lo detecta (conservador) |
-| Froehlich_CellSystems2018 | 1228 | 4088 | pendiente |  |
+| Froehlich_CellSystems2018 | 1228 | 4088 | ⏸ sin verificar: Lean sin memoria (3093s); Python predice que pasa |  |
 | Giordano_Nature2020 | 10 | 43 | ✅ verificado (5s) | 6 tramos (escalones) |
 | Lang_PLOSComputBiol2024 | 124 | 164 | ✅ verificado (109s) | nominal 0 en escala log: kDpApc_1, kDpE2f1, kPhC25A |
 | Okuonghae_ChaosSolitonsFractals2020 | 8 | 14 | ❌ Lean demuestra que la comprobación falla (2s) | incidencia β·S·I/N: no definida si N = 0 (el dominio no contiene todo el ortante) |

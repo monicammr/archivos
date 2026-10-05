@@ -19,3 +19,4 @@ Giordano_Nature2020|5s|'Models.Giordano_Nature2020.diff' depends on axioms: [pro
 Lang_PLOSComputBiol2024|109s|'Models.Lang_PLOSComputBiol2024.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 
 SalazarCavazos_MBoC2020|148s|'Models.SalazarCavazos_MBoC2020.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 
 Chen_MSB2009|593s|'Models.Chen_MSB2009.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Froehlich_CellSystems2018|3093s|SIN MEMORIA (OOM a ~14 GB en este contenedor); la predicción en Python es que pasa
