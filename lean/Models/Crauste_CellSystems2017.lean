@@ -19,11 +19,11 @@ namespace Models.Crauste_CellSystems2017
 def pos : Fin 12 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true]
 
 def F : Fin 5 → KExpr 5 12 := ![
-  (KExpr.sub (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.var 0) (KExpr.par 6))) (KExpr.mul (KExpr.mul (KExpr.var 0) (KExpr.var 4)) (KExpr.par 2))),
-  (KExpr.sub (KExpr.sub (KExpr.add (KExpr.mul (KExpr.mul (KExpr.var 0) (KExpr.var 4)) (KExpr.par 2)) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 4)) (KExpr.par 10))) (KExpr.mul (KExpr.npow (KExpr.var 1) 2) (KExpr.par 3))) (KExpr.mul (KExpr.var 1) (KExpr.par 0))),
-  (KExpr.sub (KExpr.sub (KExpr.sub (KExpr.mul (KExpr.var 1) (KExpr.par 0)) (KExpr.mul (KExpr.npow (KExpr.var 2) 2) (KExpr.par 5))) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 2)) (KExpr.par 4))) (KExpr.mul (KExpr.var 2) (KExpr.par 1))),
+  (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.add (KExpr.mul (KExpr.var 0) (KExpr.par 6)) (KExpr.mul (KExpr.mul (KExpr.var 0) (KExpr.var 4)) (KExpr.par 2)))),
+  (KExpr.sub (KExpr.add (KExpr.mul (KExpr.mul (KExpr.var 0) (KExpr.var 4)) (KExpr.par 2)) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 4)) (KExpr.par 10))) (KExpr.add (KExpr.mul (KExpr.npow (KExpr.var 1) 2) (KExpr.par 3)) (KExpr.mul (KExpr.var 1) (KExpr.par 0)))),
+  (KExpr.sub (KExpr.mul (KExpr.var 1) (KExpr.par 0)) (KExpr.add (KExpr.add (KExpr.mul (KExpr.npow (KExpr.var 2) 2) (KExpr.par 5)) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 2)) (KExpr.par 4))) (KExpr.mul (KExpr.var 2) (KExpr.par 1)))),
   (KExpr.mul (KExpr.var 2) (KExpr.par 1)),
-  (KExpr.sub (KExpr.sub (KExpr.sub (KExpr.mul (KExpr.npow (KExpr.var 4) 2) (KExpr.par 11)) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 4)) (KExpr.par 8))) (KExpr.mul (KExpr.mul (KExpr.var 2) (KExpr.var 4)) (KExpr.par 9))) (KExpr.mul (KExpr.var 4) (KExpr.par 7)))
+  (KExpr.sub (KExpr.mul (KExpr.npow (KExpr.var 4) 2) (KExpr.par 11)) (KExpr.add (KExpr.add (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 4)) (KExpr.par 8)) (KExpr.mul (KExpr.mul (KExpr.var 2) (KExpr.var 4)) (KExpr.par 9))) (KExpr.mul (KExpr.var 4) (KExpr.par 7))))
 ]
 
 theorem check : checkModel pos F = true := by decide +kernel

@@ -410,17 +410,26 @@ def lean_expr(e):
     raise ValueError(tag)
 
 
+def balanced_sum(ts):
+    """Suma en árbol balanceado (profundidad logarítmica)."""
+    if not ts:
+        return num(0)
+    while len(ts) > 1:
+        ts = [('add', ts[k], ts[k + 1]) if k + 1 < len(ts) else ts[k]
+              for k in range(0, len(ts), 2)]
+    return ts[0]
+
+
 def lean_rhs(terms):
-    """Σ coef·término como cadena add/sub: producción con add, consumo con sub."""
-    acc = None
+    """Σ coef·término = (Σ producción) − (Σ consumo), cada suma balanceada."""
+    prod, cons = [], []
     for c, t in terms:
         mag = abs(c)
         tt = t if mag == 1 else ('mul', num(mag), t)
-        if acc is None:
-            acc = tt if c > 0 else ('sub', num(0), tt)
-        else:
-            acc = ('add', acc, tt) if c > 0 else ('sub', acc, tt)
-    return acc if acc is not None else num(0)
+        (prod if c > 0 else cons).append(tt)
+    if not cons:
+        return balanced_sum(prod)
+    return ('sub', balanced_sum(prod), balanced_sum(cons))
 
 
 def leanid(name):
