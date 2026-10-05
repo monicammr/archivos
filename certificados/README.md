@@ -63,3 +63,41 @@ no garantiza cos Δ ≥ 0,9 en la mayoría de los escenarios.
   R_var ≈ 0). La respuesta de Lang al ±5 % no es lineal, o la J por diferencias finitas
   no es fiable en este modelo (124 estados, 294 parámetros). Conviene revisarlo antes de citar
   su fila de la Tabla 1.
+
+## Verificación en Lean de cada modelo (SBML → `KExpr`)
+
+`sbml_to_lean.py` traduce cada modelo PEtab/SBML al lenguaje `KExpr` de Lean y genera
+`../lean/Models/<Sistema>.lean`. En cada archivo, Lean **ejecuta** el comprobador
+`checkModel` (`decide +kernel`, sin axiomas extra). Si da `true`, el teorema
+`KineticCheck.checked_model_hasFDerivAt` (o `checked_segments_hasFDerivAt`, si hay entradas por
+escalones) se aplica a ese modelo **sin ninguna hipótesis adicional sobre el modelo**: el campo es
+C¹, la trayectoria nominal es ≥ 0 y queda en el dominio, las soluciones existen cerca de θ₀ y la
+trayectoria es diferenciable respecto a θ. Solo se piden θ₀ > 0 en los parámetros marcados como
+positivos (valor nominal > 0 o escala log) y condiciones iniciales ≥ 0.
+
+Qué hace el traductor:
+* reglas de asignación y funciones SBML: se sustituyen;
+* d[x]/dt = Σ s·v / V para especies en concentración (convención de roadrunner/AMICI);
+* tiempo explícito suave (Fiedler, Boehm, Chen): se añade el estado τ con τ' = 1;
+* `piecewise` en el tiempo con umbrales fijos (Raimundez, Weber, Giordano, Brannmark, Chen):
+  se parte [0, T] en tramos y cada tramo es un modelo autónomo;
+* cada ecuación se emite como (Σ producción) − (Σ consumo) en sumas balanceadas.
+
+Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/sbml_lean/*.json`):
+
+* **15 modelos verificados en Lean**: Bachmann, Blasi, Boehm, Brannmark, Chen (500 estados),
+  Crauste, Giordano (6 tramos), Lang (124 estados), Raia, Raimundez, SalazarCavazos, Sneyd,
+  Weber, Zhao, Zheng.
+* **6 modelos en los que Lean demuestra que la comprobación falla** (`check_falla`):
+  * Elowitz y Borghans: Hill con exponente *estimado* sobre una concentración (xᶿ no es C¹ en
+    x = 0 si θ < 1);
+  * Okuonghae y Rahman: incidencia β·S·I/N, que no está definida si N = 0 (habría que usar la
+    región invariante {N > 0} en vez del ortante);
+  * Armistead: producción k3·(1 − S_on·α_hai1a)·Sphingo, cuyo signo depende de los parámetros,
+    y `alpha_cer` < 0 por diseño;
+  * Fiedler: la entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) es ≥ 0, pero el comprobador
+    sintáctico no lo detecta (fallo conservador).
+* **Smith**: no se traduce (eventos SBML); está cubierto en teoría por `EventSystems`.
+* **Froehlich** (1228 estados, 4088 parámetros): ver la tabla.
+
+`resultados/sbml_lean/lean_log.txt` es el registro de compilación de Lean.

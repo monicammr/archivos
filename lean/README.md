@@ -5,7 +5,8 @@ Verificado con Lean 4.23.0 y Mathlib `v4.23.0`. Ningún archivo usa `sorry` ni a
 
 ```
 lake exe cache get   # descarga Mathlib precompilado
-lake build
+lake build            # teoría
+lake build Models     # los modelos (Chen tarda ~10 min)
 ```
 
 ## Teorema principal
@@ -47,6 +48,8 @@ descartados fijados en su valor nominal).
 | `KineticRegularity.lean` | **Hipótesis 1 demostrada para modelos cinéticos.** Lenguaje `KExpr` de leyes de velocidad (constantes, concentraciones, parámetros, +, −, ×, /, potencias enteras y reales, exp): todo modelo así es C^∞ en el abierto donde los denominadores no se anulan. Michaelis–Menten y Hill están bien definidas con K > 0 y concentraciones ≥ 0; acción de masas pura: dominio = todo el espacio. Versiones cinéticas de la diferenciabilidad y del certificado local de cos Δ |
 | `EventSystems.lean` | **Hipótesis 2: eventos en tiempos fijos** (Smith_BMCSystBiol2013). Tramos con campos C¹ y mapas de reinicio diferenciables: las soluciones existen cerca de θ₀ y la trayectoria es diferenciable en θ₀ en todos los tramos |
 | `PositivityInvariance.lean` | **Positividad.** Si el modelo es cuasi-positivo (una especie con concentración 0 no puede consumirse) y C¹, las concentraciones que empiezan ≥ 0 siguen ≥ 0 (Grönwall sobre Σ min(xᵢ,0)² + inducción continua). Para modelos cinéticos cuyo dominio contiene el ortante ≥ 0 (MM y Hill con K > 0), la trayectoria queda en el dominio automáticamente. Ejemplo verificado: producción + degradación de Michaelis–Menten |
+| `KineticCheck.lean` | **Comprobación automática de modelos.** Comprobadores booleanos sobre `KExpr` (signo ≥ 0 / > 0, dominio ⊇ ortante, cuasi-positividad), con prueba de corrección. Si `checkModel pos F = true` (Lean lo calcula), `checked_model_hasFDerivAt` da positividad, permanencia en el dominio, existencia y diferenciabilidad; `checked_segments_hasFDerivAt` para entradas por escalones en tiempos fijos |
+| `Models/*.lean` | **Los modelos del artículo**, generados de SBML por `certificados/sbml_to_lean.py`. 15 verificados (`check`, `diff`); en 6 Lean demuestra que la comprobación falla (`check_falla`). Ver `certificados/resultados/sbml_lean/tabla.md` |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -79,6 +82,7 @@ descartados fijados en su valor nominal).
 | Sistemas con eventos en tiempos fijos (Smith) | `EventSystems.event_hasFDerivAt` |
 | Las concentraciones permanecen ≥ 0 (modelos cuasi-positivos) | `PositivityInvariance.nonneg_of_quasiPositive`, `kinetic_nonneg` |
 | Diferenciabilidad para modelos cinéticos con solo: dominio ⊇ ortante ≥ 0, cuasi-positividad y dato inicial ≥ 0 | `PositivityInvariance.kinetic_hasFDerivAt_of_nonneg` |
+| **Cada modelo concreto** (15 de 22) cumple las hipótesis: C¹, dominio ⊇ ortante, cuasi-positivo | `Models.<Sistema>.check`, `Models.<Sistema>.diff` |
 
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que
@@ -97,7 +101,9 @@ No se formalizó (por decisión): la variante de Grönwall con norma logarítmic
    escrito con `KExpr` (`KineticRegularity`); que la trayectoria no anule ningún denominador es
    **automático** si el dominio contiene el ortante ≥ 0 (MM/Hill con K > 0), el modelo es
    cuasi-positivo y el dato inicial es ≥ 0 (`PositivityInvariance`).
-   Falta la traducción automática SBML → `KExpr` (hoy la correspondencia se comprueba a mano).
+   La traducción SBML → `KExpr` es automática (`certificados/sbml_to_lean.py`) y Lean verifica
+   las condiciones en 15 de los 22 modelos (`Models/`). La fidelidad del traductor (que el
+   `KExpr` generado es el mismo modelo que integra roadrunner) no está demostrada en Lean.
 1b. Eventos: **demostrado** para eventos en tiempos fijos (`EventSystems`); no cubre eventos
    disparados por el estado (umbrales).
 2. ~~Las soluciones existen en `[0, T]` para `θ` en un entorno de `θ₀`~~ — **ya demostrado**
