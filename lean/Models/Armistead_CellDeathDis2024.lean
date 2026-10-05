@@ -15,14 +15,17 @@ open KineticRegularity KineticCheck
 
 namespace Models.Armistead_CellDeathDis2024
 
+/-- Máscara de parámetros con valor nominal > 0 (los demás: signo arbitrario). -/
+def pos : Fin 10 → Bool := ![true, true, true, true, true, true, true, true, true, false]
+
 def F : Fin 4 → KExpr 4 10 := ![
-  (.sub (.add (.sub (.mul (.par 1) (.var 3)) (.mul (.par 3) (.var 0))) (.mul (.par 4) (.var 1))) (.mul (.par 2) (.var 0))),
-  (.add (.add (.sub (.sub (.mul (.par 3) (.var 0)) (.mul (.par 4) (.var 1))) (.mul (.mul (.par 5) (.qconst (1 : ℚ))) (.var 1))) (.mul (.mul (.par 5) (.mul (.qconst (1 : ℚ)) (.par 8))) (.var 1))) (.mul (.par 6) (.var 2))),
-  (.sub (.sub (.sub (.mul (.mul (.par 5) (.qconst (1 : ℚ))) (.var 1)) (.mul (.mul (.par 5) (.mul (.qconst (1 : ℚ)) (.par 8))) (.var 1))) (.mul (.par 6) (.var 2))) (.mul (.par 7) (.var 2))),
-  (.sub (.add (.mul (.par 0) (.qconst (1 : ℚ))) (.mul (.par 0) (.mul (.qconst (1 : ℚ)) (.par 9)))) (.mul (.par 1) (.var 3)))
+  (KExpr.sub (KExpr.add (KExpr.sub (KExpr.mul (KExpr.par 1) (KExpr.var 3)) (KExpr.mul (KExpr.par 3) (KExpr.var 0))) (KExpr.mul (KExpr.par 4) (KExpr.var 1))) (KExpr.mul (KExpr.par 2) (KExpr.var 0))),
+  (KExpr.add (KExpr.add (KExpr.sub (KExpr.sub (KExpr.mul (KExpr.par 3) (KExpr.var 0)) (KExpr.mul (KExpr.par 4) (KExpr.var 1))) (KExpr.mul (KExpr.mul (KExpr.par 5) (KExpr.qconst (1 : ℚ))) (KExpr.var 1))) (KExpr.mul (KExpr.mul (KExpr.par 5) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 8))) (KExpr.var 1))) (KExpr.mul (KExpr.par 6) (KExpr.var 2))),
+  (KExpr.sub (KExpr.sub (KExpr.sub (KExpr.mul (KExpr.mul (KExpr.par 5) (KExpr.qconst (1 : ℚ))) (KExpr.var 1)) (KExpr.mul (KExpr.mul (KExpr.par 5) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 8))) (KExpr.var 1))) (KExpr.mul (KExpr.par 6) (KExpr.var 2))) (KExpr.mul (KExpr.par 7) (KExpr.var 2))),
+  (KExpr.sub (KExpr.add (KExpr.mul (KExpr.par 0) (KExpr.qconst (1 : ℚ))) (KExpr.mul (KExpr.par 0) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 9)))) (KExpr.mul (KExpr.par 1) (KExpr.var 3)))
 ]
 
 /-- La comprobación sintáctica FALLA para este modelo (ver el informe JSON). -/
-theorem check_falla : checkModel F = false := by decide +kernel
+theorem check_falla : checkModel pos F = false := by decide +kernel
 
 end Models.Armistead_CellDeathDis2024

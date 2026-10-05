@@ -23,6 +23,8 @@
  ],
  "theta0_positivo": true,
  "theta0_no_positivos": [],
+ "theta_signo_libre": [],
+ "theta_log_nominal_0": [],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [

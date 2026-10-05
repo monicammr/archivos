@@ -24,14 +24,19 @@
  "theta0_no_positivos": [
   "alpha_cer"
  ],
+ "theta_signo_libre": [
+  "alpha_cer"
+ ],
+ "theta_log_nominal_0": [],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [],
  "fallos_cuasipositividad": [
-  "S1P: consumo sin factor: ((k3 * (1 * alpha_hai1a)) * Sphingo)"
+  "S1P: consumo sin factor: ((k3 * (1 * alpha_hai1a)) * Sphingo)",
+  "Sphinga: producción de signo indefinido: (k00 * (1 * alpha_cer))"
  ],
  "n_fallos_dominio": 0,
- "n_fallos_cuasipositividad": 1,
+ "n_fallos_cuasipositividad": 2,
  "prediccion_check": false,
  "lean": "Models/Armistead_CellDeathDis2024.lean",
  "traducido": true

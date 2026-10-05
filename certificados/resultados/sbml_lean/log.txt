@@ -10,7 +10,7 @@
 {"sistema": "SalazarCavazos_MBoC2020", "traducido": true, "motivo": null, "n_estados": 75, "n_theta": 6, "tramos": [[0.0, 0.01]], "operaciones": ["*"], "n_fallos_dominio": 0, "n_fallos_cuasipositividad": 0}
 {"sistema": "Okuonghae_ChaosSolitonsFractals2020", "traducido": true, "motivo": null, "n_estados": 8, "n_theta": 14, "tramos": [[0.0, 50.0]], "operaciones": ["*", "+", "-", "/"], "n_fallos_dominio": 4, "n_fallos_cuasipositividad": 3}
 {"sistema": "Borghans_BiophysChem1997", "traducido": true, "motivo": null, "n_estados": 3, "n_theta": 20, "tramos": [[0.0, 5.0]], "operaciones": ["*", "+", "/", "^n", "^θ"], "n_fallos_dominio": 1, "n_fallos_cuasipositividad": 0}
-{"sistema": "Armistead_CellDeathDis2024", "traducido": true, "motivo": null, "n_estados": 4, "n_theta": 10, "tramos": [[0.0, 50.0]], "operaciones": ["*", "+", "-"], "n_fallos_dominio": 0, "n_fallos_cuasipositividad": 1}
+{"sistema": "Armistead_CellDeathDis2024", "traducido": true, "motivo": null, "n_estados": 4, "n_theta": 10, "tramos": [[0.0, 50.0]], "operaciones": ["*", "+", "-"], "n_fallos_dominio": 0, "n_fallos_cuasipositividad": 2}
 {"sistema": "Boehm_JProteomeRes2014", "traducido": true, "motivo": null, "n_estados": 8, "n_theta": 6, "tramos": [[0.0, 50.0]], "operaciones": ["*", "^n", "exp", "t"], "n_fallos_dominio": 0, "n_fallos_cuasipositividad": 0}
 {"sistema": "Raia_CancerResearch2011", "traducido": true, "motivo": null, "n_estados": 14, "n_theta": 18, "tramos": [[0.0, 50.0]], "operaciones": ["*", "+", "/"], "n_fallos_dominio": 0, "n_fallos_cuasipositividad": 0}
 {"sistema": "Weber_BMC2015", "traducido": true, "motivo": null, "n_estados": 7, "n_theta": 26, "tramos": [[0.0, 50.0]], "operaciones": ["*", "+", "/", "piecewise"], "n_fallos_dominio": 0, "n_fallos_cuasipositividad": 0}

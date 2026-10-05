@@ -15,18 +15,21 @@ open KineticRegularity KineticCheck
 
 namespace Models.Crauste_CellSystems2017
 
+/-- Máscara de parámetros con valor nominal > 0 (los demás: signo arbitrario). -/
+def pos : Fin 12 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true]
+
 def F : Fin 5 → KExpr 5 12 := ![
-  (.sub (.sub (.qconst (0 : ℚ)) (.mul (.var 0) (.par 6))) (.mul (.mul (.var 0) (.var 4)) (.par 2))),
-  (.sub (.sub (.add (.mul (.mul (.var 0) (.var 4)) (.par 2)) (.mul (.mul (.var 1) (.var 4)) (.par 10))) (.mul (.npow (.var 1) 2) (.par 3))) (.mul (.var 1) (.par 0))),
-  (.sub (.sub (.sub (.mul (.var 1) (.par 0)) (.mul (.npow (.var 2) 2) (.par 5))) (.mul (.mul (.var 1) (.var 2)) (.par 4))) (.mul (.var 2) (.par 1))),
-  (.mul (.var 2) (.par 1)),
-  (.sub (.sub (.sub (.mul (.npow (.var 4) 2) (.par 11)) (.mul (.mul (.var 1) (.var 4)) (.par 8))) (.mul (.mul (.var 2) (.var 4)) (.par 9))) (.mul (.var 4) (.par 7)))
+  (KExpr.sub (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.var 0) (KExpr.par 6))) (KExpr.mul (KExpr.mul (KExpr.var 0) (KExpr.var 4)) (KExpr.par 2))),
+  (KExpr.sub (KExpr.sub (KExpr.add (KExpr.mul (KExpr.mul (KExpr.var 0) (KExpr.var 4)) (KExpr.par 2)) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 4)) (KExpr.par 10))) (KExpr.mul (KExpr.npow (KExpr.var 1) 2) (KExpr.par 3))) (KExpr.mul (KExpr.var 1) (KExpr.par 0))),
+  (KExpr.sub (KExpr.sub (KExpr.sub (KExpr.mul (KExpr.var 1) (KExpr.par 0)) (KExpr.mul (KExpr.npow (KExpr.var 2) 2) (KExpr.par 5))) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 2)) (KExpr.par 4))) (KExpr.mul (KExpr.var 2) (KExpr.par 1))),
+  (KExpr.mul (KExpr.var 2) (KExpr.par 1)),
+  (KExpr.sub (KExpr.sub (KExpr.sub (KExpr.mul (KExpr.npow (KExpr.var 4) 2) (KExpr.par 11)) (KExpr.mul (KExpr.mul (KExpr.var 1) (KExpr.var 4)) (KExpr.par 8))) (KExpr.mul (KExpr.mul (KExpr.var 2) (KExpr.var 4)) (KExpr.par 9))) (KExpr.mul (KExpr.var 4) (KExpr.par 7)))
 ]
 
-theorem check : checkModel F = true := by decide +kernel
+theorem check : checkModel pos F = true := by decide +kernel
 
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
-def diff := @checked_model_hasFDerivAt _ _ F check
+def diff := @checked_model_hasFDerivAt _ _ pos F check
 
 end Models.Crauste_CellSystems2017
 

@@ -22,6 +22,12 @@
   "kDpE2f1",
   "kPhC25A"
  ],
+ "theta_signo_libre": [],
+ "theta_log_nominal_0": [
+  "kDpApc_1",
+  "kDpE2f1",
+  "kPhC25A"
+ ],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [],

@@ -27,17 +27,21 @@ namespace KineticCheck
 
 variable {n p : ℕ}
 
-/-- Parámetros positivos. -/
-def PosParams (θ : EuclideanSpace ℝ (Fin p)) : Prop := ∀ j, 0 < θ j
+/-- Parámetros declarados positivos por la máscara `pos` (los demás pueden tener cualquier
+signo). -/
+def PosParams (pos : Fin p → Bool) (θ : EuclideanSpace ℝ (Fin p)) : Prop :=
+  ∀ j, pos j = true → 0 < θ j
 
 namespace KExpr'
+
+variable (pos : Fin p → Bool)
 
 /-- Signo `≥ 0` garantizado sintácticamente en el ortante. -/
 def isNonneg : KExpr n p → Bool
   | .const _ => false
   | .qconst q => decide (0 ≤ q)
   | .var _ => true
-  | .par _ => true
+  | .par j => pos j
   | .add a b => isNonneg a && isNonneg b
   | .sub _ _ => false
   | .mul a b => isNonneg a && isNonneg b
@@ -52,8 +56,8 @@ def isPos : KExpr n p → Bool
   | .const _ => false
   | .qconst q => decide (0 < q)
   | .var _ => false
-  | .par _ => true
-  | .add a b => (isPos a && isNonneg b) || (isNonneg a && isPos b)
+  | .par j => pos j
+  | .add a b => (isPos a && isNonneg pos b) || (isNonneg pos a && isPos b)
   | .sub _ _ => false
   | .mul a b => isPos a && isPos b
   | .div a b => isPos a && isPos b
@@ -71,11 +75,11 @@ def okOrth : KExpr n p → Bool
   | .add a b => okOrth a && okOrth b
   | .sub a b => okOrth a && okOrth b
   | .mul a b => okOrth a && okOrth b
-  | .div a b => okOrth a && okOrth b && isPos b
+  | .div a b => okOrth a && okOrth b && isPos pos b
   | .npow a _ => okOrth a
-  | .rpow a _ => okOrth a && isPos a
+  | .rpow a _ => okOrth a && isPos pos a
   | .exp a => okOrth a
-  | .log a => okOrth a && isPos a
+  | .log a => okOrth a && isPos pos a
 
 /-- Se anula cuando `yᵢ = 0`. -/
 def vanishes (i : Fin n) : KExpr n p → Bool
@@ -97,20 +101,20 @@ def qp (i : Fin n) : KExpr n p → Bool
   | .const _ => false
   | .qconst q => decide (0 ≤ q)
   | .var _ => true
-  | .par _ => true
+  | .par j => pos j
   | .add a b => qp i a && qp i b
   | .sub a b => (qp i a && vanishes i b) || (vanishes i a && vanishes i b)
-  | .mul a b => (isNonneg a && qp i b) || (qp i a && isNonneg b) || vanishes i a || vanishes i b
-  | .div a b => (qp i a && isNonneg b) || vanishes i a
-  | .npow a k => isNonneg a || (vanishes i a && decide (0 < k))
-  | .rpow a _ => isNonneg a
+  | .mul a b => (isNonneg pos a && qp i b) || (qp i a && isNonneg pos b) || vanishes i a || vanishes i b
+  | .div a b => (qp i a && isNonneg pos b) || vanishes i a
+  | .npow a k => isNonneg pos a || (vanishes i a && decide (0 < k))
+  | .rpow a _ => isNonneg pos a
   | .exp _ => true
   | .log _ => false
 
-variable {y : EuclideanSpace ℝ (Fin n)} {θ : EuclideanSpace ℝ (Fin p)}
+variable {pos} {y : EuclideanSpace ℝ (Fin n)} {θ : EuclideanSpace ℝ (Fin p)}
 
-theorem isNonneg_sound (hy : Nonneg y) (hθ : PosParams θ) :
-    ∀ e : KExpr n p, isNonneg e = true → 0 ≤ e.eval (y, θ) := by
+theorem isNonneg_sound (hy : Nonneg y) (hθ : PosParams pos θ) :
+    ∀ e : KExpr n p, isNonneg pos e = true → 0 ≤ e.eval (y, θ) := by
   intro e
   induction e with
   | const c => intro h; exact absurd h (by simp [isNonneg])
@@ -118,7 +122,7 @@ theorem isNonneg_sound (hy : Nonneg y) (hθ : PosParams θ) :
       intro h; simp only [isNonneg, decide_eq_true_eq] at h
       show (0 : ℝ) ≤ (q : ℝ); exact_mod_cast h
   | var i => intro _; exact hy i
-  | par j => intro _; exact (hθ j).le
+  | par j => intro h; exact (hθ j h).le
   | add a b ha hb =>
       intro h; simp only [isNonneg, Bool.and_eq_true] at h
       exact add_nonneg (ha h.1) (hb h.2)
@@ -134,8 +138,8 @@ theorem isNonneg_sound (hy : Nonneg y) (hθ : PosParams θ) :
   | exp a _ => intro _; exact (Real.exp_pos _).le
   | log a _ => intro h; exact absurd h (by simp [isNonneg])
 
-theorem isPos_sound (hy : Nonneg y) (hθ : PosParams θ) :
-    ∀ e : KExpr n p, isPos e = true → 0 < e.eval (y, θ) := by
+theorem isPos_sound (hy : Nonneg y) (hθ : PosParams pos θ) :
+    ∀ e : KExpr n p, isPos pos e = true → 0 < e.eval (y, θ) := by
   intro e
   induction e with
   | const c => intro h; exact absurd h (by simp [isPos])
@@ -143,7 +147,7 @@ theorem isPos_sound (hy : Nonneg y) (hθ : PosParams θ) :
       intro h; simp only [isPos, decide_eq_true_eq] at h
       show (0 : ℝ) < (q : ℝ); exact_mod_cast h
   | var i => intro h; exact absurd h (by simp [isPos])
-  | par j => intro _; exact hθ j
+  | par j => intro h; exact hθ j h
   | add a b ha hb =>
       intro h; simp only [isPos, Bool.or_eq_true, Bool.and_eq_true] at h
       rcases h with ⟨h1, h2⟩ | ⟨h1, h2⟩
@@ -161,8 +165,8 @@ theorem isPos_sound (hy : Nonneg y) (hθ : PosParams θ) :
   | exp a _ => intro _; exact Real.exp_pos _
   | log a _ => intro h; exact absurd h (by simp [isPos])
 
-theorem okOrth_sound (hy : Nonneg y) (hθ : PosParams θ) :
-    ∀ e : KExpr n p, okOrth e = true → e.ok (y, θ) := by
+theorem okOrth_sound (hy : Nonneg y) (hθ : PosParams pos θ) :
+    ∀ e : KExpr n p, okOrth pos e = true → e.ok (y, θ) := by
   intro e
   induction e with
   | const c => intro _; trivial
@@ -227,8 +231,8 @@ theorem vanishes_sound (i : Fin n) (hyi : y i = 0) :
   | exp a _ => intro h; exact absurd h (by simp [vanishes])
   | log a _ => intro h; exact absurd h (by simp [vanishes])
 
-theorem qp_sound (hy : Nonneg y) (hθ : PosParams θ) (i : Fin n) (hyi : y i = 0) :
-    ∀ e : KExpr n p, qp i e = true → 0 ≤ e.eval (y, θ) := by
+theorem qp_sound (hy : Nonneg y) (hθ : PosParams pos θ) (i : Fin n) (hyi : y i = 0) :
+    ∀ e : KExpr n p, qp pos i e = true → 0 ≤ e.eval (y, θ) := by
   intro e
   induction e with
   | const c => intro h; exact absurd h (by simp [qp])
@@ -236,7 +240,7 @@ theorem qp_sound (hy : Nonneg y) (hθ : PosParams θ) (i : Fin n) (hyi : y i = 0
       intro h; simp only [qp, decide_eq_true_eq] at h
       show (0 : ℝ) ≤ (q : ℝ); exact_mod_cast h
   | var j => intro _; exact hy j
-  | par j => intro _; exact (hθ j).le
+  | par j => intro h; exact (hθ j h).le
   | add a b ha hb =>
       intro h; simp only [qp, Bool.and_eq_true] at h
       exact add_nonneg (ha h.1) (hb h.2)
@@ -277,19 +281,21 @@ end KExpr'
 open KExpr'
 
 /-- **Comprobador de un modelo completo** (calculable: Lean lo ejecuta con `decide`). -/
-def checkModel (F : Fin n → KExpr n p) : Bool :=
-  (List.finRange n).all fun i => okOrth (F i) && qp i (F i)
+def checkModel (pos : Fin p → Bool) (F : Fin n → KExpr n p) : Bool :=
+  (List.finRange n).all fun i => okOrth pos (F i) && qp pos i (F i)
 
-theorem checkModel_spec {F : Fin n → KExpr n p} (h : checkModel F = true) (i : Fin n) :
-    okOrth (F i) = true ∧ qp i (F i) = true := by
+theorem checkModel_spec {pos : Fin p → Bool} {F : Fin n → KExpr n p}
+    (h : checkModel pos F = true) (i : Fin n) :
+    okOrth pos (F i) = true ∧ qp pos i (F i) = true := by
   simp only [checkModel, List.all_eq_true, List.mem_finRange, true_implies,
     Bool.and_eq_true] at h
   exact h i
 
 /-- Un modelo que pasa la comprobación tiene su dominio conteniendo el ortante y es
 cuasi-positivo (para todo `θ > 0`). -/
-theorem checkModel_sound {F : Fin n → KExpr n p} (h : checkModel F = true)
-    {θ : EuclideanSpace ℝ (Fin p)} (hθ : PosParams θ) :
+theorem checkModel_sound {pos : Fin p → Bool} {F : Fin n → KExpr n p}
+    (h : checkModel pos F = true)
+    {θ : EuclideanSpace ℝ (Fin p)} (hθ : PosParams pos θ) :
     (∀ y, Nonneg y → (y, θ) ∈ domain F) ∧
     (∀ y, Nonneg y → ∀ i, y i = 0 → 0 ≤ field F y θ i) :=
   ⟨fun y hy i => okOrth_sound hy hθ (F i) (checkModel_spec h i).1,
@@ -299,9 +305,10 @@ theorem checkModel_sound {F : Fin n → KExpr n p} (h : checkModel F = true)
 ejecutando el comprobador), `θ₀ > 0` y el dato inicial nominal es `≥ 0`, entonces las
 soluciones existen cerca de `θ₀`, la trayectoria es `≥ 0`, permanece en el dominio y es
 diferenciable respecto a `θ`, con sensibilidad `S` (la matriz `J` del artículo). -/
-theorem checked_model_hasFDerivAt (F : Fin n → KExpr n p) (hF : checkModel F = true)
+theorem checked_model_hasFDerivAt (pos : Fin p → Bool) (F : Fin n → KExpr n p)
+    (hF : checkModel pos F = true)
     {T : ℝ} (hT : 0 ≤ T) (x₀ : ℝ → EuclideanSpace ℝ (Fin n)) (θ₀ : EuclideanSpace ℝ (Fin p))
-    (hθ₀ : PosParams θ₀)
+    (hθ₀ : PosParams pos θ₀)
     (hx₀ : ∀ t ∈ Icc 0 T, HasDerivWithinAt x₀ (field F (x₀ t) θ₀) (Icc 0 T) t)
     (hpos0 : Nonneg (x₀ 0))
     (x0 : EuclideanSpace ℝ (Fin p) → EuclideanSpace ℝ (Fin n))
@@ -321,10 +328,10 @@ theorem checked_model_hasFDerivAt (F : Fin n → KExpr n p) (hF : checkModel F =
 tiene campo `F k`; el estado es continuo entre tramos. Si cada tramo pasa la comprobación,
 `θ₀ > 0` y el dato inicial nominal es `≥ 0`, entonces las soluciones de todos los tramos existen
 cerca de `θ₀` y la trayectoria es diferenciable en `θ₀` en todo instante. -/
-theorem checked_segments_hasFDerivAt (F : ℕ → Fin n → KExpr n p)
-    (hF : ∀ k, checkModel (F k) = true) (L : ℕ → ℝ) (hL : ∀ k, 0 ≤ L k)
+theorem checked_segments_hasFDerivAt (pos : Fin p → Bool) (F : ℕ → Fin n → KExpr n p)
+    (hF : ∀ k, checkModel pos (F k) = true) (L : ℕ → ℝ) (hL : ∀ k, 0 ≤ L k)
     (y₀ : ℕ → ℝ → EuclideanSpace ℝ (Fin n)) (θ₀ : EuclideanSpace ℝ (Fin p))
-    (hθ₀ : PosParams θ₀)
+    (hθ₀ : PosParams pos θ₀)
     (hy₀ : ∀ k, ∀ t ∈ Icc 0 (L k),
       HasDerivWithinAt (y₀ k) (field (F k) (y₀ k t) θ₀) (Icc 0 (L k)) t)
     (hlink : ∀ k, y₀ (k + 1) 0 = y₀ k (L k)) (hpos0 : Nonneg (y₀ 0 0))
@@ -356,7 +363,7 @@ theorem checked_segments_hasFDerivAt (F : ℕ → Fin n → KExpr n p)
     (fun _ => differentiableAt_fst) hlink x0 hx0 hx00
 
 /-! Prueba de humo: Michaelis–Menten con producción constante pasa la comprobación. -/
-example : checkModel (n := 1) (p := 3)
+example : checkModel (n := 1) (p := 3) (fun _ => true)
     ![KExpr.sub (KExpr.par 0) (KExpr.mm (KExpr.par 1) (KExpr.par 2) (KExpr.var 0))] = true := by
   decide
 

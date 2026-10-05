@@ -15,20 +15,23 @@ open KineticRegularity KineticCheck
 
 namespace Models.Weber_BMC2015
 
+/-- Máscara de parámetros con valor nominal > 0 (los demás: signo arbitrario). -/
+def pos : Fin 26 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+
 def F : Fin 7 → KExpr 7 26 := ![
-  (.sub (.add (.add (.sub (.sub (.qconst (0 : ℚ)) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.mul (.var 4) (.var 3)) (.var 0)) (.par 11)) (.par 16)) (.mul (.add (.var 3) (.par 9)) (.add (.par 7) (.div (.mul (.mul (.var 4) (.var 3)) (.par 16)) (.add (.var 3) (.par 9)))))))) (.mul (.mul (.mul (.qconst (1 : ℚ)) (.var 0)) (.par 12)) (.qconst (1 : ℚ)))) (.mul (.mul (.mul (.qconst (1 : ℚ)) (.var 1)) (.par 13)) (.qconst (1 : ℚ)))) (.mul (.qconst (1 : ℚ)) (.par 23))) (.mul (.mul (.qconst (1 : ℚ)) (.var 0)) (.par 0))),
-  (.sub (.sub (.add (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.mul (.var 4) (.var 3)) (.var 0)) (.par 11)) (.par 16)) (.mul (.add (.var 3) (.par 9)) (.add (.par 7) (.div (.mul (.mul (.var 4) (.var 3)) (.par 16)) (.add (.var 3) (.par 9))))))) (.mul (.mul (.mul (.qconst (1 : ℚ)) (.var 0)) (.par 12)) (.qconst (1 : ℚ)))) (.mul (.mul (.mul (.qconst (1 : ℚ)) (.var 1)) (.par 13)) (.qconst (1 : ℚ)))) (.mul (.mul (.qconst (1 : ℚ)) (.var 1)) (.par 1))),
-  (.sub (.add (.sub (.mul (.mul (.qconst (1 : ℚ)) (.var 3)) (.par 14)) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.var 2) (.var 1)) (.par 15)) (.add (.var 1) (.par 8))))) (.mul (.qconst (1 : ℚ)) (.par 24))) (.mul (.mul (.qconst (1 : ℚ)) (.var 2)) (.par 2))),
-  (.sub (.add (.sub (.qconst (0 : ℚ)) (.mul (.mul (.qconst (1 : ℚ)) (.var 3)) (.par 14))) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.var 2) (.var 1)) (.par 15)) (.add (.var 1) (.par 8))))) (.mul (.mul (.qconst (1 : ℚ)) (.var 3)) (.par 3))),
-  (.sub (.add (.add (.sub (.qconst (0 : ℚ)) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.var 4) (.var 3)) (.par 16)) (.add (.var 3) (.par 9))))) (.mul (.mul (.qconst (1 : ℚ)) (.var 5)) (.par 17))) (.mul (.qconst (1 : ℚ)) (.par 25))) (.mul (.mul (.qconst (1 : ℚ)) (.var 4)) (.par 4))),
-  (.sub (.add (.sub (.qconst (0 : ℚ)) (.mul (.mul (.qconst (1 : ℚ)) (.var 5)) (.par 17))) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.var 6) (.var 1)) (.par 18)) (.add (.var 1) (.par 10))))) (.mul (.mul (.qconst (1 : ℚ)) (.var 5)) (.par 5))),
-  (.sub (.sub (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.var 4) (.var 3)) (.par 16)) (.add (.var 3) (.par 9)))) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.var 6) (.var 1)) (.par 18)) (.add (.var 1) (.par 10))))) (.mul (.mul (.qconst (1 : ℚ)) (.var 6)) (.par 6)))
+  (KExpr.sub (KExpr.add (KExpr.add (KExpr.sub (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.var 3)) (KExpr.var 0)) (KExpr.par 11)) (KExpr.par 16)) (KExpr.mul (KExpr.add (KExpr.var 3) (KExpr.par 9)) (KExpr.add (KExpr.par 7) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.var 3)) (KExpr.par 16)) (KExpr.add (KExpr.var 3) (KExpr.par 9)))))))) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 0)) (KExpr.par 12)) (KExpr.qconst (1 : ℚ)))) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 1)) (KExpr.par 13)) (KExpr.qconst (1 : ℚ)))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 23))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 0)) (KExpr.par 0))),
+  (KExpr.sub (KExpr.sub (KExpr.add (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.var 3)) (KExpr.var 0)) (KExpr.par 11)) (KExpr.par 16)) (KExpr.mul (KExpr.add (KExpr.var 3) (KExpr.par 9)) (KExpr.add (KExpr.par 7) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.var 3)) (KExpr.par 16)) (KExpr.add (KExpr.var 3) (KExpr.par 9))))))) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 0)) (KExpr.par 12)) (KExpr.qconst (1 : ℚ)))) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 1)) (KExpr.par 13)) (KExpr.qconst (1 : ℚ)))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 1)) (KExpr.par 1))),
+  (KExpr.sub (KExpr.add (KExpr.sub (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 3)) (KExpr.par 14)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 2) (KExpr.var 1)) (KExpr.par 15)) (KExpr.add (KExpr.var 1) (KExpr.par 8))))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 24))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 2)) (KExpr.par 2))),
+  (KExpr.sub (KExpr.add (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 3)) (KExpr.par 14))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 2) (KExpr.var 1)) (KExpr.par 15)) (KExpr.add (KExpr.var 1) (KExpr.par 8))))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 3)) (KExpr.par 3))),
+  (KExpr.sub (KExpr.add (KExpr.add (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.var 3)) (KExpr.par 16)) (KExpr.add (KExpr.var 3) (KExpr.par 9))))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 5)) (KExpr.par 17))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 25))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 4)) (KExpr.par 4))),
+  (KExpr.sub (KExpr.add (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 5)) (KExpr.par 17))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 6) (KExpr.var 1)) (KExpr.par 18)) (KExpr.add (KExpr.var 1) (KExpr.par 10))))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 5)) (KExpr.par 5))),
+  (KExpr.sub (KExpr.sub (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.var 3)) (KExpr.par 16)) (KExpr.add (KExpr.var 3) (KExpr.par 9)))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.var 6) (KExpr.var 1)) (KExpr.par 18)) (KExpr.add (KExpr.var 1) (KExpr.par 10))))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.var 6)) (KExpr.par 6)))
 ]
 
-theorem check : checkModel F = true := by decide +kernel
+theorem check : checkModel pos F = true := by decide +kernel
 
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
-def diff := @checked_model_hasFDerivAt _ _ F check
+def diff := @checked_model_hasFDerivAt _ _ pos F check
 
 end Models.Weber_BMC2015
 

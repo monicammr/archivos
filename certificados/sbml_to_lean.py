@@ -79,6 +79,10 @@ class Model:
         self.theta = [str(r.parameterId) for _, r in est.iterrows() if str(r.parameterId) in gp]
         self.theta0 = {str(r.parameterId): float(r.nominalValue) for _, r in est.iterrows()
                        if str(r.parameterId) in gp}
+        # escala log/log10 ⇒ θ > 0 por construcción (un nominal 0 es un artefacto de PEtab)
+        self.logscale = {str(r.parameterId): str(r.get("parameterScale", "lin")).startswith("log")
+                         for _, r in est.iterrows() if str(r.parameterId) in gp}
+        self.positive = {t: (self.theta0[t] > 0 or self.logscale[t]) for t in self.theta}
         nominal = {str(r.parameterId): float(r.nominalValue) for _, r in pt.iterrows()
                    if pd.notna(r.nominalValue)}
         # condiciones: parámetros que cambian por condición (se avisa)
@@ -388,21 +392,21 @@ def lean_q(q):
 def lean_expr(e):
     tag = e[0]
     if tag == 'num':
-        return f"(.qconst {lean_q(e[1])})"
+        return f"(KExpr.qconst {lean_q(e[1])})"
     if tag == 'var':
-        return f"(.var {e[1]})"
+        return f"(KExpr.var {e[1]})"
     if tag == 'par':
-        return f"(.par {e[1]})"
+        return f"(KExpr.par {e[1]})"
     if tag in ('add', 'sub', 'mul', 'div'):
-        return f"(.{tag} {lean_expr(e[1])} {lean_expr(e[2])})"
+        return f"(KExpr.{tag} {lean_expr(e[1])} {lean_expr(e[2])})"
     if tag == 'npow':
-        return f"(.npow {lean_expr(e[1])} {e[2]})"
+        return f"(KExpr.npow {lean_expr(e[1])} {e[2]})"
     if tag == 'rpow':
-        return f"(.rpow {lean_expr(e[1])} (({lean_q(e[2])} : ℚ) : ℝ))"
+        return f"(KExpr.rpow {lean_expr(e[1])} (({lean_q(e[2])} : ℚ) : ℝ))"
     if tag == 'exp':
-        return f"(.exp {lean_expr(e[1])})"
+        return f"(KExpr.exp {lean_expr(e[1])})"
     if tag == 'log':
-        return f"(.log {lean_expr(e[1])})"
+        return f"(KExpr.log {lean_expr(e[1])})"
     raise ValueError(tag)
 
 
@@ -443,7 +447,9 @@ def emit(model, segs, ok):
                     ", ".join(f"[{a:g}, {b:g}]" for a, b, _ in segs))
     head += ["-/", "", "set_option maxRecDepth 100000", "set_option maxHeartbeats 0", "",
              "open KineticRegularity KineticCheck", "", f"namespace Models.{mod}", ""]
-    body = []
+    mask = ", ".join("true" if model.positive[t] else "false" for t in model.theta)
+    body = ["/-- Máscara de parámetros con valor nominal > 0 (los demás: signo arbitrario). -/",
+            f"def pos : Fin {p} → Bool := ![{mask}]", ""]
     names = []
     for k, (a, b, rhs) in enumerate(segs):
         nm = "F" if len(segs) == 1 else f"F{k}"
@@ -453,26 +459,26 @@ def emit(model, segs, ok):
                  ",\n".join("  " + c for c in comps), "]", ""]
         sfx = '' if len(segs) == 1 else k
         if ok:
-            body += [f"theorem check{sfx} : checkModel {nm} = true := by decide +kernel", ""]
+            body += [f"theorem check{sfx} : checkModel pos {nm} = true := by decide +kernel", ""]
         else:
             body += ["/-- La comprobación sintáctica FALLA para este modelo (ver el informe JSON). -/",
-                     f"theorem check_falla{sfx} : checkModel {nm} = false := by decide +kernel", ""]
+                     f"theorem check_falla{sfx} : checkModel pos {nm} = false := by decide +kernel", ""]
     if not ok:
         pass
     elif len(segs) == 1:
         body += ["/-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/",
-                 "def diff := @checked_model_hasFDerivAt _ _ F check", ""]
+                 "def diff := @checked_model_hasFDerivAt _ _ pos F check", ""]
     else:
         K = len(segs)
         body += [f"def Fseg : ℕ → Fin {n} → KExpr {n} {p}"]
         body += [f"  | {k} => F{k}" for k in range(K - 1)]
         body += [f"  | _ => F{K - 1}", ""]
-        body += ["theorem check : ∀ k, checkModel (Fseg k) = true := by", "  intro k",
+        body += ["theorem check : ∀ k, checkModel pos (Fseg k) = true := by", "  intro k",
                  "  match k with"]
         body += [f"  | {k} => exact check{k}" for k in range(K - 1)]
         body += [f"  | _ + {K - 1} => exact check{K - 1}", ""]
         body += ["/-- Diferenciabilidad de la trayectoria en todos los tramos. -/",
-                 "def diff := @checked_segments_hasFDerivAt _ _ Fseg check", ""]
+                 "def diff := @checked_segments_hasFDerivAt _ _ pos Fseg check", ""]
     tail = [f"end Models.{mod}", ""]
     if ok:
         tail += [f"#print axioms Models.{mod}.diff", ""]
@@ -485,10 +491,12 @@ def emit(model, segs, ok):
 # ---------------------------------------------------------------- comprobación previa en Python
 def py_signs(model, rhs):
     """Réplica en Python de okOrth y qp (para el informe y para localizar fallos)."""
+    posmask = [model.positive[t] for t in model.theta]
     def nonneg(e):
         t = e[0]
         if t == 'num': return e[1] >= 0
-        if t in ('var', 'par'): return True
+        if t == 'var': return True
+        if t == 'par': return posmask[e[1]]
         if t in ('add', 'mul', 'div'): return nonneg(e[1]) and nonneg(e[2])
         if t in ('npow', 'rpow'): return nonneg(e[1])
         if t == 'exp': return True
@@ -497,7 +505,7 @@ def py_signs(model, rhs):
     def pos(e):
         t = e[0]
         if t == 'num': return e[1] > 0
-        if t == 'par': return True
+        if t == 'par': return posmask[e[1]]
         if t == 'add': return (pos(e[1]) and nonneg(e[2])) or (nonneg(e[1]) and pos(e[2]))
         if t in ('mul', 'div'): return pos(e[1]) and pos(e[2])
         if t in ('npow', 'rpow'): return pos(e[1])
@@ -574,6 +582,9 @@ def process(name, T):
         rep["operaciones"] = sorted(model.ops)
         rep["theta0_positivo"] = all(v > 0 for v in model.theta0.values())
         rep["theta0_no_positivos"] = [k for k, v in model.theta0.items() if not v > 0]
+        rep["theta_signo_libre"] = [t for t in model.theta if not model.positive[t]]
+        rep["theta_log_nominal_0"] = [t for t in model.theta
+                                      if model.logscale[t] and not model.theta0[t] > 0]
         x0 = []
         for s_ in model.states:
             sp = model.m.getSpecies(s_)

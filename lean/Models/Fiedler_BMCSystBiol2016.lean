@@ -15,17 +15,20 @@ open KineticRegularity KineticCheck
 
 namespace Models.Fiedler_BMCSystBiol2016
 
+/-- Máscara de parámetros con valor nominal > 0 (los demás: signo arbitrario). -/
+def pos : Fin 12 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true]
+
 def F : Fin 7 → KExpr 7 12 := ![
-  (.add (.sub (.add (.sub (.qconst (0 : ℚ)) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.par 0) (.var 0)) (.par 3)) (.add (.par 0) (.var 5))))) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.par 0) (.var 0)) (.mul (.mul (.par 4) (.exp (.div (.sub (.qconst (0 : ℚ)) (.var 6)) (.par 11)))) (.exp (.div (.sub (.qconst (0 : ℚ)) (.var 6)) (.par 10))))) (.add (.par 0) (.var 5))))) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.par 0) (.var 0)) (.mul (.mul (.par 4) (.exp (.div (.sub (.qconst (0 : ℚ)) (.var 6)) (.par 11)))) (.qconst (1 : ℚ)))) (.add (.par 0) (.var 5))))) (.mul (.mul (.qconst (1 : ℚ)) (.par 5)) (.var 1))),
-  (.sub (.add (.sub (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.par 0) (.var 0)) (.par 3)) (.add (.par 0) (.var 5)))) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.par 0) (.var 0)) (.mul (.mul (.par 4) (.exp (.div (.sub (.qconst (0 : ℚ)) (.var 6)) (.par 11)))) (.exp (.div (.sub (.qconst (0 : ℚ)) (.var 6)) (.par 10))))) (.add (.par 0) (.var 5))))) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.par 0) (.var 0)) (.mul (.mul (.par 4) (.exp (.div (.sub (.qconst (0 : ℚ)) (.var 6)) (.par 11)))) (.qconst (1 : ℚ)))) (.add (.par 0) (.var 5))))) (.mul (.mul (.qconst (1 : ℚ)) (.par 5)) (.var 1))),
-  (.add (.sub (.qconst (0 : ℚ)) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.par 1) (.var 2)) (.par 6)) (.var 1)) (.par 1)))) (.mul (.mul (.qconst (1 : ℚ)) (.par 7)) (.var 3))),
-  (.sub (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.par 1) (.var 2)) (.par 6)) (.var 1)) (.par 1))) (.mul (.mul (.qconst (1 : ℚ)) (.par 7)) (.var 3))),
-  (.add (.sub (.qconst (0 : ℚ)) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.var 4) (.par 2)) (.par 8)) (.var 3)) (.par 2)))) (.mul (.mul (.qconst (1 : ℚ)) (.par 9)) (.var 5))),
-  (.sub (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.var 4) (.par 2)) (.par 8)) (.var 3)) (.par 2))) (.mul (.mul (.qconst (1 : ℚ)) (.par 9)) (.var 5))),
-  (.qconst (1 : ℚ))
+  (KExpr.add (KExpr.sub (KExpr.add (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.par 0) (KExpr.var 0)) (KExpr.par 3)) (KExpr.add (KExpr.par 0) (KExpr.var 5))))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.par 0) (KExpr.var 0)) (KExpr.mul (KExpr.mul (KExpr.par 4) (KExpr.exp (KExpr.div (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.var 6)) (KExpr.par 11)))) (KExpr.exp (KExpr.div (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.var 6)) (KExpr.par 10))))) (KExpr.add (KExpr.par 0) (KExpr.var 5))))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.par 0) (KExpr.var 0)) (KExpr.mul (KExpr.mul (KExpr.par 4) (KExpr.exp (KExpr.div (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.var 6)) (KExpr.par 11)))) (KExpr.qconst (1 : ℚ)))) (KExpr.add (KExpr.par 0) (KExpr.var 5))))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 5)) (KExpr.var 1))),
+  (KExpr.sub (KExpr.add (KExpr.sub (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.par 0) (KExpr.var 0)) (KExpr.par 3)) (KExpr.add (KExpr.par 0) (KExpr.var 5)))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.par 0) (KExpr.var 0)) (KExpr.mul (KExpr.mul (KExpr.par 4) (KExpr.exp (KExpr.div (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.var 6)) (KExpr.par 11)))) (KExpr.exp (KExpr.div (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.var 6)) (KExpr.par 10))))) (KExpr.add (KExpr.par 0) (KExpr.var 5))))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.par 0) (KExpr.var 0)) (KExpr.mul (KExpr.mul (KExpr.par 4) (KExpr.exp (KExpr.div (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.var 6)) (KExpr.par 11)))) (KExpr.qconst (1 : ℚ)))) (KExpr.add (KExpr.par 0) (KExpr.var 5))))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 5)) (KExpr.var 1))),
+  (KExpr.add (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.par 1) (KExpr.var 2)) (KExpr.par 6)) (KExpr.var 1)) (KExpr.par 1)))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 7)) (KExpr.var 3))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.par 1) (KExpr.var 2)) (KExpr.par 6)) (KExpr.var 1)) (KExpr.par 1))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 7)) (KExpr.var 3))),
+  (KExpr.add (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.par 2)) (KExpr.par 8)) (KExpr.var 3)) (KExpr.par 2)))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 9)) (KExpr.var 5))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.var 4) (KExpr.par 2)) (KExpr.par 8)) (KExpr.var 3)) (KExpr.par 2))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 9)) (KExpr.var 5))),
+  (KExpr.qconst (1 : ℚ))
 ]
 
 /-- La comprobación sintáctica FALLA para este modelo (ver el informe JSON). -/
-theorem check_falla : checkModel F = false := by decide +kernel
+theorem check_falla : checkModel pos F = false := by decide +kernel
 
 end Models.Fiedler_BMCSystBiol2016

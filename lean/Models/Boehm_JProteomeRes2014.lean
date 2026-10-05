@@ -15,22 +15,25 @@ open KineticRegularity KineticCheck
 
 namespace Models.Boehm_JProteomeRes2014
 
+/-- Máscara de parámetros con valor nominal > 0 (los demás: signo arbitrario). -/
+def pos : Fin 6 → Bool := ![true, true, true, true, true, true]
+
 def F : Fin 9 → KExpr 9 6 := ![
-  (.add (.add (.sub (.sub (.qconst (0 : ℚ)) (.mul (.qconst (10 / 7 : ℚ)) (.mul (.mul (.mul (.qconst (7 / 5 : ℚ)) (.mul (.qconst (1 / 8000000 : ℚ)) (.exp (.mul (.mul (.qconst (-1 : ℚ)) (.par 0)) (.var 8))))) (.npow (.var 0) 2)) (.par 5)))) (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.mul (.mul (.qconst (7 / 5 : ℚ)) (.mul (.qconst (1 / 8000000 : ℚ)) (.exp (.mul (.mul (.qconst (-1 : ℚ)) (.par 0)) (.var 8))))) (.var 0)) (.var 1)) (.par 5)))) (.mul (.qconst (10 / 7 : ℚ)) (.mul (.mul (.qconst (9 / 20 : ℚ)) (.par 2)) (.var 5)))) (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.qconst (9 / 20 : ℚ)) (.par 1)) (.var 6)))),
-  (.add (.add (.sub (.sub (.qconst (0 : ℚ)) (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.mul (.mul (.qconst (7 / 5 : ℚ)) (.mul (.qconst (1 / 8000000 : ℚ)) (.exp (.mul (.mul (.qconst (-1 : ℚ)) (.par 0)) (.var 8))))) (.var 0)) (.var 1)) (.par 5)))) (.mul (.qconst (10 / 7 : ℚ)) (.mul (.mul (.mul (.qconst (7 / 5 : ℚ)) (.mul (.qconst (1 / 8000000 : ℚ)) (.exp (.mul (.mul (.qconst (-1 : ℚ)) (.par 0)) (.var 8))))) (.npow (.var 1) 2)) (.par 5)))) (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.qconst (9 / 20 : ℚ)) (.par 1)) (.var 6)))) (.mul (.qconst (10 / 7 : ℚ)) (.mul (.mul (.qconst (9 / 20 : ℚ)) (.par 2)) (.var 7)))),
-  (.sub (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.mul (.mul (.qconst (7 / 5 : ℚ)) (.mul (.qconst (1 / 8000000 : ℚ)) (.exp (.mul (.mul (.qconst (-1 : ℚ)) (.par 0)) (.var 8))))) (.var 0)) (.var 1)) (.par 5))) (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.qconst (7 / 5 : ℚ)) (.par 3)) (.var 2)))),
-  (.sub (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.mul (.qconst (7 / 5 : ℚ)) (.mul (.qconst (1 / 8000000 : ℚ)) (.exp (.mul (.mul (.qconst (-1 : ℚ)) (.par 0)) (.var 8))))) (.npow (.var 0) 2)) (.par 5))) (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.qconst (7 / 5 : ℚ)) (.par 4)) (.var 3)))),
-  (.sub (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.mul (.qconst (7 / 5 : ℚ)) (.mul (.qconst (1 / 8000000 : ℚ)) (.exp (.mul (.mul (.qconst (-1 : ℚ)) (.par 0)) (.var 8))))) (.npow (.var 1) 2)) (.par 5))) (.mul (.qconst (5 / 7 : ℚ)) (.mul (.mul (.qconst (7 / 5 : ℚ)) (.par 4)) (.var 4)))),
-  (.sub (.mul (.qconst (20 / 9 : ℚ)) (.mul (.mul (.qconst (7 / 5 : ℚ)) (.par 4)) (.var 3))) (.mul (.qconst (20 / 9 : ℚ)) (.mul (.mul (.qconst (9 / 20 : ℚ)) (.par 2)) (.var 5)))),
-  (.sub (.mul (.qconst (20 / 9 : ℚ)) (.mul (.mul (.qconst (7 / 5 : ℚ)) (.par 3)) (.var 2))) (.mul (.qconst (20 / 9 : ℚ)) (.mul (.mul (.qconst (9 / 20 : ℚ)) (.par 1)) (.var 6)))),
-  (.sub (.mul (.qconst (20 / 9 : ℚ)) (.mul (.mul (.qconst (7 / 5 : ℚ)) (.par 4)) (.var 4))) (.mul (.qconst (20 / 9 : ℚ)) (.mul (.mul (.qconst (9 / 20 : ℚ)) (.par 2)) (.var 7)))),
-  (.qconst (1 : ℚ))
+  (KExpr.add (KExpr.add (KExpr.sub (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (10 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.mul (KExpr.qconst (1 / 8000000 : ℚ)) (KExpr.exp (KExpr.mul (KExpr.mul (KExpr.qconst (-1 : ℚ)) (KExpr.par 0)) (KExpr.var 8))))) (KExpr.npow (KExpr.var 0) 2)) (KExpr.par 5)))) (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.mul (KExpr.qconst (1 / 8000000 : ℚ)) (KExpr.exp (KExpr.mul (KExpr.mul (KExpr.qconst (-1 : ℚ)) (KExpr.par 0)) (KExpr.var 8))))) (KExpr.var 0)) (KExpr.var 1)) (KExpr.par 5)))) (KExpr.mul (KExpr.qconst (10 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (9 / 20 : ℚ)) (KExpr.par 2)) (KExpr.var 5)))) (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (9 / 20 : ℚ)) (KExpr.par 1)) (KExpr.var 6)))),
+  (KExpr.add (KExpr.add (KExpr.sub (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.mul (KExpr.qconst (1 / 8000000 : ℚ)) (KExpr.exp (KExpr.mul (KExpr.mul (KExpr.qconst (-1 : ℚ)) (KExpr.par 0)) (KExpr.var 8))))) (KExpr.var 0)) (KExpr.var 1)) (KExpr.par 5)))) (KExpr.mul (KExpr.qconst (10 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.mul (KExpr.qconst (1 / 8000000 : ℚ)) (KExpr.exp (KExpr.mul (KExpr.mul (KExpr.qconst (-1 : ℚ)) (KExpr.par 0)) (KExpr.var 8))))) (KExpr.npow (KExpr.var 1) 2)) (KExpr.par 5)))) (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (9 / 20 : ℚ)) (KExpr.par 1)) (KExpr.var 6)))) (KExpr.mul (KExpr.qconst (10 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (9 / 20 : ℚ)) (KExpr.par 2)) (KExpr.var 7)))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.mul (KExpr.qconst (1 / 8000000 : ℚ)) (KExpr.exp (KExpr.mul (KExpr.mul (KExpr.qconst (-1 : ℚ)) (KExpr.par 0)) (KExpr.var 8))))) (KExpr.var 0)) (KExpr.var 1)) (KExpr.par 5))) (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.par 3)) (KExpr.var 2)))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.mul (KExpr.qconst (1 / 8000000 : ℚ)) (KExpr.exp (KExpr.mul (KExpr.mul (KExpr.qconst (-1 : ℚ)) (KExpr.par 0)) (KExpr.var 8))))) (KExpr.npow (KExpr.var 0) 2)) (KExpr.par 5))) (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.par 4)) (KExpr.var 3)))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.mul (KExpr.qconst (1 / 8000000 : ℚ)) (KExpr.exp (KExpr.mul (KExpr.mul (KExpr.qconst (-1 : ℚ)) (KExpr.par 0)) (KExpr.var 8))))) (KExpr.npow (KExpr.var 1) 2)) (KExpr.par 5))) (KExpr.mul (KExpr.qconst (5 / 7 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.par 4)) (KExpr.var 4)))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (20 / 9 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.par 4)) (KExpr.var 3))) (KExpr.mul (KExpr.qconst (20 / 9 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (9 / 20 : ℚ)) (KExpr.par 2)) (KExpr.var 5)))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (20 / 9 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.par 3)) (KExpr.var 2))) (KExpr.mul (KExpr.qconst (20 / 9 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (9 / 20 : ℚ)) (KExpr.par 1)) (KExpr.var 6)))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (20 / 9 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (7 / 5 : ℚ)) (KExpr.par 4)) (KExpr.var 4))) (KExpr.mul (KExpr.qconst (20 / 9 : ℚ)) (KExpr.mul (KExpr.mul (KExpr.qconst (9 / 20 : ℚ)) (KExpr.par 2)) (KExpr.var 7)))),
+  (KExpr.qconst (1 : ℚ))
 ]
 
-theorem check : checkModel F = true := by decide +kernel
+theorem check : checkModel pos F = true := by decide +kernel
 
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
-def diff := @checked_model_hasFDerivAt _ _ F check
+def diff := @checked_model_hasFDerivAt _ _ pos F check
 
 end Models.Boehm_JProteomeRes2014
 

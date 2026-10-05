@@ -15,17 +15,20 @@ open KineticRegularity KineticCheck
 
 namespace Models.Zhao_QuantBiol2020
 
+/-- Máscara de parámetros con valor nominal > 0 (los demás: signo arbitrario). -/
+def pos : Fin 21 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+
 def F : Fin 4 → KExpr 4 21 := ![
-  (.sub (.qconst (0 : ℚ)) (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 0))) (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 1)))) (.var 0)) (.var 1)) (.mul (.qconst (1 : ℚ)) (.qconst (9010000 : ℚ)))))),
-  (.sub (.mul (.qconst (1 : ℚ)) (.div (.mul (.mul (.mul (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 0))) (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 1)))) (.var 0)) (.var 1)) (.mul (.qconst (1 : ℚ)) (.qconst (9010000 : ℚ))))) (.mul (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 1)))) (.var 1))),
-  (.sub (.mul (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 1)))) (.var 1)) (.mul (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 2)))) (.var 2))),
-  (.mul (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.mul (.qconst (1 : ℚ)) (.par 2)))) (.var 2))
+  (KExpr.sub (KExpr.qconst (0 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 0))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 1)))) (KExpr.var 0)) (KExpr.var 1)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.qconst (9010000 : ℚ)))))),
+  (KExpr.sub (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.div (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 0))) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 1)))) (KExpr.var 0)) (KExpr.var 1)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.qconst (9010000 : ℚ))))) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 1)))) (KExpr.var 1))),
+  (KExpr.sub (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 1)))) (KExpr.var 1)) (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 2)))) (KExpr.var 2))),
+  (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 2)))) (KExpr.var 2))
 ]
 
-theorem check : checkModel F = true := by decide +kernel
+theorem check : checkModel pos F = true := by decide +kernel
 
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
-def diff := @checked_model_hasFDerivAt _ _ F check
+def diff := @checked_model_hasFDerivAt _ _ pos F check
 
 end Models.Zhao_QuantBiol2020
 
