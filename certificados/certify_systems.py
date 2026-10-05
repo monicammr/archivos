@@ -16,6 +16,11 @@ Para cada sistema:
      en M₁ y M₂).
   7. Condición del certificado con c = 0.9:
         (√R ‖h_{Sᶜ}‖ + 2 Lc ‖h‖²)² ≤ (1 − c²)(‖J h‖ − Lc ‖h‖²)²,  ‖J h‖ > Lc ‖h‖².
+     Variante con el término lineal exacto ‖J h_{Sᶜ}‖ en lugar de √R ‖h_{Sᶜ}‖
+     (Lean: ExactLinearCertificate.finite_cos_certificate_exact): columnas *_certexacto_*.
+  8. Certificado LOCAL sin Lc (Lean: ExactLinearCertificate.eventually_cos_delta_gt): si el
+     coseno lineal cos(J h, J h_S) > c, entonces cos Δ(s h) > c para s > 0 suficientemente
+     pequeño. Columnas local_cos_lin>c_* y cos_lin_mediana_*.
 
 Interpretación: como Lc_opt ≤ Lc, si la condición FALLA con Lc_opt, falla con el Lc verdadero
 (conclusión negativa robusta). Si PASA con Lc_opt, el escenario es candidato a certificación,
@@ -287,19 +292,34 @@ def analyze(name, sel, t_def, group, max_points=None):
             a = math.sqrt(RR) * float(np.linalg.norm(hc))
             b = float(np.linalg.norm(JJ @ h)); hn2 = float(np.dot(h, h))
             lin_ok = a <= k * b
+            # Término lineal exacto ‖J(h − h_S)‖ = ‖J h_{Sᶜ}‖ (Lean: finite_cos_certificate_exact)
+            Jh = JJ @ h; JhS = JJ @ (h - hc)
+            ae = float(np.linalg.norm(JJ @ hc))
+            linex_ok = ae <= k * b
+            # Coseno lineal cos(J h, J h_S) (Lean: tendsto_cos_delta / eventually_cos_delta_gt)
+            nJh, nJhS = float(np.linalg.norm(Jh)), float(np.linalg.norm(JhS))
+            cos_lin = float(Jh @ JhS / (nJh * nJhS)) if nJh > 0 and nJhS > 0 else float("nan")
+            local_ok = bool(cos_lin > C)
             if math.isinf(Lc):
-                cert, tmax = False, 0.0
+                cert, certex, tmax = False, False, 0.0
             else:
-                A_ = b - Lc * hn2; eB = a + 2 * Lc * hn2
+                A_ = b - Lc * hn2; eB = a + 2 * Lc * hn2; eBx = ae + 2 * Lc * hn2
                 cert = A_ > 0 and eB ** 2 <= (1 - C ** 2) * A_ ** 2
+                certex = A_ > 0 and eBx ** 2 <= (1 - C ** 2) * A_ ** 2
                 tmax = max(0.0, (k * b - a) / ((2 + k) * Lc * hn2)) if Lc * hn2 > 0 else 1.0
             rows.append({"nivel": nivel, "lin_ok": lin_ok, "cert": cert,
-                         "pmax": min(tmax, 1.0) * nivel})
+                         "linex_ok": linex_ok, "certex": certex, "local_ok": local_ok,
+                         "cos_lin": cos_lin, "pmax": min(tmax, 1.0) * nivel})
         df = pd.DataFrame(rows)
         for nv in (0.01, 0.05):
             sub = df[df.nivel == nv]
             res[f"{vname}_lineal_{int(nv*100)}%"] = f"{int(sub.lin_ok.sum())}/{len(sub)}"
             res[f"{vname}_cert_{int(nv*100)}%"] = f"{int(sub.cert.sum())}/{len(sub)}"
+            res[f"{vname}_linexacto_{int(nv*100)}%"] = f"{int(sub.linex_ok.sum())}/{len(sub)}"
+            res[f"{vname}_certexacto_{int(nv*100)}%"] = f"{int(sub.certex.sum())}/{len(sub)}"
+            if vname == "A_abs_M1":
+                res[f"local_cos_lin>c_{int(nv*100)}%"] = f"{int(sub.local_ok.sum())}/{len(sub)}"
+                res[f"cos_lin_mediana_{int(nv*100)}%"] = float(sub.cos_lin.median())
         res[f"{vname}_pert_max_%"] = 100 * float(df[df.nivel == 0.05].pmax.median())
     # cos Δ real al 5 % (para comparar con la Tabla 1)
     cos5 = []

@@ -35,12 +35,15 @@ descartados fijados en su valor nominal).
 | `ParamDiffODE.lean` | **Dependencia diferenciable respecto a parámetros** (`hasFDerivAt_solution_param_init`; corolarios `_on` y global): θ ↦ x(θ,t) es diferenciable y su derivada resuelve la ecuación variacional. Usa Grönwall (Mathlib), linealización uniforme en compactos e inducción continua |
 | `CertifiedODEReduction.lean` | Une todo en el teorema principal |
 | `IdentifiabilityConditioning.lean` | **κ y VIF ⇒ identificabilidad (sección 2.2).** Ecuaciones normales; con columnas L2-normalizadas y κ(Z) ≤ κ, dos ajustes por mínimos cuadrados cumplen ‖D(θ̂ − θ̂')‖ ≤ κ‖y − y'‖ (unicidad y estabilidad); si VIF_j = ((ZᵀZ)⁻¹)_jj ≤ V, el parámetro j cumple \|Δv_j\| ≤ √V‖Δy‖ |
-
 | `CosineCertificate.lean` | cos Δ ≥ c a partir del error relativo; cota explícita (no asintótica) para perturbaciones finitas con derivada Lipschitz; certificado de cos Δ por escenario |
 | `NumericalRobustness.lean` | Error de diferencias finitas; R_var, κ y VIF certificados a partir de cantidades calculadas con margen de error |
 | `SensitivityLipschitz.lean` | Cota formal de `Lc`: trayectorias y sensibilidades Lipschitz en θ (Grönwall), con constantes explícitas en `M₁`, `M₂`, `T` |
 | `CertifiedFiniteODE.lean` | Certificado de cos Δ para la EDO con `Lc = √N·M₂e²(e−1)/M₁`, `e = exp(M₁T)` |
 | `PatternMechanisms.lean` | Mecanismos de los patrones D (efectos opuestos ⇒ no identificabilidad) y A (energía nula ⇒ reducción exacta) |
+| `ExactLinearCertificate.lean` | **(A1)** Certificado de cos Δ con el error lineal exacto ‖J(h − h_S)‖ en lugar de √R‖h_{Sᶜ}‖ (finito y para la EDO). **(A2)** Límite: cos Δ(s·h) → cos(Jh, J h_S) cuando s → 0⁺; si el coseno lineal supera c, cos Δ > c para perturbaciones pequeñas, **sin Lc** |
+| `SpectralConditioning.lean` | **(A3)** Teorema espectral para ZᵀZ: ‖Zu‖² = Σλᵢcᵢ², ‖Z‖ = √λ_max, √λ_min es la mejor σ_min; κ = √(λ_max/λ_min) (= `numpy.linalg.cond`). VIF_j = ((MᵀM)⁻¹)_jj con `Matrix.inv` |
+| `LocalExistence.lean` | **(A4)** Si la solución nominal existe en [0,T], las soluciones existen para θ cerca de θ₀ (truncamiento + Grönwall); se elimina la hipótesis de existencia del teorema de diferenciabilidad |
+| `NominalCertificate.lean` | Encadena A4 + diferenciabilidad + A2: certificado local de cos Δ con hipótesis mínimas (solo f C¹ y la trayectoria nominal) |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -62,6 +65,12 @@ descartados fijados en su valor nominal).
 | Las comprobaciones de κ y VIF sobre Z̃ (con margen) implican κ ≤ κ₀ y VIF ≤ V₀ para Z | `NumericalRobustness.kappa_certified_from_approx`, `vif_certified_from_approx` |
 | Patrón D: efectos opuestos ⇒ κ rechaza y no hay identificabilidad | `PatternMechanisms.not_okKappa_of_kernel`, `ls_not_unique_of_kernel`, `opposing_pair_kernel` |
 | Patrón A: energía descartada nula ⇒ reducción exacta a primer orden | `PatternMechanisms.exact_reduction_of_zero_energy` |
+| Cota finita con el término lineal exacto ‖J h_{Sᶜ}‖ (nunca peor que la de R_var) | `ExactLinearCertificate.finite_trajectory_error_exact`, `finite_cos_certificate_exact`, `certified_cos_ode_exact` |
+| **cos Δ ≈ coseno lineal para perturbaciones pequeñas** (justifica comparar cos Δ con la predicción de J) | `ExactLinearCertificate.tendsto_cos_delta`, `eventually_cos_delta_gt`, `local_cos_ode` |
+| κ calculado con la SVD (σ_max/σ_min) da la estabilidad de mínimos cuadrados | `SpectralConditioning.ls_kappa_stability_spectral`, `opNorm_eq_sqrt_lamMax`, `le_sqrt_lamMin` |
+| VIF calculado como diag((ZᵀZ)⁻¹) da la estabilidad por parámetro | `SpectralConditioning.ls_vif_matrix_stability`, `vif_matrix_inverse` |
+| Basta integrar la trayectoria nominal: las soluciones perturbadas existen y son diferenciables en θ | `LocalExistence.exists_solutions_near`, `hasFDerivAt_of_nominal_solution` |
+| Certificado local de cos Δ con hipótesis mínimas | `NominalCertificate.local_cos_from_nominal` |
 
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que
@@ -70,11 +79,19 @@ Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artíc
   en `K` (hipótesis del certificado, calculables para cada modelo), y la cota `τ` del error numérico;
 * la clasificación empírica de los 36 sistemas en patrones A–D (sí están demostrados los mecanismos).
 
+No se formalizó (por decisión): la variante de Grönwall con norma logarítmica `μ` (mejoraría
+`Lc` de `exp(M₁T)` a `exp(μT)`, pero los cálculos muestran que tampoco bastaría: ver
+`../certificados/README.md`).
+
 ## Hipótesis que permanecen (explícitas en el enunciado)
 
 1. `f` es C¹ en un abierto que contiene la trayectoria nominal (cubre acción de masas,
    Michaelis–Menten y Hill mientras los denominadores no se anulen sobre la trayectoria).
-2. Las soluciones existen en `[0, T]` para `θ` en un entorno de `θ₀` (el modelo está bien planteado).
+2. ~~Las soluciones existen en `[0, T]` para `θ` en un entorno de `θ₀`~~ — **ya demostrado**
+   (`LocalExistence`): basta la trayectoria nominal. Sigue siendo hipótesis en
+   `certified_cos_ode` (versión finita), que necesita las soluciones en toda la bola `B(θ₀, ρ₀)`.
 3. El dato inicial `x₀(θ)` es diferenciable en `θ₀` (si no depende de `θ`, `D₀ = 0`).
-4. El resultado es local (`Δθ → 0`); no da una cota numérica para perturbaciones finitas.
+4. El teorema principal es local (`Δθ → 0`). La versión finita (`certified_cos_ode(_exact)`)
+   da cotas numéricas, pero con `Lc` enorme en modelos rígidos; la versión local
+   (`local_cos_from_nominal`) no necesita `Lc` pero no dice hasta qué tamaño de perturbación vale.
 5. `J` es la sensibilidad exacta; la calculada por diferencias finitas es una aproximación.

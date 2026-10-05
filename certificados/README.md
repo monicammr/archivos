@@ -44,3 +44,22 @@ no garantiza cos Δ ≥ 0,9 en la mayoría de los escenarios.
   Corregido, selecciona 4 parámetros con cos Δ = 0,63; con gamma33 (5 parámetros) se obtiene
   cos Δ = 0,987, como en el artículo.
 * Los cos Δ simulados al ±5 % coinciden en general con la Tabla 1.
+
+## Certificado con el término lineal exacto y certificado local (sección A)
+
+`resultados/tabla_local.md` (generada a partir de los JSON) añade, con los mismos escenarios:
+
+* **1er orden exacto**: la condición lineal con `‖J h_{Sᶜ}‖` (Lean:
+  `finite_cos_certificate_exact`) en lugar de `√R ‖h_{Sᶜ}‖`. Es mucho menos pesimista
+  (p. ej. Armistead 15/15 frente a 0/15 al ±5 %), pero el **certificado finito sigue fallando en
+  todos los escenarios**, porque el término `2 Lc ‖h‖²` domina.
+* **Coseno lineal** `cos(J h, J h_S)` (Lean: `tendsto_cos_delta`). Su mediana al ±5 % coincide
+  con el cos Δ simulado en 20 de los 21 sistemas que lo tienen (diferencia ≤ 0,015;
+  SalazarCavazos no tiene cos Δ simulado), lo que confirma numéricamente
+  que la linealización describe bien el cos Δ del artículo. Si el coseno lineal supera 0,9, el
+  teorema `eventually_cos_delta_gt` garantiza cos Δ > 0,9 **para perturbaciones suficientemente
+  pequeñas en esa dirección**, pero no dice que ±5 % sea "suficientemente pequeño".
+* Excepción: **Lang_PLOSComputBiol2024** (coseno lineal 0,006 frente a cos Δ simulado 0,982;
+  R_var ≈ 0). La respuesta de Lang al ±5 % no es lineal, o la J por diferencias finitas
+  no es fiable en este modelo (124 estados, 294 parámetros). Conviene revisarlo antes de citar
+  su fila de la Tabla 1.
