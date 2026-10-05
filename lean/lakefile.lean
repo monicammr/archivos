@@ -12,4 +12,5 @@ lean_lib «CertifiedReduction» where
     `ParamDiffODE, `CertifiedODEReduction, `IdentifiabilityConditioning,
     `GreedySelection, `CosineCertificate, `NumericalRobustness, `PatternMechanisms,
     `SensitivityLipschitz, `CertifiedFiniteODE, `ExactLinearCertificate,
-    `SpectralConditioning, `LocalExistence, `NominalCertificate]
+    `SpectralConditioning, `LocalExistence, `NominalCertificate,
+    `KineticRegularity, `EventSystems]

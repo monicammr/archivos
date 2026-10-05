@@ -44,6 +44,8 @@ descartados fijados en su valor nominal).
 | `SpectralConditioning.lean` | **(A3)** Teorema espectral para ZᵀZ: ‖Zu‖² = Σλᵢcᵢ², ‖Z‖ = √λ_max, √λ_min es la mejor σ_min; κ = √(λ_max/λ_min) (= `numpy.linalg.cond`). VIF_j = ((MᵀM)⁻¹)_jj con `Matrix.inv` |
 | `LocalExistence.lean` | **(A4)** Si la solución nominal existe en [0,T], las soluciones existen para θ cerca de θ₀ (truncamiento + Grönwall); se elimina la hipótesis de existencia del teorema de diferenciabilidad |
 | `NominalCertificate.lean` | Encadena A4 + diferenciabilidad + A2: certificado local de cos Δ con hipótesis mínimas (solo f C¹ y la trayectoria nominal) |
+| `KineticRegularity.lean` | **Hipótesis 1 demostrada para modelos cinéticos.** Lenguaje `KExpr` de leyes de velocidad (constantes, concentraciones, parámetros, +, −, ×, /, potencias enteras y reales, exp): todo modelo así es C^∞ en el abierto donde los denominadores no se anulan. Michaelis–Menten y Hill están bien definidas con K > 0 y concentraciones ≥ 0; acción de masas pura: dominio = todo el espacio. Versiones cinéticas de la diferenciabilidad y del certificado local de cos Δ |
+| `EventSystems.lean` | **Hipótesis 2: eventos en tiempos fijos** (Smith_BMCSystBiol2013). Tramos con campos C¹ y mapas de reinicio diferenciables: las soluciones existen cerca de θ₀ y la trayectoria es diferenciable en θ₀ en todos los tramos |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -71,6 +73,9 @@ descartados fijados en su valor nominal).
 | VIF calculado como diag((ZᵀZ)⁻¹) da la estabilidad por parámetro | `SpectralConditioning.ls_vif_matrix_stability`, `vif_matrix_inverse` |
 | Basta integrar la trayectoria nominal: las soluciones perturbadas existen y son diferenciables en θ | `LocalExistence.exists_solutions_near`, `hasFDerivAt_of_nominal_solution` |
 | Certificado local de cos Δ con hipótesis mínimas | `NominalCertificate.local_cos_from_nominal` |
+| Los modelos (acción de masas, Michaelis–Menten, Hill) cumplen la regularidad C¹ | `KineticRegularity.contDiffOn_field`, `ok_mm`, `ok_hill`, `ok_hillR`, `domain_eq_univ` |
+| La metodología vale con la única condición de que ningún denominador se anule sobre la trayectoria nominal | `KineticRegularity.kinetic_hasFDerivAt`, `kinetic_local_cos` |
+| Sistemas con eventos en tiempos fijos (Smith) | `EventSystems.event_hasFDerivAt` |
 
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que
@@ -85,8 +90,12 @@ No se formalizó (por decisión): la variante de Grönwall con norma logarítmic
 
 ## Hipótesis que permanecen (explícitas en el enunciado)
 
-1. `f` es C¹ en un abierto que contiene la trayectoria nominal (cubre acción de masas,
-   Michaelis–Menten y Hill mientras los denominadores no se anulen sobre la trayectoria).
+1. `f` es C¹ en un abierto que contiene la trayectoria nominal — **demostrado** para todo modelo
+   escrito con `KExpr` (`KineticRegularity`); queda solo comprobar que ningún denominador se
+   anula sobre la trayectoria nominal (automático en MM/Hill con K > 0 y concentraciones ≥ 0).
+   Falta la traducción automática SBML → `KExpr` (hoy la correspondencia se comprueba a mano).
+1b. Eventos: **demostrado** para eventos en tiempos fijos (`EventSystems`); no cubre eventos
+   disparados por el estado (umbrales).
 2. ~~Las soluciones existen en `[0, T]` para `θ` en un entorno de `θ₀`~~ — **ya demostrado**
    (`LocalExistence`): basta la trayectoria nominal. Sigue siendo hipótesis en
    `certified_cos_ode` (versión finita), que necesita las soluciones en toda la bola `B(θ₀, ρ₀)`.
