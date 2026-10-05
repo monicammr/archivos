@@ -1,0 +1,40 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "T": 50.0,
+ "n_estados": 6,
+ "n_theta": 12,
+ "reacciones": 6,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "Sorafenib",
+  "UO126"
+ ],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": true,
+ "operaciones": [
+  "*",
+  "+",
+  "-",
+  "/",
+  "exp",
+  "t"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [
+  "pRAF: consumo sin factor: (1 * (((K_1 * RAF) * ((k11 * exp(((0 - τ (tiempo)) / tau2))) * exp(((0 - τ (tiempo)) / tau1)))) / (K_1 + pERK)))"
+ ],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 1,
+ "prediccion_check": false,
+ "lean": "Models/Fiedler_BMCSystBiol2016.lean",
+ "traducido": true
+}

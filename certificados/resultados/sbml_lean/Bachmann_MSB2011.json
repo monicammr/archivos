@@ -1,0 +1,42 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "T": 50.0,
+ "n_estados": 25,
+ "n_theta": 27,
+ "reacciones": 36,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "ActD",
+  "CISoe",
+  "SOCS3oe",
+  "Epo",
+  "init_CIS_multiplier",
+  "init_EpoRJAK2_CIS",
+  "init_SHP1_multiplier",
+  "init_SOCS3_multiplier"
+ ],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "/",
+  "^n"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Bachmann_MSB2011.lean",
+ "traducido": true
+}

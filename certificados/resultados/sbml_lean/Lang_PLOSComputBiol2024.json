@@ -1,0 +1,34 @@
+{
+ "sistema": "Lang_PLOSComputBiol2024",
+ "T": 50.0,
+ "n_estados": 124,
+ "n_theta": 164,
+ "reacciones": 669,
+ "eventos": 0,
+ "parametros_por_condicion": [],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*"
+ ],
+ "theta0_positivo": false,
+ "theta0_no_positivos": [
+  "kDpApc_1",
+  "kDpE2f1",
+  "kPhC25A"
+ ],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Lang_PLOSComputBiol2024.lean",
+ "traducido": true
+}

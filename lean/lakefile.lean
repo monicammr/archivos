@@ -13,4 +13,8 @@ lean_lib «CertifiedReduction» where
     `GreedySelection, `CosineCertificate, `NumericalRobustness, `PatternMechanisms,
     `SensitivityLipschitz, `CertifiedFiniteODE, `ExactLinearCertificate,
     `SpectralConditioning, `LocalExistence, `NominalCertificate,
-    `KineticRegularity, `EventSystems, `PositivityInvariance]
+    `KineticRegularity, `EventSystems, `PositivityInvariance, `KineticCheck]
+
+/-- Modelos concretos traducidos de SBML por `certificados/sbml_to_lean.py`. -/
+lean_lib «Models» where
+  globs := #[.submodules `Models]

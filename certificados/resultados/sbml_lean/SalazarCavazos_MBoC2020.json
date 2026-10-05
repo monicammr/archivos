@@ -1,0 +1,32 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "T": 0.01,
+ "n_estados": 75,
+ "n_theta": 6,
+ "reacciones": 618,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "EGFconc"
+ ],
+ "tramos": [
+  [
+   0.0,
+   0.01
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/SalazarCavazos_MBoC2020.lean",
+ "traducido": true
+}

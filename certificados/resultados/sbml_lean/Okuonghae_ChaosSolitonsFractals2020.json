@@ -1,0 +1,45 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "T": 50.0,
+ "n_estados": 8,
+ "n_theta": 14,
+ "reacciones": 10,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "delta",
+  "eps"
+ ],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "-",
+  "/"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [
+  "susceptible: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
+  "susceptible: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
+  "exposed: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
+  "exposed: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)"
+ ],
+ "fallos_cuasipositividad": [
+  "exposed: producción de signo indefinido: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
+  "exposed: producción de signo indefinido: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
+  "symptomatic: consumo sin factor: (1 * ((sigma * nu) * exposed))"
+ ],
+ "n_fallos_dominio": 4,
+ "n_fallos_cuasipositividad": 3,
+ "prediccion_check": false,
+ "lean": "Models/Okuonghae_ChaosSolitonsFractals2020.lean",
+ "traducido": true
+}

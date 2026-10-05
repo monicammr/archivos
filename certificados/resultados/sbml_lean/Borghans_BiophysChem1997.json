@@ -1,0 +1,36 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "T": 5.0,
+ "n_estados": 3,
+ "n_theta": 20,
+ "reacciones": 8,
+ "eventos": 0,
+ "parametros_por_condicion": [],
+ "tramos": [
+  [
+   0.0,
+   5.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "/",
+  "^n",
+  "^θ"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [
+  "A_state: (1 * (((A_state^2 * Vd) * exp((n_par * log(Z_state)))) / ((exp((n_par * log(Kd))) + exp((n_par * log(Z_state)))) * (A_state^2 + Kp^2))))"
+ ],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 1,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": false,
+ "lean": "Models/Borghans_BiophysChem1997.lean",
+ "traducido": true
+}

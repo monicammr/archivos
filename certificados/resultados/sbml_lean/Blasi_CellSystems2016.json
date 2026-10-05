@@ -1,0 +1,31 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "T": 50.0,
+ "n_estados": 16,
+ "n_theta": 8,
+ "reacciones": 32,
+ "eventos": 0,
+ "parametros_por_condicion": [],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "-"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Blasi_CellSystems2016.lean",
+ "traducido": true
+}

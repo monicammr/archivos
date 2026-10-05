@@ -1,0 +1,57 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "T": 50.0,
+ "n_estados": 22,
+ "n_theta": 57,
+ "reacciones": 67,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "CET_level",
+  "EGF_level",
+  "HS746T",
+  "METinh_level",
+  "MKN1",
+  "full_medium",
+  "hunger_medium",
+  "relative_ksyn_EGFR"
+ ],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "-",
+  "^n",
+  "exp",
+  "piecewise"
+ ],
+ "theta0_positivo": false,
+ "theta0_no_positivos": [
+  "d_AKTtotal__MKN1_2_HS746T",
+  "d_MAPKtotal__MKN1_2_HS746T",
+  "d_MPI3Ktotal__fm_2_hm",
+  "d_PI3Ktotal__fm_2_hm",
+  "d_RAStotal__MKN1_2_HS746T",
+  "d_RAStotal__fm_2_hm",
+  "d_kdeg_membran__MKN1_2_HS746T",
+  "d_kexp_pEGFR_EGF_2_i__MKN1_2_HS746T",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T",
+  "d_ksyn_EGFR__MKN1_2_HS746T",
+  "d_ksyn_EGFR__fm_2_hm",
+  "d_ksyn_MMET__fm_2_hm"
+ ],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Raimundez_PCB2020.lean",
+ "traducido": true
+}

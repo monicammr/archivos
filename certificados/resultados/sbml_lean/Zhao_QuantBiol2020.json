@@ -1,0 +1,40 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "T": 1.0,
+ "n_estados": 4,
+ "n_theta": 21,
+ "reacciones": 3,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "Trigger_Stage_I",
+  "Trigger_Stage_II",
+  "Trigger_Stage_III",
+  "Trigger_Wuhan",
+  "Trigger_Hubei",
+  "Trigger_China"
+ ],
+ "tramos": [
+  [
+   0.0,
+   1.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "-",
+  "/"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Zhao_QuantBiol2020.lean",
+ "traducido": true
+}

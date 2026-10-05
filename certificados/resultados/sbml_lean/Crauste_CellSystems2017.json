@@ -1,0 +1,31 @@
+{
+ "sistema": "Crauste_CellSystems2017",
+ "T": 1.0,
+ "n_estados": 5,
+ "n_theta": 12,
+ "reacciones": 12,
+ "eventos": 0,
+ "parametros_por_condicion": [],
+ "tramos": [
+  [
+   0.0,
+   1.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "^n"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Crauste_CellSystems2017.lean",
+ "traducido": true
+}

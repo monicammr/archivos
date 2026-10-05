@@ -1,0 +1,67 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "T": 50.0,
+ "n_estados": 10,
+ "n_theta": 43,
+ "reacciones": 13,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "alpha_50",
+  "beta_50",
+  "gamma_50",
+  "delta_50",
+  "epsilon_50",
+  "zeta_50",
+  "eta_50",
+  "kappa_50",
+  "lam_50",
+  "mu_50",
+  "nu_50",
+  "xi_50",
+  "rho_50",
+  "sigma_50"
+ ],
+ "tramos": [
+  [
+   0.0,
+   4.0
+  ],
+  [
+   4.0,
+   12.0
+  ],
+  [
+   12.0,
+   22.0
+  ],
+  [
+   22.0,
+   28.0
+  ],
+  [
+   28.0,
+   38.0
+  ],
+  [
+   38.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "piecewise"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Giordano_Nature2020.lean",
+ "traducido": true
+}

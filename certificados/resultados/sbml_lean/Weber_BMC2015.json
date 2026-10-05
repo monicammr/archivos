@@ -1,0 +1,40 @@
+{
+ "sistema": "Weber_BMC2015",
+ "T": 50.0,
+ "n_estados": 7,
+ "n_theta": 26,
+ "reacciones": 21,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "Ect_Expr_CERT_flag",
+  "Ect_Expr_PI4K3beta_flag",
+  "PdBu_dose",
+  "PdBu_time",
+  "kb_NB142_70_dose",
+  "kb_NB142_70_time"
+ ],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "/",
+  "piecewise"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Weber_BMC2015.lean",
+ "traducido": true
+}

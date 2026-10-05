@@ -1,0 +1,47 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "T": 50.0,
+ "n_estados": 7,
+ "n_theta": 9,
+ "reacciones": 16,
+ "eventos": 0,
+ "parametros_por_condicion": [],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "-",
+  "/",
+  "exp"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [
+  "susceptible: (((((infected_normal_transmission_rate_relative * infected_moderate_transmission_rate) * infected_normal) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "susceptible: ((((infected_moderate_transmission_rate * infected_moderate) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "susceptible: (((((infected_weak_transmission_rate_relative * infected_moderate_transmission_rate) * infected_weak) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "susceptible: (((((1/25 * infected_moderate_transmission_rate) * treated_normal) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "susceptible: (((((1/25 * infected_moderate_transmission_rate) * treated_moderate) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "susceptible: (((((1/25 * infected_moderate_transmission_rate) * treated_weak) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "infected_normal: (((((infected_normal_transmission_rate_relative * infected_moderate_transmission_rate) * infected_normal) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "infected_normal: ((((infected_moderate_transmission_rate * infected_moderate) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "infected_normal: (((((infected_weak_transmission_rate_relative * infected_moderate_transmission_rate) * infected_weak) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "infected_normal: (((((1/25 * infected_moderate_transmission_rate) * treated_normal) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "infected_normal: (((((1/25 * infected_moderate_transmission_rate) * treated_moderate) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)",
+  "infected_normal: (((((1/25 * infected_moderate_transmission_rate) * treated_weak) / ((((((susceptible + infected_normal) + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)) * exp(((-1 * behavioural_change_rate) * (((((infected_normal + infected_moderate) + infected_weak) + treated_normal) + treated_moderate) + treated_weak)))) * susceptible)"
+ ],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 12,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": false,
+ "lean": "Models/Rahman_MBS2016.lean",
+ "traducido": true
+}

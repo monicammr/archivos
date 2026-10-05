@@ -1,0 +1,38 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "T": 50.0,
+ "n_estados": 4,
+ "n_theta": 10,
+ "reacciones": 8,
+ "eventos": 0,
+ "parametros_por_condicion": [
+  "S_on"
+ ],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": false,
+ "operaciones": [
+  "*",
+  "+",
+  "-"
+ ],
+ "theta0_positivo": false,
+ "theta0_no_positivos": [
+  "alpha_cer"
+ ],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [
+  "S1P: consumo sin factor: ((k3 * (1 * alpha_hai1a)) * Sphingo)"
+ ],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 1,
+ "prediccion_check": false,
+ "lean": "Models/Armistead_CellDeathDis2024.lean",
+ "traducido": true
+}

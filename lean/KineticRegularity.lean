@@ -10,7 +10,8 @@ Los teoremas suponen que `f` es C¹ en un abierto `U` que contiene la trayectori
 concentraciones, parámetros, `+`, `−`, `×`, `/`, potencias enteras, potencias reales y `exp`
 (acción de masas, Michaelis–Menten, Hill, inhibición, activación, …).
 
-* `KExpr`: sintaxis de una ley de velocidad; `eval`: su valor; `ok`: condición de buena
+* `KExpr`: sintaxis de una ley de velocidad (constantes reales `const` o racionales `qconst`,
+  estas últimas para que los comprobadores de `KineticCheck` sean calculables); `eval`: su valor; `ok`: condición de buena
   definición (denominadores `≠ 0`, bases de potencias reales `> 0`).
 * `isOpen_ok`, `contDiffAt_eval`: el conjunto donde la expresión está bien definida es abierto y
   allí la expresión es C^∞ (en particular C¹).
@@ -33,6 +34,7 @@ variable {n p : ℕ}
 /-- Sintaxis de una ley de velocidad en las concentraciones `x : ℝⁿ` y parámetros `θ : ℝᵖ`. -/
 inductive KExpr (n p : ℕ) : Type
   | const : ℝ → KExpr n p
+  | qconst : ℚ → KExpr n p
   | var : Fin n → KExpr n p
   | par : Fin p → KExpr n p
   | add : KExpr n p → KExpr n p → KExpr n p
@@ -42,6 +44,7 @@ inductive KExpr (n p : ℕ) : Type
   | npow : KExpr n p → ℕ → KExpr n p
   | rpow : KExpr n p → ℝ → KExpr n p
   | exp : KExpr n p → KExpr n p
+  | log : KExpr n p → KExpr n p
 
 namespace KExpr
 
@@ -49,6 +52,7 @@ namespace KExpr
 noncomputable def eval : KExpr n p →
     (EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p) → ℝ)
   | const c => fun _ => c
+  | qconst q => fun _ => (q : ℝ)
   | var i => fun z => z.1 i
   | par j => fun z => z.2 j
   | add a b => fun z => a.eval z + b.eval z
@@ -58,11 +62,13 @@ noncomputable def eval : KExpr n p →
   | npow a k => fun z => a.eval z ^ k
   | rpow a r => fun z => a.eval z ^ r
   | exp a => fun z => Real.exp (a.eval z)
+  | log a => fun z => Real.log (a.eval z)
 
 /-- La expresión está bien definida (y es diferenciable) en `z`: denominadores no nulos y bases
 de potencias reales positivas. -/
 def ok : KExpr n p → (EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p) → Prop)
   | const _ => fun _ => True
+  | qconst _ => fun _ => True
   | var _ => fun _ => True
   | par _ => fun _ => True
   | add a b => fun z => a.ok z ∧ b.ok z
@@ -72,12 +78,14 @@ def ok : KExpr n p → (EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p)
   | npow a _ => fun z => a.ok z
   | rpow a _ => fun z => a.ok z ∧ 0 < a.eval z
   | exp a => fun z => a.ok z
+  | log a => fun z => a.ok z ∧ 0 < a.eval z
 
 /-- **Regularidad.** Donde la expresión está bien definida, es `C^k` para todo `k`. -/
 theorem contDiffAt_eval (e : KExpr n p) {k : WithTop ℕ∞} :
     ∀ z, e.ok z → ContDiffAt ℝ k e.eval z := by
   induction e with
   | const c => intro z _; exact contDiffAt_const
+  | qconst q => intro z _; exact contDiffAt_const
   | var i =>
       intro z _
       exact ((EuclideanSpace.proj i : EuclideanSpace ℝ (Fin n) →L[ℝ] ℝ).contDiff.comp
@@ -93,11 +101,13 @@ theorem contDiffAt_eval (e : KExpr n p) {k : WithTop ℕ∞} :
   | npow a m ha => intro z h; exact (ha z h).pow m
   | rpow a r ha => intro z h; exact (ha z h.1).rpow_const_of_ne (ne_of_gt h.2)
   | exp a ha => intro z h; exact (ha z h).exp
+  | log a ha => intro z h; exact (ha z h.1).log (ne_of_gt h.2)
 
 /-- El conjunto donde la expresión está bien definida es **abierto**. -/
 theorem isOpen_ok (e : KExpr n p) : IsOpen {z | e.ok z} := by
   induction e with
   | const c => exact isOpen_univ
+  | qconst q => exact isOpen_univ
   | var i => exact isOpen_univ
   | par j => exact isOpen_univ
   | add a b ha hb => exact ha.inter hb
@@ -113,10 +123,15 @@ theorem isOpen_ok (e : KExpr n p) : IsOpen {z | e.ok z} := by
         (contDiffAt_eval a (k := 0) z hz).continuousAt.continuousWithinAt
       exact hc.isOpen_inter_preimage ha isOpen_Ioi
   | exp a ha => exact ha
+  | log a ha =>
+      have hc : ContinuousOn a.eval {z | a.ok z} := fun z hz =>
+        (contDiffAt_eval a (k := 0) z hz).continuousAt.continuousWithinAt
+      exact hc.isOpen_inter_preimage ha isOpen_Ioi
 
 /-- Expresiones sin denominadores ni potencias reales (acción de masas pura). -/
 def noDen : KExpr n p → Prop
   | const _ => True
+  | qconst _ => True
   | var _ => True
   | par _ => True
   | add a b => a.noDen ∧ b.noDen
@@ -126,11 +141,13 @@ def noDen : KExpr n p → Prop
   | npow a _ => a.noDen
   | rpow _ _ => False
   | exp a => a.noDen
+  | log _ => False
 
 /-- Acción de masas: la expresión está bien definida en todo el espacio. -/
 theorem ok_of_noDen (e : KExpr n p) : e.noDen → ∀ z, e.ok z := by
   induction e with
   | const c => intro _ _; trivial
+  | qconst q => intro _ _; trivial
   | var i => intro _ _; trivial
   | par j => intro _ _; trivial
   | add a b ha hb => intro h z; exact ⟨ha h.1 z, hb h.2 z⟩
@@ -140,6 +157,7 @@ theorem ok_of_noDen (e : KExpr n p) : e.noDen → ∀ z, e.ok z := by
   | npow a m ha => intro h z; exact ha h z
   | rpow a r _ => intro h; exact h.elim
   | exp a ha => intro h z; exact ha h z
+  | log a _ => intro h; exact h.elim
 
 /-! ### Leyes de velocidad habituales -/
 

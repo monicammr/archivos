@@ -1,0 +1,33 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "T": 50.0,
+ "n_estados": 8,
+ "n_theta": 6,
+ "reacciones": 9,
+ "eventos": 0,
+ "parametros_por_condicion": [],
+ "tramos": [
+  [
+   0.0,
+   50.0
+  ]
+ ],
+ "tiempo_como_estado": true,
+ "operaciones": [
+  "*",
+  "^n",
+  "exp",
+  "t"
+ ],
+ "theta0_positivo": true,
+ "theta0_no_positivos": [],
+ "x0_no_negativo": true,
+ "x0_nan": [],
+ "fallos_dominio": [],
+ "fallos_cuasipositividad": [],
+ "n_fallos_dominio": 0,
+ "n_fallos_cuasipositividad": 0,
+ "prediccion_check": true,
+ "lean": "Models/Boehm_JProteomeRes2014.lean",
+ "traducido": true
+}

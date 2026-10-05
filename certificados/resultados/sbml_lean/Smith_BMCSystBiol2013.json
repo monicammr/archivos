@@ -1,0 +1,18 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "T": 50.0,
+ "n_estados": 104,
+ "n_theta": 16,
+ "reacciones": 367,
+ "eventos": 3,
+ "parametros_por_condicion": [
+  "t_ins",
+  "indicator_jnk",
+  "indicator_foxo",
+  "k4",
+  "kminus4",
+  "k_irs1_basal_syn"
+ ],
+ "traducido": false,
+ "motivo": "eventos SBML (se cubren con EventSystems, no con este traductor)"
+}
