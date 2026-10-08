@@ -20,7 +20,7 @@ if logf.exists():
 MOTIVO = {
     "Elowitz_Nature2000": "Hill con exponente estimado sobre una concentración (x^θ no es C¹ en x = 0 si θ < 1)",
     "Borghans_BiophysChem1997": "Hill con exponente estimado sobre una concentración (Z^n)",
-    "Okuonghae_ChaosSolitonsFractals2020": "incidencia β·S·I/N: no definida si N = 0 (el dominio no contiene todo el ortante)",
+    "Okuonghae_ChaosSolitonsFractals2020": "incidencia β·S·I/N (exige N > 0) y, además, el flujo symptomatic → asymptomatic tiene tasa ν·σ·E, que no depende de symptomatic: symptomatic' = σ(1 − ν)E − …, así que con ν > 1 (permitido por los límites de PEtab, ν ≤ 1000) symptomatic puede volverse negativo; la positividad sólo vale si ν ≤ 1 (nominal 0.5)",
     "Rahman_MBS2016": "incidencia β·S·I/N: no definida si N = 0",
     "Armistead_CellDeathDis2024": "producción k3(1 − S_on·α)·Sphingo de signo dependiente de parámetros; alpha_cer < 0 por diseño",
     "Fiedler_BMCSystBiol2016": "entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) ≥ 0, pero el comprobador sintáctico no lo detecta (conservador)",
@@ -52,6 +52,9 @@ for f in sorted(D.glob("*.json")):
     elif "depends on axioms: [propext, Classical.choice, Quot.sound]" in out:
         if d.get("red") == "ok":
             res = f"✅ verificado, sin condiciones pendientes ({t})"
+        elif d.get("red") == "estricta":
+            res = f"✅ verificado, sin condiciones pendientes ({t}); positividad estricta"
+            notas.append("las especies con dato inicial > 0 permanecen > 0 (lo exige el dominio)")
         else:
             res = f"✅ verificado; condición: existe la solución nominal en [0,T] ({t})"
             if d.get("red") == "crecimiento":

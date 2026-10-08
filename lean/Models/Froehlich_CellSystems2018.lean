@@ -31,7 +31,20 @@ theorem net_ok : checkNet pos Rx = true := by
 theorem growth_ok : checkGrowth pos c Rx = true := by
   simp only [Rx, checkGrowth_append, growth_ok_0, growth_ok_1, growth_ok_2, growth_ok_3, growth_ok_4, growth_ok_5, growth_ok_6, growth_ok_7, growth_ok_8, growth_ok_9, growth_ok_10, growth_ok_11, Bool.and_self]
 
-theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+/-- θ₀ > 0: se comprueba la lista una vez (tiempo lineal) en vez de acceder a cada
+componente por índice (tiempo cuadrático). -/
+theorem theta_ok : checkPosParams pos θq = true := by
+  have hL : θqL.all (fun q => decide (0 < q)) = true := by decide +kernel
+  rw [List.all_eq_true] at hL
+  simp only [checkPosParams, List.all_eq_true, List.mem_finRange, true_implies,
+    Bool.or_eq_true, decide_eq_true_eq]
+  intro j
+  right
+  simp only [θq]
+  rw [List.getD_eq_getElem?_getD]
+  cases h : θqL[j.val]? with
+  | none => simp
+  | some x => simpa using hL x (List.mem_of_getElem? h)
 
 theorem x0_ok : checkNonneg xq = true := by decide +kernel
 

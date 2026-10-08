@@ -40,26 +40,23 @@
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [
-  "GFP: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
+  "GFP: (1 * (((60 * tps_repr) * exp((n_Hill * log(X_protein)))) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
   "GFP: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_active)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
-  "X_mRNA: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Z_protein))))))",
+  "X_mRNA: (1 * (((60 * tps_repr) * exp((n_Hill * log(Z_protein)))) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Z_protein))))))",
   "X_mRNA: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_active)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Z_protein))))))",
-  "Y_mRNA: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
+  "Y_mRNA: (1 * (((60 * tps_repr) * exp((n_Hill * log(X_protein)))) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
   "Y_mRNA: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_active)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
-  "Z_mRNA: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Y_protein))))))",
+  "Z_mRNA: (1 * (((60 * tps_repr) * exp((n_Hill * log(Y_protein)))) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Y_protein))))))",
   "Z_mRNA: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_active)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Y_protein))))))"
  ],
- "fallos_cuasipositividad": [
-  "GFP: consumo sin factor: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
-  "X_mRNA: consumo sin factor: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Z_protein))))))",
-  "Y_mRNA: consumo sin factor: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(X_protein))))))",
-  "Z_mRNA: consumo sin factor: (1 * ((exp((n_Hill * log(KM))) * (60 * tps_repr)) / (exp((n_Hill * log(KM))) + exp((n_Hill * log(Y_protein))))))"
- ],
+ "fallos_cuasipositividad": [],
  "n_fallos_dominio": 8,
- "n_fallos_cuasipositividad": 4,
+ "n_fallos_cuasipositividad": 0,
  "prediccion_check": false,
  "lean": "Models/Elowitz_Nature2000.lean",
- "red": null,
- "teorema_final": false,
+ "red": "estricta",
+ "estricta": "estricta",
+ "estricta_fallos": [],
+ "teorema_final": true,
  "traducido": true
 }

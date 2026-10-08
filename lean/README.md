@@ -6,7 +6,7 @@ Verificado con Lean 4.23.0 y Mathlib `v4.23.0`. Ningún archivo usa `sorry` ni a
 ```
 lake exe cache get   # descarga Mathlib precompilado
 lake build            # teoría
-lake build Models     # los modelos (Chen ~10 min; Froehlich necesita > 14 GB de RAM)
+lake build Models     # los modelos (Chen ~10 min; Froehlich ~30 min en 13 módulos, ≤ 3 GB cada uno)
 ```
 
 ## Teorema principal
@@ -51,7 +51,9 @@ descartados fijados en su valor nominal).
 | `KineticCheck.lean` | **Comprobación automática de modelos.** Comprobadores booleanos sobre `KExpr` (signo ≥ 0 / > 0, dominio ⊇ ortante, cuasi-positividad), con prueba de corrección. Si `checkModel pos F = true` (Lean lo calcula), `checked_model_hasFDerivAt` da positividad, permanencia en el dominio, existencia y diferenciabilidad; `checked_segments_hasFDerivAt` para entradas por escalones en tiempos fijos |
 | `GlobalExistence.lean` | **Existencia global (condición C4).** Campo C¹ en un abierto ⊇ ortante, cuasi-positivo, con Σcᵢvᵢ(z) ≤ a + b Σcᵢzᵢ ⇒ la solución existe en [0,T] y es ≥ 0 (truncamiento a una caja + Grönwall) |
 | `KineticNetwork.lean` | **Redes de reacciones.** `checkNet` (dominio, cuasi-positividad término a término) y `checkGrowth` (crecimiento lineal con pesos racionales) con prueba de corrección; `network_final`, `network_final_init` (x₀ dependiente de θ) y `network_segments_final` (tramos): **sin condiciones pendientes** |
-| `Models/*.lean` | **Los modelos del artículo**, generados de SBML por `certificados/sbml_to_lean.py`. 14 verificados sin condiciones pendientes (`final`), Crauste con la condición de existencia de la solución nominal; en 6 Lean demuestra que la comprobación falla (`check_falla`). Ver `certificados/resultados/sbml_lean/tabla.md` |
+| `StrictExistence.lean` | **Existencia global con positividad estricta.** `exists_global_solution_strict`: si el consumo de cada especie con dato inicial `> 0` es proporcional a ella, la solución existe en `[0, T]` y esas especies permanecen `> 0` (truncamiento a la caja `[ε, B]`, comparación con `g(t) = (m₀/2)e^{−(C+1)t}`, Grönwall) |
+| `StrictNetwork.lean` | **Redes con dominio estricto** (`β·S·I/N`, Hill con exponente real). Comprobadores `sOk`, `bnd` (acotación, términos saturantes `k·X/(…+X+…)`, `e^{≤0}`), `cons` (consumo `≤ K·yᵢ`), `checkNetS`, `checkGrowthS`, con prueba de corrección; `strict_final_init`: **sin condiciones pendientes** |
+| `Models/*.lean` | **Los modelos del artículo**, generados de SBML por `certificados/sbml_to_lean.py`. 18 verificados sin condiciones pendientes (`final`; Froehlich, 1228 especies, en 13 módulos; Elowitz, Borghans y Rahman con positividad estricta), Crauste con la condición de existencia de la solución nominal; en Okuonghae, Armistead y Fiedler Lean demuestra que la comprobación sencilla falla (`check_falla`) y queda la condición de existencia. Ver `certificados/resultados/sbml_lean/tabla.md` |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -85,7 +87,8 @@ descartados fijados en su valor nominal).
 | Las concentraciones permanecen ≥ 0 (modelos cuasi-positivos) | `PositivityInvariance.nonneg_of_quasiPositive`, `kinetic_nonneg` |
 | Diferenciabilidad para modelos cinéticos con solo: dominio ⊇ ortante ≥ 0, cuasi-positividad y dato inicial ≥ 0 | `PositivityInvariance.kinetic_hasFDerivAt_of_nonneg` |
 | **Existencia global de la solución** para modelos cuasi-positivos con crecimiento lineal | `GlobalExistence.exists_global_solution` |
-| **Cada modelo concreto, sin condiciones pendientes** (14 de 22): existencia, positividad y diferenciabilidad | `Models.<Sistema>.final` (`KineticNetwork.network_final`, `network_final_init`, `network_segments_final`) |
+| **Existencia global con positividad estricta** (dominios que exigen especies `> 0`) | `StrictExistence.exists_global_solution_strict` |
+| **Cada modelo concreto, sin condiciones pendientes** (18 de 22): existencia, positividad y diferenciabilidad | `Models.<Sistema>.final` (`KineticNetwork.network_final`, `network_final_init`, `network_segments_final`, `StrictNetwork.strict_final_init`) |
 
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que

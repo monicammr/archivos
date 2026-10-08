@@ -772,9 +772,8 @@ def process(name, T):
         rep["prediccion_check"] = not bad_dom and not bad_qp
         rep["lean"] = f"Models/{emit(model, segs, rep['prediccion_check'])}.lean"
         rep["red"] = None
-        if rep["prediccion_check"] and len(segs) == 1 and \
-                all(math.isfinite(v) for v in model.x0_vals):
-            init_exprs = None
+        init_exprs = None
+        if len(segs) == 1 and all(math.isfinite(v) for v in model.x0_vals):
             if model.x0_dep_theta:
                 model.t_now = 0.0
                 init_exprs = []
@@ -791,15 +790,24 @@ def process(name, T):
                         init_exprs.append(num(0))
                 except Unsupported:
                     init_exprs = "no"
-            if init_exprs != "no":
-                big = len(model.names_ext) > 500 and init_exprs is None
-                mod_, estado = (emit_network_split(model, segs[0][2]) if big
-                                else emit_network(model, segs[0][2], init_exprs))
-                rep["red"] = estado
+        if rep["prediccion_check"] and len(segs) == 1 and \
+                all(math.isfinite(v) for v in model.x0_vals) and init_exprs != "no":
+            big = len(model.names_ext) > 500 and init_exprs is None
+            mod_, estado = (emit_network_split(model, segs[0][2]) if big
+                            else emit_network(model, segs[0][2], init_exprs))
+            rep["red"] = estado
         elif rep["prediccion_check"] and len(segs) > 1 and not model.x0_dep_theta and \
                 all(math.isfinite(v) for v in model.x0_vals):
             mod_, estado = emit_network_segments(model, segs)
             rep["red"] = estado
+        if rep["red"] != "ok" and len(segs) == 1 and init_exprs != "no" and \
+                all(math.isfinite(v) for v in model.x0_vals):
+            # positividad estricta (Σ = especies con x₀ > 0)
+            mod_, estado, bad = emit_strict(model, segs[0][2], init_exprs)
+            rep["estricta"] = estado
+            rep["estricta_fallos"] = [f"{k}: {show(t, model)}" for k, t in bad][:20]
+            if estado == "estricta":
+                rep["red"] = "estricta"
         rep["teorema_final"] = "def final" in (OUTDIR / rep["lean"].split("/")[1]).read_text()
         rep["traducido"] = True
     except Unsupported as e:
@@ -1127,6 +1135,23 @@ def emit_network_segments(model, segs):
     return mod, "ok"
 
 
+THETA_OK_LIST = [
+    "/-- θ₀ > 0: se comprueba la lista una vez (tiempo lineal) en vez de acceder a cada",
+    "componente por índice (tiempo cuadrático). -/",
+    "theorem theta_ok : checkPosParams pos θq = true := by",
+    "  have hL : θqL.all (fun q => decide (0 < q)) = true := by decide +kernel",
+    "  rw [List.all_eq_true] at hL",
+    "  simp only [checkPosParams, List.all_eq_true, List.mem_finRange, true_implies,",
+    "    Bool.or_eq_true, decide_eq_true_eq]",
+    "  intro j",
+    "  right",
+    "  simp only [θq]",
+    "  rw [List.getD_eq_getElem?_getD]",
+    "  cases h : θqL[j.val]? with",
+    "  | none => simp",
+    "  | some x => simpa using hL x (List.mem_of_getElem? h)"]
+
+
 def emit_network_split(model, rhs):
     """Modelos enormes: un módulo Lean por bloque de términos (memoria acotada por proceso)."""
     n, p = len(model.names_ext), len(model.theta)
@@ -1180,7 +1205,8 @@ def emit_network_split(model, rhs):
          "theorem growth_ok : checkGrowth pos c Rx = true := by",
          "  simp only [Rx, checkGrowth_append, " + ", ".join(f"growth_ok_{k}" for k in range(K)) +
          ", Bool.and_self]", "",
-         "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
+         *(THETA_OK_LIST if p > 500 else
+           ["theorem theta_ok : checkPosParams pos θq = true := by decide +kernel"]), "",
          "theorem x0_ok : checkNonneg xq = true := by decide +kernel", "",
          "/-- **Teorema final, sin condiciones pendientes.** -/",
          "def final := @network_final _ _ pos Rx net_ok c growth_ok θq theta_ok xq x0_ok", "",
@@ -1188,6 +1214,272 @@ def emit_network_split(model, rhs):
     (OUTDIR / f"{mod}.lean").write_text("\n".join(m))
     return mod, "ok"
 
+
+
+# ================================================================ forma estricta (StrictNetwork)
+# Réplica exacta de los comprobadores de lean/StrictNetwork.lean (Σ = especies con x₀ > 0).
+def _keq(a, b):
+    if a[0] != b[0] or a[0] in ('rpow',):
+        return False
+    t = a[0]
+    if t in ('num', 'var', 'par'):
+        return a[1] == b[1]
+    if t in ('add', 'sub', 'mul', 'div'):
+        return _keq(a[1], b[1]) and _keq(a[2], b[2])
+    if t == 'npow':
+        return _keq(a[1], b[1]) and a[2] == b[2]
+    if t in ('exp', 'log'):
+        return _keq(a[1], b[1])
+    return False
+
+
+def _qge1(e): return e[0] == 'num' and e[1] >= 1
+def _qgt1(e): return e[0] == 'num' and e[1] > 1
+
+
+def _s_nonneg(e, pos):
+    t = e[0]
+    if t == 'num': return e[1] >= 0
+    if t == 'var': return True
+    if t == 'par': return pos[e[1]]
+    if t in ('add', 'mul', 'div'): return _s_nonneg(e[1], pos) and _s_nonneg(e[2], pos)
+    if t in ('npow', 'rpow'): return _s_nonneg(e[1], pos)
+    if t == 'exp': return True
+    if t == 'log': return _qge1(e[1])
+    return False
+
+
+def _s_pos(e, pos, sx):
+    t = e[0]
+    if t == 'num': return e[1] > 0
+    if t == 'var': return sx[e[1]]
+    if t == 'par': return pos[e[1]]
+    if t == 'add': return (_s_pos(e[1], pos, sx) and _s_nonneg(e[2], pos)) or \
+        (_s_nonneg(e[1], pos) and _s_pos(e[2], pos, sx))
+    if t in ('mul', 'div'): return _s_pos(e[1], pos, sx) and _s_pos(e[2], pos, sx)
+    if t in ('npow', 'rpow'): return _s_pos(e[1], pos, sx)
+    if t == 'exp': return True
+    if t == 'log': return _qgt1(e[1])
+    return False
+
+
+def _s_ok(e, pos, sx):
+    t = e[0]
+    if t in ('num', 'var', 'par'): return True
+    if t in ('add', 'sub', 'mul'): return _s_ok(e[1], pos, sx) and _s_ok(e[2], pos, sx)
+    if t == 'div': return _s_ok(e[1], pos, sx) and _s_ok(e[2], pos, sx) and _s_pos(e[2], pos, sx)
+    if t == 'npow': return _s_ok(e[1], pos, sx)
+    if t in ('rpow', 'log'): return _s_ok(e[1], pos, sx) and _s_pos(e[1], pos, sx)
+    if t == 'exp': return _s_ok(e[1], pos, sx)
+    return False
+
+
+def _s_np(e, pos):
+    t = e[0]
+    if t == 'num': return e[1] <= 0
+    if t == 'add': return _s_np(e[1], pos) and _s_np(e[2], pos)
+    if t == 'mul': return (_s_np(e[1], pos) and _s_nonneg(e[2], pos)) or \
+        (_s_nonneg(e[1], pos) and _s_np(e[2], pos))
+    return False
+
+
+def _summand(X, d, pos):
+    if d[0] == 'add':
+        return (_keq(d, X) and _s_nonneg(X, pos)) or \
+            (_summand(X, d[1], pos) and _s_nonneg(d[2], pos)) or \
+            (_s_nonneg(d[1], pos) and _summand(X, d[2], pos))
+    return _keq(d, X) and _s_nonneg(X, pos)
+
+
+def _bnd(e, pos, bx):
+    t = e[0]
+    if t == 'num': return e[1] >= 0
+    if t == 'var': return bx
+    if t == 'par': return pos[e[1]]
+    if t in ('add', 'mul'): return _bnd(e[1], pos, bx) and _bnd(e[2], pos, bx)
+    if t == 'div':
+        a, d = e[1], e[2]
+        return (_varfree(e) and _s_nonneg(e, pos)) or \
+            (_bnd(a, pos, bx) and _py_lowerpos(d, pos)) or _satb(d, a, pos, bx) or \
+            _bpair(a, d, pos, bx)
+    if t == 'npow': return _bnd(e[1], pos, bx)
+    if t == 'rpow': return _varfree(e) and _s_nonneg(e, pos)
+    if t == 'exp': return _varfree(e[1]) or _s_np(e[1], pos)
+    if t == 'log': return _qge1(e[1])
+    return False
+
+
+def _satb(d, a, pos, bx):
+    if a[0] == 'mul':
+        u, v = a[1], a[2]
+        return _summand(a, d, pos) or (_satb(d, u, pos, bx) and _bnd(v, pos, bx)) or \
+            (_bnd(u, pos, bx) and _satb(d, v, pos, bx))
+    return _summand(a, d, pos)
+
+
+def _bq(a, d, pos, bx):
+    return (_bnd(a, pos, bx) and _py_lowerpos(d, pos)) or _satb(d, a, pos, bx) or \
+        _bpair(a, d, pos, bx)
+
+
+def _bpair(a, d, pos, bx):
+    if a[0] == 'mul' and d[0] == 'mul':
+        a1, a2, d1, d2 = a[1], a[2], d[1], d[2]
+        return (_bq(a1, d1, pos, bx) and _bq(a2, d2, pos, bx)) or \
+            (_bq(a1, d2, pos, bx) and _bq(a2, d1, pos, bx))
+    return False
+
+
+def _cons(i, e, pos):
+    t = e[0]
+    if t == 'var': return e[1] == i
+    if t == 'mul': return (_cons(i, e[1], pos) and _bnd(e[2], pos, True)) or \
+        (_bnd(e[1], pos, True) and _cons(i, e[2], pos))
+    if t == 'npow': return e[2] >= 1 and _cons(i, e[1], pos) and _bnd(e[1], pos, True)
+    if t == 'div': return (_cons(i, e[1], pos) and _py_lowerpos(e[2], pos)) or \
+        _cpair(i, e[1], e[2], pos)
+    return False
+
+
+def _cq(i, a, d, pos):
+    return (_cons(i, a, pos) and _py_lowerpos(d, pos)) or _cpair(i, a, d, pos)
+
+
+def _cpair(i, a, d, pos):
+    if a[0] == 'mul' and d[0] == 'mul':
+        a1, a2, d1, d2 = a[1], a[2], d[1], d[2]
+        B = lambda x, y: _bq(x, y, pos, True)
+        C = lambda x, y: _cq(i, x, y, pos)
+        return (C(a1, d1) and B(a2, d2)) or (B(a1, d1) and C(a2, d2)) or \
+            (C(a1, d2) and B(a2, d1)) or (B(a1, d2) and C(a2, d1))
+    return False
+
+
+def strict_checks(Rx, pos, sx):
+    """Réplica de checkNetS; devuelve la lista de fallos."""
+    bad = []
+    for V, col in Rx:
+        if not _s_ok(V, pos, sx):
+            bad.append(('dominio', V))
+        for i, s in col:
+            if s < 0:
+                ok = _cons(i, V, pos) if sx[i] else _py_van(i, V)
+            else:
+                ok = _s_nonneg(V, pos) or (not sx[i] and _py_van(i, V))
+            if not ok:
+                bad.append((f'especie {i} ({"Σ" if sx[i] else "no Σ"}), coef {s}', V))
+    return bad
+
+
+def _growth_cls(V, pos):
+    return _s_nonneg(V, pos), (_py_linok(V, pos) or _bnd(V, pos, False))
+
+
+def growth_ok_strict(Rx, c, pos):
+    for V, col in Rx:
+        w = sum((c[i] * s for i, s in col), Fraction(0))
+        nn, lin = _growth_cls(V, pos)
+        if w == 0 or (w < 0 and nn) or (w > 0 and lin):
+            continue
+        return False
+    return True
+
+
+def find_weights_strict(Rx, n, pos):
+    import numpy as np
+    from scipy.optimize import linprog
+    A_ub, A_eq = [], []
+    for V, col in Rx:
+        row = np.zeros(n)
+        for i, s in col:
+            row[i] += float(s)
+        if not row.any():
+            continue
+        nn, lin = _growth_cls(V, pos)
+        if nn and lin:
+            continue
+        if nn:
+            A_ub.append(row)
+        elif lin:
+            A_ub.append(-row)
+        else:
+            A_eq.append(row)
+    sol = linprog(np.ones(n), A_ub=np.array(A_ub) if A_ub else None,
+                  b_ub=np.zeros(len(A_ub)) if A_ub else None,
+                  A_eq=np.array(A_eq) if A_eq else None,
+                  b_eq=np.zeros(len(A_eq)) if A_eq else None,
+                  bounds=[(1, None)] * n, method="highs")
+    if sol.status != 0:
+        return None
+    for den in (1, 10, 100, 1000, 10000, 10 ** 6):
+        c = [max(Fraction(1), Fraction(x).limit_denominator(den)) for x in sol.x]
+        if growth_ok_strict(Rx, c, pos):
+            return c
+    return None
+
+
+def emit_strict(model, rhs, init_exprs):
+    """Forma de red con positividad estricta (Σ = especies con x₀ nominal > 0)."""
+    n, p = len(model.names_ext), len(model.theta)
+    pos = [model.positive[t] for t in model.theta]
+    sx = [v > 0 for v in model.x0_vals]
+    Rx = network_of(rhs)
+    bad = strict_checks(Rx, pos, sx)
+    if bad:
+        return None, "checkNetS", bad
+    c = find_weights_strict(Rx, n, pos)
+    if c is None:
+        return None, "crecimiento", []
+    if init_exprs is None:
+        init_exprs = [num(frac_of(v)) for v in model.x0_vals]
+    for i, e in enumerate(init_exprs):
+        if not (_py_okorth(e, pos) and _py_nonneg(e, pos) and (not sx[i] or _py_pos(e, pos))):
+            return None, "init", [(f"x0 {i}", e)]
+    mod = leanid(model.name)
+    lines = [
+        "import StrictNetwork", "",
+        f"/-! Modelo `{model.name}` (forma de red, positividad estricta), traducido",
+        "automáticamente de SBML por `certificados/sbml_to_lean.py`. No editar a mano.", "",
+        f"Estados ({n}): " + ", ".join(model.names_ext), "",
+        "Σ (dato inicial > 0, permanecen estrictamente positivas): " +
+        ", ".join(s_ for s_, b in zip(model.names_ext, sx) if b), "",
+        f"Parámetros estimados θ ({p}): " + ", ".join(model.theta),
+        "-/", "", "set_option maxRecDepth 100000", "set_option maxHeartbeats 0", "",
+        "open KineticRegularity KineticCheck KineticNetwork StrictNetwork", "",
+        f"namespace Models.{mod}", "",
+        "/-- Máscara de parámetros positivos (nominal > 0 o escala log). -/",
+        *lean_vec("pos", p, "Bool", [("true" if b else "false") for b in pos], "false"), "",
+        "/-- Σ: especies con dato inicial nominal > 0. -/",
+        *lean_vec("sx", n, "Bool", [("true" if b else "false") for b in sx], "false"), "",
+        f"/-- Términos de velocidad con su columna estequiométrica ({len(Rx)} términos). -/",
+        f"def Rx : List (KExpr {n} {p} × List (Fin {n} × ℚ)) := ["]
+    lines.append(",\n".join(
+        f"  ({lean_expr(V)}, [{', '.join(f'({i}, {lean_q(s_)})' for i, s_ in col)}])"
+        for V, col in Rx))
+    lines += ["]", "",
+              "/-- El campo del modelo: `Fᵢ = Σ_r coef_r(i) · V_r`. -/",
+              f"def F : Fin {n} → KExpr {n} {p} := netF Rx", "",
+              "/-- Dominio ⊇ región estricta, cuasi-positividad fuera de Σ y consumo proporcional",
+              "en Σ (Lean ejecuta el comprobador). -/",
+              "theorem net_ok : checkNetS pos sx Rx = true := by decide +kernel", "",
+              "/-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/",
+              *lean_vec("c", n, "ℚ", [lean_q(x) for x in c], "1"), "",
+              "theorem growth_ok : checkGrowthS pos c Rx = true := by decide +kernel", "",
+              "/-- θ₀ nominal (PEtab), en racionales exactos. -/",
+              *lean_vec("θq", p, "ℚ", [lean_q(frac_of(v)) for v in model.theta_vals], "1"), "",
+              "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
+              "/-- Condición inicial x₀(θ). -/",
+              f"def G : Fin {n} → KExpr {n} {p} := ![",
+              ",\n".join("  " + lean_expr(e) for e in init_exprs), "]", "",
+              "theorem init_ok : checkInitS pos sx G = true := by decide +kernel", "",
+              "/-- **Teorema final, sin condiciones pendientes**: para todo T ≥ 0 la solución",
+              "nominal existe en [0, T], las especies de Σ permanecen > 0 y las demás ≥ 0, queda",
+              "en el dominio, y la trayectoria es diferenciable respecto a θ en θ₀. -/",
+              "def final := @strict_final_init _ _ pos sx Rx net_ok c growth_ok G init_ok θq theta_ok",
+              "", f"end Models.{mod}", "", f"#print axioms Models.{mod}.final", ""]
+    OUTDIR.mkdir(parents=True, exist_ok=True)
+    (OUTDIR / f"{mod}.lean").write_text("\n".join(lines))
+    return mod, "estricta", []
 
 if __name__ == "__main__":
     sys.path.insert(0, str(HERE))

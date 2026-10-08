@@ -85,29 +85,38 @@ Qué hace el traductor:
 
 Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/sbml_lean/*.json`):
 
-* **14 modelos verificados en Lean sin ninguna condición pendiente** (forma de red,
-  `KineticNetwork.network_final`): Bachmann, Blasi, Boehm, Brannmark, Chen (500 estados),
-  Giordano (6 tramos), Lang (124 estados), Raia, Raimundez, SalazarCavazos, Sneyd, Weber, Zhao,
-  Zheng. Para ellos Lean demuestra: el campo es C¹, el dominio contiene el ortante ≥ 0, el modelo
-  es cuasi-positivo, crece como mucho linealmente (pesos `c` comprobados por cálculo), θ₀ > 0 y
-  x₀ ≥ 0 (o x₀(θ) ≥ 0 y diferenciable en Bachmann, Raia y SalazarCavazos); por tanto **la solución
-  nominal existe en [0, T] para todo T**, es ≥ 0, y la trayectoria es diferenciable respecto a θ.
+* **18 modelos verificados en Lean sin ninguna condición pendiente**:
+  * 15 en forma de red (`KineticNetwork.network_final`): Bachmann, Blasi, Boehm, Brannmark,
+    Chen (500 estados), Froehlich (1228 estados, 4088 parámetros; 13 módulos compilados por
+    separado, ≤ 3 GB cada uno, ~30 min), Giordano (6 tramos), Lang (124 estados), Raia,
+    Raimundez, SalazarCavazos, Sneyd, Weber, Zhao, Zheng. Para ellos Lean demuestra: el campo
+    es C¹, el dominio contiene el ortante ≥ 0, el modelo es cuasi-positivo, crece como mucho
+    linealmente (pesos `c` comprobados por cálculo), θ₀ > 0 y x₀ ≥ 0 (o x₀(θ) ≥ 0 y
+    diferenciable en Bachmann, Raia y SalazarCavazos); por tanto **la solución nominal existe en
+    [0, T] para todo T**, es ≥ 0, y la trayectoria es diferenciable respecto a θ.
+  * 3 con **positividad estricta** (`StrictNetwork.strict_final_init`): Elowitz y Borghans
+    (Hill con exponente estimado sobre una concentración, `Zⁿ = e^{n·log Z}`, exige Z > 0) y
+    Rahman (incidencia β·S·I/N, exige N > 0). Aquí el dominio no contiene el ortante, así que
+    Lean demuestra además que las especies con dato inicial > 0 **permanecen > 0**: su consumo
+    es proporcional a ellas (`≤ K·yᵢ`, con términos saturantes `k·X/(…+X+…) ≤ k` y `e^{≤0} ≤ 1`),
+    luego `yᵢ(t) ≥ yᵢ(0)·e^{−(K+1)t}/2`. En Elowitz el traductor reescribe la represión de Hill
+    `a − b(a − c)/(b + d) = (a·d + b·c)/(b + d)` para que la tasa sea suma de términos ≥ 0.
 * **Crauste**: verificado salvo la existencia global, que no se puede garantizar por este método
   (el patógeno crece como ρ_P·P²); el teorema `final` conserva la condición "la solución nominal
   existe en [0, T]".
-* **6 modelos en los que Lean demuestra que la comprobación falla** (`check_falla`):
-  * Elowitz y Borghans: Hill con exponente *estimado* sobre una concentración (xᶿ no es C¹ en
-    x = 0 si θ < 1);
-  * Okuonghae y Rahman: incidencia β·S·I/N, que no está definida si N = 0 (habría que usar la
-    región invariante {N > 0} en vez del ortante);
+* **3 modelos verificados con la condición "la solución nominal existe y permanece en el
+  dominio"** (Lean demuestra que la comprobación sencilla falla, `check_falla`):
+  * Okuonghae: además de la incidencia β·S·I/N, el flujo symptomatic → asymptomatic tiene tasa
+    ν·σ·E, que no depende de symptomatic: symptomatic' = σ(1 − ν)·E − …; con ν > 1 (permitido
+    por los límites de PEtab, ν ≤ 1000) symptomatic puede volverse negativo. La positividad
+    sólo vale si ν ≤ 1 (nominal 0,5): es una propiedad del modelo, no una limitación del método;
   * Armistead: producción k3·(1 − S_on·α_hai1a)·Sphingo, cuyo signo depende de los parámetros,
     y `alpha_cer` < 0 por diseño;
   * Fiedler: la entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) es ≥ 0, pero el comprobador
     sintáctico no lo detecta (fallo conservador).
-* **Smith**: no se traduce (eventos SBML); está cubierto en teoría por `EventSystems`.
-* **Froehlich** (1228 estados, 4088 parámetros): el archivo Lean se genera y la réplica en Python
-  predice que pasa, pero Lean se quedó sin memoria (~14 GB) en este contenedor. **No está
-  verificado en Lean.**
+* **Smith**: excluido: las reacciones R16f/R17f usan max(PIP3 − basal, 0), que no es
+  diferenciable, así que el teorema de diferenciabilidad no aplica (los eventos en tiempos fijos
+  sí se traducen).
 
 Datos: PEtab Benchmark-Models, commit `fcbddf1b900efabdfbdc2b58452c89556e63f1ce`
 (28-09-2026), clonado en `bench/` (no incluido en el repositorio).

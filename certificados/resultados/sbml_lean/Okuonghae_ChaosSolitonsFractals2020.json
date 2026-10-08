@@ -36,21 +36,23 @@
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [
-  "susceptible: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
-  "susceptible: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
-  "exposed: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
-  "exposed: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)"
+  "susceptible: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((asymptomatic + exposed) + recovered) + susceptible) + symptomatic))) * susceptible)",
+  "susceptible: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((asymptomatic + exposed) + recovered) + susceptible) + symptomatic))) * susceptible)",
+  "exposed: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((asymptomatic + exposed) + recovered) + susceptible) + symptomatic))) * susceptible)",
+  "exposed: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((asymptomatic + exposed) + recovered) + susceptible) + symptomatic))) * susceptible)"
  ],
  "fallos_cuasipositividad": [
-  "exposed: producción de signo indefinido: ((1 * ((((transmission_rate_effective * 1/5) * 1) * (alpha * asymptomatic)) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
-  "exposed: producción de signo indefinido: ((1 * ((((transmission_rate_effective * 1/5) * 1) * symptomatic) / ((((((asymptomatic + detected) + exposed) + recovered) + susceptible) + symptomatic) - detected))) * susceptible)",
   "symptomatic: consumo sin factor: (1 * ((sigma * nu) * exposed))"
  ],
  "n_fallos_dominio": 4,
- "n_fallos_cuasipositividad": 3,
+ "n_fallos_cuasipositividad": 1,
  "prediccion_check": false,
  "lean": "Models/Okuonghae_ChaosSolitonsFractals2020.lean",
  "red": null,
+ "estricta": "checkNetS",
+ "estricta_fallos": [
+  "especie 3 (Σ), coef -1: (1 * ((sigma * nu) * exposed))"
+ ],
  "teorema_final": false,
  "traducido": true
 }
