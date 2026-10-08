@@ -58,6 +58,7 @@
  "n_fallos_cuasipositividad": 4,
  "prediccion_check": false,
  "lean": "Models/Elowitz_Nature2000.lean",
+ "red": null,
  "teorema_final": false,
  "traducido": true
 }

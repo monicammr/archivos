@@ -47,6 +47,7 @@
  "n_fallos_cuasipositividad": 0,
  "prediccion_check": false,
  "lean": "Models/Rahman_MBS2016.lean",
+ "red": null,
  "teorema_final": false,
  "traducido": true
 }

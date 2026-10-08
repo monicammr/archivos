@@ -35,6 +35,7 @@
  "n_fallos_cuasipositividad": 0,
  "prediccion_check": true,
  "lean": "Models/Sneyd_PNAS2002.lean",
+ "red": "ok",
  "teorema_final": true,
  "traducido": true
 }

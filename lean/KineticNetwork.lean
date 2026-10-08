@@ -1,5 +1,6 @@
 import KineticCheck
 import GlobalExistence
+import EventSystems
 
 /-!
 # Redes de reacciones: comprobación completa, incluida la existencia global (C4)
@@ -536,9 +537,73 @@ theorem network_final_init (Rx : List (KExpr n p × List (Fin n × ℚ)))
     (fun t ht => (hsol t ht).1) (by rw [h0]; exact hx0) (fun θ => field G 0 θ) _
     (init_differentiable hI hθ₀).hasFDerivAt h0.symm
 
+/-- **Teorema final por tramos (entradas por escalones en tiempos fijos), sin condiciones
+pendientes.** Cada tramo `k` tiene su red `Rx k`, comprobada, con pesos `c k`. Existen los tramos
+nominales `y₀ k` (encadenados: cada uno empieza donde termina el anterior), son `≥ 0`, y la
+trayectoria es diferenciable respecto a θ en todos los tramos. -/
+theorem network_segments_final (Rx : ℕ → List (KExpr n p × List (Fin n × ℚ)))
+    (hN : ∀ k, checkNet pos (Rx k) = true) (c : ℕ → Fin n → ℚ)
+    (hG : ∀ k, checkGrowth pos (c k) (Rx k) = true)
+    (θq : Fin p → ℚ) (hθ : checkPosParams pos θq = true)
+    (xq : Fin n → ℚ) (hx : checkNonneg xq = true) (L : ℕ → ℝ) (hL : ∀ k, 0 ≤ L k) :
+    ∃ y₀ : ℕ → ℝ → EuclideanSpace ℝ (Fin n), y₀ 0 0 = qvec xq ∧
+      (∀ k, y₀ (k + 1) 0 = y₀ k (L k)) ∧
+      (∀ k, ∀ t ∈ Icc 0 (L k),
+        HasDerivWithinAt (y₀ k) (field (netF (Rx k)) (y₀ k t) (qvec θq)) (Icc 0 (L k)) t ∧
+        Nonneg (y₀ k t)) ∧
+      ∃ Y : ℕ → EuclideanSpace ℝ (Fin p) → ℝ → EuclideanSpace ℝ (Fin n),
+        (∀ k, Y k (qvec θq) = y₀ k) ∧
+        (∀ k, ∀ᶠ θ in 𝓝 (qvec θq), ∀ t ∈ Icc 0 (L k),
+          HasDerivWithinAt (Y k θ) (field (netF (Rx k)) (Y k θ t) θ) (Icc 0 (L k)) t) ∧
+        (∀ᶠ θ in 𝓝 (qvec θq), Y 0 θ 0 = qvec xq) ∧
+        (∀ k, ∀ᶠ θ in 𝓝 (qvec θq), Y (k + 1) θ 0 = Y k θ (L k)) ∧
+        (∀ k, ∀ s ∈ Icc 0 (L k), DifferentiableAt ℝ (fun θ => Y k θ s) (qvec θq)) := by
+  have hθ₀ := posParams_qvec hθ
+  have ex : ∀ k (z : EuclideanSpace ℝ (Fin n)), ∃ y : ℝ → EuclideanSpace ℝ (Fin n),
+      Nonneg z → (y 0 = z ∧ ∀ t ∈ Icc 0 (L k),
+        HasDerivWithinAt y (field (netF (Rx k)) (y t) (qvec θq)) (Icc 0 (L k)) t ∧
+        Nonneg (y t)) := by
+    intro k z
+    by_cases hz : Nonneg z
+    · obtain ⟨y, hy⟩ := network_exists (Rx k) (hN k) (c k) (hG k) hθ₀ z hz (hL k)
+      exact ⟨y, fun _ => hy⟩
+    · exact ⟨fun _ => z, fun h => absurd h hz⟩
+  choose Fam hFam using ex
+  let y₀ : ℕ → ℝ → EuclideanSpace ℝ (Fin n) := fun k =>
+    Nat.rec (motive := fun _ => ℝ → EuclideanSpace ℝ (Fin n)) (Fam 0 (qvec xq))
+      (fun k yk => Fam (k + 1) (yk (L k))) k
+  have hy0 : y₀ 0 = Fam 0 (qvec xq) := rfl
+  have hys : ∀ k, y₀ (k + 1) = Fam (k + 1) (y₀ k (L k)) := fun k => rfl
+  have hseg : ∀ k, Nonneg (y₀ k 0) ∧ y₀ k 0 = (if k = 0 then qvec xq else y₀ (k - 1) (L (k - 1)))
+      ∧ ∀ t ∈ Icc 0 (L k),
+        HasDerivWithinAt (y₀ k) (field (netF (Rx k)) (y₀ k t) (qvec θq)) (Icc 0 (L k)) t ∧
+        Nonneg (y₀ k t) := by
+    intro k
+    induction k with
+    | zero =>
+        obtain ⟨h1, h2⟩ := hFam 0 (qvec xq) (nonneg_qvec hx)
+        rw [← hy0] at h1 h2
+        exact ⟨by rw [h1]; exact nonneg_qvec hx, by rw [h1]; rfl, h2⟩
+    | succ k ih =>
+        have hz : Nonneg (y₀ k (L k)) := (ih.2.2 (L k) ⟨hL k, le_rfl⟩).2
+        obtain ⟨h1, h2⟩ := hFam (k + 1) (y₀ k (L k)) hz
+        rw [← hys] at h1 h2
+        exact ⟨by rw [h1]; exact hz, by rw [h1]; simp, h2⟩
+  have hlink : ∀ k, y₀ (k + 1) 0 = y₀ k (L k) := fun k => by
+    have := (hseg (k + 1)).2.1; simpa using this
+  have hinit : y₀ 0 0 = qvec xq := by have := (hseg 0).2.1; simpa using this
+  refine ⟨y₀, hinit, hlink, fun k => (hseg k).2.2, ?_⟩
+  exact EventSystems.event_hasFDerivAt (fun k => field (netF (Rx k)))
+    (fun k => domain (netF (Rx k))) (fun k => isOpen_domain _) (fun k => contDiffOn_field _) L hL
+    (fun _ x _ => x) y₀ (qvec θq) (fun k t ht => ((hseg k).2.2 t ht).1)
+    (fun k t ht => (checkNet_sound (hN k) hθ₀).1 _ ((hseg k).2.2 t ht).2)
+    (fun _ => differentiableAt_fst) hlink (fun _ => qvec xq) (differentiableAt_const _)
+    hinit.symm
+
 end KineticNetwork
 
 #print axioms KineticNetwork.checkNet_sound
 #print axioms KineticNetwork.checkGrowth_sound
 #print axioms KineticNetwork.network_final
 #print axioms KineticNetwork.network_final_init
+#print axioms KineticNetwork.network_segments_final

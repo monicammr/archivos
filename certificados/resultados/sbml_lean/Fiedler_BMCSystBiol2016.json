@@ -47,6 +47,7 @@
  "n_fallos_cuasipositividad": 1,
  "prediccion_check": false,
  "lean": "Models/Fiedler_BMCSystBiol2016.lean",
+ "red": null,
  "teorema_final": false,
  "traducido": true
 }

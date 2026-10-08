@@ -46,6 +46,7 @@
  "n_fallos_cuasipositividad": 2,
  "prediccion_check": false,
  "lean": "Models/Armistead_CellDeathDis2024.lean",
+ "red": null,
  "teorema_final": false,
  "traducido": true
 }

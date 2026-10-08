@@ -35,6 +35,7 @@
  "n_fallos_cuasipositividad": 0,
  "prediccion_check": true,
  "lean": "Models/SalazarCavazos_MBoC2020.lean",
+ "red": "ok",
  "teorema_final": true,
  "traducido": true
 }

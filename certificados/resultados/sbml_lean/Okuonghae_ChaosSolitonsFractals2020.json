@@ -49,6 +49,7 @@
  "n_fallos_cuasipositividad": 3,
  "prediccion_check": false,
  "lean": "Models/Okuonghae_ChaosSolitonsFractals2020.lean",
+ "red": null,
  "teorema_final": false,
  "traducido": true
 }
