@@ -36,6 +36,16 @@ class Strict:
         if t in ('add', 'mul', 'div'): return self.nonneg(e[1]) and self.nonneg(e[2])
         if t in ('npow', 'rpow'): return self.nonneg(e[1])
         if t == 'exp': return True
+        if t == 'log': return e[1][0] == 'num' and e[1][1] >= 1
+        return False
+
+    def nonpos(self, e):
+        """≤ 0 en la región: (constante ≤ 0)·(no negativo), o −(no negativo)."""
+        t = e[0]
+        if t == 'num': return e[1] <= 0
+        if t == 'mul': return (self.nonpos(e[1]) and self.nonneg(e[2])) or \
+            (self.nonneg(e[1]) and self.nonpos(e[2]))
+        if t == 'add': return self.nonpos(e[1]) and self.nonpos(e[2])
         return False
 
     def ispos(self, e):
@@ -48,6 +58,7 @@ class Strict:
         if t in ('mul', 'div'): return self.ispos(e[1]) and self.ispos(e[2])
         if t in ('npow', 'rpow'): return self.ispos(e[1])
         if t == 'exp': return True
+        if t == 'log': return e[1][0] == 'num' and e[1][1] > 1
         return False
 
     def okdom(self, e):
@@ -76,6 +87,7 @@ class Strict:
         if t in ('add', 'mul'): return self.bnd(e[1]) and self.bnd(e[2]) and \
             self.nonneg(e[1]) and self.nonneg(e[2])
         if t == 'npow': return self.bnd(e[1]) and self.nonneg(e[1])
+        if t == 'exp': return self.nonpos(e[1])          # e^{≤0} ≤ 1
         if t == 'div':
             a, b = e[1], e[2]
             if self.bnd(a) and self.nonneg(a) and self.lowerpos(b):
@@ -150,15 +162,15 @@ def analyze(name, T):
     fallos = []
     for V, col in Rx:
         if not S.okdom(V):
-            fallos.append(("dominio", repr(V)[:150]))
+            fallos.append(("dominio", repr(V)))
         for i, s in col:
             if s < 0:
                 ok = S.cons(i, V) if sx[i] else S.van(i, V)
                 if not ok:
                     fallos.append((f"consumo de {m.states[i]} ({'Σ' if sx[i] else 'no Σ'})",
-                                   repr(V)[:150]))
+                                   repr(V)))
             elif not (S.nonneg(V) or S.van(i, V)):
-                fallos.append((f"producción de {m.states[i]}", repr(V)[:150]))
+                fallos.append((f"producción de {m.states[i]}", repr(V)))
     # crecimiento (programación lineal), con signos de la región estricta
     A_ub, A_eq = [], []
     for V, col in Rx:

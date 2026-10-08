@@ -421,6 +421,13 @@ class Model:
         if tag == 'add':
             return self.expand(e[1]) + self.expand(e[2])
         if tag == 'sub':
+            # represión de Hill: a − b·(a − c)/(b + d) = (a·d + b·c)/(b + d)  (si b + d ≠ 0,
+            # que el dominio exige); deja la tasa como suma de términos no negativos
+            a, q = e[1], e[2]
+            if q[0] == 'div' and q[1][0] == 'mul' and q[1][2][0] == 'sub' and \
+                    q[1][2][1] == a and q[2][0] == 'add' and q[2][1] == q[1][1]:
+                b, c, d = q[1][1], q[1][2][2], q[2][2]
+                return self.expand(('div', ('add', ('mul', a, d), ('mul', b, c)), q[2]))
             return self.expand(e[1]) + [(-s, t) for s, t in self.expand(e[2])]
         if tag == 'mul':
             A, B = self.expand(e[1]), self.expand(e[2])
