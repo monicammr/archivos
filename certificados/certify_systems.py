@@ -39,7 +39,11 @@ BENCH = Path(__file__).resolve().parent / "bench" / "problems"
 OUT = Path(__file__).resolve().parent / "resultados"
 OUT.mkdir(exist_ok=True)
 
+import os as _os
 N_PTS, N_ESCEN, SEED, C = 60, 15, 42, 0.9
+# malla temporal (análisis de sensibilidad): CS_NPTS puntos y horizonte T × CS_TFACTOR
+N_PTS = int(_os.environ.get("CS_NPTS", N_PTS))
+T_FACTOR = float(_os.environ.get("CS_TFACTOR", 1.0))
 NIV_FIM = [0.01, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50]
 NIV_SCAN = [0.01, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50, 0.80, 0.90, 1.00, 1.10]
 T_END_OVERRIDE = {"Sneyd_PNAS2002": 5.0, "Elowitz_Nature2000": 5.0,
@@ -110,7 +114,7 @@ class Sys:
         folder = BENCH / name / "v1"
         self.names, self.theta0 = load_theta(folder)
         self.m = load_model(folder / "model.xml")
-        self.t_end = t_end
+        self.t_end = t_end * T_FACTOR
         gp = set(self.m.model.getGlobalParameterIds())
         self.in_model = np.array([n in gp for n in self.names])
         self.species = list(self.m.model.getFloatingSpeciesIds())

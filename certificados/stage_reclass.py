@@ -41,9 +41,14 @@ import numpy as np
 import pandas as pd
 from certify_systems import Sys, SYSTEMS, T_END_OVERRIDE, OUT
 
-DELTA = 0.01          # paso de la linealización (artículo: δ = 0,01)
+import os as _os
+# Valores del artículo; se pueden cambiar por variables de entorno para el análisis de
+# sensibilidad (comentario 6): RECL_DELTA, RECL_NIVEL y RECL_TAG (sufijo de la carpeta).
+DELTA = float(_os.environ.get("RECL_DELTA", 0.01))   # paso de la linealización (δ = 0,01)
 RVAR_MIN, KAPPA_MAX, VIF_MAX, COS_MIN = 0.89, 10.0, 10.0, 0.90
-N_ESC, NIVEL, SEED = 15, 0.05, 42
+N_ESC, SEED = 15, 42
+NIVEL = float(_os.environ.get("RECL_NIVEL", 0.05))   # perturbación de los escenarios (±5 %)
+TAG = _os.environ.get("RECL_TAG", "")
 EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ ≥ 0,90 (Lean)
 V3 = "--v3" in sys.argv          # criterio por reestimación (e_ajuste); implica las reglas de v2
 V2 = ("--v2" in sys.argv) or V3
@@ -359,7 +364,8 @@ if __name__ == "__main__":
         _CS.BENCH = _P(sys.argv[_i + 1])
         del sys.argv[_i:_i + 2]
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
-    d = OUT / ("reclasificacion_salidas" if SALIDAS else "reclasificacion_v3" if V3 else "reclasificacion_v2" if V2 else "reclasificacion")
+    d = OUT / (("reclasificacion_salidas" if SALIDAS else "reclasificacion_v3" if V3 else "reclasificacion_v2" if V2 else "reclasificacion")
+               + (f"_{TAG}" if TAG else ""))
     d.mkdir(exist_ok=True)
     out = []
     lista = [(n, sel, t, "FIM" if g == "FIM" else "SCAN", None) for n, sel, t, g in SYSTEMS]

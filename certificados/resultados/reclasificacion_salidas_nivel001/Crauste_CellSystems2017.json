@@ -1,0 +1,28 @@
+{
+ "sistema": "Crauste_CellSystems2017",
+ "p": 12,
+ "T": 1.0,
+ "S1": [
+  "mu_P"
+ ],
+ "Rvar_S1_%": 88.02408356840603,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "rho_E"
+ ],
+ "Rvar_%": 0.0,
+ "kappa": 1.0,
+ "VIF": 1.0,
+ "cos_med": 0.8874219521990627,
+ "erel_med": 0.4642917343698235,
+ "n_escenarios": 4,
+ "admisible": false,
+ "eajuste_med": 0.742409535527669,
+ "segundos": 12.1,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "mu_N",
+  "rho_E"
+ ]
+}

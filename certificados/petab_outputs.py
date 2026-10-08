@@ -39,6 +39,10 @@ rr.Config.setValue(rr.Config.ROADRUNNER_DISABLE_WARNINGS, True)
 import certify_systems as CS
 
 T_INF = 1e5      # mediciones en estado estacionario (time = inf) y preequilibrio
+import os as _os
+# tolerancias del integrador (análisis de sensibilidad: variables PO_RTOL y PO_ATOL)
+RTOL = float(_os.environ.get("PO_RTOL", 1e-7))
+ATOL = float(_os.environ.get("PO_ATOL", 1e-10))
 
 
 def load_model_ia(sbml_path, overridden=()):
@@ -72,7 +76,7 @@ def load_model_ia(sbml_path, overridden=()):
     hosu = {sp.getId() for sp in mdl.getListOfSpecies() if sp.getHasOnlySubstanceUnits()}
     m = rr.RoadRunner(libsbml.writeSBMLToString(doc))
     ig = m.getIntegrator()
-    for k, v in [("relative_tolerance", 1e-7), ("absolute_tolerance", 1e-10),
+    for k, v in [("relative_tolerance", RTOL), ("absolute_tolerance", ATOL),
                  ("maximum_num_steps", 200000), ("stiff", True)]:
         try:
             ig.setValue(k, v)
@@ -261,7 +265,7 @@ class PSys:
         except Exception:
             # respaldos: por tramos; además orden BDF ≤ 2; además tolerancias 1e-6 / 1e-8
             ig = m.getIntegrator()
-            base = {"maximum_bdf_order": 5, "relative_tolerance": 1e-7, "absolute_tolerance": 1e-10}
+            base = {"maximum_bdf_order": 5, "relative_tolerance": RTOL, "absolute_tolerance": ATOL}
             ajustes = [{}, {"maximum_bdf_order": 2},
                        {"maximum_bdf_order": 2, "relative_tolerance": 1e-6, "absolute_tolerance": 1e-8}]
             traj = None
