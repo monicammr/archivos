@@ -20,7 +20,9 @@ Uso:
   python3 refit_systems.py Lang_PLOSComputBiol2024 Chen_MSB2009
   python3 refit_systems.py --bench C:/ruta/Benchmark-Models-PEtab/problems Froehlich_CellSystems2018
 Opciones: --bench RUTA (carpeta `problems` del benchmark PEtab), --escenarios N (por defecto 15),
-          --max-nfev N (evaluaciones máximas por ajuste, por defecto 100·(|S|+1)).
+          --max-nfev N (evaluaciones máximas por ajuste, por defecto 100·(|S|+1)),
+          --subconjunto S1 (usa el subconjunto de la Etapa 1, campo "S1" del JSON, en lugar del
+          final "S"; el resultado se guarda como <sistema>_S1.json y no reemplaza al otro).
 """
 import sys, json, time
 from pathlib import Path
@@ -38,7 +40,7 @@ OUTD = HERE / "resultados" / "ajuste"
 
 def args():
     a = sys.argv[1:]
-    opt = {"bench": None, "escenarios": 15, "max_nfev": None}
+    opt = {"bench": None, "escenarios": 15, "max_nfev": None, "campo": "S"}
     names = []
     i = 0
     while i < len(a):
@@ -48,6 +50,8 @@ def args():
             opt["escenarios"] = int(a[i + 1]); i += 2
         elif a[i] == "--max-nfev":
             opt["max_nfev"] = int(a[i + 1]); i += 2
+        elif a[i] == "--subconjunto":
+            opt["campo"] = a[i + 1]; i += 2
         else:
             names.append(a[i]); i += 1
     return names, opt
@@ -146,7 +150,7 @@ if __name__ == "__main__":
             print(f"[{name}] falta {f}: ejecute antes `python3 stage_reclass.py --v2 {name}`")
             continue
         info = json.loads(f.read_text())
-        S_names = info.get("S") or []
+        S_names = info.get(opt["campo"]) or []
         if not S_names:
             print(f"[{name}] sin subconjunto ({info.get('etapa')}): se omite")
             continue
@@ -156,9 +160,11 @@ if __name__ == "__main__":
         except Exception as e:
             r, filas = {"sistema": name, "error": repr(e)}, []
         r["admisible_v2"] = info.get("admisible")
+        sufijo = "" if opt["campo"] == "S" else f"_{opt['campo']}"
+        r["subconjunto"] = opt["campo"]
         print(json.dumps(r, default=str), flush=True)
-        (OUTD / f"{name}.json").write_text(json.dumps(r, default=str, indent=1))
-        pd.DataFrame(filas).to_csv(OUTD / f"{name}_escenarios.csv", index=False)
+        (OUTD / f"{name}{sufijo}.json").write_text(json.dumps(r, default=str, indent=1))
+        pd.DataFrame(filas).to_csv(OUTD / f"{name}{sufijo}_escenarios.csv", index=False)
         out.append(r)
     # resumen con todos los sistemas calculados hasta ahora (también los de corridas anteriores)
     todos = [json.loads(f.read_text()) for f in sorted(OUTD.glob("*.json"))]
