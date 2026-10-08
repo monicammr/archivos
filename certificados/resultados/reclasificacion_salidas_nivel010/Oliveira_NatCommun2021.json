@@ -1,0 +1,27 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "p": 12,
+ "T": 50.0,
+ "S1": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "Rvar_S1_%": 46.716420282364155,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "Rvar_%": 46.716420282364155,
+ "kappa": 1.2268878751433,
+ "VIF": 1.0423984067227519,
+ "cos_med": 0.9193112904588298,
+ "erel_med": 1.2717201616017502,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.1320890144176712,
+ "segundos": 2.2,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

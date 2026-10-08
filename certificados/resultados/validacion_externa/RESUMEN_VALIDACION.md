@@ -24,6 +24,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Raia_CancerResearch2011 | condiciones nuevas | 2 / 23 | 6.92 | 5.10 | 0.42 |
 | SalazarCavazos_MBoC2020 | condiciones nuevas | 2 / 6 | 101.83 | 124.19 | 96.93 |
 | Schwen_PONE2014 | condiciones nuevas | 4 / 28 | 0.93 | 8.40 | 0.77 |
+| Smith_BMCSystBiol2013 | condiciones nuevas | 3 / 25 | 16361.97 | 14977.66 | 82920.71 |
 | Sneyd_PNAS2002 | condiciones nuevas | 2 / 14 | 2.22 | 2.55 | 1.37 |
 | Weber_BMC2015 | condiciones nuevas | 2 / 31 | 0.99 | 226.02 | 0.99 |
 | Zhao_QuantBiol2020 | condiciones nuevas | 3 / 21 | 0.35 | 0.35 | 0.35 |
@@ -51,6 +52,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Raia_CancerResearch2011 | 0.47 | 1.08 | 0.93 | 0.96 | no |
 | SalazarCavazos_MBoC2020 | 0.17 | 0.11 | 0.44 | 0.55 | sí |
 | Schwen_PONE2014 | 0.25 | 1.94 | 0.75 | 4.51 | sí |
+| Smith_BMCSystBiol2013 | 0.22 | 0.07 | 213.63 | 22.73 | sí |
 | Sneyd_PNAS2002 | 0.29 | 0.23 | 0.90 | 0.94 | sí |
 | Weber_BMC2015 | 0.77 | 1.72 | 69.94 | 352.74 | no |
 | Zhao_QuantBiol2020 | 1.00 | 1.00 | 0.87 | 0.87 | no |
@@ -58,9 +60,9 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 
 ## Resumen
 
-* Sistemas evaluados: 22; no evaluables: 2; errores: 0.
-* Datos reales: el reducido predice igual o mejor que el completo reajustado en 20 de 22 sistemas.
-* Sintético: e_pred del reducido ≤ 0,436 en 11 de 22; reducido igual o mejor que el completo en 14 de 22.
+* Sistemas evaluados: 23; no evaluables: 2; errores: 0.
+* Datos reales: el reducido predice igual o mejor que el completo reajustado en 20 de 23 sistemas.
+* Sintético: e_pred del reducido ≤ 0,436 en 12 de 23; reducido igual o mejor que el completo en 14 de 23.
 
 No evaluables:
 
