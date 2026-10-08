@@ -1,0 +1,31 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "p": 19,
+ "T": 50.0,
+ "S1": [
+  "init_AKT",
+  "scaling_pS6_tot",
+  "reaction_4_k1",
+  "reaction_3_k1",
+  "reaction_8_k1",
+  "reaction_5_k2"
+ ],
+ "Rvar_S1_%": 41.356067784542866,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "init_AKT",
+  "scaling_pS6_tot"
+ ],
+ "Rvar_%": 29.132478817092554,
+ "kappa": 2.339252013615376,
+ "VIF": 1.9137112955336073,
+ "cos_med": 0.6585971771652425,
+ "erel_med": 0.8508923330923623,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.3254107880501052,
+ "segundos": 4.5,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

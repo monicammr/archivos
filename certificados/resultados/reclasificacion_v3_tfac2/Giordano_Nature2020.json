@@ -1,0 +1,43 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "p": 50,
+ "T": 50.0,
+ "S1": [
+  "alpha_4",
+  "epsilon_38",
+  "rho_38",
+  "nu_22",
+  "eta_38",
+  "rho_22",
+  "eta_22",
+  "tau",
+  "eta_0",
+  "kappa_38",
+  "sigma_0"
+ ],
+ "Rvar_S1_%": 66.79762224063074,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "alpha_4",
+  "epsilon_38"
+ ],
+ "Rvar_%": 66.79196217874066,
+ "kappa": 4.836513794556566,
+ "VIF": 6.358653897101314,
+ "cos_med": 0.9883982219489069,
+ "erel_med": 0.9375692935844241,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.0715915404620766,
+ "segundos": 1.7,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "alpha_4",
+  "alpha_28",
+  "zeta_22",
+  "rho_38",
+  "rho_22",
+  "tau"
+ ]
+}

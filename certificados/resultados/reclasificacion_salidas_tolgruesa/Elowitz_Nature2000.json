@@ -1,0 +1,40 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "p": 21,
+ "T": 5.0,
+ "S1": [
+  "n_Hill",
+  "tau_mRNA",
+  "tau_prot",
+  "scale",
+  "tau_prot_GFP",
+  "eff"
+ ],
+ "Rvar_S1_%": 91.9005206048081,
+ "S1_cumple": true,
+ "cos_S1": 0.9635020932370173,
+ "erel_S1": 0.36765131769299814,
+ "etapa": "Stage 1",
+ "S": [
+  "n_Hill",
+  "tau_mRNA",
+  "tau_prot",
+  "scale",
+  "tau_prot_GFP",
+  "eff"
+ ],
+ "Rvar_%": 91.9005206048081,
+ "kappa": 7.121163481707378,
+ "VIF": 9.994575768182068,
+ "cos_med": 0.9635020932370173,
+ "erel_med": 0.36765131769299814,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.05200538343670515,
+ "segundos": 3.4,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "tps_active",
+  "tau_prot"
+ ]
+}
