@@ -8,6 +8,7 @@
  "parametros_por_condicion": [
   "S_on"
  ],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,

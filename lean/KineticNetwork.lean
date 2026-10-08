@@ -460,6 +460,17 @@ theorem checkGrowth_sound {c : Fin n → ℚ} {Rx : List (KExpr n p × List (Fin
     _ = (Rx.map A).sum + (Rx.map Bt).sum * ssum y := hsplit
     _ ≤ _ := by nlinarith [mul_le_mul_of_nonneg_left hS hB0]
 
+/-! ## Comprobación por bloques (para modelos muy grandes) -/
+
+theorem checkNet_append (A B : List (KExpr n p × List (Fin n × ℚ))) :
+    checkNet pos (A ++ B) = (checkNet pos A && checkNet pos B) := by
+  simp [checkNet, List.all_append]
+
+theorem checkGrowth_append (c : Fin n → ℚ) (A B : List (KExpr n p × List (Fin n × ℚ))) :
+    checkGrowth pos c (A ++ B) = (checkGrowth pos c A && checkGrowth pos c B) := by
+  simp only [checkGrowth, List.all_append]
+  cases (List.finRange n).all (fun i => decide (1 ≤ c i)) <;> simp
+
 /-! ## Teorema final: sin condiciones pendientes -/
 
 lemma c_ge_one {c : Fin n → ℚ} {Rx : List (KExpr n p × List (Fin n × ℚ))}

@@ -13,6 +13,26 @@
   "kminus4",
   "k_irs1_basal_syn"
  ],
+ "eventos_tiempo_fijo": [
+  [
+   15.0,
+   {
+    "Ins": 0.0
+   }
+  ],
+  [
+   2880.0,
+   {
+    "Ins": 499999.0
+   }
+  ],
+  [
+   2895.0,
+   {
+    "Ins": 0.0
+   }
+  ]
+ ],
  "traducido": false,
- "motivo": "eventos SBML (se cubren con EventSystems, no con este traductor)"
+ "motivo": "condición que depende del estado (evento no fijo)"
 }

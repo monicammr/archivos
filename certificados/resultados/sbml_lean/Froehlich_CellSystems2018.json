@@ -129,6 +129,7 @@
   "r618_k_RPKM2protein",
   "r1627_k_RPKM2protein"
  ],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,

@@ -28,4 +28,12 @@ def F : Fin 4 → KExpr 4 10 := ![
 /-- La comprobación sintáctica FALLA para este modelo (ver el informe JSON). -/
 theorem check_falla : checkModel pos F = false := by decide +kernel
 
+/-- **Diferenciabilidad con condiciones explícitas.** El campo es C¹ en su dominio
+(demostrado para todo `KExpr`); quedan como condiciones que la solución nominal
+exista en [0, T] y permanezca en el dominio (para este modelo el comprobador
+sintáctico no puede garantizarlo; ver `check_falla`). -/
+def diff := @kinetic_hasFDerivAt _ _ F
+
 end Models.Armistead_CellDeathDis2024
+
+#print axioms Models.Armistead_CellDeathDis2024.diff

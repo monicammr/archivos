@@ -24,7 +24,7 @@ MOTIVO = {
     "Rahman_MBS2016": "incidencia β·S·I/N: no definida si N = 0",
     "Armistead_CellDeathDis2024": "producción k3(1 − S_on·α)·Sphingo de signo dependiente de parámetros; alpha_cer < 0 por diseño",
     "Fiedler_BMCSystBiol2016": "entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) ≥ 0, pero el comprobador sintáctico no lo detecta (conservador)",
-    "Smith_BMCSystBiol2013": "eventos SBML (tiempos fijos): cubierto por EventSystems, no por el traductor",
+    "Smith_BMCSystBiol2013": "las reacciones R16f/R17f usan max(PIP3 − basal, 0), que no es diferenciable: el campo no es C¹ y el teorema de diferenciabilidad no aplica (los eventos en tiempos fijos sí se traducen)",
 }
 
 rows = []
@@ -46,7 +46,10 @@ for f in sorted(D.glob("*.json")):
     if d.get("theta_signo_libre"):
         notas.append("signo libre: " + ", ".join(d["theta_signo_libre"]))
     t, out = lean.get(nm, ("", ""))
-    if "depends on axioms: [propext, Classical.choice, Quot.sound]" in out:
+    if "check_falla demostrado" in out:
+        res = f"✅ verificado con condición: la solución nominal existe en [0,T] y permanece en el dominio"
+        notas.append(MOTIVO.get(nm, ""))
+    elif "depends on axioms: [propext, Classical.choice, Quot.sound]" in out:
         if d.get("red") == "ok":
             res = f"✅ verificado, sin condiciones pendientes ({t})"
         else:

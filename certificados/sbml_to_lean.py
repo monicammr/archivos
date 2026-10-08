@@ -202,6 +202,43 @@ class Model:
             return ops[ty]()
         raise Unsupported(f"operación no soportada en evaluación: {a.getName()}")
 
+    def fixed_time_events(self):
+        """Eventos `time >= c` (c constante) que asignan valores constantes a símbolos que no son
+        estados (entradas). Devuelve [(c, {símbolo: valor})]; si no es de ese tipo, Unsupported."""
+        T = libsbml
+        evs = []
+        for ev in self.m.getListOfEvents():
+            if ev.isSetDelay():
+                raise Unsupported("evento con retardo")
+            tr_ = ev.getTrigger().getMath()
+            if tr_.getType() not in (T.AST_RELATIONAL_GEQ, T.AST_RELATIONAL_GT) or \
+                    tr_.getChild(0).getType() != T.AST_NAME_TIME:
+                raise Unsupported("evento no disparado por un tiempo fijo")
+            try:
+                c = self.evalnum(tr_.getChild(1), 0.0)
+            except NotConst as e:
+                raise Unsupported(f"tiempo de evento que depende del {e.kind}")
+            asg = {}
+            for ea in ev.getListOfEventAssignments():
+                var = ea.getVariable()
+                if var in self.sidx:
+                    raise Unsupported("evento que reasigna un estado")
+                try:
+                    asg[var] = self.evalnum(ea.getMath(), c)
+                except NotConst as e:
+                    raise Unsupported(f"asignación de evento que depende del {e.kind}")
+            evs.append((c, asg))
+        return sorted(evs, key=lambda e: e[0])
+
+    def apply_events(self, evs, t):
+        """Fija los valores de las entradas vigentes en el instante t."""
+        if not hasattr(self, "_consts0"):
+            self._consts0 = dict(self.consts)
+        self.consts = dict(self._consts0)
+        for c, asg in evs:
+            if c <= t:
+                self.consts.update(asg)
+
     def has_time(self, a, depth=0):
         if a is None or depth > 200:
             return False
@@ -541,6 +578,12 @@ def emit(model, segs, ok):
                  f"def xq : Fin {n} → ℚ := ![{xq}]", "",
                  "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
                  "theorem x0_ok : checkNonneg xq = true := by decide +kernel", ""]
+    if not ok and len(segs) == 1:
+        body += ["/-- **Diferenciabilidad con condiciones explícitas.** El campo es C¹ en su dominio",
+                 "(demostrado para todo `KExpr`); quedan como condiciones que la solución nominal",
+                 "exista en [0, T] y permanezca en el dominio (para este modelo el comprobador",
+                 "sintáctico no puede garantizarlo; ver `check_falla`). -/",
+                 "def diff := @kinetic_hasFDerivAt _ _ F", ""]
     if not ok:
         pass
     elif len(segs) == 1:
@@ -572,7 +615,7 @@ def emit(model, segs, ok):
                      "def final := @checked_segments_final _ _ pos Fseg check θq theta_ok xq x0_ok",
                      ""]
     tail = [f"end Models.{mod}", ""]
-    if ok:
+    if ok or len(segs) == 1:
         tail += [f"#print axioms Models.{mod}.diff", ""]
     if final_ok or init_ok:
         tail += [f"#print axioms Models.{mod}.final", ""]
@@ -658,14 +701,19 @@ def process(name, T):
         rep.update(n_estados=len(model.states), n_theta=len(model.theta),
                    reacciones=model.m.getNumReactions(), eventos=model.m.getNumEvents(),
                    parametros_por_condicion=model.cond_params)
-        if model.m.getNumEvents():
-            raise Unsupported("eventos SBML (se cubren con EventSystems, no con este traductor)")
-        bps = [b for b in model.breakpoints() if 0 < b < T]
+        evs = model.fixed_time_events() if model.m.getNumEvents() else []
+        rep["eventos_tiempo_fijo"] = [[c, {k: v for k, v in a.items()}] for c, a in evs]
+        bps = sorted(set([b for b in model.breakpoints() if 0 < b < T] +
+                         [c for c, _ in evs if 0 < c < T]))
         edges = [0.0] + bps + [T]
         segs = []
         for a, b in zip(edges[:-1], edges[1:]):
             model.t_now = (a + b) / 2
+            if evs:
+                model.apply_events(evs, model.t_now)
             segs.append((a, b, model.species_rhs()))
+        if evs:
+            model.apply_events(evs, -1.0)   # valores iniciales para el resto del informe
         model.names_ext = list(model.states)
         if model.uses_time:
             model.names_ext.append("τ (tiempo)")
@@ -887,6 +935,15 @@ def growth_ok_exact(Rx, c, pos):
     return True
 
 
+def lean_vec(name, m, typ, elems, default):
+    """Vector `Fin m → typ`: notación ![…] si es corto; lista + getD si es largo
+    (la notación ![…] desborda la pila del analizador para miles de elementos)."""
+    if m <= 500:
+        return [f"def {name} : Fin {m} → {typ} := ![{', '.join(elems)}]"]
+    return [f"def {name}L : List {typ} := [{', '.join(elems)}]",
+            f"def {name} : Fin {m} → {typ} := fun j => {name}L.getD j.val {default}"]
+
+
 def emit_network(model, rhs, init_exprs):
     """Archivo Lean en forma de red con el teorema final sin condiciones pendientes."""
     n, p = len(model.names_ext), len(model.theta)
@@ -910,28 +967,50 @@ def emit_network(model, rhs, init_exprs):
         "open KineticRegularity KineticCheck KineticNetwork", "",
         f"namespace Models.{mod}", "",
         "/-- Máscara de parámetros positivos (nominal > 0 o escala log). -/",
-        f"def pos : Fin {p} → Bool := ![{mask}]", "",
+        *lean_vec("pos", p, "Bool", [("true" if b else "false") for b in pos], "false"), "",
         f"/-- Términos de velocidad con su columna estequiométrica ({len(Rx)} términos). -/",
         f"def Rx : List (KExpr {n} {p} × List (Fin {n} × ℚ)) := ["]
-    items = []
-    for V, col in Rx:
+    def item(V, col):
         cs = ", ".join(f"({i}, {lean_q(s)})" for i, s in col)
-        items.append(f"  ({lean_expr(V)}, [{cs}])")
-    lines += [",\n".join(items), "]", "",
-              "/-- El campo del modelo: `Fᵢ = Σ_r coef_r(i) · V_r`. -/",
-              f"def F : Fin {n} → KExpr {n} {p} := netF Rx", "",
-              "/-- Dominio ⊇ ortante y cuasi-positividad (Lean ejecuta el comprobador). -/",
-              "theorem net_ok : checkNet pos Rx = true := by decide +kernel", "",
-              "/-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/",
-              f"def c : Fin {n} → ℚ := ![{', '.join(lean_q(x) for x in c)}]", "",
-              "theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel", "",
-              "/-- θ₀ nominal (PEtab), en racionales exactos. -/",
-              f"def θq : Fin {p} → ℚ := ![{tq}]", "",
+        return f"  ({lean_expr(V)}, [{cs}])"
+    CH = 400
+    cvec = "\n".join(lean_vec("c", n, "ℚ", [lean_q(x) for x in c], "1"))
+    if len(Rx) <= CH:
+        lines += [",\n".join(item(V, col) for V, col in Rx), "]", "",
+                  "/-- El campo del modelo: `Fᵢ = Σ_r coef_r(i) · V_r`. -/",
+                  f"def F : Fin {n} → KExpr {n} {p} := netF Rx", "",
+                  "/-- Dominio ⊇ ortante y cuasi-positividad (Lean ejecuta el comprobador). -/",
+                  "theorem net_ok : checkNet pos Rx = true := by decide +kernel", "",
+                  "/-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/",
+                  cvec, "",
+                  "theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel", ""]
+    else:
+        del lines[-2:]       # quitar el docstring y la apertura de la lista única
+        lines += ["/-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/", cvec, ""]
+        chunks = [Rx[k:k + CH] for k in range(0, len(Rx), CH)]
+        for k, ch in enumerate(chunks):
+            lines += [f"def Rx_{k} : List (KExpr {n} {p} × List (Fin {n} × ℚ)) := [",
+                      ",\n".join(item(V, col) for V, col in ch), "]", "",
+                      f"theorem net_ok_{k} : checkNet pos Rx_{k} = true := by decide +kernel", "",
+                      f"theorem growth_ok_{k} : checkGrowth pos c Rx_{k} = true := by decide +kernel", ""]
+        K = len(chunks)
+        lines += [f"/-- Red completa ({len(Rx)} términos en {K} bloques). -/",
+                  f"def Rx : List (KExpr {n} {p} × List (Fin {n} × ℚ)) := " +
+                  " ++ ".join(f"Rx_{k}" for k in range(K)), "",
+                  f"def F : Fin {n} → KExpr {n} {p} := netF Rx", "",
+                  "theorem net_ok : checkNet pos Rx = true := by",
+                  "  simp only [Rx, checkNet_append, " +
+                  ", ".join(f"net_ok_{k}" for k in range(K)) + ", Bool.and_self]", "",
+                  "theorem growth_ok : checkGrowth pos c Rx = true := by",
+                  "  simp only [Rx, checkGrowth_append, " +
+                  ", ".join(f"growth_ok_{k}" for k in range(K)) + ", Bool.and_self]", ""]
+    lines += ["/-- θ₀ nominal (PEtab), en racionales exactos. -/",
+              *lean_vec("θq", p, "ℚ", [lean_q(frac_of(v)) for v in model.theta_vals], "1"), "",
               "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", ""]
     if init_exprs is None:
         xq = ", ".join(lean_q(frac_of(v)) for v in model.x0_vals)
         lines += ["/-- Condiciones iniciales nominales. -/",
-                  f"def xq : Fin {n} → ℚ := ![{xq}]", "",
+                  *lean_vec("xq", n, "ℚ", [lean_q(frac_of(v)) for v in model.x0_vals], "0"), "",
                   "theorem x0_ok : checkNonneg xq = true := by decide +kernel", "",
                   "/-- **Teorema final, sin condiciones pendientes**: para todo T ≥ 0 la solución",
                   "nominal existe en [0, T], es ≥ 0, queda en el dominio, y la trayectoria es",

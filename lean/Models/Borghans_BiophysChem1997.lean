@@ -27,4 +27,12 @@ def F : Fin 3 → KExpr 3 20 := ![
 /-- La comprobación sintáctica FALLA para este modelo (ver el informe JSON). -/
 theorem check_falla : checkModel pos F = false := by decide +kernel
 
+/-- **Diferenciabilidad con condiciones explícitas.** El campo es C¹ en su dominio
+(demostrado para todo `KExpr`); quedan como condiciones que la solución nominal
+exista en [0, T] y permanezca en el dominio (para este modelo el comprobador
+sintáctico no puede garantizarlo; ver `check_falla`). -/
+def diff := @kinetic_hasFDerivAt _ _ F
+
 end Models.Borghans_BiophysChem1997
+
+#print axioms Models.Borghans_BiophysChem1997.diff
