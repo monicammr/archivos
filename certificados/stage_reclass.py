@@ -79,6 +79,17 @@ def greedy(J, order, stop):
     return S, False
 
 
+# Los 12 sistemas PEtab restantes del artículo (35 en total; más SCT Bandura = 36)
+EXTRA = [
+    ("Isensee_JCB2018", "Parcial"), ("Alkan_SciSignal2018", "No admisible"),
+    ("Bruno_JExpBot2016", "No admisible"), ("Beer_MolBioSystems2014", "Técnico"),
+    ("Bertozzi_PNAS2020", "Técnico"), ("Fujita_SciSignal2010", "Técnico"),
+    ("Laske_PLOSComputBiol2019", "Técnico"), ("Liu_IFACPapersOnLine2025", "Técnico"),
+    ("Lucarelli_CellSystems2018", "Técnico"), ("Oliveira_NatCommun2021", "Técnico"),
+    ("Perelson_Science1996", "Técnico"), ("Schwen_PONE2014", "Técnico"),
+]
+
+
 def admisible(c, e):
     ok = np.isfinite(c) and c >= COS_MIN
     if V2:
@@ -94,7 +105,8 @@ def main_one(name, t_def):
     p = len(names)
     y0 = Sy.sim(th0)
     if y0 is None:
-        return {"sistema": name, "error": "simulación nominal falló"}
+        return {"sistema": name, "etapa": "Técnico", "motivo": "la simulación nominal falla",
+                "admisible": False}
     act = np.nonzero(Sy.in_model)[0]
     # --- J relativa por diferencias centradas en log θ
     J = np.zeros((y0.size, p))
@@ -106,6 +118,10 @@ def main_one(name, t_def):
             J[:, j] = (yp - ym).ravel() / (2 * DELTA)
     E = np.sum(J ** 2, axis=0)
     tot = float(E.sum())
+    if not tot > 0:
+        return {"sistema": name, "p": p, "T": t_end, "etapa": "Técnico",
+                "motivo": "Jacobiano nulo (ningún parámetro dinámico afecta a los estados)",
+                "admisible": False}
     rvar = lambda S: float(E[S].sum() / tot) if tot > 0 else float("nan")
     # --- escenarios de validación (±5 %)
     rng = np.random.default_rng(SEED)
@@ -176,7 +192,8 @@ def main_one(name, t_def):
                     "kappa": kappa(J, S2) if S2 else float("nan"),
                     "VIF": vif(J, S2) if S2 else float("nan"),
                     "cos_med": c, "erel_med": e, "n_escenarios": n})
-    res["admisible"] = admisible(res["cos_med"], res["erel_med"])
+    res["admisible"] = admisible(res["cos_med"], res["erel_med"]) and \
+        (not V2 or len(res["S"]) >= 2)
     res["segundos"] = round(time.time() - t0, 1)
     return res
 
@@ -185,7 +202,10 @@ if __name__ == "__main__":
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
     d = OUT / ("reclasificacion_v2" if V2 else "reclasificacion"); d.mkdir(exist_ok=True)
     out = []
-    for name, sel, t_def, group in SYSTEMS:
+    lista = [(n, sel, t, "FIM" if g == "FIM" else "SCAN", None) for n, sel, t, g in SYSTEMS]
+    if "--extra" in sys.argv:
+        lista = [(n, [], 50.0, None, cat) for n, cat in EXTRA]
+    for name, sel, t_def, group, cat in lista:
         if which and name not in which:
             continue
         print(f"== {name}", flush=True)
@@ -193,10 +213,11 @@ if __name__ == "__main__":
             r = main_one(name, t_def)
         except Exception as ex:
             r = {"sistema": name, "error": repr(ex)}
-        r["etapa_paper"] = "Stage 1" if group == "FIM" else "Stage 2"
+        r["etapa_paper"] = cat if cat else ("Stage 1" if group == "FIM" else "Stage 2")
         r["S_paper"] = sel
         print(json.dumps(r, default=str), flush=True)
         (d / f"{name}.json").write_text(json.dumps(r, default=str, indent=1))
         out.append(r)
     if out and not which:
-        pd.DataFrame(out).to_csv(d / "resumen_reclasificacion.csv", index=False)
+        nombre = "resumen_extra.csv" if "--extra" in sys.argv else "resumen_reclasificacion.csv"
+        pd.DataFrame(out).to_csv(d / nombre, index=False)
