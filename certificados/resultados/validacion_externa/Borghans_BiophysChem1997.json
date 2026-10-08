@@ -1,0 +1,27 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 6.48875)",
+ "n_condiciones": 1,
+ "n_train": 74,
+ "n_test": 37,
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "|S|": 2,
+ "p_y": 22,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 0.7403102279993167,
+ "A_chi2_train_red": 1.0381875135727632,
+ "A_chi2_test_red": 0.7430427070239745,
+ "A_chi2_train_full": 1.0376097852485895,
+ "A_chi2_test_full": 0.7443261279469323,
+ "B_chi2_test_theta0": 2.7170962542289927,
+ "B_chi2_test_red": 2.7255555121284725,
+ "B_epred_red": 1.0016171072428992,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 0.8985048195504469,
+ "B_epred_full": 0.31098252373547147,
+ "segundos": 4.2
+}

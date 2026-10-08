@@ -343,12 +343,14 @@ class PSys:
             out[f"{prefix}{i}_{oid}"] = float(v) if _isnum(v) else P.get(v, np.nan)
         return out
 
-    def _raw(self, theta):
-        """Predicciones g_i (sin transformar ni escalar), en el orden de measurements.tsv."""
+    def _raw(self, theta, gidx=None):
+        """Predicciones g_i (sin transformar ni escalar), en el orden de measurements.tsv.
+        Con `gidx` sólo se simulan esos grupos (condiciones); el resto queda en NaN."""
         P = self._pval(theta)
         y = np.full(self.n_meas, np.nan)
+        grupos = self.groups if gidx is None else [self.groups[g] for g in gidx]
         try:
-            for pre, sim_c, times, rows in self.groups:
+            for pre, sim_c, times, rows in grupos:
                 traj = self._simulate_group(P, pre, sim_c, times)
                 for i, oid, k, op, _ in rows:
                     f = self.obs[oid][0]
@@ -356,6 +358,9 @@ class PSys:
                     y[i] = self._eval(("o", oid), f, sorted(ph), ph, P, traj, int(k))
         except Exception:
             return None
+        if gidx is not None:
+            filas = [r[0] for g in gidx for r in self.groups[g][3]]
+            return y if np.all(np.isfinite(y[filas])) else None
         return y if np.all(np.isfinite(y)) else None
 
     def _noise(self, theta, yraw):
@@ -385,6 +390,16 @@ class PSys:
             elif tr == "log10":
                 out[i] = np.log10(y[i]) if y[i] > 0 else np.nan
         return out
+
+    def z(self, theta, gidx=None):
+        """Vector completo h(g)/σ (NaN en las filas de grupos no simulados)."""
+        y = self._raw(theta, gidx)
+        return None if y is None else self._h(y) / self.sigma
+
+    def zdata(self):
+        """Datos medidos en la misma escala: h(medición)/σ (NaN si h no está definida)."""
+        with np.errstate(all="ignore"):
+            return self._h(self.mea["measurement"].astype(float).to_numpy()) / self.sigma
 
     def sim(self, theta):
         """y_i = h(g_i(x(t_i), θ)) / σ_i, como matriz columna (n_mediciones × 1)."""

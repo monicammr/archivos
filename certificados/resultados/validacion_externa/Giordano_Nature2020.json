@@ -1,0 +1,25 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 30)",
+ "n_condiciones": 1,
+ "n_train": 201,
+ "n_test": 112,
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "|S|": 2,
+ "p_y": 43,
+ "A_chi2_test_theta0": 7.445929474475888e-09,
+ "A_chi2_train_red": 2.3847870398378066e-10,
+ "A_chi2_test_red": 1.0236763271095191e-07,
+ "A_chi2_train_full": 2.7310945046484293e-11,
+ "A_chi2_test_full": 0.05524318297138832,
+ "B_chi2_test_theta0": 0.8611975345046654,
+ "B_chi2_test_red": 0.862924800687775,
+ "B_epred_red": 1027.1533717370792,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 1.0974577790994955,
+ "B_epred_full": 3136.2381028045625,
+ "segundos": 21.0
+}

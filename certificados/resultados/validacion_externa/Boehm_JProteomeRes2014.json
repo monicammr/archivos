@@ -1,0 +1,27 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 80)",
+ "n_condiciones": 1,
+ "n_train": 30,
+ "n_test": 18,
+ "S": [
+  "k_imp_hetero",
+  "k_phos"
+ ],
+ "|S|": 2,
+ "p_y": 6,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 0.34129679919930317,
+ "A_chi2_train_red": 1.3565459045430948,
+ "A_chi2_test_red": 2.5674336054435543,
+ "A_chi2_train_full": 1.341710111272198,
+ "A_chi2_test_full": 11.349742107632142,
+ "B_chi2_test_theta0": 1.064939741997529,
+ "B_chi2_test_red": 0.5663566892140328,
+ "B_epred_red": 0.45266041844788657,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 24.179747654295884,
+ "B_epred_full": 6.627794187530244,
+ "segundos": 0.7
+}

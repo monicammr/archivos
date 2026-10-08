@@ -1,0 +1,25 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 32)",
+ "n_condiciones": 1,
+ "n_train": 60,
+ "n_test": 32,
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "|S|": 2,
+ "p_y": 14,
+ "A_chi2_test_theta0": 28748.49609361068,
+ "A_chi2_train_red": 144.76554126775255,
+ "A_chi2_test_red": 46705.209376109095,
+ "A_chi2_train_full": 41.42010347559243,
+ "A_chi2_test_full": 122419.2505673974,
+ "B_chi2_test_theta0": 39602.42455299481,
+ "B_chi2_test_red": 277.8188877848992,
+ "B_epred_red": 0.08467107136209465,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 73.15970169622301,
+ "B_epred_full": 0.04156297061086932,
+ "segundos": 7.0
+}

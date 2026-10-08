@@ -1,0 +1,40 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "division": "condiciones nuevas",
+ "n_condiciones": 6,
+ "n_train": 49,
+ "n_test": 28,
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "szea",
+  "init_bcry_1",
+  "init_b10_1"
+ ],
+ "|S|": 7,
+ "p_y": 13,
+ "locales_prueba": [
+  "init_bcar2",
+  "init_zea_1",
+  "szea"
+ ],
+ "S_locales_prueba": [
+  "init_bcar2",
+  "init_zea_1",
+  "szea"
+ ],
+ "A_chi2_test_theta0": 0.9093579432330835,
+ "A_chi2_train_red": 0.8091710208131534,
+ "A_chi2_test_red": 0.9093632518020328,
+ "A_chi2_train_full": 0.8073530214102765,
+ "A_chi2_test_full": 7.862903725554415,
+ "B_chi2_test_theta0": 0.9263080601045041,
+ "B_chi2_test_red": 0.46374993406999226,
+ "B_epred_red": 0.4114860244107245,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 8.308539049654977,
+ "B_epred_full": 3.740565435592555,
+ "segundos": 0.5
+}
