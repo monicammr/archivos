@@ -29,9 +29,25 @@ def F : Fin 6 → KExpr 6 14 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 14 → ℚ := ![(93180273932749 / 25000000000000 : ℚ), (249999999999977 / 2500000000 : ℚ), (78726703461853 / 5000000000000 : ℚ), (124922822035393 / 1250000000 : ℚ), (923924728172173 / 1000000000000000 : ℚ), (250623681331 / 250000000000000 : ℚ), (191463005974811 / 100000000000000 : ℚ), (307920732487903 / 100000000000 : ℚ), (940077018858089 / 1000000000000000 : ℚ), (285837713545253 / 100000000000000 : ℚ), (249999999999977 / 2500000000 : ℚ), (173832229564051 / 500000000000000 : ℚ), (1388020361713 / 100000000000000 : ℚ), (1 / 1000 : ℚ)]
+
+/-- Condiciones iniciales nominales (no dependen de θ). -/
+def xq : Fin 6 → ℚ := ![(0 : ℚ), (1 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ)]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem x0_ok : checkNonneg xq = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final: la única condición restante es que la solución nominal
+exista en [0, T]. -/
+def final := @checked_model_final _ _ pos F check θq theta_ok xq x0_ok
 
 end Models.Sneyd_PNAS2002
 
 #print axioms Models.Sneyd_PNAS2002.diff
+
+#print axioms Models.Sneyd_PNAS2002.final

@@ -25,6 +25,17 @@
  "theta0_no_positivos": [],
  "theta_signo_libre": [],
  "theta_log_nominal_0": [],
+ "x0_depende_de_theta": [
+  "GFP",
+  "GFP_mRNA",
+  "X_mRNA",
+  "X_protein",
+  "Y_mRNA",
+  "Y_protein",
+  "Z_mRNA",
+  "Z_protein"
+ ],
+ "x0_por_condicion": [],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [
@@ -47,5 +58,6 @@
  "n_fallos_cuasipositividad": 4,
  "prediccion_check": false,
  "lean": "Models/Elowitz_Nature2000.lean",
+ "teorema_final": false,
  "traducido": true
 }

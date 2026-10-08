@@ -28,6 +28,15 @@
  "theta0_no_positivos": [],
  "theta_signo_libre": [],
  "theta_log_nominal_0": [],
+ "x0_depende_de_theta": [
+  "ERK",
+  "MEK",
+  "RAF",
+  "pERK",
+  "pMEK",
+  "pRAF"
+ ],
+ "x0_por_condicion": [],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [],
@@ -38,5 +47,6 @@
  "n_fallos_cuasipositividad": 1,
  "prediccion_check": false,
  "lean": "Models/Fiedler_BMCSystBiol2016.lean",
+ "teorema_final": false,
  "traducido": true
 }

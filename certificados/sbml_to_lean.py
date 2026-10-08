@@ -67,6 +67,26 @@ class Model:
     def __init__(self, name):
         folder = BENCH / name / "v1"
         doc = libsbml.readSBML(str(folder / "model.xml"))
+        m0 = doc.getModel()
+        # símbolos de los que depende cada asignación inicial (antes de expandirlas)
+        rules0 = {r.getVariable(): r.getMath() for r in m0.getListOfRules() if r.isAssignment()}
+
+        def names_in(a, depth=0):
+            out = set()
+            if a is None or depth > 50:
+                return out
+            if a.getType() == libsbml.AST_NAME:
+                nm = a.getName()
+                out.add(nm)
+                if nm in rules0:
+                    out |= names_in(rules0[nm], depth + 1)
+            for i in range(a.getNumChildren()):
+                out |= names_in(a.getChild(i), depth)
+            return out
+        self.ia_names = {ia.getSymbol(): names_in(ia.getMath())
+                         for ia in m0.getListOfInitialAssignments()}
+        self.ia_math = {ia.getSymbol(): ia.getMath().deepCopy()
+                        for ia in m0.getListOfInitialAssignments()}
         for opt in ("expandFunctionDefinitions", "expandInitialAssignments"):
             props = libsbml.ConversionProperties()
             props.addOption(opt, True)
@@ -99,6 +119,17 @@ class Model:
                        if not s.getBoundaryCondition() and not s.getConstant()
                        and s.getId() not in self.rules]
         self.sidx = {s: i for i, s in enumerate(self.states)}
+        thset = set(self.theta)
+        self.x0_dep_theta = sorted(s for s in self.states
+                                   if self.ia_names.get(s, set()) & thset)
+        try:
+            ct = pd.read_csv(folder / "conditions.tsv", sep="\t")
+            self.x0_por_condicion = [c for c in ct.columns if c in self.sidx]
+        except FileNotFoundError:
+            self.x0_por_condicion = []
+        # θ₀ numérico (nominal 0 en escala log → 1e-12, como en el pipeline)
+        self.theta_vals = [self.theta0[t] if self.theta0[t] > 0 or not self.logscale[t]
+                           else 1e-12 for t in self.theta]
         self.pidx = {p: j for j, p in enumerate(self.theta)}
         self.consts = {}
         for c in m.getListOfCompartments():
@@ -472,11 +503,58 @@ def emit(model, segs, ok):
         else:
             body += ["/-- La comprobación sintáctica FALLA para este modelo (ver el informe JSON). -/",
                      f"theorem check_falla{sfx} : checkModel pos {nm} = false := by decide +kernel", ""]
+    init_exprs = None
+    if ok and model.x0_dep_theta:
+        try:
+            model.t_now = 0.0
+            init_exprs = []
+            for s_, v in zip(model.states, model.x0_vals):
+                if s_ in model.ia_math:
+                    e = model.tr(model.ia_math[s_])
+                    if 'var' in repr(e):
+                        raise Unsupported("condición inicial que depende de otros estados")
+                    init_exprs.append(e)
+                else:
+                    init_exprs.append(num(frac_of(v)))
+            if model.uses_time:
+                init_exprs.append(num(0))
+        except Unsupported:
+            init_exprs = None
+    final_ok = ok and not model.x0_dep_theta and \
+        all(math.isfinite(v) for v in model.x0_vals)
+    init_ok = ok and init_exprs is not None and len(segs) == 1
+    if init_ok:
+        tq = ", ".join(lean_q(frac_of(v)) for v in model.theta_vals)
+        body += ["/-- θ₀ nominal (PEtab), en racionales exactos. -/",
+                 f"def θq : Fin {p} → ℚ := ![{tq}]", "",
+                 "/-- Condición inicial x₀(θ) (asignaciones iniciales de SBML). -/",
+                 f"def G : Fin {n} → KExpr {n} {p} := ![",
+                 ",\n".join("  " + lean_expr(e) for e in init_exprs), "]", "",
+                 "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
+                 "theorem init_ok : checkInit pos G = true := by decide +kernel", ""]
+    if final_ok:
+        tq = ", ".join(lean_q(frac_of(v)) for v in model.theta_vals)
+        xq = ", ".join(lean_q(frac_of(v)) for v in model.x0_vals)
+        body += ["/-- θ₀ nominal (PEtab), en racionales exactos. -/",
+                 f"def θq : Fin {p} → ℚ := ![{tq}]", "",
+                 "/-- Condiciones iniciales nominales (no dependen de θ). -/",
+                 f"def xq : Fin {n} → ℚ := ![{xq}]", "",
+                 "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
+                 "theorem x0_ok : checkNonneg xq = true := by decide +kernel", ""]
     if not ok:
         pass
     elif len(segs) == 1:
         body += ["/-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/",
                  "def diff := @checked_model_hasFDerivAt _ _ pos F check", ""]
+        if final_ok:
+            body += ["/-- Teorema final: la única condición restante es que la solución nominal",
+                     "exista en [0, T]. -/",
+                     "def final := @checked_model_final _ _ pos F check θq theta_ok xq x0_ok", ""]
+        if init_ok:
+            body += ["/-- Teorema final (condición inicial dependiente de θ): la única condición",
+                     "restante es que la solución nominal exista en [0, T]. -/",
+                     "def final := @checked_model_final_init _ _ pos F check G init_ok θq theta_ok",
+                     ""]
     else:
         K = len(segs)
         body += [f"def Fseg : ℕ → Fin {n} → KExpr {n} {p}"]
@@ -488,9 +566,16 @@ def emit(model, segs, ok):
         body += [f"  | _ + {K - 1} => exact check{K - 1}", ""]
         body += ["/-- Diferenciabilidad de la trayectoria en todos los tramos. -/",
                  "def diff := @checked_segments_hasFDerivAt _ _ pos Fseg check", ""]
+        if final_ok:
+            body += ["/-- Teorema final: la única condición restante es que la solución nominal",
+                     "exista en cada tramo. -/",
+                     "def final := @checked_segments_final _ _ pos Fseg check θq theta_ok xq x0_ok",
+                     ""]
     tail = [f"end Models.{mod}", ""]
     if ok:
         tail += [f"#print axioms Models.{mod}.diff", ""]
+    if final_ok or init_ok:
+        tail += [f"#print axioms Models.{mod}.final", ""]
     lines = head + body + tail
     OUTDIR.mkdir(parents=True, exist_ok=True)
     (OUTDIR / f"{mod}.lean").write_text("\n".join(lines))
@@ -600,6 +685,9 @@ def process(name, T):
             v = sp.getInitialConcentration() if sp.isSetInitialConcentration() \
                 else sp.getInitialAmount()
             x0.append(v)
+        model.x0_vals = list(x0) + ([0.0] if model.uses_time else [])
+        rep["x0_depende_de_theta"] = model.x0_dep_theta
+        rep["x0_por_condicion"] = model.x0_por_condicion
         rep["x0_no_negativo"] = all(v >= 0 for v in x0 if not math.isnan(v))
         rep["x0_nan"] = [s_ for s_, v in zip(model.states, x0) if math.isnan(v)]
         bad_dom, bad_qp = [], []
@@ -613,6 +701,7 @@ def process(name, T):
         rep["n_fallos_cuasipositividad"] = len(bad_qp)
         rep["prediccion_check"] = not bad_dom and not bad_qp
         rep["lean"] = f"Models/{emit(model, segs, rep['prediccion_check'])}.lean"
+        rep["teorema_final"] = "def final" in (OUTDIR / rep["lean"].split("/")[1]).read_text()
         rep["traducido"] = True
     except Unsupported as e:
         rep["traducido"] = False

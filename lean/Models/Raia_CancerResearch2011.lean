@@ -37,9 +37,40 @@ def F : Fin 14 → KExpr 14 18 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 18 → ℚ := ![(21208853684209 / 1000000000000000 : ℚ), (1925519568701 / 500000000000000 : ℚ), (78140000505809 / 1000000000000000 : ℚ), (101721171826747 / 100000000000000 : ℚ), (2278141087201 / 1000000000000000 : ℚ), (344129281159739 / 1000000000000000 : ℚ), (62499988530249 / 62500000000 : ℚ), (104887453397 / 50000000000000 : ℚ), (28236118856949 / 62500000000 : ℚ), (43380223348167 / 1000000000000000 : ℚ), (78593444193003 / 5000000000000 : ℚ), (7168575888093 / 50000000000000 : ℚ), (974103739653 / 50000000000000 : ℚ), (235058493601113 / 1000000000000 : ℚ), (175894009439 / 1000000000000000 : ℚ), (13098373658991 / 62500000000000 : ℚ), (146317883824441 / 250000000000000 : ℚ), (137416159659 / 500000000000000 : ℚ)]
+
+/-- Condición inicial x₀(θ) (asignaciones iniciales de SBML). -/
+def G : Fin 14 → KExpr 14 18 := ![
+  (KExpr.qconst (13 / 10 : ℚ)),
+  (KExpr.par 13),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (14 / 5 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (165 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (17 / 50 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ))
+]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem init_ok : checkInit pos G = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final (condición inicial dependiente de θ): la única condición
+restante es que la solución nominal exista en [0, T]. -/
+def final := @checked_model_final_init _ _ pos F check G init_ok θq theta_ok
 
 end Models.Raia_CancerResearch2011
 
 #print axioms Models.Raia_CancerResearch2011.diff
+
+#print axioms Models.Raia_CancerResearch2011.final

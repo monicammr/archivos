@@ -32,9 +32,25 @@ def F : Fin 9 → KExpr 9 6 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 6 → ℚ := ![(26982514033029 / 1000000000000000 : ℚ), (25016993462877 / 2500000000000000000 : ℚ), (6170228086381 / 1000000000000000 : ℚ), (40919796117 / 2500000000000 : ℚ), (244373448506179 / 2500000000 : ℚ), (157665070195731 / 10000000000 : ℚ)]
+
+/-- Condiciones iniciales nominales (no dependen de θ). -/
+def xq : Fin 9 → ℚ := ![(7193339999999999 / 50000000000000 : ℚ), (6373320000000001 / 100000000000000 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ)]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem x0_ok : checkNonneg xq = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final: la única condición restante es que la solución nominal
+exista en [0, T]. -/
+def final := @checked_model_final _ _ pos F check θq theta_ok xq x0_ok
 
 end Models.Boehm_JProteomeRes2014
 
 #print axioms Models.Boehm_JProteomeRes2014.diff
+
+#print axioms Models.Boehm_JProteomeRes2014.final

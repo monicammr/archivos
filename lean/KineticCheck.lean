@@ -362,6 +362,132 @@ theorem checked_segments_hasFDerivAt (pos : Fin p → Bool) (F : ℕ → Fin n �
     (fun _ x _ => x) y₀ θ₀ hy₀ (fun k t ht => ((hseg k).2 t ht).2)
     (fun _ => differentiableAt_fst) hlink x0 hx0 hx00
 
+/-! ## Datos numéricos: θ₀ y condiciones iniciales racionales, comprobadas por cálculo -/
+
+/-- Vector real con entradas racionales. -/
+noncomputable def qvec {m : ℕ} (q : Fin m → ℚ) : EuclideanSpace ℝ (Fin m) :=
+  WithLp.toLp 2 (fun i => (q i : ℝ))
+
+lemma qvec_apply {m : ℕ} (q : Fin m → ℚ) (i : Fin m) : qvec q i = (q i : ℝ) := rfl
+
+/-- Comprobador: los parámetros marcados como positivos lo son. -/
+def checkPosParams (pos : Fin p → Bool) (q : Fin p → ℚ) : Bool :=
+  (List.finRange p).all fun j => !pos j || decide (0 < q j)
+
+theorem posParams_qvec {pos : Fin p → Bool} {q : Fin p → ℚ}
+    (h : checkPosParams pos q = true) : PosParams pos (qvec q) := by
+  intro j hj
+  simp only [checkPosParams, List.all_eq_true, List.mem_finRange, true_implies,
+    Bool.or_eq_true, Bool.not_eq_eq_eq_not, Bool.not_true, decide_eq_true_eq] at h
+  rcases h j with h' | h'
+  · rw [hj] at h'; exact absurd h' (by simp)
+  · rw [qvec_apply]; exact_mod_cast h'
+
+/-- Comprobador: condiciones iniciales `≥ 0`. -/
+def checkNonneg (q : Fin n → ℚ) : Bool :=
+  (List.finRange n).all fun i => decide (0 ≤ q i)
+
+theorem nonneg_qvec {q : Fin n → ℚ} (h : checkNonneg q = true) : Nonneg (qvec q) := by
+  intro i
+  simp only [checkNonneg, List.all_eq_true, List.mem_finRange, true_implies,
+    decide_eq_true_eq] at h
+  rw [qvec_apply]; exact_mod_cast h i
+
+/-- **Teorema final por modelo (dato inicial constante).** Con el modelo comprobado, `θ₀` y
+`x(0)` dados por números racionales comprobados por cálculo, la **única** condición restante es
+que la solución nominal `x₀` exista en `[0, T]`. Conclusión: positividad, permanencia en el
+dominio, existencia cerca de `θ₀` y diferenciabilidad (con `S(0) = 0`). -/
+theorem checked_model_final (pos : Fin p → Bool) (F : Fin n → KExpr n p)
+    (hF : checkModel pos F = true) (θq : Fin p → ℚ) (hθ : checkPosParams pos θq = true)
+    (xq : Fin n → ℚ) (hx : checkNonneg xq = true)
+    {T : ℝ} (hT : 0 ≤ T) (x₀ : ℝ → EuclideanSpace ℝ (Fin n))
+    (hx₀ : ∀ t ∈ Icc 0 T, HasDerivWithinAt x₀ (field F (x₀ t) (qvec θq)) (Icc 0 T) t)
+    (hinit : x₀ 0 = qvec xq) :
+    (∀ t ∈ Icc 0 T, Nonneg (x₀ t) ∧ (x₀ t, qvec θq) ∈ domain F) ∧
+    ∃ x : EuclideanSpace ℝ (Fin p) → ℝ → EuclideanSpace ℝ (Fin n), x (qvec θq) = x₀ ∧
+      (∀ᶠ θ in 𝓝 (qvec θq), x θ 0 = qvec xq ∧
+        ∀ t ∈ Icc 0 T, HasDerivWithinAt (x θ) (field F (x θ t) θ) (Icc 0 T) t) ∧
+      ∃ S : ℝ → (EuclideanSpace ℝ (Fin p) →L[ℝ] EuclideanSpace ℝ (Fin n)), S 0 = 0 ∧
+        ∀ t ∈ Icc 0 T, HasFDerivAt (fun θ => x θ t) (S t) (qvec θq) :=
+  checked_model_hasFDerivAt pos F hF hT x₀ (qvec θq) (posParams_qvec hθ) hx₀
+    (by rw [hinit]; exact nonneg_qvec hx) (fun _ => qvec xq) 0 (hasFDerivAt_const _ _)
+    hinit.symm
+
+/-- **Teorema final por modelo con entradas por tramos (dato inicial constante).** -/
+theorem checked_segments_final (pos : Fin p → Bool) (F : ℕ → Fin n → KExpr n p)
+    (hF : ∀ k, checkModel pos (F k) = true) (θq : Fin p → ℚ) (hθ : checkPosParams pos θq = true)
+    (xq : Fin n → ℚ) (hx : checkNonneg xq = true)
+    (L : ℕ → ℝ) (hL : ∀ k, 0 ≤ L k) (y₀ : ℕ → ℝ → EuclideanSpace ℝ (Fin n))
+    (hy₀ : ∀ k, ∀ t ∈ Icc 0 (L k),
+      HasDerivWithinAt (y₀ k) (field (F k) (y₀ k t) (qvec θq)) (Icc 0 (L k)) t)
+    (hlink : ∀ k, y₀ (k + 1) 0 = y₀ k (L k)) (hinit : y₀ 0 0 = qvec xq) :
+    ∃ Y : ℕ → EuclideanSpace ℝ (Fin p) → ℝ → EuclideanSpace ℝ (Fin n),
+      (∀ k, Y k (qvec θq) = y₀ k) ∧
+      (∀ k, ∀ᶠ θ in 𝓝 (qvec θq), ∀ t ∈ Icc 0 (L k),
+        HasDerivWithinAt (Y k θ) (field (F k) (Y k θ t) θ) (Icc 0 (L k)) t) ∧
+      (∀ᶠ θ in 𝓝 (qvec θq), Y 0 θ 0 = qvec xq) ∧
+      (∀ k, ∀ᶠ θ in 𝓝 (qvec θq), Y (k + 1) θ 0 = Y k θ (L k)) ∧
+      (∀ k, ∀ s ∈ Icc 0 (L k), DifferentiableAt ℝ (fun θ => Y k θ s) (qvec θq)) :=
+  checked_segments_hasFDerivAt pos F hF L hL y₀ (qvec θq) (posParams_qvec hθ) hy₀ hlink
+    (by rw [hinit]; exact nonneg_qvec hx) (fun _ => qvec xq) (differentiableAt_const _)
+    hinit.symm
+
+/-! ## Condiciones iniciales que dependen de θ (asignaciones iniciales de SBML) -/
+
+/-- Comprobador de la condición inicial `x₀(θ) = G(θ)`: bien definida y `≥ 0` para θ > 0. -/
+def checkInit (pos : Fin p → Bool) (G : Fin n → KExpr n p) : Bool :=
+  (List.finRange n).all fun i => okOrth pos (G i) && isNonneg pos (G i)
+
+theorem checkInit_spec {pos : Fin p → Bool} {G : Fin n → KExpr n p}
+    (h : checkInit pos G = true) (i : Fin n) :
+    okOrth pos (G i) = true ∧ isNonneg pos (G i) = true := by
+  simp only [checkInit, List.all_eq_true, List.mem_finRange, true_implies,
+    Bool.and_eq_true] at h
+  exact h i
+
+lemma nonneg_zero : Nonneg (0 : EuclideanSpace ℝ (Fin n)) := fun _ => le_of_eq rfl
+
+/-- La condición inicial `θ ↦ G(θ)` es diferenciable en todo `θ₀` con parámetros positivos. -/
+theorem init_differentiable {pos : Fin p → Bool} {G : Fin n → KExpr n p}
+    (h : checkInit pos G = true) {θ₀ : EuclideanSpace ℝ (Fin p)} (hθ₀ : PosParams pos θ₀) :
+    DifferentiableAt ℝ (fun θ => field G 0 θ) θ₀ := by
+  have hdom : ((0 : EuclideanSpace ℝ (Fin n)), θ₀) ∈ domain G := fun i =>
+    okOrth_sound nonneg_zero hθ₀ (G i) (checkInit_spec h i).1
+  have hcd : ContDiffAt ℝ 1 (fun z : EuclideanSpace ℝ (Fin n) × EuclideanSpace ℝ (Fin p) =>
+      field G z.1 z.2) (0, θ₀) :=
+    (contDiffOn_field G).contDiffAt ((isOpen_domain G).mem_nhds hdom)
+  have hin : DifferentiableAt ℝ (fun θ : EuclideanSpace ℝ (Fin p) =>
+      ((0 : EuclideanSpace ℝ (Fin n)), θ)) θ₀ :=
+    (differentiableAt_const _).prodMk differentiableAt_id
+  exact DifferentiableAt.comp (f := fun θ => ((0 : EuclideanSpace ℝ (Fin n)), θ)) θ₀
+    (hcd.differentiableAt le_rfl) hin
+
+theorem init_nonneg {pos : Fin p → Bool} {G : Fin n → KExpr n p}
+    (h : checkInit pos G = true) {θ₀ : EuclideanSpace ℝ (Fin p)} (hθ₀ : PosParams pos θ₀) :
+    Nonneg (field G 0 θ₀) := fun i =>
+  isNonneg_sound nonneg_zero hθ₀ (G i) (checkInit_spec h i).2
+
+/-- **Teorema final por modelo, con condición inicial `x₀(θ) = G(θ)` dependiente de θ.**
+La única condición restante es que la solución nominal exista en `[0, T]`. La sensibilidad
+inicial es `S(0) = ∂G/∂θ(θ₀)`. -/
+theorem checked_model_final_init (pos : Fin p → Bool) (F : Fin n → KExpr n p)
+    (hF : checkModel pos F = true) (G : Fin n → KExpr n p) (hG : checkInit pos G = true)
+    (θq : Fin p → ℚ) (hθ : checkPosParams pos θq = true)
+    {T : ℝ} (hT : 0 ≤ T) (x₀ : ℝ → EuclideanSpace ℝ (Fin n))
+    (hx₀ : ∀ t ∈ Icc 0 T, HasDerivWithinAt x₀ (field F (x₀ t) (qvec θq)) (Icc 0 T) t)
+    (hinit : x₀ 0 = field G 0 (qvec θq)) :
+    (∀ t ∈ Icc 0 T, Nonneg (x₀ t) ∧ (x₀ t, qvec θq) ∈ domain F) ∧
+    ∃ x : EuclideanSpace ℝ (Fin p) → ℝ → EuclideanSpace ℝ (Fin n), x (qvec θq) = x₀ ∧
+      (∀ᶠ θ in 𝓝 (qvec θq), x θ 0 = field G 0 θ ∧
+        ∀ t ∈ Icc 0 T, HasDerivWithinAt (x θ) (field F (x θ t) θ) (Icc 0 T) t) ∧
+      ∃ S : ℝ → (EuclideanSpace ℝ (Fin p) →L[ℝ] EuclideanSpace ℝ (Fin n)),
+        S 0 = fderiv ℝ (fun θ => field G 0 θ) (qvec θq) ∧
+        ∀ t ∈ Icc 0 T, HasFDerivAt (fun θ => x θ t) (S t) (qvec θq) :=
+  have hθ₀ := posParams_qvec hθ
+  checked_model_hasFDerivAt pos F hF hT x₀ (qvec θq) hθ₀ hx₀
+    (by rw [hinit]; exact init_nonneg hG hθ₀) (fun θ => field G 0 θ) _
+    (init_differentiable hG hθ₀).hasFDerivAt hinit.symm
+
 /-! Prueba de humo: Michaelis–Menten con producción constante pasa la comprobación. -/
 example : checkModel (n := 1) (p := 3) (fun _ => true)
     ![KExpr.sub (KExpr.par 0) (KExpr.mm (KExpr.par 1) (KExpr.par 2) (KExpr.var 0))] = true := by
@@ -371,3 +497,6 @@ end KineticCheck
 
 #print axioms KineticCheck.checked_model_hasFDerivAt
 #print axioms KineticCheck.checked_segments_hasFDerivAt
+#print axioms KineticCheck.checked_model_final
+#print axioms KineticCheck.checked_segments_final
+#print axioms KineticCheck.checked_model_final_init

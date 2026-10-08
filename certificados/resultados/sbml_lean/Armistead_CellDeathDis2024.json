@@ -28,6 +28,13 @@
   "alpha_cer"
  ],
  "theta_log_nominal_0": [],
+ "x0_depende_de_theta": [],
+ "x0_por_condicion": [
+  "Cer",
+  "Sphinga",
+  "Sphingo",
+  "S1P"
+ ],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [],
@@ -39,5 +46,6 @@
  "n_fallos_cuasipositividad": 2,
  "prediccion_check": false,
  "lean": "Models/Armistead_CellDeathDis2024.lean",
+ "teorema_final": false,
  "traducido": true
 }

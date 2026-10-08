@@ -28,9 +28,25 @@ def F : Fin 5 → KExpr 5 12 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 12 → ℚ := ![(517945937424841 / 1000000000000000 : ℚ), (22580636941607 / 1000000000000000 : ℚ), (5965393966801 / 500000000000000 : ℚ), (391359465940441 / 10000000000000000000 : ℚ), (100000000000007 / 1000000000000000000000000 : ℚ), (811520130499257 / 100000000000000000000 : ℚ), (184976826099781 / 250000000000000 : ℚ), (50000001761047 / 5000000000000000000 : ℚ), (70624362042397 / 500000000000000000000000 : ℚ), (363403086241783 / 10000000000000000000 : ℚ), (253707824502007 / 500000000000000 : ℚ), (63191146312751 / 500000000000000 : ℚ)]
+
+/-- Condiciones iniciales nominales (no dependen de θ). -/
+def xq : Fin 5 → ℚ := ![(8090 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (1 : ℚ)]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem x0_ok : checkNonneg xq = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final: la única condición restante es que la solución nominal
+exista en [0, T]. -/
+def final := @checked_model_final _ _ pos F check θq theta_ok xq x0_ok
 
 end Models.Crauste_CellSystems2017
 
 #print axioms Models.Crauste_CellSystems2017.diff
+
+#print axioms Models.Crauste_CellSystems2017.final

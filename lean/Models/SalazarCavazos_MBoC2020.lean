@@ -98,9 +98,101 @@ def F : Fin 75 → KExpr 75 6 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 6 → ℚ := ![(8492659711115231 / 50000000000 : ℚ), (6494256012099041 / 10000000000 : ℚ), (16588142136877737 / 10000000000000000 : ℚ), (85909348992413 / 5000000000000000 : ℚ), (1575458573459309 / 10000000000000000 : ℚ), (1111908921779429 / 2500000000000000 : ℚ)]
+
+/-- Condición inicial x₀(θ) (asignaciones iniciales de SBML). -/
+def G : Fin 75 → KExpr 75 6 := ![
+  (KExpr.mul (KExpr.mul (KExpr.qconst (1 / 40000000 : ℚ)) (KExpr.qconst (602214000000000000000000 : ℚ))) (KExpr.qconst (1 / 1000000000 : ℚ))),
+  (KExpr.qconst (770000 : ℚ)),
+  (KExpr.mul (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 0)) (KExpr.qconst (1 : ℚ))),
+  (KExpr.mul (KExpr.par 1) (KExpr.qconst (1 : ℚ))),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ))
+]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem init_ok : checkInit pos G = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final (condición inicial dependiente de θ): la única condición
+restante es que la solución nominal exista en [0, T]. -/
+def final := @checked_model_final_init _ _ pos F check G init_ok θq theta_ok
 
 end Models.SalazarCavazos_MBoC2020
 
 #print axioms Models.SalazarCavazos_MBoC2020.diff
+
+#print axioms Models.SalazarCavazos_MBoC2020.final

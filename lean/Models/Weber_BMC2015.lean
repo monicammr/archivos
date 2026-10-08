@@ -30,9 +30,25 @@ def F : Fin 7 → KExpr 7 26 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 26 → ℚ := ![(182532326367113 / 1000000000000000 : ℚ), (33339166094201 / 1250000000000 : ℚ), (46926119958537 / 25000000000000 : ℚ), (1 / 10000 : ℚ), (33833764834783 / 250000000000000 : ℚ), (1 / 10000 : ℚ), (1 / 10000 : ℚ), (10000000000 : ℚ), (53837848083813 / 25000000000 : ℚ), (498501785452867 / 50000 : ℚ), (418712288317411 / 10000000 : ℚ), (212191995458117 / 50000000000000 : ℚ), (2967969646137 / 500000000000000 : ℚ), (1230128738639 / 500000000000000 : ℚ), (14072591880661 / 2500000000000 : ℚ), (6808026895421 / 312500000000 : ℚ), (126898706808539 / 50000000000 : ℚ), (6707095633977 / 400000000000 : ℚ), (108294200012079 / 5000000000 : ℚ), (100000000 : ℚ), (331336069433133 / 10000000 : ℚ), (168479882762621 / 5000000000000 : ℚ), (56683003734981 / 500000000000 : ℚ), (884612150536401 / 10000000000 : ℚ), (296114746928213 / 100000000 : ℚ), (216398071518517 / 50000000 : ℚ)]
+
+/-- Condiciones iniciales nominales (no dependen de θ). -/
+def xq : Fin 7 → ℚ := ![(2332673997 / 5000 : ℚ), (77413 / 625 : ℚ), (7887702697 / 5000 : ℚ), (3320545041 / 10000 : ℚ), (159741942951 / 5000 : ℚ), (401994341 / 2500 : ℚ), (420828286681 / 10000 : ℚ)]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem x0_ok : checkNonneg xq = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final: la única condición restante es que la solución nominal
+exista en [0, T]. -/
+def final := @checked_model_final _ _ pos F check θq theta_ok xq x0_ok
 
 end Models.Weber_BMC2015
 
 #print axioms Models.Weber_BMC2015.diff
+
+#print axioms Models.Weber_BMC2015.final

@@ -48,9 +48,51 @@ def F : Fin 25 → KExpr 25 27 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 27 → ℚ := ![(108213506831433 / 250000000000 : ℚ), (26513614503397 / 50000000000000 : ℚ), (392610522616453 / 500000 : ℚ), (144777009620017 / 1000000000000000 : ℚ), (1000 : ℚ), (4199412514631 / 500000000000000 : ℚ), (267299659481333 / 1000000000000000 : ℚ), (1000000 : ℚ), (542989282766407 / 100000000000000 : ℚ), (633154209632843 / 1000000000 : ℚ), (71361534706159 / 500000000000 : ℚ), (1 / 1000 : ℚ), (8162255244283 / 1000000000000000 : ℚ), (282568032716189 / 100000000000000 : ℚ), (17364095522801 / 100000000000 : ℚ), (679185853534469 / 1000000000000000 : ℚ), (20814851194693 / 2000000000000 : ℚ), (106454014521077 / 100000000000000 : ℚ), (8309263619427 / 1000000000000000 : ℚ), (10000 : ℚ), (194986374447149 / 5000000000000 : ℚ), (4881802078303 / 62500000000000 : ℚ), (4657168677077 / 62500000000000 : ℚ), (26887318057561 / 1000000000000000 : ℚ), (397622379188569 / 100000000000000 : ℚ), (133625582081743 / 5000000000000 : ℚ), (79753639977851 / 1000000000000 : ℚ)]
+
+/-- Condición inicial x₀(θ) (asignaciones iniciales de SBML). -/
+def G : Fin 25 → KExpr 25 27 := ![
+  (KExpr.par 24),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.mul (KExpr.par 25) (KExpr.add (KExpr.mul (KExpr.qconst (1 : ℚ)) (KExpr.par 13)) (KExpr.qconst (1 : ℚ)))),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.par 26),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ)),
+  (KExpr.qconst (0 : ℚ))
+]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem init_ok : checkInit pos G = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final (condición inicial dependiente de θ): la única condición
+restante es que la solución nominal exista en [0, T]. -/
+def final := @checked_model_final_init _ _ pos F check G init_ok θq theta_ok
 
 end Models.Bachmann_MSB2011
 
 #print axioms Models.Bachmann_MSB2011.diff
+
+#print axioms Models.Bachmann_MSB2011.final

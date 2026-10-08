@@ -21,6 +21,8 @@
  "theta0_no_positivos": [],
  "theta_signo_libre": [],
  "theta_log_nominal_0": [],
+ "x0_depende_de_theta": [],
+ "x0_por_condicion": [],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [],
@@ -29,5 +31,6 @@
  "n_fallos_cuasipositividad": 0,
  "prediccion_check": true,
  "lean": "Models/Crauste_CellSystems2017.lean",
+ "teorema_final": true,
  "traducido": true
 }

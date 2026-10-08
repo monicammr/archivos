@@ -39,9 +39,25 @@ def F : Fin 16 → KExpr 16 8 := ![
 
 theorem check : checkModel pos F = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 8 → ℚ := ![(13359999985371 / 200000000000000 : ℚ), (13649999998719 / 500000000000000 : ℚ), (6443750000779 / 3125000000000 : ℚ), (551899999917063 / 1000000000000000 : ℚ), (695899999206803 / 1000000000000000 : ℚ), (325299999788883 / 1000000000000000 : ℚ), (22054999994189 / 10000000000000 : ℚ), (359170000273213 / 100000000000000 : ℚ)]
+
+/-- Condiciones iniciales nominales (no dependen de θ). -/
+def xq : Fin 16 → ℚ := ![(1 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ)]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem x0_ok : checkNonneg xq = true := by decide +kernel
+
 /-- Diferenciabilidad de la trayectoria (y positividad) para este modelo. -/
 def diff := @checked_model_hasFDerivAt _ _ pos F check
+
+/-- Teorema final: la única condición restante es que la solución nominal
+exista en [0, T]. -/
+def final := @checked_model_final _ _ pos F check θq theta_ok xq x0_ok
 
 end Models.Blasi_CellSystems2016
 
 #print axioms Models.Blasi_CellSystems2016.diff
+
+#print axioms Models.Blasi_CellSystems2016.final

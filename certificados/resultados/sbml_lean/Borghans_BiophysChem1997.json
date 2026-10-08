@@ -24,6 +24,12 @@
  "theta0_no_positivos": [],
  "theta_signo_libre": [],
  "theta_log_nominal_0": [],
+ "x0_depende_de_theta": [
+  "A_state",
+  "Y_state",
+  "Z_state"
+ ],
+ "x0_por_condicion": [],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [
@@ -34,5 +40,6 @@
  "n_fallos_cuasipositividad": 0,
  "prediccion_check": false,
  "lean": "Models/Borghans_BiophysChem1997.lean",
+ "teorema_final": false,
  "traducido": true
 }

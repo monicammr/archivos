@@ -110,6 +110,16 @@ def F5 : Fin 10 → KExpr 10 43 := ![
 
 theorem check5 : checkModel pos F5 = true := by decide +kernel
 
+/-- θ₀ nominal (PEtab), en racionales exactos. -/
+def θq : Fin 43 → ℚ := ![(57 / 100 : ℚ), (11 / 1000 : ℚ), (11 / 1000 : ℚ), (171 / 1000 : ℚ), (1 / 8 : ℚ), (57 / 125 : ℚ), (17 / 1000 : ℚ), (17 / 500 : ℚ), (17 / 1000 : ℚ), (27 / 1000 : ℚ), (17 / 500 : ℚ), (17 / 1000 : ℚ), (1 / 100 : ℚ), (371 / 1000 : ℚ), (17 / 1000 : ℚ), (1 / 8 : ℚ), (211 / 500 : ℚ), (9 / 25 : ℚ), (21 / 100 : ℚ), (57 / 10000 : ℚ), (1 / 200 : ℚ), (57 / 10000 : ℚ), (1 / 200 : ℚ), (143 / 1000 : ℚ), (1 / 5 : ℚ), (17 / 500 : ℚ), (1 / 40 : ℚ), (57 / 200 : ℚ), (1 / 5 : ℚ), (11 / 100 : ℚ), (17 / 1000 : ℚ), (1 / 50 : ℚ), (2 / 25 : ℚ), (1 / 125 : ℚ), (3 / 200 : ℚ), (17 / 1000 : ℚ), (1 / 50 : ℚ), (17 / 1000 : ℚ), (1 / 100 : ℚ), (17 / 1000 : ℚ), (1 / 50 : ℚ), (17 / 500 : ℚ), (1 / 40 : ℚ)]
+
+/-- Condiciones iniciales nominales (no dependen de θ). -/
+def xq : Fin 10 → ℚ := ![(9999963 / 10000000 : ℚ), (333333333 / 100000000000000 : ℚ), (333333333 / 1000000000000000 : ℚ), (83333333 / 5000000000000000 : ℚ), (333333333 / 10000000000000000 : ℚ), (0 : ℚ), (0 : ℚ), (0 : ℚ), (3666666662999999 / 10000000000000000000000 : ℚ), (0 : ℚ)]
+
+theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem x0_ok : checkNonneg xq = true := by decide +kernel
+
 def Fseg : ℕ → Fin 10 → KExpr 10 43
   | 0 => F0
   | 1 => F1
@@ -131,6 +141,12 @@ theorem check : ∀ k, checkModel pos (Fseg k) = true := by
 /-- Diferenciabilidad de la trayectoria en todos los tramos. -/
 def diff := @checked_segments_hasFDerivAt _ _ pos Fseg check
 
+/-- Teorema final: la única condición restante es que la solución nominal
+exista en cada tramo. -/
+def final := @checked_segments_final _ _ pos Fseg check θq theta_ok xq x0_ok
+
 end Models.Giordano_Nature2020
 
 #print axioms Models.Giordano_Nature2020.diff
+
+#print axioms Models.Giordano_Nature2020.final

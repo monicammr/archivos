@@ -60,6 +60,8 @@
   "d_ksyn_MMET__fm_2_hm"
  ],
  "theta_log_nominal_0": [],
+ "x0_depende_de_theta": [],
+ "x0_por_condicion": [],
  "x0_no_negativo": true,
  "x0_nan": [],
  "fallos_dominio": [],
@@ -68,5 +70,6 @@
  "n_fallos_cuasipositividad": 0,
  "prediccion_check": true,
  "lean": "Models/Raimundez_PCB2020.lean",
+ "teorema_final": true,
  "traducido": true
 }
