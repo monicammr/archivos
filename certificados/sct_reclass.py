@@ -52,3 +52,29 @@ res.update({"etapa": etapa, "S": [names[j] for j in S], "Rvar_%": 100 * rvar(S),
 print(json.dumps(res, indent=1))
 d = R.OUT / "reclasificacion_v2"; d.mkdir(exist_ok=True)
 (d / "SCT_Bandura.json").write_text(json.dumps(res, indent=1))
+
+# --- e_ajuste (reestimación de S, mismo método que refit_systems.py)
+from scipy.optimize import least_squares
+S = [names.index(q) for q in res["S"]]
+sgn = np.where(th0[S] < 0, -1.0, 1.0); mag0 = np.abs(th0[S])
+lo, hi = np.log(mag0 / 10), np.log(mag0 * 10)
+filas = []
+for th in escen:
+    yf = F(th); nf = np.linalg.norm(yf - y0)
+    def resid(u):
+        ts = th0.copy(); ts[S] = sgn * np.exp(u); return (F(ts) - yf) / nf
+    ts = th0.copy(); ts[S] = th[S]; erel = float(np.linalg.norm(F(ts) - yf) / nf)
+    best = min((least_squares(resid, x0, bounds=(lo, hi), method="trf", diff_step=1e-3,
+                              max_nfev=100 * (len(S) + 1))
+                for x0 in (np.log(mag0), np.clip(np.log(np.abs(th[S])), lo, hi))),
+               key=lambda r: r.cost)
+    filas.append(min(float(np.linalg.norm(resid(best.x))), erel))
+aj = {"sistema": "SCT_Bandura", "|S|": len(S), "S": res["S"], "n_escenarios": len(filas),
+      "cos_med": res["cos_med"], "erel_med": res["erel_med"],
+      "eajuste_med": float(np.median(filas)), "eajuste_p90": float(np.quantile(filas, 0.9)),
+      "eajuste<=0.10": f"{sum(f <= 0.10 for f in filas)}/{len(filas)}",
+      "eajuste<=0.436": f"{sum(f <= 0.436 for f in filas)}/{len(filas)}",
+      "admisible_v2": res["admisible"]}
+d2 = R.OUT / "ajuste"; d2.mkdir(exist_ok=True)
+(d2 / "SCT_Bandura.json").write_text(json.dumps(aj, indent=1))
+print(json.dumps(aj))
