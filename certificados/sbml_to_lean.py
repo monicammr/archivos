@@ -49,6 +49,13 @@ class NotConst(Exception):
 # ('num', Fraction) | ('var', i) | ('par', j) | ('add', a, b) | ('sub', a, b) | ('mul', a, b)
 # ('div', a, b) | ('npow', a, k) | ('rpow', a, Fraction) | ('exp', a) | ('log', a)
 
+def flatten_add(e):
+    """Sumandos de un árbol de sumas."""
+    if e[0] == 'add':
+        return flatten_add(e[1]) + flatten_add(e[2])
+    return [e]
+
+
 def num(q):
     return ('num', Fraction(q))
 
@@ -354,6 +361,14 @@ class Model:
                 return num(k[0][1] - k[1][1])
             if k[1] == ('num', Fraction(0)):
                 return k[0]
+            # (… + b + …) − b  →  (… + …)   (p. ej. N − detectados en Okuonghae)
+            summ = flatten_add(k[0])
+            if len(summ) > 1 and k[1] in summ:
+                summ.remove(k[1])
+                r = summ[0]
+                for c_ in summ[1:]:
+                    r = ('add', r, c_)
+                return r
             return ('sub', k[0], k[1])
         if t == T.AST_TIMES:
             self.ops.add('*')
