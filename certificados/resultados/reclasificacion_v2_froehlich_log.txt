@@ -3,3 +3,4 @@
   J: 1/4088 columnas
   J: 201/4088 columnas
   J: 401/4088 columnas
+  J: 601/4088 columnas
