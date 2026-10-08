@@ -1,0 +1,35 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "p": 14,
+ "T": 50.0,
+ "S1": [
+  "k_d",
+  "k00",
+  "k2",
+  "alpha_cer",
+  "k3"
+ ],
+ "Rvar_S1_%": 69.3932208970398,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k_d",
+  "k00",
+  "k2",
+  "alpha_cer"
+ ],
+ "Rvar_%": 69.39322089703478,
+ "kappa": 2.202567811924304,
+ "VIF": 1.7564813663834584,
+ "cos_med": 0.9969061244131788,
+ "erel_med": 0.11637583627813049,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.05740767507099321,
+ "segundos": 2.9,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "alpha_cer",
+  "k_d"
+ ]
+}
