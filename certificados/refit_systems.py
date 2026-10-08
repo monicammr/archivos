@@ -23,6 +23,7 @@ Opciones: --bench RUTA (carpeta `problems` del benchmark PEtab), --escenarios N 
           --max-nfev N (evaluaciones máximas por ajuste, por defecto 100·(|S|+1)),
           --subconjunto S1 (usa el subconjunto de la Etapa 1, campo "S1" del JSON, en lugar del
           final "S"; el resultado se guarda como <sistema>_S1.json y no reemplaza al otro),
+          --v3 (lee S de resultados/reclasificacion_v3; guarda <sistema>_v3.json),
           --primeros 10,20,30 (usa sólo los primeros K parámetros del subconjunto, en el orden en
           que los eligió el algoritmo, para cada K de la lista; guarda <sistema>_k<K>.json).
 """
@@ -42,7 +43,7 @@ OUTD = HERE / "resultados" / "ajuste"
 
 def args():
     a = sys.argv[1:]
-    opt = {"bench": None, "escenarios": 15, "max_nfev": None, "campo": "S", "ks": None}
+    opt = {"bench": None, "escenarios": 15, "max_nfev": None, "campo": "S", "ks": None, "v3": False}
     names = []
     i = 0
     while i < len(a):
@@ -54,6 +55,8 @@ def args():
             opt["max_nfev"] = int(a[i + 1]); i += 2
         elif a[i] == "--subconjunto":
             opt["campo"] = a[i + 1]; i += 2
+        elif a[i] == "--v3":
+            opt["v3"] = True; i += 1
         elif a[i] == "--primeros":
             opt["ks"] = [int(x) for x in a[i + 1].split(",") if x.strip()]; i += 2
         else:
@@ -143,6 +146,8 @@ if __name__ == "__main__":
     names, opt = args()
     if opt["bench"]:
         CS.BENCH = Path(opt["bench"])
+    if opt["v3"]:
+        SUBSETS = HERE / "resultados" / "reclasificacion_v3"
     OUTD.mkdir(parents=True, exist_ok=True)
     if not names:
         names = sorted(p.stem for p in SUBSETS.glob("*.json")
@@ -158,7 +163,7 @@ if __name__ == "__main__":
         if not S_names:
             print(f"[{name}] sin subconjunto ({info.get('etapa')}): se omite")
             continue
-        base = "" if opt["campo"] == "S" else f"_{opt['campo']}"
+        base = ("" if opt["campo"] == "S" else f"_{opt['campo']}") + ("_v3" if opt["v3"] else "")
         pruebas = [(None, S_names, base)]
         if opt["ks"]:
             pruebas = [(k, S_names[:k], f"{base}_k{k}") for k in opt["ks"] if k <= len(S_names)]

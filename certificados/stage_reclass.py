@@ -325,8 +325,11 @@ def main_one(name, t_def):
         (not V2 or len(res["S"]) >= 2)
     if V3:
         Sf = [names.index(q) for q in res["S"]]
-        if len(Sf) >= 1 and (p <= 200 or len(Sf) <= 10):
-            res["eajuste_med"] = memo_aj.get(tuple(Sf)) if tuple(Sf) in memo_aj else ajuste(Sf)
+        if tuple(Sf) in memo_aj:
+            # ya calculado al decidir la parada (también en sistemas grandes)
+            res["eajuste_med"] = memo_aj[tuple(Sf)]
+        elif len(Sf) >= 1 and (p <= 200 or len(Sf) <= 10):
+            res["eajuste_med"] = ajuste(Sf)
         else:
             # sistemas muy grandes: cota e_ajuste ≤ e_rel (el punto sin reestimar es candidato)
             res["eajuste_med"] = None
