@@ -800,7 +800,13 @@ def process(name, T):
                 all(math.isfinite(v) for v in model.x0_vals):
             mod_, estado = emit_network_segments(model, segs)
             rep["red"] = estado
-        if rep["red"] != "ok" and len(segs) == 1 and init_exprs != "no" and \
+        if rep["red"] == "crecimiento" and init_exprs is None and \
+                all(math.isfinite(v) for v in model.x0_vals):
+            # crecimiento cuadrático: existencia en un horizonte finito (Riccati)
+            mod_, estado = emit_riccati(model, segs[0][2], T)
+            if estado == "riccati":
+                rep["red"] = "riccati"
+        if rep["red"] not in ("ok", "riccati") and len(segs) == 1 and init_exprs != "no" and \
                 all(math.isfinite(v) for v in model.x0_vals):
             # positividad estricta (Σ = especies con x₀ > 0)
             mod_, estado, bad = emit_strict(model, segs[0][2], init_exprs)
@@ -1480,6 +1486,160 @@ def emit_strict(model, rhs, init_exprs):
     OUTDIR.mkdir(parents=True, exist_ok=True)
     (OUTDIR / f"{mod}.lean").write_text("\n".join(lines))
     return mod, "estricta", []
+
+
+# ================================================================ crecimiento cuadrático (RiccatiNetwork)
+# Réplica exacta (en ℚ) de lean/RiccatiNetwork.lean.
+def _qc(e):
+    t = e[0]
+    if t in ('num', 'par'): return True
+    if t in ('add', 'sub', 'mul', 'div'): return _qc(e[1]) and _qc(e[2])
+    if t == 'npow': return _qc(e[1])
+    return False
+
+
+def _qval(e, tq):
+    t = e[0]
+    if t == 'num': return Fraction(e[1])
+    if t == 'par': return tq[e[1]]
+    if t == 'add': return _qval(e[1], tq) + _qval(e[2], tq)
+    if t == 'sub': return _qval(e[1], tq) - _qval(e[2], tq)
+    if t == 'mul': return _qval(e[1], tq) * _qval(e[2], tq)
+    if t == 'div':
+        b = _qval(e[2], tq)
+        return Fraction(0) if b == 0 else _qval(e[1], tq) / b
+    if t == 'npow': return _qval(e[1], tq) ** e[2]
+    return Fraction(0)
+
+
+def _qnn(e, tq): return _qc(e) and _qval(e, tq) >= 0
+
+
+def _linC(e, tq):
+    t = e[0]
+    if t == 'var': return True
+    if t == 'add': return _linC(e[1], tq) and _linC(e[2], tq)
+    if t == 'mul': return (_qnn(e[1], tq) and _linC(e[2], tq)) or (_linC(e[1], tq) and _qnn(e[2], tq))
+    return _qnn(e, tq)
+
+
+def _linV(e, c, tq):
+    t = e[0]
+    if t == 'var': return (Fraction(0), 1 / Fraction(c[e[1]]))
+    if t == 'add':
+        a, b = _linV(e[1], c, tq), _linV(e[2], c, tq)
+        return (a[0] + b[0], a[1] + b[1])
+    if t == 'mul':
+        if _qnn(e[1], tq) and _linC(e[2], tq):
+            r, v = _qval(e[1], tq), _linV(e[2], c, tq)
+            return (r * v[0], r * v[1])
+        r, v = _qval(e[2], tq), _linV(e[1], c, tq)
+        return (v[0] * r, v[1] * r)
+    return (_qval(e, tq), Fraction(0))
+
+
+def _quadC(e, tq):
+    t = e[0]
+    if t == 'mul':
+        return (_linC(e[1], tq) and _linC(e[2], tq)) or (_quadC(e[1], tq) and _qnn(e[2], tq)) or \
+            (_qnn(e[1], tq) and _quadC(e[2], tq))
+    if t == 'npow': return e[2] == 2 and _linC(e[1], tq)
+    return _linC(e, tq)
+
+
+def _prodV(u, v): return (u[0] * v[0], u[0] * v[1] + v[0] * u[1], u[1] * v[1])
+
+
+def _quadV(e, c, tq):
+    t = e[0]
+    if t == 'mul':
+        if _linC(e[1], tq) and _linC(e[2], tq):
+            return _prodV(_linV(e[1], c, tq), _linV(e[2], c, tq))
+        if _quadC(e[1], tq) and _qnn(e[2], tq):
+            r = _qval(e[2], tq); q = _quadV(e[1], c, tq)
+            return (q[0] * r, q[1] * r, q[2] * r)
+        r = _qval(e[1], tq); q = _quadV(e[2], c, tq)
+        return (r * q[0], r * q[1], r * q[2])
+    if t == 'npow':
+        v = _linV(e[1], c, tq)
+        return _prodV(v, v)
+    v = _linV(e, c, tq)
+    return (v[0], v[1], Fraction(0))
+
+
+def riccati_ok(Rx, c, tq, xq, Tq, pos):
+    A = B = C = Fraction(0)
+    for V, col in Rx:
+        w = sum((c[i] * s for i, s in col), Fraction(0))
+        if w == 0:
+            continue
+        if w < 0:
+            if not _py_nonneg(V, pos):
+                return False
+            continue
+        if not _quadC(V, tq):
+            return False
+        q = _quadV(V, c, tq)
+        A, B, C = A + w * q[0], B + w * q[1], C + w * q[2]
+    Q = max(A, B / 2, C)
+    phi0 = sum((ci * xi for ci, xi in zip(c, xq)), Fraction(0))
+    return Q > 0 and Fraction(11, 10) * Q * (phi0 + 1) * Tq < 1
+
+
+def emit_riccati(model, rhs, T):
+    n, p = len(model.names_ext), len(model.theta)
+    pos = [model.positive[t] for t in model.theta]
+    Rx = network_of(rhs)
+    if net_checks(Rx, pos):
+        return None, "checkNet"
+    tq = [frac_of(v) for v in model.theta_vals]
+    xq = [frac_of(v) for v in model.x0_vals]
+    Tq = frac_of(T)
+    cands = [[Fraction(1)] * n]
+    for j in range(n):
+        for k in range(1, 8):
+            cc = [Fraction(1)] * n
+            cc[j] = Fraction(10) ** k
+            cands.append(cc)
+    c = next((cc for cc in cands if riccati_ok(Rx, cc, tq, xq, Tq, pos)), None)
+    if c is None:
+        return None, "riccati"
+    mod = leanid(model.name)
+    lines = [
+        "import RiccatiNetwork", "",
+        f"/-! Modelo `{model.name}` (forma de red, crecimiento cuadrático), traducido",
+        "automáticamente de SBML por `certificados/sbml_to_lean.py`. No editar a mano.", "",
+        f"Estados ({n}): " + ", ".join(model.names_ext), "",
+        f"Parámetros estimados θ ({p}): " + ", ".join(model.theta), "",
+        f"Horizonte: T ≤ {lean_q(Tq)} (la cota de Riccati no da existencia global).",
+        "-/", "", "set_option maxRecDepth 100000", "set_option maxHeartbeats 0", "",
+        "open KineticRegularity KineticCheck KineticNetwork RiccatiNetwork", "",
+        f"namespace Models.{mod}", "",
+        *lean_vec("pos", p, "Bool", [("true" if b else "false") for b in pos], "false"), "",
+        f"def Rx : List (KExpr {n} {p} × List (Fin {n} × ℚ)) := ["]
+    lines.append(",\n".join(
+        f"  ({lean_expr(V)}, [{', '.join(f'({i}, {lean_q(s_)})' for i, s_ in col)}])"
+        for V, col in Rx))
+    lines += ["]", "",
+              f"def F : Fin {n} → KExpr {n} {p} := netF Rx", "",
+              "theorem net_ok : checkNet pos Rx = true := by decide +kernel", "",
+              *lean_vec("θq", p, "ℚ", [lean_q(v) for v in tq], "1"), "",
+              "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
+              *lean_vec("xq", n, "ℚ", [lean_q(v) for v in xq], "0"), "",
+              "theorem x0_ok : checkNonneg xq = true := by decide +kernel", "",
+              "/-- Pesos de la combinación `φ = Σ cᵢ xᵢ`. -/",
+              *lean_vec("c", n, "ℚ", [lean_q(x) for x in c], "1"), "",
+              f"/-- Horizonte `T_q = {lean_q(Tq)}`. -/",
+              f"def Tq : ℚ := {lean_q(Tq)}", "",
+              "/-- Cota de Riccati `Σ cᵢ Fᵢ ≤ Q (φ + 1)²` y `1.1·Q·(φ₀ + 1)·T_q < 1`. -/",
+              "theorem riccati_ok : checkRiccati pos c θq xq Tq Rx = true := by decide +kernel", "",
+              "/-- **Teorema final, sin condiciones pendientes** para `0 ≤ T ≤ T_q`: la solución",
+              "nominal existe en [0, T], es ≥ 0, queda en el dominio, y la trayectoria es",
+              "diferenciable respecto a θ en θ₀. -/",
+              "def final := @riccati_final _ _ pos Rx net_ok c θq theta_ok xq x0_ok Tq riccati_ok", "",
+              f"end Models.{mod}", "", f"#print axioms Models.{mod}.final", ""]
+    (OUTDIR / f"{mod}.lean").write_text("\n".join(lines))
+    return mod, "riccati"
 
 if __name__ == "__main__":
     sys.path.insert(0, str(HERE))

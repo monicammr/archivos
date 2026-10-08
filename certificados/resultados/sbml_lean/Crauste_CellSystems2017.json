@@ -6,6 +6,7 @@
  "reacciones": 12,
  "eventos": 0,
  "parametros_por_condicion": [],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,
@@ -31,7 +32,7 @@
  "n_fallos_cuasipositividad": 0,
  "prediccion_check": true,
  "lean": "Models/Crauste_CellSystems2017.lean",
- "red": "crecimiento",
+ "red": "riccati",
  "teorema_final": true,
  "traducido": true
 }

@@ -1,4 +1,4 @@
-Crauste_CellSystems2017|6s|'Models.Crauste_CellSystems2017.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Crauste_CellSystems2017.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Crauste_CellSystems2017|5s|'Models.Crauste_CellSystems2017.final' depends on axioms: [propext, Classical.choice, Quot.sound] (cota de Riccati, T ≤ 1)
 Zhao_QuantBiol2020|4s|'Models.Zhao_QuantBiol2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
 Boehm_JProteomeRes2014|5s|'Models.Boehm_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
 Brannmark_JBC2010|5s|'Models.Brannmark_JBC2010.final' depends on axioms: [propext, Classical.choice, Quot.sound] 

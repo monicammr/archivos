@@ -52,6 +52,9 @@ for f in sorted(D.glob("*.json")):
     elif "depends on axioms: [propext, Classical.choice, Quot.sound]" in out:
         if d.get("red") == "ok":
             res = f"✅ verificado, sin condiciones pendientes ({t})"
+        elif d.get("red") == "riccati":
+            res = f"✅ verificado, sin condiciones pendientes para T ≤ {d.get('T')} ({t}); cota de Riccati"
+            notas.append("crecimiento cuadrático (ρ_P·P²): existencia demostrada en el horizonte del análisis, no global")
         elif d.get("red") == "estricta":
             res = f"✅ verificado, sin condiciones pendientes ({t}); positividad estricta"
             notas.append("las especies con dato inicial > 0 permanecen > 0 (lo exige el dominio)")

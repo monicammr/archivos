@@ -85,7 +85,7 @@ Qué hace el traductor:
 
 Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/sbml_lean/*.json`):
 
-* **18 modelos verificados en Lean sin ninguna condición pendiente**:
+* **19 modelos verificados en Lean sin ninguna condición pendiente** (18 globalmente; Crauste en el horizonte T ≤ 1 del análisis):
   * 15 en forma de red (`KineticNetwork.network_final`): Bachmann, Blasi, Boehm, Brannmark,
     Chen (500 estados), Froehlich (1228 estados, 4088 parámetros; 13 módulos compilados por
     separado, ≤ 3 GB cada uno, ~30 min), Giordano (6 tramos), Lang (124 estados), Raia,
@@ -101,9 +101,13 @@ Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/s
     es proporcional a ellas (`≤ K·yᵢ`, con términos saturantes `k·X/(…+X+…) ≤ k` y `e^{≤0} ≤ 1`),
     luego `yᵢ(t) ≥ yᵢ(0)·e^{−(K+1)t}/2`. En Elowitz el traductor reescribe la represión de Hill
     `a − b(a − c)/(b + d) = (a·d + b·c)/(b + d)` para que la tasa sea suma de términos ≥ 0.
-* **Crauste**: verificado salvo la existencia global, que no se puede garantizar por este método
-  (el patógeno crece como ρ_P·P²); el teorema `final` conserva la condición "la solución nominal
-  existe en [0, T]".
+* **Crauste** (`RiccatiNetwork.riccati_final`): **verificado sin condiciones para T ≤ 1** (el
+  horizonte del análisis). El patógeno crece como ρ_P·P², así que la existencia global no es
+  cierta en general; con pesos c = (1, 1, 1, 1, 10⁵) Lean comprueba en racionales
+  Σ cᵢFᵢ ≤ Q(φ + 1)² y 1,1·Q·(φ₀ + 1)·T < 1, y la comparación con la solución de Riccati
+  R(t) = W/(1 − κt) da la existencia en [0, 1]. Con este método el horizonte máximo es
+  T ≈ 1,4 días; los datos de PEtab llegan al día 28, y para ese horizonte seguiría haciendo
+  falta integración verificada.
 * **3 modelos verificados con la condición "la solución nominal existe y permanece en el
   dominio"** (Lean demuestra que la comprobación sencilla falla, `check_falla`):
   * Okuonghae: además de la incidencia β·S·I/N, el flujo symptomatic → asymptomatic tiene tasa

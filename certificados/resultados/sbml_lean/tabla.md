@@ -7,7 +7,7 @@
 | Borghans_BiophysChem1997 | 3 | 20 | ✅ verificado, sin condiciones pendientes (5s); positividad estricta | las especies con dato inicial > 0 permanecen > 0 (lo exige el dominio) |
 | Brannmark_JBC2010 | 9 | 15 | ✅ verificado, sin condiciones pendientes (5s) |  |
 | Chen_MSB2009 | 500 | 152 | ✅ verificado, sin condiciones pendientes (1975s) | tiempo como estado |
-| Crauste_CellSystems2017 | 5 | 12 | ✅ verificado; condición: existe la solución nominal en [0,T] (6s) | crecimiento superlineal (P²): la existencia global no se puede garantizar |
+| Crauste_CellSystems2017 | 5 | 12 | ✅ verificado, sin condiciones pendientes para T ≤ 1.0 (5s); cota de Riccati | crecimiento cuadrático (ρ_P·P²): existencia demostrada en el horizonte del análisis, no global |
 | Elowitz_Nature2000 | 8 | 18 | ✅ verificado, sin condiciones pendientes (5s); positividad estricta | las especies con dato inicial > 0 permanecen > 0 (lo exige el dominio) |
 | Fiedler_BMCSystBiol2016 | 6 | 12 | ✅ verificado con condición: la solución nominal existe en [0,T] y permanece en el dominio | tiempo como estado; entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) ≥ 0, pero el comprobador sintáctico no lo detecta (conservador) |
 | Froehlich_CellSystems2018 | 1228 | 4088 | ✅ verificado, sin condiciones pendientes (1800s) |  |
