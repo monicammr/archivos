@@ -940,6 +940,8 @@ def growth_ok_exact(Rx, c, pos):
 def lean_vec(name, m, typ, elems, default):
     """Vector `Fin m → typ`: notación ![…] si es corto; lista + getD si es largo
     (la notación ![…] desborda la pila del analizador para miles de elementos)."""
+    if len(set(elems)) == 1 and m > 0:
+        return [f"def {name} : Fin {m} → {typ} := fun _ => {elems[0]}"]
     if m <= 500:
         return [f"def {name} : Fin {m} → {typ} := ![{', '.join(elems)}]"]
     return [f"def {name}L : List {typ} := [{', '.join(elems)}]",
