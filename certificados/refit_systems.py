@@ -73,7 +73,10 @@ def refit_one(name, S_names, n_esc, max_nfev):
     escen = [np.maximum(th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)), 1e-12)
              for _ in range(n_esc)]
     umbral = max(1e-10 * np.linalg.norm(y0), 1e-6)
-    lo, hi = np.log(th0[S] / 10), np.log(th0[S] * 10)
+    # escala log de la magnitud, conservando el signo (hay parámetros negativos, p. ej. Raimundez)
+    sgn = np.where(th0[S] < 0, -1.0, 1.0)
+    mag0 = np.maximum(np.abs(th0[S]), 1e-12)
+    lo, hi = np.log(mag0 / 10), np.log(mag0 * 10)
     nfev = max_nfev or 100 * (len(S) + 1)
     filas = []
     for k, th in enumerate(escen):
@@ -86,7 +89,7 @@ def refit_one(name, S_names, n_esc, max_nfev):
             continue
         # residuo normalizado por ‖Δx_full‖ (respuestas de tamaños muy distintos entre sistemas)
         def resid(u):
-            ts = th0.copy(); ts[S] = np.exp(u)
+            ts = th0.copy(); ts[S] = sgn * np.exp(u)
             ys = Sy.sim(ts)
             if ys is None:
                 return np.full(yf.size, 10.0)  # residuo grande si la simulación falla
@@ -102,7 +105,8 @@ def refit_one(name, S_names, n_esc, max_nfev):
         erel = float(np.linalg.norm(dfull - dsel) / nf)
         cos = float(dfull @ dsel / (nf * ns)) if ns > 0 else 0.0
         mejor = None
-        for x0 in (np.log(th0[S]), np.clip(np.log(th[S]), lo, hi)):
+        x_esc = np.log(np.maximum(np.abs(th[S]), 1e-12))
+        for x0 in (np.log(mag0), np.clip(x_esc, lo, hi)):
             try:
                 r = least_squares(resid, x0, bounds=(lo, hi), method="trf", max_nfev=nfev, diff_step=1e-3,
                                   x_scale=1.0)
@@ -156,5 +160,7 @@ if __name__ == "__main__":
         (OUTD / f"{name}.json").write_text(json.dumps(r, default=str, indent=1))
         pd.DataFrame(filas).to_csv(OUTD / f"{name}_escenarios.csv", index=False)
         out.append(r)
-    if out:
-        pd.DataFrame(out).to_csv(OUTD / "resumen_ajuste.csv", index=False)
+    # resumen con todos los sistemas calculados hasta ahora (también los de corridas anteriores)
+    todos = [json.loads(f.read_text()) for f in sorted(OUTD.glob("*.json"))]
+    if todos:
+        pd.DataFrame(todos).to_csv(OUTD / "resumen_ajuste.csv", index=False)

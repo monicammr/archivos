@@ -79,3 +79,12 @@
 {"sistema": "SalazarCavazos_MBoC2020", "|S|": 2, "S": ["ratio_kpkd_Y1068__FREE", "ratio_kpkd_YN__FREE"], "n_escenarios": 0, "segundos": 1.7, "admisible_v2": false}
 [Schwen_PONE2014] sin subconjunto (Técnico): se omite
 == Smith_BMCSystBiol2013 (|S| = 2)
+{"sistema": "Smith_BMCSystBiol2013", "|S|": 2, "S": ["k30f", "kminus7b"], "n_escenarios": 15, "cos_med": 0.9317893900641252, "erel_med": 1.2251650778430856, "eajuste_med": 0.14351056005008664, "eajuste_p90": 0.6570342943343151, "eajuste<=0.10": "4/15", "eajuste<=0.436": "13/15", "segundos": 5.0, "admisible_v2": false}
+== Sneyd_PNAS2002 (|S| = 2)
+{"sistema": "Sneyd_PNAS2002", "|S|": 2, "S": ["k1", "l_2"], "n_escenarios": 13, "cos_med": 0.9949544285206128, "erel_med": 0.7439409899046624, "eajuste_med": 1.203963116242959e-10, "eajuste_p90": 2.9352778461112913e-10, "eajuste<=0.10": "13/13", "eajuste<=0.436": "13/13", "segundos": 0.3, "admisible_v2": false}
+== Weber_BMC2015 (|S| = 3)
+{"sistema": "Weber_BMC2015", "|S|": 3, "S": ["s31", "p31", "p32"], "n_escenarios": 15, "cos_med": 0.769091348249265, "erel_med": 0.9066882911132137, "eajuste_med": 0.0337952870411765, "eajuste_p90": 0.07269501427962242, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 0.5, "admisible_v2": false}
+== Zhao_QuantBiol2020 (|S| = 2)
+{"sistema": "Zhao_QuantBiol2020", "|S|": 2, "S": ["R_Stage_I_Wuhan", "gamma_2_Stage_I_Wuhan"], "n_escenarios": 15, "cos_med": 0.9909611503722611, "erel_med": 0.7772948109255202, "eajuste_med": 0.11615614922364893, "eajuste_p90": 0.31820220601382526, "eajuste<=0.10": "7/15", "eajuste<=0.436": "15/15", "segundos": 0.4, "admisible_v2": false}
+== Zheng_PNAS2012 (|S| = 13)
+{"sistema": "Zheng_PNAS2012", "|S|": 13, "S": ["k13_12", "k13_03", "k12_22", "k02_01", "k22_21", "k12_11", "k23_13", "k21_20", "k20_30", "k30_31", "k01_00", "k10_20", "k20_10"], "n_escenarios": 15, "cos_med": 0.8978079434739755, "erel_med": 0.7037653186259946, "eajuste_med": 0.023311736359046396, "eajuste_p90": 0.03011708764010581, "eajuste<=0.10": "14/15", "eajuste<=0.436": "15/15", "segundos": 2.7, "admisible_v2": false}

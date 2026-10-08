@@ -1,0 +1,18 @@
+{
+ "sistema": "Weber_BMC2015",
+ "|S|": 3,
+ "S": [
+  "s31",
+  "p31",
+  "p32"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.769091348249265,
+ "erel_med": 0.9066882911132137,
+ "eajuste_med": 0.0337952870411765,
+ "eajuste_p90": 0.07269501427962242,
+ "eajuste<=0.10": "15/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.5,
+ "admisible_v2": false
+}
