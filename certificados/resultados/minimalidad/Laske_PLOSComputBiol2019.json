@@ -1,0 +1,75 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "Int_nuc_off",
+  "k_imp"
+ ],
+ "etapa": "Stage 1",
+ "quitar_uno": [
+  {
+   "sin": "Int_nuc_off",
+   "admisible": false,
+   "e_rel": 0.9676133329734231,
+   "e_ajuste": 0.6982631598568856
+  },
+  {
+   "sin": "k_imp",
+   "admisible": true,
+   "e_rel": 0.27820582663891624,
+   "e_ajuste": null
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "Int_nuc_off",
+   "admisible": true,
+   "e_rel": 0.27820582663891624,
+   "e_ajuste": null
+  },
+  {
+   "parametro": "k_imp",
+   "admisible": false,
+   "e_rel": 0.9676133329734231,
+   "e_ajuste": 0.6982631598568856
+  },
+  {
+   "parametro": "k_syn_R_M",
+   "admisible": false,
+   "e_rel": 0.9988066487868303,
+   "e_ajuste": 0.9913889841935118
+  },
+  {
+   "parametro": "k_bind_M1",
+   "admisible": false,
+   "e_rel": 0.9974943410850619,
+   "e_ajuste": 0.9899235828640234
+  },
+  {
+   "parametro": "k_syn_R_C",
+   "admisible": false,
+   "e_rel": 0.9991125998302346,
+   "e_ajuste": 0.9977254132421669
+  },
+  {
+   "parametro": "k_rel",
+   "admisible": false,
+   "e_rel": 0.9997007088096764,
+   "e_ajuste": 0.9975705800698609
+  },
+  {
+   "parametro": "k_syn_R_V",
+   "admisible": false,
+   "e_rel": 1.000712189639877,
+   "e_ajuste": 0.9988409300442889
+  },
+  {
+   "parametro": "vRNA_offset",
+   "admisible": false,
+   "e_rel": 0.9996410503291033,
+   "e_ajuste": 0.9995754185543659
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 43.8
+}

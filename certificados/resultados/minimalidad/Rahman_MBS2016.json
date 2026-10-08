@@ -1,0 +1,81 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "infected_moderate_transmission_rate",
+   "admisible": true,
+   "e_rel": 0.7141196452374776,
+   "e_ajuste": 0.2005672424545494
+  },
+  {
+   "sin": "infected_normal_worsen_rate",
+   "admisible": true,
+   "e_rel": 0.7282854490876335,
+   "e_ajuste": 0.1124492420745925
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "infected_moderate_transmission_rate",
+   "admisible": true,
+   "e_rel": 0.7282854490876335,
+   "e_ajuste": 0.1124492420745925
+  },
+  {
+   "parametro": "infected_normal_transmission_rate_relative",
+   "admisible": true,
+   "e_rel": 0.6202780421326466,
+   "e_ajuste": 0.1280877853480384
+  },
+  {
+   "parametro": "infected_normal_worsen_rate",
+   "admisible": true,
+   "e_rel": 0.7141196452374776,
+   "e_ajuste": 0.2005672424545494
+  },
+  {
+   "parametro": "behavioural_change_rate",
+   "admisible": false,
+   "e_rel": 0.9899586166940179,
+   "e_ajuste": 0.49045169352282736
+  },
+  {
+   "parametro": "infected_weak_transmission_rate_relative",
+   "admisible": true,
+   "e_rel": 1.0066116373742409,
+   "e_ajuste": 0.2914158654362474
+  },
+  {
+   "parametro": "infected_moderate_worsen_rate",
+   "admisible": false,
+   "e_rel": 0.9864027002843981,
+   "e_ajuste": 0.5983051189262318
+  },
+  {
+   "parametro": "infected_weak_treatment_rate",
+   "admisible": false,
+   "e_rel": 0.9999951768615137,
+   "e_ajuste": 0.9987890027693679
+  },
+  {
+   "parametro": "treated_weak_improve_rate",
+   "admisible": false,
+   "e_rel": 0.9999970360859918,
+   "e_ajuste": 0.9999956562506757
+  },
+  {
+   "parametro": "treated_moderate_improve_rate",
+   "admisible": false,
+   "e_rel": 0.9999986010113563,
+   "e_ajuste": 0.99999753043471
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 3.5
+}

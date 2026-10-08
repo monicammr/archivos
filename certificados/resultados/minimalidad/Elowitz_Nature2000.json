@@ -1,0 +1,121 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "n_Hill",
+  "tau_mRNA",
+  "tau_prot",
+  "scale",
+  "tau_prot_GFP",
+  "eff"
+ ],
+ "etapa": "Stage 1",
+ "quitar_uno": [
+  {
+   "sin": "n_Hill",
+   "admisible": true,
+   "e_rel": 0.8475511965616366,
+   "e_ajuste": 0.23817669853437104
+  },
+  {
+   "sin": "tau_mRNA",
+   "admisible": true,
+   "e_rel": 0.764463588516641,
+   "e_ajuste": 0.2913546615230669
+  },
+  {
+   "sin": "tau_prot",
+   "admisible": true,
+   "e_rel": 0.5583827176442129,
+   "e_ajuste": 0.2501885374658454
+  },
+  {
+   "sin": "scale",
+   "admisible": true,
+   "e_rel": 0.48181318240090637,
+   "e_ajuste": 0.195105165220809
+  },
+  {
+   "sin": "tau_prot_GFP",
+   "admisible": true,
+   "e_rel": 0.35327991869081954,
+   "e_ajuste": null
+  },
+  {
+   "sin": "eff",
+   "admisible": true,
+   "e_rel": 0.3783583158826979,
+   "e_ajuste": null
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "n_Hill",
+   "admisible": false,
+   "e_rel": 1.0605658334764065,
+   "e_ajuste": 0.7352078570797618
+  },
+  {
+   "parametro": "tau_mRNA",
+   "admisible": false,
+   "e_rel": 0.9466940194724436,
+   "e_ajuste": 0.7478447068955391
+  },
+  {
+   "parametro": "tau_prot",
+   "admisible": false,
+   "e_rel": 0.9128227397332028,
+   "e_ajuste": 0.7664372792909823
+  },
+  {
+   "parametro": "scale",
+   "admisible": false,
+   "e_rel": 0.9606351527114965,
+   "e_ajuste": 0.7705136153148467
+  },
+  {
+   "parametro": "tau_prot_GFP",
+   "admisible": false,
+   "e_rel": 0.9097792649550325,
+   "e_ajuste": 0.773023735729495
+  },
+  {
+   "parametro": "eff",
+   "admisible": false,
+   "e_rel": 1.1147478129289345,
+   "e_ajuste": 0.8413576720845414
+  },
+  {
+   "parametro": "KM",
+   "admisible": false,
+   "e_rel": 0.9668846766094116,
+   "e_ajuste": 0.8178017872453592
+  },
+  {
+   "parametro": "tps_active",
+   "admisible": false,
+   "e_rel": 1.0027228364236984,
+   "e_ajuste": 0.8184247331482516
+  },
+  {
+   "parametro": "tps_repr",
+   "admisible": false,
+   "e_rel": 0.9988237909223684,
+   "e_ajuste": 0.9036642983176633
+  },
+  {
+   "parametro": "init_GFP_mRNA",
+   "admisible": false,
+   "e_rel": 0.9907968412362976,
+   "e_ajuste": 0.9656855306220888
+  },
+  {
+   "parametro": "eff_GFP",
+   "admisible": false,
+   "e_rel": 0.9887548843366849,
+   "e_ajuste": 0.9656404116556562
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 26.5
+}

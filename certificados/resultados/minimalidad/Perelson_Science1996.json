@@ -1,0 +1,39 @@
+{
+ "sistema": "Perelson_Science1996",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "etapa": "Stage 1",
+ "quitar_uno": [
+  {
+   "sin": "c",
+   "admisible": false,
+   "e_rel": 0.6339228051574354,
+   "e_ajuste": 0.5864250119049773
+  },
+  {
+   "sin": "delta",
+   "admisible": false,
+   "e_rel": 0.5509771278966683,
+   "e_ajuste": 0.5079788268740184
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "c",
+   "admisible": false,
+   "e_rel": 0.5509771278966683,
+   "e_ajuste": 0.5079788268740184
+  },
+  {
+   "parametro": "delta",
+   "admisible": false,
+   "e_rel": 0.6339228051574354,
+   "e_ajuste": 0.5864250119049773
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 0.2
+}

@@ -1,0 +1,117 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "Kz",
+   "admisible": false,
+   "e_rel": 0.8733919167513116,
+   "e_ajuste": 0.8708199283304694
+  },
+  {
+   "sin": "K_par",
+   "admisible": true,
+   "e_rel": 0.4641731824119625,
+   "e_ajuste": 0.2575627425374282
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "v1",
+   "admisible": false,
+   "e_rel": 1.0052117145852206,
+   "e_ajuste": 0.9457547944826552
+  },
+  {
+   "parametro": "beta_par",
+   "admisible": false,
+   "e_rel": 1.1496728767251951,
+   "e_ajuste": 0.9429617707581562
+  },
+  {
+   "parametro": "Vm2",
+   "admisible": false,
+   "e_rel": 0.8837939610015446,
+   "e_ajuste": 0.8837932950042577
+  },
+  {
+   "parametro": "Vm3",
+   "admisible": false,
+   "e_rel": 1.1261604613901774,
+   "e_ajuste": 0.9954749500406834
+  },
+  {
+   "parametro": "Kz",
+   "admisible": true,
+   "e_rel": 0.4641731824119625,
+   "e_ajuste": 0.2575627425374282
+  },
+  {
+   "parametro": "K_par",
+   "admisible": false,
+   "e_rel": 0.8733919167513116,
+   "e_ajuste": 0.8708199283304694
+  },
+  {
+   "parametro": "v0",
+   "admisible": true,
+   "e_rel": 0.5430652295126304,
+   "e_ajuste": 0.2747202156064926
+  },
+  {
+   "parametro": "Kf",
+   "admisible": false,
+   "e_rel": 1.0228533154123551,
+   "e_ajuste": 0.9974071917568142
+  },
+  {
+   "parametro": "Kp",
+   "admisible": false,
+   "e_rel": 1.0112233305181006,
+   "e_ajuste": 0.998759453535595
+  },
+  {
+   "parametro": "Ka",
+   "admisible": false,
+   "e_rel": 1.0058712693298117,
+   "e_ajuste": 0.9988746236279805
+  },
+  {
+   "parametro": "Kd",
+   "admisible": false,
+   "e_rel": 1.0033174282982256,
+   "e_ajuste": 0.9980555607371746
+  },
+  {
+   "parametro": "Vp",
+   "admisible": false,
+   "e_rel": 1.0079831987334023,
+   "e_ajuste": 0.9987694027038666
+  },
+  {
+   "parametro": "Ky",
+   "admisible": false,
+   "e_rel": 1.0059296049353557,
+   "e_ajuste": 0.9990414029006743
+  },
+  {
+   "parametro": "n_par",
+   "admisible": false,
+   "e_rel": 1.0044899884389211,
+   "e_ajuste": 0.9994754400770156
+  },
+  {
+   "parametro": "Vd",
+   "admisible": false,
+   "e_rel": 1.0085522451790438,
+   "e_ajuste": 0.9989964861401024
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 45.9
+}

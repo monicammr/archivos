@@ -1,0 +1,93 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "transmission_rate_effective",
+   "admisible": false,
+   "e_rel": 0.9991580775573143,
+   "e_ajuste": 0.8700773902127881
+  },
+  {
+   "sin": "gamma_i",
+   "admisible": true,
+   "e_rel": 0.7512243281484429,
+   "e_ajuste": 0.06484145566005563
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "transmission_rate_effective",
+   "admisible": true,
+   "e_rel": 0.7512243281484429,
+   "e_ajuste": 0.06484145566005563
+  },
+  {
+   "parametro": "nu",
+   "admisible": true,
+   "e_rel": 1.0713129837779891,
+   "e_ajuste": 0.07464121399573712
+  },
+  {
+   "parametro": "gamma_0",
+   "admisible": true,
+   "e_rel": 0.8829461593840683,
+   "e_ajuste": 0.0492045545600442
+  },
+  {
+   "parametro": "sigma",
+   "admisible": true,
+   "e_rel": 1.1210825472051063,
+   "e_ajuste": 0.05682690181322971
+  },
+  {
+   "parametro": "alpha",
+   "admisible": true,
+   "e_rel": 0.9283155201175485,
+   "e_ajuste": 0.06842129121373146
+  },
+  {
+   "parametro": "psi",
+   "admisible": true,
+   "e_rel": 0.9016314992082912,
+   "e_ajuste": 0.20413700318003813
+  },
+  {
+   "parametro": "gamma_a",
+   "admisible": true,
+   "e_rel": 0.9564035927665102,
+   "e_ajuste": 0.091518689664166
+  },
+  {
+   "parametro": "exposed_start",
+   "admisible": true,
+   "e_rel": 0.9297350229190532,
+   "e_ajuste": 0.16275653453887517
+  },
+  {
+   "parametro": "symptomatic_start",
+   "admisible": true,
+   "e_rel": 0.9682878757626762,
+   "e_ajuste": 0.1981018900736937
+  },
+  {
+   "parametro": "gamma_i",
+   "admisible": false,
+   "e_rel": 0.9991580775573143,
+   "e_ajuste": 0.8700773902127881
+  },
+  {
+   "parametro": "d_0",
+   "admisible": true,
+   "e_rel": 0.991004127417981,
+   "e_ajuste": 0.08169818730337902
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 6.7
+}

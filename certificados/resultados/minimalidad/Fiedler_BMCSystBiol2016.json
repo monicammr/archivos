@@ -1,0 +1,108 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "tau2",
+  "s_pMek_20140505_gel2",
+  "s_pMek_20140430_gel2",
+  "k6",
+  "k3"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "tau2",
+   "admisible": false,
+   "e_rel": 0.9075670361988231,
+   "e_ajuste": 0.562615982205127
+  },
+  {
+   "sin": "s_pMek_20140505_gel2",
+   "admisible": false,
+   "e_rel": 0.7754171824309233,
+   "e_ajuste": 0.47293712281789063
+  },
+  {
+   "sin": "s_pMek_20140430_gel2",
+   "admisible": true,
+   "e_rel": 0.8024047281030834,
+   "e_ajuste": 0.42024995562578876
+  },
+  {
+   "sin": "k6",
+   "admisible": true,
+   "e_rel": 0.6860323000514561,
+   "e_ajuste": 0.40110522609750454
+  },
+  {
+   "sin": "k3",
+   "admisible": false,
+   "e_rel": 0.7976065736544896,
+   "e_ajuste": 0.44794573749129585
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "tau2",
+   "admisible": false,
+   "e_rel": 0.8343154622234719,
+   "e_ajuste": 0.6223447404813973
+  },
+  {
+   "parametro": "k11",
+   "admisible": false,
+   "e_rel": 0.9553832172379177,
+   "e_ajuste": 0.6063267943249817
+  },
+  {
+   "parametro": "s_pMek_20140430_gel2",
+   "admisible": false,
+   "e_rel": 0.9975813019296323,
+   "e_ajuste": 0.9486036536543334
+  },
+  {
+   "parametro": "s_pMek_20140505_gel2",
+   "admisible": false,
+   "e_rel": 1.0058166978621632,
+   "e_ajuste": 0.9737648458396901
+  },
+  {
+   "parametro": "tau1",
+   "admisible": false,
+   "e_rel": 0.8794929621280095,
+   "e_ajuste": 0.603252936945915
+  },
+  {
+   "parametro": "k6",
+   "admisible": false,
+   "e_rel": 0.9796012754634761,
+   "e_ajuste": 0.9565638161390846
+  },
+  {
+   "parametro": "k3",
+   "admisible": false,
+   "e_rel": 0.936483018956558,
+   "e_ajuste": 0.7390400618753301
+  },
+  {
+   "parametro": "K_1",
+   "admisible": false,
+   "e_rel": 0.9695262339240013,
+   "e_ajuste": 0.7389536581283715
+  },
+  {
+   "parametro": "k5",
+   "admisible": false,
+   "e_rel": 0.9987718434350595,
+   "e_ajuste": 0.9645335672144442
+  },
+  {
+   "parametro": "k4",
+   "admisible": false,
+   "e_rel": 0.9505158699088704,
+   "e_ajuste": 0.8346049261506976
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 16.3
+}
