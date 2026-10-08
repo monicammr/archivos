@@ -1,1 +1,4 @@
 == Froehlich_CellSystems2018
+  J: 0 columnas ya hechas, faltan 4088
+  J: 1/4088 columnas
+  J: 201/4088 columnas

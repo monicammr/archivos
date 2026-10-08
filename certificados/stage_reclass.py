@@ -143,15 +143,30 @@ def main_one(name, t_def):
                 "admisible": False}
     act = np.nonzero(Sy.in_model)[0]
     # --- J relativa por diferencias centradas en log θ
-    J = np.zeros((y0.size, p))
     if p > 200 and NPROC > 1:
+        # sistemas grandes: J en disco (float32) con registro de columnas hechas, para poder
+        # reanudar tras una interrupción
+        cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
+        fJ, fm = cdir / f"{name}_J.npy", cdir / f"{name}_J_hechas.npy"
+        if fJ.exists() and fm.exists():
+            J = np.load(fJ, mmap_mode="r+"); hechas = np.load(fm)
+        else:
+            J = np.lib.format.open_memmap(fJ, mode="w+", dtype=np.float32, shape=(y0.size, p))
+            hechas = np.zeros(p, dtype=bool)
+        pend = [int(j) for j in act if not hechas[j]]
+        print(f"  J: {int(hechas.sum())} columnas ya hechas, faltan {len(pend)}", flush=True)
         with Pool(NPROC, initializer=_w_init, initargs=(name, t_end)) as pool:
-            for k, (j, col) in enumerate(pool.imap_unordered(_w_col, list(act), chunksize=8)):
+            for k, (j, col) in enumerate(pool.imap_unordered(_w_col, pend, chunksize=8)):
                 if col is not None:
                     J[:, j] = col
-                if k % 500 == 0:
-                    print(f"  J: {k}/{len(act)} columnas", flush=True)
+                hechas[j] = True
+                if k % 200 == 0:
+                    J.flush(); np.save(fm, hechas)
+                    print(f"  J: {int(hechas.sum())}/{len(act)} columnas", flush=True)
+        J.flush(); np.save(fm, hechas)
+        J = np.asarray(J, dtype=float) if J.nbytes < 4e9 else J
     else:
+        J = np.zeros((y0.size, p))
         for j in act:
             tp, tm = th0.copy(), th0.copy()
             tp[j] *= 1 + DELTA; tm[j] *= 1 - DELTA
@@ -215,11 +230,19 @@ def main_one(name, t_def):
         # --- Stage 2: barrido empírico
         s = np.zeros(p)
         if p > 200 and NPROC > 1:
+            cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
+            fs, fsm = cdir / f"{name}_s.npy", cdir / f"{name}_s_hechas.npy"
+            hs = np.zeros(p, dtype=bool)
+            if fs.exists() and fsm.exists():
+                s, hs = np.load(fs), np.load(fsm)
+            pend = [int(j) for j in act if not hs[j]]
             with Pool(NPROC, initializer=_w_init, initargs=(name, t_end)) as pool:
-                for k, (j, v) in enumerate(pool.imap_unordered(_w_scan, list(act), chunksize=8)):
-                    s[j] = v
-                    if k % 500 == 0:
-                        print(f"  barrido: {k}/{len(act)}", flush=True)
+                for k, (j, v) in enumerate(pool.imap_unordered(_w_scan, pend, chunksize=8)):
+                    s[j] = v; hs[j] = True
+                    if k % 200 == 0:
+                        np.save(fs, s); np.save(fsm, hs)
+                        print(f"  barrido: {int(hs.sum())}/{len(act)}", flush=True)
+            np.save(fs, s); np.save(fsm, hs)
         else:
             for j in act:
                 tp = th0.copy(); tp[j] *= 1.1
