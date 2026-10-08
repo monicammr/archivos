@@ -49,7 +49,9 @@ descartados fijados en su valor nominal).
 | `EventSystems.lean` | **Hipótesis 2: eventos en tiempos fijos** (Smith_BMCSystBiol2013). Tramos con campos C¹ y mapas de reinicio diferenciables: las soluciones existen cerca de θ₀ y la trayectoria es diferenciable en θ₀ en todos los tramos |
 | `PositivityInvariance.lean` | **Positividad.** Si el modelo es cuasi-positivo (una especie con concentración 0 no puede consumirse) y C¹, las concentraciones que empiezan ≥ 0 siguen ≥ 0 (Grönwall sobre Σ min(xᵢ,0)² + inducción continua). Para modelos cinéticos cuyo dominio contiene el ortante ≥ 0 (MM y Hill con K > 0), la trayectoria queda en el dominio automáticamente. Ejemplo verificado: producción + degradación de Michaelis–Menten |
 | `KineticCheck.lean` | **Comprobación automática de modelos.** Comprobadores booleanos sobre `KExpr` (signo ≥ 0 / > 0, dominio ⊇ ortante, cuasi-positividad), con prueba de corrección. Si `checkModel pos F = true` (Lean lo calcula), `checked_model_hasFDerivAt` da positividad, permanencia en el dominio, existencia y diferenciabilidad; `checked_segments_hasFDerivAt` para entradas por escalones en tiempos fijos |
-| `Models/*.lean` | **Los modelos del artículo**, generados de SBML por `certificados/sbml_to_lean.py`. 15 verificados (`check`, `diff`); en 6 Lean demuestra que la comprobación falla (`check_falla`). Ver `certificados/resultados/sbml_lean/tabla.md` |
+| `GlobalExistence.lean` | **Existencia global (condición C4).** Campo C¹ en un abierto ⊇ ortante, cuasi-positivo, con Σcᵢvᵢ(z) ≤ a + b Σcᵢzᵢ ⇒ la solución existe en [0,T] y es ≥ 0 (truncamiento a una caja + Grönwall) |
+| `KineticNetwork.lean` | **Redes de reacciones.** `checkNet` (dominio, cuasi-positividad término a término) y `checkGrowth` (crecimiento lineal con pesos racionales) con prueba de corrección; `network_final`, `network_final_init` (x₀ dependiente de θ) y `network_segments_final` (tramos): **sin condiciones pendientes** |
+| `Models/*.lean` | **Los modelos del artículo**, generados de SBML por `certificados/sbml_to_lean.py`. 14 verificados sin condiciones pendientes (`final`), Crauste con la condición de existencia de la solución nominal; en 6 Lean demuestra que la comprobación falla (`check_falla`). Ver `certificados/resultados/sbml_lean/tabla.md` |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -82,7 +84,8 @@ descartados fijados en su valor nominal).
 | Sistemas con eventos en tiempos fijos (Smith) | `EventSystems.event_hasFDerivAt` |
 | Las concentraciones permanecen ≥ 0 (modelos cuasi-positivos) | `PositivityInvariance.nonneg_of_quasiPositive`, `kinetic_nonneg` |
 | Diferenciabilidad para modelos cinéticos con solo: dominio ⊇ ortante ≥ 0, cuasi-positividad y dato inicial ≥ 0 | `PositivityInvariance.kinetic_hasFDerivAt_of_nonneg` |
-| **Cada modelo concreto** (15 de 22) cumple las hipótesis: C¹, dominio ⊇ ortante, cuasi-positivo | `Models.<Sistema>.check`, `Models.<Sistema>.diff` |
+| **Existencia global de la solución** para modelos cuasi-positivos con crecimiento lineal | `GlobalExistence.exists_global_solution` |
+| **Cada modelo concreto, sin condiciones pendientes** (14 de 22): existencia, positividad y diferenciabilidad | `Models.<Sistema>.final` (`KineticNetwork.network_final`, `network_final_init`, `network_segments_final`) |
 
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que

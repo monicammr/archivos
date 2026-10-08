@@ -1005,7 +1005,8 @@ def emit_network_segments(model, segs):
     lines += ["/-- Duración de cada tramo. -/", "def Lq : ℕ → ℚ"]
     lines += [f"  | {k} => {lean_q(lq[k])}" for k in range(K - 1)] + [f"  | _ => {lean_q(lq[-1])}", ""]
     lines += ["theorem Lq_nonneg : ∀ k, 0 ≤ Lq k := by", "  intro k", "  match k with"]
-    lines += [f"  | {k} => decide +kernel" for k in range(K - 1)] + [f"  | _ + {K - 1} => decide +kernel", ""]
+    lines += [f"  | {k} => decide +kernel" for k in range(K - 1)] + \
+        [f"  | _ + {K - 1} => exact (show (0 : ℚ) ≤ {lean_q(lq[-1])} by decide +kernel)", ""]
     lines += ["noncomputable def Lseg (k : ℕ) : ℝ := (Lq k : ℝ)", "",
               "theorem Lseg_nonneg : ∀ k, 0 ≤ Lseg k := fun k => by",
               "  unfold Lseg; exact_mod_cast Lq_nonneg k", "",

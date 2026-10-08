@@ -85,9 +85,16 @@ Qué hace el traductor:
 
 Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/sbml_lean/*.json`):
 
-* **15 modelos verificados en Lean**: Bachmann, Blasi, Boehm, Brannmark, Chen (500 estados),
-  Crauste, Giordano (6 tramos), Lang (124 estados), Raia, Raimundez, SalazarCavazos, Sneyd,
-  Weber, Zhao, Zheng.
+* **14 modelos verificados en Lean sin ninguna condición pendiente** (forma de red,
+  `KineticNetwork.network_final`): Bachmann, Blasi, Boehm, Brannmark, Chen (500 estados),
+  Giordano (6 tramos), Lang (124 estados), Raia, Raimundez, SalazarCavazos, Sneyd, Weber, Zhao,
+  Zheng. Para ellos Lean demuestra: el campo es C¹, el dominio contiene el ortante ≥ 0, el modelo
+  es cuasi-positivo, crece como mucho linealmente (pesos `c` comprobados por cálculo), θ₀ > 0 y
+  x₀ ≥ 0 (o x₀(θ) ≥ 0 y diferenciable en Bachmann, Raia y SalazarCavazos); por tanto **la solución
+  nominal existe en [0, T] para todo T**, es ≥ 0, y la trayectoria es diferenciable respecto a θ.
+* **Crauste**: verificado salvo la existencia global, que no se puede garantizar por este método
+  (el patógeno crece como ρ_P·P²); el teorema `final` conserva la condición "la solución nominal
+  existe en [0, T]".
 * **6 modelos en los que Lean demuestra que la comprobación falla** (`check_falla`):
   * Elowitz y Borghans: Hill con exponente *estimado* sobre una concentración (xᶿ no es C¹ en
     x = 0 si θ < 1);
@@ -99,8 +106,10 @@ Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/s
     sintáctico no lo detecta (fallo conservador).
 * **Smith**: no se traduce (eventos SBML); está cubierto en teoría por `EventSystems`.
 * **Froehlich** (1228 estados, 4088 parámetros): el archivo Lean se genera y la réplica en Python
-  del comprobador predice que pasa, pero Lean se quedó sin memoria (~14 GB, 51 min) en este
-  contenedor. **No está verificado en Lean**; haría falta una máquina con más memoria o dividir
-  la comprobación por especie.
+  predice que pasa, pero Lean se quedó sin memoria (~14 GB) en este contenedor. **No está
+  verificado en Lean.**
+
+Datos: PEtab Benchmark-Models, commit `fcbddf1b900efabdfbdc2b58452c89556e63f1ce`
+(28-09-2026), clonado en `bench/` (no incluido en el repositorio).
 
 `resultados/sbml_lean/lean_log.txt` es el registro de compilación de Lean.

@@ -222,7 +222,7 @@ theorem Lq_nonneg : ∀ k, 0 ≤ Lq k := by
   | 2 => decide +kernel
   | 3 => decide +kernel
   | 4 => decide +kernel
-  | _ + 5 => decide +kernel
+  | _ + 5 => exact (show (0 : ℚ) ≤ (12 : ℚ) by decide +kernel)
 
 noncomputable def Lseg (k : ℕ) : ℝ := (Lq k : ℝ)
 

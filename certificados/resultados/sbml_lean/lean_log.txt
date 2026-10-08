@@ -1,20 +1,22 @@
-Armistead_CellDeathDis2024|2s|
+Armistead_CellDeathDis2024|3s|
 Crauste_CellSystems2017|6s|'Models.Crauste_CellSystems2017.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Crauste_CellSystems2017.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Borghans_BiophysChem1997|2s|
-Fiedler_BMCSystBiol2016|2s|
-Zhao_QuantBiol2020|7s|'Models.Zhao_QuantBiol2020.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Zhao_QuantBiol2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Borghans_BiophysChem1997|1s|
+Zhao_QuantBiol2020|4s|'Models.Zhao_QuantBiol2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Fiedler_BMCSystBiol2016|3s|
+Boehm_JProteomeRes2014|5s|'Models.Boehm_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
 Okuonghae_ChaosSolitonsFractals2020|2s|
-Brannmark_JBC2010|7s|'Models.Brannmark_JBC2010.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Brannmark_JBC2010.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Brannmark_JBC2010|5s|'Models.Brannmark_JBC2010.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Raia_CancerResearch2011|5s|'Models.Raia_CancerResearch2011.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Weber_BMC2015|5s|'Models.Weber_BMC2015.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
 Elowitz_Nature2000|2s|
-Boehm_JProteomeRes2014|7s|'Models.Boehm_JProteomeRes2014.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Boehm_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Weber_BMC2015|7s|'Models.Weber_BMC2015.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Weber_BMC2015.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Raia_CancerResearch2011|7s|'Models.Raia_CancerResearch2011.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Raia_CancerResearch2011.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Blasi_CellSystems2016|6s|'Models.Blasi_CellSystems2016.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Sneyd_PNAS2002|4s|'Models.Sneyd_PNAS2002.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
 Rahman_MBS2016|2s|
-Blasi_CellSystems2016|6s|'Models.Blasi_CellSystems2016.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Blasi_CellSystems2016.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Sneyd_PNAS2002|7s|'Models.Sneyd_PNAS2002.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Sneyd_PNAS2002.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Zheng_PNAS2012|7s|'Models.Zheng_PNAS2012.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Zheng_PNAS2012.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Bachmann_MSB2011|9s|'Models.Bachmann_MSB2011.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Bachmann_MSB2011.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Giordano_Nature2020|7s|'Models.Giordano_Nature2020.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Giordano_Nature2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Raimundez_PCB2020|9s|'Models.Raimundez_PCB2020.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Raimundez_PCB2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-Lang_PLOSComputBiol2024|113s|'Models.Lang_PLOSComputBiol2024.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.Lang_PLOSComputBiol2024.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
-SalazarCavazos_MBoC2020|143s|'Models.SalazarCavazos_MBoC2020.diff' depends on axioms: [propext, Classical.choice, Quot.sound] 'Models.SalazarCavazos_MBoC2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Zheng_PNAS2012|7s|'Models.Zheng_PNAS2012.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Bachmann_MSB2011|10s|'Models.Bachmann_MSB2011.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Raimundez_PCB2020|13s|'Models.Raimundez_PCB2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+SalazarCavazos_MBoC2020|377s|'Models.SalazarCavazos_MBoC2020.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Lang_PLOSComputBiol2024|485s|'Models.Lang_PLOSComputBiol2024.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Chen_MSB2009|1975s|'Models.Chen_MSB2009.final' depends on axioms: [propext, Classical.choice, Quot.sound] 
+Giordano_Nature2020|8s|'Models.Giordano_Nature2020.final' depends on axioms: [propext, Classical.choice, Quot.sound]
+Froehlich_CellSystems2018|3093s|SIN MEMORIA (OOM a ~14 GB en este contenedor); la predicción en Python es que pasa

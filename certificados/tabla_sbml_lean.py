@@ -47,7 +47,12 @@ for f in sorted(D.glob("*.json")):
         notas.append("signo libre: " + ", ".join(d["theta_signo_libre"]))
     t, out = lean.get(nm, ("", ""))
     if "depends on axioms: [propext, Classical.choice, Quot.sound]" in out:
-        res = f"✅ verificado ({t})"
+        if d.get("red") == "ok":
+            res = f"✅ verificado, sin condiciones pendientes ({t})"
+        else:
+            res = f"✅ verificado; condición: existe la solución nominal en [0,T] ({t})"
+            if d.get("red") == "crecimiento":
+                notas.append("crecimiento superlineal (P²): la existencia global no se puede garantizar")
     elif d.get("prediccion_check") is False and out.strip() == "":
         res = f"❌ Lean demuestra que la comprobación falla ({t})"
         notas.append(MOTIVO.get(nm, ""))
