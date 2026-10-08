@@ -90,6 +90,40 @@ EXTRA = [
 ]
 
 
+# --- paralelización (sistemas grandes): cada proceso carga su propia copia del modelo
+import os
+from multiprocessing import Pool
+NPROC = int(os.environ.get("NPROC", os.cpu_count() or 1))
+_SY = None
+
+
+_Y0 = None
+
+
+def _w_init(name, t_end):
+    global _SY, _Y0
+    _SY = Sys(name, t_end)
+    _Y0 = _SY.sim(_SY.theta0)
+
+
+def _w_col(j):
+    th0 = _SY.theta0
+    tp, tm = th0.copy(), th0.copy()
+    tp[j] *= 1 + DELTA; tm[j] *= 1 - DELTA
+    yp, ym = _SY.sim(tp), _SY.sim(tm)
+    if yp is None or ym is None:
+        return j, None
+    return j, (yp - ym).ravel() / (2 * DELTA)
+
+
+def _w_scan(j):
+    th0, y0 = _SY.theta0, _Y0
+    tp = th0.copy(); tp[j] *= 1.1
+    yp = _SY.sim(tp)
+    return j, (float(np.linalg.norm((yp - y0).ravel())) if yp is not None and y0 is not None
+               else 0.0)
+
+
 def admisible(c, e):
     ok = np.isfinite(c) and c >= COS_MIN
     if V2:
@@ -110,12 +144,20 @@ def main_one(name, t_def):
     act = np.nonzero(Sy.in_model)[0]
     # --- J relativa por diferencias centradas en log θ
     J = np.zeros((y0.size, p))
-    for j in act:
-        tp, tm = th0.copy(), th0.copy()
-        tp[j] *= 1 + DELTA; tm[j] *= 1 - DELTA
-        yp, ym = Sy.sim(tp), Sy.sim(tm)
-        if yp is not None and ym is not None:
-            J[:, j] = (yp - ym).ravel() / (2 * DELTA)
+    if p > 200 and NPROC > 1:
+        with Pool(NPROC, initializer=_w_init, initargs=(name, t_end)) as pool:
+            for k, (j, col) in enumerate(pool.imap_unordered(_w_col, list(act), chunksize=8)):
+                if col is not None:
+                    J[:, j] = col
+                if k % 500 == 0:
+                    print(f"  J: {k}/{len(act)} columnas", flush=True)
+    else:
+        for j in act:
+            tp, tm = th0.copy(), th0.copy()
+            tp[j] *= 1 + DELTA; tm[j] *= 1 - DELTA
+            yp, ym = Sy.sim(tp), Sy.sim(tm)
+            if yp is not None and ym is not None:
+                J[:, j] = (yp - ym).ravel() / (2 * DELTA)
     E = np.sum(J ** 2, axis=0)
     tot = float(E.sum())
     if not tot > 0:
@@ -172,10 +214,17 @@ def main_one(name, t_def):
             res["motivo_stage2"] = "Stage 1 cumple R_var pero no es admisible"
         # --- Stage 2: barrido empírico
         s = np.zeros(p)
-        for j in act:
-            tp = th0.copy(); tp[j] *= 1.1
-            yp = Sy.sim(tp)
-            s[j] = np.linalg.norm((yp - y0).ravel()) if yp is not None else 0.0
+        if p > 200 and NPROC > 1:
+            with Pool(NPROC, initializer=_w_init, initargs=(name, t_end)) as pool:
+                for k, (j, v) in enumerate(pool.imap_unordered(_w_scan, list(act), chunksize=8)):
+                    s[j] = v
+                    if k % 500 == 0:
+                        print(f"  barrido: {k}/{len(act)}", flush=True)
+        else:
+            for j in act:
+                tp = th0.copy(); tp[j] *= 1.1
+                yp = Sy.sim(tp)
+                s[j] = np.linalg.norm((yp - y0).ravel()) if yp is not None else 0.0
         orden2 = [int(j) for j in act[np.argsort(-s[act])] if s[j] > 0]
         memo = {}
         def stop2(S):

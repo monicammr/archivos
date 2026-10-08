@@ -22,7 +22,7 @@
  "erel_med": 0.15631869277534882,
  "n_escenarios": 15,
  "admisible": true,
- "segundos": 0.2,
+ "segundos": 0.1,
  "etapa_paper": "Stage 1",
  "S_paper": [
   "a_k8",
