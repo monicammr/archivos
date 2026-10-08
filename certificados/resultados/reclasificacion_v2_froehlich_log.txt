@@ -14,3 +14,6 @@
   J: 2201/4088 columnas
   J: 2401/4088 columnas
   J: 2601/4088 columnas
+  J: 2801/4088 columnas
+  J: 3001/4088 columnas
+  J: 3201/4088 columnas
