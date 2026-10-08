@@ -10,6 +10,8 @@
  ],
  "|S|": 2,
  "p_y": 7,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
  "A_chi2_test_theta0": 0.9424537224192622,
  "A_chi2_train_red": 1.05322739305642,
  "A_chi2_test_red": 0.9537288471171256,
@@ -21,5 +23,5 @@
  "B_epred_theta0": 1.0,
  "B_chi2_test_full": 0.7468865537643787,
  "B_epred_full": 2.1514987034969217,
- "segundos": 1.2
+ "segundos": 1.7
 }

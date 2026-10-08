@@ -10,16 +10,23 @@
  ],
  "|S|": 2,
  "p_y": 8,
+ "locales_prueba": [
+  "Int_nuc_off",
+  "scale_sigma_FracNucInt"
+ ],
+ "S_locales_prueba": [
+  "Int_nuc_off"
+ ],
  "A_chi2_test_theta0": 0.44483562200248133,
- "A_chi2_train_red": 0.09446109320362996,
- "A_chi2_test_red": 0.4443368520250714,
- "A_chi2_train_full": 0.06079962591010595,
- "A_chi2_test_full": 1.8692305350055014,
- "B_chi2_test_theta0": 4.000811542488534,
- "B_chi2_test_red": 1.8418835792553072,
- "B_epred_red": 0.47362647679971487,
+ "A_chi2_train_red": 0.09446111593813071,
+ "A_chi2_test_red": 0.4443211827387813,
+ "A_chi2_train_full": 0.06079975210651116,
+ "A_chi2_test_full": 1.875525224039552,
+ "B_chi2_test_theta0": 0.48990308973427826,
+ "B_chi2_test_red": 2.5020301243234115,
+ "B_epred_red": 3.1882121336275557,
  "B_epred_theta0": 1.0,
- "B_chi2_test_full": 2.3684503104670047,
- "B_epred_full": 0.5678404836107823,
- "segundos": 26.5
+ "B_chi2_test_full": 4.6270757009895656,
+ "B_epred_full": 4.724290690372841,
+ "segundos": 3.4
 }
