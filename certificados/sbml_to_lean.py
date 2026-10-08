@@ -770,7 +770,9 @@ def process(name, T):
                 except Unsupported:
                     init_exprs = "no"
             if init_exprs != "no":
-                mod_, estado = emit_network(model, segs[0][2], init_exprs)
+                big = len(model.names_ext) > 500 and init_exprs is None
+                mod_, estado = (emit_network_split(model, segs[0][2]) if big
+                                else emit_network(model, segs[0][2], init_exprs))
                 rep["red"] = estado
         elif rep["prediccion_check"] and len(segs) > 1 and not model.x0_dep_theta and \
                 all(math.isfinite(v) for v in model.x0_vals):
@@ -1098,6 +1100,68 @@ def emit_network_segments(model, segs):
               "  x0_ok Lseg Lseg_nonneg", "",
               f"end Models.{mod}", "", f"#print axioms Models.{mod}.final", ""]
     (OUTDIR / f"{mod}.lean").write_text("\n".join(lines))
+    return mod, "ok"
+
+
+def emit_network_split(model, rhs):
+    """Modelos enormes: un módulo Lean por bloque de términos (memoria acotada por proceso)."""
+    n, p = len(model.names_ext), len(model.theta)
+    pos = [model.positive[t] for t in model.theta]
+    Rx = network_of(rhs)
+    if net_checks(Rx, pos):
+        return None, "checkNet"
+    c = find_weights(Rx, n, pos)
+    if c is None:
+        return None, "crecimiento"
+    mod = leanid(model.name)
+    base = OUTDIR / mod
+    base.mkdir(parents=True, exist_ok=True)
+    hdr = ["set_option maxRecDepth 100000", "set_option maxHeartbeats 0", "",
+           "open KineticRegularity KineticCheck KineticNetwork", ""]
+    # módulo base: datos vectoriales
+    b = ["import KineticNetwork", "",
+         f"/-! Datos de `{model.name}` (forma de red dividida en módulos). Generado por",
+         "`certificados/sbml_to_lean.py`. -/", ""] + hdr + [f"namespace Models.{mod}", ""]
+    b += lean_vec("pos", p, "Bool", [("true" if x else "false") for x in pos], "false") + [""]
+    b += lean_vec("c", n, "ℚ", [lean_q(x) for x in c], "1") + [""]
+    b += lean_vec("θq", p, "ℚ", [lean_q(frac_of(v)) for v in model.theta_vals], "1") + [""]
+    b += lean_vec("xq", n, "ℚ", [lean_q(frac_of(v)) for v in model.x0_vals], "0") + [""]
+    b += [f"end Models.{mod}", ""]
+    (base / "Base.lean").write_text("\n".join(b))
+    CH = 400
+    chunks = [Rx[k:k + CH] for k in range(0, len(Rx), CH)]
+    for k, ch in enumerate(chunks):
+        items = []
+        for V, col in ch:
+            cs = ", ".join(f"({i}, {lean_q(s_)})" for i, s_ in col)
+            items.append(f"  ({lean_expr(V)}, [{cs}])")
+        t = [f"import Models.{mod}.Base", ""] + hdr + [f"namespace Models.{mod}", "",
+             f"def Rx_{k} : List (KExpr {n} {p} × List (Fin {n} × ℚ)) := [",
+             ",\n".join(items), "]", "",
+             f"theorem net_ok_{k} : checkNet pos Rx_{k} = true := by decide +kernel", "",
+             f"theorem growth_ok_{k} : checkGrowth pos c Rx_{k} = true := by decide +kernel", "",
+             f"end Models.{mod}", ""]
+        (base / f"Part{k}.lean").write_text("\n".join(t))
+    K = len(chunks)
+    m = [f"import Models.{mod}.Part{k}" for k in range(K)] + ["",
+         f"/-! Modelo `{model.name}` (forma de red, {len(Rx)} términos en {K} módulos).",
+         f"Estados: {n}; parámetros estimados θ: {p}. Generado por `certificados/sbml_to_lean.py`. -/",
+         ""] + hdr + [f"namespace Models.{mod}", "",
+         f"def Rx : List (KExpr {n} {p} × List (Fin {n} × ℚ)) := " +
+         " ++ ".join(f"Rx_{k}" for k in range(K)), "",
+         f"def F : Fin {n} → KExpr {n} {p} := netF Rx", "",
+         "theorem net_ok : checkNet pos Rx = true := by",
+         "  simp only [Rx, checkNet_append, " + ", ".join(f"net_ok_{k}" for k in range(K)) +
+         ", Bool.and_self]", "",
+         "theorem growth_ok : checkGrowth pos c Rx = true := by",
+         "  simp only [Rx, checkGrowth_append, " + ", ".join(f"growth_ok_{k}" for k in range(K)) +
+         ", Bool.and_self]", "",
+         "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
+         "theorem x0_ok : checkNonneg xq = true := by decide +kernel", "",
+         "/-- **Teorema final, sin condiciones pendientes.** -/",
+         "def final := @network_final _ _ pos Rx net_ok c growth_ok θq theta_ok xq x0_ok", "",
+         f"end Models.{mod}", "", f"#print axioms Models.{mod}.final", ""]
+    (OUTDIR / f"{mod}.lean").write_text("\n".join(m))
     return mod, "ok"
 
 
