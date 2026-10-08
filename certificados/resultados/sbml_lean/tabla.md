@@ -1,6 +1,6 @@
 | Sistema | Estados | θ | Lean | Notas |
 |---|---|---|---|---|
-| Armistead_CellDeathDis2024 | 4 | 10 | ✅ verificado, sin condiciones pendientes (4s); positividad estricta | signo libre: alpha_cer; las especies con dato inicial > 0 permanecen > 0 (lo exige el dominio); Lean comprueba en θ₀ α_cer ≥ −1 y α_hai1a ≤ 1, que hacen ≥ 0 las tasas k00(1 + α_cer) y k3(1 − α_hai1a) |
+| Armistead_CellDeathDis2024 | 4 | 10 | ✅ verificado, sin condiciones pendientes (4s); positividad estricta | signo libre: alpha_cer; las especies con dato inicial > 0 permanecen > 0 (lo exige el dominio); las tasas k00(1 + α_cer) y k3(1 − α_hai1a) son ≥ 0 si α_cer ≥ −1 y α_hai1a ≤ 1; Lean lo comprueba en θ₀, y todo el rango de PEtab (α_cer ∈ [−0,999, −0,001], α_hai1a ∈ [0,5, 0,999]) cumple esas cotas |
 | Bachmann_MSB2011 | 25 | 27 | ✅ verificado, sin condiciones pendientes (10s) |  |
 | Blasi_CellSystems2016 | 16 | 8 | ✅ verificado, sin condiciones pendientes (6s) |  |
 | Boehm_JProteomeRes2014 | 8 | 6 | ✅ verificado, sin condiciones pendientes (4s) | tiempo como estado |

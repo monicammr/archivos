@@ -109,8 +109,11 @@ Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/s
       tasa σνE: mismas ecuaciones para todo θ) y Lean comprueba ν₀ = 0,5 ≤ 1 en θ₀. **Ojo**:
       con ν > 1 (permitido por los límites de PEtab, ν ≤ 1000) symptomatic puede volverse
       negativo; el resultado vale en θ₀ (y en todo θ con ν ≤ 1).
-    * Armistead: las tasas k00(1 + α_cer) y k3(1 − α_hai1a)·Sphingo son ≥ 0 porque en θ₀
-      α_cer = −0,33 ≥ −1 y α_hai1a = 0,5 ≤ 1; Lean comprueba esas cotas en θ₀ (`checkUB`).
+    * Armistead: las tasas k00(1 + α_cer) y k3(1 − α_hai1a)·Sphingo son ≥ 0 si α_cer ≥ −1 y
+      α_hai1a ≤ 1. En θ₀ (α_cer = −0,33, α_hai1a = 0,5) Lean comprueba esas cotas (`checkUB`).
+      Además, **todo el rango de estimación de PEtab cumple esas cotas** (α_cer ∈ [−0,999,
+      −0,001], α_hai1a ∈ [0,5, 0,999]): a diferencia de Okuonghae, aquí no hay ninguna
+      restricción adicional.
     * Fiedler: la entrada k10 + k11·e^{−t/τ2}(1 − e^{−t/τ1}) es ≥ 0 (Lean: `1 − eˣ ≥ 0` si
       x ≤ 0). El dato inicial es el estado estacionario, con raíces cuadradas; Lean certifica
       Gᵢ(θ₀) > 0 con aritmética de intervalos exacta en ℚ (`IntervalInit.ival`; p. ej.

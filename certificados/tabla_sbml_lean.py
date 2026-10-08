@@ -29,7 +29,7 @@ MOTIVO = {
 
 ESTRICTA = {
     "Okuonghae_ChaosSolitonsFractals2020": "red reescrita de forma exacta (σ(1 − ν)E y σνE); Lean comprueba ν₀ = 0,5 ≤ 1 en θ₀ (con ν > 1 la positividad falla)",
-    "Armistead_CellDeathDis2024": "Lean comprueba en θ₀ α_cer ≥ −1 y α_hai1a ≤ 1, que hacen ≥ 0 las tasas k00(1 + α_cer) y k3(1 − α_hai1a)",
+    "Armistead_CellDeathDis2024": "las tasas k00(1 + α_cer) y k3(1 − α_hai1a) son ≥ 0 si α_cer ≥ −1 y α_hai1a ≤ 1; Lean lo comprueba en θ₀, y todo el rango de PEtab (α_cer ∈ [−0,999, −0,001], α_hai1a ∈ [0,5, 0,999]) cumple esas cotas",
     "Fiedler_BMCSystBiol2016": "entrada 1 − e^{−t/τ1} ≥ 0; dato inicial (estado estacionario con raíces) certificado > 0 por intervalos en ℚ",
 }
 
