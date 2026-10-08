@@ -15,6 +15,12 @@ filtro κ/VIF; criterio: mediana de cos Δ ≥ 0,90 en 15 escenarios a ±5 %.
 Validación (ambas etapas): admisible si mediana cos Δ ≥ 0,90. Se informa también e_rel.
 
 Simulación: igual que la validación de cos Δ (RoadRunner, 60 puntos en [1e-6, T]).
+
+Con `--v2` (reglas completas propuestas):
+  * admisible ⇔ mediana cos Δ ≥ 0,90 **y** mediana e_rel ≤ √(1 − 0,9²) ≈ 0,436;
+  * si el subconjunto de Stage 1 cumple R_var pero no es admisible, se pasa a Stage 2;
+  * Stage 2 para cuando |S| ≥ 2 y el subconjunto es admisible.
+Resultados en resultados/reclasificacion_v2/.
 """
 import sys, json, time
 import numpy as np
@@ -24,6 +30,8 @@ from certify_systems import Sys, SYSTEMS, T_END_OVERRIDE, OUT
 DELTA = 0.01          # paso de la linealización (artículo: δ = 0,01)
 RVAR_MIN, KAPPA_MAX, VIF_MAX, COS_MIN = 0.89, 10.0, 10.0, 0.90
 N_ESC, NIVEL, SEED = 15, 0.05, 42
+EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ ≥ 0,90 (Lean)
+V2 = "--v2" in sys.argv
 
 
 # --- κ y VIF: mismas definiciones que petab_V9_todos35.py --------------------------------------
@@ -69,6 +77,13 @@ def greedy(J, order, stop):
             if stop(S):
                 return S, True
     return S, False
+
+
+def admisible(c, e):
+    ok = np.isfinite(c) and c >= COS_MIN
+    if V2:
+        ok = ok and np.isfinite(e) and e <= EREL_MAX
+    return bool(ok)
 
 
 def main_one(name, t_def):
@@ -127,12 +142,18 @@ def main_one(name, t_def):
     S1, ok1 = greedy(J, orden1, lambda S: rvar(S) >= RVAR_MIN and len(S) >= 2)
     res.update({"S1": [names[j] for j in S1], "Rvar_S1_%": 100 * rvar(S1) if S1 else 0.0,
                 "S1_cumple": ok1})
+    pasa1 = False
     if ok1:
         c, e, n = valida(S1)
+        res.update({"cos_S1": c, "erel_S1": e})
+        pasa1 = (not V2) or admisible(c, e)
+    if pasa1:
         res.update({"etapa": "Stage 1", "S": res["S1"], "Rvar_%": 100 * rvar(S1),
                     "kappa": kappa(J, S1), "VIF": vif(J, S1), "cos_med": c, "erel_med": e,
                     "n_escenarios": n})
     else:
+        if ok1:
+            res["motivo_stage2"] = "Stage 1 cumple R_var pero no es admisible"
         # --- Stage 2: barrido empírico
         s = np.zeros(p)
         for j in act:
@@ -145,6 +166,8 @@ def main_one(name, t_def):
             key = tuple(S)
             if key not in memo:
                 memo[key] = valida(S)
+            if V2:
+                return len(S) >= 2 and admisible(memo[key][0], memo[key][1])
             return memo[key][0] >= COS_MIN
         S2, ok2 = greedy(J, orden2, stop2)
         c, e, n = memo.get(tuple(S2), valida(S2)) if S2 else (float("nan"), float("nan"), 0)
@@ -153,14 +176,14 @@ def main_one(name, t_def):
                     "kappa": kappa(J, S2) if S2 else float("nan"),
                     "VIF": vif(J, S2) if S2 else float("nan"),
                     "cos_med": c, "erel_med": e, "n_escenarios": n})
-    res["admisible"] = bool(np.isfinite(res["cos_med"]) and res["cos_med"] >= COS_MIN)
+    res["admisible"] = admisible(res["cos_med"], res["erel_med"])
     res["segundos"] = round(time.time() - t0, 1)
     return res
 
 
 if __name__ == "__main__":
-    which = sys.argv[1:]
-    d = OUT / "reclasificacion"; d.mkdir(exist_ok=True)
+    which = [a for a in sys.argv[1:] if not a.startswith("--")]
+    d = OUT / ("reclasificacion_v2" if V2 else "reclasificacion"); d.mkdir(exist_ok=True)
     out = []
     for name, sel, t_def, group in SYSTEMS:
         if which and name not in which:
