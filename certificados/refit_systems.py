@@ -22,7 +22,9 @@ Uso:
 Opciones: --bench RUTA (carpeta `problems` del benchmark PEtab), --escenarios N (por defecto 15),
           --max-nfev N (evaluaciones máximas por ajuste, por defecto 100·(|S|+1)),
           --subconjunto S1 (usa el subconjunto de la Etapa 1, campo "S1" del JSON, en lugar del
-          final "S"; el resultado se guarda como <sistema>_S1.json y no reemplaza al otro).
+          final "S"; el resultado se guarda como <sistema>_S1.json y no reemplaza al otro),
+          --primeros 10,20,30 (usa sólo los primeros K parámetros del subconjunto, en el orden en
+          que los eligió el algoritmo, para cada K de la lista; guarda <sistema>_k<K>.json).
 """
 import sys, json, time
 from pathlib import Path
@@ -40,7 +42,7 @@ OUTD = HERE / "resultados" / "ajuste"
 
 def args():
     a = sys.argv[1:]
-    opt = {"bench": None, "escenarios": 15, "max_nfev": None, "campo": "S"}
+    opt = {"bench": None, "escenarios": 15, "max_nfev": None, "campo": "S", "ks": None}
     names = []
     i = 0
     while i < len(a):
@@ -52,6 +54,8 @@ def args():
             opt["max_nfev"] = int(a[i + 1]); i += 2
         elif a[i] == "--subconjunto":
             opt["campo"] = a[i + 1]; i += 2
+        elif a[i] == "--primeros":
+            opt["ks"] = [int(x) for x in a[i + 1].split(",") if x.strip()]; i += 2
         else:
             names.append(a[i]); i += 1
     return names, opt
@@ -154,18 +158,22 @@ if __name__ == "__main__":
         if not S_names:
             print(f"[{name}] sin subconjunto ({info.get('etapa')}): se omite")
             continue
-        print(f"== {name} (|S| = {len(S_names)})", flush=True)
-        try:
-            r, filas = refit_one(name, S_names, opt["escenarios"], opt["max_nfev"])
-        except Exception as e:
-            r, filas = {"sistema": name, "error": repr(e)}, []
-        r["admisible_v2"] = info.get("admisible")
-        sufijo = "" if opt["campo"] == "S" else f"_{opt['campo']}"
-        r["subconjunto"] = opt["campo"]
-        print(json.dumps(r, default=str), flush=True)
-        (OUTD / f"{name}{sufijo}.json").write_text(json.dumps(r, default=str, indent=1))
-        pd.DataFrame(filas).to_csv(OUTD / f"{name}{sufijo}_escenarios.csv", index=False)
-        out.append(r)
+        base = "" if opt["campo"] == "S" else f"_{opt['campo']}"
+        pruebas = [(None, S_names, base)]
+        if opt["ks"]:
+            pruebas = [(k, S_names[:k], f"{base}_k{k}") for k in opt["ks"] if k <= len(S_names)]
+        for k, Sk, sufijo in pruebas:
+            print(f"== {name} (|S| = {len(Sk)})", flush=True)
+            try:
+                r, filas = refit_one(name, Sk, opt["escenarios"], opt["max_nfev"])
+            except Exception as e:
+                r, filas = {"sistema": name, "error": repr(e)}, []
+            r["admisible_v2"] = info.get("admisible")
+            r["subconjunto"] = opt["campo"] + (f"[:{k}]" if k else "")
+            print(json.dumps(r, default=str), flush=True)
+            (OUTD / f"{name}{sufijo}.json").write_text(json.dumps(r, default=str, indent=1))
+            pd.DataFrame(filas).to_csv(OUTD / f"{name}{sufijo}_escenarios.csv", index=False)
+            out.append(r)
     # resumen con todos los sistemas calculados hasta ahora (también los de corridas anteriores)
     todos = [json.loads(f.read_text()) for f in sorted(OUTD.glob("*.json"))]
     if todos:
