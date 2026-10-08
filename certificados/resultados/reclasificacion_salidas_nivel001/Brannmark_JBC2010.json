@@ -1,0 +1,38 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "p": 22,
+ "T": 50.0,
+ "S1": [
+  "k_IRP_1Step",
+  "k1f",
+  "k_IRSiP_1Step",
+  "km3",
+  "k_IRSiP_DosR",
+  "k1r"
+ ],
+ "Rvar_S1_%": 51.74494639353235,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k_IRP_1Step",
+  "k1f"
+ ],
+ "Rvar_%": 36.60453760910155,
+ "kappa": 4.416858445640746,
+ "VIF": 5.389974468036352,
+ "cos_med": 0.7310680741443663,
+ "erel_med": 0.8111422333054875,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.22133989480532457,
+ "segundos": 4.8,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "k3",
+  "k1aBasic",
+  "k1c",
+  "k1d",
+  "k21",
+  "k22"
+ ]
+}

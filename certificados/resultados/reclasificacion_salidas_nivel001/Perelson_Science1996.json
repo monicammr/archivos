@@ -1,0 +1,30 @@
+{
+ "sistema": "Perelson_Science1996",
+ "p": 3,
+ "T": 50.0,
+ "S1": [
+  "c",
+  "delta"
+ ],
+ "Rvar_S1_%": 100.0,
+ "S1_cumple": true,
+ "cos_S1": NaN,
+ "erel_S1": NaN,
+ "motivo_stage2": "Stage 1 cumple R_var pero no es admisible",
+ "etapa": "Stage 2",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "Rvar_%": 100.0,
+ "kappa": 1.904013969020122,
+ "VIF": 1.4752776947655044,
+ "cos_med": NaN,
+ "erel_med": NaN,
+ "n_escenarios": 0,
+ "admisible": false,
+ "eajuste_med": NaN,
+ "segundos": 0.1,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

@@ -1,0 +1,34 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "p": 39,
+ "T": 50.0,
+ "S1": [
+  "scaling_SOCS3mRNA",
+  "init_Rec_i",
+  "scaling_IL13_cell",
+  "scaling_pJAK2",
+  "scaling_pIL4Ra",
+  "CD274mRNA_production",
+  "DecoyR_binding"
+ ],
+ "Rvar_S1_%": 42.786396298982744,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "scaling_SOCS3mRNA",
+  "init_Rec_i"
+ ],
+ "Rvar_%": 42.748984098862785,
+ "kappa": 5.500679761879437,
+ "VIF": 8.072631881015004,
+ "cos_med": 0.9937070892773859,
+ "erel_med": 0.701518231048431,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.04493853612297143,
+ "segundos": 5.1,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "Rec_recycle"
+ ]
+}
