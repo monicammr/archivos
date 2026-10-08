@@ -1,4 +1,1 @@
 == Froehlich_CellSystems2018
-  J: 0/4088 columnas
-  J: 500/4088 columnas
-  J: 1000/4088 columnas
