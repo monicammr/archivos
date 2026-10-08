@@ -1,0 +1,17 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "|S|": 2,
+ "S": [
+  "k1",
+  "l_2"
+ ],
+ "n_escenarios": 13,
+ "cos_med": 0.9949544285206128,
+ "erel_med": 0.7439409899046624,
+ "eajuste_med": 1.203963116242959e-10,
+ "eajuste_p90": 2.9352778461112913e-10,
+ "eajuste<=0.10": "13/13",
+ "eajuste<=0.436": "13/13",
+ "segundos": 0.2,
+ "admisible_v2": false
+}

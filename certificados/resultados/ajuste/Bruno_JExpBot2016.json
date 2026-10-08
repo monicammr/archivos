@@ -1,0 +1,19 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "|S|": 4,
+ "S": [
+  "kb1",
+  "kc2",
+  "kb2",
+  "kc4"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9772685946326171,
+ "erel_med": 0.21943989317562476,
+ "eajuste_med": 0.1518503683367277,
+ "eajuste_p90": 0.3007667166588793,
+ "eajuste<=0.10": "4/15",
+ "eajuste<=0.436": "14/15",
+ "segundos": 0.3,
+ "admisible_v2": true
+}

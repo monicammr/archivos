@@ -1,0 +1,17 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "|S|": 2,
+ "S": [
+  "tau2",
+  "k4"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9259343297582893,
+ "erel_med": 0.5173093187485976,
+ "eajuste_med": 0.14978860516605397,
+ "eajuste_p90": 0.307439203028754,
+ "eajuste<=0.10": "5/15",
+ "eajuste<=0.436": "14/15",
+ "segundos": 0.5,
+ "admisible_v2": false
+}

@@ -199,6 +199,12 @@ def main_one(name, t_def):
 
 
 if __name__ == "__main__":
+    if "--bench" in sys.argv:
+        import certify_systems as _CS
+        from pathlib import Path as _P
+        _i = sys.argv.index("--bench")
+        _CS.BENCH = _P(sys.argv[_i + 1])
+        del sys.argv[_i:_i + 2]
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
     d = OUT / ("reclasificacion_v2" if V2 else "reclasificacion"); d.mkdir(exist_ok=True)
     out = []

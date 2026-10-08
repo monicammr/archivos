@@ -1,0 +1,81 @@
+== Alkan_SciSignal2018 (|S| = 13)
+{"sistema": "Alkan_SciSignal2018", "|S|": 13, "S": ["p_atm_act_dsb", "p_p53_act_atm", "kt", "p_chk2_act", "p_atr_act_ssb", "p_p53_act_chk2", "p_chk1_act", "p_p21_mrna_turn", "p_h2ax_act_atr", "p_atr_act_atm", "k_damage_gem_ssb", "p_p21_turn", "p_wip1_turn"], "n_escenarios": 15, "cos_med": 0.8676803649685131, "erel_med": 0.5870419324075788, "eajuste_med": 0.12372064275549263, "eajuste_p90": 0.25544068506881173, "eajuste<=0.10": "2/15", "eajuste<=0.436": "15/15", "segundos": 5.5, "admisible_v2": false}
+== Armistead_CellDeathDis2024 (|S| = 6)
+{"sistema": "Armistead_CellDeathDis2024", "|S|": 6, "S": ["k_d", "k00", "k4", "k0", "k2", "k1"], "n_escenarios": 15, "cos_med": -0.48680795082969813, "erel_med": 1.033771235341306, "eajuste_med": 6.259920669548502e-06, "eajuste_p90": 1.0415010984940121e-05, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 1.3, "admisible_v2": false}
+== Bachmann_MSB2011 (|S| = 7)
+{"sistema": "Bachmann_MSB2011", "|S|": 7, "S": ["init_SHP1", "STAT5Imp", "STAT5Exp", "CISRNADelay", "CISRNATurn", "CISEqc", "SOCS3RNADelay"], "n_escenarios": 15, "cos_med": 0.9421394219644872, "erel_med": 0.6734242017221448, "eajuste_med": 0.1498395393484005, "eajuste_p90": 0.22186841833733614, "eajuste<=0.10": "1/15", "eajuste<=0.436": "14/15", "segundos": 2.0, "admisible_v2": false}
+[Beer_MolBioSystems2014] sin subconjunto (Técnico): se omite
+[Bertozzi_PNAS2020] sin subconjunto (Técnico): se omite
+== Blasi_CellSystems2016 (|S| = 2)
+{"sistema": "Blasi_CellSystems2016", "|S|": 2, "S": ["a_basal", "a_k5_k5k12"], "n_escenarios": 15, "cos_med": 0.9910643846266387, "erel_med": 0.15631869277534882, "eajuste_med": 0.13280882967403287, "eajuste_p90": 0.2823235723233272, "eajuste<=0.10": "3/15", "eajuste<=0.436": "15/15", "segundos": 0.4, "admisible_v2": true}
+== Boehm_JProteomeRes2014 (|S| = 3)
+{"sistema": "Boehm_JProteomeRes2014", "|S|": 3, "S": ["k_phos", "k_imp_hetero", "k_exp_homo"], "n_escenarios": 15, "cos_med": 0.9860194115826884, "erel_med": 0.19315145185593643, "eajuste_med": 0.06964065941165877, "eajuste_p90": 0.15814845079828363, "eajuste<=0.10": "9/15", "eajuste<=0.436": "15/15", "segundos": 0.3, "admisible_v2": true}
+== Borghans_BiophysChem1997 (|S| = 2)
+{"sistema": "Borghans_BiophysChem1997", "|S|": 2, "S": ["Kz", "Vm2"], "n_escenarios": 15, "cos_med": 0.9516300818270064, "erel_med": 0.30949872964020897, "eajuste_med": 0.0438939126095082, "eajuste_p90": 0.08458399578399889, "eajuste<=0.10": "14/15", "eajuste<=0.436": "15/15", "segundos": 1.6, "admisible_v2": true}
+== Brannmark_JBC2010 (|S| = 4)
+{"sistema": "Brannmark_JBC2010", "|S|": 4, "S": ["k1a", "k1c", "k21", "k1e"], "n_escenarios": 15, "cos_med": 0.7402348914468998, "erel_med": 0.7017746641691047, "eajuste_med": 0.10381415343904153, "eajuste_p90": 0.16104383386337234, "eajuste<=0.10": "7/15", "eajuste<=0.436": "15/15", "segundos": 1.0, "admisible_v2": false}
+== Bruno_JExpBot2016 (|S| = 4)
+{"sistema": "Bruno_JExpBot2016", "|S|": 4, "S": ["kb1", "kc2", "kb2", "kc4"], "n_escenarios": 15, "cos_med": 0.9772685946326171, "erel_med": 0.21943989317562476, "eajuste_med": 0.1518503683367277, "eajuste_p90": 0.3007667166588793, "eajuste<=0.10": "4/15", "eajuste<=0.436": "14/15", "segundos": 0.3, "admisible_v2": true}
+== Crauste_CellSystems2017 (|S| = 2)
+{"sistema": "Crauste_CellSystems2017", "|S|": 2, "S": ["mu_N", "delta_NE"], "n_escenarios": 15, "cos_med": 0.9999675110753407, "erel_med": 0.008204083920138527, "eajuste_med": 0.005895630835554347, "eajuste_p90": 0.01502800756200319, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 0.3, "admisible_v2": true}
+== Elowitz_Nature2000 (|S| = 2)
+{"sistema": "Elowitz_Nature2000", "|S|": 2, "S": ["tau_prot", "tau_mRNA"], "n_escenarios": 15, "cos_med": 0.999868505234926, "erel_med": 0.01621752967290395, "eajuste_med": 0.016203694283129344, "eajuste_p90": 0.057037167579876896, "eajuste<=0.10": "14/15", "eajuste<=0.436": "15/15", "segundos": 0.3, "admisible_v2": true}
+== Fiedler_BMCSystBiol2016 (|S| = 2)
+{"sistema": "Fiedler_BMCSystBiol2016", "|S|": 2, "S": ["tau2", "k4"], "n_escenarios": 15, "cos_med": 0.9259343297582893, "erel_med": 0.5173093187485976, "eajuste_med": 0.14978860516605397, "eajuste_p90": 0.307439203028754, "eajuste<=0.10": "5/15", "eajuste<=0.436": "14/15", "segundos": 0.5, "admisible_v2": false}
+== Fujita_SciSignal2010 (|S| = 1)
+{"sistema": "Fujita_SciSignal2010", "|S|": 1, "S": ["EGFR_turnover"], "n_escenarios": 15, "cos_med": 1.0, "erel_med": 0.0, "eajuste_med": 0.0, "eajuste_p90": 0.0, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 0.1, "admisible_v2": false}
+== Giordano_Nature2020 (|S| = 11)
+{"sistema": "Giordano_Nature2020", "|S|": 11, "S": ["alpha_4", "alpha_28", "epsilon_38", "eta_22", "rho_38", "rho_22", "eta_38", "nu_22", "eta_0", "rho_0", "tau"], "n_escenarios": 15, "cos_med": 0.9635982598810446, "erel_med": 1.275674713188167, "eajuste_med": 0.09408319642828052, "eajuste_p90": 0.2386896942971598, "eajuste<=0.10": "8/15", "eajuste<=0.436": "15/15", "segundos": 3.8, "admisible_v2": false}
+== Isensee_JCB2018 (|S| = 4)
+{"sistema": "Isensee_JCB2018", "|S|": 4, "S": ["kf_RII_C_2__RIIp_C_2", "kf_RII_C_2__RII_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP"], "n_escenarios": 15, "cos_med": 0.8424807481959715, "erel_med": 0.9357610897915825, "eajuste_med": 0.02363589488185934, "eajuste_p90": 0.045039658424738185, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 0.7, "admisible_v2": false}
+== Laske_PLOSComputBiol2019 (|S| = 2)
+{"sistema": "Laske_PLOSComputBiol2019", "|S|": 2, "S": ["k_bind_M1", "k_syn_R_V"], "n_escenarios": 15, "cos_med": 0.9982211847000738, "erel_med": 0.06419467561777598, "eajuste_med": 0.024195630150227423, "eajuste_p90": 0.10415461704115979, "eajuste<=0.10": "12/15", "eajuste<=0.436": "15/15", "segundos": 3.6, "admisible_v2": true}
+== Liu_IFACPapersOnLine2025 (|S| = 2)
+{"sistema": "Liu_IFACPapersOnLine2025", "|S|": 2, "S": ["delta", "kappa"], "n_escenarios": 15, "cos_med": 0.9999999999674197, "erel_med": 8.083505516089535e-06, "eajuste_med": 8.017283545020669e-06, "eajuste_p90": 2.3687797683557888e-05, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 0.3, "admisible_v2": true}
+[Lucarelli_CellSystems2018] sin subconjunto (Técnico): se omite
+== Okuonghae_ChaosSolitonsFractals2020 (|S| = 3)
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "|S|": 3, "S": ["transmission_rate_effective", "gamma_0", "gamma_a"], "n_escenarios": 15, "cos_med": 0.9563321268712516, "erel_med": 0.38758773221474163, "eajuste_med": 0.2217785094512702, "eajuste_p90": 0.3710610724910858, "eajuste<=0.10": "2/15", "eajuste<=0.436": "14/15", "segundos": 0.4, "admisible_v2": true}
+== Oliveira_NatCommun2021 (|S| = 5)
+{"sistema": "Oliveira_NatCommun2021", "|S|": 5, "S": ["beta_0", "beta_1", "h_hosp_rate", "gamma_h", "gamma_u"], "n_escenarios": 15, "cos_med": 0.986792971605687, "erel_med": 0.7935329222593007, "eajuste_med": 0.04014355741129692, "eajuste_p90": 0.171198774373772, "eajuste<=0.10": "10/15", "eajuste<=0.436": "15/15", "segundos": 0.9, "admisible_v2": false}
+== Perelson_Science1996 (|S| = 2)
+{"sistema": "Perelson_Science1996", "|S|": 2, "S": ["c", "delta"], "n_escenarios": 15, "cos_med": 1.0, "erel_med": 0.0, "eajuste_med": 0.0, "eajuste_p90": 0.0, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 0.2, "admisible_v2": true}
+== Rahman_MBS2016 (|S| = 3)
+{"sistema": "Rahman_MBS2016", "|S|": 3, "S": ["infected_moderate_transmission_rate", "infected_moderate_worsen_rate", "treated_moderate_improve_rate"], "n_escenarios": 15, "cos_med": 0.9515280157543214, "erel_med": 0.6074201504642337, "eajuste_med": 0.06119219719684929, "eajuste_p90": 0.20967268964165545, "eajuste<=0.10": "9/15", "eajuste<=0.436": "15/15", "segundos": 0.5, "admisible_v2": false}
+== Raia_CancerResearch2011 (|S| = 1)
+{"sistema": "Raia_CancerResearch2011", "|S|": 1, "S": ["Rec_recycle"], "n_escenarios": 15, "cos_med": 0.999942847495722, "erel_med": 0.9702861593983481, "eajuste_med": 0.009699173192004253, "eajuste_p90": 0.05505514662207727, "eajuste<=0.10": "15/15", "eajuste<=0.436": "15/15", "segundos": 0.2, "admisible_v2": false}
+== Raimundez_PCB2020 (|S| = 2)
+  aviso: ajuste fallido en el escenario 0: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 0: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 1: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 1: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 2: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 2: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 3: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 3: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 4: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 4: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 5: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 5: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 6: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 6: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 7: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 7: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 8: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 8: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 9: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 9: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 10: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 10: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 11: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 11: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 12: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 12: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 13: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 13: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 14: ValueError('Initial guess is outside of provided bounds')
+  aviso: ajuste fallido en el escenario 14: ValueError('Initial guess is outside of provided bounds')
+{"sistema": "Raimundez_PCB2020", "|S|": 2, "S": ["d_ksyn_EGFR__MKN1_2_HS746T", "ksyn_MMET__HS746T_fm"], "n_escenarios": 15, "cos_med": 0.9998583956930479, "erel_med": 0.07109391707324426, "eajuste_med": NaN, "eajuste_p90": NaN, "eajuste<=0.10": "0/15", "eajuste<=0.436": "0/15", "segundos": 0.2, "admisible_v2": true}
+== SalazarCavazos_MBoC2020 (|S| = 2)
+{"sistema": "SalazarCavazos_MBoC2020", "|S|": 2, "S": ["ratio_kpkd_Y1068__FREE", "ratio_kpkd_YN__FREE"], "n_escenarios": 0, "segundos": 1.7, "admisible_v2": false}
+[Schwen_PONE2014] sin subconjunto (Técnico): se omite
+== Smith_BMCSystBiol2013 (|S| = 2)

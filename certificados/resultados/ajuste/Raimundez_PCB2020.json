@@ -1,0 +1,17 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "|S|": 2,
+ "S": [
+  "d_ksyn_EGFR__MKN1_2_HS746T",
+  "ksyn_MMET__HS746T_fm"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9998583956930479,
+ "erel_med": 0.07109391707324426,
+ "eajuste_med": NaN,
+ "eajuste_p90": NaN,
+ "eajuste<=0.10": "0/15",
+ "eajuste<=0.436": "0/15",
+ "segundos": 0.2,
+ "admisible_v2": true
+}

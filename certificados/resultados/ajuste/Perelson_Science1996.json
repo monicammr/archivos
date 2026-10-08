@@ -1,0 +1,17 @@
+{
+ "sistema": "Perelson_Science1996",
+ "|S|": 2,
+ "S": [
+  "c",
+  "delta"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 1.0,
+ "erel_med": 0.0,
+ "eajuste_med": 0.0,
+ "eajuste_p90": 0.0,
+ "eajuste<=0.10": "15/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.2,
+ "admisible_v2": true
+}

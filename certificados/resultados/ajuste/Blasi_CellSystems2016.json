@@ -1,0 +1,17 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "|S|": 2,
+ "S": [
+  "a_basal",
+  "a_k5_k5k12"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9910643846266387,
+ "erel_med": 0.15631869277534882,
+ "eajuste_med": 0.13280882967403287,
+ "eajuste_p90": 0.2823235723233272,
+ "eajuste<=0.10": "3/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.4,
+ "admisible_v2": true
+}

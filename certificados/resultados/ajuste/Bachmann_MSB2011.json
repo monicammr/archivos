@@ -1,0 +1,22 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "|S|": 7,
+ "S": [
+  "init_SHP1",
+  "STAT5Imp",
+  "STAT5Exp",
+  "CISRNADelay",
+  "CISRNATurn",
+  "CISEqc",
+  "SOCS3RNADelay"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9421394219644872,
+ "erel_med": 0.6734242017221448,
+ "eajuste_med": 0.1498395393484005,
+ "eajuste_p90": 0.22186841833733614,
+ "eajuste<=0.10": "1/15",
+ "eajuste<=0.436": "14/15",
+ "segundos": 2.0,
+ "admisible_v2": false
+}
