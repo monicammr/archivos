@@ -21,6 +21,14 @@ Con `--v2` (reglas completas propuestas):
   * si el subconjunto de Stage 1 cumple R_var pero no es admisible, se pasa a Stage 2;
   * Stage 2 para cuando |S| ≥ 2 y el subconjunto es admisible.
 Resultados en resultados/reclasificacion_v2/.
+
+Con `--v3` (criterio por reestimación, el del artículo corregido):
+  * admisible ⇔ |S| ≥ 2 y mediana de e_ajuste ≤ 0,436, donde e_ajuste es el error relativo tras
+    reestimar los parámetros de S por mínimos cuadrados (mismo método que refit_systems.py);
+    como e_ajuste ≤ e_rel, si e_rel ≤ 0,436 no hace falta reestimar para decidir;
+  * Stage 1 no admisible → Stage 2, que para en cuanto el subconjunto es admisible;
+  * se informan cos Δ y e_rel (sin reestimar) y e_ajuste (con reestimación).
+Resultados en resultados/reclasificacion_v3/.
 """
 import sys, json, time
 import numpy as np
@@ -31,7 +39,8 @@ DELTA = 0.01          # paso de la linealización (artículo: δ = 0,01)
 RVAR_MIN, KAPPA_MAX, VIF_MAX, COS_MIN = 0.89, 10.0, 10.0, 0.90
 N_ESC, NIVEL, SEED = 15, 0.05, 42
 EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ ≥ 0,90 (Lean)
-V2 = "--v2" in sys.argv
+V3 = "--v3" in sys.argv          # criterio por reestimación (e_ajuste); implica las reglas de v2
+V2 = ("--v2" in sys.argv) or V3
 
 
 # --- κ y VIF: mismas definiciones que petab_V9_todos35.py --------------------------------------
@@ -209,6 +218,52 @@ def main_one(name, t_def):
             return float("nan"), float("nan"), 0
         return float(np.median(cs)), float(np.median(es)), len(cs)
 
+    from scipy.optimize import least_squares
+
+    def ajuste(S):
+        """Mediana de e_ajuste (reestimación de θ_S), como en refit_systems.py."""
+        sgn = np.where(th0[S] < 0, -1.0, 1.0)
+        mag0 = np.maximum(np.abs(th0[S]), 1e-12)
+        lo, hi = np.log(mag0 / 10), np.log(mag0 * 10)
+        es = []
+        for th, df_ in zip(escen, full):
+            if df_ is None or np.linalg.norm(df_) < umbral:
+                continue
+            nf = np.linalg.norm(df_)
+            yf = y0.ravel() + df_
+
+            def resid(u):
+                ts = th0.copy(); ts[S] = sgn * np.exp(u)
+                ys = Sy.sim(ts)
+                return np.full(yf.size, 10.0) if ys is None else (ys.ravel() - yf) / nf
+            ts = th0.copy(); ts[S] = th[S]
+            r0 = resid(np.log(np.maximum(np.abs(th[S]), 1e-12)))
+            mejor = float(np.linalg.norm(r0))
+            x_esc = np.clip(np.log(np.maximum(np.abs(th[S]), 1e-12)), lo, hi)
+            for x0 in (np.log(mag0), x_esc):
+                try:
+                    r = least_squares(resid, x0, bounds=(lo, hi), method="trf",
+                                      max_nfev=100 * (len(S) + 1), diff_step=1e-3)
+                    mejor = min(mejor, float(np.linalg.norm(r.fun)))
+                except Exception:
+                    pass
+            es.append(mejor)
+        return float(np.median(es)) if es else float("nan")
+
+    memo_aj = {}
+
+    def admisible3(S):
+        """|S| ≥ 2 y e_ajuste ≤ 0,436 (sin reestimar si ya e_rel ≤ 0,436)."""
+        if len(S) < 2:
+            return False
+        c, e, n = valida(S)
+        if np.isfinite(e) and e <= EREL_MAX:
+            return True
+        key = tuple(S)
+        if key not in memo_aj:
+            memo_aj[key] = ajuste(S)
+        return bool(np.isfinite(memo_aj[key]) and memo_aj[key] <= EREL_MAX)
+
     res = {"sistema": name, "p": p, "T": t_end}
     # --- Stage 1
     orden1 = [int(j) for j in act[np.argsort(-E[act])] if E[j] > 0]
@@ -219,7 +274,7 @@ def main_one(name, t_def):
     if ok1:
         c, e, n = valida(S1)
         res.update({"cos_S1": c, "erel_S1": e})
-        pasa1 = (not V2) or admisible(c, e)
+        pasa1 = admisible3(S1) if V3 else ((not V2) or admisible(c, e))
     if pasa1:
         res.update({"etapa": "Stage 1", "S": res["S1"], "Rvar_%": 100 * rvar(S1),
                     "kappa": kappa(J, S1), "VIF": vif(J, S1), "cos_med": c, "erel_med": e,
@@ -252,13 +307,15 @@ def main_one(name, t_def):
         memo = {}
         def stop2(S):
             key = tuple(S)
+            if V3:
+                return admisible3(S)
             if key not in memo:
                 memo[key] = valida(S)
             if V2:
                 return len(S) >= 2 and admisible(memo[key][0], memo[key][1])
             return memo[key][0] >= COS_MIN
         S2, ok2 = greedy(J, orden2, stop2)
-        c, e, n = memo.get(tuple(S2), valida(S2)) if S2 else (float("nan"), float("nan"), 0)
+        c, e, n = (memo.get(tuple(S2)) or valida(S2)) if S2 else (float("nan"), float("nan"), 0)
         res.update({"etapa": "Stage 2", "S": [names[j] for j in S2],
                     "Rvar_%": 100 * rvar(S2) if S2 else 0.0,
                     "kappa": kappa(J, S2) if S2 else float("nan"),
@@ -266,6 +323,17 @@ def main_one(name, t_def):
                     "cos_med": c, "erel_med": e, "n_escenarios": n})
     res["admisible"] = admisible(res["cos_med"], res["erel_med"]) and \
         (not V2 or len(res["S"]) >= 2)
+    if V3:
+        Sf = [names.index(q) for q in res["S"]]
+        if len(Sf) >= 1 and (p <= 200 or len(Sf) <= 10):
+            res["eajuste_med"] = memo_aj.get(tuple(Sf)) if tuple(Sf) in memo_aj else ajuste(Sf)
+        else:
+            # sistemas muy grandes: cota e_ajuste ≤ e_rel (el punto sin reestimar es candidato)
+            res["eajuste_med"] = None
+            res["eajuste_cota"] = res["erel_med"]
+        e_aj = res["eajuste_med"] if res["eajuste_med"] is not None else res["erel_med"]
+        res["admisible"] = bool(len(Sf) >= 2 and np.isfinite(e_aj) and
+                                min(e_aj, res["erel_med"]) <= EREL_MAX)
     res["segundos"] = round(time.time() - t0, 1)
     return res
 
@@ -278,7 +346,8 @@ if __name__ == "__main__":
         _CS.BENCH = _P(sys.argv[_i + 1])
         del sys.argv[_i:_i + 2]
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
-    d = OUT / ("reclasificacion_v2" if V2 else "reclasificacion"); d.mkdir(exist_ok=True)
+    d = OUT / ("reclasificacion_v3" if V3 else "reclasificacion_v2" if V2 else "reclasificacion")
+    d.mkdir(exist_ok=True)
     out = []
     lista = [(n, sel, t, "FIM" if g == "FIM" else "SCAN", None) for n, sel, t, g in SYSTEMS]
     if "--extra" in sys.argv:

@@ -1,0 +1,30 @@
+{
+ "sistema": "SCT_Bandura",
+ "p": 22,
+ "etapa_paper": "Stage 1 (FIM, VIF relajado)",
+ "S_paper": [
+  "beta43",
+  "beta54",
+  "beta34",
+  "beta14",
+  "gamma33"
+ ],
+ "S1": [
+  "gamma33",
+  "beta43"
+ ],
+ "Rvar_S1_%": 96.61395612396139,
+ "etapa": "Stage 1",
+ "S": [
+  "gamma33",
+  "beta43"
+ ],
+ "Rvar_%": 96.61395612396139,
+ "kappa": 1.3987853115651172,
+ "VIF": 1.116922731117873,
+ "cos_med": 0.9841919247217021,
+ "erel_med": 0.20201900512286736,
+ "eajuste_med": 0.1766412033643121,
+ "n_escenarios": 15,
+ "admisible": true
+}

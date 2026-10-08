@@ -1,0 +1,41 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "p": 44,
+ "T": 50.0,
+ "S1": [
+  "p_atm_act_dsb",
+  "p_p53_act_atm",
+  "kt",
+  "p_chk2_act",
+  "p_atr_act_ssb",
+  "p_p53_act_chk2",
+  "p_chk1_act",
+  "p_p21_mrna_turn",
+  "p_h2ax_act_atr",
+  "k_damage_gem_ssb",
+  "p_atr_act_atm",
+  "p_p21_turn",
+  "p_wip1_turn"
+ ],
+ "Rvar_S1_%": 48.69544464316774,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "p_atm_act_dsb",
+  "p_p53_act_atm",
+  "kt",
+  "p_chk2_act",
+  "p_atr_act_ssb"
+ ],
+ "Rvar_%": 40.37825959132559,
+ "kappa": 5.10165710351686,
+ "VIF": 6.363306934842513,
+ "cos_med": 0.8033913684391164,
+ "erel_med": 0.7319053864424427,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.3773886614806335,
+ "segundos": 10.5,
+ "etapa_paper": "No admisible",
+ "S_paper": []
+}
