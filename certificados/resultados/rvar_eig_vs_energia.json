@@ -1,0 +1,126 @@
+{
+ "Raimundez_PCB2020": {
+  "paper": 99.9,
+  "k": 1,
+  "eig_topk_T50": 52.89,
+  "energia_S_T50": 1.1
+ },
+ "Crauste_CellSystems2017": {
+  "paper": 96.6,
+  "k": 2,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 0.0,
+  "eig_topk_Trob": 99.11,
+  "energia_S_Trob": 23.33
+ },
+ "Armistead_CellDeathDis2024": {
+  "paper": 99.9,
+  "k": 2,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 99.92
+ },
+ "SalazarCavazos_MBoC2020": {
+  "paper": 95.0,
+  "k": 4,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 100.0,
+  "eig_topk_Trob": 100.0,
+  "energia_S_Trob": 100.0
+ },
+ "Chen_MSB2009": {
+  "paper": 100.0,
+  "k": 2,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 100.0
+ },
+ "Blasi_CellSystems2016": {
+  "paper": 100.0,
+  "k": 2,
+  "eig_topk_T50": 99.97,
+  "energia_S_T50": 99.95
+ },
+ "Borghans_BiophysChem1997": {
+  "paper": 91.4,
+  "k": 7,
+  "eig_topk_T50": 99.78,
+  "energia_S_T50": 40.1,
+  "eig_topk_Trob": 99.99,
+  "energia_S_Trob": 98.37
+ },
+ "Okuonghae_ChaosSolitonsFractals2020": {
+  "paper": 88.2,
+  "k": 6,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 0.1
+ },
+ "Zheng_PNAS2012": {
+  "paper": 96.3,
+  "k": 4,
+  "eig_topk_T50": 99.96,
+  "energia_S_T50": 25.71
+ },
+ "Sneyd_PNAS2002": {
+  "paper": 99.5,
+  "k": 2,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 0.0,
+  "eig_topk_Trob": 100.0,
+  "energia_S_Trob": 0.0
+ },
+ "Elowitz_Nature2000": {
+  "paper": 99.4,
+  "k": 2,
+  "eig_topk_T50": 99.59,
+  "energia_S_T50": 0.03,
+  "eig_topk_Trob": 84.13,
+  "energia_S_Trob": 1.12
+ },
+ "Fiedler_BMCSystBiol2016": {
+  "paper": 100.0,
+  "k": 2,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 100.0
+ },
+ "Bachmann_MSB2011": {
+  "paper": 99.7,
+  "k": 2,
+  "eig_topk_T50": 99.99,
+  "energia_S_T50": 99.68
+ },
+ "Boehm_JProteomeRes2014": {
+  "paper": 97.9,
+  "k": 3,
+  "eig_topk_T50": 99.94,
+  "energia_S_T50": 94.12
+ },
+ "Lang_PLOSComputBiol2024": {
+  "paper": 89.1,
+  "k": 6,
+  "eig_topk_T50": 98.97,
+  "energia_S_T50": 94.69
+ },
+ "Smith_BMCSystBiol2013": {
+  "paper": 53.2,
+  "k": 2,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 89.47
+ },
+ "Giordano_Nature2020": {
+  "paper": 83.7,
+  "k": 6,
+  "eig_topk_T50": 99.63,
+  "energia_S_T50": 22.33
+ },
+ "Rahman_MBS2016": {
+  "paper": 44.5,
+  "k": 3,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 0.0
+ },
+ "Weber_BMC2015": {
+  "paper": 99.9,
+  "k": 4,
+  "eig_topk_T50": 100.0,
+  "energia_S_T50": 10.44
+ }
+}
