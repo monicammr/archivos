@@ -6,6 +6,7 @@
  "reacciones": 32,
  "eventos": 0,
  "parametros_por_condicion": [],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,

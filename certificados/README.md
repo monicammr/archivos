@@ -85,7 +85,9 @@ Qué hace el traductor:
 
 Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/sbml_lean/*.json`):
 
-* **19 modelos verificados en Lean sin ninguna condición pendiente** (18 globalmente; Crauste en el horizonte T ≤ 1 del análisis):
+* **Los 22 modelos traducidos están verificados en Lean sin ninguna condición pendiente** (21
+  en todo horizonte T; Crauste en el horizonte T ≤ 1 del análisis). De los 23 sistemas del
+  artículo sólo Smith queda fuera (abajo).
   * 15 en forma de red (`KineticNetwork.network_final`): Bachmann, Blasi, Boehm, Brannmark,
     Chen (500 estados), Froehlich (1228 estados, 4088 parámetros; 13 módulos compilados por
     separado, ≤ 3 GB cada uno, ~30 min), Giordano (6 tramos), Lang (124 estados), Raia,
@@ -94,30 +96,32 @@ Resultado (`resultados/sbml_lean/tabla.md`; informe por sistema en `resultados/s
     linealmente (pesos `c` comprobados por cálculo), θ₀ > 0 y x₀ ≥ 0 (o x₀(θ) ≥ 0 y
     diferenciable en Bachmann, Raia y SalazarCavazos); por tanto **la solución nominal existe en
     [0, T] para todo T**, es ≥ 0, y la trayectoria es diferenciable respecto a θ.
-  * 3 con **positividad estricta** (`StrictNetwork.strict_final_init`): Elowitz y Borghans
-    (Hill con exponente estimado sobre una concentración, `Zⁿ = e^{n·log Z}`, exige Z > 0) y
-    Rahman (incidencia β·S·I/N, exige N > 0). Aquí el dominio no contiene el ortante, así que
-    Lean demuestra además que las especies con dato inicial > 0 **permanecen > 0**: su consumo
-    es proporcional a ellas (`≤ K·yᵢ`, con términos saturantes `k·X/(…+X+…) ≤ k` y `e^{≤0} ≤ 1`),
-    luego `yᵢ(t) ≥ yᵢ(0)·e^{−(K+1)t}/2`. En Elowitz el traductor reescribe la represión de Hill
-    `a − b(a − c)/(b + d) = (a·d + b·c)/(b + d)` para que la tasa sea suma de términos ≥ 0.
-* **Crauste** (`RiccatiNetwork.riccati_final`): **verificado sin condiciones para T ≤ 1** (el
-  horizonte del análisis). El patógeno crece como ρ_P·P², así que la existencia global no es
-  cierta en general; con pesos c = (1, 1, 1, 1, 10⁵) Lean comprueba en racionales
-  Σ cᵢFᵢ ≤ Q(φ + 1)² y 1,1·Q·(φ₀ + 1)·T < 1, y la comparación con la solución de Riccati
-  R(t) = W/(1 − κt) da la existencia en [0, 1]. Con este método el horizonte máximo es
-  T ≈ 1,4 días; los datos de PEtab llegan al día 28, y para ese horizonte seguiría haciendo
-  falta integración verificada.
-* **3 modelos verificados con la condición "la solución nominal existe y permanece en el
-  dominio"** (Lean demuestra que la comprobación sencilla falla, `check_falla`):
-  * Okuonghae: además de la incidencia β·S·I/N, el flujo symptomatic → asymptomatic tiene tasa
-    ν·σ·E, que no depende de symptomatic: symptomatic' = σ(1 − ν)·E − …; con ν > 1 (permitido
-    por los límites de PEtab, ν ≤ 1000) symptomatic puede volverse negativo. La positividad
-    sólo vale si ν ≤ 1 (nominal 0,5): es una propiedad del modelo, no una limitación del método;
-  * Armistead: producción k3·(1 − S_on·α_hai1a)·Sphingo, cuyo signo depende de los parámetros,
-    y `alpha_cer` < 0 por diseño;
-  * Fiedler: la entrada k10 − k11·e^{−t/τ2}(e^{−t/τ1} − 1) es ≥ 0, pero el comprobador
-    sintáctico no lo detecta (fallo conservador).
+  * 6 con **positividad estricta** (`StrictNetwork.strict_final_init`,
+    `IntervalInit.strict_final_initI`): el dominio no contiene todo el ortante, así que Lean
+    demuestra además que las especies con dato inicial > 0 **permanecen > 0** (su consumo es
+    proporcional a ellas, `≤ K·yᵢ`, con términos saturantes `k·X/(…+X+…) ≤ k` y `e^{≤0} ≤ 1`;
+    luego `yᵢ(t) ≥ yᵢ(0)·e^{−(K+1)t}/2`):
+    * Elowitz y Borghans: Hill con exponente estimado (`Zⁿ = e^{n·log Z}` exige Z > 0). En
+      Elowitz el traductor reescribe la represión de Hill `a − b(a − c)/(b + d) = (ad + bc)/(b + d)`.
+    * Rahman: incidencia β·S·I/N (exige N > 0).
+    * Okuonghae: incidencia β·S·I/N y, además, el flujo symptomatic → asymptomatic tiene tasa
+      ν·σ·E. El traductor reescribe la red de forma exacta (E → Sy a tasa σ(1 − ν)E y E → A a
+      tasa σνE: mismas ecuaciones para todo θ) y Lean comprueba ν₀ = 0,5 ≤ 1 en θ₀. **Ojo**:
+      con ν > 1 (permitido por los límites de PEtab, ν ≤ 1000) symptomatic puede volverse
+      negativo; el resultado vale en θ₀ (y en todo θ con ν ≤ 1).
+    * Armistead: las tasas k00(1 + α_cer) y k3(1 − α_hai1a)·Sphingo son ≥ 0 porque en θ₀
+      α_cer = −0,33 ≥ −1 y α_hai1a = 0,5 ≤ 1; Lean comprueba esas cotas en θ₀ (`checkUB`).
+    * Fiedler: la entrada k10 + k11·e^{−t/τ2}(1 − e^{−t/τ1}) es ≥ 0 (Lean: `1 − eˣ ≥ 0` si
+      x ≤ 0). El dato inicial es el estado estacionario, con raíces cuadradas; Lean certifica
+      Gᵢ(θ₀) > 0 con aritmética de intervalos exacta en ℚ (`IntervalInit.ival`; p. ej.
+      pRAF₀ ≈ 2,4·10⁻⁶).
+  * **Crauste** (`RiccatiNetwork.riccati_final`): **verificado sin condiciones para T ≤ 1** (el
+    horizonte del análisis). El patógeno crece como ρ_P·P², así que la existencia global no es
+    cierta en general; con pesos c = (1, 1, 1, 1, 10⁵) Lean comprueba en racionales
+    Σ cᵢFᵢ ≤ Q(φ + 1)² y 1,1·Q·(φ₀ + 1)·T < 1, y la comparación con la solución de Riccati
+    R(t) = W/(1 − κt) da la existencia en [0, 1]. Con este método el horizonte máximo es
+    T ≈ 1,4 días; los datos de PEtab llegan al día 28, y para ese horizonte seguiría haciendo
+    falta integración verificada.
 * **Smith**: excluido: las reacciones R16f/R17f usan max(PIP3 − basal, 0), que no es
   diferenciable, así que el teorema de diferenciabilidad no aplica (los eventos en tiempos fijos
   sí se traducen).

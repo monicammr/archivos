@@ -94,22 +94,118 @@ lemma qgt1_sound {e : KExpr n p} (h : qgt1 e = true) (z) : 1 < e.eval z := by
       show (1 : ℝ) < (q : ℝ); exact_mod_cast h
   | _ => simp [qgt1] at h
 
-variable (pos : Fin p → Bool) (sx : Fin n → Bool)
+/-- Cotas de parámetros (se comprueban en `θ₀`): `ub j = (inf, sup)`, con `r ≤ θⱼ` si
+`inf = some r` y `θⱼ ≤ q` si `sup = some q`. -/
+def UB (ub : Fin p → Option ℚ × Option ℚ) (θ : EuclideanSpace ℝ (Fin p)) : Prop :=
+  (∀ j r, (ub j).1 = some r → (r : ℝ) ≤ θ j) ∧ (∀ j q, (ub j).2 = some q → θ j ≤ q)
 
+/-- Signos de los parámetros: positividad (`pos`) y cotas superiores (`ub`). -/
+def PP (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (θ : EuclideanSpace ℝ (Fin p)) : Prop :=
+  PosParams pos θ ∧ UB ub θ
+
+/-- `q − θⱼ ≥ 0` por una cota `θⱼ ≤ r ≤ q` (con `θⱼ > 0`). -/
+def subub (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) : KExpr n p → KExpr n p → Bool
+  | .qconst q, .par j => pos j && (match (ub j).2 with | some r => decide (r ≤ q) | none => false)
+  | _, _ => false
+
+/-- `q + θⱼ ≥ 0` por una cota inferior `θⱼ ≥ r ≥ −q`. -/
+def addlb (ub : Fin p → Option ℚ × Option ℚ) : KExpr n p → KExpr n p → Bool
+  | .qconst q, .par j => match (ub j).1 with | some r => decide (0 ≤ q + r) | none => false
+  | _, _ => false
+
+lemma addlb_sound {ub : Fin p → Option ℚ × Option ℚ} {θ : EuclideanSpace ℝ (Fin p)}
+    (hub : UB ub θ) {a b : KExpr n p} (h : addlb ub a b = true) (z : EuclideanSpace ℝ (Fin n)) :
+    0 ≤ a.eval (z, θ) + b.eval (z, θ) := by
+  cases a with
+  | qconst q =>
+    cases b with
+    | par j =>
+      simp only [addlb] at h
+      cases e : (ub j).1 with
+      | none => rw [e] at h; simp at h
+      | some r =>
+        rw [e] at h
+        simp only [decide_eq_true_eq] at h
+        have h1 := hub.1 j r e
+        have h2 : (0 : ℝ) ≤ q + r := by exact_mod_cast h
+        show (0 : ℝ) ≤ q + θ j
+        linarith
+    | _ => simp [addlb] at h
+  | _ => simp [addlb] at h
+
+lemma subub_sound {pos : Fin p → Bool} {ub : Fin p → Option ℚ × Option ℚ} {θ : EuclideanSpace ℝ (Fin p)}
+    (hθ : PP pos ub θ) {a b : KExpr n p} (h : subub pos ub a b = true) (z : EuclideanSpace ℝ (Fin n)) :
+    0 ≤ a.eval (z, θ) - b.eval (z, θ) ∧ a.eval (z, θ) - b.eval (z, θ) ≤ a.eval (z, θ) := by
+  cases a with
+  | qconst q =>
+    cases b with
+    | par j =>
+      simp only [subub, Bool.and_eq_true] at h
+      obtain ⟨hp, hu⟩ := h
+      cases e : (ub j).2 with
+      | none => rw [e] at hu; simp at hu
+      | some r =>
+        rw [e] at hu
+        simp only [decide_eq_true_eq] at hu
+        have h1 := hθ.2.2 j r e
+        have h2 : (r : ℝ) ≤ q := by exact_mod_cast hu
+        have h3 := hθ.1 j hp
+        show 0 ≤ (q : ℝ) - θ j ∧ (q : ℝ) - θ j ≤ q
+        constructor <;> linarith
+    | _ => simp [subub] at h
+  | _ => simp [subub] at h
+
+/-- Las cotas `ub` se cumplen en `θq`. -/
+def checkUB (ub : Fin p → Option ℚ × Option ℚ) (θq : Fin p → ℚ) : Bool :=
+  (List.finRange p).all fun j =>
+    (match (ub j).1 with | some r => decide (r ≤ θq j) | none => true) &&
+    (match (ub j).2 with | some r => decide (θq j ≤ r) | none => true)
+
+lemma ub_qvec {ub : Fin p → Option ℚ × Option ℚ} {θq : Fin p → ℚ} (h : checkUB ub θq = true) :
+    UB ub (qvec θq) := by
+  simp only [checkUB, List.all_eq_true, List.mem_finRange, true_implies, Bool.and_eq_true] at h
+  refine ⟨fun j r hj => ?_, fun j r hj => ?_⟩
+  · have := (h j).1
+    rw [hj] at this
+    simp only [decide_eq_true_eq] at this
+    rw [qvec_apply]; exact_mod_cast this
+  · have := (h j).2
+    rw [hj] at this
+    simp only [decide_eq_true_eq] at this
+    rw [qvec_apply]; exact_mod_cast this
+
+variable (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (sx : Fin n → Bool)
+
+mutual
 /-- `≥ 0` en `P`. -/
-def sNonneg : KExpr n p → Bool
+def sNonneg (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) : KExpr n p → Bool
   | .const _ => false
   | .qconst q => decide (0 ≤ q)
   | .var _ => true
   | .par j => pos j
-  | .add a b => sNonneg a && sNonneg b
-  | .sub _ _ => false
-  | .mul a b => sNonneg a && sNonneg b
-  | .div a b => sNonneg a && sNonneg b
-  | .npow a _ => sNonneg a
-  | .rpow a _ => sNonneg a
+  | .add a b => (sNonneg pos ub a && sNonneg pos ub b) || addlb ub a b
+  | .sub a b => (qge1 a && expLe1 pos ub b) || subub pos ub a b
+  | .mul a b => sNonneg pos ub a && sNonneg pos ub b
+  | .div a b => sNonneg pos ub a && sNonneg pos ub b
+  | .npow a _ => sNonneg pos ub a
+  | .rpow a _ => sNonneg pos ub a
   | .exp _ => true
   | .log a => qge1 a
+
+/-- `≤ 0` en `P`. -/
+def snp (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) : KExpr n p → Bool
+  | .qconst q => decide (q ≤ 0)
+  | .add a b => snp pos ub a && snp pos ub b
+  | .sub a b => snp pos ub a && sNonneg pos ub b
+  | .mul a b => (snp pos ub a && sNonneg pos ub b) || (sNonneg pos ub a && snp pos ub b)
+  | .div a b => snp pos ub a && sNonneg pos ub b
+  | _ => false
+
+/-- `e^x` con `x ≤ 0`, luego `0 ≤ e^x ≤ 1`. -/
+def expLe1 (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) : KExpr n p → Bool
+  | .exp x => snp pos ub x
+  | _ => false
+end
 
 /-- `> 0` en `P`. -/
 def sPos : KExpr n p → Bool
@@ -117,7 +213,7 @@ def sPos : KExpr n p → Bool
   | .qconst q => decide (0 < q)
   | .var j => sx j
   | .par j => pos j
-  | .add a b => (sPos a && sNonneg pos b) || (sNonneg pos a && sPos b)
+  | .add a b => (sPos a && sNonneg pos ub b) || (sNonneg pos ub a && sPos b)
   | .sub _ _ => false
   | .mul a b => sPos a && sPos b
   | .div a b => sPos a && sPos b
@@ -135,50 +231,92 @@ def sOk : KExpr n p → Bool
   | .add a b => sOk a && sOk b
   | .sub a b => sOk a && sOk b
   | .mul a b => sOk a && sOk b
-  | .div a b => sOk a && sOk b && sPos pos sx b
+  | .div a b => sOk a && sOk b && sPos pos ub sx b
   | .npow a _ => sOk a
-  | .rpow a _ => sOk a && sPos pos sx a
+  | .rpow a _ => sOk a && sPos pos ub sx a
   | .exp a => sOk a
-  | .log a => sOk a && sPos pos sx a
+  | .log a => sOk a && sPos pos ub sx a
 
-/-- `≤ 0` en `P`. -/
-def snp : KExpr n p → Bool
-  | .qconst q => decide (q ≤ 0)
-  | .add a b => snp a && snp b
-  | .mul a b => (snp a && sNonneg pos b) || (sNonneg pos a && snp b)
-  | _ => false
+variable {pos ub sx} {y : EuclideanSpace ℝ (Fin n)} {θ : EuclideanSpace ℝ (Fin p)}
 
-variable {pos sx} {y : EuclideanSpace ℝ (Fin n)} {θ : EuclideanSpace ℝ (Fin p)}
-
-theorem sNonneg_sound (hy : Nonneg y) (hθ : PosParams pos θ) :
-    ∀ e : KExpr n p, sNonneg pos e = true → 0 ≤ e.eval (y, θ) := by
+/-- Corrección conjunta de `sNonneg`, `snp` y `expLe1`. -/
+theorem sign_sound (hy : Nonneg y) (hθ : PP pos ub θ) : ∀ e : KExpr n p,
+    (sNonneg pos ub e = true → 0 ≤ e.eval (y, θ)) ∧ (snp pos ub e = true → e.eval (y, θ) ≤ 0) ∧
+    (expLe1 pos ub e = true → 0 ≤ e.eval (y, θ) ∧ e.eval (y, θ) ≤ 1) := by
   intro e
   induction e with
-  | const c => intro h; exact absurd h (by simp [sNonneg])
+  | const c => exact ⟨fun h => by simp [sNonneg] at h, fun h => by simp [snp] at h,
+      fun h => by simp [expLe1] at h⟩
   | qconst q =>
-      intro h; simp only [sNonneg, decide_eq_true_eq] at h
-      show (0 : ℝ) ≤ (q : ℝ); exact_mod_cast h
-  | var i => intro _; exact hy i
-  | par j => intro h; exact (hθ j h).le
+      refine ⟨fun h => ?_, fun h => ?_, fun h => by simp [expLe1] at h⟩
+      · simp only [sNonneg, decide_eq_true_eq] at h
+        show (0 : ℝ) ≤ (q : ℝ); exact_mod_cast h
+      · simp only [snp, decide_eq_true_eq] at h
+        show ((q : ℝ)) ≤ 0; exact_mod_cast h
+  | var i => exact ⟨fun _ => hy i, fun h => by simp [snp] at h, fun h => by simp [expLe1] at h⟩
+  | par j => exact ⟨fun h => (hθ.1 j h).le, fun h => by simp [snp] at h,
+      fun h => by simp [expLe1] at h⟩
   | add a b ha hb =>
-      intro h; simp only [sNonneg, Bool.and_eq_true] at h
-      exact add_nonneg (ha h.1) (hb h.2)
-  | sub a b _ _ => intro h; exact absurd h (by simp [sNonneg])
+      refine ⟨fun h => ?_, fun h => ?_, fun h => by simp [expLe1] at h⟩
+      · simp only [sNonneg, Bool.or_eq_true, Bool.and_eq_true] at h
+        rcases h with h | h
+        · exact add_nonneg (ha.1 h.1) (hb.1 h.2)
+        · exact addlb_sound hθ.2 h y
+      · simp only [snp, Bool.and_eq_true] at h
+        exact add_nonpos (ha.2.1 h.1) (hb.2.1 h.2)
+  | sub a b ha hb =>
+      refine ⟨fun h => ?_, fun h => ?_, fun h => by simp [expLe1] at h⟩
+      · simp only [sNonneg, Bool.or_eq_true, Bool.and_eq_true] at h
+        rcases h with h | h
+        · have h1 := qge1_sound h.1 (y, θ)
+          have h2 := (hb.2.2 h.2).2
+          show 0 ≤ a.eval _ - b.eval _; linarith
+        · exact (subub_sound hθ h y).1
+      · simp only [snp, Bool.and_eq_true] at h
+        have h1 := ha.2.1 h.1
+        have h2 := hb.1 h.2
+        show a.eval _ - b.eval _ ≤ 0; linarith
   | mul a b ha hb =>
-      intro h; simp only [sNonneg, Bool.and_eq_true] at h
-      exact mul_nonneg (ha h.1) (hb h.2)
+      refine ⟨fun h => ?_, fun h => ?_, fun h => by simp [expLe1] at h⟩
+      · simp only [sNonneg, Bool.and_eq_true] at h
+        exact mul_nonneg (ha.1 h.1) (hb.1 h.2)
+      · simp only [snp, Bool.or_eq_true, Bool.and_eq_true] at h
+        rcases h with ⟨h1, h2⟩ | ⟨h1, h2⟩
+        · exact mul_nonpos_of_nonpos_of_nonneg (ha.2.1 h1) (hb.1 h2)
+        · exact mul_nonpos_of_nonneg_of_nonpos (ha.1 h1) (hb.2.1 h2)
   | div a b ha hb =>
-      intro h; simp only [sNonneg, Bool.and_eq_true] at h
-      exact div_nonneg (ha h.1) (hb h.2)
-  | npow a k ha => intro h; exact pow_nonneg (ha h) k
-  | rpow a r ha => intro h; exact Real.rpow_nonneg (ha h) r
-  | exp a _ => intro _; exact (Real.exp_pos _).le
+      refine ⟨fun h => ?_, fun h => ?_, fun h => by simp [expLe1] at h⟩
+      · simp only [sNonneg, Bool.and_eq_true] at h
+        exact div_nonneg (ha.1 h.1) (hb.1 h.2)
+      · simp only [snp, Bool.and_eq_true] at h
+        show a.eval _ / b.eval _ ≤ 0
+        rw [div_eq_mul_inv]
+        exact mul_nonpos_of_nonpos_of_nonneg (ha.2.1 h.1) (inv_nonneg.2 (hb.1 h.2))
+  | npow a k ha =>
+      exact ⟨fun h => pow_nonneg (ha.1 h) k, fun h => by simp [snp] at h,
+        fun h => by simp [expLe1] at h⟩
+  | rpow a r ha =>
+      exact ⟨fun h => Real.rpow_nonneg (ha.1 h) r, fun h => by simp [snp] at h,
+        fun h => by simp [expLe1] at h⟩
+  | exp a ha =>
+      refine ⟨fun _ => (Real.exp_pos _).le, fun h => by simp [snp] at h, fun h => ?_⟩
+      simp only [expLe1] at h
+      exact ⟨(Real.exp_pos _).le, Real.exp_le_one_iff.2 (ha.2.1 h)⟩
   | log a _ =>
-      intro h; simp only [sNonneg] at h
+      refine ⟨fun h => ?_, fun h => by simp [snp] at h, fun h => by simp [expLe1] at h⟩
+      simp only [sNonneg] at h
       exact Real.log_nonneg (qge1_sound h _)
 
-theorem sPos_sound (hy : SPos sx y) (hθ : PosParams pos θ) :
-    ∀ e : KExpr n p, sPos pos sx e = true → 0 < e.eval (y, θ) := by
+theorem sNonneg_sound (hy : Nonneg y) (hθ : PP pos ub θ) :
+    ∀ e : KExpr n p, sNonneg pos ub e = true → 0 ≤ e.eval (y, θ) :=
+  fun e => (sign_sound hy hθ e).1
+
+theorem expLe1_sound (hy : Nonneg y) (hθ : PP pos ub θ) :
+    ∀ e : KExpr n p, expLe1 pos ub e = true → 0 ≤ e.eval (y, θ) ∧ e.eval (y, θ) ≤ 1 :=
+  fun e => (sign_sound hy hθ e).2.2
+
+theorem sPos_sound (hy : SPos sx y) (hθ : PP pos ub θ) :
+    ∀ e : KExpr n p, sPos pos ub sx e = true → 0 < e.eval (y, θ) := by
   intro e
   induction e with
   | const c => intro h; exact absurd h (by simp [sPos])
@@ -186,7 +324,7 @@ theorem sPos_sound (hy : SPos sx y) (hθ : PosParams pos θ) :
       intro h; simp only [sPos, decide_eq_true_eq] at h
       show (0 : ℝ) < (q : ℝ); exact_mod_cast h
   | var i => intro h; exact hy.2 i h
-  | par j => intro h; exact hθ j h
+  | par j => intro h; exact hθ.1 j h
   | add a b ha hb =>
       intro h; simp only [sPos, Bool.or_eq_true, Bool.and_eq_true] at h
       rcases h with ⟨h1, h2⟩ | ⟨h1, h2⟩
@@ -206,8 +344,8 @@ theorem sPos_sound (hy : SPos sx y) (hθ : PosParams pos θ) :
       intro h; simp only [sPos] at h
       exact Real.log_pos (qgt1_sound h _)
 
-theorem sOk_sound (hy : SPos sx y) (hθ : PosParams pos θ) :
-    ∀ e : KExpr n p, sOk pos sx e = true → e.ok (y, θ) := by
+theorem sOk_sound (hy : SPos sx y) (hθ : PP pos ub θ) :
+    ∀ e : KExpr n p, sOk pos ub sx e = true → e.ok (y, θ) := by
   intro e
   induction e with
   | const c => intro _; trivial
@@ -232,40 +370,19 @@ theorem sOk_sound (hy : SPos sx y) (hθ : PosParams pos θ) :
       intro h; simp only [sOk, Bool.and_eq_true] at h
       exact ⟨ha h.1, sPos_sound hy hθ a h.2⟩
 
-theorem snp_sound (hy : Nonneg y) (hθ : PosParams pos θ) :
-    ∀ e : KExpr n p, snp pos e = true → e.eval (y, θ) ≤ 0 := by
-  intro e
-  induction e with
-  | qconst q =>
-      intro h; simp only [snp, decide_eq_true_eq] at h
-      show ((q : ℝ)) ≤ 0; exact_mod_cast h
-  | add a b ha hb =>
-      intro h; simp only [snp, Bool.and_eq_true] at h
-      exact add_nonpos (ha h.1) (hb h.2)
-  | mul a b ha hb =>
-      intro h; simp only [snp, Bool.or_eq_true, Bool.and_eq_true] at h
-      rcases h with ⟨h1, h2⟩ | ⟨h1, h2⟩
-      · exact mul_nonpos_of_nonpos_of_nonneg (ha h1) (sNonneg_sound hy hθ b h2)
-      · exact mul_nonpos_of_nonneg_of_nonpos (sNonneg_sound hy hθ a h1) (hb h2)
-  | const c => intro h; exact absurd h (by simp [snp])
-  | var i => intro h; exact absurd h (by simp [snp])
-  | par j => intro h; exact absurd h (by simp [snp])
-  | sub a b _ _ => intro h; exact absurd h (by simp [snp])
-  | div a b _ _ => intro h; exact absurd h (by simp [snp])
-  | npow a k _ => intro h; exact absurd h (by simp [snp])
-  | rpow a r _ => intro h; exact absurd h (by simp [snp])
-  | exp a _ => intro h; exact absurd h (by simp [snp])
-  | log a _ => intro h; exact absurd h (by simp [snp])
+theorem snp_sound (hy : Nonneg y) (hθ : PP pos ub θ) :
+    ∀ e : KExpr n p, snp pos ub e = true → e.eval (y, θ) ≤ 0 :=
+  fun e => (sign_sound hy hθ e).2.1
 
 /-- `X` es un sumando de `d` (los demás sumandos son `≥ 0`), luego `0 ≤ X ≤ d`. -/
-def summand (pos : Fin p → Bool) (X : KExpr n p) : KExpr n p → Bool
-  | .add a b => (keq (.add a b) X && sNonneg pos X) ||
-      (summand pos X a && sNonneg pos b) || (sNonneg pos a && summand pos X b)
-  | d => keq d X && sNonneg pos X
+def summand (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (X : KExpr n p) : KExpr n p → Bool
+  | .add a b => (keq (.add a b) X && sNonneg pos ub X) ||
+      (summand pos ub X a && sNonneg pos ub b) || (sNonneg pos ub a && summand pos ub X b)
+  | d => keq d X && sNonneg pos ub X
 
-theorem summand_sound (hy : Nonneg y) (hθ : PosParams pos θ) (X : KExpr n p) :
-    ∀ d : KExpr n p, summand pos X d = true → 0 ≤ X.eval (y, θ) ∧ X.eval (y, θ) ≤ d.eval (y, θ) := by
-  have base : ∀ d : KExpr n p, (keq d X && sNonneg pos X) = true →
+theorem summand_sound (hy : Nonneg y) (hθ : PP pos ub θ) (X : KExpr n p) :
+    ∀ d : KExpr n p, summand pos ub X d = true → 0 ≤ X.eval (y, θ) ∧ X.eval (y, θ) ≤ d.eval (y, θ) := by
+  have base : ∀ d : KExpr n p, (keq d X && sNonneg pos ub X) = true →
       0 ≤ X.eval (y, θ) ∧ X.eval (y, θ) ≤ d.eval (y, θ) := by
     intro d h
     simp only [Bool.and_eq_true] at h
@@ -298,67 +415,68 @@ theorem summand_sound (hy : Nonneg y) (hθ : PosParams pos θ) (X : KExpr n p) :
 
 mutual
 /-- Acotada y `≥ 0` en `P ∩ [0, B]ⁿ` (`bx = true`) o en todo `P` (`bx = false`). -/
-def bnd (pos : Fin p → Bool) (bx : Bool) : KExpr n p → Bool
+def bnd (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (bx : Bool) : KExpr n p → Bool
   | .const _ => false
   | .qconst q => decide (0 ≤ q)
   | .var _ => bx
   | .par j => pos j
-  | .add a b => bnd pos bx a && bnd pos bx b
-  | .sub _ _ => false
-  | .mul a b => bnd pos bx a && bnd pos bx b
-  | .div a d => (varfree (.div a d) && sNonneg pos (.div a d)) ||
-      (bnd pos bx a && lowerpos pos d) || satb pos bx d a || bpair pos bx a d
-  | .npow a _ => bnd pos bx a
-  | .rpow a r => varfree (.rpow a r) && sNonneg pos (.rpow a r)
-  | .exp a => varfree a || snp pos a
+  | .add a b => (bnd pos ub bx a && bnd pos ub bx b) ||
+      (varfree (.add a b) && sNonneg pos ub (.add a b))
+  | .sub a b => (qge1 a && expLe1 pos ub b) || subub pos ub a b
+  | .mul a b => bnd pos ub bx a && bnd pos ub bx b
+  | .div a d => (varfree (.div a d) && sNonneg pos ub (.div a d)) ||
+      (bnd pos ub bx a && lowerpos pos d) || satb pos ub bx d a || bpair pos ub bx a d
+  | .npow a _ => bnd pos ub bx a
+  | .rpow a r => varfree (.rpow a r) && sNonneg pos ub (.rpow a r)
+  | .exp a => varfree a || snp pos ub a
   | .log a => qge1 a
 
 /-- `a/d` acotada: `a` contiene como factor un sumando de `d` (término saturante). -/
-def satb (pos : Fin p → Bool) (bx : Bool) (d : KExpr n p) : KExpr n p → Bool
-  | .mul u v => summand pos (.mul u v) d || (satb pos bx d u && bnd pos bx v) ||
-      (bnd pos bx u && satb pos bx d v)
-  | .const c => summand pos (.const c) d
-  | .qconst q => summand pos (.qconst q) d
-  | .var j => summand pos (.var j) d
-  | .par j => summand pos (.par j) d
-  | .add a b => summand pos (.add a b) d
-  | .sub a b => summand pos (.sub a b) d
-  | .div a b => summand pos (.div a b) d
-  | .npow a k => summand pos (.npow a k) d
-  | .rpow a r => summand pos (.rpow a r) d
-  | .exp a => summand pos (.exp a) d
-  | .log a => summand pos (.log a) d
+def satb (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (bx : Bool) (d : KExpr n p) : KExpr n p → Bool
+  | .mul u v => summand pos ub (.mul u v) d || (satb pos ub bx d u && bnd pos ub bx v) ||
+      (bnd pos ub bx u && satb pos ub bx d v)
+  | .const c => summand pos ub (.const c) d
+  | .qconst q => summand pos ub (.qconst q) d
+  | .var j => summand pos ub (.var j) d
+  | .par j => summand pos ub (.par j) d
+  | .add a b => summand pos ub (.add a b) d
+  | .sub a b => summand pos ub (.sub a b) d
+  | .div a b => summand pos ub (.div a b) d
+  | .npow a k => summand pos ub (.npow a k) d
+  | .rpow a r => summand pos ub (.rpow a r) d
+  | .exp a => summand pos ub (.exp a) d
+  | .log a => summand pos ub (.log a) d
 
 /-- `(a₁a₂)/(d₁d₂) = (a₁/d₁)(a₂/d₂)` (o emparejado al revés), cada factor acotado. -/
-def bpair (pos : Fin p → Bool) (bx : Bool) : KExpr n p → KExpr n p → Bool
+def bpair (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (bx : Bool) : KExpr n p → KExpr n p → Bool
   | .mul a1 a2, .mul d1 d2 =>
-      (((bnd pos bx a1 && lowerpos pos d1) || satb pos bx d1 a1 || bpair pos bx a1 d1) &&
-        ((bnd pos bx a2 && lowerpos pos d2) || satb pos bx d2 a2 || bpair pos bx a2 d2)) ||
-      (((bnd pos bx a1 && lowerpos pos d2) || satb pos bx d2 a1 || bpair pos bx a1 d2) &&
-        ((bnd pos bx a2 && lowerpos pos d1) || satb pos bx d1 a2 || bpair pos bx a2 d1))
+      (((bnd pos ub bx a1 && lowerpos pos d1) || satb pos ub bx d1 a1 || bpair pos ub bx a1 d1) &&
+        ((bnd pos ub bx a2 && lowerpos pos d2) || satb pos ub bx d2 a2 || bpair pos ub bx a2 d2)) ||
+      (((bnd pos ub bx a1 && lowerpos pos d2) || satb pos ub bx d2 a1 || bpair pos ub bx a1 d2) &&
+        ((bnd pos ub bx a2 && lowerpos pos d1) || satb pos ub bx d1 a2 || bpair pos ub bx a2 d1))
   | _, _ => false
 end
 
 mutual
 /-- Consumo proporcional: `0 ≤ e ≤ K·yᵢ` en `P ∩ [0, B]ⁿ`. -/
-def cons (pos : Fin p → Bool) (i : Fin n) : KExpr n p → Bool
+def cons (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (i : Fin n) : KExpr n p → Bool
   | .var j => decide (j = i)
-  | .mul a b => (cons pos i a && bnd pos true b) || (bnd pos true a && cons pos i b)
-  | .npow a k => decide (1 ≤ k) && cons pos i a && bnd pos true a
-  | .div a d => (cons pos i a && lowerpos pos d) || cpair pos i a d
+  | .mul a b => (cons pos ub i a && bnd pos ub true b) || (bnd pos ub true a && cons pos ub i b)
+  | .npow a k => decide (1 ≤ k) && cons pos ub i a && bnd pos ub true a
+  | .div a d => (cons pos ub i a && lowerpos pos d) || cpair pos ub i a d
   | _ => false
 
 /-- `(a₁a₂)/(d₁d₂)` con un factor proporcional a `yᵢ` y el otro acotado. -/
-def cpair (pos : Fin p → Bool) (i : Fin n) : KExpr n p → KExpr n p → Bool
+def cpair (pos : Fin p → Bool) (ub : Fin p → Option ℚ × Option ℚ) (i : Fin n) : KExpr n p → KExpr n p → Bool
   | .mul a1 a2, .mul d1 d2 =>
-      ((((cons pos i a1 && lowerpos pos d1) || cpair pos i a1 d1) &&
-          ((bnd pos true a2 && lowerpos pos d2) || satb pos true d2 a2 || bpair pos true a2 d2)) ||
-        (((bnd pos true a1 && lowerpos pos d1) || satb pos true d1 a1 || bpair pos true a1 d1) &&
-          ((cons pos i a2 && lowerpos pos d2) || cpair pos i a2 d2))) ||
-      ((((cons pos i a1 && lowerpos pos d2) || cpair pos i a1 d2) &&
-          ((bnd pos true a2 && lowerpos pos d1) || satb pos true d1 a2 || bpair pos true a2 d1)) ||
-        (((bnd pos true a1 && lowerpos pos d2) || satb pos true d2 a1 || bpair pos true a1 d2) &&
-          ((cons pos i a2 && lowerpos pos d1) || cpair pos i a2 d1)))
+      ((((cons pos ub i a1 && lowerpos pos d1) || cpair pos ub i a1 d1) &&
+          ((bnd pos ub true a2 && lowerpos pos d2) || satb pos ub true d2 a2 || bpair pos ub true a2 d2)) ||
+        (((bnd pos ub true a1 && lowerpos pos d1) || satb pos ub true d1 a1 || bpair pos ub true a1 d1) &&
+          ((cons pos ub i a2 && lowerpos pos d2) || cpair pos ub i a2 d2))) ||
+      ((((cons pos ub i a1 && lowerpos pos d2) || cpair pos ub i a1 d2) &&
+          ((bnd pos ub true a2 && lowerpos pos d1) || satb pos ub true d1 a2 || bpair pos ub true a2 d1)) ||
+        (((bnd pos ub true a1 && lowerpos pos d2) || satb pos ub true d2 a1 || bpair pos ub true a1 d2) &&
+          ((cons pos ub i a2 && lowerpos pos d1) || cpair pos ub i a2 d1)))
   | _, _ => false
 end
 
@@ -374,28 +492,28 @@ def ConsB (θ : EuclideanSpace ℝ (Fin p)) (i : Fin n) (e : KExpr n p) : Prop :
   ∀ B : ℝ, ∃ K : ℝ, 0 ≤ K ∧ ∀ y, SPos sx y → (∀ j, y j ≤ B) →
     0 ≤ e.eval (y, θ) ∧ e.eval (y, θ) ≤ K * y i
 
-lemma bndB_const {bx : Bool} {e : KExpr n p} (hθ : PosParams pos θ)
-    (h : (varfree e && sNonneg pos e) = true) : BndB sx θ bx e := by
+lemma bndB_const {bx : Bool} {e : KExpr n p} (hθ : PP pos ub θ)
+    (h : (varfree e && sNonneg pos ub e) = true) : BndB sx θ bx e := by
   simp only [Bool.and_eq_true] at h
   intro B
   refine ⟨e.eval (0, θ), fun y hy _ => ⟨sNonneg_sound hy.1 hθ e h.2, ?_⟩⟩
   rw [eval_varfree e h.1 y 0 θ]
 
-lemma bndB_div_lowerpos {bx : Bool} {a d : KExpr n p} (hθ : PosParams pos θ)
+lemma bndB_div_lowerpos {bx : Bool} {a d : KExpr n p} (hθ : PP pos ub θ)
     (ha : BndB sx θ bx a) (hd : lowerpos pos d = true) : BndB sx θ bx (.div a d) := by
   intro B
   obtain ⟨M, hM⟩ := ha B
   refine ⟨M / lowval pos θ d, fun y hy hB => ?_⟩
   obtain ⟨a0, aM⟩ := hM y hy hB
-  obtain ⟨l1, l2⟩ := lowerpos_sound hy.1 hθ d hd
+  obtain ⟨l1, l2⟩ := lowerpos_sound hy.1 hθ.1 d hd
   show 0 ≤ a.eval (y, θ) / d.eval (y, θ) ∧ a.eval (y, θ) / d.eval (y, θ) ≤ _
   refine ⟨div_nonneg a0 (l1.le.trans l2), ?_⟩
   calc a.eval (y, θ) / d.eval (y, θ) ≤ a.eval (y, θ) / lowval pos θ d :=
         div_le_div_of_nonneg_left a0 l1 l2
     _ ≤ M / lowval pos θ d := div_le_div_of_nonneg_right aM l1.le
 
-lemma bndB_summand {bx : Bool} {a d : KExpr n p} (hθ : PosParams pos θ)
-    (h : summand pos a d = true) : BndB sx θ bx (.div a d) := by
+lemma bndB_summand {bx : Bool} {a d : KExpr n p} (hθ : PP pos ub θ)
+    (h : summand pos ub a d = true) : BndB sx θ bx (.div a d) := by
   intro B
   refine ⟨1, fun y hy _ => ?_⟩
   obtain ⟨a0, ad⟩ := summand_sound hy.1 hθ a d h
@@ -491,14 +609,14 @@ lemma consB_mul_r {i : Fin n} {a b : KExpr n p} (ha : BndB sx θ true a) (hb : C
   have e : (KExpr.mul a b).eval (y, θ) = (KExpr.mul b a).eval (y, θ) := mul_comm _ _
   rw [e]; exact h y hy hB
 
-lemma consB_div_lowerpos {i : Fin n} {a d : KExpr n p} (hθ : PosParams pos θ)
+lemma consB_div_lowerpos {i : Fin n} {a d : KExpr n p} (hθ : PP pos ub θ)
     (ha : ConsB sx θ i a) (hd : lowerpos pos d = true) : ConsB sx θ i (.div a d) := by
   intro B
   obtain ⟨K, hK, hKa⟩ := ha B
-  have hl : 0 < lowval pos θ d := (lowerpos_sound KineticCheck.nonneg_zero hθ d hd).1
+  have hl : 0 < lowval pos θ d := (lowerpos_sound KineticCheck.nonneg_zero hθ.1 d hd).1
   refine ⟨K / lowval pos θ d, div_nonneg hK hl.le, fun y hy hB => ?_⟩
   obtain ⟨a0, aK⟩ := hKa y hy hB
-  have l2 := (lowerpos_sound hy.1 hθ d hd).2
+  have l2 := (lowerpos_sound hy.1 hθ.1 d hd).2
   show 0 ≤ a.eval (y, θ) / d.eval (y, θ) ∧ a.eval (y, θ) / d.eval (y, θ) ≤ _
   refine ⟨div_nonneg a0 (hl.le.trans l2), ?_⟩
   calc a.eval (y, θ) / d.eval (y, θ) ≤ a.eval (y, θ) / lowval pos θ d :=
@@ -558,7 +676,7 @@ lemma bndB_npow {bx : Bool} {a : KExpr n p} (k : ℕ) (ha : BndB sx θ bx a) :
   obtain ⟨a0, aM⟩ := hM y hy hB
   exact ⟨pow_nonneg a0 k, pow_le_pow_left₀ a0 (aM.trans (le_max_left _ _)) k⟩
 
-lemma bndB_exp_np {bx : Bool} {a : KExpr n p} (hθ : PosParams pos θ) (h : snp pos a = true) :
+lemma bndB_exp_np {bx : Bool} {a : KExpr n p} (hθ : PP pos ub θ) (h : snp pos ub a = true) :
     BndB sx θ bx (.exp a) := by
   intro B
   refine ⟨1, fun y hy _ => ⟨(Real.exp_pos _).le, ?_⟩⟩
@@ -569,35 +687,35 @@ lemma bndB_var {j : Fin n} : BndB sx θ true (.var j) := by
   exact ⟨B, fun y hy hB => ⟨hy.1 j, hB rfl j⟩⟩
 
 /-- Factor acotado `a/d`. -/
-lemma bq_of {bx : Bool} {a d : KExpr n p} (hθ : PosParams pos θ)
-    (hb : bnd pos bx a = true → BndB sx θ bx a)
-    (hs : satb pos bx d a = true → BndB sx θ bx (.div a d))
-    (hp : bpair pos bx a d = true → BndB sx θ bx (.div a d))
-    (h : ((bnd pos bx a = true ∧ lowerpos pos d = true) ∨ satb pos bx d a = true) ∨
-      bpair pos bx a d = true) : BndB sx θ bx (.div a d) := by
+lemma bq_of {bx : Bool} {a d : KExpr n p} (hθ : PP pos ub θ)
+    (hb : bnd pos ub bx a = true → BndB sx θ bx a)
+    (hs : satb pos ub bx d a = true → BndB sx θ bx (.div a d))
+    (hp : bpair pos ub bx a d = true → BndB sx θ bx (.div a d))
+    (h : ((bnd pos ub bx a = true ∧ lowerpos pos d = true) ∨ satb pos ub bx d a = true) ∨
+      bpair pos ub bx a d = true) : BndB sx θ bx (.div a d) := by
   rcases h with (⟨h1, h2⟩ | h) | h
   · exact bndB_div_lowerpos hθ (hb h1) h2
   · exact hs h
   · exact hp h
 
 /-- Factor proporcional `a/d ≤ K·yᵢ`. -/
-lemma cq_of {i : Fin n} {a d : KExpr n p} (hθ : PosParams pos θ)
-    (hc : cons pos i a = true → ConsB sx θ i a)
-    (hp : cpair pos i a d = true → ConsB sx θ i (.div a d))
-    (h : (cons pos i a = true ∧ lowerpos pos d = true) ∨ cpair pos i a d = true) :
+lemma cq_of {i : Fin n} {a d : KExpr n p} (hθ : PP pos ub θ)
+    (hc : cons pos ub i a = true → ConsB sx θ i a)
+    (hp : cpair pos ub i a d = true → ConsB sx θ i (.div a d))
+    (h : (cons pos ub i a = true ∧ lowerpos pos d = true) ∨ cpair pos ub i a d = true) :
     ConsB sx θ i (.div a d) := by
   rcases h with ⟨h1, h2⟩ | h
   · exact consB_div_lowerpos hθ (hc h1) h2
   · exact hp h
 
 /-- **Corrección de los comprobadores de acotación y de consumo proporcional.** -/
-theorem bnd_sound (hθ : PosParams pos θ) : ∀ e : KExpr n p,
-    (∀ bx, bnd pos bx e = true → BndB sx θ bx e) ∧
-    (∀ bx d, satb pos bx d e = true → BndB sx θ bx (.div e d)) ∧
-    (∀ bx d, bpair pos bx e d = true → BndB sx θ bx (.div e d)) ∧
-    (∀ i, cons pos i e = true → ConsB sx θ i e) ∧
-    (∀ i d, cpair pos i e d = true → ConsB sx θ i (.div e d)) := by
-  have sat0 : ∀ (e : KExpr n p) bx d, summand pos e d = true → BndB sx θ bx (.div e d) :=
+theorem bnd_sound (hθ : PP pos ub θ) : ∀ e : KExpr n p,
+    (∀ bx, bnd pos ub bx e = true → BndB sx θ bx e) ∧
+    (∀ bx d, satb pos ub bx d e = true → BndB sx θ bx (.div e d)) ∧
+    (∀ bx d, bpair pos ub bx e d = true → BndB sx θ bx (.div e d)) ∧
+    (∀ i, cons pos ub i e = true → ConsB sx θ i e) ∧
+    (∀ i d, cpair pos ub i e d = true → ConsB sx θ i (.div e d)) := by
+  have sat0 : ∀ (e : KExpr n p) bx d, summand pos ub e d = true → BndB sx θ bx (.div e d) :=
     fun e bx d h => bndB_summand hθ h
   intro e
   induction e with
@@ -668,7 +786,10 @@ theorem bnd_sound (hθ : PosParams pos θ) : ∀ e : KExpr n p,
       · simp [cpair] at h
   | add a b iha ihb =>
       refine ⟨fun bx h => ?_, fun bx d h => ?_, fun bx d h => ?_, fun i h => ?_, fun i d h => ?_⟩
-      · simp only [bnd, Bool.and_eq_true] at h; exact bndB_add (iha.1 bx h.1) (ihb.1 bx h.2)
+      · simp only [bnd, Bool.or_eq_true, Bool.and_eq_true] at h
+        rcases h with h | h
+        · exact bndB_add (iha.1 bx h.1) (ihb.1 bx h.2)
+        · exact bndB_const hθ (by simp only [Bool.and_eq_true]; exact h)
       · simp only [satb] at h; exact sat0 _ bx d h
       · simp [bpair] at h
       · simp [cons] at h
@@ -703,7 +824,22 @@ theorem bnd_sound (hθ : PosParams pos θ) : ∀ e : KExpr n p,
       · simp [cpair] at h
   | sub a b _ _ =>
       refine ⟨fun bx h => ?_, fun bx d h => ?_, fun bx d h => ?_, fun i h => ?_, fun i d h => ?_⟩
-      · simp [bnd] at h
+      · have hs : sNonneg pos ub (.sub a b) = true := by simpa only [bnd, sNonneg] using h
+        simp only [bnd, Bool.or_eq_true, Bool.and_eq_true] at h
+        rcases h with h | h
+        · cases a with
+          | qconst q =>
+              intro B
+              refine ⟨(q : ℝ), fun y hy _ => ⟨sNonneg_sound hy.1 hθ _ hs, ?_⟩⟩
+              have := (expLe1_sound hy.1 hθ b h.2).1
+              show (q : ℝ) - b.eval _ ≤ q; linarith
+          | _ => simp [qge1] at h
+        · intro B
+          refine ⟨a.eval (0, θ), fun y hy _ => ⟨sNonneg_sound hy.1 hθ _ hs, ?_⟩⟩
+          have := (subub_sound hθ h y).2
+          cases a with
+          | qconst q => exact this
+          | _ => simp [subub] at h
       · simp only [satb] at h; exact sat0 _ bx d h
       · simp [bpair] at h
       · simp [cons] at h
@@ -738,19 +874,19 @@ theorem bnd_sound (hθ : PosParams pos θ) : ∀ e : KExpr n p,
 
 /-! ## Red estricta: comprobación por términos -/
 
-variable (pos sx) in
+variable (pos ub sx) in
 /-- Comprobación de un término en la región estricta. -/
 def termOKS (t : KExpr n p × List (Fin n × ℚ)) : Bool :=
-  sOk pos sx t.1 && t.2.all fun e =>
-    if decide (e.2 < 0) then (if sx e.1 then cons pos e.1 t.1 else vanishes e.1 t.1)
-    else (sNonneg pos t.1 || (!sx e.1 && vanishes e.1 t.1))
+  sOk pos ub sx t.1 && t.2.all fun e =>
+    if decide (e.2 < 0) then (if sx e.1 then cons pos ub e.1 t.1 else vanishes e.1 t.1)
+    else (sNonneg pos ub t.1 || (!sx e.1 && vanishes e.1 t.1))
 
-variable (pos sx) in
-def checkNetS (Rx : List (KExpr n p × List (Fin n × ℚ))) : Bool := Rx.all (termOKS pos sx)
+variable (pos ub sx) in
+def checkNetS (Rx : List (KExpr n p × List (Fin n × ℚ))) : Bool := Rx.all (termOKS pos ub sx)
 
 /-- Cuasi-positividad en `P` de la contribución de un término. -/
-lemma term_qp {t : KExpr n p × List (Fin n × ℚ)} (ht : termOKS pos sx t = true)
-    (hy : SPos sx y) (hθ : PosParams pos θ) (i : Fin n) (hyi : y i = 0) :
+lemma term_qp {t : KExpr n p × List (Fin n × ℚ)} (ht : termOKS pos ub sx t = true)
+    (hy : SPos sx y) (hθ : PP pos ub θ) (i : Fin n) (hyi : y i = 0) :
     0 ≤ ((coef t.2 i : ℚ) : ℝ) * t.1.eval (y, θ) := by
   have hsi : sx i = false := by
     cases h : sx i
@@ -780,8 +916,8 @@ lemma term_qp {t : KExpr n p × List (Fin n × ℚ)} (ht : termOKS pos sx t = tr
       · rw [if_neg hei]; simp
 
 /-- Consumo proporcional de una especie de `Σ` en la contribución de un término. -/
-lemma term_decay (hθ : PosParams pos θ) {t : KExpr n p × List (Fin n × ℚ)}
-    (ht : termOKS pos sx t = true) {i : Fin n} (hi : sx i = true) :
+lemma term_decay (hθ : PP pos ub θ) {t : KExpr n p × List (Fin n × ℚ)}
+    (ht : termOKS pos ub sx t = true) {i : Fin n} (hi : sx i = true) :
     ∀ B : ℝ, ∃ K : ℝ, 0 ≤ K ∧ ∀ y, SPos sx y → (∀ j, y j ≤ B) →
       -K * y i ≤ ((coef t.2 i : ℚ) : ℝ) * t.1.eval (y, θ) := by
   simp only [termOKS, Bool.and_eq_true, List.all_eq_true] at ht
@@ -822,7 +958,7 @@ lemma term_decay (hθ : PosParams pos θ) {t : KExpr n p × List (Fin n × ℚ)}
       rw [this]; linarith
 
 theorem checkNetS_sound {Rx : List (KExpr n p × List (Fin n × ℚ))}
-    (h : checkNetS pos sx Rx = true) (hθ : PosParams pos θ) :
+    (h : checkNetS pos ub sx Rx = true) (hθ : PP pos ub θ) :
     (∀ y, SPos sx y → (y, θ) ∈ domain (netF Rx)) ∧
     (∀ y, SPos sx y → ∀ i, y i = 0 → 0 ≤ field (netF Rx) y θ i) ∧
     (∀ B : ℝ, ∃ C : ℝ, 0 ≤ C ∧ ∀ y, SPos sx y → (∀ j, y j ≤ B) →
@@ -843,7 +979,7 @@ theorem checkNetS_sound {Rx : List (KExpr n p × List (Fin n × ℚ))}
         -K * y i ≤ (netExpr Rx i).eval (y, θ)) := by
       intro i
       by_cases hi : sx i = true
-      · suffices H : ∀ R : List (KExpr n p × List (Fin n × ℚ)), (∀ t ∈ R, termOKS pos sx t = true) →
+      · suffices H : ∀ R : List (KExpr n p × List (Fin n × ℚ)), (∀ t ∈ R, termOKS pos ub sx t = true) →
             ∃ K : ℝ, 0 ≤ K ∧ ∀ y, SPos sx y → (∀ j, y j ≤ B) →
               -K * y i ≤ (R.map fun t => ((coef t.2 i : ℚ) : ℝ) * t.1.eval (y, θ)).sum by
           obtain ⟨K, hK, hKs⟩ := H Rx h
@@ -871,17 +1007,17 @@ theorem checkNetS_sound {Rx : List (KExpr n p × List (Fin n × ℚ))}
 
 /-! ## Crecimiento lineal en la región estricta -/
 
-variable (pos) in
+variable (pos ub) in
 def growthOKS (c : Fin n → ℚ) (t : KExpr n p × List (Fin n × ℚ)) : Bool :=
-  decide (wgt c t.2 = 0) || (decide (wgt c t.2 < 0) && sNonneg pos t.1) ||
-    (decide (0 < wgt c t.2) && (linOK pos t.1 || bnd pos false t.1))
+  decide (wgt c t.2 = 0) || (decide (wgt c t.2 < 0) && sNonneg pos ub t.1) ||
+    (decide (0 < wgt c t.2) && (linOK pos t.1 || bnd pos ub false t.1))
 
-variable (pos) in
+variable (pos ub) in
 def checkGrowthS (c : Fin n → ℚ) (Rx : List (KExpr n p × List (Fin n × ℚ))) : Bool :=
-  (List.finRange n).all (fun i => decide (1 ≤ c i)) && Rx.all (growthOKS pos c)
+  (List.finRange n).all (fun i => decide (1 ≤ c i)) && Rx.all (growthOKS pos ub c)
 
-lemma term_growth (hθ : PosParams pos θ) {c : Fin n → ℚ} {t : KExpr n p × List (Fin n × ℚ)}
-    (ht : growthOKS pos c t = true) :
+lemma term_growth (hθ : PP pos ub θ) {c : Fin n → ℚ} {t : KExpr n p × List (Fin n × ℚ)}
+    (ht : growthOKS pos ub c t = true) :
     ∃ A Bt : ℝ, 0 ≤ A ∧ 0 ≤ Bt ∧ ∀ y, SPos sx y →
       ((wgt c t.2 : ℚ) : ℝ) * t.1.eval (y, θ) ≤ A + Bt * ssum y := by
   simp only [growthOKS, Bool.or_eq_true, Bool.and_eq_true, decide_eq_true_eq] at ht
@@ -892,10 +1028,10 @@ lemma term_growth (hθ : PosParams pos θ) {c : Fin n → ℚ} {t : KExpr n p ×
     rw [zero_add, zero_mul]
     exact mul_nonpos_of_nonpos_of_nonneg this.le (sNonneg_sound hy.1 hθ t.1 h1)
   · have hw : (0 : ℝ) < (wgt c t.2 : ℝ) := by exact_mod_cast h0
-    obtain ⟨l1, l2, -⟩ := linBound_sound KineticCheck.nonneg_zero hθ t.1 h1
+    obtain ⟨l1, l2, -⟩ := linBound_sound KineticCheck.nonneg_zero hθ.1 t.1 h1
     refine ⟨(wgt c t.2 : ℝ) * (linBound pos θ t.1).1, (wgt c t.2 : ℝ) * (linBound pos θ t.1).2,
       mul_nonneg hw.le l1, mul_nonneg hw.le l2, fun y hy => ?_⟩
-    obtain ⟨-, -, l3⟩ := linBound_sound hy.1 hθ t.1 h1
+    obtain ⟨-, -, l3⟩ := linBound_sound hy.1 hθ.1 t.1 h1
     nlinarith [mul_le_mul_of_nonneg_left l3 hw.le]
   · have hw : (0 : ℝ) < (wgt c t.2 : ℝ) := by exact_mod_cast h0
     obtain ⟨M, hM⟩ := (bnd_sound (sx := sx) hθ t.1).1 false h1 0
@@ -906,13 +1042,13 @@ lemma term_growth (hθ : PosParams pos θ) {c : Fin n → ℚ} {t : KExpr n p ×
     exact mul_le_mul_of_nonneg_left (vM.trans (le_max_left _ _)) hw.le
 
 theorem checkGrowthS_sound {c : Fin n → ℚ} {Rx : List (KExpr n p × List (Fin n × ℚ))}
-    (h : checkGrowthS pos c Rx = true) (hθ : PosParams pos θ) :
+    (h : checkGrowthS pos ub c Rx = true) (hθ : PP pos ub θ) :
     ∃ a b : ℝ, 0 ≤ a ∧ 0 ≤ b ∧ ∀ y, SPos sx y →
       ∑ i, (c i : ℝ) * field (netF Rx) y θ i ≤ a + b * ∑ i, (c i : ℝ) * y i := by
   simp only [checkGrowthS, Bool.and_eq_true, List.all_eq_true, List.mem_finRange,
     true_implies, decide_eq_true_eq] at h
   obtain ⟨hc1, hR⟩ := h
-  have H : ∀ R : List (KExpr n p × List (Fin n × ℚ)), (∀ t ∈ R, growthOKS pos c t = true) →
+  have H : ∀ R : List (KExpr n p × List (Fin n × ℚ)), (∀ t ∈ R, growthOKS pos ub c t = true) →
       ∃ a b : ℝ, 0 ≤ a ∧ 0 ≤ b ∧ ∀ y, SPos sx y →
         (R.map fun t => ((wgt c t.2 : ℚ) : ℝ) * t.1.eval (y, θ)).sum ≤ a + b * ssum y := by
     intro R hR'
@@ -941,7 +1077,7 @@ theorem checkGrowthS_sound {c : Fin n → ℚ} {Rx : List (KExpr n p × List (Fi
   nlinarith [hab y hy, mul_le_mul_of_nonneg_left hS hb]
 
 lemma c_ge_oneS {c : Fin n → ℚ} {Rx : List (KExpr n p × List (Fin n × ℚ))}
-    (h : checkGrowthS pos c Rx = true) (i : Fin n) : (1 : ℝ) ≤ (c i : ℝ) := by
+    (h : checkGrowthS pos ub c Rx = true) (i : Fin n) : (1 : ℝ) ≤ (c i : ℝ) := by
   simp only [checkGrowthS, Bool.and_eq_true, List.all_eq_true, List.mem_finRange,
     true_implies, decide_eq_true_eq] at h
   exact_mod_cast h.1 i
@@ -950,8 +1086,8 @@ lemma c_ge_oneS {c : Fin n → ℚ} {Rx : List (KExpr n p × List (Fin n × ℚ)
 
 /-- Existencia global con positividad estricta para una red comprobada. -/
 theorem strict_exists (Rx : List (KExpr n p × List (Fin n × ℚ)))
-    (hN : checkNetS pos sx Rx = true) (c : Fin n → ℚ) (hG : checkGrowthS pos c Rx = true)
-    {θ₀ : EuclideanSpace ℝ (Fin p)} (hθ₀ : PosParams pos θ₀)
+    (hN : checkNetS pos ub sx Rx = true) (c : Fin n → ℚ) (hG : checkGrowthS pos ub c Rx = true)
+    {θ₀ : EuclideanSpace ℝ (Fin p)} (hθ₀ : PP pos ub θ₀)
     (x0 : EuclideanSpace ℝ (Fin n)) (hx0 : SPos sx x0) {T : ℝ} (hT : 0 ≤ T) :
     ∃ x₀ : ℝ → EuclideanSpace ℝ (Fin n), x₀ 0 = x0 ∧
       ∀ t ∈ Icc 0 T, HasDerivWithinAt x₀ (field (netF Rx) (x₀ t) θ₀) (Icc 0 T) t ∧
@@ -969,28 +1105,29 @@ theorem strict_exists (Rx : List (KExpr n p × List (Fin n × ℚ)))
     (fun z hz => hdom z hz) (fun z hz i hi => hqp z hz i hi) hdec (fun i => (c i : ℝ))
     one_pos (c_ge_oneS hG) ha hb (fun z hz => hgr z hz) x0 hx0 hT
 
-variable (pos sx) in
+variable (pos ub sx) in
 /-- Condición inicial `G(θ)`: bien definida, `≥ 0`, y `> 0` en `Σ`. -/
 def checkInitS (G : Fin n → KExpr n p) : Bool :=
   checkInit pos G && (List.finRange n).all fun i => !sx i || isPos pos (G i)
 
 lemma init_sPos {G : Fin n → KExpr n p} (h : checkInitS pos sx G = true)
-    {θ₀ : EuclideanSpace ℝ (Fin p)} (hθ₀ : PosParams pos θ₀) : SPos sx (field G 0 θ₀) := by
+    {θ₀ : EuclideanSpace ℝ (Fin p)} (hθ₀ : PP pos ub θ₀) : SPos sx (field G 0 θ₀) := by
   simp only [checkInitS, Bool.and_eq_true, List.all_eq_true, List.mem_finRange, true_implies,
     Bool.or_eq_true, Bool.not_eq_eq_eq_not, Bool.not_true] at h
-  refine ⟨init_nonneg h.1 hθ₀, fun j hj => ?_⟩
+  refine ⟨init_nonneg h.1 hθ₀.1, fun j hj => ?_⟩
   rcases h.2 j with h' | h'
   · rw [hj] at h'; exact absurd h' (by decide)
-  · exact isPos_sound KineticCheck.nonneg_zero hθ₀ (G j) h'
+  · exact isPos_sound KineticCheck.nonneg_zero hθ₀.1 (G j) h'
 
 /-- **Teorema final con positividad estricta (condición inicial `G(θ)`).** Sin condiciones
 pendientes: la solución nominal existe en `[0, T]`, las especies de `Σ` permanecen `> 0`, las
 demás `≥ 0`, la trayectoria queda en el dominio, las soluciones existen cerca de `θ₀` y la
 trayectoria es diferenciable respecto a `θ`, con `S(0) = ∂G/∂θ`. -/
 theorem strict_final_init (Rx : List (KExpr n p × List (Fin n × ℚ)))
-    (hN : checkNetS pos sx Rx = true) (c : Fin n → ℚ) (hG : checkGrowthS pos c Rx = true)
+    (hN : checkNetS pos ub sx Rx = true) (c : Fin n → ℚ) (hG : checkGrowthS pos ub c Rx = true)
     (G : Fin n → KExpr n p) (hI : checkInitS pos sx G = true)
-    (θq : Fin p → ℚ) (hθ : checkPosParams pos θq = true) {T : ℝ} (hT : 0 ≤ T) :
+    (θq : Fin p → ℚ) (hθ : checkPosParams pos θq = true)
+    (hU : checkUB ub θq = true) {T : ℝ} (hT : 0 ≤ T) :
     ∃ x₀ : ℝ → EuclideanSpace ℝ (Fin n), x₀ 0 = field G 0 (qvec θq) ∧
       (∀ t ∈ Icc 0 T,
         HasDerivWithinAt x₀ (field (netF Rx) (x₀ t) (qvec θq)) (Icc 0 T) t ∧
@@ -1001,14 +1138,14 @@ theorem strict_final_init (Rx : List (KExpr n p × List (Fin n × ℚ)))
         ∃ S : ℝ → (EuclideanSpace ℝ (Fin p) →L[ℝ] EuclideanSpace ℝ (Fin n)),
           S 0 = fderiv ℝ (fun θ => field G 0 θ) (qvec θq) ∧
           ∀ t ∈ Icc 0 T, HasFDerivAt (fun θ => x θ t) (S t) (qvec θq) := by
-  have hθ₀ := posParams_qvec hθ
+  have hθ₀ : PP pos ub (qvec θq) := ⟨posParams_qvec hθ, ub_qvec hU⟩
   obtain ⟨hdom, -, -⟩ := checkNetS_sound hN hθ₀
   obtain ⟨x₀, h0, hsol⟩ := strict_exists Rx hN c hG hθ₀ _ (init_sPos hI hθ₀) hT
   refine ⟨x₀, h0, fun t ht => ⟨(hsol t ht).1, (hsol t ht).2, hdom _ (hsol t ht).2⟩, ?_⟩
   simp only [checkInitS, Bool.and_eq_true] at hI
   obtain ⟨x, hx, hev, S, hS0, -, hS⟩ := kinetic_hasFDerivAt (netF Rx) hT x₀ (qvec θq)
     (fun t ht => (hsol t ht).1) (fun t ht => hdom _ (hsol t ht).2) (fun θ => field G 0 θ) _
-    (init_differentiable hI.1 hθ₀).hasFDerivAt h0.symm
+    (init_differentiable hI.1 hθ₀.1).hasFDerivAt h0.symm
   exact ⟨x, hx, hev, S, hS0, hS⟩
 
 end StrictNetwork

@@ -16,10 +16,12 @@ open KineticRegularity KineticCheck KineticNetwork
 namespace Models.SalazarCavazos_MBoC2020
 
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
-def pos : Fin 6 → Bool := ![true, true, true, true, true, true]
+def pos : Fin 6 → Bool := fun _ => true
 
-/-- Términos de velocidad con su columna estequiométrica (457 términos). -/
-def Rx : List (KExpr 75 6 × List (Fin 75 × ℚ)) := [
+/-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
+def c : Fin 75 → ℚ := fun _ => (1 : ℚ)
+
+def Rx_0 : List (KExpr 75 6 × List (Fin 75 × ℚ)) := [
   ((KExpr.mul (KExpr.mul (KExpr.qconst (132843142138841 / 10000000000000000000000 : ℚ)) (KExpr.var 0)) (KExpr.var 1)), [(0, (-1 : ℚ)), (1, (-1 : ℚ)), (4, (1 : ℚ))]),
   ((KExpr.mul (KExpr.qconst (2 / 125 : ℚ)) (KExpr.var 4)), [(0, (1 : ℚ)), (1, (1 : ℚ)), (4, (-1 : ℚ))]),
   ((KExpr.mul (KExpr.qconst (2 / 125 : ℚ)) (KExpr.var 13)), [(0, (1 : ℚ)), (13, (-1 : ℚ)), (26, (1 : ℚ))]),
@@ -419,7 +421,14 @@ def Rx : List (KExpr 75 6 × List (Fin 75 × ℚ)) := [
   ((KExpr.mul (KExpr.mul (KExpr.qconst (177272727272727 / 50000000000000000000 : ℚ)) (KExpr.var 52)) (KExpr.var 73)), [(37, (1 : ℚ)), (42, (1 : ℚ)), (52, (-2 : ℚ)), (68, (1 : ℚ)), (69, (1 : ℚ)), (73, (-2 : ℚ))]),
   ((KExpr.mul (KExpr.qconst (273 / 1000 : ℚ)) (KExpr.var 38)), [(38, (-1 : ℚ)), (53, (1 : ℚ))]),
   ((KExpr.mul (KExpr.mul (KExpr.mul (KExpr.par 2) (KExpr.qconst (1 : ℚ))) (KExpr.par 4)) (KExpr.var 38)), [(38, (-1 : ℚ)), (54, (1 : ℚ))]),
-  ((KExpr.mul (KExpr.mul (KExpr.qconst (177272727272727 / 50000000000000000000 : ℚ)) (KExpr.var 53)) (KExpr.var 53)), [(38, (1 : ℚ)), (43, (1 : ℚ)), (53, (-2 : ℚ))]),
+  ((KExpr.mul (KExpr.mul (KExpr.qconst (177272727272727 / 50000000000000000000 : ℚ)) (KExpr.var 53)) (KExpr.var 53)), [(38, (1 : ℚ)), (43, (1 : ℚ)), (53, (-2 : ℚ))])
+]
+
+theorem net_ok_0 : checkNet pos Rx_0 = true := by decide +kernel
+
+theorem growth_ok_0 : checkGrowth pos c Rx_0 = true := by decide +kernel
+
+def Rx_1 : List (KExpr 75 6 × List (Fin 75 × ℚ)) := [
   ((KExpr.mul (KExpr.mul (KExpr.par 2) (KExpr.qconst (1 : ℚ))) (KExpr.var 54)), [(38, (1 : ℚ)), (54, (-1 : ℚ))]),
   ((KExpr.mul (KExpr.mul (KExpr.qconst (177272727272727 / 50000000000000000000 : ℚ)) (KExpr.var 53)) (KExpr.var 65)), [(38, (1 : ℚ)), (43, (1 : ℚ)), (53, (-2 : ℚ)), (54, (1 : ℚ)), (56, (1 : ℚ)), (65, (-2 : ℚ))]),
   ((KExpr.mul (KExpr.mul (KExpr.qconst (177272727272727 / 50000000000000000000 : ℚ)) (KExpr.var 53)) (KExpr.var 66)), [(38, (1 : ℚ)), (43, (1 : ℚ)), (53, (-2 : ℚ)), (55, (1 : ℚ)), (57, (1 : ℚ)), (66, (-2 : ℚ))]),
@@ -479,16 +488,20 @@ def Rx : List (KExpr 75 6 × List (Fin 75 × ℚ)) := [
   ((KExpr.mul (KExpr.par 3) (KExpr.var 74)), [(72, (1 : ℚ)), (74, (-1 : ℚ))])
 ]
 
-/-- El campo del modelo: `Fᵢ = Σ_r coef_r(i) · V_r`. -/
+theorem net_ok_1 : checkNet pos Rx_1 = true := by decide +kernel
+
+theorem growth_ok_1 : checkGrowth pos c Rx_1 = true := by decide +kernel
+
+/-- Red completa (457 términos en 2 bloques). -/
+def Rx : List (KExpr 75 6 × List (Fin 75 × ℚ)) := Rx_0 ++ Rx_1
+
 def F : Fin 75 → KExpr 75 6 := netF Rx
 
-/-- Dominio ⊇ ortante y cuasi-positividad (Lean ejecuta el comprobador). -/
-theorem net_ok : checkNet pos Rx = true := by decide +kernel
+theorem net_ok : checkNet pos Rx = true := by
+  simp only [Rx, checkNet_append, net_ok_0, net_ok_1, Bool.and_self]
 
-/-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
-def c : Fin 75 → ℚ := ![(1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ)]
-
-theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel
+theorem growth_ok : checkGrowth pos c Rx = true := by
+  simp only [Rx, checkGrowth_append, growth_ok_0, growth_ok_1, Bool.and_self]
 
 /-- θ₀ nominal (PEtab), en racionales exactos. -/
 def θq : Fin 6 → ℚ := ![(8492659711115231 / 50000000000 : ℚ), (6494256012099041 / 10000000000 : ℚ), (16588142136877737 / 10000000000000000 : ℚ), (85909348992413 / 5000000000000000 : ℚ), (1575458573459309 / 10000000000000000 : ℚ), (1111908921779429 / 2500000000000000 : ℚ)]

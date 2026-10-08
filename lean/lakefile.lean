@@ -13,7 +13,7 @@ lean_lib «CertifiedReduction» where
     `GreedySelection, `CosineCertificate, `NumericalRobustness, `PatternMechanisms,
     `SensitivityLipschitz, `CertifiedFiniteODE, `ExactLinearCertificate,
     `SpectralConditioning, `LocalExistence, `NominalCertificate,
-    `KineticRegularity, `EventSystems, `PositivityInvariance, `KineticCheck, `GlobalExistence, `KineticNetwork, `StrictExistence, `StrictNetwork, `RiccatiNetwork]
+    `KineticRegularity, `EventSystems, `PositivityInvariance, `KineticCheck, `GlobalExistence, `KineticNetwork, `StrictExistence, `StrictNetwork, `RiccatiNetwork, `IntervalInit]
 
 /-- Modelos concretos traducidos de SBML por `certificados/sbml_to_lean.py`. -/
 lean_lib «Models» where

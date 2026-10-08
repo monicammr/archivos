@@ -16,7 +16,7 @@ open KineticRegularity KineticCheck KineticNetwork
 namespace Models.Weber_BMC2015
 
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
-def pos : Fin 26 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+def pos : Fin 26 → Bool := fun _ => true
 
 /-- Términos de velocidad con su columna estequiométrica (18 términos). -/
 def Rx : List (KExpr 7 26 × List (Fin 7 × ℚ)) := [
@@ -47,7 +47,7 @@ def F : Fin 7 → KExpr 7 26 := netF Rx
 theorem net_ok : checkNet pos Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
-def c : Fin 7 → ℚ := ![(1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ)]
+def c : Fin 7 → ℚ := fun _ => (1 : ℚ)
 
 theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel
 

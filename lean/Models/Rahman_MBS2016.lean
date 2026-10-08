@@ -20,6 +20,9 @@ namespace Models.Rahman_MBS2016
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
 def pos : Fin 9 → Bool := fun _ => true
 
+/-- Cotas superiores de parámetros usadas (θⱼ ≤ q), comprobadas en θ₀ (`ub_ok`). -/
+def ub : Fin 9 → Option ℚ × Option ℚ := fun _ => (none, none)
+
 /-- Σ: especies con dato inicial nominal > 0. -/
 def sx : Fin 7 → Bool := ![true, true, true, true, false, false, false]
 
@@ -51,17 +54,19 @@ def F : Fin 7 → KExpr 7 9 := netF Rx
 
 /-- Dominio ⊇ región estricta, cuasi-positividad fuera de Σ y consumo proporcional
 en Σ (Lean ejecuta el comprobador). -/
-theorem net_ok : checkNetS pos sx Rx = true := by decide +kernel
+theorem net_ok : checkNetS pos ub sx Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
 def c : Fin 7 → ℚ := fun _ => (1 : ℚ)
 
-theorem growth_ok : checkGrowthS pos c Rx = true := by decide +kernel
+theorem growth_ok : checkGrowthS pos ub c Rx = true := by decide +kernel
 
 /-- θ₀ nominal (PEtab), en racionales exactos. -/
 def θq : Fin 9 → ℚ := ![(42747 / 100 : ℚ), (29273 / 10000000 : ℚ), (24824 / 25 : ℚ), (1 / 10000 : ℚ), (13309 / 20000 : ℚ), (79757 / 10000000 : ℚ), (3409 / 25000 : ℚ), (77557 / 100000 : ℚ), (669 / 5000000000 : ℚ)]
 
 theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem ub_ok : checkUB ub θq = true := by decide +kernel
 
 /-- Condición inicial x₀(θ). -/
 def G : Fin 7 → KExpr 7 9 := ![
@@ -79,7 +84,7 @@ theorem init_ok : checkInitS pos sx G = true := by decide +kernel
 /-- **Teorema final, sin condiciones pendientes**: para todo T ≥ 0 la solución
 nominal existe en [0, T], las especies de Σ permanecen > 0 y las demás ≥ 0, queda
 en el dominio, y la trayectoria es diferenciable respecto a θ en θ₀. -/
-def final := @strict_final_init _ _ pos sx Rx net_ok c growth_ok G init_ok θq theta_ok
+def final := @strict_final_init _ _ pos ub sx Rx net_ok c growth_ok G init_ok θq theta_ok ub_ok
 
 end Models.Rahman_MBS2016
 

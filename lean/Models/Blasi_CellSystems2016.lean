@@ -16,7 +16,7 @@ open KineticRegularity KineticCheck KineticNetwork
 namespace Models.Blasi_CellSystems2016
 
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
-def pos : Fin 8 → Bool := ![true, true, true, true, true, true, true, true]
+def pos : Fin 8 → Bool := fun _ => true
 
 /-- Términos de velocidad con su columna estequiométrica (36 términos). -/
 def Rx : List (KExpr 16 8 × List (Fin 16 × ℚ)) := [
@@ -65,7 +65,7 @@ def F : Fin 16 → KExpr 16 8 := netF Rx
 theorem net_ok : checkNet pos Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
-def c : Fin 16 → ℚ := ![(1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ)]
+def c : Fin 16 → ℚ := fun _ => (1 : ℚ)
 
 theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel
 

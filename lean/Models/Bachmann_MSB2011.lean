@@ -16,7 +16,7 @@ open KineticRegularity KineticCheck KineticNetwork
 namespace Models.Bachmann_MSB2011
 
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
-def pos : Fin 27 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+def pos : Fin 27 → Bool := fun _ => true
 
 /-- Términos de velocidad con su columna estequiométrica (43 términos). -/
 def Rx : List (KExpr 25 27 × List (Fin 25 × ℚ)) := [
@@ -72,7 +72,7 @@ def F : Fin 25 → KExpr 25 27 := netF Rx
 theorem net_ok : checkNet pos Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
-def c : Fin 25 → ℚ := ![(1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ)]
+def c : Fin 25 → ℚ := fun _ => (1 : ℚ)
 
 theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel
 

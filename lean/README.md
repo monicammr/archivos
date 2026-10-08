@@ -6,7 +6,7 @@ Verificado con Lean 4.23.0 y Mathlib `v4.23.0`. Ningún archivo usa `sorry` ni a
 ```
 lake exe cache get   # descarga Mathlib precompilado
 lake build            # teoría
-lake build Models     # los modelos (Chen ~10 min; Froehlich ~30 min en 13 módulos, ≤ 3 GB cada uno)
+lake build Models     # los modelos (Chen y Froehlich ~30 min cada uno, en módulos de ≤ 3 GB)
 ```
 
 ## Teorema principal
@@ -54,7 +54,8 @@ descartados fijados en su valor nominal).
 | `StrictExistence.lean` | **Existencia global con positividad estricta.** `exists_global_solution_strict`: si el consumo de cada especie con dato inicial `> 0` es proporcional a ella, la solución existe en `[0, T]` y esas especies permanecen `> 0` (truncamiento a la caja `[ε, B]`, comparación con `g(t) = (m₀/2)e^{−(C+1)t}`, Grönwall) |
 | `StrictNetwork.lean` | **Redes con dominio estricto** (`β·S·I/N`, Hill con exponente real). Comprobadores `sOk`, `bnd` (acotación, términos saturantes `k·X/(…+X+…)`, `e^{≤0}`), `cons` (consumo `≤ K·yᵢ`), `checkNetS`, `checkGrowthS`, con prueba de corrección; `strict_final_init`: **sin condiciones pendientes** |
 | `RiccatiNetwork.lean` | **Crecimiento cuadrático.** `exists_solution_riccati` (existencia en `[0, T]` si `Σcᵢvᵢ ≤ Q(φ+1)²` y `1,1·Q(φ₀+1)T < 1`, por comparación con `R(t) = W/(1 − κt)`); cotas racionales calculables `linC`/`quadC`, `checkRiccati`, `riccati_final` (Crauste, T ≤ 1) |
-| `Models/*.lean` | **Los modelos del artículo**, generados de SBML por `certificados/sbml_to_lean.py`. 19 verificados sin condiciones pendientes (`final`; Froehlich, 1228 especies, en 13 módulos; Elowitz, Borghans y Rahman con positividad estricta; Crauste en el horizonte T ≤ 1 con la cota de Riccati); en Okuonghae, Armistead y Fiedler Lean demuestra que la comprobación sencilla falla (`check_falla`) y queda la condición de existencia. Ver `certificados/resultados/sbml_lean/tabla.md` |
+| `IntervalInit.lean` | **Dato inicial certificado por intervalos.** `ival` (aritmética de intervalos exacta en ℚ, raíces cuadradas con candidatos comprobados `l² ≤ x ≤ u²`), `ival_sound`, `checkInitI`, `strict_final_initI` (Fiedler: estado estacionario con raíces) |
+| `Models/*.lean` | **Los modelos del artículo**, generados de SBML por `certificados/sbml_to_lean.py`. **Los 22 modelos traducidos están verificados sin condiciones pendientes** (`final`): 15 en forma de red (Froehlich, 1228 especies, y Chen, 500, en módulos), 6 con positividad estricta (Elowitz, Borghans, Rahman, Okuonghae, Armistead, Fiedler; en Okuonghae y Armistead Lean comprueba cotas de parámetros en θ₀ con `checkUB`) y Crauste en el horizonte T ≤ 1 con la cota de Riccati. Smith queda fuera (max(·,0) no es C¹). Ver `certificados/resultados/sbml_lean/tabla.md` |
 | `GreedySelection.lean` | **Algoritmo greedy (sección 2.3).** El subconjunto devuelto siempre cumple κ ≤ κ₀ y VIF ≤ V; está formado por candidatos; y todo parámetro descartado seguiría violando el filtro con el conjunto final (justifica el descarte permanente, porque κ y VIF son antimonótonos) |
 
 ## Qué afirmación del artículo respalda cada teorema
@@ -90,7 +91,7 @@ descartados fijados en su valor nominal).
 | **Existencia global de la solución** para modelos cuasi-positivos con crecimiento lineal | `GlobalExistence.exists_global_solution` |
 | **Existencia global con positividad estricta** (dominios que exigen especies `> 0`) | `StrictExistence.exists_global_solution_strict` |
 | **Existencia en un horizonte finito con crecimiento cuadrático** | `RiccatiNetwork.exists_solution_riccati` |
-| **Cada modelo concreto, sin condiciones pendientes** (19 de 22): existencia, positividad y diferenciabilidad | `Models.<Sistema>.final` (`KineticNetwork.network_final`, `network_final_init`, `network_segments_final`, `StrictNetwork.strict_final_init`, `RiccatiNetwork.riccati_final`) |
+| **Cada modelo concreto, sin condiciones pendientes** (22 de 22 traducidos): existencia, positividad y diferenciabilidad | `Models.<Sistema>.final` (`KineticNetwork.network_final`, `network_final_init`, `network_segments_final`, `StrictNetwork.strict_final_init`, `IntervalInit.strict_final_initI`, `RiccatiNetwork.riccati_final`) |
 
 Lo que **no** está formalizado (y sigue siendo evidencia numérica en el artículo):
 * los valores concretos de cada modelo (cos Δ por escenario, tasa de admisibilidad 89 %), que

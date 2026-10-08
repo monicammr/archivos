@@ -20,6 +20,9 @@ namespace Models.Elowitz_Nature2000
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
 def pos : Fin 18 → Bool := fun _ => true
 
+/-- Cotas superiores de parámetros usadas (θⱼ ≤ q), comprobadas en θ₀ (`ub_ok`). -/
+def ub : Fin 18 → Option ℚ × Option ℚ := fun _ => (none, none)
+
 /-- Σ: especies con dato inicial nominal > 0. -/
 def sx : Fin 8 → Bool := fun _ => true
 
@@ -50,17 +53,19 @@ def F : Fin 8 → KExpr 8 18 := netF Rx
 
 /-- Dominio ⊇ región estricta, cuasi-positividad fuera de Σ y consumo proporcional
 en Σ (Lean ejecuta el comprobador). -/
-theorem net_ok : checkNetS pos sx Rx = true := by decide +kernel
+theorem net_ok : checkNetS pos ub sx Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
 def c : Fin 8 → ℚ := fun _ => (1 : ℚ)
 
-theorem growth_ok : checkGrowthS pos c Rx = true := by decide +kernel
+theorem growth_ok : checkGrowthS pos ub c Rx = true := by decide +kernel
 
 /-- θ₀ nominal (PEtab), en racionales exactos. -/
 def θq : Fin 18 → ℚ := ![(100013184764193 / 10000000000000000000 : ℚ), (30159280362287 / 1000000000000000 : ℚ), (976060985483 / 500000000000000 : ℚ), (42339624779523 / 1250000000000000000 : ℚ), (3285893444739 / 25000000000 : ℚ), (255665758135759 / 100000000000000 : ℚ), (308087735629583 / 10000000000000 : ℚ), (199999989198173 / 200000000000 : ℚ), (818268062901 / 1000000000000000 : ℚ), (193670294497273 / 10000000000000 : ℚ), (994381959318229 / 1000000000000 : ℚ), (2378977618031 / 1562500000000 : ℚ), (63124122853861 / 5000000000000 : ℚ), (404064377463 / 1000000000000000 : ℚ), (267963263735031 / 50000000000000 : ℚ), (11239260014609 / 156250000000 : ℚ), (9566859238203 / 15625000000000 : ℚ), (50000000000441 / 5000000000000000000 : ℚ)]
 
 theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem ub_ok : checkUB ub θq = true := by decide +kernel
 
 /-- Condición inicial x₀(θ). -/
 def G : Fin 8 → KExpr 8 18 := ![
@@ -79,7 +84,7 @@ theorem init_ok : checkInitS pos sx G = true := by decide +kernel
 /-- **Teorema final, sin condiciones pendientes**: para todo T ≥ 0 la solución
 nominal existe en [0, T], las especies de Σ permanecen > 0 y las demás ≥ 0, queda
 en el dominio, y la trayectoria es diferenciable respecto a θ en θ₀. -/
-def final := @strict_final_init _ _ pos sx Rx net_ok c growth_ok G init_ok θq theta_ok
+def final := @strict_final_init _ _ pos ub sx Rx net_ok c growth_ok G init_ok θq theta_ok ub_ok
 
 end Models.Elowitz_Nature2000
 

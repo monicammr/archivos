@@ -15,6 +15,7 @@
   "hunger_medium",
   "relative_ksyn_EGFR"
  ],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,

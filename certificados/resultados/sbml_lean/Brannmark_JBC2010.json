@@ -11,6 +11,7 @@
   "insulin_time_2",
   "insulin_dose_2"
  ],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,

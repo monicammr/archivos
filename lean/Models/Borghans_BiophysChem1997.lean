@@ -20,6 +20,9 @@ namespace Models.Borghans_BiophysChem1997
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
 def pos : Fin 20 → Bool := fun _ => true
 
+/-- Cotas superiores de parámetros usadas (θⱼ ≤ q), comprobadas en θ₀ (`ub_ok`). -/
+def ub : Fin 20 → Option ℚ × Option ℚ := fun _ => (none, none)
+
 /-- Σ: especies con dato inicial nominal > 0. -/
 def sx : Fin 3 → Bool := fun _ => true
 
@@ -41,17 +44,19 @@ def F : Fin 3 → KExpr 3 20 := netF Rx
 
 /-- Dominio ⊇ región estricta, cuasi-positividad fuera de Σ y consumo proporcional
 en Σ (Lean ejecuta el comprobador). -/
-theorem net_ok : checkNetS pos sx Rx = true := by decide +kernel
+theorem net_ok : checkNetS pos ub sx Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
 def c : Fin 3 → ℚ := fun _ => (1 : ℚ)
 
-theorem growth_ok : checkGrowthS pos c Rx = true := by decide +kernel
+theorem growth_ok : checkGrowthS pos ub c Rx = true := by decide +kernel
 
 /-- θ₀ nominal (PEtab), en racionales exactos. -/
 def θq : Fin 20 → ℚ := ![(1998971160313 / 20000000000000 : ℚ), (22824160918853 / 2000000000000 : ℚ), (197593940310187 / 1000000000000000 : ℚ), (196248756053737 / 500000000000000 : ℚ), (28448742090309 / 25000000000000 : ℚ), (124570933024559 / 125000000000000 : ℚ), (12522758314267 / 62500000000000 : ℚ), (4739899172773 / 15625000000000 : ℚ), (116092412572247 / 1250000000000 : ℚ), (29828497819689 / 4000000000000 : ℚ), (28378156103169 / 1250000000000 : ℚ), (275685784345759 / 100000000000000 : ℚ), (112395230256787 / 100000000000000 : ℚ), (40808048826547 / 250000000000000 : ℚ), (24999999999999 / 25000000000000 : ℚ), (999348084438687 / 1000000000000000 : ℚ), (2747516388297 / 31250000000000 : ℚ), (41025144127497 / 10000000000000 : ℚ), (231778715779187 / 100000000000000 : ℚ), (100488755696677 / 100000000000000 : ℚ)]
 
 theorem theta_ok : checkPosParams pos θq = true := by decide +kernel
+
+theorem ub_ok : checkUB ub θq = true := by decide +kernel
 
 /-- Condición inicial x₀(θ). -/
 def G : Fin 3 → KExpr 3 20 := ![
@@ -65,7 +70,7 @@ theorem init_ok : checkInitS pos sx G = true := by decide +kernel
 /-- **Teorema final, sin condiciones pendientes**: para todo T ≥ 0 la solución
 nominal existe en [0, T], las especies de Σ permanecen > 0 y las demás ≥ 0, queda
 en el dominio, y la trayectoria es diferenciable respecto a θ en θ₀. -/
-def final := @strict_final_init _ _ pos sx Rx net_ok c growth_ok G init_ok θq theta_ok
+def final := @strict_final_init _ _ pos ub sx Rx net_ok c growth_ok G init_ok θq theta_ok ub_ok
 
 end Models.Borghans_BiophysChem1997
 

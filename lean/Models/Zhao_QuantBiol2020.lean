@@ -16,7 +16,7 @@ open KineticRegularity KineticCheck KineticNetwork
 namespace Models.Zhao_QuantBiol2020
 
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
-def pos : Fin 21 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+def pos : Fin 21 → Bool := fun _ => true
 
 /-- Términos de velocidad con su columna estequiométrica (3 términos). -/
 def Rx : List (KExpr 4 21 × List (Fin 4 × ℚ)) := [
@@ -32,7 +32,7 @@ def F : Fin 4 → KExpr 4 21 := netF Rx
 theorem net_ok : checkNet pos Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
-def c : Fin 4 → ℚ := ![(1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ)]
+def c : Fin 4 → ℚ := fun _ => (1 : ℚ)
 
 theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel
 

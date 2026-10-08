@@ -415,12 +415,26 @@ class Model:
     def expand(self, e):
         """Lista de (signo, término) cuya suma es e; distribuye × y / sobre ±."""
         tag = e[0]
+        if getattr(self, 'atomize', False) and tag in ('add', 'sub') and e[1][0] == 'num':
+            b = e[2]
+            if b[0] == 'mul' and b[1] == ('num', Fraction(1)):
+                b = b[2]          # 1·θⱼ = θⱼ
+            if b[0] == 'par':
+                # q ± θⱼ: un único factor (su signo se comprueba con cotas en θ₀)
+                return [(1, (tag, e[1], b))]
         if tag == 'num':
             q = e[1]
             return [] if q == 0 else [(1 if q > 0 else -1, num(abs(q)))]
         if tag == 'add':
             return self.expand(e[1]) + self.expand(e[2])
         if tag == 'sub':
+            # q − e^x (q ≥ 1) es un único factor (≥ 0 si x ≤ 0): no se separa
+            if e[1][0] == 'num' and e[1][1] >= 1 and e[2][0] == 'exp':
+                return [(1, e)]
+            # a − b·(c − 1) = a + b·(1 − c)
+            q = e[2]
+            if q[0] == 'mul' and q[2][0] == 'sub' and q[2][2] == ('num', Fraction(1)):
+                return self.expand(('add', e[1], ('mul', q[1], ('sub', ('num', Fraction(1)), q[2][1]))))
             # represión de Hill: a − b·(a − c)/(b + d) = (a·d + b·c)/(b + d)  (si b + d ≠ 0,
             # que el dominio exige); deja la tasa como suma de términos no negativos
             a, q = e[1], e[2]
@@ -810,6 +824,17 @@ def process(name, T):
                 all(math.isfinite(v) for v in model.x0_vals):
             # positividad estricta (Σ = especies con x₀ > 0)
             mod_, estado, bad = emit_strict(model, segs[0][2], init_exprs)
+            if estado == "checkNetS":
+                # reintento: factores q ± θⱼ enteros, con cotas comprobadas en θ₀
+                model.atomize = True
+                model.t_now = (segs[0][0] + segs[0][1]) / 2
+                rhs2 = model.species_rhs()
+                if model.uses_time:
+                    rhs2.append([(Fraction(1), num(1))])
+                mod2, estado2, bad2 = emit_strict(model, rhs2, init_exprs)
+                model.atomize = False
+                if estado2 == "estricta":
+                    mod_, estado, bad = mod2, estado2, bad2
             rep["estricta"] = estado
             rep["estricta_fallos"] = [f"{k}: {show(t, model)}" for k, t in bad][:20]
             if estado == "estricta":
@@ -1239,6 +1264,19 @@ def _keq(a, b):
     return False
 
 
+_UB = {}   # cotas de parámetros j → [inf, sup] (θⱼ ≥ inf, θⱼ ≤ sup), comprobadas en θ₀ (checkUB)
+
+
+def _subub(a, b, pos):
+    return a[0] == 'num' and b[0] == 'par' and pos[b[1]] and \
+        _UB.get(b[1], [None, None])[1] is not None and _UB[b[1]][1] <= a[1]
+
+
+def _addlb(a, b):
+    return a[0] == 'num' and b[0] == 'par' and \
+        _UB.get(b[1], [None, None])[0] is not None and 0 <= a[1] + _UB[b[1]][0]
+
+
 def _qge1(e): return e[0] == 'num' and e[1] >= 1
 def _qgt1(e): return e[0] == 'num' and e[1] > 1
 
@@ -1248,11 +1286,16 @@ def _s_nonneg(e, pos):
     if t == 'num': return e[1] >= 0
     if t == 'var': return True
     if t == 'par': return pos[e[1]]
-    if t in ('add', 'mul', 'div'): return _s_nonneg(e[1], pos) and _s_nonneg(e[2], pos)
+    if t == 'add': return (_s_nonneg(e[1], pos) and _s_nonneg(e[2], pos)) or _addlb(e[1], e[2])
+    if t in ('mul', 'div'): return _s_nonneg(e[1], pos) and _s_nonneg(e[2], pos)
     if t in ('npow', 'rpow'): return _s_nonneg(e[1], pos)
     if t == 'exp': return True
     if t == 'log': return _qge1(e[1])
+    if t == 'sub': return (_qge1(e[1]) and _exple1(e[2], pos)) or _subub(e[1], e[2], pos)
     return False
+
+
+def _exple1(e, pos): return e[0] == 'exp' and _s_np(e[1], pos)
 
 
 def _s_pos(e, pos, sx):
@@ -1284,6 +1327,7 @@ def _s_np(e, pos):
     t = e[0]
     if t == 'num': return e[1] <= 0
     if t == 'add': return _s_np(e[1], pos) and _s_np(e[2], pos)
+    if t in ('sub', 'div'): return _s_np(e[1], pos) and _s_nonneg(e[2], pos)
     if t == 'mul': return (_s_np(e[1], pos) and _s_nonneg(e[2], pos)) or \
         (_s_nonneg(e[1], pos) and _s_np(e[2], pos))
     return False
@@ -1302,7 +1346,9 @@ def _bnd(e, pos, bx):
     if t == 'num': return e[1] >= 0
     if t == 'var': return bx
     if t == 'par': return pos[e[1]]
-    if t in ('add', 'mul'): return _bnd(e[1], pos, bx) and _bnd(e[2], pos, bx)
+    if t == 'add': return (_bnd(e[1], pos, bx) and _bnd(e[2], pos, bx)) or \
+        (_varfree(e) and _s_nonneg(e, pos))
+    if t == 'mul': return _bnd(e[1], pos, bx) and _bnd(e[2], pos, bx)
     if t == 'div':
         a, d = e[1], e[2]
         return (_varfree(e) and _s_nonneg(e, pos)) or \
@@ -1312,6 +1358,7 @@ def _bnd(e, pos, bx):
     if t == 'rpow': return _varfree(e) and _s_nonneg(e, pos)
     if t == 'exp': return _varfree(e[1]) or _s_np(e[1], pos)
     if t == 'log': return _qge1(e[1])
+    if t == 'sub': return (_qge1(e[1]) and _exple1(e[2], pos)) or _subub(e[1], e[2], pos)
     return False
 
 
@@ -1424,13 +1471,179 @@ def find_weights_strict(Rx, n, pos):
     return None
 
 
+
+# ---------------------------------------------------------------- dato inicial por intervalos
+# Réplica exacta de lean/IntervalInit.lean (ival, sqLo, sqHi, checkInitI).
+_DQ = Fraction(10) ** 30
+
+
+def _bsqrt(f, m, lo, hi):
+    while True:
+        if f == 0:
+            return lo
+        f -= 1
+        if hi <= lo + 1:
+            return lo
+        mid = (lo + hi) // 2
+        if mid * mid <= m:
+            lo = mid
+        else:
+            hi = mid
+
+
+def _sqlo(x):
+    N = max(0, math.floor(x * _DQ ** 2))
+    return Fraction(_bsqrt(400, N, 0, N + 1)) / _DQ
+
+
+def _sqhi(x): return _sqlo(x) + 1 / _DQ
+
+
+def _imul(a, b):
+    ps = (a[0] * b[0], a[0] * b[1], a[1] * b[0], a[1] * b[1])
+    return (min(min(ps[0], ps[1]), min(ps[2], ps[3])), max(max(ps[0], ps[1]), max(ps[2], ps[3])))
+
+
+def _ival(e, tq):
+    t = e[0]
+    if t == 'num': return (Fraction(e[1]), Fraction(e[1]))
+    if t == 'par': return (tq[e[1]], tq[e[1]])
+    if t in ('add', 'sub', 'mul', 'div'):
+        x, z = _ival(e[1], tq), _ival(e[2], tq)
+        if x is None or z is None: return None
+        if t == 'add': return (x[0] + z[0], x[1] + z[1])
+        if t == 'sub': return (x[0] - z[1], x[1] - z[0])
+        if t == 'mul': return _imul(x, z)
+        if 0 < z[0] or z[1] < 0: return _imul(x, (1 / z[1], 1 / z[0]))
+        return None
+    if t == 'npow':
+        x = _ival(e[1], tq)
+        if x is None or not 0 <= x[0]: return None
+        return (x[0] ** e[2], x[1] ** e[2])
+    if t == 'rpow':
+        x = _ival(e[1], tq)
+        if x is None: return None
+        lo, hi = _sqlo(x[0]), _sqhi(x[1])
+        if 0 < x[0] and 0 <= lo and lo * lo <= x[0] and 0 <= hi and x[1] <= hi * hi:
+            return (lo, hi)
+        return None
+    return None
+
+
+def _rpow_exps(e):
+    if not isinstance(e, tuple): return []
+    out = [e[2]] if e[0] == 'rpow' else []
+    for a in e[1:]:
+        if isinstance(a, tuple): out += _rpow_exps(a)
+    return out
+
+
+def init_interval_ok(init_exprs, tq, sx):
+    for i, e in enumerate(init_exprs):
+        if any(r != Fraction(1, 2) for r in _rpow_exps(e)):
+            return False
+        x = _ival(e, tq)
+        if x is None or not (0 <= x[0] and (not sx[i] or 0 < x[0])):
+            return False
+    return True
+
+
+def _one_diff(a, b, path=()):
+    """Posiciones donde a y b difieren (lista de (ruta, sub_a, sub_b))."""
+    if a == b:
+        return []
+    if isinstance(a, tuple) and isinstance(b, tuple) and len(a) == len(b) and a[0] == b[0] \
+            and a[0] not in ('num', 'par', 'var'):
+        out = []
+        for k in range(1, len(a)):
+            out += _one_diff(a[k], b[k], path + (k,))
+        return out
+    return [(path, a, b)]
+
+
+def _replace_at(e, path, new):
+    if not path:
+        return new
+    k = path[0]
+    return e[:k] + (_replace_at(e[k], path[1:], new),) + e[k + 1:]
+
+
+def refactor_fractions(Rx, tq):
+    """Refactorización exacta de la red: si V₂ = V₁ con un factor 1 sustituido por θⱼ (V₂ = θⱼ·V₁)
+    y col₁ + col₂ es una columna válida, se reescribe
+        col₁·V₁ + col₂·V₂ = col₁·(1 − θⱼ)·V₁ + (col₁ + col₂)·V₂,
+    válido para todo θ. El término (1 − θⱼ)·V₁ es ≥ 0 si θⱼ ≤ 1, lo que se comprueba en θ₀."""
+    Rx = [(V, dict(col)) for V, col in Rx]
+    ub, changed = {}, False
+    for a in range(len(Rx)):
+        for b in range(len(Rx)):
+            if a == b:
+                continue
+            V1, c1 = Rx[a]
+            V2, c2 = Rx[b]
+            d = _one_diff(V1, V2)
+            if len(d) != 1:
+                continue
+            path, x, y = d[0]
+            if x != ('num', Fraction(1)) or y[0] != 'par' or not (0 < tq[y[1]] <= 1):
+                continue
+            # sólo si V₂ consume una especie que V₁ produce (el caso que falla)
+            if not any(s_ < 0 and c1.get(i, 0) > 0 for i, s_ in c2.items()):
+                continue
+            j = y[1]
+            newV1 = _replace_at(V1, path, ('sub', ('num', Fraction(1)), ('par', j)))
+            newc2 = dict(c2)
+            for i, s_ in c1.items():
+                newc2[i] = newc2.get(i, 0) + s_
+            Rx[a] = (newV1, c1)
+            Rx[b] = (V2, {i: s_ for i, s_ in newc2.items() if s_ != 0})
+            ub[j] = [None, Fraction(1)]
+            changed = True
+    if not changed:
+        return None, {}
+    return [(V, sorted(col.items())) for V, col in Rx], ub
+
+
+def param_bounds(Rx, tq):
+    """Cotas de parámetros para los factores q ± θⱼ: θⱼ ≤ q (si q − θⱼ) o θⱼ ≥ −q (si q + θⱼ),
+    sólo si se cumplen en θ₀ (Lean lo comprueba con checkUB)."""
+    ub = {}
+    def walk(e):
+        if not isinstance(e, tuple):
+            return
+        if e[0] in ('add', 'sub') and e[1][0] == 'num' and e[2][0] == 'par':
+            j, q = e[2][1], Fraction(e[1][1])
+            b = ub.setdefault(j, [None, None])
+            if e[0] == 'sub' and tq[j] <= q:
+                b[1] = q if b[1] is None else min(b[1], q)
+            if e[0] == 'add' and tq[j] >= -q:
+                b[0] = -q if b[0] is None else max(b[0], -q)
+        for a in e[1:]:
+            walk(a)
+    for V, _ in Rx:
+        walk(V)
+    return {j: b for j, b in ub.items() if b != [None, None]}
+
 def emit_strict(model, rhs, init_exprs):
     """Forma de red con positividad estricta (Σ = especies con x₀ nominal > 0)."""
     n, p = len(model.names_ext), len(model.theta)
     pos = [model.positive[t] for t in model.theta]
     sx = [v > 0 for v in model.x0_vals]
     Rx = network_of(rhs)
+    tq = [frac_of(v) for v in model.theta_vals]
+    _UB.clear()
+    if getattr(model, 'atomize', False):
+        _UB.update(param_bounds(Rx, tq))
     bad = strict_checks(Rx, pos, sx)
+    if bad:
+        Rx2, ub2 = refactor_fractions(Rx, tq)
+        if Rx2 is not None:
+            saved = dict(_UB)
+            _UB.update(ub2)
+            if not strict_checks(Rx2, pos, sx):
+                Rx, bad = Rx2, []
+            else:
+                _UB.clear(); _UB.update(saved)
     if bad:
         return None, "checkNetS", bad
     c = find_weights_strict(Rx, n, pos)
@@ -1438,12 +1651,16 @@ def emit_strict(model, rhs, init_exprs):
         return None, "crecimiento", []
     if init_exprs is None:
         init_exprs = [num(frac_of(v)) for v in model.x0_vals]
+    interval = False
     for i, e in enumerate(init_exprs):
         if not (_py_okorth(e, pos) and _py_nonneg(e, pos) and (not sx[i] or _py_pos(e, pos))):
+            if init_interval_ok(init_exprs, [frac_of(v) for v in model.theta_vals], sx):
+                interval = True
+                break
             return None, "init", [(f"x0 {i}", e)]
     mod = leanid(model.name)
     lines = [
-        "import StrictNetwork", "",
+        "import IntervalInit" if interval else "import StrictNetwork", "",
         f"/-! Modelo `{model.name}` (forma de red, positividad estricta), traducido",
         "automáticamente de SBML por `certificados/sbml_to_lean.py`. No editar a mano.", "",
         f"Estados ({n}): " + ", ".join(model.names_ext), "",
@@ -1451,10 +1668,16 @@ def emit_strict(model, rhs, init_exprs):
         ", ".join(s_ for s_, b in zip(model.names_ext, sx) if b), "",
         f"Parámetros estimados θ ({p}): " + ", ".join(model.theta),
         "-/", "", "set_option maxRecDepth 100000", "set_option maxHeartbeats 0", "",
-        "open KineticRegularity KineticCheck KineticNetwork StrictNetwork", "",
+        "open KineticRegularity KineticCheck KineticNetwork StrictNetwork" +
+        (" IntervalInit" if interval else ""), "",
         f"namespace Models.{mod}", "",
         "/-- Máscara de parámetros positivos (nominal > 0 o escala log). -/",
         *lean_vec("pos", p, "Bool", [("true" if b else "false") for b in pos], "false"), "",
+        "/-- Cotas superiores de parámetros usadas (θⱼ ≤ q), comprobadas en θ₀ (`ub_ok`). -/",
+        *lean_vec("ub", p, "Option ℚ × Option ℚ",
+                  [(f"({'none' if _UB[j][0] is None else 'some ' + lean_q(_UB[j][0])}, "
+                    f"{'none' if _UB[j][1] is None else 'some ' + lean_q(_UB[j][1])})")
+                   if j in _UB else "(none, none)" for j in range(p)], "(none, none)"), "",
         "/-- Σ: especies con dato inicial nominal > 0. -/",
         *lean_vec("sx", n, "Bool", [("true" if b else "false") for b in sx], "false"), "",
         f"/-- Términos de velocidad con su columna estequiométrica ({len(Rx)} términos). -/",
@@ -1467,21 +1690,30 @@ def emit_strict(model, rhs, init_exprs):
               f"def F : Fin {n} → KExpr {n} {p} := netF Rx", "",
               "/-- Dominio ⊇ región estricta, cuasi-positividad fuera de Σ y consumo proporcional",
               "en Σ (Lean ejecuta el comprobador). -/",
-              "theorem net_ok : checkNetS pos sx Rx = true := by decide +kernel", "",
+              "theorem net_ok : checkNetS pos ub sx Rx = true := by decide +kernel", "",
               "/-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/",
               *lean_vec("c", n, "ℚ", [lean_q(x) for x in c], "1"), "",
-              "theorem growth_ok : checkGrowthS pos c Rx = true := by decide +kernel", "",
+              "theorem growth_ok : checkGrowthS pos ub c Rx = true := by decide +kernel", "",
               "/-- θ₀ nominal (PEtab), en racionales exactos. -/",
               *lean_vec("θq", p, "ℚ", [lean_q(frac_of(v)) for v in model.theta_vals], "1"), "",
               "theorem theta_ok : checkPosParams pos θq = true := by decide +kernel", "",
+              "theorem ub_ok : checkUB ub θq = true := by decide +kernel", "",
               "/-- Condición inicial x₀(θ). -/",
               f"def G : Fin {n} → KExpr {n} {p} := ![",
               ",\n".join("  " + lean_expr(e) for e in init_exprs), "]", "",
-              "theorem init_ok : checkInitS pos sx G = true := by decide +kernel", "",
+              *(["theorem init_ok : checkInitS pos sx G = true := by decide +kernel", ""]
+                if not interval else
+                ["/-- G(θ₀) ≥ 0 (> 0 en Σ), certificado por aritmética de intervalos en ℚ. -/",
+                 "theorem init_ok : checkInitI sx θq G = true := by decide +kernel", "",
+                 "/-- Las potencias reales de G son raíces cuadradas. -/",
+                 "theorem half_ok : ∀ i, ∀ r ∈ rpowExps (G i), r = 1 / 2 := by",
+                 "  intro i; fin_cases i <;> simp [rpowExps, G]", ""]),
               "/-- **Teorema final, sin condiciones pendientes**: para todo T ≥ 0 la solución",
               "nominal existe en [0, T], las especies de Σ permanecen > 0 y las demás ≥ 0, queda",
               "en el dominio, y la trayectoria es diferenciable respecto a θ en θ₀. -/",
-              "def final := @strict_final_init _ _ pos sx Rx net_ok c growth_ok G init_ok θq theta_ok",
+              ("def final := @strict_final_init _ _ pos ub sx Rx net_ok c growth_ok G init_ok θq theta_ok ub_ok"
+               if not interval else
+               "def final := @strict_final_initI _ _ pos ub sx Rx net_ok c growth_ok G θq init_ok half_ok theta_ok ub_ok"),
               "", f"end Models.{mod}", "", f"#print axioms Models.{mod}.final", ""]
     OUTDIR.mkdir(parents=True, exist_ok=True)
     (OUTDIR / f"{mod}.lean").write_text("\n".join(lines))

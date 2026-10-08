@@ -48,11 +48,9 @@
  "n_fallos_cuasipositividad": 1,
  "prediccion_check": false,
  "lean": "Models/Okuonghae_ChaosSolitonsFractals2020.lean",
- "red": null,
- "estricta": "checkNetS",
- "estricta_fallos": [
-  "especie 3 (Σ), coef -1: (1 * ((sigma * nu) * exposed))"
- ],
- "teorema_final": false,
+ "red": "estricta",
+ "estricta": "estricta",
+ "estricta_fallos": [],
+ "teorema_final": true,
  "traducido": true
 }

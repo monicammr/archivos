@@ -27,6 +27,12 @@ MOTIVO = {
     "Smith_BMCSystBiol2013": "las reacciones R16f/R17f usan max(PIP3 − basal, 0), que no es diferenciable: el campo no es C¹ y el teorema de diferenciabilidad no aplica (los eventos en tiempos fijos sí se traducen)",
 }
 
+ESTRICTA = {
+    "Okuonghae_ChaosSolitonsFractals2020": "red reescrita de forma exacta (σ(1 − ν)E y σνE); Lean comprueba ν₀ = 0,5 ≤ 1 en θ₀ (con ν > 1 la positividad falla)",
+    "Armistead_CellDeathDis2024": "Lean comprueba en θ₀ α_cer ≥ −1 y α_hai1a ≤ 1, que hacen ≥ 0 las tasas k00(1 + α_cer) y k3(1 − α_hai1a)",
+    "Fiedler_BMCSystBiol2016": "entrada 1 − e^{−t/τ1} ≥ 0; dato inicial (estado estacionario con raíces) certificado > 0 por intervalos en ℚ",
+}
+
 rows = []
 for f in sorted(D.glob("*.json")):
     d = json.loads(f.read_text())
@@ -58,6 +64,7 @@ for f in sorted(D.glob("*.json")):
         elif d.get("red") == "estricta":
             res = f"✅ verificado, sin condiciones pendientes ({t}); positividad estricta"
             notas.append("las especies con dato inicial > 0 permanecen > 0 (lo exige el dominio)")
+            notas.append(ESTRICTA.get(nm, ""))
         else:
             res = f"✅ verificado; condición: existe la solución nominal en [0,T] ({t})"
             if d.get("red") == "crecimiento":

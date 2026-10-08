@@ -16,7 +16,7 @@ open KineticRegularity KineticCheck KineticNetwork
 namespace Models.Brannmark_JBC2010
 
 /-- Máscara de parámetros positivos (nominal > 0 o escala log). -/
-def pos : Fin 15 → Bool := ![true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]
+def pos : Fin 15 → Bool := fun _ => true
 
 /-- Términos de velocidad con su columna estequiométrica (14 términos). -/
 def Rx : List (KExpr 9 15 × List (Fin 9 × ℚ)) := [
@@ -43,7 +43,7 @@ def F : Fin 9 → KExpr 9 15 := netF Rx
 theorem net_ok : checkNet pos Rx = true := by decide +kernel
 
 /-- Pesos de la combinación con crecimiento lineal (cᵢ ≥ 1). -/
-def c : Fin 9 → ℚ := ![(1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ), (1 : ℚ)]
+def c : Fin 9 → ℚ := fun _ => (1 : ℚ)
 
 theorem growth_ok : checkGrowth pos c Rx = true := by decide +kernel
 

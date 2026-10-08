@@ -21,6 +21,7 @@
   "rho_50",
   "sigma_50"
  ],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,

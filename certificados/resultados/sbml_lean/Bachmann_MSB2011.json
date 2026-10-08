@@ -15,6 +15,7 @@
   "init_SHP1_multiplier",
   "init_SOCS3_multiplier"
  ],
+ "eventos_tiempo_fijo": [],
  "tramos": [
   [
    0.0,
