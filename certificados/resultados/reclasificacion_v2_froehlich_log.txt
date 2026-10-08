@@ -7,3 +7,5 @@
   J: 801/4088 columnas
   J: 1001/4088 columnas
   J: 1201/4088 columnas
+  J: 1401/4088 columnas
+  J: 1601/4088 columnas
