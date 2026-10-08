@@ -1,0 +1,37 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "p": 16,
+ "T": 50.0,
+ "S1": [
+  "transmission_rate_effective",
+  "gamma_0",
+  "gamma_a",
+  "sigma",
+  "psi"
+ ],
+ "Rvar_S1_%": 88.17672933999037,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "transmission_rate_effective",
+  "gamma_0",
+  "gamma_a"
+ ],
+ "Rvar_%": 83.36183689987355,
+ "kappa": 5.333359422058726,
+ "VIF": 7.0039782085765605,
+ "cos_med": 0.9563321268712516,
+ "erel_med": 0.38758773221474163,
+ "n_escenarios": 15,
+ "admisible": true,
+ "segundos": 0.1,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "transmission_rate_effective",
+  "gamma_0",
+  "gamma_a",
+  "sigma",
+  "nu",
+  "d_0"
+ ]
+}

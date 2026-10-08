@@ -1,0 +1,31 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "p": 6,
+ "T": 0.01,
+ "S1": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "Rvar_S1_%": 50.14466854488764,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "Rvar_%": 50.14466854488764,
+ "kappa": 1.9015629962205793,
+ "VIF": 1.4731237375334938,
+ "cos_med": NaN,
+ "erel_med": NaN,
+ "n_escenarios": 0,
+ "admisible": false,
+ "segundos": 2.0,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "ratio_kpkd_Y1068__FREE",
+  "kdephosY1068__FREE",
+  "kdephosYN__FREE",
+  "ratio_kpkd_YN__FREE"
+ ]
+}
