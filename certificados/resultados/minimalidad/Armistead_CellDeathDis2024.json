@@ -1,0 +1,101 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "S": [
+  "k_d",
+  "k00",
+  "k2",
+  "alpha_cer"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "k_d",
+   "admisible": true,
+   "e_rel": 0.15560392447990926,
+   "e_ajuste": null
+  },
+  {
+   "sin": "k00",
+   "admisible": true,
+   "e_rel": 0.11131474416431776,
+   "e_ajuste": null
+  },
+  {
+   "sin": "k2",
+   "admisible": true,
+   "e_rel": 0.11361975345666951,
+   "e_ajuste": null
+  },
+  {
+   "sin": "alpha_cer",
+   "admisible": false,
+   "e_rel": 1.0094434647600252,
+   "e_ajuste": 0.7231780487859599
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "k_d",
+   "admisible": false,
+   "e_rel": 1.0107359261045394,
+   "e_ajuste": 0.9935944486803859
+  },
+  {
+   "parametro": "k00",
+   "admisible": false,
+   "e_rel": 1.033682798142014,
+   "e_ajuste": 0.736589048868836
+  },
+  {
+   "parametro": "k0",
+   "admisible": false,
+   "e_rel": 0.9981401554860762,
+   "e_ajuste": 0.7468159095624424
+  },
+  {
+   "parametro": "k2",
+   "admisible": false,
+   "e_rel": 0.9988688911439209,
+   "e_ajuste": 0.9960364649514422
+  },
+  {
+   "parametro": "k1",
+   "admisible": false,
+   "e_rel": 0.9991096590931818,
+   "e_ajuste": 0.9960603965240403
+  },
+  {
+   "parametro": "k4",
+   "admisible": false,
+   "e_rel": 0.9995797527931883,
+   "e_ajuste": 0.9908485339147131
+  },
+  {
+   "parametro": "alpha_cer",
+   "admisible": true,
+   "e_rel": 0.16046481957500935,
+   "e_ajuste": null
+  },
+  {
+   "parametro": "k5",
+   "admisible": false,
+   "e_rel": 1.000000067831733,
+   "e_ajuste": 0.999839364352684
+  },
+  {
+   "parametro": "k3",
+   "admisible": false,
+   "e_rel": 0.9999999999829358,
+   "e_ajuste": 0.999998981907712
+  },
+  {
+   "parametro": "alpha_hai1a",
+   "admisible": false,
+   "e_rel": 0.9999999994914504,
+   "e_ajuste": 0.9999999053425181
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 4.7
+}

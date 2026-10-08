@@ -1,0 +1,63 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "S": [
+  "k_imp_hetero",
+  "k_phos"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "k_imp_hetero",
+   "admisible": false,
+   "e_rel": 0.7974534175123905,
+   "e_ajuste": 0.6695140683363644
+  },
+  {
+   "sin": "k_phos",
+   "admisible": false,
+   "e_rel": 0.8368957775518029,
+   "e_ajuste": 0.46320040012468794
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "k_imp_hetero",
+   "admisible": false,
+   "e_rel": 0.8368957775518029,
+   "e_ajuste": 0.46320040012468794
+  },
+  {
+   "parametro": "Epo_degradation_BaF3",
+   "admisible": false,
+   "e_rel": 0.6693206533648977,
+   "e_ajuste": 0.4579259550177966
+  },
+  {
+   "parametro": "k_phos",
+   "admisible": false,
+   "e_rel": 0.7974534175123905,
+   "e_ajuste": 0.6695140683363644
+  },
+  {
+   "parametro": "k_exp_homo",
+   "admisible": false,
+   "e_rel": 0.9841428986560576,
+   "e_ajuste": 0.9345356864566511
+  },
+  {
+   "parametro": "k_exp_hetero",
+   "admisible": false,
+   "e_rel": 1.0000322424747978,
+   "e_ajuste": 0.9947512620417774
+  },
+  {
+   "parametro": "k_imp_homo",
+   "admisible": false,
+   "e_rel": 1.0000018846369187,
+   "e_ajuste": 0.9999906256957831
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 7.1
+}
