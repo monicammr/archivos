@@ -41,6 +41,46 @@ import certify_systems as CS
 T_INF = 1e5      # mediciones en estado estacionario (time = inf) y preequilibrio
 
 
+def load_model_ia(sbml_path, overridden=()):
+    """Carga el modelo convirtiendo las asignaciones iniciales de PARÁMETROS y COMPARTIMENTOS
+    (constantes que dependen de otras constantes, p. ej. β = R₀γ/N) en reglas de asignación.
+    Así, al cambiar θ se recalculan (RoadRunner no reevalúa esas asignaciones iniciales al
+    fijar un parámetro; las de especies sí se reevalúan en reset()). Sin efecto en la dinámica:
+    los valores coinciden con los de la asignación inicial.
+    Las asignaciones iniciales de símbolos fijados en conditions.tsv se eliminan: en PEtab el
+    valor de la condición sustituye a la asignación inicial."""
+    import libsbml
+    doc = libsbml.readSBMLFromFile(str(sbml_path))
+    mdl = doc.getModel()
+    for ia in list(mdl.getListOfInitialAssignments()):
+        sid = ia.getSymbol()
+        if sid in overridden:
+            p = mdl.getParameter(sid)
+            if p is not None and not p.isSetValue():
+                p.setValue(0.0)       # se fija en cada condición
+            mdl.removeInitialAssignment(sid)
+            continue
+        obj = mdl.getParameter(sid) or mdl.getCompartment(sid)
+        if obj is None or mdl.getRule(sid) is not None:
+            continue
+        r = mdl.createAssignmentRule()
+        r.setVariable(sid)
+        r.setMath(ia.getMath().deepCopy())
+        obj.setConstant(False)
+        mdl.removeInitialAssignment(sid)
+    # especies con hasOnlySubstanceUnits: su símbolo en las fórmulas es la CANTIDAD
+    hosu = {sp.getId() for sp in mdl.getListOfSpecies() if sp.getHasOnlySubstanceUnits()}
+    m = rr.RoadRunner(libsbml.writeSBMLToString(doc))
+    ig = m.getIntegrator()
+    for k, v in [("relative_tolerance", 1e-7), ("absolute_tolerance", 1e-10),
+                 ("maximum_num_steps", 200000), ("stiff", True)]:
+        try:
+            ig.setValue(k, v)
+        except Exception:
+            pass
+    return m, hosu
+
+
 def _isnum(v):
     try:
         float(v)
@@ -59,17 +99,20 @@ class PSys:
     def __init__(self, name, t_end=None):
         self.name = name
         folder = CS.BENCH / name / "v1"
-        par = pd.read_csv(folder / "parameters.tsv", sep="\t")
-        cond = pd.read_csv(folder / "conditions.tsv", sep="\t", dtype={"conditionId": str})
-        obs = pd.read_csv(folder / "observables.tsv", sep="\t")
+        par = pd.read_csv(folder / "parameters.tsv", sep="\t", encoding="utf-8-sig")
+        cond = pd.read_csv(folder / "conditions.tsv", sep="\t", encoding="utf-8-sig", dtype={"conditionId": str})
+        obs = pd.read_csv(folder / "observables.tsv", sep="\t", encoding="utf-8-sig")
         mea = pd.read_csv(folder / "measurements.tsv", sep="\t",
                           dtype={"simulationConditionId": str, "preequilibrationConditionId": str})
-        self.m = CS.load_model(folder / "model.xml")
+        self.m, self.hosu = load_model_ia(folder / "model.xml",
+                               set(cond.columns) - {"conditionId", "conditionName"})
         mdl = self.m.model
         self.species = list(mdl.getFloatingSpeciesIds())
+        # especies de frontera (p. ej. definidas por reglas): se pueden observar y fijar
+        self.bspecies = list(mdl.getBoundarySpeciesIds())
         self.gparams = set(mdl.getGlobalParameterIds())
         self.comps = set(mdl.getCompartmentIds())
-        rules = set(self.m.getAssignmentRuleIds())
+        rules = set(self.m.getAssignmentRuleIds()) | set(self.m.getRateRuleIds())
 
         # --- parámetros
         par["nominalValue"] = par["nominalValue"].astype(float)
@@ -106,12 +149,13 @@ class PSys:
             self.obs[str(r.observableId)] = (f, g, tr)
 
         # símbolos que dependen del tiempo (especies, parámetros con reglas, compartimentos)
-        self.dyn = set(self.species) | (rules & (self.gparams | self.comps)) | self.comps
+        self.dyn = set(self.species) | set(self.bspecies) | (rules & (self.gparams | self.comps)) | self.comps
         allsym = set()
         for f, g, _ in self.obs.values():
             allsym |= {str(s) for s in f.free_symbols | g.free_symbols}
         self.sel_dyn = sorted(s for s in allsym if s in self.dyn)
-        sel = ["time"] + [("[" + s + "]") if s in self.species else s for s in self.sel_dyn]
+        self.allsp = set(self.species) | set(self.bspecies)
+        sel = ["time"] + [self._sid(s) for s in self.sel_dyn]
         self.m.timeCourseSelections = sel
 
         # --- mediciones agrupadas por (preequilibrio, condición)
@@ -126,6 +170,8 @@ class PSys:
                 [mea.preequilibrationConditionId.fillna(""), mea.simulationConditionId], sort=False):
             tfin = sub.time.replace(np.inf, T_INF).to_numpy()
             times = np.unique(np.concatenate([[0.0], tfin]))
+            if len(times) < 2:        # RoadRunner necesita al menos dos tiempos
+                times = np.array([0.0, 1.0])
             rows = []
             for i, r in sub.iterrows():
                 op = _split(r.get("observableParameters"))
@@ -154,23 +200,30 @@ class PSys:
             self.sigma = self._noise(self.theta0, y0)
 
     # ---------------------------------------------------------------------------------------
+    def _sid(self, s):
+        """Selector de RoadRunner del símbolo `s` (concentración salvo hasOnlySubstanceUnits)."""
+        if s in self.allsp and s not in self.hosu:
+            return "[" + s + "]"
+        return s
+
     def _pval(self, theta):
         P = dict(self.fixed)
         P.update(zip(self.names, map(float, theta)))
         return P
 
-    def _apply(self, ov, P, species_too=True):
-        m = self.m
+    def _apply(self, ov, P):
+        """Overrides de una condición: fija parámetros/compartimentos; devuelve las especies
+        a fijar en t = 0."""
         sp_init = []
         for tgt, v in ov:
             val = v if isinstance(v, float) else P.get(v, np.nan)
             if not np.isfinite(val):
                 continue
-            if tgt in self.species:
+            if tgt in self.species or tgt in self.bspecies:
                 sp_init.append((tgt, val))
             elif tgt in self.gparams or tgt in self.comps:
                 try:
-                    m[tgt] = float(val)
+                    self.m[tgt] = float(val)
                 except Exception:
                     pass
         return sp_init
@@ -184,28 +237,81 @@ class PSys:
                     m[k] = float(v)
                 except Exception:
                     pass
-        # condiciones (preequilibrio primero)
+        primera = pre if pre else sim_c
+        sp0 = self._apply(self.cond.get(primera, []), P)
+        m.reset()        # especies a sus valores iniciales (reevalúa sus asignaciones iniciales)
+        for s, v in sp0:
+            m[self._sid(s)] = v
         if pre:
-            sp_pre = self._apply(self.cond.get(pre, []), P)
-            for s, v in sp_pre:
-                m["init([" + s + "])"] = v
-            m.reset()
             m.simulate(0, T_INF, 2)
-            x_ss = {s: m["[" + s + "]"] for s in self.species}
+            x_ss = {"[" + s + "]": m["[" + s + "]"] for s in self.species}
+            x_ss.update({r: m[r] for r in self.m.getRateRuleIds()})
+            # reinicio (tiempo y eventos a cero) y estado estacionario como estado inicial
+            m.reset()
             sp_sim = self._apply(self.cond.get(sim_c, []), P)
-            for s, v in x_ss.items():
+            for s, v in list(x_ss.items()) + [(self._sid(a), b) for a, b in sp_sim]:
                 try:
-                    m["[" + s + "]"] = v
+                    m[s] = v
                 except Exception:
                     pass
-            for s, v in sp_sim:
-                m["[" + s + "]"] = v
-        else:
-            sp_sim = self._apply(self.cond.get(sim_c, []), P)
-            for s, v in sp_sim:
-                m["init([" + s + "])"] = v
-            m.reset()
-        return np.asarray(m.simulate(times=list(times)), dtype=float)
+        x0 = np.array(m.model.getFloatingSpeciesConcentrations(), dtype=float)
+        rr0 = {r: m[r] for r in m.getRateRuleIds()}
+        try:
+            traj = np.asarray(m.simulate(times=list(times)), dtype=float)
+        except Exception:
+            # respaldos: por tramos; además orden BDF ≤ 2; además tolerancias 1e-6 / 1e-8
+            ig = m.getIntegrator()
+            base = {"maximum_bdf_order": 5, "relative_tolerance": 1e-7, "absolute_tolerance": 1e-10}
+            ajustes = [{}, {"maximum_bdf_order": 2},
+                       {"maximum_bdf_order": 2, "relative_tolerance": 1e-6, "absolute_tolerance": 1e-8}]
+            traj = None
+            for k, aj in enumerate(ajustes):
+                m.model.setTime(0.0)
+                m.model.setFloatingSpeciesConcentrations(x0)
+                for r, v in rr0.items():
+                    m[r] = v
+                for key, v in aj.items():
+                    ig.setValue(key, v)
+                try:
+                    traj = self._piecewise(P, sim_c, times)
+                    break
+                except Exception:
+                    if k == len(ajustes) - 1:
+                        raise
+                finally:
+                    for key, v in base.items():
+                        ig.setValue(key, v)
+        # RoadRunner puede reordenar las columnas: se reordenan según self.sel_dyn
+        cols = list(m.timeCourseSelections)
+        orden = [cols.index("time")] + [cols.index(self._sid(s)) for s in self.sel_dyn]
+        return traj[:, orden]
+
+    def _piecewise(self, P, sim_c, times):
+        """Respaldo si el integrador falla (discontinuidades, p. ej. adición de fármacos en
+        Isensee): se reinicia el estado guardado y se integra por tramos, con cortes en los
+        tiempos de salida y en los valores de la condición que caen dentro del intervalo."""
+        m = self.m
+        cortes = {float(v) for _, v in self.cond.get(sim_c, []) if isinstance(v, float)}
+        cortes |= {float(P[v]) for _, v in self.cond.get(sim_c, []) if isinstance(v, str) and v in P}
+        grid = np.unique(np.concatenate([times, [c for c in cortes if 0 < c < times[-1]]]))
+        filas = []
+        sel = list(m.timeCourseSelections)
+        estado0 = {k: m[k] for k in sel if k != "time"}
+        filas.append([0.0] + [estado0[k] for k in sel if k != "time"])
+        cortes = {c for c in cortes if 0 < c < times[-1]}
+        t = 0.0
+        for b in grid[1:]:
+            eps = 1e-6 * max(1.0, b)
+            r = np.asarray(m.simulate(t, b - (eps if b in cortes else 0.0), 2), dtype=float)
+            filas.append(r[-1].tolist())
+            t = b
+            if b in cortes:          # se salta la discontinuidad (estado continuo, error O(ε))
+                t = b + eps
+        filas = np.array(filas)
+        keep = [i for i, tt in enumerate(grid) if np.any(np.isclose(times, tt))]
+        out = filas[keep]
+        out[:, sel.index("time")] = times
+        return out
 
     def _eval(self, expr_key, expr, ph_names, ph_vals, P, traj, k):
         """Evalúa `expr` en el instante k de la trayectoria, con los placeholders de la fila."""
@@ -300,21 +406,25 @@ def check(name):
         info["error"] = "simulación falla"
         return info
     if f.exists():
-        ref = pd.read_csv(f, sep="\t")
+        ref = pd.read_csv(f, sep="\t", encoding="utf-8-sig")
         if len(ref) == S.n_meas:
             # emparejar por (observable, condiciones, tiempo, parámetros), no por posición
             def clave(d):
                 d = d.copy()
-                for c in ("preequilibrationConditionId", "observableParameters"):
-                    d[c] = d[c].fillna("").astype(str) if c in d.columns else ""
+                c = "preequilibrationConditionId"
+                d[c] = d[c].fillna("").astype(str) if c in d.columns else ""
                 d["time"] = d["time"].astype(float).round(9)
-                k = ["observableId", "preequilibrationConditionId", "simulationConditionId",
-                     "time", "observableParameters"]
+                k = ["observableId", c, "simulationConditionId", "time"]
                 d["_n"] = d.groupby(k).cumcount()
                 return d[k + ["_n"]].astype(str).agg("|".join, axis=1)
+            ref = ref.rename(columns={"simulationCondition": "simulationConditionId",
+                                      "preequilibrationCondition": "preequilibrationConditionId"})
             ref.index = clave(ref)
             r = ref["simulation"].astype(float).reindex(clave(S.mea)).to_numpy()
             ok = np.isfinite(r)
+            if not ok.any():
+                info["nota"] = "simulations.tsv no comparable (otros identificadores de condición)"
+                return info
             rel = np.abs(y[ok] - r[ok]) / np.maximum(np.abs(r[ok]), 1e-6 * np.max(np.abs(r[ok])) + 1e-12)
             info["err_rel_max_vs_simulations"] = float(np.max(rel))
             info["err_rel_mediana"] = float(np.median(rel))

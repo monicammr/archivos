@@ -29,6 +29,12 @@ Con `--v3` (criterio por reestimación, el del artículo corregido):
   * Stage 1 no admisible → Stage 2, que para en cuanto el subconjunto es admisible;
   * se informan cos Δ y e_rel (sin reestimar) y e_ajuste (con reestimación).
 Resultados en resultados/reclasificacion_v3/.
+
+Con `--salidas` (junto con `--v3`; comentario 4 del revisor): en lugar de todos los estados x(t)
+en [0, T], se usan las SALIDAS MEDIDAS de PEtab, y_i = h(g_i(x(t_i), θ))/σ_i, una por fila de
+measurements.tsv (petab_outputs.PSys: condiciones experimentales, preequilibrio, observables,
+transformación y ruido). J, R_var, el barrido, cos Δ, e_rel y e_ajuste se calculan sobre y.
+Se procesan los 35 sistemas PEtab. Resultados en resultados/reclasificacion_salidas/.
 """
 import sys, json, time
 import numpy as np
@@ -41,6 +47,9 @@ N_ESC, NIVEL, SEED = 15, 0.05, 42
 EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ ≥ 0,90 (Lean)
 V3 = "--v3" in sys.argv          # criterio por reestimación (e_ajuste); implica las reglas de v2
 V2 = ("--v2" in sys.argv) or V3
+SALIDAS = "--salidas" in sys.argv
+if SALIDAS:
+    from petab_outputs import PSys as Sys   # misma interfaz; salidas medidas y = g(x, θ)
 
 
 # --- κ y VIF: mismas definiciones que petab_V9_todos35.py --------------------------------------
@@ -186,7 +195,8 @@ def main_one(name, t_def):
     tot = float(E.sum())
     if not tot > 0:
         return {"sistema": name, "p": p, "T": t_end, "etapa": "Técnico",
-                "motivo": "Jacobiano nulo (ningún parámetro dinámico afecta a los estados)",
+                "motivo": "Jacobiano nulo (ningún parámetro dinámico afecta a "
+                          + ("las salidas medidas)" if SALIDAS else "los estados)"),
                 "admisible": False}
     rvar = lambda S: float(E[S].sum() / tot) if tot > 0 else float("nan")
     # --- escenarios de validación (±5 %)
@@ -349,12 +359,14 @@ if __name__ == "__main__":
         _CS.BENCH = _P(sys.argv[_i + 1])
         del sys.argv[_i:_i + 2]
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
-    d = OUT / ("reclasificacion_v3" if V3 else "reclasificacion_v2" if V2 else "reclasificacion")
+    d = OUT / ("reclasificacion_salidas" if SALIDAS else "reclasificacion_v3" if V3 else "reclasificacion_v2" if V2 else "reclasificacion")
     d.mkdir(exist_ok=True)
     out = []
     lista = [(n, sel, t, "FIM" if g == "FIM" else "SCAN", None) for n, sel, t, g in SYSTEMS]
     if "--extra" in sys.argv:
         lista = [(n, [], 50.0, None, cat) for n, cat in EXTRA]
+    elif SALIDAS:
+        lista += [(n, [], 50.0, None, cat) for n, cat in EXTRA]
     for name, sel, t_def, group, cat in lista:
         if which and name not in which:
             continue
