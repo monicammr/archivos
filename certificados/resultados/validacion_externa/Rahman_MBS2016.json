@@ -10,6 +10,8 @@
  ],
  "|S|": 2,
  "p_y": 9,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
  "A_chi2_test_theta0": 0.0014774578960137447,
  "A_chi2_train_red": 0.0015442163802674663,
  "A_chi2_test_red": 0.0019946462955132307,

@@ -1,0 +1,27 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 10)",
+ "n_condiciones": 1,
+ "n_train": 30,
+ "n_test": 30,
+ "S": [
+  "k01_02",
+  "k13_12"
+ ],
+ "|S|": 2,
+ "p_y": 45,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 1.5053826558373309,
+ "A_chi2_train_red": 0.46813827067990604,
+ "A_chi2_test_red": 1.5818297898050713,
+ "A_chi2_train_full": 0.06482437142634255,
+ "A_chi2_test_full": 20.59861904268012,
+ "B_chi2_test_theta0": 22.008922371664948,
+ "B_chi2_test_red": 2.4238127310188307,
+ "B_epred_red": 0.3559207899665672,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 2.938588837269395,
+ "B_epred_full": 0.3724252454067964,
+ "segundos": 107.8
+}
