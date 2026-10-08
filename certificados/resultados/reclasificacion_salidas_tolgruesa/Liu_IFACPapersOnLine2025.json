@@ -1,0 +1,28 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "p": 9,
+ "T": 50.0,
+ "S1": [
+  "kappa",
+  "phi",
+  "delta"
+ ],
+ "Rvar_S1_%": 81.08712054618456,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "Rvar_%": 80.70420545999792,
+ "kappa": 1.294217163931782,
+ "VIF": 1.068003420403615,
+ "cos_med": 0.9229674952972148,
+ "erel_med": 0.47383449234658415,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.26128939268536344,
+ "segundos": 1.7,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

@@ -24,7 +24,7 @@
  "n_escenarios": 15,
  "admisible": true,
  "eajuste_med": 0.09204838092449798,
- "segundos": 1.4,
+ "segundos": 1.1,
  "etapa_paper": "Stage 2",
  "S_paper": [
   "k_exp_homo",

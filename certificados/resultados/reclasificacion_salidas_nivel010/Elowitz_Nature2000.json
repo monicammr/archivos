@@ -31,7 +31,7 @@
  "n_escenarios": 15,
  "admisible": true,
  "eajuste_med": 0.05336433856483193,
- "segundos": 5.0,
+ "segundos": 4.7,
  "etapa_paper": "Stage 1",
  "S_paper": [
   "tps_active",

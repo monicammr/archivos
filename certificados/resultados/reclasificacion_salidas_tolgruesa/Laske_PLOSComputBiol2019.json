@@ -1,0 +1,29 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "p": 13,
+ "T": 50.0,
+ "S1": [
+  "Int_nuc_off",
+  "k_imp"
+ ],
+ "Rvar_S1_%": 94.56962375850985,
+ "S1_cumple": true,
+ "cos_S1": 0.9871992389463877,
+ "erel_S1": 0.15952144027954426,
+ "etapa": "Stage 1",
+ "S": [
+  "Int_nuc_off",
+  "k_imp"
+ ],
+ "Rvar_%": 94.56962375850985,
+ "kappa": 2.4334987293135266,
+ "VIF": 2.0226950824820364,
+ "cos_med": 0.9871992389463877,
+ "erel_med": 0.15952144027954426,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.15755783133627982,
+ "segundos": 6.6,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

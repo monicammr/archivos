@@ -21,7 +21,7 @@
  "n_escenarios": 15,
  "admisible": true,
  "eajuste_med": 0.04108488716445427,
- "segundos": 0.8,
+ "segundos": 0.7,
  "etapa_paper": "Stage 1",
  "S_paper": [
   "transmission_rate_effective",
