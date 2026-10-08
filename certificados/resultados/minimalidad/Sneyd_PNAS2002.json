@@ -1,0 +1,93 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "l4",
+   "admisible": false,
+   "e_rel": 0.9203160470746214,
+   "e_ajuste": 0.7509287661937957
+  },
+  {
+   "sin": "l2",
+   "admisible": false,
+   "e_rel": 0.8140825342206779,
+   "e_ajuste": 0.8007759347314471
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "l4",
+   "admisible": false,
+   "e_rel": 0.8140825342206779,
+   "e_ajuste": 0.8007759347314471
+  },
+  {
+   "parametro": "l2",
+   "admisible": false,
+   "e_rel": 0.9203160470746214,
+   "e_ajuste": 0.7509287661937957
+  },
+  {
+   "parametro": "k4",
+   "admisible": false,
+   "e_rel": 0.9783113507387405,
+   "e_ajuste": 0.8972090615560984
+  },
+  {
+   "parametro": "k_4",
+   "admisible": false,
+   "e_rel": 1.0205270766293668,
+   "e_ajuste": 0.8976087548755756
+  },
+  {
+   "parametro": "l_2",
+   "admisible": false,
+   "e_rel": 0.9578790214777971,
+   "e_ajuste": 0.7785763102724153
+  },
+  {
+   "parametro": "k3",
+   "admisible": false,
+   "e_rel": 0.9843110509177078,
+   "e_ajuste": 0.9017602668136517
+  },
+  {
+   "parametro": "k_1",
+   "admisible": false,
+   "e_rel": 0.9326145526448921,
+   "e_ajuste": 0.7354401188539126
+  },
+  {
+   "parametro": "k1",
+   "admisible": false,
+   "e_rel": 1.0224046769214707,
+   "e_ajuste": 0.7980901860133056
+  },
+  {
+   "parametro": "k_3",
+   "admisible": false,
+   "e_rel": 1.0012987135682194,
+   "e_ajuste": 0.9677496098224084
+  },
+  {
+   "parametro": "l_4",
+   "admisible": false,
+   "e_rel": 1.002220121210491,
+   "e_ajuste": 0.8875712557237634
+  },
+  {
+   "parametro": "k_2",
+   "admisible": false,
+   "e_rel": 0.9989967646660556,
+   "e_ajuste": 0.8874961770919664
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 32.9
+}

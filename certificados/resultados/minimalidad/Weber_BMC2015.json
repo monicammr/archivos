@@ -1,0 +1,99 @@
+{
+ "sistema": "Weber_BMC2015",
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "s12",
+   "admisible": false,
+   "e_rel": 0.9876341370780349,
+   "e_ajuste": 0.5317610977357142
+  },
+  {
+   "sin": "a21",
+   "admisible": false,
+   "e_rel": 0.8025117171470052,
+   "e_ajuste": 0.4869236134446424
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "a21",
+   "admisible": false,
+   "e_rel": 0.9876341370780349,
+   "e_ajuste": 0.5317610977357142
+  },
+  {
+   "parametro": "s12",
+   "admisible": false,
+   "e_rel": 0.8025117171470052,
+   "e_ajuste": 0.4869236134446424
+  },
+  {
+   "parametro": "a12",
+   "admisible": false,
+   "e_rel": 0.965657260257652,
+   "e_ajuste": 0.5056336495568077
+  },
+  {
+   "parametro": "a11",
+   "admisible": false,
+   "e_rel": 0.8095781531219464,
+   "e_ajuste": 0.5109984835564422
+  },
+  {
+   "parametro": "pu3",
+   "admisible": false,
+   "e_rel": 0.998289897278745,
+   "e_ajuste": 0.8775543298967308
+  },
+  {
+   "parametro": "p21",
+   "admisible": false,
+   "e_rel": 0.9601659031227266,
+   "e_ajuste": 0.45396559841291056
+  },
+  {
+   "parametro": "p22",
+   "admisible": false,
+   "e_rel": 1.0704442504578742,
+   "e_ajuste": 0.4583134783923019
+  },
+  {
+   "parametro": "p11",
+   "admisible": false,
+   "e_rel": 1.107905619284455,
+   "e_ajuste": 0.439574133672331
+  },
+  {
+   "parametro": "m11",
+   "admisible": false,
+   "e_rel": 1.098520507251117,
+   "e_ajuste": 0.44173521547527406
+  },
+  {
+   "parametro": "m31",
+   "admisible": true,
+   "e_rel": 1.073240628655068,
+   "e_ajuste": 0.398105697666982
+  },
+  {
+   "parametro": "p31",
+   "admisible": true,
+   "e_rel": 0.8806295469285891,
+   "e_ajuste": 0.3980434093033772
+  },
+  {
+   "parametro": "s21",
+   "admisible": true,
+   "e_rel": 0.8954672816258405,
+   "e_ajuste": 0.4066360756941626
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 22.1
+}
