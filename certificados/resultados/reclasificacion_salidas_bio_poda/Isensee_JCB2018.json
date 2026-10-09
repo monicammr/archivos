@@ -1,0 +1,64 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "p": 46,
+ "T": 50.0,
+ "S1": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2",
+  "ks_AC_cAMP",
+  "KD_cAMP",
+  "xi_AC_cAMP_Fsk",
+  "kf_RIIp_cAMP_C_2__RIIp_2",
+  "kf_RII_2__RII_C_2"
+ ],
+ "Rvar_S1_%": 90.529968510894,
+ "S1_cumple": true,
+ "cos_S1": NaN,
+ "erel_S1": NaN,
+ "etapa": "Stage 1",
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "Rvar_%": 68.41467438141669,
+ "kappa": 1.018659337126297,
+ "VIF": 1.0003418224325962,
+ "cos_med": 0.8658866644253841,
+ "erel_med": 0.5204510864825919,
+ "n_escenarios": 4,
+ "S_antes_poda": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2",
+  "ks_AC_cAMP",
+  "KD_cAMP",
+  "xi_AC_cAMP_Fsk",
+  "kf_RIIp_cAMP_C_2__RIIp_2",
+  "kf_RII_2__RII_C_2"
+ ],
+ "podados": [
+  "ks_AC_cAMP",
+  "KD_cAMP",
+  "xi_AC_cAMP_Fsk",
+  "kf_RIIp_cAMP_C_2__RIIp_2",
+  "kf_RII_2__RII_C_2"
+ ],
+ "admisible": true,
+ "eajuste_med": 0.07588884060451623,
+ "calibracion": [
+  "b_Calpha_global",
+  "b_pRII_global",
+  "rel_open",
+  "s_Calpha_global",
+  "s_pRII_JI09_150302_Drg345_343_CycNuc",
+  "s_pRII_JI09_150330_Drg350_348_CycNuc",
+  "s_pRII_JI09_150330_Drg353_351_CycNuc",
+  "s_pRII_JI09_151102_Drg421_418_Age",
+  "s_pRII_Western",
+  "s_pRII_global",
+  "xi_rel_open"
+ ],
+ "eajuste_metodo": "linealizado (primer orden, J relativa)",
+ "segundos": 211.0,
+ "etapa_paper": "Parcial",
+ "S_paper": []
+}
