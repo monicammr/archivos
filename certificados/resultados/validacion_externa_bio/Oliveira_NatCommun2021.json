@@ -1,0 +1,28 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 40)",
+ "n_condiciones": 1,
+ "n_train": 80,
+ "n_test": 40,
+ "S": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "|S|": 2,
+ "n_calibracion": 0,
+ "p_y": 12,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 460396.12570126157,
+ "A_chi2_train_red": 40.45535029165514,
+ "A_chi2_test_red": 914.5065154609653,
+ "A_chi2_train_full": 8.750835861094632,
+ "A_chi2_test_full": 81453.15260708614,
+ "B_chi2_test_theta0": 66983132.59787699,
+ "B_chi2_test_red": 5480367.732908392,
+ "B_epred_red": 0.2860313315674344,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 141.95917598934867,
+ "B_epred_full": 0.0014631071936047936,
+ "segundos": 2.0
+}

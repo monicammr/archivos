@@ -6,7 +6,8 @@ import numpy as np
 import pandas as pd
 
 HERE = Path(__file__).resolve().parent
-D = HERE / "resultados" / "validacion_externa"
+import sys
+D = HERE / "resultados" / ("validacion_externa_bio" if "--bio" in sys.argv else "validacion_externa")
 EMAX = float(np.sqrt(1 - 0.9 ** 2))
 
 

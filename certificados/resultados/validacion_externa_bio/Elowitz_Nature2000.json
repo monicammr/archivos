@@ -1,0 +1,28 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 410)",
+ "n_condiciones": 1,
+ "n_train": 38,
+ "n_test": 20,
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "|S|": 2,
+ "n_calibracion": 2,
+ "p_y": 20,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 1.3755589956346181,
+ "A_chi2_train_red": 0.780144164994355,
+ "A_chi2_test_red": 1.4983825536792228,
+ "A_chi2_train_full": 0.7255807261633674,
+ "A_chi2_test_full": 4.4521966170929534,
+ "B_chi2_test_theta0": 6.04081497531236,
+ "B_chi2_test_red": 1.508981935954718,
+ "B_epred_red": 0.4711374590713439,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 0.7916743397867404,
+ "B_epred_full": 0.11046469311896664,
+ "segundos": 6.4
+}

@@ -1,0 +1,33 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "division": "condiciones nuevas",
+ "n_condiciones": 3,
+ "n_train": 33,
+ "n_test": 9,
+ "S": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "|S|": 2,
+ "n_calibracion": 2,
+ "p_y": 8,
+ "locales_prueba": [
+  "Int_nuc_off",
+  "scale_sigma_FracNucInt"
+ ],
+ "S_locales_prueba": [
+  "Int_nuc_off"
+ ],
+ "A_chi2_test_theta0": 0.44483562200248133,
+ "A_chi2_train_red": 0.0771396647688838,
+ "A_chi2_test_red": 0.75800068086662,
+ "A_chi2_train_full": 0.06079975210651116,
+ "A_chi2_test_full": 1.875525224039552,
+ "B_chi2_test_theta0": 0.48990308973427826,
+ "B_chi2_test_red": 0.4390968867922507,
+ "B_epred_red": 0.5035901605809042,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 4.6270757009895656,
+ "B_epred_full": 4.724290690372841,
+ "segundos": 2.8
+}

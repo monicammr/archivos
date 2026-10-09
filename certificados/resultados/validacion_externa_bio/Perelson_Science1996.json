@@ -1,0 +1,28 @@
+{
+ "sistema": "Perelson_Science1996",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 2.038)",
+ "n_condiciones": 1,
+ "n_train": 10,
+ "n_test": 6,
+ "S": [
+  "c",
+  "delta"
+ ],
+ "|S|": 2,
+ "n_calibracion": 0,
+ "p_y": 2,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 3.963671546106699e-13,
+ "A_chi2_train_red": 2.5789408266678493e-12,
+ "A_chi2_test_red": 3.963671546106699e-13,
+ "A_chi2_train_full": 2.5789408266678493e-12,
+ "A_chi2_test_full": 3.963671546106699e-13,
+ "B_chi2_test_theta0": 0.6757879825738473,
+ "B_chi2_test_red": 0.6757855516901742,
+ "B_epred_red": 23.292132397900037,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 0.6757855516901742,
+ "B_epred_full": 23.292132397900037,
+ "segundos": 0.1
+}

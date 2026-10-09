@@ -1,0 +1,28 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "division": "condiciones nuevas",
+ "n_condiciones": 4,
+ "n_train": 133,
+ "n_test": 72,
+ "S": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "|S|": 2,
+ "n_calibracion": 5,
+ "p_y": 23,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 0.41702781312862786,
+ "A_chi2_train_red": 2661.9264122722025,
+ "A_chi2_test_red": 8.226502474042316,
+ "A_chi2_train_full": 2486.3199628982834,
+ "A_chi2_test_full": 5.104564004226595,
+ "B_chi2_test_theta0": 0.9104579263565703,
+ "B_chi2_test_red": 0.9202565256885724,
+ "B_epred_red": 0.4811395691079747,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 0.9601966386168712,
+ "B_epred_full": 1.0774951302826872,
+ "segundos": 18.4
+}

@@ -45,6 +45,12 @@ import petab_outputs as PO
 HERE = Path(__file__).resolve().parent
 SUBS = HERE / "resultados" / "reclasificacion_salidas"
 OUTD = HERE / "resultados" / "validacion_externa"
+# --bio: subconjuntos de la selección biológica con poda; los parámetros de calibración
+# (escalas, offsets) del JSON se reajustan siempre junto con S
+BIO = "--bio" in sys.argv
+if BIO:
+    SUBS = HERE / "resultados" / "reclasificacion_salidas_bio_poda"
+    OUTD = HERE / "resultados" / "validacion_externa_bio"
 P_MAX_COMPLETO = 60          # ajuste del modelo completo sólo hasta este número de parámetros
 SEED, NIVEL_VERDAD = 42, 0.20
 EMAX = float(np.sqrt(1 - 0.9 ** 2))
@@ -135,6 +141,8 @@ def uno(name, S_nombres=None):
     S = PO.PSys(name)
     th0 = S.theta0
     Ssel = [S.names.index(q) for q in info["S"] if q in S.names]
+    n_bio = len(Ssel)
+    Ssel += [S.names.index(q) for q in info.get("calibracion", []) if q in S.names]
     libres_full = [int(j) for j in np.nonzero(S.in_model)[0]]
     train, test, ftest, tipo = division(S)
     ftrain_all = ~ftest
@@ -146,7 +154,8 @@ def uno(name, S_nombres=None):
     G_all = list(range(len(S.groups)))
     res = {"sistema": name, "division": tipo, "n_condiciones": len(S.groups),
            "n_train": int(ftrain_all.sum()), "n_test": int(ftest.sum()),
-           "S": info["S"], "|S|": len(Ssel), "p_y": len(libres_full),
+           "S": info["S"], "|S|": n_bio, "n_calibracion": len(Ssel) - n_bio,
+           "p_y": len(libres_full),
            "locales_prueba": [S.names[j] for j in sorted(loc)],
            "S_locales_prueba": [S.names[j] for j in Ssel if j in loc]}
     # los parámetros exclusivos de la prueba no se pueden estimar con el entrenamiento

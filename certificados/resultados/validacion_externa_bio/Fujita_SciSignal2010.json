@@ -1,0 +1,28 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "division": "condiciones nuevas",
+ "n_condiciones": 6,
+ "n_train": 96,
+ "n_test": 48,
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "|S|": 2,
+ "n_calibracion": 3,
+ "p_y": 19,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 5.630719456962645,
+ "A_chi2_train_red": 5.059971888648828,
+ "A_chi2_test_red": 5.939624814491438,
+ "A_chi2_train_full": 4.788256202230246,
+ "A_chi2_test_full": 8.03735950106492,
+ "B_chi2_test_theta0": 1.3770182252312342,
+ "B_chi2_test_red": 1.467107930090872,
+ "B_epred_red": 0.9456376682755717,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 1.0649505767699843,
+ "B_epred_full": 0.4373266498032556,
+ "segundos": 6.9
+}
