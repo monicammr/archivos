@@ -1,5 +1,5 @@
 sistema,estados_etapa,estados_|S|,salidas_etapa,salidas_|S|,salidas_p,salidas_cos,salidas_erel,salidas_eajuste,salidas_admisible,S_salidas,en_comun
-Alkan_SciSignal2018,Stage 2 ✓,5,—,0,,,,,,,0
+Alkan_SciSignal2018,Stage 2 ✓,5,Stage 1 ✓,3,44.0,0.9641737254226196,0.2663254106012012,0.23963479357673279,True,"kt, scale_patm_au, scale_pchk1_au",1
 Armistead_CellDeathDis2024,Stage 1 ✓,2,Stage 2 ✓,4,14.0,0.9969061244131788,0.11637583627813049,0.05740767507099321,True,"k_d, k00, k2, alpha_cer",2
 Bachmann_MSB2011,Stage 2 ✓,2,Stage 2 ✓,22,113.0,0.8453099874647271,0.5536156654138641,0.4122457788345389,True,"CISRNADelay, JAK2ActEpo, EpoRActJAK2, STAT5Imp, STAT5Exp, JAK2EpoRDeaSHP1, CISTurn, scale_SHP1_shp1oe, scale_tSTAT5_actd, scale_pSTAT5_dr10, scale_pSTAT5_actd, STAT5ActJAK2, scale_tSTAT5_long, scale1_CIS_dr90, scale2_CIS_dr90, scale_SOCS3_socs3oe, offset_SOCS3_cisoe, scale_pSTAT5_long, SOCS3EqcOE, init_SHP1, SOCS3RNATurn, offset_CIS_actd",2
 Beer_MolBioSystems2014,Técnico,0,—,0,,,,,,,0
@@ -16,7 +16,7 @@ Fiedler_BMCSystBiol2016,Stage 2 ✓,2,Stage 2 ✓,5,22.0,0.8361922599398631,0.67
 Froehlich_CellSystems2018,Stage 1 ✓,22,—,0,,,,,,,0
 Fujita_SciSignal2010,Stage 2 (|S| = 1),1,Stage 2 ✓,2,19.0,0.658598977392749,0.8508921051566206,0.3254071383747658,True,"init_AKT, scaling_pS6_tot",0
 Giordano_Nature2020,Stage 2 ✓,2,Stage 2 ✓,2,50.0,0.9674626197095869,1.0832184796172433,0.05750445056487047,True,"alpha_4, alpha_28",2
-Isensee_JCB2018,Stage 2 ✓,2,—,0,,,,,,,0
+Isensee_JCB2018,Stage 2 ✓,2,Stage 1 ✓,10,46.0,0.9391531515060072,0.48272199531244364,0.12865286170396795,True,"s_pRII_global, s_pRII_JI09_151102_Drg421_418_Age, s_pRII_JI09_150330_Drg353_351_CycNuc, s_pRII_JI09_150330_Drg350_348_CycNuc, s_Calpha_global, kf_RIIp_C_2__RII_C_2, xi_rel_open, rel_open, ks_AC_cAMP, KD_cAMP",0
 Lang_PLOSComputBiol2024,Stage 2 ✓,19,Stage 2 ✓,12,294.0,0.3392163620080462,0.949739239533958,0.42645038714545686,True,"oCCNA, kDeE2f1, oRB1_pSer807Ser811, oCDKN1B, oSKP2, oCDKN1A, kWee2, oCCNE, oCCNB, sCCNE, sRB1_pSer807Ser811, sCCNB",1
 Laske_PLOSComputBiol2019,Stage 1 ✓,2,Stage 1 ✓,2,13.0,0.9871992709251929,0.15952123044341743,0.15756225697796017,True,"Int_nuc_off, k_imp",0
 Liu_IFACPapersOnLine2025,Stage 1 ✓,2,Stage 2 ✓,2,9.0,0.9229459014117457,0.473841931356964,0.26130212510265444,True,"kappa, phi",1

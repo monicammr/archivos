@@ -1,0 +1,32 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "p": 44,
+ "T": 50.0,
+ "S1": [
+  "kt",
+  "scale_patm_au",
+  "scale_pchk1_au"
+ ],
+ "Rvar_S1_%": 90.83387323812386,
+ "S1_cumple": true,
+ "cos_S1": 0.9641737254226196,
+ "erel_S1": 0.2663254106012012,
+ "etapa": "Stage 1",
+ "S": [
+  "kt",
+  "scale_patm_au",
+  "scale_pchk1_au"
+ ],
+ "Rvar_%": 90.83387323812386,
+ "kappa": 1.0830549233741191,
+ "VIF": 1.0059656690236272,
+ "cos_med": 0.9641737254226196,
+ "erel_med": 0.2663254106012012,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.23963479357673279,
+ "eajuste_metodo": "linealizado (primer orden, J relativa)",
+ "segundos": 12.1,
+ "etapa_paper": "No admisible",
+ "S_paper": []
+}
