@@ -127,9 +127,11 @@ def chi2(z, objetivo, filas):
     return float(np.mean(r ** 2)) if len(r) else float("nan")
 
 
-def uno(name):
+def uno(name, S_nombres=None):
     t0 = time.time()
     info = json.loads((SUBS / f"{name}.json").read_text())
+    if S_nombres is not None:          # subconjunto alternativo (p. ej. un solo parámetro)
+        info = dict(info, S=list(S_nombres))
     S = PO.PSys(name)
     th0 = S.theta0
     Ssel = [S.names.index(q) for q in info["S"] if q in S.names]

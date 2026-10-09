@@ -1,0 +1,19 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "uno": "Int_nuc_off",
+ "S": [
+  "Int_nuc_off",
+  "k_imp"
+ ],
+ "uno_10_admisible": true,
+ "uno_10_eajuste": 0.27788607892819256,
+ "uno_division": "condiciones nuevas",
+ "uno_no_evaluable": "todos los par\u00e1metros de S son exclusivos de las condiciones de prueba",
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.16222747325964282,
+ "S_division": "condiciones nuevas",
+ "S_A_chi2_test_red": 0.4443211827387813,
+ "S_B_epred_red": 3.1882121336275557,
+ "S_A_chi2_test_full": 1.875525224039552,
+ "S_B_epred_full": 4.724290690372841
+}
