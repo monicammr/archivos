@@ -75,10 +75,14 @@ Final method re-run on the small and medium systems changing one threshold at a 
 | Setting | Systems | Admissible | Mean k (admissible) | Stage 1 | Same S | Same stage |
 |---|---|---|---|---|---|---|
 | τ_R = 0.80 | 26 | 25 | 2.16 | 8 | 26/26 | 23/26 |
-| τ_R = 0.85 | 15 | 14 | 2.07 | 2 | 15/15 | 15/15 |
+| τ_R = 0.85 | 26 | 25 | 2.16 | 6 | 26/26 | 25/26 |
 | baseline | 26 | 25 | 2.16 | 5 | 26/26 | 26/26 |
+| τ_R = 0.95 | 26 | 25 | 2.16 | 4 | 26/26 | 25/26 |
 | τ_κ = τ_VIF = 5 | 26 | 25 | 2.16 | 5 | 23/26 | 26/26 |
-| τ_κ = τ_VIF = 30 | 15 | 14 | 2.07 | 3 | 13/15 | 14/15 |
-| τ_e = 0.20 | 20 | 19 | 2.89 | 2 | 13/20 | 19/20 |
+| τ_κ = τ_VIF = 30 | 26 | 25 | 2.16 | 7 | 22/26 | 24/26 |
+| τ_e = 0.10 | 26 | 22 | 3.64 | 3 | 12/26 | 24/26 |
+| τ_e = 0.20 | 26 | 24 | 2.71 | 4 | 17/26 | 25/26 |
+| τ_e = 0.30 | 26 | 25 | 2.44 | 5 | 20/26 | 26/26 |
+| τ_e = 0.50 | 26 | 25 | 2.08 | 5 | 24/26 | 26/26 |
 
 Robustness to δ (0.1%, 1%, 5%), integrator tolerances, perturbation size (±1%, ±5%, ±10%) and time grid (N_t = 30, 60, 120; horizon 2T) is reported separately (sensitivity analysis, reviewer 4 comment 6).
