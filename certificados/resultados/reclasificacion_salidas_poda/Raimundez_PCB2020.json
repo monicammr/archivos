@@ -1,0 +1,66 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "p": 136,
+ "T": 50.0,
+ "S1": [
+  "kdeg_membran__MKN1",
+  "s_pMAPK_ID9b_MKN1_HM_1EGF",
+  "ka_MAPK__MKN1",
+  "d_ksyn_EGFR__MKN1_2_HS746T",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T",
+  "kimp_pEGFR_EGF_2__MKN1",
+  "ka_AKT__MKN1",
+  "d_AKTtotal__fm_2_hm",
+  "s_pMAPK_ID7_HS746T_FM_1min",
+  "s_pEGFR_ID3_HS746T_FM",
+  "s_pEGFR_ID6_MKN1_HM_15min",
+  "s_pEGFR_ID5_MKN1_FM_3min",
+  "s_pMAPK_ID8_HS746T_HM_1min",
+  "s_pEGFR_ID6_MKN1_HM_240min",
+  "s_pAKT_ID5_MKN1_FM_3min",
+  "s_pAKT_ID7_HS746T_FM_240min",
+  "s_pAKT_ID5_MKN1_FM_1min",
+  "s_pAKT_ID7_HS746T_FM_15min",
+  "s_pAKT_ID7_HS746T_FM_3min",
+  "s_pEGFR_ID5_MKN1_FM_15min",
+  "d_ksyn_MMET__fm_2_hm",
+  "s_pEGFR_ID8_HS746T_HM_3min",
+  "s_pAKT_ID9_HS746T_HM_5EGF",
+  "s_pAKT_ID8_HS746T_HM_15min",
+  "s_pAKT_ID8_HS746T_HM_3min",
+  "s_pMAPK_ID5_MKN1_FM_15min"
+ ],
+ "Rvar_S1_%": 57.090817259478285,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T",
+  "d_ksyn_EGFR__MKN1_2_HS746T"
+ ],
+ "Rvar_%": 35.139387740332815,
+ "kappa": 1.6964319718657483,
+ "VIF": 1.2747874073213847,
+ "cos_med": 0.9513302149545194,
+ "erel_med": 0.8345810588674505,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "kdeg_membran__MKN1",
+  "s_pMAPK_ID9b_MKN1_HM_1EGF",
+  "ka_MAPK__MKN1",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T",
+  "d_ksyn_EGFR__MKN1_2_HS746T"
+ ],
+ "podados": [
+  "s_pMAPK_ID9b_MKN1_HM_1EGF"
+ ],
+ "admisible": true,
+ "eajuste_med": 0.4344508648771698,
+ "eajuste_metodo": "linealizado (primer orden, J relativa)",
+ "segundos": 68.8,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "d_ksyn_EGFR__fm_2_hm"
+ ]
+}

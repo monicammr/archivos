@@ -1,0 +1,31 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "division": "condiciones nuevas",
+ "n_condiciones": 16,
+ "n_train": 1157,
+ "n_test": 598,
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "|S|": 10,
+ "p_y": 72,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 1.015282858958386,
+ "A_chi2_train_red": 1.313613555742745,
+ "A_chi2_test_red": 1.5710107940235014,
+ "B_chi2_test_theta0": 1.0953032901473958,
+ "B_chi2_test_red": 1.2962200667394088,
+ "B_epred_red": 2.0112746448541636,
+ "B_epred_theta0": 1.0,
+ "segundos": 9.5
+}

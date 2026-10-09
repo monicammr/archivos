@@ -6,3 +6,6 @@ certificados/resultados/sens_*.log
 certificados/resultados/minimalidad_log.txt
 certificados/resultados/un_parametro_log.txt
 certificados/resultados/poda_log.txt
+certificados/resultados/poda_gr_log.txt
+certificados/resultados/validacion_gr_log.txt
+certificados/resultados/minimalidad_gr_log.txt

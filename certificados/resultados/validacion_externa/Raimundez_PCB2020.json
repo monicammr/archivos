@@ -1,0 +1,37 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "division": "condiciones nuevas",
+ "n_condiciones": 170,
+ "n_train": 419,
+ "n_test": 208,
+ "S": [
+  "kdeg_membran__MKN1",
+  "s_pMAPK_ID9b_MKN1_HM_1EGF",
+  "ka_MAPK__MKN1",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T",
+  "d_ksyn_EGFR__MKN1_2_HS746T"
+ ],
+ "|S|": 5,
+ "p_y": 136,
+ "locales_prueba": [
+  "s_EGFR_ID10_HS746T_FM_EGF",
+  "s_MMET_ID10_HS746T_FM_EGF",
+  "s_pAKT_ID9_HS746T_FM",
+  "s_pAKT_ID9_HS746T_HM_30EGF",
+  "s_pEGFR_ID10_HS746T_FM_EGF",
+  "s_pEGFR_ID9_HS746T_FM",
+  "s_pEGFR_ID9_HS746T_HM_30EGF",
+  "s_pMAPK_ID10_HS746T_FM_EGF",
+  "s_pMAPK_ID9_HS746T_FM",
+  "s_pMAPK_ID9_HS746T_HM_30EGF"
+ ],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 0.9804303032688384,
+ "A_chi2_train_red": 5.831825166744071,
+ "A_chi2_test_red": 0.981572888183603,
+ "B_chi2_test_theta0": 5.502556176262643,
+ "B_chi2_test_red": 2.0884994362249785,
+ "B_epred_red": 0.4934730180115007,
+ "B_epred_theta0": 1.0,
+ "segundos": 27.8
+}
