@@ -17,6 +17,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Fiedler_BMCSystBiol2016 | condiciones nuevas | 2 / 20 | 11.21 | 14.11 | 1.22 |
 | Fujita_SciSignal2010 | condiciones nuevas | 2 / 19 | 5.94 | 8.04 | 5.63 |
 | Giordano_Nature2020 | extrapolación temporal (t ≥ 30) | 2 / 43 | 0.00 | 0.06 | 0.00 |
+| Isensee_JCB2018 | condiciones nuevas | 2 / 43 | 1.08 | 1.08 | 1.04 |
 | Lang_PLOSComputBiol2024 | extrapolación temporal (t ≥ 86391.6) | 2 / 277 | 8.98 | — | 7.33 |
 | Laske_PLOSComputBiol2019 | condiciones nuevas | 2 / 8 | 0.76 | 1.88 | 0.44 |
 | Liu_IFACPapersOnLine2025 | condiciones nuevas | 2 / 7 | 0.95 | 1.02 | 0.94 |
@@ -29,6 +30,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Raimundez_PCB2020 | condiciones nuevas | 2 / 136 | 1.19 | — | 0.98 |
 | SalazarCavazos_MBoC2020 | condiciones nuevas | 2 / 6 | 101.83 | 124.19 | 96.93 |
 | Schwen_PONE2014 | condiciones nuevas | 2 / 28 | 8.20 | 8.40 | 0.77 |
+| Smith_BMCSystBiol2013 | condiciones nuevas | 2 / 25 | 14976.89 | 14977.66 | 82920.71 |
 | Sneyd_PNAS2002 | condiciones nuevas | 2 / 14 | 2.22 | 2.55 | 1.37 |
 | Weber_BMC2015 | condiciones nuevas | 2 / 31 | 1.00 | 226.02 | 0.99 |
 | Zhao_QuantBiol2020 | condiciones nuevas | 3 / 21 | 0.35 | 0.35 | 0.35 |
@@ -49,6 +51,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Fiedler_BMCSystBiol2016 | 0.23 | 3.12 | 0.53 | 10.17 | sí |
 | Fujita_SciSignal2010 | 0.95 | 0.44 | 1.47 | 1.06 | no |
 | Giordano_Nature2020 | 1027.15 | 3136.24 | 0.86 | 1.10 | no |
+| Isensee_JCB2018 | — | — | — | — | no |
 | Lang_PLOSComputBiol2024 | 0.17 | — | 1.32 | — | sí |
 | Laske_PLOSComputBiol2019 | 0.50 | 4.72 | 0.44 | 4.63 | no |
 | Liu_IFACPapersOnLine2025 | 0.65 | 2.15 | 0.58 | 0.75 | no |
@@ -61,6 +64,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Raimundez_PCB2020 | 1.27 | — | 8.96 | — | no |
 | SalazarCavazos_MBoC2020 | 0.17 | 0.11 | 0.44 | 0.55 | sí |
 | Schwen_PONE2014 | 2.03 | 1.94 | 4.56 | 4.51 | no |
+| Smith_BMCSystBiol2013 | 0.07 | 0.07 | 20.08 | 22.73 | sí |
 | Sneyd_PNAS2002 | 0.29 | 0.23 | 0.90 | 0.94 | sí |
 | Weber_BMC2015 | 0.63 | 1.72 | 46.69 | 352.74 | no |
 | Zhao_QuantBiol2020 | 1.00 | 1.00 | 0.87 | 0.87 | no |
@@ -68,9 +72,12 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 
 ## Resumen
 
-* Sistemas evaluados: 27; no evaluables: 2; errores: 0.
-* Datos reales: el reducido predice igual o mejor que el completo reajustado en 21 de 23 sistemas.
-* Sintético: e_pred del reducido ≤ 0,436 en 10 de 27; reducido igual o mejor que el completo en 13 de 23.
+* Sistemas evaluados: 29; no evaluables: 2; errores: 0.
+* Datos reales: el reducido predice igual o mejor que el completo reajustado en 22 de 25 sistemas.
+* Sintético: e_pred del reducido ≤ 0,436 en 11 de 29; reducido igual o mejor que el completo en 14 de 24.
+* Sintético, sistemas donde la señal supera al ruido (χ²(θ₀) ≥ 2): 13; e_pred ≤ 0,436 en 8; reducido igual o mejor que el completo en 6 de 11.
+* Sintético, señal menor que el ruido: 15; el reducido predice al nivel del ruido (χ²/n ≤ 2) en 13 (e_pred no informativo en estos casos).
+* Datos reales frente al ajuste publicado θ₀ (que usó todos los datos): χ²/n del reducido ≤ 2·χ²/n(θ₀) en 22 de 29. En Okuonghae, Oliveira y Smith incluso θ₀ tiene χ²/n ≫ 1: los σ del benchmark no corresponden a la dispersión de los datos.
 
 No evaluables:
 

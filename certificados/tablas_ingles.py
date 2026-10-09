@@ -43,11 +43,15 @@ def tabla_sistemas():
          "backward elimination. e_fit: median relative error after re-estimation over 15 "
          "scenarios at ±5% (threshold 0.436 ⇔ cos Δ ≥ 0.9). External validation: χ²/n on "
          "held-out conditions (real data; reduced vs full model re-fitted on the training "
-         "conditions; full model only for p ≤ 60) and relative prediction error e_pred on "
-         "synthetic noisy data. * e_fit computed to first order (linearized) for computational "
-         "cost.", "",
+         "conditions; full model only for p ≤ 60; θ₀ = published estimate, obtained with all data "
+         "including the test conditions) and relative prediction error e_pred on synthetic "
+         "noisy data (truth θ* = θ₀ ± 20%, Gaussian noise with the PEtab σ). When the effect of "
+         "the perturbation on the test outputs is smaller than the noise (χ²/n(θ₀) < 2), e_pred "
+         "is not informative and the test χ²/n of the reduced model is reported instead "
+         "(≈ 1 = prediction at noise level). * e_fit computed to first order (linearized) for "
+         "computational cost.", "",
          "| System | p | Meas. | Cond. | Stage | k (biological) | Selected biological parameters | "
-         "Calibration re-estimated | e_fit | Admissible | χ²/n test (reduced / full) | "
+         "Calibration re-estimated | e_fit | Admissible | χ²/n test (reduced / full / θ₀) | "
          "e_pred (synthetic) |",
          "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     n_adm = 0
@@ -61,8 +65,12 @@ def tabla_sistemas():
         if "no_evaluable" in v:
             ext, ep = "not evaluable", "—"
         elif v:
-            ext = f"{num(v.get('A_chi2_test_red'))} / {num(v.get('A_chi2_test_full'))}"
-            ep = num(v.get("B_epred_red"))
+            ext = (f"{num(v.get('A_chi2_test_red'))} / {num(v.get('A_chi2_test_full'))} / "
+                   f"{num(v.get('A_chi2_test_theta0'))}")
+            if v.get("B_chi2_test_theta0", 0) < 2 and "B_chi2_test_red" in v:
+                ep = f"noise-dominated (χ²/n = {num(v.get('B_chi2_test_red'))})"
+            else:
+                ep = num(v.get("B_epred_red"))
         else:
             ext, ep = "not run", "—"
         etapa = {"Stage 1": "1", "Stage 2": "2"}.get(d.get("etapa"), d.get("etapa", "—"))
