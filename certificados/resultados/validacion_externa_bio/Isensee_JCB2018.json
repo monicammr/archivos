@@ -1,0 +1,23 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "division": "condiciones nuevas",
+ "n_condiciones": 123,
+ "n_train": 468,
+ "n_test": 219,
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "|S|": 2,
+ "n_calibracion": 11,
+ "p_y": 43,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 1.0412121079634666,
+ "A_chi2_train_red": 0.974272189903043,
+ "A_chi2_test_red": 1.0785389565548849,
+ "A_chi2_train_full": 0.9800086737442886,
+ "A_chi2_test_full": 1.0770633644357517,
+ "B_error": "la simulaci\u00f3n de la verdad \u03b8* falla",
+ "segundos": 1645.4
+}
