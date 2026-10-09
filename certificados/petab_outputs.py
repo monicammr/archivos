@@ -196,6 +196,13 @@ class PSys:
                 usados |= {str(s) for s in self.obs[oid][0].free_symbols}
         self.in_model = np.array([(n in self.gparams) or (n in usados) or (n in self.comps)
                                   for n in self.names])
+        # parámetros de CALIBRACIÓN (escalas, offsets, ruido): no son parámetros del modelo
+        # biológico (SBML) ni se fijan en conditions.tsv; sólo intervienen en g o en σ
+        refs_cond = set()
+        for c in self.cond.values():
+            refs_cond |= {v for _, v in c if isinstance(v, str)}
+        self.calib = np.array([(n not in self.gparams) and (n not in self.comps)
+                               and (n not in refs_cond) for n in self.names])
         self.sigma = None
         y0 = self._raw(self.theta0)
         if y0 is None:

@@ -59,7 +59,10 @@ EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ
 V3 = "--v3" in sys.argv          # criterio por reestimación (e_ajuste); implica las reglas de v2
 V2 = ("--v2" in sys.argv) or V3
 SALIDAS = "--salidas" in sys.argv
-PODA = "--poda" in sys.argv       # eliminación hacia atrás tras la selección (comentario 2)
+PODA = "--poda" in sys.argv
+# --biologicos (con --salidas): sólo se seleccionan parámetros del modelo biológico; los de
+# calibración (escalas, offsets) se reajustan siempre junto con S pero no cuentan en |S|
+BIOL = "--biologicos" in sys.argv       # eliminación hacia atrás tras la selección (comentario 2)
 if SALIDAS:
     from petab_outputs import PSys as Sys   # misma interfaz; salidas medidas y = g(x, θ)
 
@@ -175,6 +178,10 @@ def main_one(name, t_def):
         return {"sistema": name, "etapa": "Técnico", "motivo": "la simulación nominal falla",
                 "admisible": False}
     act = np.nonzero(Sy.in_model)[0]
+    CAL = []
+    if BIOL and hasattr(Sy, "calib"):
+        CAL = [int(j) for j in act if Sy.calib[j]]
+        act = np.array([j for j in act if not Sy.calib[j]], dtype=int)
     # --- J relativa por diferencias centradas en log θ
     if (p > 200 or PARALELO) and NPROC > 1:
         # sistemas grandes: J en disco (float32) con registro de columnas hechas, para poder
@@ -208,7 +215,7 @@ def main_one(name, t_def):
             if yp is not None and ym is not None:
                 J[:, j] = (yp - ym).ravel() / (2 * DELTA)
     E = np.sum(J ** 2, axis=0)
-    tot = float(E.sum())
+    tot = float(E[act].sum()) if BIOL else float(E.sum())
     if not tot > 0:
         return {"sistema": name, "p": p, "T": t_end, "etapa": "Técnico",
                 "motivo": "Jacobiano nulo (ningún parámetro dinámico afecta a "
@@ -226,6 +233,7 @@ def main_one(name, t_def):
     umbral = max(1e-10 * np.linalg.norm(y0), 1e-6)
 
     def valida(S):
+        S = list(S) + CAL          # los de calibración acompañan siempre a S
         cs, es = [], []
         for th, df_ in zip(escen, full):
             if df_ is None or np.linalg.norm(df_) < umbral:
@@ -251,6 +259,7 @@ def main_one(name, t_def):
         Con RECL_AJUSTE_LINEAL=1 (sistemas muy lentos): reestimación linealizada,
         min_c ‖Δy_full − J_S c‖ / ‖Δy_full‖ con la J relativa ya calculada (primer orden;
         sin simulaciones adicionales)."""
+        S = list(S) + CAL          # los de calibración se reajustan siempre
         if AJUSTE_LINEAL:
             Js = np.asarray(J[:, S], dtype=float)
             es = []
@@ -290,7 +299,7 @@ def main_one(name, t_def):
 
     memo_aj, memo_va = {}, {}
     # sistemas lentos: e_rel y e_ajuste ya calculados se guardan en disco para poder reanudar
-    f_aj = (OUT / "cache" / f"{name}{'_salidas' if SALIDAS else ''}_ajustes.json"
+    f_aj = (OUT / "cache" / f"{name}{'_salidas' if SALIDAS else ''}{'_bio' if BIOL else ''}_ajustes.json"
             if (p > 200 or PARALELO) else None)
     if f_aj is not None and f_aj.exists():
         _d = json.loads(f_aj.read_text())
@@ -414,6 +423,8 @@ def main_one(name, t_def):
         e_aj = res["eajuste_med"] if res["eajuste_med"] is not None else res["erel_med"]
         res["admisible"] = bool(len(Sf) >= 2 and np.isfinite(e_aj) and
                                 min(e_aj, res["erel_med"]) <= EREL_MAX)
+    if BIOL:
+        res["calibracion"] = [names[j] for j in CAL]
     if AJUSTE_LINEAL:
         res["eajuste_metodo"] = "linealizado (primer orden, J relativa)"
     res["segundos"] = round(time.time() - t0, 1)
@@ -429,7 +440,7 @@ if __name__ == "__main__":
         del sys.argv[_i:_i + 2]
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
     d = OUT / (("reclasificacion_salidas" if SALIDAS else "reclasificacion_v3" if V3 else "reclasificacion_v2" if V2 else "reclasificacion")
-               + ("_poda" if PODA else "") + (f"_{TAG}" if TAG else ""))
+               + ("_bio" if BIOL else "") + ("_poda" if PODA else "") + (f"_{TAG}" if TAG else ""))
     d.mkdir(exist_ok=True)
     out = []
     lista = [(n, sel, t, "FIM" if g == "FIM" else "SCAN", None) for n, sel, t, g in SYSTEMS]
