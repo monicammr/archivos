@@ -126,6 +126,7 @@ from multiprocessing import Pool
 NPROC = int(os.environ.get("NPROC", os.cpu_count() or 1))
 # paralelizar también sistemas con p ≤ 200 cuyas simulaciones son lentas (RECL_PARALELO=1)
 PARALELO = os.environ.get("RECL_PARALELO") == "1"
+AJUSTE_LINEAL = os.environ.get("RECL_AJUSTE_LINEAL") == "1"   # e_ajuste de primer orden
 _SY = None
 
 
@@ -245,7 +246,19 @@ def main_one(name, t_def):
     from scipy.optimize import least_squares
 
     def ajuste(S):
-        """Mediana de e_ajuste (reestimación de θ_S), como en refit_systems.py."""
+        """Mediana de e_ajuste (reestimación de θ_S), como en refit_systems.py.
+        Con RECL_AJUSTE_LINEAL=1 (sistemas muy lentos): reestimación linealizada,
+        min_c ‖Δy_full − J_S c‖ / ‖Δy_full‖ con la J relativa ya calculada (primer orden;
+        sin simulaciones adicionales)."""
+        if AJUSTE_LINEAL:
+            Js = np.asarray(J[:, S], dtype=float)
+            es = []
+            for df_ in full:
+                if df_ is None or np.linalg.norm(df_) < umbral:
+                    continue
+                c_, *_ = np.linalg.lstsq(Js, df_, rcond=None)
+                es.append(float(np.linalg.norm(df_ - Js @ c_) / np.linalg.norm(df_)))
+            return float(np.median(es)) if es else float("nan")
         sgn = np.where(th0[S] < 0, -1.0, 1.0)
         mag0 = np.maximum(np.abs(th0[S]), 1e-12)
         lo, hi = np.log(mag0 / 10), np.log(mag0 * 10)
@@ -274,18 +287,34 @@ def main_one(name, t_def):
             es.append(mejor)
         return float(np.median(es)) if es else float("nan")
 
-    memo_aj = {}
+    memo_aj, memo_va = {}, {}
+    # sistemas lentos: e_rel y e_ajuste ya calculados se guardan en disco para poder reanudar
+    f_aj = (OUT / "cache" / f"{name}{'_salidas' if SALIDAS else ''}_ajustes.json"
+            if (p > 200 or PARALELO) else None)
+    if f_aj is not None and f_aj.exists():
+        _d = json.loads(f_aj.read_text())
+        memo_aj = {tuple(json.loads(k)): v for k, v in _d.get("aj", {}).items()}
+        memo_va = {tuple(json.loads(k)): tuple(v) for k, v in _d.get("va", {}).items()}
+
+    def _guarda():
+        if f_aj is not None:
+            f_aj.parent.mkdir(exist_ok=True)
+            f_aj.write_text(json.dumps({
+                "aj": {json.dumps(list(k)): v for k, v in memo_aj.items()},
+                "va": {json.dumps(list(k)): list(v) for k, v in memo_va.items()}}))
 
     def admisible3(S):
         """|S| ≥ 2 y e_ajuste ≤ 0,436 (sin reestimar si ya e_rel ≤ 0,436)."""
         if len(S) < 2:
             return False
-        c, e, n = valida(S)
+        key = tuple(S)
+        if key not in memo_va:
+            memo_va[key] = valida(S); _guarda()
+        c, e, n = memo_va[key]
         if np.isfinite(e) and e <= EREL_MAX:
             return True
-        key = tuple(S)
         if key not in memo_aj:
-            memo_aj[key] = ajuste(S)
+            memo_aj[key] = ajuste(S); _guarda()
         return bool(np.isfinite(memo_aj[key]) and memo_aj[key] <= EREL_MAX)
 
     res = {"sistema": name, "p": p, "T": t_end}
@@ -383,6 +412,8 @@ def main_one(name, t_def):
         e_aj = res["eajuste_med"] if res["eajuste_med"] is not None else res["erel_med"]
         res["admisible"] = bool(len(Sf) >= 2 and np.isfinite(e_aj) and
                                 min(e_aj, res["erel_med"]) <= EREL_MAX)
+    if AJUSTE_LINEAL:
+        res["eajuste_metodo"] = "linealizado (primer orden, J relativa)"
     res["segundos"] = round(time.time() - t0, 1)
     return res
 
