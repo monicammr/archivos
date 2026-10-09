@@ -124,6 +124,8 @@ EXTRA = [
 import os
 from multiprocessing import Pool
 NPROC = int(os.environ.get("NPROC", os.cpu_count() or 1))
+# paralelizar también sistemas con p ≤ 200 cuyas simulaciones son lentas (RECL_PARALELO=1)
+PARALELO = os.environ.get("RECL_PARALELO") == "1"
 _SY = None
 
 
@@ -173,7 +175,7 @@ def main_one(name, t_def):
                 "admisible": False}
     act = np.nonzero(Sy.in_model)[0]
     # --- J relativa por diferencias centradas en log θ
-    if p > 200 and NPROC > 1:
+    if (p > 200 or PARALELO) and NPROC > 1:
         # sistemas grandes: J en disco (float32) con registro de columnas hechas, para poder
         # reanudar tras una interrupción
         cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
@@ -306,7 +308,7 @@ def main_one(name, t_def):
             res["motivo_stage2"] = "Stage 1 cumple R_var pero no es admisible"
         # --- Stage 2: barrido empírico
         s = np.zeros(p)
-        if p > 200 and NPROC > 1:
+        if (p > 200 or PARALELO) and NPROC > 1:
             cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
             fs, fsm = cdir / f"{name}_s.npy", cdir / f"{name}_s_hechas.npy"
             hs = np.zeros(p, dtype=bool)
