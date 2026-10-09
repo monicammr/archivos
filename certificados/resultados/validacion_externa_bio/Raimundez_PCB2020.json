@@ -1,0 +1,46 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "division": "condiciones nuevas",
+ "n_condiciones": 170,
+ "n_train": 419,
+ "n_test": 208,
+ "S": [
+  "kdeg_membran__MKN1",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+ ],
+ "|S|": 2,
+ "n_calibracion": 79,
+ "p_y": 136,
+ "locales_prueba": [
+  "s_EGFR_ID10_HS746T_FM_EGF",
+  "s_MMET_ID10_HS746T_FM_EGF",
+  "s_pAKT_ID9_HS746T_FM",
+  "s_pAKT_ID9_HS746T_HM_30EGF",
+  "s_pEGFR_ID10_HS746T_FM_EGF",
+  "s_pEGFR_ID9_HS746T_FM",
+  "s_pEGFR_ID9_HS746T_HM_30EGF",
+  "s_pMAPK_ID10_HS746T_FM_EGF",
+  "s_pMAPK_ID9_HS746T_FM",
+  "s_pMAPK_ID9_HS746T_HM_30EGF"
+ ],
+ "S_locales_prueba": [
+  "s_EGFR_ID10_HS746T_FM_EGF",
+  "s_MMET_ID10_HS746T_FM_EGF",
+  "s_pAKT_ID9_HS746T_FM",
+  "s_pAKT_ID9_HS746T_HM_30EGF",
+  "s_pEGFR_ID10_HS746T_FM_EGF",
+  "s_pEGFR_ID9_HS746T_FM",
+  "s_pEGFR_ID9_HS746T_HM_30EGF",
+  "s_pMAPK_ID10_HS746T_FM_EGF",
+  "s_pMAPK_ID9_HS746T_FM",
+  "s_pMAPK_ID9_HS746T_HM_30EGF"
+ ],
+ "A_chi2_test_theta0": 0.9804303032688384,
+ "A_chi2_train_red": 5.794361999560773,
+ "A_chi2_test_red": 1.1882382724744514,
+ "B_chi2_test_theta0": 5.502556176262643,
+ "B_chi2_test_red": 8.962636698453169,
+ "B_epred_red": 1.265747203864135,
+ "B_epred_theta0": 1.0,
+ "segundos": 340.1
+}

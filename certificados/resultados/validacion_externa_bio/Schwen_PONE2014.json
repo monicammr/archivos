@@ -1,0 +1,28 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "division": "condiciones nuevas",
+ "n_condiciones": 19,
+ "n_train": 267,
+ "n_test": 19,
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "|S|": 2,
+ "n_calibracion": 15,
+ "p_y": 28,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 0.768168283723076,
+ "A_chi2_train_red": 0.8928618438118162,
+ "A_chi2_test_red": 8.195935547810103,
+ "A_chi2_train_full": 0.8677371552172362,
+ "A_chi2_test_full": 8.395440255759482,
+ "B_chi2_test_theta0": 1.4355246377976056,
+ "B_chi2_test_red": 4.555877281413565,
+ "B_epred_red": 2.027906404671338,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 4.505068031529903,
+ "B_epred_full": 1.9404258595579964,
+ "segundos": 38.6
+}

@@ -1,0 +1,28 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "division": "condiciones nuevas",
+ "n_condiciones": 4,
+ "n_train": 15,
+ "n_test": 3,
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "|S|": 2,
+ "n_calibracion": 0,
+ "p_y": 6,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 96.92829245059961,
+ "A_chi2_train_red": 28.110439584691676,
+ "A_chi2_test_red": 101.82516518364058,
+ "A_chi2_train_full": 25.920772347720575,
+ "A_chi2_test_full": 124.1862309045589,
+ "B_chi2_test_theta0": 6.138738959097054,
+ "B_chi2_test_red": 0.43757599278927856,
+ "B_epred_red": 0.16765753826318863,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 0.5522168906493113,
+ "B_epred_full": 0.11425665943494238,
+ "segundos": 20.6
+}

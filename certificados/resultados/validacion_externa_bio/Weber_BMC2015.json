@@ -1,0 +1,33 @@
+{
+ "sistema": "Weber_BMC2015",
+ "division": "condiciones nuevas",
+ "n_condiciones": 2,
+ "n_train": 76,
+ "n_test": 59,
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "|S|": 2,
+ "n_calibracion": 5,
+ "p_y": 31,
+ "locales_prueba": [
+  "scale_yCERTpRN24",
+  "std_yCERTpRN24"
+ ],
+ "S_locales_prueba": [
+  "scale_yCERTpRN24"
+ ],
+ "A_chi2_test_theta0": 0.9928330827554741,
+ "A_chi2_train_red": 0.8117165827987435,
+ "A_chi2_test_red": 1.0008406568315642,
+ "A_chi2_train_full": 0.7788971143643769,
+ "A_chi2_test_full": 226.01832612642005,
+ "B_chi2_test_theta0": 118.16612761665424,
+ "B_chi2_test_red": 46.69450747258321,
+ "B_epred_red": 0.6308536936704163,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 352.7387262325342,
+ "B_epred_full": 1.7200468782050122,
+ "segundos": 63.1
+}
