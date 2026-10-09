@@ -192,7 +192,7 @@ def main_one(name, t_def):
                 if col is not None:
                     J[:, j] = col
                 hechas[j] = True
-                if k % 200 == 0:
+                if k % 10 == 0:
                     J.flush(); np.save(fm, hechas)
                     print(f"  J: {int(hechas.sum())}/{len(act)} columnas", flush=True)
         J.flush(); np.save(fm, hechas)
@@ -318,7 +318,7 @@ def main_one(name, t_def):
             with Pool(NPROC, initializer=_w_init, initargs=(name, t_end)) as pool:
                 for k, (j, v) in enumerate(pool.imap_unordered(_w_scan, pend, chunksize=8)):
                     s[j] = v; hs[j] = True
-                    if k % 200 == 0:
+                    if k % 10 == 0:
                         np.save(fs, s); np.save(fsm, hs)
                         print(f"  barrido: {int(hs.sum())}/{len(act)}", flush=True)
             np.save(fs, s); np.save(fsm, hs)
