@@ -52,10 +52,14 @@ import os as _os
 # sensibilidad (comentario 6): RECL_DELTA, RECL_NIVEL y RECL_TAG (sufijo de la carpeta).
 DELTA = float(_os.environ.get("RECL_DELTA", 0.01))   # paso de la linealización (δ = 0,01)
 RVAR_MIN, KAPPA_MAX, VIF_MAX, COS_MIN = 0.89, 10.0, 10.0, 0.90
+# umbrales configurables para el análisis de sensibilidad (revisor 2, comentario 4)
+RVAR_MIN = float(_os.environ.get("RECL_RVAR", RVAR_MIN))
+KAPPA_MAX = VIF_MAX = float(_os.environ.get("RECL_KV", KAPPA_MAX))
 N_ESC, SEED = 15, 42
 NIVEL = float(_os.environ.get("RECL_NIVEL", 0.05))   # perturbación de los escenarios (±5 %)
 TAG = _os.environ.get("RECL_TAG", "")
 EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ ≥ 0,90 (Lean)
+EREL_MAX = float(_os.environ.get("RECL_EMAX", EREL_MAX))
 V3 = "--v3" in sys.argv          # criterio por reestimación (e_ajuste); implica las reglas de v2
 V2 = ("--v2" in sys.argv) or V3
 SALIDAS = "--salidas" in sys.argv

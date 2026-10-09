@@ -1,0 +1,82 @@
+{
+ "Froehlich_CellSystems2018": {
+  "p": 4231,
+  "t_sim": 2.93088698387146,
+  "modo": "estados"
+ },
+ "Boehm_JProteomeRes2014": {
+  "p": 9,
+  "t_sim": 0.0016782283782958984,
+  "modo": "salidas"
+ },
+ "Fiedler_BMCSystBiol2016": {
+  "p": 22,
+  "t_sim": 0.002566814422607422,
+  "modo": "salidas"
+ },
+ "Elowitz_Nature2000": {
+  "p": 21,
+  "t_sim": 0.002429962158203125,
+  "modo": "salidas"
+ },
+ "Weber_BMC2015": {
+  "p": 36,
+  "t_sim": 0.0037431716918945312,
+  "modo": "salidas"
+ },
+ "Zheng_PNAS2012": {
+  "p": 46,
+  "t_sim": 0.00448918342590332,
+  "modo": "salidas"
+ },
+ "Giordano_Nature2020": {
+  "p": 50,
+  "t_sim": 0.006133317947387695,
+  "modo": "salidas"
+ },
+ "Raia_CancerResearch2011": {
+  "p": 39,
+  "t_sim": 0.010582685470581055,
+  "modo": "salidas"
+ },
+ "Beer_MolBioSystems2014": {
+  "p": 72,
+  "t_sim": 0.1729719638824463,
+  "modo": "salidas"
+ },
+ "Isensee_JCB2018": {
+  "p": 46,
+  "t_sim": 0.64,
+  "modo": "salidas"
+ },
+ "Alkan_SciSignal2018": {
+  "p": 44,
+  "t_sim": 0.13,
+  "modo": "salidas"
+ },
+ "Lucarelli_CellSystems2018": {
+  "p": 84,
+  "t_sim": 0.04,
+  "modo": "salidas"
+ },
+ "Bachmann_MSB2011": {
+  "p": 113,
+  "t_sim": 0.04,
+  "modo": "salidas"
+ },
+ "Raimundez_PCB2020": {
+  "p": 136,
+  "t_sim": 0.37,
+  "modo": "salidas"
+ },
+ "Lang_PLOSComputBiol2024": {
+  "p": 294,
+  "t_sim": 0.65,
+  "modo": "salidas"
+ },
+ "Chen_MSB2009": {
+  "p": 155,
+  "t_sim": 35.0,
+  "modo": "salidas"
+ }
+}
