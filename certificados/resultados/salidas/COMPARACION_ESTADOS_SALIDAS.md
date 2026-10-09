@@ -22,7 +22,7 @@
 | Fujita_SciSignal2010 | Stage 2 (|S| = 1) (1) | Stage 2 ✓ | 19 | 2 | 0.659 | 85.1 % | 32.5 % | 0 |
 | Giordano_Nature2020 | Stage 2 ✓ (2) | Stage 2 ✓ | 50 | 2 | 0.967 | 108.3 % | 5.8 % | 2 |
 | Isensee_JCB2018 | Stage 2 ✓ (2) | — | — | 0 | — | — | — | 0 |
-| Lang_PLOSComputBiol2024 | Stage 2 ✓ (19) | — | — | 0 | — | — | — | 0 |
+| Lang_PLOSComputBiol2024 | Stage 2 ✓ (19) | Stage 2 ✓ | 294 | 12 | 0.339 | 95.0 % | 42.6 % | 1 |
 | Laske_PLOSComputBiol2019 | Stage 1 ✓ (2) | Stage 1 ✓ | 13 | 2 | 0.987 | 16.0 % | 15.8 % | 0 |
 | Liu_IFACPapersOnLine2025 | Stage 1 ✓ (2) | Stage 2 ✓ | 9 | 2 | 0.923 | 47.4 % | 26.1 % | 1 |
 | Lucarelli_CellSystems2018 | Técnico (0) | — | — | 0 | — | — | — | 0 |
@@ -31,7 +31,7 @@
 | Perelson_Science1996 | Stage 1 ✓ (2) | Stage 1 ✓ | 3 | 2 | 1.000 | 0.0 % | 0.0 % | 2 |
 | Rahman_MBS2016 | Stage 2 ✓ (2) | Stage 2 ✓ | 9 | 2 | 0.967 | 70.2 % | 3.7 % | 1 |
 | Raia_CancerResearch2011 | Stage 2 (|S| = 1) (1) | Stage 2 ✓ | 39 | 2 | 0.994 | 70.8 % | 4.7 % | 0 |
-| Raimundez_PCB2020 | Stage 1 ✓ (2) | — | — | 0 | — | — | — | 0 |
+| Raimundez_PCB2020 | Stage 1 ✓ (2) | Stage 2 ✓ | 136 | 5 | 0.951 | 83.5 % | 43.3 % | 1 |
 | SCT_Bandura | Stage 1 ✓ (2) | — | — | 0 | — | — | — | 0 |
 | SalazarCavazos_MBoC2020 | Stage 2 ✗ (2) | Stage 2 ✓ | 6 | 2 | 0.973 | 41.1 % | 18.7 % | 2 |
 | Schwen_PONE2014 | Técnico (0) | Stage 2 ✓ | 30 | 4 | 0.776 | 69.3 % | 33.2 % | 0 |
@@ -41,7 +41,7 @@
 | Zhao_QuantBiol2020 | Stage 2 ✓ (2) | Stage 2 ✓ | 28 | 3 | 0.902 | 69.5 % | 29.6 % | 0 |
 | Zheng_PNAS2012 | Stage 2 ✓ (3) | Stage 2 ✓ | 46 | 2 | 0.568 | 94.7 % | 30.0 % | 1 |
 
-Admisibles: estados 29/36, salidas 27/28.
+Admisibles: estados 29/36, salidas 29/30.
 
 ## Subconjuntos seleccionados (salidas)
 
@@ -59,6 +59,7 @@ Admisibles: estados 29/36, salidas 27/28.
 * **Fiedler_BMCSystBiol2016**: tau2, s_pMek_20140505_gel2, s_pMek_20140430_gel2, k6, k3
 * **Fujita_SciSignal2010**: init_AKT, scaling_pS6_tot
 * **Giordano_Nature2020**: alpha_4, alpha_28
+* **Lang_PLOSComputBiol2024**: oCCNA, kDeE2f1, oRB1_pSer807Ser811, oCDKN1B, oSKP2, oCDKN1A, kWee2, oCCNE, oCCNB, sCCNE, sRB1_pSer807Ser811, sCCNB
 * **Laske_PLOSComputBiol2019**: Int_nuc_off, k_imp
 * **Liu_IFACPapersOnLine2025**: kappa, phi
 * **Okuonghae_ChaosSolitonsFractals2020**: transmission_rate_effective, gamma_i
@@ -66,6 +67,7 @@ Admisibles: estados 29/36, salidas 27/28.
 * **Perelson_Science1996**: c, delta
 * **Rahman_MBS2016**: infected_moderate_transmission_rate, infected_normal_worsen_rate
 * **Raia_CancerResearch2011**: scaling_SOCS3mRNA, init_Rec_i
+* **Raimundez_PCB2020**: kdeg_membran__MKN1, s_pMAPK_ID9b_MKN1_HM_1EGF, ka_MAPK__MKN1, d_kimp_pEGFR_EGF_2__MKN1_2_HS746T, d_ksyn_EGFR__MKN1_2_HS746T
 * **SalazarCavazos_MBoC2020**: ratio_kpkd_Y1068__FREE, ratio_kpkd_YN__FREE
 * **Schwen_PONE2014**: scale, ini_R1, ini_R2fold, kon_unspec
 * **Smith_BMCSystBiol2013**: sc_GLUT_3B_240, sc_GLUT_3B_120, sc_PI3K

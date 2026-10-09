@@ -17,7 +17,7 @@ Froehlich_CellSystems2018,Stage 1 ✓,22,—,0,,,,,,,0
 Fujita_SciSignal2010,Stage 2 (|S| = 1),1,Stage 2 ✓,2,19.0,0.658598977392749,0.8508921051566206,0.3254071383747658,True,"init_AKT, scaling_pS6_tot",0
 Giordano_Nature2020,Stage 2 ✓,2,Stage 2 ✓,2,50.0,0.9674626197095869,1.0832184796172433,0.05750445056487047,True,"alpha_4, alpha_28",2
 Isensee_JCB2018,Stage 2 ✓,2,—,0,,,,,,,0
-Lang_PLOSComputBiol2024,Stage 2 ✓,19,—,0,,,,,,,0
+Lang_PLOSComputBiol2024,Stage 2 ✓,19,Stage 2 ✓,12,294.0,0.3392163620080462,0.949739239533958,0.42645038714545686,True,"oCCNA, kDeE2f1, oRB1_pSer807Ser811, oCDKN1B, oSKP2, oCDKN1A, kWee2, oCCNE, oCCNB, sCCNE, sRB1_pSer807Ser811, sCCNB",1
 Laske_PLOSComputBiol2019,Stage 1 ✓,2,Stage 1 ✓,2,13.0,0.9871992709251929,0.15952123044341743,0.15756225697796017,True,"Int_nuc_off, k_imp",0
 Liu_IFACPapersOnLine2025,Stage 1 ✓,2,Stage 2 ✓,2,9.0,0.9229459014117457,0.473841931356964,0.26130212510265444,True,"kappa, phi",1
 Lucarelli_CellSystems2018,Técnico,0,—,0,,,,,,,0
@@ -26,7 +26,7 @@ Oliveira_NatCommun2021,Stage 2 ✓,2,Stage 2 ✓,2,12.0,0.9502423631154522,1.335
 Perelson_Science1996,Stage 1 ✓,2,Stage 1 ✓,2,3.0,1.0,0.0,0.0,True,"c, delta",2
 Rahman_MBS2016,Stage 2 ✓,2,Stage 2 ✓,2,9.0,0.9672077236980665,0.702077334501909,0.03710102189562674,True,"infected_moderate_transmission_rate, infected_normal_worsen_rate",1
 Raia_CancerResearch2011,Stage 2 (|S| = 1),1,Stage 2 ✓,2,39.0,0.9942783448936876,0.7075313964140262,0.046647429779931526,True,"scaling_SOCS3mRNA, init_Rec_i",0
-Raimundez_PCB2020,Stage 1 ✓,2,—,0,,,,,,,0
+Raimundez_PCB2020,Stage 1 ✓,2,Stage 2 ✓,5,136.0,0.9510724139742194,0.8347283180394869,0.43311188627169045,True,"kdeg_membran__MKN1, s_pMAPK_ID9b_MKN1_HM_1EGF, ka_MAPK__MKN1, d_kimp_pEGFR_EGF_2__MKN1_2_HS746T, d_ksyn_EGFR__MKN1_2_HS746T",1
 SCT_Bandura,Stage 1 ✓,2,—,0,,,,,,,0
 SalazarCavazos_MBoC2020,Stage 2 ✗,2,Stage 2 ✓,2,6.0,0.973042141911705,0.4111149796804519,0.18706001871564362,True,"ratio_kpkd_Y1068__FREE, ratio_kpkd_YN__FREE",2
 Schwen_PONE2014,Técnico,0,Stage 2 ✓,4,30.0,0.7764175512586643,0.6930986426187769,0.3318157279121295,True,"scale, ini_R1, ini_R2fold, kon_unspec",0
