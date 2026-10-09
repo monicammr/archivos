@@ -1,0 +1,45 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "p": 9,
+ "T": 50.0,
+ "S1": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12"
+ ],
+ "Rvar_S1_%": 88.85910137939335,
+ "S1_cumple": true,
+ "cos_S1": 0.9530666284769838,
+ "erel_S1": 0.33203502123966333,
+ "etapa": "Stage 1",
+ "S": [
+  "a_basal",
+  "a_k16_k12k16"
+ ],
+ "Rvar_%": 78.98630043658068,
+ "kappa": 1.7637884290480006,
+ "VIF": 1.358098719788541,
+ "cos_med": 0.9143903998849261,
+ "erel_med": 0.40536233091310564,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12"
+ ],
+ "podados": [
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12"
+ ],
+ "admisible": true,
+ "eajuste_med": 0.40235143049203215,
+ "calibracion": [],
+ "segundos": 2.0,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "a_k8",
+  "a_basal"
+ ]
+}
