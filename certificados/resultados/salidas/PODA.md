@@ -4,7 +4,9 @@ Selección voraz sobre las salidas medidas y, después, eliminación hacia atrá
 
 | Sistema | Etapa | |S| antes | |S| después | Quitados | S final | e_ajuste | Admisible |
 |---|---|---|---|---|---|---|---|
+| Alkan_SciSignal2018 | Stage 1 | 3 | 2 | scale_pchk1_au | kt, scale_patm_au | 27.9 % | ✓ |
 | Armistead_CellDeathDis2024 | Stage 2 | 4 | 2 | k00, k2 | k_d, alpha_cer | 11.7 % | ✓ |
+| Bachmann_MSB2011 | Stage 2 | 22 | 17 | CISTurn, scale_pSTAT5_long, SOCS3EqcOE, init_SHP1, SOCS3RNATurn | CISRNADelay, JAK2ActEpo, EpoRActJAK2, STAT5Imp, STAT5Exp, JAK2EpoRDeaSHP1, scale_SHP1_shp1oe, scale_tSTAT5_actd, scale_pSTAT5_dr10, scale_pSTAT5_actd, STAT5ActJAK2, scale_tSTAT5_long, scale1_CIS_dr90, scale2_CIS_dr90, scale_SOCS3_socs3oe, offset_SOCS3_cisoe, offset_CIS_actd | 43.5 % | ✓ |
 | Bertozzi_PNAS2020 | Stage 2 | 2 | 2 | — | R0_NY, I0_NY | 32.9 % | ✓ |
 | Blasi_CellSystems2016 | Stage 1 | 5 | 2 | a_k12k16_k8k12k16, a_k5k12_k5k8k12, a_k8k12k16_4ac | a_basal, a_k16_k12k16 | 40.2 % | ✓ |
 | Boehm_JProteomeRes2014 | Stage 2 | 2 | 2 | — | k_imp_hetero, k_phos | 9.4 % | ✓ |
@@ -16,13 +18,17 @@ Selección voraz sobre las salidas medidas y, después, eliminación hacia atrá
 | Fiedler_BMCSystBiol2016 | Stage 2 | 5 | 4 | k6 | tau2, s_pMek_20140505_gel2, s_pMek_20140430_gel2, k3 | 40.1 % | ✓ |
 | Fujita_SciSignal2010 | Stage 2 | 2 | 2 | — | init_AKT, scaling_pS6_tot | 32.5 % | ✓ |
 | Giordano_Nature2020 | Stage 2 | 2 | 2 | — | alpha_4, alpha_28 | 5.8 % | ✓ |
+| Isensee_JCB2018 | Stage 1 | 10 | 3 | s_pRII_JI09_150330_Drg350_348_CycNuc, s_Calpha_global, kf_RIIp_C_2__RII_C_2, xi_rel_open, rel_open, ks_AC_cAMP, KD_cAMP | s_pRII_global, s_pRII_JI09_151102_Drg421_418_Age, s_pRII_JI09_150330_Drg353_351_CycNuc | 40.2 % | ✓ |
+| Lang_PLOSComputBiol2024 | Stage 2 | 12 | 9 | kWee2, oCCNE, oCCNB | oCCNA, kDeE2f1, oRB1_pSer807Ser811, oCDKN1B, oSKP2, oCDKN1A, sCCNE, sRB1_pSer807Ser811, sCCNB | 43.2 % | ✓ |
 | Laske_PLOSComputBiol2019 | Stage 1 | 2 | 2 | — | Int_nuc_off, k_imp | 15.8 % | ✓ |
 | Liu_IFACPapersOnLine2025 | Stage 2 | 2 | 2 | — | kappa, phi | 26.1 % | ✓ |
+| Lucarelli_CellSystems2018 | Stage 2 | 10 | 10 | — | init_Rec, S2tot, S3tot, S_dephosphos, S_phos, geneF_turn, k_234, geneK_turn, S4tot, geneH_turn | 43.5 % | ✓ |
 | Okuonghae_ChaosSolitonsFractals2020 | Stage 2 | 2 | 2 | — | transmission_rate_effective, gamma_i | 4.1 % | ✓ |
 | Oliveira_NatCommun2021 | Stage 2 | 2 | 2 | — | beta_0, h_hosp_rate | 12.9 % | ✓ |
 | Perelson_Science1996 | Stage 1 | 2 | 2 | — | c, delta | 0.0 % | ✓ |
 | Rahman_MBS2016 | Stage 2 | 2 | 2 | — | infected_moderate_transmission_rate, infected_normal_worsen_rate | 3.7 % | ✓ |
 | Raia_CancerResearch2011 | Stage 2 | 2 | 2 | — | scaling_SOCS3mRNA, init_Rec_i | 4.7 % | ✓ |
+| Raimundez_PCB2020 | Stage 2 | 5 | 4 | s_pMAPK_ID9b_MKN1_HM_1EGF | kdeg_membran__MKN1, ka_MAPK__MKN1, d_kimp_pEGFR_EGF_2__MKN1_2_HS746T, d_ksyn_EGFR__MKN1_2_HS746T | 43.4 % | ✓ |
 | SalazarCavazos_MBoC2020 | Stage 2 | 2 | 2 | — | ratio_kpkd_Y1068__FREE, ratio_kpkd_YN__FREE | 18.7 % | ✓ |
 | Schwen_PONE2014 | Stage 2 | 4 | 3 | ini_R2fold | scale, ini_R1, kon_unspec | 40.9 % | ✓ |
 | Smith_BMCSystBiol2013 | Stage 2 | 3 | 3 | — | sc_GLUT_3B_240, sc_GLUT_3B_120, sc_PI3K | 34.4 % | ✓ |
@@ -31,5 +37,5 @@ Selección voraz sobre las salidas medidas y, después, eliminación hacia atrá
 | Zhao_QuantBiol2020 | Stage 2 | 3 | 3 | — | R_Stage_I_China, R_Stage_II_Wuhan, gamma_1_Stage_I_Hubei | 29.6 % | ✓ |
 | Zheng_PNAS2012 | Stage 2 | 2 | 2 | — | k01_02, k13_12 | 30.0 % | ✓ |
 
-* Admisibles: 25 de 26.
-* Parámetros en los subconjuntos admisibles: 71 antes de la poda, 58 después (13 eliminados por redundantes).
+* Admisibles: 31 de 32.
+* Parámetros en los subconjuntos admisibles: 133 antes de la poda, 103 después (30 eliminados por redundantes).
