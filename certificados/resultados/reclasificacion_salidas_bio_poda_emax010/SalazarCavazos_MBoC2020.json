@@ -1,0 +1,41 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "p": 6,
+ "T": 0.01,
+ "S1": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE",
+  "GRB2_total__FREE"
+ ],
+ "Rvar_S1_%": 84.65409018073566,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE",
+  "GRB2_total__FREE"
+ ],
+ "Rvar_%": 84.65409018073566,
+ "kappa": 6.384409158354675,
+ "VIF": 8.569596251963313,
+ "cos_med": 0.9789715775692361,
+ "erel_med": 0.32791292912970854,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE",
+  "GRB2_total__FREE"
+ ],
+ "podados": [],
+ "admisible": false,
+ "eajuste_med": 0.14295374824483517,
+ "calibracion": [],
+ "segundos": 36.5,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "ratio_kpkd_Y1068__FREE",
+  "kdephosY1068__FREE",
+  "kdephosYN__FREE",
+  "ratio_kpkd_YN__FREE"
+ ]
+}
