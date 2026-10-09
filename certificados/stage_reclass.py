@@ -180,7 +180,8 @@ def main_one(name, t_def):
         # sistemas grandes: J en disco (float32) con registro de columnas hechas, para poder
         # reanudar tras una interrupción
         cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
-        fJ, fm = cdir / f"{name}_J.npy", cdir / f"{name}_J_hechas.npy"
+        suf = "_salidas" if SALIDAS else ""   # el caché de salidas no se mezcla con el de estados
+        fJ, fm = cdir / f"{name}{suf}_J.npy", cdir / f"{name}{suf}_J_hechas.npy"
         if fJ.exists() and fm.exists():
             J = np.load(fJ, mmap_mode="r+"); hechas = np.load(fm)
         else:
@@ -339,7 +340,8 @@ def main_one(name, t_def):
         s = np.zeros(p)
         if (p > 200 or PARALELO) and NPROC > 1:
             cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
-            fs, fsm = cdir / f"{name}_s.npy", cdir / f"{name}_s_hechas.npy"
+            suf = "_salidas" if SALIDAS else ""
+            fs, fsm = cdir / f"{name}{suf}_s.npy", cdir / f"{name}{suf}_s_hechas.npy"
             hs = np.zeros(p, dtype=bool)
             if fs.exists() and fsm.exists():
                 s, hs = np.load(fs), np.load(fsm)

@@ -1,4 +1,5 @@
-certificados/resultados/cache/
+certificados/resultados/cache/*
+!certificados/resultados/cache/*_salidas_*
 certificados/resultados/reclasificacion_salidas_*_log.txt
 certificados/resultados/validacion_externa_log.txt
 certificados/resultados/sens_*.log
