@@ -35,6 +35,12 @@ en [0, T], se usan las SALIDAS MEDIDAS de PEtab, y_i = h(g_i(x(t_i), θ))/σ_i, 
 measurements.tsv (petab_outputs.PSys: condiciones experimentales, preequilibrio, observables,
 transformación y ruido). J, R_var, el barrido, cos Δ, e_rel y e_ajuste se calculan sobre y.
 Se procesan los 35 sistemas PEtab. Resultados en resultados/reclasificacion_salidas/.
+
+Con `--poda` (junto con `--v3`; comentario 2): tras la selección voraz, eliminación hacia atrás
+— se quita cada parámetro (del de menor E_j al de mayor) mientras el subconjunto siga siendo
+admisible, hasta que no se pueda quitar ninguno. El subconjunto final es mínimo por inclusión
+(ningún parámetro sobra), aunque no necesariamente de cardinalidad mínima global. Carpeta con
+sufijo `_poda`.
 """
 import sys, json, time
 import numpy as np
@@ -53,6 +59,7 @@ EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ
 V3 = "--v3" in sys.argv          # criterio por reestimación (e_ajuste); implica las reglas de v2
 V2 = ("--v2" in sys.argv) or V3
 SALIDAS = "--salidas" in sys.argv
+PODA = "--poda" in sys.argv       # eliminación hacia atrás tras la selección (comentario 2)
 if SALIDAS:
     from petab_outputs import PSys as Sys   # misma interfaz; salidas medidas y = g(x, θ)
 
@@ -336,6 +343,28 @@ def main_one(name, t_def):
                     "kappa": kappa(J, S2) if S2 else float("nan"),
                     "VIF": vif(J, S2) if S2 else float("nan"),
                     "cos_med": c, "erel_med": e, "n_escenarios": n})
+    if PODA and V3:
+        # --- poda (eliminación hacia atrás): se intenta quitar cada parámetro, del menos al
+        # más influyente (E_j), mientras el subconjunto siga siendo admisible (|S| ≥ 2 y
+        # e_ajuste ≤ 0,436); se repite hasta que no se pueda quitar ninguno. Resultado:
+        # subconjunto mínimo por inclusión (Lean: Poda.prune_minimal).
+        Sp = [names.index(q) for q in res["S"]]
+        res["S_antes_poda"] = list(res["S"])
+        if admisible3(Sp):
+            cambio = True
+            while cambio:
+                cambio = False
+                for j in sorted(Sp, key=lambda k: E[k]):
+                    sub = [k for k in Sp if k != j]
+                    if admisible3(sub):
+                        Sp = sub
+                        cambio = True
+                        break
+            c, e, n = valida(Sp)
+            res.update({"S": [names[j] for j in Sp], "Rvar_%": 100 * rvar(Sp),
+                        "kappa": kappa(J, Sp), "VIF": vif(J, Sp),
+                        "cos_med": c, "erel_med": e, "n_escenarios": n})
+        res["podados"] = [q for q in res["S_antes_poda"] if q not in res["S"]]
     res["admisible"] = admisible(res["cos_med"], res["erel_med"]) and \
         (not V2 or len(res["S"]) >= 2)
     if V3:
@@ -365,7 +394,7 @@ if __name__ == "__main__":
         del sys.argv[_i:_i + 2]
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
     d = OUT / (("reclasificacion_salidas" if SALIDAS else "reclasificacion_v3" if V3 else "reclasificacion_v2" if V2 else "reclasificacion")
-               + (f"_{TAG}" if TAG else ""))
+               + ("_poda" if PODA else "") + (f"_{TAG}" if TAG else ""))
     d.mkdir(exist_ok=True)
     out = []
     lista = [(n, sel, t, "FIM" if g == "FIM" else "SCAN", None) for n, sel, t, g in SYSTEMS]

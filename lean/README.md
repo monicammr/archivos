@@ -79,6 +79,7 @@ descartados fijados en su valor nominal).
 | Patrón A: energía descartada nula ⇒ reducción exacta a primer orden | `PatternMechanisms.exact_reduction_of_zero_energy` |
 | Cota finita con el término lineal exacto ‖J h_{Sᶜ}‖ (nunca peor que la de R_var) | `ExactLinearCertificate.finite_trajectory_error_exact`, `finite_cos_certificate_exact`, `certified_cos_ode_exact` |
 | **cos Δ = error mínimo tras reajustar el tamaño**: min_α ‖Δx_full − α Δx_sel‖ / ‖Δx_full‖ = √(1 − cos²Δ) (cos Δ ≥ 0,90 ⇔ error ≤ 0,436); e_rel (α = 1) es siempre mayor o igual | `ScaledError.min_rel_error_eq`, `scaled_error_ge`, `scaled_error_eq` |
+| **Poda (eliminación hacia atrás)**: tras la selección voraz se quitan parámetros mientras el subconjunto siga siendo admisible; el resultado es admisible, está contenido en S y es **mínimo por inclusión** (no sobra ningún parámetro), para cualquier criterio de admisibilidad y cualquier orden de prueba. No se afirma cardinalidad mínima global | `Poda.prune_spec`, `Poda.exists_minimal_admissible` |
 | **cos Δ ≈ coseno lineal para perturbaciones pequeñas** (justifica comparar cos Δ con la predicción de J) | `ExactLinearCertificate.tendsto_cos_delta`, `eventually_cos_delta_gt`, `local_cos_ode` |
 | κ calculado con la SVD (σ_max/σ_min) da la estabilidad de mínimos cuadrados | `SpectralConditioning.ls_kappa_stability_spectral`, `opNorm_eq_sqrt_lamMax`, `le_sqrt_lamMin` |
 | VIF calculado como diag((ZᵀZ)⁻¹) da la estabilidad por parámetro | `SpectralConditioning.ls_vif_matrix_stability`, `vif_matrix_inverse` |
