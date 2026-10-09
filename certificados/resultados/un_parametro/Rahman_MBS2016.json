@@ -1,0 +1,22 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "uno": "infected_moderate_transmission_rate",
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "uno_10_admisible": true,
+ "uno_10_eajuste": 0.12416710707195924,
+ "uno_division": "extrapolaci\u00f3n temporal (t \u2265 15)",
+ "uno_A_chi2_test_red": 0.001542217307186178,
+ "uno_B_epred_red": 0.3525465616074898,
+ "uno_A_chi2_test_full": 0.025724935514994638,
+ "uno_B_epred_full": 0.09677946749276234,
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.03978869252612322,
+ "S_division": "extrapolaci\u00f3n temporal (t \u2265 15)",
+ "S_A_chi2_test_red": 0.0019946462955132307,
+ "S_B_epred_red": 0.06822897094285225,
+ "S_A_chi2_test_full": 0.025724935514994638,
+ "S_B_epred_full": 0.09677946749276234
+}

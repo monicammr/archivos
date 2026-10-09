@@ -1,0 +1,22 @@
+{
+ "sistema": "Weber_BMC2015",
+ "uno": "p31",
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "uno_10_admisible": true,
+ "uno_10_eajuste": 0.42066427959170105,
+ "uno_division": "condiciones nuevas",
+ "uno_A_chi2_test_red": 0.9928423710963783,
+ "uno_B_epred_red": 0.2654048750160462,
+ "uno_A_chi2_test_full": 239.3717931071401,
+ "uno_B_epred_full": 1.6376821572186848,
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.3355124109108641,
+ "S_division": "condiciones nuevas",
+ "S_A_chi2_test_red": 0.9928364320608872,
+ "S_B_epred_red": 0.7712091272703873,
+ "S_A_chi2_test_full": 239.3717931071401,
+ "S_B_epred_full": 1.6376821572186848
+}

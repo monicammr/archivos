@@ -1,0 +1,22 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "uno": "gamma_0",
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "uno_10_admisible": true,
+ "uno_10_eajuste": 0.047974016050883646,
+ "uno_division": "extrapolaci\u00f3n temporal (t \u2265 32)",
+ "uno_A_chi2_test_red": 40763.759860663624,
+ "uno_B_epred_red": 0.29946904650884304,
+ "uno_A_chi2_test_full": 122419.2505673974,
+ "uno_B_epred_full": 0.04156297061086932,
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.042305969413952614,
+ "S_division": "extrapolaci\u00f3n temporal (t \u2265 32)",
+ "S_A_chi2_test_red": 46705.209376109095,
+ "S_B_epred_red": 0.08467107136209465,
+ "S_A_chi2_test_full": 122419.2505673974,
+ "S_B_epred_full": 0.04156297061086932
+}
