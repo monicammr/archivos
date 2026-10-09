@@ -6,7 +6,7 @@
 |---|---|---|---|---|---|---|---|---|
 | Alkan_SciSignal2018 | Stage 2 ✓ (5) | — | — | 0 | — | — | — | 0 |
 | Armistead_CellDeathDis2024 | Stage 1 ✓ (2) | Stage 2 ✓ | 14 | 4 | 0.997 | 11.6 % | 5.7 % | 2 |
-| Bachmann_MSB2011 | Stage 2 ✓ (2) | — | — | 0 | — | — | — | 0 |
+| Bachmann_MSB2011 | Stage 2 ✓ (2) | Stage 2 ✓ | 113 | 22 | 0.845 | 55.4 % | 41.2 % | 2 |
 | Beer_MolBioSystems2014 | Técnico (0) | — | — | 0 | — | — | — | 0 |
 | Bertozzi_PNAS2020 | Técnico (0) | Stage 2 ✓ | 8 | 2 | 0.917 | 58.5 % | 32.9 % | 0 |
 | Blasi_CellSystems2016 | Stage 1 ✓ (2) | Stage 1 ✓ | 9 | 5 | 0.979 | 21.1 % | 19.8 % | 1 |
@@ -14,7 +14,7 @@
 | Borghans_BiophysChem1997 | Stage 2 ✓ (2) | Stage 2 ✓ | 23 | 2 | 0.863 | 50.6 % | 16.3 % | 1 |
 | Brannmark_JBC2010 | Stage 2 ✓ (3) | Stage 2 ✓ | 22 | 2 | 0.731 | 81.5 % | 22.2 % | 0 |
 | Bruno_JExpBot2016 | Stage 1 ✓ (4) | Stage 1 ✓ | 13 | 7 | 0.954 | 30.5 % | 27.3 % | 1 |
-| Chen_MSB2009 | Stage 2 ✓ (2) | — | — | 0 | — | — | — | 0 |
+| Chen_MSB2009 | Stage 2 ✓ (2) | Stage 2 ✓ | 155 | 2 | 0.645 | 78.1 % | 39.5 % | 0 |
 | Crauste_CellSystems2017 | Stage 1 ✓ (2) | Stage 2 (|S| = 1) | 12 | 1 | 0.535 | 84.7 % | 95.2 % | 0 |
 | Elowitz_Nature2000 | Stage 1 ✓ (2) | Stage 1 ✓ | 21 | 6 | 0.963 | 36.7 % | 5.2 % | 2 |
 | Fiedler_BMCSystBiol2016 | Stage 2 ✓ (2) | Stage 2 ✓ | 22 | 5 | 0.836 | 67.2 % | 38.4 % | 1 |
@@ -41,17 +41,19 @@
 | Zhao_QuantBiol2020 | Stage 2 ✓ (2) | Stage 2 ✓ | 28 | 3 | 0.902 | 69.5 % | 29.6 % | 0 |
 | Zheng_PNAS2012 | Stage 2 ✓ (3) | Stage 2 ✓ | 46 | 2 | 0.568 | 94.7 % | 30.0 % | 1 |
 
-Admisibles: estados 29/36, salidas 25/26.
+Admisibles: estados 29/36, salidas 27/28.
 
 ## Subconjuntos seleccionados (salidas)
 
 * **Armistead_CellDeathDis2024**: k_d, k00, k2, alpha_cer
+* **Bachmann_MSB2011**: CISRNADelay, JAK2ActEpo, EpoRActJAK2, STAT5Imp, STAT5Exp, JAK2EpoRDeaSHP1, CISTurn, scale_SHP1_shp1oe, scale_tSTAT5_actd, scale_pSTAT5_dr10, scale_pSTAT5_actd, STAT5ActJAK2, scale_tSTAT5_long, scale1_CIS_dr90, scale2_CIS_dr90, scale_SOCS3_socs3oe, offset_SOCS3_cisoe, scale_pSTAT5_long, SOCS3EqcOE, init_SHP1, SOCS3RNATurn, offset_CIS_actd
 * **Bertozzi_PNAS2020**: R0_NY, I0_NY
 * **Blasi_CellSystems2016**: a_basal, a_k16_k12k16, a_k12k16_k8k12k16, a_k5k12_k5k8k12, a_k8k12k16_4ac
 * **Boehm_JProteomeRes2014**: k_imp_hetero, k_phos
 * **Borghans_BiophysChem1997**: Kz, K_par
 * **Brannmark_JBC2010**: k_IRP_1Step, k1f
 * **Bruno_JExpBot2016**: kb1, init_bcar2, init_zea_1, init_bcar1, szea, init_bcry_1, init_b10_1
+* **Chen_MSB2009**: AKT_t, k106
 * **Crauste_CellSystems2017**: rho_E
 * **Elowitz_Nature2000**: n_Hill, tau_mRNA, tau_prot, scale, tau_prot_GFP, eff
 * **Fiedler_BMCSystBiol2016**: tau2, s_pMek_20140505_gel2, s_pMek_20140430_gel2, k6, k3
