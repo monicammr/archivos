@@ -7,7 +7,7 @@
 | Alkan_SciSignal2018 | Stage 2 ✓ (5) | Stage 1 ✓ | 44 | 3 | 0.964 | 26.6 % | 24.0 % | 1 |
 | Armistead_CellDeathDis2024 | Stage 1 ✓ (2) | Stage 2 ✓ | 14 | 4 | 0.997 | 11.6 % | 5.7 % | 2 |
 | Bachmann_MSB2011 | Stage 2 ✓ (2) | Stage 2 ✓ | 113 | 22 | 0.845 | 55.4 % | 41.2 % | 2 |
-| Beer_MolBioSystems2014 | Técnico (0) | — | — | 0 | — | — | — | 0 |
+| Beer_MolBioSystems2014 | Técnico (0) | Stage 2 ✗ | 72 | 18 | 0.823 | 57.3 % | 50.1 % | 0 |
 | Bertozzi_PNAS2020 | Técnico (0) | Stage 2 ✓ | 8 | 2 | 0.917 | 58.5 % | 32.9 % | 0 |
 | Blasi_CellSystems2016 | Stage 1 ✓ (2) | Stage 1 ✓ | 9 | 5 | 0.979 | 21.1 % | 19.8 % | 1 |
 | Boehm_JProteomeRes2014 | Stage 1 ✓ (3) | Stage 2 ✓ | 9 | 2 | 0.927 | 60.0 % | 9.4 % | 2 |
@@ -25,7 +25,7 @@
 | Lang_PLOSComputBiol2024 | Stage 2 ✓ (19) | Stage 2 ✓ | 294 | 12 | 0.339 | 95.0 % | 42.6 % | 1 |
 | Laske_PLOSComputBiol2019 | Stage 1 ✓ (2) | Stage 1 ✓ | 13 | 2 | 0.987 | 16.0 % | 15.8 % | 0 |
 | Liu_IFACPapersOnLine2025 | Stage 1 ✓ (2) | Stage 2 ✓ | 9 | 2 | 0.923 | 47.4 % | 26.1 % | 1 |
-| Lucarelli_CellSystems2018 | Técnico (0) | — | — | 0 | — | — | — | 0 |
+| Lucarelli_CellSystems2018 | Técnico (0) | Stage 2 ✓ | 84 | 10 | 0.811 | 59.6 % | 43.5 % | 0 |
 | Okuonghae_ChaosSolitonsFractals2020 | Stage 2 ✓ (2) | Stage 2 ✓ | 16 | 2 | 0.998 | 74.9 % | 4.1 % | 1 |
 | Oliveira_NatCommun2021 | Stage 2 ✓ (2) | Stage 2 ✓ | 12 | 2 | 0.950 | 133.6 % | 12.9 % | 1 |
 | Perelson_Science1996 | Stage 1 ✓ (2) | Stage 1 ✓ | 3 | 2 | 1.000 | 0.0 % | 0.0 % | 2 |
@@ -41,13 +41,14 @@
 | Zhao_QuantBiol2020 | Stage 2 ✓ (2) | Stage 2 ✓ | 28 | 3 | 0.902 | 69.5 % | 29.6 % | 0 |
 | Zheng_PNAS2012 | Stage 2 ✓ (3) | Stage 2 ✓ | 46 | 2 | 0.568 | 94.7 % | 30.0 % | 1 |
 
-Admisibles: estados 29/36, salidas 31/32.
+Admisibles: estados 29/36, salidas 32/34.
 
 ## Subconjuntos seleccionados (salidas)
 
 * **Alkan_SciSignal2018**: kt, scale_patm_au, scale_pchk1_au
 * **Armistead_CellDeathDis2024**: k_d, k00, k2, alpha_cer
 * **Bachmann_MSB2011**: CISRNADelay, JAK2ActEpo, EpoRActJAK2, STAT5Imp, STAT5Exp, JAK2EpoRDeaSHP1, CISTurn, scale_SHP1_shp1oe, scale_tSTAT5_actd, scale_pSTAT5_dr10, scale_pSTAT5_actd, STAT5ActJAK2, scale_tSTAT5_long, scale1_CIS_dr90, scale2_CIS_dr90, scale_SOCS3_socs3oe, offset_SOCS3_cisoe, scale_pSTAT5_long, SOCS3EqcOE, init_SHP1, SOCS3RNATurn, offset_CIS_actd
+* **Beer_MolBioSystems2014**: kdegi_typeIDT1, kdegi_typeIDT3, ksyn_typeIDT3, kdim_typeIDT1, beta_typeIDT3_ExpID2, beta_typeIDT3_ExpID3, beta_typeIDT3_ExpID5, beta_typeIDT3_ExpID1, beta_typeIDT3_ExpID4, init_Bac, beta_typeIDT1_ExpID6, beta_typeIDT1_ExpID5, beta_typeIDT1_ExpID1, beta_typeIDT1_ExpID4, beta_typeIDT1_ExpID3, kdim_typeIDwt, ksyn_typeIDT5, kdim_typeIDT5
 * **Bertozzi_PNAS2020**: R0_NY, I0_NY
 * **Blasi_CellSystems2016**: a_basal, a_k16_k12k16, a_k12k16_k8k12k16, a_k5k12_k5k8k12, a_k8k12k16_4ac
 * **Boehm_JProteomeRes2014**: k_imp_hetero, k_phos
@@ -64,6 +65,7 @@ Admisibles: estados 29/36, salidas 31/32.
 * **Lang_PLOSComputBiol2024**: oCCNA, kDeE2f1, oRB1_pSer807Ser811, oCDKN1B, oSKP2, oCDKN1A, kWee2, oCCNE, oCCNB, sCCNE, sRB1_pSer807Ser811, sCCNB
 * **Laske_PLOSComputBiol2019**: Int_nuc_off, k_imp
 * **Liu_IFACPapersOnLine2025**: kappa, phi
+* **Lucarelli_CellSystems2018**: init_Rec, S2tot, S3tot, S_dephosphos, S_phos, geneF_turn, k_234, geneK_turn, S4tot, geneH_turn
 * **Okuonghae_ChaosSolitonsFractals2020**: transmission_rate_effective, gamma_i
 * **Oliveira_NatCommun2021**: beta_0, h_hosp_rate
 * **Perelson_Science1996**: c, delta
