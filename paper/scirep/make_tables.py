@@ -60,11 +60,13 @@ def table1():
         efs = f"{100 * ef:.1f}" + (r"$^{\ast}$" if name in LIN else "")
         if not d["admisible"]:
             efs = r"\textit{" + efs + "}"
+        if name == "Crauste_CellSystems2017":     # sin solución para perturbaciones de ±1 %
+            efs = r"\textit{n.d.}$^{\dagger}$"; er = np.nan
         pt = PAT.get(name, {}).get("patron", "--") if d["admisible"] else "--"
         v = VAL.get(name, {})
         r, f = v.get("A_chi2_test_red"), v.get("A_chi2_test_full")
         vs = "--" if r is None else f"{chi(r)} / {chi(f)}"
-        L.append(f"{tex(short)} & {d['p']} & {m} & {c} & {k} & {st} & {100 * er:.0f} & {efs} & {pt} & {vs} \\\\")
+        L.append(f"{tex(short)} & {d['p']} & {m} & {c} & {k} & {st} & {'--' if not np.isfinite(er) else f'{100 * er:.0f}'} & {efs} & {pt} & {vs} \\\\")
     L += [r"\botrule", r"\end{tabular}"]
     (OUT / "table1.tex").write_text("\n".join(L) + "\n")
 
