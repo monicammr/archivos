@@ -156,7 +156,7 @@ def resumen():
         L.append(f"| {r['sistema']} | {len(r['S'])} | " + " | ".join(celdas) +
                  f" | **{r['patron']}** |")
     L += ["", "Recuento: " + ", ".join(f"{k}: {v}" for k, v in sorted(cuenta.items())) + "."]
-    (OUTD / "PATRONES.md").write_text("\n".join(L) + "\n")
+    (OUTD / "PATRONES.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
 
 

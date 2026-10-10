@@ -13,6 +13,7 @@ Mediana de e_ajuste (S biológico + calibración, reajustados) frente al tamaño
 | Borghans_BiophysChem1997 | 2 | 20% ✓ | 4% ✓ | 8% ✓ | 17% ✓ | 17% ✓ | 23% ✓ | 16% ✓ | **A** |
 | Brannmark_JBC2010 | 2 | 8% ✓ | 8% ✓ | 8% ✓ | 8% ✓ | 8% ✓ | 8% ✓ | 7% ✓ | **A** |
 | Bruno_JExpBot2016 | 5 | 37% ✓ | 38% ✓ | 38% ✓ | 39% ✓ | 40% ✓ | 40% ✓ | 41% ✓ | **A** |
+| Chen_MSB2009 | 2 | 8% ✓ | 8% ✓ | 9% ✓ | 9% ✓ | 11% ✓ | 10% ✓ | 11% ✓ | **A** |
 | Elowitz_Nature2000 | 2 | 35% ✓ | 36% ✓ | 37% ✓ | 44% | 44% | 46% | 48% | **B** |
 | Fiedler_BMCSystBiol2016 | 2 | 15% ✓ | 15% ✓ | 14% ✓ | 13% ✓ | 12% ✓ | 11% ✓ | 10% ✓ | **A** |
 | Fujita_SciSignal2010 | 2 | 29% ✓ | 29% ✓ | 28% ✓ | 25% ✓ | 25% ✓ | 26% ✓ | 25% ✓ | **A** |
@@ -30,9 +31,10 @@ Mediana de e_ajuste (S biológico + calibración, reajustados) frente al tamaño
 | Raimundez_PCB2020 | 2 | 37% ✓ | 37% ✓ | 37% ✓ | 36% ✓ | 36% ✓ | 34% ✓ | 34% ✓ | **A** |
 | SalazarCavazos_MBoC2020 | 2 | 19% ✓ | 19% ✓ | 19% ✓ | 19% ✓ | 19% ✓ | 18% ✓ | 17% ✓ | **A** |
 | Schwen_PONE2014 | 2 | 17% ✓ | 17% ✓ | 17% ✓ | 18% ✓ | 19% ✓ | 18% ✓ | 17% ✓ | **A** |
+| Smith_BMCSystBiol2013 | 2 | 8% ✓ | 8% ✓ | 8% ✓ | 7% ✓ | 6% ✓ | 6% ✓ | 6% ✓ | **A** |
 | Sneyd_PNAS2002 | 2 | 41% ✓ | 38% ✓ | 34% ✓ | 35% ✓ | 35% ✓ | 33% ✓ | 33% ✓ | **A** |
 | Weber_BMC2015 | 2 | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | **A** |
 | Zhao_QuantBiol2020 | 3 | 27% ✓ | 30% ✓ | 33% ✓ | 28% ✓ | 26% ✓ | 19% ✓ | 16% ✓ | **A** |
 | Zheng_PNAS2012 | 2 | 30% ✓ | 30% ✓ | 30% ✓ | 30% ✓ | 30% ✓ | 32% ✓ | 33% ✓ | **A** |
 
-Recuento: A: 25, B: 4, C: 1.
+Recuento: A: 27, B: 4, C: 1.
