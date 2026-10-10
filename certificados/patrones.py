@@ -33,9 +33,9 @@ OUTD = HERE / "resultados" / "patrones"
 NIVELES = [0.01, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50]
 N_ESC, SEED = 15, 42
 EMAX = float(np.sqrt(1 - 0.9 ** 2))
-LINEAL = {"Alkan_SciSignal2018", "Bachmann_MSB2011", "Isensee_JCB2018", "Lang_PLOSComputBiol2024",
-          "Lucarelli_CellSystems2018", "Raimundez_PCB2020"}   # como en la selección: e_ajuste linealizado
-EXCLUIR = {"Chen_MSB2009"}          # 35 s por simulación: inviable para 7 × 15 reajustes
+LINEAL = {"Alkan_SciSignal2018", "Bachmann_MSB2011", "Chen_MSB2009", "Isensee_JCB2018",
+          "Lang_PLOSComputBiol2024", "Lucarelli_CellSystems2018", "Raimundez_PCB2020"}   # como en la selección: e_ajuste linealizado
+EXCLUIR = set()   # Chen (35 s por simulación) se evalúa linealizado: ~2 h en serie
 
 
 def uno(name):
