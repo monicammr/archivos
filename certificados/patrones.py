@@ -33,6 +33,8 @@ OUTD = HERE / "resultados" / "patrones"
 NIVELES = [0.01, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50]
 N_ESC, SEED = 15, 42
 EMAX = float(np.sqrt(1 - 0.9 ** 2))
+LINEAL = {"Alkan_SciSignal2018", "Bachmann_MSB2011", "Isensee_JCB2018", "Lang_PLOSComputBiol2024",
+          "Lucarelli_CellSystems2018", "Raimundez_PCB2020"}   # como en la selección: e_ajuste linealizado
 EXCLUIR = {"Chen_MSB2009"}          # 35 s por simulación: inviable para 7 × 15 reajustes
 
 
@@ -48,6 +50,15 @@ def uno(name):
     sgn = np.where(th0[idx] < 0, -1.0, 1.0)
     mag0 = np.maximum(np.abs(th0[idx]), 1e-12)
     lo, hi = np.log(mag0 / 10), np.log(mag0 * 10)
+    lineal = name in LINEAL
+    if lineal:   # columnas de J (relativa, diferencias centradas, δ = 0,01) sólo para S ∪ C
+        Js = np.zeros((y0.size, len(idx)))
+        for c, j in enumerate(idx):
+            tp, tm = th0.copy(), th0.copy()
+            tp[j] *= 1.01; tm[j] *= 0.99
+            yp, ym = Sy.sim(tp), Sy.sim(tm)
+            if yp is not None and ym is not None:
+                Js[:, c] = (yp - ym).ravel() / 0.02
     res = {"sistema": name, "S": info["S"], "n_calibracion": len(info.get("calibracion", [])),
            "niveles": {}}
     for nivel in NIVELES:
@@ -71,6 +82,11 @@ def uno(name):
             cs.append(float(d @ ds / (nf * ns)) if ns > 0 else 0.0)
             er = float(np.linalg.norm(d - ds) / nf)
             es.append(er)
+
+            if lineal:
+                c_, *_ = np.linalg.lstsq(Js, d, rcond=None)
+                fs.append(min(er, float(np.linalg.norm(d - Js @ c_) / nf)))
+                continue
 
             def resid(u):
                 t = th0.copy(); t[idx] = sgn * np.exp(u)
@@ -104,6 +120,7 @@ def uno(name):
         else:
             pat = "D"
     res["patron"] = pat
+    res["eajuste_metodo"] = "linealizado" if lineal else "no lineal"
     res["segundos"] = round(time.time() - t0, 1)
     return res
 

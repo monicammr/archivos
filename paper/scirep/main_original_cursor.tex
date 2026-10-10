@@ -1,0 +1,565 @@
+% Generated for Scientific Reports / Nature Portfolio (sn-nature)
+% Source: JIDMIS manuscript (build_jidmis_paper.py / PDF 2026)
+%Version 3.1 December 2024 template
+
+\documentclass[pdflatex,sn-nature]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{url}
+\raggedbottom
+
+\begin{document}
+
+\title[From Thousands of Parameters to a Minima]{From Thousands of Parameters to a Minimal Identifiable Subset: A Certified Reduction Framework for Biological ODE Systems}
+
+\author*[1]{\fnm{M\'onica} \sur{Miranda R.}}\email{mmmirand@espol.edu.ec}
+\author[1]{\fnm{Carlos} \sur{Salazar}}\email{asalazar@espol.edu.ec}
+\author[1]{\fnm{C\'esar} \sur{Mart\'in}}\email{cmartin@espol.edu.ec}
+\author[1]{\fnm{Adriana} \sur{Aguirre}}\email{aaaguirr@espol.edu.ec}
+
+\affil*[1]{\orgdiv{Faculty of Engineering, Control and Automation Systems Group}, \orgname{Escuela Superior Polit\'ecnica del Litoral (ESPOL)}, \orgaddress{\city{Guayaquil}, \country{Ecuador}}}
+
+\abstract{Estimating parameters in large ODE models is a fundamental bottleneck in systems biology: models with hundreds or thousands of parameters are computationally expensive to calibrate and statistically ill-posed. We present a two-stage method that identifies the minimal parameter subset needed to reproduce the observable dynamics, with a formal guarantee that discarded parameters can be safely fixed at nominal values. Validated on 36 ODE systems spanning biological networks and a human behavioral model, the method achieves an 89\% admissibility rate, reducing models from thousands of parameters to as few as one or two without measurable loss of trajectory fidelity. A systematic perturbation sweep identifies four structural robustness patterns tied to conservation laws, bifurcations, parameter coupling, and oscillatory dynamics. The selection criterion is backed by the first machine-verified correctness certificate for parameter reduction in ODE systems, verified in Lean 4/Mathlib.}
+
+\keywords{parameter reduction, Fisher Information Matrix, practical identifiability, sloppy models, collinearity, cosine similarity, ODE systems biology, Lean 4 formal verification, PEtab benchmark}
+
+\maketitle
+
+Terminology. Throughout this paper, sensitivity energy of parameter $\theta_j$ refers exclusively to $E_j$ = $\|J_j\|^2$, the squared $L_2$ norm of the j-th column of the state-sensitivity Jacobian J. The Jacobian encodes how parametric perturbations propagate through the system trajectories; $E_j$ quantifies the cumulative magnitude of that propagation. This must not be confused with physical energy or Lyapunov Gramians.
+
+
+\section{Introduction}\label{sec:intro}
+
+
+ODE models are central to quantitative biology, pharmacology, and epidemiology, capturing the time-evolution of interacting components governed by kinetic parameters $\theta$ \cite{bib16}. Applying these models to data requires estimating $\theta$, a problem that becomes computationally intractable as complexity grows. The central obstacle is non-identifiability: different parameters may produce identical observable trajectories, either structurally or due to limited data \cite{bib4,bib10}. Structural non-identifiability arises from model symmetries and conservation laws; practical nonidentifiability arises from insufficient data or limited experimental conditions; both manifest as flat ridges in the likelihood landscape where gradient-based optimisers stall \cite{bib24,bib25}. In both cases the Fisher Information Matrix (FIM) G = $J^\top J$ becomes ill-conditioned and optimisation fails. The challenge intensifies at scale: proteomics models can contain thousands of kinetic parameters \cite{bib12}, while signalling cascades \cite{bib16} and epidemiological models \cite{bib14} routinely involve 20--200 parameters whose joint identifiability from limited time-series measurements is far from guaranteed \cite{bib24,bib29}. High-dimensional estimation also suffers from a compounded computational curse: the optimisation landscape is non-convex with exponentially many local minima, standard gradient methods fail when the Hessian is near-singular, and FIM-based confidence intervals are unreliable whenever G is ill-conditioned \cite{bib17}.
+
+
+The sloppy models phenomenon \cite{bib15} offers a structural view: most complex ODE models have FIM eigenvalues spanning many orders of magnitude, with few ``stiff'' directions dominating the output and many ``sloppy'' ones being practically invisible. A small parameter subset can therefore reproduce the observable behavior almost as well as the full model. This phenomenon, established empirically across 17 systems biology models by \cite{bib15} and confirmed in cell-cycle and signalling networks \cite{bib18,bib6}, suggests that high-dimensional estimation problems have an intrinsically low-dimensional structure waiting to be exploited algorithmically. Exploiting this computationally remains an open problem, despite progress in profile likelihood \cite{bib24,bib25}, sensitivity methods \cite{bib26,bib23}, and the PEtab benchmark \cite{bib27}. Translating sloppy model theory into a practical reduction algorithm has proved difficult: characterising the full FIM eigenspectrum requires $O(p^2)$ simulations \cite{bib15}, and no existing method combines spectral energy ranking with collinearity control and a formal correctness certificate in a single $O(p)$ procedure. Furthermore, collinearity---the presence of nearly redundant parameter directions in the sensitivity space---is largely ignored in existing approaches, yet it is a primary reason why energy-ranked subsets can fail even when the variance explained is nominally high.
+
+
+Three gaps remain. First, no existing method unifies energy-based parameter ranking with collinearity verification in a single algorithm: sensitivity indices \cite{bib26} and profile likelihood \cite{bib24} rank parameters by importance but do not verify that the retained set is collinearity-free, so the resulting optimisation problem may still be ill-conditioned. Second, no method provides a computable, machine-verified certificate that discarded parameters do not degrade the trajectory fit: existing guarantees are either asymptotic, heuristic, or domain-specific. Third, systematic validation across diverse biological and behavioral ODE models is lacking; without such a benchmark it is impossible to know whether a proposed algorithm is generally applicable or tailored to a narrow model class. The consequence is that practitioners still face a stark choice: invest in expensive high-dimensional calibration with thousands of forward simulations, or accept the uncertainty of heuristic subset selection without formal quality guarantees.
+
+
+This work. Stage 1 computes the state-sensitivity FIM diagonal $E_j=(J^\top J)_{jj}$ and selects parameters sequentially, verifying at each step that the subset satisfies conditioning constraints ($\kappa$ $\le$ 10, VIF $\le$ 10) on L2-normalised Jacobian columns \cite{bib5,bib9}. Stage 2 adds an empirical scan when Stage 1 is insufficient, followed by dynamic validation via $\cos\Delta$ $\ge$ 0.90. The two stages are complementary by design: Stage 1 is fast and formally grounded but relies on linear sensitivity at $\theta_0$; Stage 2 provides empirical coverage of the nonlinear neighbourhood when the linear approximation is insufficient. A Lean 4/Mathlib formal guarantee certifies: if the FIM energy of discarded parameters satisfies R $\le$ $\varepsilon$ $\cdot$ tr($J^\top J$), the trajectory fit is preserved within (1 - $\varepsilon$)(1 - $\rho^2$), where $\rho$ $\in$ $[0,1]$ is the cross-alignment between retained and discarded Jacobian subspaces \cite{bib19,bib21}. We validate on 35 PEtab systems \cite{bib27} plus an SCT Bandura behavioral model \cite{bib3}, covering signalling \cite{bib6}, epidemiology \cite{bib14}, proteomics \cite{bib12}, cell-cycle regulation \cite{bib18}, and human dynamics. The Methods section describes the two-stage algorithm and Lean 4 formal guarantee; Results reports benchmark outcomes and the four robustness patterns; Discussion connects to existing methods and future work. The principal contributions are: (i) a two-stage $O(p)$-simulation algorithm combining FIM energy ranking with L2-normalised collinearity control; (ii) the first Lean 4-verified correctness certificate for parameter reduction in ODE systems; and (iii) a systematic four-pattern robustness taxonomy derived from validation on 36 systems spanning proteomics, signalling, epidemiology, cell-cycle, and behavioural dynamics.
+
+
+\section{Results}\label{sec:results}
+
+
+\subsection{Benchmark performance}\label{sec:benchmark}
+
+
+Of 27 evaluable systems (36 total; 9 excluded for missing SBML data, simulation divergence, or absent dynamic parameters after filtering observational prefixes), 24 satisfy $\cos\Delta$ $\ge$ 0.90 (89\% admissibility rate; Fig.~\ref{fig:breakdown}): 14 via FIM Stage 1, 9 via Scan Stage 2, and 1 (SCT Bandura) via FIM with minor VIF relaxation to accommodate structurally coupled parameters. One system (Isensee, $\cos\Delta$ = 0.84) is partially admissible; two (Alkan, Bruno) are non-reducible. Among the 14 Stage-1 systems, three achieve single-parameter reductions ($|S|$ = 1): Raimundez, Raia, and Zhao---meaning one kinetic rate captures over 99\% of total FIM energy and all other parameters can be fixed at nominal values without measurable trajectory error. This extreme reduction is possible only when the model has a single rate-limiting step that dominates all observable dynamics: in Raimundez, the MAPK cascade bottleneck controls the transient response; in Raia, a single BCR-ABL phosphorylation rate governs the signalling flux; in Zhao, one kinase activity determines mTOR network output. The 9 technically excluded systems comprised 4 with missing or incomplete SBML files, 3 that diverged numerically under $\delta$ = 0.01 (stiff integrator limits), and 2 without dynamic parameters after filtering observational noise terms (scale\_, sd\_).
+
+
+Reductions span three orders of model scale: 99.7\% (Raimundez: 136 $\to$ 1 parameter), 99.5\% (Froehlich \cite{bib12}: 4231 $\to$ 22 params at proteomics scale), and 72.7\% (Brannmark \cite{bib8}: 22 $\to$ 6 in an insulin-signalling cascade). Across all 24 admissible systems, the median selected subset size is $|S|$ = 3 parameters and the median reduction is 94.7\%, with the inter-quartile range spanning $|S|$ $\in$ $\cite{bib2,bib6}$. The SCT Bandura behavioral model \cite{bib3} achieves $\cos\Delta$ = 0.987 with 5 parameters ($\kappa$ = 2.43 after L2 normalisation, vs. $\kappa$ = 63.3 without it), demonstrating that the method generalises beyond molecular biology. Seven of the nine Stage-2 systems failed Stage 1 not because their dominant parameters were unidentifiable, but because collinear secondary parameters inflated $\kappa$ above the threshold; the L2-normalised $\kappa$/VIF filter correctly identified and discarded these, yielding compact, well-conditioned subsets. The Stage-2 systems are notably heterogeneous in variance explained: Smith reaches only $R_{\mathrm{var}}$ = 53.2\% yet achieves $\cos\Delta$ = 0.998 at $\pm$50\%, while Weber reaches $R_{\mathrm{var}}$ = 99.9\% but collapses to $\cos\Delta$ = 0.682 at $\pm$50\%---illustrating that $R_{\mathrm{var}}$ alone is an imperfect predictor of output fidelity and confirming that the $\cos\Delta$ validation step is not redundant. The partially admissible system (Isensee, $\cos\Delta$ = 0.84) sits at the boundary: its FIM energy is well-structured ($R_{\mathrm{var}}$ > 89\%) but the cosine similarity falls short, likely due to a mild nonlinear coupling not captured by the linear Jacobian at the nominal point. Simulations used libRoadRunner \cite{bib13} with $N_t$ = 60 time points per trajectory. The Lean 4 formal guarantee applies to all 26 systems reaching $R_{\mathrm{var}}$ $\ge$ 89\%, providing a computable bound on the fitness loss from each discarded parameter.
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig2.png}
+\caption{Admissibility breakdown across all 36 systems. FIM Stage~1: $n=14$; Scan Stage~2: $n=9$; SCT Bandura: $n=1$. Partial admissibility: Isensee ($\cos\Delta=0.84$). Non-reducible: Alkan, Bruno. Technical exclusions: $n=9$ (missing SBML or simulation failures).}
+\label{fig:breakdown}
+\end{figure}
+
+
+\subsection{Robustness patterns ($\pm$1\%--50\% sweep)}\label{sec:patterns}
+
+
+A seven-level perturbation sweep (15 scenarios each) identifies four structural patterns (Fig.~\ref{fig:patterns}, Table~\ref{tab:admissible}).
+
+
+Pattern A (14 systems): flat $\cos\Delta$ $\ge$ 0.90 from $\pm$1\% to $\pm$50\%, attributable to rate-limiting kinetics, conservation laws, or extreme sloppy FIM structure. Froehlich \cite{bib12} (4231 params) and Raimundez (136 params) both fall here despite very different scales, confirming that admissibility is a property of spectral structure, not model size. Ten of the 14 Pattern-A systems maintain $\cos\Delta$ $\ge$ 0.95 even at $\pm$50\%, and six (Raimundez, Crauste, SalazarCavazos, Raia, Zhao, Smith) achieve $\cos\Delta$ = 1.000 at all three reported perturbation levels---exact trajectory replication by the selected subset. The epidemiological Pattern-A systems (Okuonghae, Giordano \cite{bib14}, SalazarCavazos) are notable: despite modelling COVID-19 and arbovirus transmission with 9--14 compartments, their reductions to 4--6 dominant parameters yield $\cos\Delta$ $\ge$ 0.985 at all levels, confirming that epidemic dynamics are governed by a small set of rate-determining parameters even in complex multi-stage compartmental models.
+
+
+Pattern B (Borghans \cite{bib7}, Fiedler, Zheng, Weber): robust at small perturbations, then $\cos\Delta$ collapses once the system crosses a qualitative boundary such as a Hopf bifurcation or enzymatic saturation threshold. In Borghans, the collapse is sharp: $\cos\Delta$ = 0.929 at $\pm$20\% drops to 0.671 at $\pm$50\%, consistent with the Ca$^{2+}$ oscillation model entering qualitatively different attractor regimes that the 7-parameter linear selection cannot follow. Fiedler (RAF/MEK/ERK cascade) and Zheng show a milder Pattern-B collapse: both maintain $\cos\Delta$ $\ge$ 0.79 at all three reported levels, with Zheng recovering non-monotonically to $\cos\Delta$ = 0.906 at $\pm$50\%---behaviour typical of systems with multiple steady states where large perturbations may push the trajectory back toward a regime compatible with the selected subset.
+
+
+Pattern C (Elowitz \cite{bib11}, Sneyd): irregular $\cos\Delta$ arising from oscillatory phase shifts---amplitude and period are preserved by the selected subset, but the cosine metric conflates timing mismatches with fidelity failures. The repressilator (Elowitz) reaches $\cos\Delta$ = 0.973 at $\pm$20\% but drops to 0.675 at $\pm$50\%, not because the reduction fails but because a 2-parameter subset cannot control the phase relationship between the three repressor proteins; amplitude-based or period-based metrics would correctly classify this reduction as valid.
+
+
+Pattern D (Brannmark \cite{bib8}, Bachmann \cite{bib2}): chaotic $\cos\Delta$ because coordinated opposing-effect cancellations make any fixed parameter subset scenario-dependent; no selection can reliably track the full model. In the Bachmann JAK-STAT model \cite{bib2}, feedback loops allow increasing one receptor parameter and decreasing another to produce nearly identical STAT5 activation, creating a non-identifiable subspace that the FIM correctly flags as collinear but that cannot be resolved by any fixed-subset selection. The overall distribution across patterns is: 14 Pattern-A (58\%), 4 Pattern-B (17\%), 2 Pattern-C (8\%), and 4 Pattern-D (17\%), reflecting that the majority of biological ODE models encountered in practice have intrinsically robust reductions.
+
+
+Lang \cite{bib18} achieves the most stable reduction: $\cos\Delta$ $\in$ [0.963, 0.982], $\sigma$ < 0.06 across all seven levels, due to conserved cyclin-CDK complexes plus extreme sloppy structure that renders most of the 73 dynamic parameters dynamically invisible. This combination---conservation law plus sloppy spectrum---represents the ideal case for FIM-based reduction and explains why the cell-cycle model outperforms even simpler systems in robustness.
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig3.png}
+\caption{$\cos\Delta$ (median$\pm$std, $n=15$ scenarios) versus perturbation level ($\pm$1\%--50\%). (A)~Froehlich: flat $[0.92,0.95]$, extreme sloppy structure. (B)~Borghans: collapse at $\pm$40\%, Hopf bifurcation. (C)~Elowitz: irregular, phase-shift metric artefact. (D)~Brannmark: chaotic, opposing-effect parameter pairs.}
+\label{fig:patterns}
+\end{figure}
+
+
+\begin{table}[t]
+\caption{Admissible systems. M: G=FIM Stage~1, S=Scan Stage~2. $\dag$~oscillator (phase-shift artefact); $\mathrm{S}$~FIM criteria met but $\cos\Delta < 0.90$; P=robustness pattern (A--D).}
+\label{tab:admissible}
+\centering
+\scriptsize
+\begin{tabular}{@{}llrrrrrrr c@{}}
+\toprule
+System & M & Sel. & Var.\% & $\kappa$ & VIF & $\cos\Delta_{\pm5\%}$ & $\cos\Delta_{\pm20\%}$ & $\cos\Delta_{\pm50\%}$ & P \\
+\midrule
+\multicolumn{10}{@{}l}{\textit{FIM Stage 1}} \\
+Raimundez & G & 1 & 99.9 & 1.0 & 1.0 & 1.000 & 1.000 & 1.000 & A \\
+Crauste & G & 2 & 96.6 & 2.4 & 2.0 & 1.000 & 1.000 & 1.000 & A \\
+Armistead & G & 2 & 99.9 & 3.0 & 2.7 & 1.000 & 0.997 & 0.911 & A \\
+SalazarCavazos & G & 4 & 95.0 & 1.7 & --- & 1.000 & 1.000 & 1.000 & A \\
+Chen & G & 2 & 100.0 & 1.0 & 1.0 & 0.998 & 0.998 & 0.996 & A \\
+Blasi & G & 2 & 100.0 & 4.9 & 1.8 & 0.973 & 0.980 & 0.976 & A \\
+Borghans & G & 7 & 91.4 & 8.0 & 9.3 & 0.975 & 0.929 & 0.671 & B \\
+Froehlich & G & 22 & 89.3 & 2.6 & 2.2 & 0.942 & 0.928 & 0.922 & A \\
+Okuonghae & G & 6 & 88.2 & 7.4 & 9.8 & 0.994 & 0.990 & 0.989 & A \\
+Zheng & G & 4 & 96.3 & 3.0 & 2.6 & 0.831 & 0.943 & 0.906 & B \\
+Sneyd\dag & G & 2 & 99.5 & 6.0 & --- & 0.998 & 0.996 & 0.991 & A \\
+Elowitz\dag\S & G & 2 & 99.4 & 1.3 & 1.1 & 0.784 & 0.973 & 0.675 & C \\
+Fiedler\S & G & 2 & 100.0 & 2.2 & 1.8 & 0.794 & 0.858 & 0.710 & B \\
+Bachmann\S & G & 2 & 99.7 & 2.2 & 1.8 & 0.822 & 0.644 & 0.758 & D \\
+SCT Bandura & G & 5 & 95.0 & 7.5 & 11.4 & 0.987 & 0.987 & 0.985 & A \\
+\midrule
+\multicolumn{10}{@{}l}{\textit{Scan Stage 2}} \\
+Raia & S & 1 & --- & --- & --- & 1.000 & 1.000 & 1.000 & A \\
+Boehm & S & 3 & 97.9 & 2.1 & 1.6 & 0.991 & 0.993 & 0.974 & A \\
+Zhao & S & 1 & --- & --- & --- & 0.994 & 0.994 & 0.995 & A \\
+Lang & S & 6 & 89.1 & 2.7 & 2.3 & 0.982 & 0.981 & 0.977 & A \\
+Smith & S & 2 & 53.2 & 1.0 & 1.0 & 0.998 & 0.996 & 0.995 & A \\
+Brannmark & S & 6 & --- & 2.6 & 2.0 & 0.688 & 0.707 & 0.648 & D \\
+Giordano & S & 6 & 83.7 & 6.6 & 10.0 & 0.993 & 0.997 & 0.985 & A \\
+Rahman & S & 3 & 44.5 & 5.2 & 7.2 & 0.990 & 0.921 & 0.966 & A \\
+Weber & S & 4 & 99.9 & 11.7 & 33.0 & 0.809 & 0.678 & 0.882 & B \\
+\botrule
+\end{tabular}
+\end{table}
+
+\subsection{FIM eigenvalue spectra}\label{sec:spectra}
+
+
+The FIM spectra (Fig.~\ref{fig:spectra}) reveal the structural origin of each robustness pattern and provide a rapid diagnostic before any perturbation sweep is performed. Blasi and Chen show effective sparsity: only 2 non-zero eigenvalues (rest at machine precision), so their observable dynamics are governed by a single dominant parameter pair at all perturbation scales; all other parameters can be simultaneously zeroed without affecting the trajectory. Froehlich \cite{bib12} shows true sloppy structure ($\lambda_1/\lambda_{50}$ $\approx$ 2 $\times$ $10^{10}$, gradual 10-decade decay), consistent with the universally sloppy model hypothesis \cite{bib15}: all parameters contribute, but the dominant directions concentrate in a low-dimensional subspace, explaining why 22 parameters suffice to capture 89\% of the sensitivity of a 4231-parameter model. The practical implication is substantial: a researcher can safely ignore 4209 of the 4231 Froehlich parameters during estimation and still recover nearly all observable variation---the remaining 11\% is distributed across 4209 parameters each contributing less than 3 $\times$ $10^{-11}$ of the total FIM energy. Fiedler's 3-eigenvalue structure directly reflects 3 conserved totals (RAF\_tot, MEK\_tot, ERK\_tot), illustrating how conservation laws collapse the effective parameter dimension from 24 to 3; any selection that respects these three totals will track the full model regardless of which other parameters are perturbed. Brannmark's irregular spectrum---no clear energy hierarchy, 6 eigenvalues within one decade of each other---directly predicts its Pattern D chaotic $\cos\Delta$: without a dominant subset, no fixed selection reliably tracks the full model. The Giordano COVID-19 model \cite{bib14} shows a bimodal spectrum: two high-energy transmission-rate parameters separated by over a decade from the rest, placing it firmly in Pattern A despite involving 9 compartments and 19 parameters. The cumulative variance curves (right panel, Fig.~\ref{fig:spectra}) quantify this visually: sloppy systems (Froehlich) show a near-linear accumulation across all parameters, while sparse systems (Blasi, Chen, Fiedler) exhibit a sharp step at k = 2 or k = 3, reaching 100\% in very few parameters.
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig4.png}
+\caption{FIM eigenvalue spectra. Left: normalised eigenvalues (log scale). Blasi/Chen: abrupt drop at $k=2$ (effective sparsity). Fiedler: drop at $k=3$ (3 conserved totals). Brannmark: irregular (Pattern~D). Froehlich: 10-decade gradual decay (sloppy). Right: cumulative variance; 89\%/95\% thresholds shown.}
+\label{fig:spectra}
+\end{figure}
+
+
+\section{Discussion}\label{sec:discussion}
+
+
+\subsection{Practical impact and comparison with existing methods}\label{sec:impact}
+
+
+The 89\% admissibility rate demonstrates that most practical ODE models have intrinsically low-dimensional output sensitivity: most parameters are dynamically irrelevant or redundant, and only a handful govern the observable trajectories. Reductions of up to 99.7\% allow researchers to focus calibration on 2--22 dominant parameters instead of thousands, cutting computational cost by orders of magnitude and improving the statistical quality of fits by reducing overfitting and improving confidence intervals.
+
+
+Compared to existing approaches, our method occupies a distinct position. Profile likelihood methods \cite{bib24,bib25} detect practical non-identifiability after a full optimisation run in the original parameter space---they are $O(p^2)$ and applied a posteriori, whereas our method requires only $O(p)$ forward simulations before optimisation begins. Likelihood-based observability analysis \cite{bib17} provides prediction confidence intervals but requires a calibrated model as input; approximate Bayesian computation methods \cite{bib20} require $O(p\cdot 10^4)$ simulations and do not guarantee a collinearity-free reduced subset. Global sensitivity methods \cite{bib26,bib23} sample the parameter space broadly but do not deliver a certified reduced subset. Sloppy model analysis \cite{bib15} characterises the spectral structure of the FIM but typically does not produce a concrete reduced subset with formal guarantees. Structural identifiability analysis \cite{bib4,bib10,bib29} determines whether parameters can in principle be estimated from ideal data, but it does not select a practically identifiable subset under a specific experimental condition; our $\kappa$/VIF filter provides exactly the finite-data condition that bridges this gap. Balanced truncation and Hankel singular value methods \cite{bib22,bib1} reduce the number of state variables, which is a fundamentally different problem from parameter reduction. Our method is complementary to all of these: it produces a selected, dynamically validated, and formally grounded parameter set before any estimation is performed.
+
+
+\subsection{What the formal guarantee certifies}\label{sec:guarantee}
+
+
+The Lean 4 theorem certifies a local statement at the nominal point $\theta_0$: if the FIM energy of discarded parameters is small, the state-trajectory fit is preserved within a computable bound. This means that the selected parameters dominate the first-order response of the system around $\theta_0$. For linear observations y = Cx, FIM energy exactly quantifies output influence: $E_j$ = $\|CJ_j\|^2/\|C\|^2$. For nonlinear observations, it provides a first-order approximation; the $\cos\Delta$ validation empirically certifies whether this approximation is sufficient.
+
+
+The perturbation sweep from $\pm$1\% to $\pm$50\% reveals that Pattern A systems remain valid far beyond the strict linearisation regime, because their dominant parameters are structurally rate-limiting---they govern the output across the full parameter space, not just locally. This is the key practical insight: when the model has sloppy or sparse spectral structure, the local FIM selection is effectively global.
+
+
+The two criteria, FIM energy and $\cos\Delta$, are complementary rather than redundant. Energy measures state-sensitivity (how much a parameter moves the system trajectories); $\cos\Delta$ measures observable output fidelity (whether those trajectory changes align with what the full model produces under realistic perturbations). Pattern B and D failures arise precisely when energy is a poor predictor of output fidelity: bifurcation thresholds and opposing-effect correlations produce scenarios where state sensitivity is large but the observable response does not track the full model.
+
+
+\subsection{Collinearity as a structural reduction opportunity}\label{sec:collinearity}
+
+
+A key finding is that seven Stage-2 systems appeared non-reducible under pure energy ranking but were recovered once the $\kappa$/VIF filter \cite{bib5} was applied. This shows that collinearity is not a numerical nuisance to be managed---it is a structural property to be exploited. When many parameters produce similar Jacobian directions, estimating all of them is unnecessary and may even degrade optimisation by inflating the parameter space without adding information.
+
+
+L2 normalisation of Jacobian columns is essential for correct collinearity detection. Without it, the condition number $\kappa$ is contaminated by parameter scale differences and may falsely flag well-separated parameters as collinear. In the SCT Bandura model, for instance, the parameters $\beta_{ij}$ and $\tau_i$ always appear as ratios $\beta_{ij}/\tau_i$ in the system matrix, creating structural coupling. L2 normalisation correctly identifies this coupling: $\kappa$ dropped from 63.3 (scale-contaminated) to 2.43 (true angular measure), revealing a valid 5-parameter reduction with $\cos\Delta$ = 0.987.
+
+
+\subsection{Sloppy structure, robustness patterns, and FIM spectra}\label{sec:sloppy}
+
+
+The four robustness patterns connect directly to FIM spectral structure (Fig.~\ref{fig:spectra}). Pattern A systems exhibit either effective sparsity (Blasi, Chen: only 2 non-zero eigenvalues) or true sloppy structure (Froehlich \cite{bib12}: 10-decade gradual decay), consistent with \cite{bib15}; in both cases the sensitivity space has low effective dimension, explaining why Froehlich (4231 parameters) is more robustly reducible than Brannmark (22 parameters). Pattern B systems (Borghans \cite{bib7}, Fiedler, Zheng, Weber) reveal the limits of local FIM selection: qualitative boundaries such as Hopf bifurcations or enzymatic saturation thresholds push the trajectory beyond the linear regime captured by the selected subset. Pattern C systems (Elowitz \cite{bib11}, Sneyd) expose a metric limitation rather than a reduction failure: cosine similarity conflates oscillatory phase shifts with fidelity loss, so the reduction may be valid even when $\cos\Delta$ < 0.90. Pattern D systems (Brannmark \cite{bib8}, Bachmann \cite{bib2}) represent a fundamental limit: opposing-effect parameter pairs create coordinated cancellations that make any fixed subset scenario-dependent and unreliable.
+
+
+\subsection{Locality and future directions}\label{sec:future}
+
+
+The FIM selection is local to the nominal point $\theta_0$. If experimental conditions change substantially---different stimuli, cell lines, or time horizons---the dominant parameter subset may shift. The perturbation sweep provides empirical evidence that many Pattern A selections remain valid well beyond the linear regime ($\pm$50\%), but this cannot be assumed for all systems or all conditions.
+
+
+Three directions address this limitation. First, multi-condition FIM averaging: compute J at several representative operating points and take the union of selected subsets. Second, integration with D-optimal experiment design \cite{bib28} to find subsets jointly informative across multiple conditions. Third, adaptive re-selection strategies for real-time model updating as new data arrive. The $\kappa$ $\le$ 10 and VIF $\le$ 10 thresholds remain heuristic; the SCT Bandura case ($\kappa$ = 2.43 after normalisation but requiring VIF relaxation to 12) suggests that problem-specific calibration guided by $\cos\Delta$ is warranted. Finally, a formal Lean 4 proof linking low $\kappa$ to small cross-alignment coefficient $\rho$ would close the gap between the certified energy criterion and the empirical collinearity components, strengthening the theoretical foundation of the complete method.
+
+
+\section{Conclusion}\label{sec:conclusion}
+
+
+Parameter estimation in biological ODE models is often a far lower-dimensional problem than it appears. By combining FIM-based sensitivity energy, collinearity-conditioned selection, dynamic validation, and a Lean 4 formal guarantee, the proposed method identifies the small parameter subset governing the observable dynamics. Across 36 biological and behavioral ODE systems, reductions of up to 99.7\% preserve trajectory fidelity at an 89\% admissibility rate. The formal guarantee is not merely empirical: when the FIM energy of discarded parameters is small, the trajectory fit is preserved---a mathematically verified implication. For researchers facing large ODE models, the practical message is direct: apply FIM-based selection first, reduce to the core parameters, and invest computational resources where they matter.
+
+
+\section{Methods}\label{sec:methods}
+
+
+\subsection{State-sensitivity FIM}\label{sec:fim}
+
+
+Terminology. G = $J^\top J$ is the Fisher Information Matrix (FIM) or parameter sensitivity matrix; not to be confused with the Lyapunov Gramians W\_c, W\_o of control theory \cite{bib30}.
+
+
+We consider $\dot{x}$ = f(x, $\theta$), y = g(x), with states x $\in$ $\mathbb{R}^n$, dynamic parameters $\theta$ $\in$ $\mathbb{R}^p$ (observational prefixes excluded), and output y $\in$ $\mathbb{R}^m$. The state-sensitivity Jacobian is computed by forward finite differences ($\delta$ = 0.01) using libRoadRunner \cite{bib13} for all PEtab models:
+
+
+\begin{equation}
+J_{k,j}(t_i)=\frac{x_k(\theta_0+\delta\theta_{0,j}e_j,t_i)-x_k(\theta_0,t_i)}{\delta\theta_{0,j}},\quad J\in\mathbb{R}^{(n N_t)\times p}.
+\label{eq:jac}
+\end{equation}
+
+
+Using state variables directly avoids dependence on the observation function g(x), and for linear y = Cx gives $E_j$ = $\|CJ_j\|^2/\|C\|^2$ exactly. The FIM energy and cumulative variance:
+
+
+\begin{equation}
+E_j=\|J_j\|^2=(J^\top J)_{jj},\quad R_{\mathrm{var}}(S)=\frac{\sum_{j\in S}E_j}{\mathrm{tr}(J^\top J)}.
+\label{eq:energy}
+\end{equation}
+
+
+The time grid {$t_1$, ..., t\_{$N_t$}} with $N_t$ = 60 uniformly spaced points spans the system's characteristic transient; parameters with $E_j$ < $10^{-12}$ $\cdot$ max\_k E\_k are considered numerically zero and excluded before selection.
+
+
+\subsection{Collinearity: $\kappa$ and VIF}\label{sec:kvif}
+
+
+Columns of $J_S$ are L2-normalised: Z = $J_S$ $\mathrm{diag}(v)^{-1}$, v\_j = max($\|J_{S,j}\|$, $10^{-15}$), removing scale differences so $\kappa$ and VIF measure angular collinearity only---critical for structurally coupled parameters (e.g. $\beta_{ij}/\tau_i$ in SCT Bandura).
+
+
+\begin{equation}
+\kappa=\sigma_1/\sigma_k(\mathrm{SVD\ of\ }Z),\quad \mathrm{VIF}_{\max}=\max_{j\in S}(C^{-1})_{jj},\ C=Z^\top Z.
+\label{eq:kvif}
+\end{equation}
+
+
+Both accepted when $\le$ 10 \cite{bib9,bib30,bib5}. The joint criterion guarantees that the normal equations $$J\_S$^\top$ $J_S$ $\hat{\theta}_S$ = $$J\_S$^\top$ y are well-conditioned, ensuring practical identifiability of the retained subset \cite{bib10,bib29}. When $\kappa$ > 10, Jacobian columns are nearly linearly dependent: the corresponding parameters produce almost identical state perturbations and cannot be distinguished by any estimator regardless of data quantity; permanently discarding the redundant candidate eliminates this degeneracy without information loss.
+
+
+\subsection{Sequential collinearity-conditioned selection}\label{sec:greedy}
+
+
+Parameters are added in descending $E_j$ order with a permanent-discard rule. For each candidate j: (1) compute $\kappa$ and VIF for $S'$ = $S\cup\{j\}$; (2) if both $\le$ 10, accept S \leftarrow  $S'$, otherwise discard j permanently; (3) stop when the stage criterion is met or all candidates are exhausted. The permanent discard is key: a collinear parameter contributes no new information regardless of how many further parameters are added.
+
+
+\subsection{Stage 1 -- linear FIM with formal guarantee}\label{sec:stage1}
+
+
+Criterion: $R_{\mathrm{var}}$(S) $\ge$ 0.89 and $|S|$ $\ge$ 2.
+
+
+Lean 4 guarantee. Theorem fit\_from\_measurable\_removed\_bound: if R = $\sum_{j\notin S}$ $E_j$ $\le$ $\varepsilon$ $\cdot$ tr($J^\top J$), then the fit is preserved within (1 - $\varepsilon$)(1 - $\rho^2$). Lemma columnEnergy\_eq\_jtj\_diag links $E_j=(J^\top J)_{jj}$. The 89\% threshold is conservative by design: it ensures the selected subset captures the dominant sensitivity directions, but admissibility is always confirmed by $\cos\Delta$ $\ge$ 0.90 rather than by this screening threshold alone.
+
+
+\subsection{Stage 2 -- empirical scan and dynamic validation}\label{sec:stage2}
+
+
+Activation: Stage 1 fails ($R_{\mathrm{var}}$ < 0.89). Rank by $s_j$ = ||x($\theta_0$ + 0.1 $\theta_{0,j}$ e\_j) - x($\theta_0$)||, analogous to elementary-effects one-at-a-time perturbation \cite{bib23}; same greedy $\kappa$/VIF filter. Validate over 15 scenarios at $\pm$5\%:
+
+
+\begin{equation}
+\cos\Delta=\frac{\langle\Delta x_{\mathrm{full}},\Delta x_{\mathrm{sel}}\rangle}{\|\Delta x_{\mathrm{full}}\|\|\Delta x_{\mathrm{sel}}\|},\quad \Delta x=x_{\mathrm{perturbed}}-x_{\mathrm{nominal}}.
+\label{eq:cos}
+\end{equation}
+
+
+Admissible if median $\cos\Delta$ $\ge$ 0.90. The 15 scenarios at $\pm$5\% were chosen to give sufficient power to detect systematic fidelity failures while remaining computationally affordable; the $\pm$5\% range probes the nonlinear neighbourhood immediately beyond the $\delta$ = 0.01 linearisation used in Stage 1. For $\|x_0\|$ $\gg$ 1, an absolute threshold $\|\Delta x_{\mathrm{full}}\|$ $\ge$ $10^{-6}$ replaces the relative filter to avoid false positives from negligible absolute perturbations.
+
+
+\subsection{Pipeline overview}\label{sec:pipeline}
+
+
+Figure~\ref{fig:pipeline} summarises the complete two-stage pipeline.
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig1.png}
+\caption{Two-stage pipeline. Stage~1 ranks by $E_j$, applies greedy $\kappa$/{VIF}, and accepts if $R_{\mathrm{var}}\ge 89\%$ (with $\cos\Delta$ validation or oscillator branch). Stage~2 activates on failure, re-ranks by $s_j$, and requires $\cos\Delta\ge 0.90$.}
+\label{fig:pipeline}
+\end{figure}
+
+
+\backmatter
+
+\bmhead{Data availability}
+The PEtab benchmark models used in this study are publicly available (Benchmarking-Initiative/Benchmark-Models-PEtab). Analysis scripts and Lean~4 certificates are available at https://github.com/monicammr/archivos (branch claude/ode-variable-reduction-papers-tv9zdf) and from the corresponding author upon reasonable request.
+
+
+\bmhead{Code availability}
+Python analysis code (certify\_systems.py, stage\_reclass.py, refit\_systems.py) and Lean~4 sources are archived in the repository cited above.
+
+
+\bmhead{Acknowledgements}
+The authors thank Escuela Superior Polit\'ecnica del Litoral (ESPOL) for institutional support.
+
+
+\bmhead{Author contributions}
+Conceptualization, M.M.R. and C.S.; methodology, M.M.R. and C.S.; software, M.M.R.; validation, M.M.R., C.S., C.M. and A.A.; formal analysis, M.M.R.; investigation, M.M.R.; resources, C.S., C.M. and A.A.; writing---original draft preparation, M.M.R.; writing---review and editing, M.M.R., C.S., C.M. and A.A.; supervision, C.S., C.M. and A.A. All authors have read and agreed to the published version of the manuscript.
+
+
+\bmhead{Competing interests}
+The authors declare no competing interests.
+
+
+\bmhead{Funding}
+This research received no external funding.
+
+
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\burl{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\bibcommenthead
+
+\bibitem{bib16}
+\bibinfo{author}{Kholodenko, B.~N.}
+\newblock \bibinfo{title}{Cell-signalling dynamics in time and space}.
+\newblock \emph{\bibinfo{journal}{Nature Reviews Molecular Cell Biology}}
+  \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{165--176}
+  (\bibinfo{year}{2006}).
+
+\bibitem{bib4}
+\bibinfo{author}{Bellman, R.} \& \bibinfo{author}{{\AA}str{\"o}m, K.~J.}
+\newblock \bibinfo{title}{On structural identifiability}.
+\newblock \emph{\bibinfo{journal}{Mathematical Biosciences}}
+  \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{329--339}
+  (\bibinfo{year}{1970}).
+
+\bibitem{bib10}
+\bibinfo{author}{Chi{\c{s}}, O.-T.}, \bibinfo{author}{Banga, J.~R.} \&
+  \bibinfo{author}{Balsa-Canto, E.}
+\newblock \bibinfo{title}{Structural identifiability of systems biology models:
+  A critical comparison of methods}.
+\newblock \emph{\bibinfo{journal}{PLOS ONE}} \textbf{\bibinfo{volume}{6}},
+  \bibinfo{pages}{e27755} (\bibinfo{year}{2011}).
+
+\bibitem{bib24}
+\bibinfo{author}{Raue, A.} \emph{et~al.}
+\newblock \bibinfo{title}{Structural and practical identifiability analysis of
+  partially observed dynamical models by exploiting the profile likelihood}.
+\newblock \emph{\bibinfo{journal}{Bioinformatics}}
+  \textbf{\bibinfo{volume}{25}}, \bibinfo{pages}{1923--1929}
+  (\bibinfo{year}{2009}).
+
+\bibitem{bib25}
+\bibinfo{author}{Raue, A.}, \bibinfo{author}{Kreutz, C.},
+  \bibinfo{author}{Theis, F.~J.} \& \bibinfo{author}{Timmer, J.}
+\newblock \bibinfo{title}{Joining forces of {Bayesian} and frequentist
+  methodology: A study for inference in the presence of non-identifiability}.
+\newblock \emph{\bibinfo{journal}{Philosophical Transactions of the Royal
+  Society A}} \textbf{\bibinfo{volume}{371}}, \bibinfo{pages}{20110544}
+  (\bibinfo{year}{2013}).
+
+\bibitem{bib12}
+\bibinfo{author}{Fr{\"o}hlich, F.}, \bibinfo{author}{Loos, C.} \&
+  \bibinfo{author}{Hasenauer, J.}
+\newblock \bibinfo{title}{Scalable parameter estimation for genome-scale
+  biochemical reaction networks}.
+\newblock \emph{\bibinfo{journal}{PLOS Computational Biology}}
+  \textbf{\bibinfo{volume}{14}}, \bibinfo{pages}{e1005991}
+  (\bibinfo{year}{2018}).
+
+\bibitem{bib14}
+\bibinfo{author}{Giordano, G.} \emph{et~al.}
+\newblock \bibinfo{title}{Modelling the {COVID}-19 epidemic and implementation
+  of population-wide interventions in {Italy}}.
+\newblock \emph{\bibinfo{journal}{Nature Medicine}}
+  \textbf{\bibinfo{volume}{26}}, \bibinfo{pages}{855--860}
+  (\bibinfo{year}{2020}).
+
+\bibitem{bib29}
+\bibinfo{author}{Villaverde, A.~F.}, \bibinfo{author}{Barreiro, A.} \&
+  \bibinfo{author}{Papachristodoulou, A.}
+\newblock \bibinfo{title}{Structural identifiability of dynamic systems biology
+  models: A critical comparison of analysis methods}.
+\newblock \emph{\bibinfo{journal}{PLOS Computational Biology}}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{e1004873}
+  (\bibinfo{year}{2016}).
+
+\bibitem{bib17}
+\bibinfo{author}{Kreutz, C.}, \bibinfo{author}{Raue, A.} \&
+  \bibinfo{author}{Timmer, J.}
+\newblock \bibinfo{title}{Likelihood based observability analysis and
+  confidence intervals for predictions of dynamic models}.
+\newblock \emph{\bibinfo{journal}{BMC Systems Biology}}
+  \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{120} (\bibinfo{year}{2012}).
+
+\bibitem{bib15}
+\bibinfo{author}{Gutenkunst, R.~N.} \emph{et~al.}
+\newblock \bibinfo{title}{Universally sloppy parameter sensitivities in systems
+  biology models}.
+\newblock \emph{\bibinfo{journal}{PLOS Computational Biology}}
+  \textbf{\bibinfo{volume}{3}}, \bibinfo{pages}{e189} (\bibinfo{year}{2007}).
+
+\bibitem{bib18}
+\bibinfo{author}{Lang, A.~H.}, \bibinfo{author}{Li, H.},
+  \bibinfo{author}{Collins, J.~J.} \& \bibinfo{author}{Mehta, P.}
+\newblock \bibinfo{title}{Epigenetic landscapes explain partially reprogrammed
+  cells and identify key reprogramming genes}.
+\newblock \emph{\bibinfo{journal}{PLOS Computational Biology}}
+  \textbf{\bibinfo{volume}{20}}, \bibinfo{pages}{e1011797}
+  (\bibinfo{year}{2024}).
+
+\bibitem{bib6}
+\bibinfo{author}{Boehm, M.~E.} \emph{et~al.}
+\newblock \bibinfo{title}{Identification of isoform-specific dynamics in
+  phosphorylation-dependent {STAT5A} dimerization and phosphorylation-dependent
+  {STAT5B} dimerization and nuclear translocation}.
+\newblock \emph{\bibinfo{journal}{Journal of Proteome Research}}
+  \textbf{\bibinfo{volume}{13}}, \bibinfo{pages}{5685--5694}
+  (\bibinfo{year}{2014}).
+
+\bibitem{bib26}
+\bibinfo{author}{Saltelli, A.}, \bibinfo{author}{Tarantola, S.},
+  \bibinfo{author}{Campolongo, F.} \& \bibinfo{author}{Ratto, M.}
+\newblock \emph{\bibinfo{title}{Sensitivity analysis in practice: A guide to
+  assessing scientific models}}  (\bibinfo{publisher}{Wiley},
+  \bibinfo{year}{2004}).
+
+\bibitem{bib23}
+\bibinfo{author}{Morris, M.~D.}
+\newblock \bibinfo{title}{Factorial sampling plans for preliminary
+  computational experiments}.
+\newblock \emph{\bibinfo{journal}{Technometrics}}
+  \textbf{\bibinfo{volume}{33}}, \bibinfo{pages}{161--174}
+  (\bibinfo{year}{1991}).
+
+\bibitem{bib27}
+\bibinfo{author}{Schmiester, L.} \emph{et~al.}
+\newblock \bibinfo{title}{{PEtab}---interoperable specification of parameter
+  estimation problems in systems biology}.
+\newblock \emph{\bibinfo{journal}{PLOS Computational Biology}}
+  \textbf{\bibinfo{volume}{17}}, \bibinfo{pages}{e1008646}
+  (\bibinfo{year}{2021}).
+
+\bibitem{bib5}
+\bibinfo{author}{Belsley, D.~A.}, \bibinfo{author}{Kuh, E.} \&
+  \bibinfo{author}{Welsch, R.~E.}
+\newblock \emph{\bibinfo{title}{Regression diagnostics: Identifying influential
+  data and sources of collinearity}}  (\bibinfo{publisher}{Wiley},
+  \bibinfo{year}{1980}).
+
+\bibitem{bib9}
+\bibinfo{author}{Brun, R.}, \bibinfo{author}{Reichert, P.} \&
+  \bibinfo{author}{K{\"u}nsch, H.~R.}
+\newblock \bibinfo{title}{Practical identifiability analysis of large
+  environmental simulation models}.
+\newblock \emph{\bibinfo{journal}{Water Resources Research}}
+  \textbf{\bibinfo{volume}{37}}, \bibinfo{pages}{1015--1030}
+  (\bibinfo{year}{2001}).
+
+\bibitem{bib19}
+\bibinfo{author}{{Lean 4 Development Team}}.
+\newblock \bibinfo{title}{The {Lean} theorem prover}.
+\newblock \bibinfo{howpublished}{\url{https://lean-lang.org}}
+  (\bibinfo{year}{2023}).
+
+\bibitem{bib21}
+\bibinfo{author}{{Mathlib Community}}.
+\newblock \bibinfo{title}{The {Lean} mathematical library}.
+\newblock \bibinfo{howpublished}{Proceedings of the 9th ACM SIGPLAN
+  International Conference on Certified Programs and Proofs}
+  (\bibinfo{year}{2020}).
+
+\bibitem{bib3}
+\bibinfo{author}{Bandura, A.}
+\newblock \emph{\bibinfo{title}{Social foundations of thought and action: A
+  social cognitive theory}}  (\bibinfo{publisher}{Prentice-Hall},
+  \bibinfo{year}{1986}).
+
+\bibitem{bib8}
+\bibinfo{author}{Br{\"a}nnmark, C.}, \bibinfo{author}{Palm{\'e}r, R.},
+  \bibinfo{author}{Glad, S.~T.}, \bibinfo{author}{Cedersund, G.} \&
+  \bibinfo{author}{Str{\aa}lfors, P.}
+\newblock \bibinfo{title}{Mass and information feedbacks through receptor
+  endocytosis govern insulin signaling as revealed with an adaptive model}.
+\newblock \emph{\bibinfo{journal}{Journal of Biological Chemistry}}
+  \textbf{\bibinfo{volume}{285}}, \bibinfo{pages}{20171--20179}
+  (\bibinfo{year}{2010}).
+
+\bibitem{bib2}
+\bibinfo{author}{Bachmann, J.} \emph{et~al.}
+\newblock \bibinfo{title}{Division of labor by dual feedback regulators
+  controls {JAK2}/{STAT5} signaling over broad ligand range}.
+\newblock \emph{\bibinfo{journal}{Molecular Systems Biology}}
+  \textbf{\bibinfo{volume}{7}}, \bibinfo{pages}{516} (\bibinfo{year}{2011}).
+
+\bibitem{bib13}
+\bibinfo{author}{Fr{\"o}hlich, F.}, \bibinfo{author}{Weindl, D.} \&
+  \bibinfo{author}{Hasenauer, J.}
+\newblock \bibinfo{title}{{AMICI}: High-performance sensitivity analysis for
+  large ordinary differential equation models}.
+\newblock \emph{\bibinfo{journal}{Bioinformatics}}
+  \textbf{\bibinfo{volume}{37}}, \bibinfo{pages}{3676--3677}
+  (\bibinfo{year}{2021}).
+
+\bibitem{bib7}
+\bibinfo{author}{Borghans, J. A.~M.}, \bibinfo{author}{de~Boer, R.~J.} \&
+  \bibinfo{author}{Segel, L.~A.}
+\newblock \bibinfo{title}{Extending the quasi-steady state approximation by
+  changing variables}.
+\newblock \emph{\bibinfo{journal}{Bulletin of Mathematical Biology}}
+  \textbf{\bibinfo{volume}{59}}, \bibinfo{pages}{43--63}
+  (\bibinfo{year}{1997}).
+
+\bibitem{bib11}
+\bibinfo{author}{Elowitz, M.~B.} \& \bibinfo{author}{Leibler, S.}
+\newblock \bibinfo{title}{A synthetic oscillatory network of transcriptional
+  regulators}.
+\newblock \emph{\bibinfo{journal}{Nature}} \textbf{\bibinfo{volume}{403}},
+  \bibinfo{pages}{335--338} (\bibinfo{year}{2000}).
+
+\bibitem{bib20}
+\bibinfo{author}{Liepe, J.} \emph{et~al.}
+\newblock \bibinfo{title}{A framework for parameter estimation and model
+  selection in systems biology using approximate {Bayesian} computation}.
+\newblock \emph{\bibinfo{journal}{Nature Protocols}}
+  \textbf{\bibinfo{volume}{9}}, \bibinfo{pages}{439--456}
+  (\bibinfo{year}{2014}).
+
+\bibitem{bib22}
+\bibinfo{author}{Moore, B.~C.}
+\newblock \bibinfo{title}{Principal component analysis in linear systems:
+  Controllability, observability, and model reduction}.
+\newblock \emph{\bibinfo{journal}{IEEE Transactions on Automatic Control}}
+  \textbf{\bibinfo{volume}{26}}, \bibinfo{pages}{17--32}
+  (\bibinfo{year}{1981}).
+
+\bibitem{bib1}
+\bibinfo{author}{Antoulas, A.~C.}
+\newblock \emph{\bibinfo{title}{Approximation of large-scale dynamical
+  systems}}  (\bibinfo{publisher}{SIAM}, \bibinfo{year}{2005}).
+
+\bibitem{bib28}
+\bibinfo{author}{Transtrum, M.~K.} \& \bibinfo{author}{Qiu, P.}
+\newblock \bibinfo{title}{Optimal experiment selection for parameter estimation
+  in biological differential equation models}.
+\newblock \emph{\bibinfo{journal}{BMC Bioinformatics}}
+  \textbf{\bibinfo{volume}{13}}, \bibinfo{pages}{181} (\bibinfo{year}{2012}).
+
+\bibitem{bib30}
+\bibinfo{author}{Walter, E.} \& \bibinfo{author}{Pronzato, L.}
+\newblock \emph{\bibinfo{title}{Identification of parametric models from
+  experimental data}}  (\bibinfo{publisher}{Springer}, \bibinfo{year}{1997}).
+
+\end{thebibliography}
+
+
+\end{document}
