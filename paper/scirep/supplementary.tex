@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,array}
+\usepackage{url}
+\renewcommand{\thetable}{S\arabic{table}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Supplementary Information}\\[4pt]
+{\large A few biological parameters reproduce the measured dynamics of systems biology models: sensitivity-based reduction with formally verified guarantees}\\[6pt]
+M\'onica Miranda R., Carlos Salazar, C\'esar Mart\'in, Adriana Aguirre
+\end{center}
+
+\section*{Supplementary Table S1. Selected biological parameters}
+
+Final subset $S$ for each problem (after backward elimination) and the parameters removed by backward elimination. Calibration parameters, which are always re-estimated, are not listed. Crauste and Beer have no admissible subset; the best subset found is shown.
+
+{\small
+\input{tables/tableS1.tex}
+}
+
+\section*{Supplementary Table S2. Notation}
+
+\begin{longtable}{@{}p{5.2cm}p{7.6cm}p{3.2cm}@{}}
+\toprule
+Symbol & Meaning & Value used \\
+\midrule
+\endhead
+$x(t;\theta)\in\mathbb{R}^n$ & state trajectory of the model $\dot x=f(x,\theta)$ & -- \\
+$\theta\in\mathbb{R}^p$, $\theta_0$ & parameter vector; nominal (published) value & PEtab nominal values \\
+$\Theta_B$, $\Theta_C$ & biological parameters (in the SBML model) and calibration parameters (observation scalings and offsets) & from the PEtab tables \\
+$y_i(\theta)=h(g_i(x(t_i),\theta))/\sigma_i$ & $i$-th scaled output: observable $g_i$, transformation $h$ (lin, log, log$_{10}$), noise s.d.\ $\sigma_i$, at the condition and time of measurement $i$ & PEtab measurement table \\
+$J=\partial y/\partial\log\theta\in\mathbb{R}^{m\times p}$ & relative sensitivity matrix (central differences, step $\delta$) & $\delta=0.01$ \\
+$E_j=\|J_{:,j}\|^2$ & sensitivity energy of parameter $j$ & -- \\
+$R_{\mathrm{var}}(S)$ & fraction of the energy of biological parameters captured by $S$ & $\tau_R=0.89$ \\
+$s_j$ & finite-perturbation effect of parameter $j$ (stage-2 ordering) & $\eta=0.1$ \\
+$\kappa(S)$, $\mathrm{VIF}(S)$ & condition number and largest variance inflation factor of the normalised columns of $J_S$ & $\tau_\kappa=\tau_{\mathrm{VIF}}=10$ \\
+$\Delta y_{\mathrm{full}}$, $\Delta y_S$ & output change when all parameters, or only those in $S\cup\Theta_C$, take their scenario values & $N=15$, $\varepsilon=0.05$ \\
+$\cos\Delta$ & cosine similarity between $\Delta y_{\mathrm{full}}$ and $\Delta y_S$ & -- \\
+$e_{\mathrm{rel}}$ & relative error without re-estimation & -- \\
+$e_{\mathrm{fit}}$ & relative error after re-estimating $\theta_S$ and $\theta_C$ & -- \\
+$\tau_e=\sqrt{1-c^2}$ & admissibility threshold on the median $e_{\mathrm{fit}}$ & $c=0.9$, $\tau_e=0.436$ \\
+$k_{\min}$ & minimum subset size & 2 \\
+$\chi^2/n$ & mean squared noise-scaled residual on test data & -- \\
+$e_{\mathrm{pred}}$ & relative prediction error with respect to a known truth (synthetic experiment) & -- \\
+\bottomrule
+\end{longtable}
+
+\section*{Supplementary Table S3. Formal theorems}
+
+Correspondence between the statements of Table~3 of the main text and the Lean~4 theorems (repository folder \texttt{lean/}). All files compile with Lean 4.23.0 and Mathlib without \texttt{sorry}; \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{11.6cm}@{}}
+\toprule
+Statement & Lean theorem(s) \\
+\midrule
+\endhead
+Energy and $R_{\mathrm{var}}$ & \texttt{FirstOrderErrorBound.total\_eq\_kept\_add\_removed}, \texttt{first\_order\_error\_bound}, \texttt{first\_order\_error\_from\_Rvar} \\
+Local trajectory bound & \texttt{CertifiedODEReduction.certified\_parameter\_reduction} \\
+Sensitivities of the ODE & \texttt{ODEParamDiff.hasFDerivAt\_solution\_param\_init} \\
+Greedy selection & \texttt{GreedySelection.greedy\_kappa\_vif\_guarantee} \\
+Identifiability & \texttt{Identifiability.ls\_unique}, \texttt{ls\_param\_kappa\_stability}, \texttt{ls\_vif\_inverse\_stability} \\
+Theorem 1 (admissibility threshold) & \texttt{ScaledError.min\_rel\_error\_eq} \\
+Re-estimation & \texttt{RefitMonotone.fitErr\_anti}, \texttt{fitErr\_union\_le}, \texttt{fitErr\_le\_erel}, \texttt{admissible\_mono} \\
+Theorem 2 (backward elimination) & \texttt{Poda.prune\_spec}, \texttt{Poda.exists\_minimal\_admissible} \\
+Measured outputs & \texttt{OutputComposition.output\_sq\_bound}, \texttt{output\_uniform\_bound}, \texttt{log\_lipschitz}, \texttt{log10\_lipschitz} \\
+First-order $e_{\mathrm{fit}}$ & \texttt{LinearizedFit.lin\_le\_scaled}, \texttt{fit\_upper\_of\_lin}, \texttt{fit\_lower\_of\_lin} \\
+Finite-difference and numerical margins & \texttt{NumericalRobustness.fd\_column\_error}, \texttt{rvar\_certified\_from\_approx}, \texttt{kappa\_certified\_from\_approx}, \texttt{vif\_certified\_from\_approx} \\
+Model assumptions (22 models) & \texttt{KineticNetwork.network\_final}, \texttt{StrictNetwork.strict\_final\_init},\newline \texttt{RiccatiNetwork.riccati\_final}; model files in \texttt{lean/Models/} \\
+\bottomrule
+\end{longtable}
+
+\section*{Supplementary Note. Verification of the simulator}
+
+Our simulation of the measured outputs was compared, at the nominal parameters, with the reference simulations distributed with the benchmark, matching each measurement by observable, condition and time. For the problems with comparable reference files the median relative difference was below $10^{-5}$ in all but five cases: Chen ($1.1\times 10^{-4}$), Zheng (whose reference file contains the measured data rather than a simulation), Crauste (0.8\%, very stiff model), Lang (2.8\%, an oscillating cell-cycle model simulated to $t=136{,}472$, where peaks differ by an accumulated phase shift) and Perelson (17\%; the initial state of the model is stationary and our simulation respects it, which suggests that the reference was generated with different values). Several problems have no comparable reference (no file, or different condition identifiers). The full comparison is given in the repository (\texttt{certificados/resultados/salidas/VERIFICACION\_SIMULADOR.md}).
+
+\end{document}

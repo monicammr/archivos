@@ -1,0 +1,270 @@
+% Scientific Reports submission (Springer Nature template, sn-nature reference style)
+% Revised manuscript: method on measured outputs, biological/calibration split, re-estimation
+% criterion, backward elimination, external validation, robustness, cost and formal guarantees.
+% Figures: make_figures.py; Table 1 and Supplementary Table S1: make_tables.py.
+
+\documentclass[pdflatex,sn-nature]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{lineno}
+\linenumbers
+\raggedbottom
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\title[Few biological parameters reproduce measured dynamics]{A few biological parameters reproduce the measured dynamics of systems biology models: sensitivity-based reduction with formally verified guarantees}
+
+\author*[1]{\fnm{M\'onica} \sur{Miranda R.}}\email{mmmirand@espol.edu.ec}
+\author[1]{\fnm{Carlos} \sur{Salazar}}\email{asalazar@espol.edu.ec}
+\author[1]{\fnm{C\'esar} \sur{Mart\'in}}\email{cmartin@espol.edu.ec}
+\author[1]{\fnm{Adriana} \sur{Aguirre}}\email{aaaguirr@espol.edu.ec}
+
+\affil*[1]{\orgdiv{Faculty of Engineering, Control and Automation Systems Group}, \orgname{Escuela Superior Polit\'ecnica del Litoral (ESPOL)}, \orgaddress{\city{Guayaquil}, \country{Ecuador}}}
+
+\abstract{Mathematical models of biological processes often contain dozens to hundreds of unknown rate constants, but experimental data rarely contain enough information to estimate all of them. We present a method that, before any model fitting, identifies a small set of biological parameters that is sufficient to reproduce the measured data when only those parameters, together with the measurement scaling and offset factors, are re-estimated and all other parameters are kept at their published values. The method ranks parameters by how strongly they change the measured quantities, discards parameters whose effects are redundant, checks that the reduced model can reproduce the data under random parameter perturbations, and finally removes any parameter that is not needed. We applied it to 34 published models with real experimental data. In 32 of them, a small subset was sufficient, in most cases only two biological parameters. When fitted to part of the experiments, the reduced models predicted the remaining experiments as well as or better than the full models in 24 of 25 testable cases, and most remained adequate for parameter changes of up to 50\%. The cost grows linearly with model size. Its main mathematical steps are verified with a computer proof assistant.}
+
+\keywords{parameter reduction, practical identifiability, sensitivity analysis, ordinary differential equations, systems biology, formal verification}
+
+\maketitle
+
+\section*{Introduction}\label{sec:intro}
+
+Ordinary differential equation (ODE) models are central to quantitative biology, pharmacology and epidemiology, where they describe how interacting molecular species or populations change over time as a function of kinetic parameters $\theta$\cite{bib16}. Using a model for prediction requires estimating $\theta$ from experimental measurements, and this becomes difficult as models grow. The main obstacle is non-identifiability: different parameter values may produce the same measured output, either because of model symmetries (structural non-identifiability) or because the available data are insufficient (practical non-identifiability)\cite{bib4,bib10,bib29}. In both cases the likelihood has flat ridges on which optimisers stall and confidence intervals become unreliable\cite{bib24,bib25,bib17}. Models in public benchmark collections routinely contain 20--300 parameters\cite{bib31}, and genome-scale models contain thousands\cite{bib12}.
+
+The sloppy-model phenomenon offers a structural explanation\cite{bib15}: the sensitivity of model outputs to parameters is typically dominated by a few ``stiff'' directions, while many ``sloppy'' directions have almost no effect on the outputs. This suggests that a small subset of parameters may suffice to describe what is actually measured. Exploiting this observation in practice requires answering three questions that existing tools address only partially. First, which parameters should be retained? Sensitivity indices\cite{bib26,bib23} and profile likelihoods\cite{bib24} rank parameters by importance, but they do not ensure that the retained parameters are mutually non-redundant, so the reduced estimation problem may still be ill-conditioned\cite{bib5,bib9}. Second, is the reduced model good enough? A reduction is useful only if re-estimating the retained parameters reproduces the measured data and predicts experiments that were not used for fitting. Third, how much can the conclusions be trusted? Statements such as ``the discarded parameters can be fixed'' rest on approximations whose validity is rarely made explicit.
+
+Here we present a reduction method that works directly on the measured outputs defined in the PEtab format\cite{bib27}, including experimental conditions, measurement transformations and noise levels. It distinguishes biological parameters, which belong to the mechanistic model, from calibration parameters (scaling factors and offsets of the measurement process), which are always re-estimated, and selects only among the biological ones. Candidates are ranked by sensitivity, redundant candidates are rejected by condition-number and variance-inflation tests, the reduced model is accepted only if re-estimating its parameters reproduces the full model under random parameter perturbations, and a final backward elimination makes the subset minimal with respect to inclusion. We evaluate the method on 34 benchmark problems with real data\cite{bib31,bib27}, test the reduced models on held-out experiments, quantify their robustness to perturbation size and to the method's own settings, and report the computational cost. The main mathematical statements on which the method relies are formally verified in the Lean~4 proof assistant with the Mathlib library\cite{bib19,bib21}; we state precisely what is and what is not proved.
+
+\section*{Results}\label{sec:results}
+
+\subsection*{Overview of the method}\label{sec:overview}
+
+Figure~\ref{fig:pipeline} summarises the procedure; all symbols are defined in the Methods and in Supplementary Table~S2. The input is a PEtab problem: an SBML model, the list of measured observables with their experimental conditions, measurement times, transformations (linear, logarithmic) and noise standard deviations $\sigma_i$, and the nominal parameter values $\theta_0$ reported by the original authors. Each measurement $i$ defines a scaled output $y_i(\theta)=h(g_i(x(t_i;\theta),\theta))/\sigma_i$, so that all outputs are comparable in units of measurement noise. Parameters are split into biological parameters $\theta_B$ (those of the SBML model) and calibration parameters $\theta_C$ (observation scalings and offsets); only biological parameters are candidates for selection, while calibration parameters are always re-estimated together with the selected ones.
+
+The relative sensitivity matrix $J=\partial y/\partial\log\theta$ is computed once at $\theta_0$ by central finite differences. In stage~1, biological parameters are added in decreasing order of their sensitivity energy $E_j=\|J_{:,j}\|^2$; a candidate is accepted only if the condition number $\kappa$ and the largest variance inflation factor (VIF) of the normalised columns of $J_S$ stay below a threshold, and is otherwise discarded permanently. Stage~1 stops when the accepted parameters capture a fraction $\tau_R$ of the total energy. The resulting subset $S$ is then tested: in random scenarios where all parameters are perturbed, $\theta_S$ and $\theta_C$ are re-estimated with the remaining parameters fixed at $\theta_0$, and $S$ is admissible if the median relative fitting error $e_{\mathrm{fit}}$ is below $\tau_e$ and $|S|\ge 2$. The threshold $\tau_e=\sqrt{1-c^2}$ equals the smallest error attainable by rescaling an output change whose cosine similarity with the full change is $c$ (Theorem~\ref{thm:cos}); we use $c=0.9$, so $\tau_e=0.436$. If stage~1 does not yield an admissible subset, stage~2 repeats the selection with parameters ordered by their finite-perturbation effect $s_j$ until an admissible subset is found. Finally, backward elimination removes any parameter whose removal keeps the subset admissible, which yields a subset that is minimal with respect to inclusion (Theorem~\ref{thm:prune}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig1_pipeline.pdf}
+\caption{\textbf{Overview of the reduction method.} Measured outputs are scaled by their noise level; biological and calibration parameters are separated; the relative sensitivity matrix $J$ is computed at the nominal parameters. Stage~1 selects biological parameters in decreasing order of sensitivity energy, rejecting candidates that make the selection ill-conditioned ($\kappa$ or VIF above $\tau_\kappa$), until a fraction $\tau_R$ of the energy is captured. The subset is admissible if re-estimating it, together with the calibration parameters, reproduces the full model in random perturbation scenarios (median $e_{\mathrm{fit}}\le\tau_e$) and it has at least two parameters. Otherwise stage~2 repeats the selection ordered by finite-perturbation effects. Backward elimination then removes unnecessary parameters, and the reduced model is validated on held-out experiments.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection*{Benchmark: a few biological parameters suffice in most models}\label{sec:benchmark}
+
+We applied the method to 34 PEtab benchmark problems with real measurements\cite{bib31,bib27} covering signalling, metabolism, gene regulation, cell cycle, immunology and epidemiology, with 3 to 294 parameters and 16 to 27,132 measurements (Table~\ref{tab:benchmark}). One further benchmark problem (Froehlich, 4,231 parameters and 9,169 experimental conditions) was analysed only on its state trajectories because each evaluation of its measured outputs requires about 9,000 simulations; it is not counted here (see Computational cost).
+
+The method found an admissible subset in 32 of the 34 problems (Fig.~\ref{fig:benchmark} and Table~\ref{tab:benchmark}). In 29 of them the subset contains only two biological parameters; the remaining three contain three (Zhao), five (Bruno) and ten (Lucarelli). Sixteen problems also have calibration parameters (up to 79 in Raimundez), which are re-estimated in every case. Counting both kinds, the reduced estimation problem has a median of 78\% fewer free parameters than the full one (range 33--97\%); among biological parameters alone, the median reduction is 88\%. Backward elimination removed between one and five parameters in seven problems (Supplementary Table~S1). Stage~1 alone was sufficient in seven problems; in the other 25, the energy ordering selected parameters whose re-estimation could not reproduce the full model, and the finite-effect ordering of stage~2 was needed. The two non-admissible problems are Crauste (21 measurements of a single experiment; the best subset had $e_{\mathrm{fit}}=95\%$) and Beer (the best subset, with 18 parameters, had $e_{\mathrm{fit}}=50\%$).
+
+Re-estimation is essential. When the selected parameters are simply set to their perturbed values, without re-estimation, the median relative error $e_{\mathrm{rel}}$ exceeds $\tau_e$ in 23 of the 32 admissible problems (Fig.~\ref{fig:benchmark}b); after re-estimation the median error $e_{\mathrm{fit}}$ is 14\% (maximum 43.5\%). In other words, the selected parameters do not replicate the effect of every individual perturbation; rather, adjusting them compensates for the perturbations of all other parameters in the measured outputs. This is precisely the property needed when the reduced model is fitted to data.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig2_benchmark.pdf}
+\caption{\textbf{Reduction across 34 benchmark problems.} \textbf{a}, Number of parameters of the full model ($p$, grey circles), calibration parameters that are always re-estimated ($|\Theta_C|$, blue squares) and selected biological parameters ($|S|$, red diamonds; open diamonds, no admissible subset). Problems are sorted by $p$. \textbf{b}, Median relative error over 15 random scenarios at $\pm$5\% when the selected parameters are set to their perturbed values without re-estimation ($e_{\mathrm{rel}}$, open circles) and after re-estimating them together with the calibration parameters ($e_{\mathrm{fit}}$, red diamonds). The dashed line marks the admissibility threshold $\tau_e=0.436$, equivalent to a cosine similarity of 0.9. The horizontal axis is linear below 0.01 and logarithmic above.}
+\label{fig:benchmark}
+\end{figure}
+
+\begin{table}[t]
+\caption{\textbf{Per-problem results.} $p$, number of estimated parameters; $m$, number of measurements; $|\Theta_C|$, calibration parameters (always re-estimated); $|S|$, selected biological parameters; Stage, stage that produced the subset; $e_{\mathrm{rel}}$ and $e_{\mathrm{fit}}$, median relative error over 15 scenarios at $\pm$5\% without and with re-estimation (admissibility: $e_{\mathrm{fit}}\le 43.6\%$; italic, not admissible; $^{\ast}$, $e_{\mathrm{fit}}$ computed to first order because of simulation cost); Pattern, robustness pattern over perturbation sizes from $\pm$1\% to $\pm$50\% (see text); Test $\chi^2/n$, mean squared noise-scaled residual on held-out experiments for the reduced and the full model, both re-estimated on the training experiments (values near 1 mean errors of the size of the measurement noise; --, not evaluable or not run).}
+\label{tab:benchmark}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\input{tables/table1.tex}
+\end{table}
+
+\subsection*{Reduced models predict held-out experiments}\label{sec:validation}
+
+Reproducing the full model is not the same as predicting new data. We therefore split the measurements of each problem into training and test sets, by experimental condition when several conditions were available (20 problems) and by time otherwise, using the later time points as test set (11 problems); calibration or condition-specific parameters that appear only in the test set were excluded. The reduced model (re-estimating $\theta_S$ and $\theta_C$) and, for problems with up to 60 parameters, the full model (re-estimating all parameters) were fitted to the training data starting from $\theta_0$ and evaluated on the test data. In two problems a split was impossible (Bertozzi, whose selected parameters only act in the test conditions; Blasi, with a single condition and a single time point).
+
+The reduced model predicted the held-out experiments as well as or better than the full model in 24 of 25 problems in which both could be compared (Fig.~\ref{fig:validation}a; in two of these, Zhao and Isensee, the two test errors differed by less than 0.2\%). The exception was Raia (test $\chi^2/n$ of 8.2 versus 5.1). In several problems the full model overfitted the training data and predicted much worse, for example Brannmark (test $\chi^2/n$ 5.8 versus 2,145), Weber (1.0 versus 226) and Zheng (1.6 versus 20.6). Compared with the published estimate $\theta_0$, which was obtained using all data including the test set, the reduced model reached a test $\chi^2/n$ no larger than twice that of $\theta_0$ in 22 of 29 problems (Fig.~\ref{fig:validation}b). In three problems (Okuonghae, Oliveira, Smith) even $\theta_0$ has $\chi^2/n\gg 1$, which indicates that the noise levels recorded in the benchmark do not match the scatter of the data.
+
+We also performed a synthetic experiment in which the truth is known. For each problem we drew a true parameter vector $\theta^\ast$ within $\pm$20\% of $\theta_0$, simulated noisy data with the benchmark noise levels, fitted the reduced model on the training conditions and measured its relative prediction error $e_{\mathrm{pred}}$ on the test conditions. In 15 problems the effect of the parameter change on the test outputs was smaller than the measurement noise ($\chi^2/n$ at $\theta_0$ below 2), so $e_{\mathrm{pred}}$ is not informative; in 13 of these 15 the reduced model predicted at the noise level ($\chi^2/n\le 2$). Among the 13 problems where the signal exceeded the noise, the reduced model achieved $e_{\mathrm{pred}}\le\tau_e$ in 8 and predicted as well as or better than the full model in 6 of 11 comparable cases. Thus, with realistic noise the reduced models predict at least as well as the full models on real data, while the synthetic experiment shows that the prediction accuracy of a two-parameter model has limits when parameter changes are large relative to the noise.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig3_validation.pdf}
+\caption{\textbf{Prediction of held-out experiments with real data.} Mean squared noise-scaled residual ($\chi^2/n$) on the test experiments for the reduced model (vertical axis) against \textbf{a}, the full model re-estimated on the same training experiments ($n=25$ problems with $p\le 60$) and \textbf{b}, the published estimate $\theta_0$, which was obtained using all data including the test experiments ($n=29$). Filled symbols: reduced model within 5\% of, or better than, the reference; open symbols: worse. Points below the dashed diagonal mean that the reduced model predicts better. Problems with noise-free benchmark data (test $\chi^2/n$ of $\theta_0$ below 0.01; Giordano, Perelson, Rahman) are omitted. Names are shown for points away from the diagonal.}
+\label{fig:validation}
+\end{figure}
+
+\subsection*{Robustness to the size of parameter changes}\label{sec:patterns}
+
+Admissibility is decided with perturbations of $\pm$5\%. To determine how far the conclusion extends, we kept each final subset fixed and repeated the evaluation with perturbations of $\pm$1, 5, 10, 20, 30, 40 and 50\% (15 scenarios per level, same random seed at every level, so that the $\pm$5\% level reproduces the selection). We classified the behaviour of the median $e_{\mathrm{fit}}$ into four patterns: A, admissible at all levels; B, admissible up to at least $\pm$20\% and not thereafter; C, irregular (failing and then passing again); D, failing at $\pm$10\% or less.
+
+Of the 30 problems evaluated (Chen was excluded because each simulation takes about 35~s; Smith is still running and will be added), 25 follow pattern A (Fig.~\ref{fig:robustness}): their median $e_{\mathrm{fit}}$ stays below the threshold up to $\pm$50\%, typically varying by only a few percentage points across levels. Four follow pattern B: Armistead, whose error grows steadily from 3\% at $\pm$1\% to 63\% at $\pm$50\%, and Bertozzi, Blasi and Elowitz, which are close to the threshold already at $\pm$5\% and cross it between $\pm$20\% and $\pm$30\%. Lucarelli is the only case of pattern C: its median error stays between 43\% and 47\% at all levels, that is, on the threshold rather than clearly above or below it. No problem follows pattern D. The reductions therefore remain valid well beyond the $\pm$5\% used for selection in most problems, whereas problems that are admissible only with a small margin at $\pm$5\% are those that lose admissibility for large changes.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.66\textwidth]{figures/fig4_robustness.pdf}
+\caption{\textbf{Robustness of the selected subsets to the size of parameter changes.} Median relative error after re-estimation ($e_{\mathrm{fit}}$, 15 random scenarios per level) as a function of the perturbation size, for the final subset of each of 30 problems. Colours indicate the robustness pattern: A, admissible at all levels (blue, $n=25$); B, admissible up to at least $\pm$20\% (red, $n=4$); C, irregular (orange, $n=1$). The dashed line marks the admissibility threshold $\tau_e=0.436$.}
+\label{fig:robustness}
+\end{figure}
+
+\subsection*{Sensitivity to method settings and computational cost}\label{sec:settings}
+
+The method depends on a finite-difference step $\delta$, integrator tolerances, the perturbation size used for admissibility and four thresholds ($\tau_R$, $\tau_\kappa$, $\tau_{\mathrm{VIF}}$, $\tau_e$). We re-ran the complete method on the 26 small and medium problems changing one setting at a time (Table~\ref{tab:settings}). The selected subset was identical to the baseline in all 26 problems for $\delta=0.1\%$ and $5\%$, for perturbations of $\pm$1\% and $\pm$10\%, and for $\tau_R$ between 0.80 and 0.95, and in 25 of 26 with tighter integrator tolerances; admissibility decisions changed in at most one problem (Perelson at $\pm$1\%, where the perturbed output change falls below the numerical noise floor). The $\kappa$/VIF threshold changed the subset in three or four problems without changing the number of admissible problems. As expected, the error threshold $\tau_e$ has the largest influence: requiring $e_{\mathrm{fit}}\le 10\%$ leaves 22 admissible problems with a mean of 3.6 biological parameters, whereas $\tau_e$ between 0.30 and 0.50 gives 25 admissible problems with 2.1--2.4 parameters. The threshold therefore acts as an accuracy--parsimony trade-off that the user can set; we also examined single-parameter subsets: in ten problems one parameter reached the threshold at $\pm$5\%, but in the synthetic prediction experiment the selected pair predicted better in six of nine comparable problems, which supports the minimum size of two.
+
+The dominant cost is the computation of $J$ (2$p$ simulations) and of the stage-2 ordering ($p$ simulations), so the number of simulations grows linearly with the number of parameters, and all of them are independent and can run in parallel; the selection, condition-number tests, backward elimination and the first-order version of $e_{\mathrm{fit}}$ only use linear algebra on $J$. On a four-core server, these simulations took less than 40~s for all but two of the problems we timed, 2~min for Lang (294 parameters) and 68~min for Chen (155 parameters, 35~s per simulation). On state trajectories, the 4,231-parameter Froehlich model required 12,693 simulations and 2.6~h. For models of this size on measured outputs, forward or adjoint sensitivity equations\cite{bib13} compute $J$ at the cost of a few simulations.
+
+\begin{table}[t]
+\caption{\textbf{Sensitivity of the selection to the method settings.} The complete method was re-run on 26 problems changing one setting at a time (baseline: $\delta=1\%$, perturbation $\pm$5\%, $\tau_R=0.89$, $\tau_\kappa=\tau_{\mathrm{VIF}}=10$, $\tau_e=0.436$). Same $S$, number of problems in which the selected subset is identical to the baseline; $\overline{|S|}$, mean number of selected biological parameters among admissible problems.}
+\label{tab:settings}
+\centering
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Setting & Admissible & $\overline{|S|}$ & Same $S$ \\
+\midrule
+Baseline & 25 & 2.16 & 26/26 \\
+$\delta=0.1\%$ / $\delta=5\%$ & 25 / 25 & 2.16 & 26/26 / 26/26 \\
+Tolerances $10^{-9}/10^{-12}$ / $10^{-6}/10^{-8}$ & 25 / 25 & 2.16 & 25/26 / 26/26 \\
+Perturbation $\pm$1\% / $\pm$10\% & 24 / 25 & 2.16 & 26/26 / 26/26 \\
+$\tau_R=0.80$ / $0.85$ / $0.95$ & 25 & 2.16 & 26/26 \\
+$\tau_\kappa=\tau_{\mathrm{VIF}}=5$ & 25 & 2.16 & 23/26 \\
+$\tau_\kappa=\tau_{\mathrm{VIF}}=30$ & 25 & 2.16 & 22/26 \\
+$\tau_e=0.10$ & 22 & 3.64 & 12/26 \\
+$\tau_e=0.20$ & 24 & 2.71 & 17/26 \\
+$\tau_e=0.30$ & 25 & 2.44 & 20/26 \\
+$\tau_e=0.50$ & 25 & 2.08 & 24/26 \\
+\botrule
+\end{tabular}
+\end{table}
+
+\subsection*{Formal guarantees}\label{sec:formal}
+
+Table~\ref{tab:theorems} lists the mathematical statements on which the method relies and that are verified in Lean~4 with Mathlib; Supplementary Table~S3 gives the name of each formal theorem. None of the proofs uses unproved assumptions (\texttt{sorry}) or additional axioms. Two statements are central to the method:
+
+\begin{theorem}\label{thm:cos}
+For vectors $d\neq 0$ and $b\neq 0$ in a real inner-product space, $\min_{\lambda\in\mathbb{R}}\|d-\lambda b\|/\|d\| = \sqrt{1-\cos^2(d,b)}$.
+\end{theorem}
+
+\begin{theorem}\label{thm:prune}
+Let $\mathcal{A}$ be any admissibility predicate on finite sets and $S$ an admissible set. Backward elimination (removing one element at a time whenever the remaining set is still admissible, until no element can be removed) returns an admissible subset of $S$ from which no element can be removed without losing admissibility.
+\end{theorem}
+
+Theorem~\ref{thm:cos} justifies the threshold $\tau_e$: an error of at most $\sqrt{1-c^2}$ after re-estimation is the natural counterpart of a cosine similarity of at least $c$. Theorem~\ref{thm:prune} gives the precise sense in which the selected subsets are minimal: no parameter can be removed, although a different, smaller admissible subset that is not contained in the result may exist. The other verified statements cover the remaining steps: re-estimating more parameters never increases the fitting error and $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the selection keeps $\kappa$ and VIF below their thresholds and permanently discarding a rejected candidate is correct because both quantities can only increase when parameters are added; $\kappa$ and VIF bounds imply unique and stable least-squares estimates; error bounds on the states transfer to the measured outputs, including logarithmic transformations; and the first-order version of $e_{\mathrm{fit}}$ used for the largest models differs from the exact one by a second-order term. The verification is local: it does not prove that a subset remains adequate far from $\theta_0$, which is assessed empirically above.
+
+\begin{table}[t]
+\caption{\textbf{Formally verified statements (Lean~4/Mathlib).} Each statement is proved without unproved assumptions or additional axioms. The corresponding formal theorem names are given in Supplementary Table~S3.}
+\label{tab:theorems}
+\centering
+\small
+\begin{tabular}{@{}p{0.30\textwidth}p{0.64\textwidth}@{}}
+\toprule
+Step of the method & Verified statement \\
+\midrule
+Energy and $R_{\mathrm{var}}$ & $E_j=(J^\top J)_{jj}$; the total energy is the sum of retained and discarded energy; the first-order output change caused by discarded parameters is bounded by their energy \\
+Sensitivities of the ODE & For $C^1$ vector fields, solutions depend differentiably on parameters and initial conditions, and the sensitivity solves the variational equation \\
+Greedy selection & The returned subset satisfies $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$; rejected candidates would still violate the test with the final subset \\
+Identifiability & $\kappa$ and VIF bounds imply uniqueness and stability of least-squares estimates of the retained parameters \\
+Admissibility threshold & Theorem~\ref{thm:cos} (minimum error after rescaling equals $\sqrt{1-\cos^2}$) \\
+Re-estimation & Adding parameters to the re-estimated set cannot increase the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ \\
+Backward elimination & Theorem~\ref{thm:prune} (minimality with respect to inclusion) \\
+Measured outputs & Error bounds on states transfer to outputs $y_i=h(g_i(x))/\sigma_i$ with Lipschitz observables; $\log$ and $\log_{10}$ are Lipschitz on $[c,\infty)$ \\
+First-order $e_{\mathrm{fit}}$ & The linearised fitting error never exceeds the rescaled error and differs from the exact one by at most a second-order term \\
+Model assumptions & For 22 of the benchmark models translated from SBML, the vector field is smooth, solutions exist on the simulated horizon and concentrations remain non-negative \\
+\botrule
+\end{tabular}
+\end{table}
+
+\section*{Discussion}\label{sec:discussion}
+
+The central finding is that, for most published systems biology models with real data, the measured outputs can be reproduced by re-estimating only two biological parameters plus the measurement calibration parameters, and that such reduced models predict held-out experiments as well as or better than the full models. This is consistent with the sloppy-model picture\cite{bib15}, but it is a stronger and more practical statement: it refers to the outputs that were actually measured, under the actual experimental conditions and noise levels, and it is checked by re-estimation and external validation rather than inferred from the sensitivity spectrum alone. The two-stage design reflects a practical observation: ranking by local sensitivity energy (stage~1) was sufficient in only seven problems, whereas ranking by finite-perturbation effects (stage~2) was needed in most. Energy measures how strongly a parameter moves the outputs, not whether adjusting it can compensate for changes in other parameters; the admissibility test, which re-estimates the subset, is what decides.
+
+The method complements existing approaches. Profile likelihood\cite{bib24,bib25} and likelihood-based observability analysis\cite{bib17} assess identifiability after calibration and require repeated optimisation in the full parameter space; Bayesian approaches such as approximate Bayesian computation\cite{bib20} require many more simulations. Global sensitivity analysis\cite{bib26,bib23} ranks parameters but does not produce a non-redundant subset validated by re-estimation, and structural identifiability analysis\cite{bib4,bib10,bib29} addresses ideal noise-free data rather than a given experimental design. Model-order reduction methods such as balanced truncation\cite{bib22,bib1} reduce the number of state variables rather than parameters. Our method requires a number of simulations that grows linearly with the number of parameters, is applied before calibration and returns a concrete subset with documented fidelity, prediction and robustness.
+
+Several limitations should be noted. First, the analysis is local: sensitivities are computed at the published estimate $\theta_0$, which is assumed to be a good fit to the data, and admissibility is tested with perturbations around it. The robustness analysis shows that most reductions remain valid for changes of up to $\pm$50\%, but this cannot be assumed for every model, and problems that are admissible with a small margin at $\pm$5\% (Bertozzi, Blasi, Elowitz, Lucarelli) are those that lose admissibility for larger changes. Second, the method assumes that the model is smooth in the parameters, that the measurement noise is Gaussian with the standard deviations recorded in the benchmark and that the calibration parameters can always be re-estimated; in three problems the recorded noise levels do not match the scatter of the data, and in problems with many calibration parameters (Bachmann, Raimundez) the reduced problem is still sizeable. Third, for the eight problems with the most expensive simulations the fitting error was computed to first order; the verified bounds show that the difference from the exact error is of second order in the perturbation, but it was not quantified numerically for each model. Fourth, one benchmark problem with 9,169 experimental conditions was too expensive to analyse on its measured outputs with finite differences, and two problems (Crauste, Beer) had no admissible subset. Finally, the formal verification covers the mathematical steps of the method and the regularity of the translated models, not the numerical simulator itself; we cross-checked our simulations against the reference simulations distributed with the benchmark.
+
+In practice, the method can be used as a preprocessing step: before calibrating a large model, select the few biological parameters that the data can inform, re-estimate them together with the calibration parameters, keep the rest at literature values, and verify the reduced model on held-out experiments. The threshold $\tau_e$ provides an explicit trade-off between accuracy and parsimony. Natural extensions include computing $J$ with forward or adjoint sensitivity equations for genome-scale models, combining sensitivities at several operating points, and using the selected subsets to guide experimental design\cite{bib28}.
+
+\section*{Methods}\label{sec:methods}
+
+\subsection*{Models, data and simulation}
+
+We used the problems of the PEtab benchmark collection\cite{bib31,bib27} that provide real measurements, an SBML model and nominal parameter values (34 problems; Table~\ref{tab:benchmark}). Each problem specifies the observables $g_i$, their transformation $h$ (linear, $\log$ or $\log_{10}$), the noise standard deviation $\sigma_i$ of each measurement, the experimental conditions (parameter or initial-value overrides) and, where applicable, pre-equilibration conditions. Models were simulated with libRoadRunner\cite{bib32} (CVODE, relative and absolute tolerances $10^{-7}$ and $10^{-10}$). Initial assignments that depend on parameters were re-evaluated for every parameter vector, condition-specific overrides were applied before simulation, pre-equilibration was run to steady state before the main simulation, and models with discontinuous inputs were integrated piecewise between discontinuities. Simulated observables were compared with the reference simulations distributed with the benchmark wherever available (Supplementary Note).
+
+\subsection*{Measured outputs and parameter classes}
+
+For a parameter vector $\theta\in\mathbb{R}^p$ (in the units of the benchmark, excluding noise parameters), the vector of scaled outputs is $y(\theta)\in\mathbb{R}^m$ with entries
+\begin{equation}
+y_i(\theta)=\frac{h\big(g_i(x(t_i;\theta,c_i),\theta)\big)}{\sigma_i},\qquad i=1,\dots,m,
+\label{eq:outputs}
+\end{equation}
+where $x(t;\theta,c)$ is the state trajectory under condition $c$ and $(t_i,c_i)$ are the time and condition of measurement $i$. Parameters that appear in the SBML model are biological ($\Theta_B$); parameters that appear only in the observation functions and not in the model or the condition table (scalings and offsets) are calibration parameters ($\Theta_C$). Only biological parameters are candidates for selection; calibration parameters are always re-estimated.
+
+\subsection*{Sensitivities, energy and conditioning}
+
+The relative sensitivity matrix $J\in\mathbb{R}^{m\times p}$ is computed by central differences,
+\begin{equation}
+J_{:,j}=\frac{y(\theta_0+\delta\theta_{0,j}e_j)-y(\theta_0-\delta\theta_{0,j}e_j)}{2\delta},
+\label{eq:jac}
+\end{equation}
+which approximates $\partial y/\partial\log\theta_j$. The energy of parameter $j$ is $E_j=\|J_{:,j}\|^2=(J^\top J)_{jj}$ and the fraction of energy captured by a subset $S\subseteq\Theta_B$ is $R_{\mathrm{var}}(S)=\sum_{j\in S}E_j/\sum_{j\in\Theta_B}E_j$. For a subset $S$, the columns of $J_S$ are normalised to unit length, $Z=J_S\,\mathrm{diag}(\|J_{:,j}\|)^{-1}$; the condition number is $\kappa(S)=\sigma_{\max}(Z)/\sigma_{\min}(Z)$ and the largest variance inflation factor is $\mathrm{VIF}(S)=\max_j[(Z^\top Z)^{-1}]_{jj}$\cite{bib5,bib9}. Normalisation removes differences of scale between parameters, so that $\kappa$ and VIF measure only the angles between sensitivity directions.
+
+\subsection*{Selection}
+
+\emph{Greedy selection.} Candidates are visited in a given order. A candidate $j$ is accepted if $\kappa(S\cup\{j\})\le\tau_\kappa$ and $\mathrm{VIF}(S\cup\{j\})\le\tau_{\mathrm{VIF}}$; otherwise it is discarded permanently. Because $\kappa$ and VIF can only increase when columns are added, a discarded candidate would also be rejected later. \emph{Stage~1} visits biological parameters in decreasing order of $E_j$ and stops when $R_{\mathrm{var}}(S)\ge\tau_R$. \emph{Stage~2}, used if the stage-1 subset is not admissible, visits biological parameters in decreasing order of the finite-perturbation effect $s_j=\|y(\theta_0+\eta\theta_{0,j}e_j)-y(\theta_0)\|$ and stops at the first admissible subset. \emph{Backward elimination} visits the parameters of the selected subset and removes each one whose removal leaves the subset admissible.
+
+\subsection*{Admissibility and re-estimation}
+
+Admissibility is evaluated on $N$ random scenarios $\theta^{(k)}=\theta_0\odot(1+\varepsilon u^{(k)})$, with $u^{(k)}$ uniform in $[-1,1]^p$. For each scenario let $\Delta y_{\mathrm{full}}=y(\theta^{(k)})-y(\theta_0)$. The relative error without re-estimation is $e_{\mathrm{rel}}=\|\Delta y_{\mathrm{full}}-\Delta y_S\|/\|\Delta y_{\mathrm{full}}\|$, where $\Delta y_S$ is the output change when only the parameters in $S\cup\Theta_C$ take their scenario values, and the cosine similarity is $\cos\Delta=\langle\Delta y_{\mathrm{full}},\Delta y_S\rangle/(\|\Delta y_{\mathrm{full}}\|\|\Delta y_S\|)$. The relative error after re-estimation is
+\begin{equation}
+e_{\mathrm{fit}}=\min_{\theta_{S},\theta_C}\frac{\|y(\theta_S,\theta_C,\theta_{0,\overline{S}})-y(\theta^{(k)})\|}{\|\Delta y_{\mathrm{full}}\|},
+\label{eq:efit}
+\end{equation}
+where $\theta_{0,\overline{S}}$ denotes the nominal values of all other biological parameters. The minimisation is carried out in $\log|\theta|$ within $[|\theta_0|/10,\,10|\theta_0|]$ by a trust-region reflective least-squares method (SciPy\cite{bib33}, at most $100(|S|+|\Theta_C|+1)$ function evaluations), from two starting points (the scenario value and $\theta_0$); the error without re-estimation is also included, so that $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$. Scenarios whose output change is below $\max(10^{-10}\|y(\theta_0)\|,10^{-6})$ are discarded. $S$ is admissible if $|S|\ge k_{\min}$ and the median of $e_{\mathrm{fit}}$ over the scenarios is at most $\tau_e=\sqrt{1-c^2}$. For the eight problems in which the cost of simulation made repeated re-estimation impractical (marked in Table~\ref{tab:benchmark}), the first-order version $\min_c\|\Delta y_{\mathrm{full}}-J_{S\cup\Theta_C}c\|/\|\Delta y_{\mathrm{full}}\|$ was used.
+
+\subsection*{Settings}
+
+Unless stated otherwise: $\delta=0.01$; $\eta=0.1$; $\tau_R=0.89$; $\tau_\kappa=\tau_{\mathrm{VIF}}=10$; $N=15$ scenarios; $\varepsilon=0.05$; random seed 42; $c=0.9$, so $\tau_e=0.436$; $k_{\min}=2$. The sensitivity analysis (Table~\ref{tab:settings}) changed one setting at a time on the 26 problems that could be re-run completely in reasonable time.
+
+\subsection*{External validation}
+
+Measurements were split into training and test sets by experimental condition (every third condition after sorting, or the second of two conditions, used for testing) or, for problems with a single condition, by time (the last third of the distinct measurement times). Parameters that only affect test conditions were excluded from re-estimation. The reduced model (re-estimating $S\cup\Theta_C$) and the full model (re-estimating all parameters; only for $p\le 60$ because of cost) were fitted to the training data from $\theta_0$ with the same least-squares method and bounds, and evaluated by the mean squared noise-scaled residual $\chi^2/n=\frac{1}{n}\sum_{i\in\mathrm{test}}(y_i(\hat\theta)-\tilde y_i)^2$, where $\tilde y_i$ are the scaled measurements. In the synthetic experiment, the truth $\theta^\ast$ had each parameter drawn uniformly within $\pm$20\% of $\theta_0$, data were simulated with Gaussian noise of standard deviation $\sigma_i$, and $e_{\mathrm{pred}}=\|y_{\mathrm{test}}(\hat\theta)-y_{\mathrm{test}}(\theta^\ast)\|/\|y_{\mathrm{test}}(\theta^\ast)-y_{\mathrm{test}}(\theta_0)\|$; the effect of the parameter change was considered larger than the noise when $\chi^2/n$ of $\theta_0$ on the synthetic test data was at least 2.
+
+\subsection*{Robustness patterns}
+
+For each admissible problem, the final subset was kept fixed and $e_{\mathrm{fit}}$ was evaluated at perturbation sizes $\varepsilon\in\{0.01,0.05,0.10,0.20,0.30,0.40,0.50\}$ with 15 scenarios per level, using the same random seed at each level. Patterns were assigned from the median $e_{\mathrm{fit}}$ at each level as described in Results.
+
+\subsection*{Formal verification}
+
+The formal development uses Lean~4 (version 4.23.0) and Mathlib\cite{bib19,bib21}. Model regularity (smoothness of the vector field, existence of solutions on the simulated horizon and non-negativity of concentrations) was verified for 22 benchmark models by translating their SBML rate laws into Lean expressions and applying verified checkers. All files compile without \texttt{sorry}, and \texttt{\#print axioms} reports only the standard axioms of Lean's logic (\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}).
+
+\subsection*{Use of large language models}
+
+An AI assistant (Claude, Anthropic) was used to help write and debug analysis code and Lean proofs and to edit the manuscript text. All code, proofs and results were checked by the authors, who take full responsibility for the content.
+
+\backmatter
+
+\bmhead{Data availability}
+The PEtab benchmark problems analysed in this study are publicly available in the Benchmark-Models-PEtab collection (\url{https://github.com/Benchmarking-Initiative/Benchmark-Models-PEtab}). All results generated in this study (selected subsets, validation, robustness and sensitivity analyses) are available at \url{https://github.com/monicammr/archivos} and will be archived on Zenodo upon acceptance.
+
+\bmhead{Code availability}
+The Python analysis code and the Lean~4 formal development are available at \url{https://github.com/monicammr/archivos} and will be archived on Zenodo upon acceptance.
+
+\bmhead{Acknowledgements}
+The authors thank Escuela Superior Polit\'ecnica del Litoral (ESPOL) for institutional support.
+
+\bmhead{Author contributions}
+M.M.R. and C.S. conceived the study and designed the method. M.M.R. wrote the software and the formal proofs, performed the analyses and wrote the first draft. C.S., C.M. and A.A. supervised the work, contributed to the validation of the results and revised the manuscript. All authors reviewed and approved the final manuscript.
+
+\bmhead{Competing interests}
+The authors declare no competing interests.
+
+\bmhead{Funding}
+This research received no external funding.
+
+\input{references.tex}
+
+\end{document}
