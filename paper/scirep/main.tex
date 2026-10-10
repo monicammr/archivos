@@ -153,7 +153,7 @@ $\tau_e=0.50$ & 25 & 2.08 & 24/26 \\
 
 \subsection*{Formal guarantees}\label{sec:formal}
 
-Table~\ref{tab:theorems} lists the mathematical statements on which the method relies and that are verified in Lean~4 with Mathlib; Supplementary Table~S3 gives the name of each formal theorem. None of the proofs uses unproved assumptions (\texttt{sorry}) or additional axioms. Two statements are central to the method:
+Table~\ref{tab:theorems} lists the mathematical statements on which the method relies and that are verified in Lean~4 with Mathlib; The complete development comprises 31 modules with 289 theorems and lemmas and 22 verified benchmark models; Supplementary Table~S3 lists all modules and their main theorems, and all proofs compile together with a single command (Code availability). None of the proofs uses unproved assumptions (\texttt{sorry}) or additional axioms. Two statements are central to the method:
 
 \begin{theorem}\label{thm:cos}
 For vectors $d\neq 0$ and $b\neq 0$ in a real inner-product space, $\min_{\lambda\in\mathbb{R}}\|d-\lambda b\|/\|d\| = \sqrt{1-\cos^2(d,b)}$.
@@ -166,7 +166,7 @@ Let $\mathcal{A}$ be any admissibility predicate on finite sets and $S$ an admis
 Theorem~\ref{thm:cos} justifies the threshold $\tau_e$: an error of at most $\sqrt{1-c^2}$ after re-estimation is the natural counterpart of a cosine similarity of at least $c$. Theorem~\ref{thm:prune} gives the precise sense in which the selected subsets are minimal: no parameter can be removed, although a different, smaller admissible subset that is not contained in the result may exist. The other verified statements cover the remaining steps: re-estimating more parameters never increases the fitting error and $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the selection keeps $\kappa$ and VIF below their thresholds and permanently discarding a rejected candidate is correct because both quantities can only increase when parameters are added; $\kappa$ and VIF bounds imply unique and stable least-squares estimates; error bounds on the states transfer to the measured outputs, including logarithmic transformations; and the first-order version of $e_{\mathrm{fit}}$ used for the largest models differs from the exact one by a second-order term. The verification is local: it does not prove that a subset remains adequate far from $\theta_0$, which is assessed empirically above.
 
 \begin{table}[t]
-\caption{\textbf{Formally verified statements (Lean~4/Mathlib).} Each statement is proved without unproved assumptions or additional axioms. The corresponding formal theorem names are given in Supplementary Table~S3.}
+\caption{\textbf{Formally verified statements (Lean~4/Mathlib).} Each statement is proved without unproved assumptions or additional axioms. The corresponding formal theorems are listed in Supplementary Table~S3.}
 \label{tab:theorems}
 \centering
 \small
@@ -265,7 +265,7 @@ An AI assistant (Claude, Anthropic) was used to help write and debug analysis co
 The PEtab benchmark problems analysed in this study are publicly available in the Benchmark-Models-PEtab collection (\url{https://github.com/Benchmarking-Initiative/Benchmark-Models-PEtab}). The social cognitive theory model is provided as Python code in the repository below. All results generated in this study (selected subsets, validation, robustness and sensitivity analyses) are available at \url{https://github.com/monicammr/archivos} and will be archived on Zenodo upon acceptance.
 
 \bmhead{Code availability}
-The Python analysis code and the Lean~4 formal development are available at \url{https://github.com/monicammr/archivos} and will be archived on Zenodo upon acceptance.
+The Python analysis code is available at \url{https://github.com/monicammr/archivos}. All Lean~4 proofs are collected in the folder \texttt{lean\_proofs/} of the same repository, a self-contained project that compiles with a single command (\texttt{./verify.sh}) and checks that no proof uses \texttt{sorry} or additional axioms. Both will be archived on Zenodo upon acceptance.
 
 \bmhead{Acknowledgements}
 The authors thank Escuela Superior Polit\'ecnica del Litoral (ESPOL) for institutional support.

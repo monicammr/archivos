@@ -1,0 +1,23 @@
+-- Importa los 22 modelos del benchmark verificados.
+import Models.Armistead_CellDeathDis2024
+import Models.Bachmann_MSB2011
+import Models.Blasi_CellSystems2016
+import Models.Boehm_JProteomeRes2014
+import Models.Borghans_BiophysChem1997
+import Models.Brannmark_JBC2010
+import Models.Chen_MSB2009
+import Models.Crauste_CellSystems2017
+import Models.Elowitz_Nature2000
+import Models.Fiedler_BMCSystBiol2016
+import Models.Froehlich_CellSystems2018
+import Models.Giordano_Nature2020
+import Models.Lang_PLOSComputBiol2024
+import Models.Okuonghae_ChaosSolitonsFractals2020
+import Models.Rahman_MBS2016
+import Models.Raia_CancerResearch2011
+import Models.Raimundez_PCB2020
+import Models.SalazarCavazos_MBoC2020
+import Models.Sneyd_PNAS2002
+import Models.Weber_BMC2015
+import Models.Zhao_QuantBiol2020
+import Models.Zheng_PNAS2012

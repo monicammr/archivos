@@ -50,29 +50,60 @@ $e_{\mathrm{pred}}$ & relative prediction error with respect to a known truth (s
 \bottomrule
 \end{longtable}
 
-\section*{Supplementary Table S3. Formal theorems}
+\section*{Supplementary Table S3. Formal proofs}
 
-Correspondence between the statements of Table~3 of the main text and the Lean~4 theorems (repository folder \texttt{lean/}). All files compile with Lean 4.23.0 and Mathlib without \texttt{sorry}; \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}.
+All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repository, a self-contained Lean~4 project (Lean 4.23.0, Mathlib v4.23.0) that compiles with a single command (\texttt{./verify.sh}). It contains 31 theory modules with 289 theorems and lemmas, and 22 benchmark models translated from SBML. No file contains \texttt{sorry} or \texttt{axiom}, and \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. The file \texttt{THEOREMS.md} in that folder lists every theorem and lemma; $n$ is the number of theorems and lemmas per module.
 
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{11.6cm}@{}}
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedleft\arraybackslash}p{0.6cm}>{\raggedright\arraybackslash}p{6.3cm}>{\raggedright\arraybackslash}p{4.9cm}@{}}
 \toprule
-Statement & Lean theorem(s) \\
+Module & $n$ & Content & Main theorems \\
 \midrule
 \endhead
-Energy and $R_{\mathrm{var}}$ & \texttt{FirstOrderErrorBound.total\_eq\_kept\_add\_removed}, \texttt{first\_order\_error\_bound}, \texttt{first\_order\_error\_from\_Rvar} \\
-Local trajectory bound & \texttt{CertifiedODEReduction.certified\_parameter\_reduction} \\
-Sensitivities of the ODE & \texttt{ODEParamDiff.hasFDerivAt\_solution\_param\_init} \\
-Greedy selection & \texttt{GreedySelection.greedy\_kappa\_vif\_guarantee} \\
-Identifiability & \texttt{Identifiability.ls\_unique}, \texttt{ls\_param\_kappa\_stability}, \texttt{ls\_vif\_inverse\_stability} \\
-Theorem 1 (admissibility threshold) & \texttt{ScaledError.min\_rel\_error\_eq} \\
-Re-estimation & \texttt{RefitMonotone.fitErr\_anti}, \texttt{fitErr\_union\_le}, \texttt{fitErr\_le\_erel}, \texttt{admissible\_mono} \\
-Theorem 2 (backward elimination) & \texttt{Poda.prune\_spec}, \texttt{Poda.exists\_minimal\_admissible} \\
-Measured outputs & \texttt{OutputComposition.output\_sq\_bound}, \texttt{output\_uniform\_bound}, \texttt{log\_lipschitz}, \texttt{log10\_lipschitz} \\
-First-order $e_{\mathrm{fit}}$ & \texttt{LinearizedFit.lin\_le\_scaled}, \texttt{fit\_upper\_of\_lin}, \texttt{fit\_lower\_of\_lin} \\
-Finite-difference and numerical margins & \texttt{NumericalRobustness.fd\_column\_error}, \texttt{rvar\_certified\_from\_approx}, \texttt{kappa\_certified\_from\_approx}, \texttt{vif\_certified\_from\_approx} \\
-Model assumptions (22 models) & \texttt{KineticNetwork.network\_final}, \texttt{StrictNetwork.strict\_final\_init},\newline \texttt{RiccatiNetwork.riccati\_final}; model files in \texttt{lean/Models/} \\
+\multicolumn{4}{@{}l}{\textit{Sensitivity energy and trajectory error}} \\
+\texttt{First\allowbreak{}Order\allowbreak{}Error\allowbreak{}Bound} & 12 & Energy $E_j=(J^\top J)_{jj}$, $R_{\mathrm{var}}$ and first-order output error when parameters are fixed & \texttt{total\_\allowbreak{}eq\_\allowbreak{}kept\_\allowbreak{}add\_\allowbreak{}removed, \allowbreak{}first\_\allowbreak{}order\_\allowbreak{}error\_\allowbreak{}from\_\allowbreak{}Rvar} \\
+\texttt{Trajectory\allowbreak{}Error\allowbreak{}Bound} & 9 & From the Jacobian to the trajectory: error bound when discarded parameters are fixed & \texttt{sqrt\_\allowbreak{}removedParamSq\_\allowbreak{}le} \\
+\texttt{Certified\allowbreak{}O\allowbreak{}D\allowbreak{}E\allowbreak{}Reduction} & 1 & Local certificate: $R_{\mathrm{var}}(S)\ge r$ bounds the trajectory error of the reduced model & \texttt{certified\_\allowbreak{}parameter\_\allowbreak{}reduction} \\
+\multicolumn{4}{@{}l}{\textit{Differential equations: existence and sensitivities}} \\
+\texttt{Global\allowbreak{}Lipschitz\allowbreak{}O\allowbreak{}D\allowbreak{}E} & 3 & Global existence on $[a,b]$ for globally Lipschitz vector fields & -- \\
+\texttt{Param\allowbreak{}Diff\allowbreak{}O\allowbreak{}D\allowbreak{}E} & 8 & Solutions depend differentiably on parameters and initial values; the derivative solves the variational equation & \texttt{hasFDerivAt\_\allowbreak{}solution\_\allowbreak{}param\_\allowbreak{}init} \\
+\texttt{Local\allowbreak{}Existence} & 9 & Solutions exist for parameters near $\theta_0$ when the nominal solution exists & -- \\
+\texttt{Sensitivity\allowbreak{}Lipschitz} & 8 & Explicit Lipschitz constants of trajectories and sensitivities in $\theta$ (Gr\"onwall) & \texttt{sens\_\allowbreak{}lipschitz, \allowbreak{}traj\_\allowbreak{}lipschitz} \\
+\multicolumn{4}{@{}l}{\textit{Finite perturbations and cosine certificates}} \\
+\texttt{Cosine\allowbreak{}Certificate} & 5 & Non-asymptotic bounds for finite perturbations; per-scenario certificate of $\cos\Delta$ & \texttt{finite\_\allowbreak{}trajectory\_\allowbreak{}error, \allowbreak{}finite\_\allowbreak{}cos\_\allowbreak{}certificate} \\
+\texttt{Certified\allowbreak{}Finite\allowbreak{}O\allowbreak{}D\allowbreak{}E} & 5 & Certificate of $\cos\Delta$ for the ODE with an explicitly bounded Lipschitz constant & \texttt{certified\_\allowbreak{}cos\_\allowbreak{}ode} \\
+\texttt{Exact\allowbreak{}Linear\allowbreak{}Certificate} & 13 & Certificates with the exact linear error; local version without Lipschitz constants & \texttt{finite\_\allowbreak{}cos\_\allowbreak{}certificate\_\allowbreak{}exact, \allowbreak{}certified\_\allowbreak{}cos\_\allowbreak{}ode\_\allowbreak{}exact} \\
+\texttt{Nominal\allowbreak{}Certificate} & 1 & Local $\cos\Delta$ certificate from the nominal trajectory only & -- \\
+\texttt{Scaled\allowbreak{}Error} & 5 & Theorem 1: the minimum relative error after rescaling equals $\sqrt{1-\cos^2\Delta}$ & \texttt{min\_\allowbreak{}rel\_\allowbreak{}error\_\allowbreak{}eq} \\
+\multicolumn{4}{@{}l}{\textit{Selection, conditioning and identifiability}} \\
+\texttt{Greedy\allowbreak{}Selection} & 7 & Greedy selection returns a subset with $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$; permanent discard is correct & \texttt{greedy\_\allowbreak{}kappa\_\allowbreak{}vif\_\allowbreak{}guarantee} \\
+\texttt{Identifiability\allowbreak{}Conditioning} & 10 & $\kappa$ and VIF bounds imply unique and stable least-squares estimates & \texttt{ls\_\allowbreak{}unique, \allowbreak{}ls\_\allowbreak{}param\_\allowbreak{}kappa\_\allowbreak{}stability, \allowbreak{}ls\_\allowbreak{}vif\_\allowbreak{}inverse\_\allowbreak{}stability} \\
+\texttt{Spectral\allowbreak{}Conditioning} & 22 & $\kappa$ and VIF exactly as computed numerically (spectral theorem, matrix inverse) & -- \\
+\texttt{Numerical\allowbreak{}Robustness} & 6 & Finite-difference error; $R_{\mathrm{var}}$, $\kappa$ and VIF certified from approximate values with margins & \texttt{fd\_\allowbreak{}column\_\allowbreak{}error, \allowbreak{}rvar\_\allowbreak{}certified\_\allowbreak{}from\_\allowbreak{}approx} \\
+\texttt{Pattern\allowbreak{}Mechanisms} & 4 & Opposing effects imply rejection by $\kappa$ and non-identifiability; zero discarded energy implies exact first-order reduction & \texttt{not\_\allowbreak{}okKappa\_\allowbreak{}of\_\allowbreak{}kernel, \allowbreak{}exact\_\allowbreak{}reduction\_\allowbreak{}of\_\allowbreak{}zero\_\allowbreak{}energy} \\
+\multicolumn{4}{@{}l}{\textit{Re-estimation, minimality and measured outputs}} \\
+\texttt{Refit\allowbreak{}Monotone} & 5 & Re-estimating more parameters never increases the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ & \texttt{fitErr\_\allowbreak{}anti, \allowbreak{}fitErr\_\allowbreak{}le\_\allowbreak{}erel, \allowbreak{}admissible\_\allowbreak{}mono} \\
+\texttt{Poda} & 2 & Theorem 2: backward elimination returns an inclusion-minimal admissible subset & \texttt{prune\_\allowbreak{}spec, \allowbreak{}exists\_\allowbreak{}minimal\_\allowbreak{}admissible} \\
+\texttt{Output\allowbreak{}Composition} & 4 & Error bounds transfer from states to measured outputs, including $\log$ and $\log_{10}$ & \texttt{output\_\allowbreak{}uniform\_\allowbreak{}bound, \allowbreak{}log10\_\allowbreak{}lipschitz} \\
+\texttt{Linearized\allowbreak{}Fit} & 3 & The first-order $e_{\mathrm{fit}}$ differs from the exact one by a second-order term & \texttt{lin\_\allowbreak{}le\_\allowbreak{}scaled, \allowbreak{}fit\_\allowbreak{}lower\_\allowbreak{}of\_\allowbreak{}lin} \\
+\multicolumn{4}{@{}l}{\textit{Model assumptions for kinetic models}} \\
+\texttt{Kinetic\allowbreak{}Regularity} & 11 & Rate laws (mass action, Michaelis--Menten, Hill, \dots) define smooth vector fields on their domain & -- \\
+\texttt{Event\allowbreak{}Systems} & 1 & Systems with events at fixed times: existence and differentiability across segments & -- \\
+\texttt{Positivity\allowbreak{}Invariance} & 15 & Quasi-positive models keep concentrations non-negative & -- \\
+\texttt{Kinetic\allowbreak{}Check} & 19 & Verified automatic checkers for translated rate laws & -- \\
+\texttt{Global\allowbreak{}Existence} & 11 & Global existence under linear growth on the non-negative orthant & -- \\
+\texttt{Kinetic\allowbreak{}Network} & 18 & Reaction networks: complete check including global existence & \texttt{network\_\allowbreak{}final} \\
+\texttt{Strict\allowbreak{}Existence} & 12 & Global existence with strictly positive concentrations & \texttt{exists\_\allowbreak{}global\_\allowbreak{}solution\_\allowbreak{}strict} \\
+\texttt{Strict\allowbreak{}Network} & 46 & Networks with strictly positive domains (e.g.\ $\beta SI/N$, Hill with real exponent) & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init} \\
+\texttt{Riccati\allowbreak{}Network} & 9 & Existence on a finite horizon under quadratic growth (Riccati bound; used for Crauste) & \texttt{riccati\_\allowbreak{}final} \\
+\texttt{Interval\allowbreak{}Init} & 5 & Parameter-dependent initial values certified with rational interval arithmetic & \texttt{strict\_\allowbreak{}final\_\allowbreak{}initI} \\
+\midrule
+Total & 289 & & \\
 \bottomrule
 \end{longtable}
+}
+
+\textbf{Verified benchmark models.} Armistead, Bachmann, Blasi, Boehm, Borghans, Brannmark, Chen (500 species, in four parts), Crauste (horizon $T\le 1$), Elowitz, Fiedler, Froehlich (1,228 species, in twelve parts), Giordano, Lang, Okuonghae, Rahman, Raia, Raimundez, SalazarCavazos, Sneyd, Weber, Zhao and Zheng (folder \texttt{lean\_proofs/Models/}). For each model, the final theorem establishes that the vector field is smooth on its domain, that the solution exists on the simulated horizon and that concentrations remain non-negative.
 
 \section*{Supplementary Note. Verification of the simulator}
 
