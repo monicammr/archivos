@@ -159,6 +159,15 @@ def fig4():
     fig.tight_layout(); fig.savefig(OUT / "fig4_robustness.pdf", bbox_inches="tight"); plt.close(fig)
 
 
+def exportar():
+    """Archivos individuales para el envío: EPS (vectorial) y TIFF a 300 dpi."""
+    import subprocess
+    for f in sorted(OUT.glob("fig*.pdf")):
+        subprocess.run(["pdftops", "-eps", str(f), str(f.with_suffix(".eps"))], check=True)
+        subprocess.run(["pdftoppm", "-tiff", "-tiffcompression", "lzw", "-r", "300", "-singlefile",
+                        str(f), str(f.with_suffix(""))], check=True)
+
+
 if __name__ == "__main__":
-    fig1(); fig2(); fig3(); fig4()
+    fig1(); fig2(); fig3(); fig4(); exportar()
     print("figures written to", OUT)

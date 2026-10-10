@@ -36,6 +36,10 @@
 
 \maketitle
 
+% Scientific Reports: single-column, unjustified text
+\raggedright
+\setlength{\parindent}{1.5em}
+
 \section*{Introduction}\label{sec:intro}
 
 Ordinary differential equation (ODE) models are central to quantitative biology, pharmacology and epidemiology, where they describe how interacting molecular species or populations change over time as a function of kinetic parameters $\theta$\cite{bib16}. Using a model for prediction requires estimating $\theta$ from experimental measurements, and this becomes difficult as models grow. The main obstacle is non-identifiability: different parameter values may produce the same measured output, either because of model symmetries (structural non-identifiability) or because the available data are insufficient (practical non-identifiability)\cite{bib4,bib10,bib29}. In both cases the likelihood has flat ridges on which optimisers stall and confidence intervals become unreliable\cite{bib24,bib25,bib17}. Models in public benchmark collections routinely contain 20--300 parameters\cite{bib31}, and genome-scale models contain thousands\cite{bib12}.
@@ -269,11 +273,13 @@ The authors thank Escuela Superior Polit\'ecnica del Litoral (ESPOL) for institu
 \bmhead{Author contributions}
 M.M.R. and C.S. conceived the study and designed the method. M.M.R. wrote the software and the formal proofs, performed the analyses and wrote the first draft. C.S., C.M. and A.A. supervised the work, contributed to the validation of the results and revised the manuscript. All authors reviewed and approved the final manuscript.
 
-\bmhead{Competing interests}
-The authors declare no competing interests.
-
 \bmhead{Funding}
 This research received no external funding.
+
+\bmhead{Additional information}
+\textbf{Competing interests:} The authors declare no competing interests.\\
+\textbf{Correspondence} and requests for materials should be addressed to M.M.R.\\
+\textbf{Supplementary information} accompanies this paper (Supplementary Tables S1--S3 and Supplementary Note).
 
 \input{references.tex}
 
