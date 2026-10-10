@@ -4,6 +4,6 @@ Mediana de e_ajuste (S biológico + calibración, reajustados) frente al tamaño
 
 | Sistema | k | ±1% | ±5% | ±10% | ±20% | ±30% | ±40% | ±50% | Patrón |
 |---|---|---|---|---|---|---|---|---|---|
-| Boehm_JProteomeRes2014 | 2 | 10% ✓ | 9% ✓ | 8% ✓ | 8% ✓ | 9% ✓ | 10% ✓ | 19% ✓ | **A** |
+| Borghans_BiophysChem1997 | 2 | 20% ✓ | 4% ✓ | 8% ✓ | 17% ✓ | 17% ✓ | 23% ✓ | 16% ✓ | **A** |
 
 Recuento: A: 1.

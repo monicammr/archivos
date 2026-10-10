@@ -5,7 +5,7 @@ Patrones de robustez A–D con el método final (salidas medidas, S biológico +
 Para cada sistema admisible de resultados/reclasificacion_salidas_bio_poda/, con su S FIJO
 (más los parámetros de calibración, que se reajustan siempre), se evalúa la fidelidad al
 aumentar la perturbación: niveles ±1, 5, 10, 20, 30, 40, 50 %, 15 escenarios por nivel
-(semilla 42), θ = θ₀(1 + nivel·u), u ~ U(−1, 1). Por escenario: cos Δ, e_rel (sin reajuste) y
+(semilla 42 en cada nivel, de modo que ±5 % reproduce los escenarios de la selección), θ = θ₀(1 + nivel·u), u ~ U(−1, 1). Por escenario: cos Δ, e_rel (sin reajuste) y
 e_ajuste (reajuste no lineal de S ∪ C, mínimos cuadrados en log|θ|, límites [|θ₀|/10, 10|θ₀|],
 partiendo del valor del escenario y de θ₀).
 
@@ -48,11 +48,11 @@ def uno(name):
     sgn = np.where(th0[idx] < 0, -1.0, 1.0)
     mag0 = np.maximum(np.abs(th0[idx]), 1e-12)
     lo, hi = np.log(mag0 / 10), np.log(mag0 * 10)
-    rng = np.random.default_rng(SEED)
     res = {"sistema": name, "S": info["S"], "n_calibracion": len(info.get("calibracion", [])),
            "niveles": {}}
     for nivel in NIVELES:
         cs, es, fs = [], [], []
+        rng = np.random.default_rng(SEED)   # misma semilla por nivel: ±5 % = escenarios de la selección
         for _ in range(N_ESC):
             th = np.maximum(th0 * (1 + nivel * rng.uniform(-1, 1, size=p)), 1e-12)
             yf = Sy.sim(th)
@@ -80,7 +80,7 @@ def uno(name):
             for x0 in (np.clip(np.log(np.maximum(np.abs(th[idx]), 1e-12)), lo, hi), np.log(mag0)):
                 try:
                     r = least_squares(resid, x0, bounds=(lo, hi), method="trf",
-                                      max_nfev=30 * (len(idx) + 1), diff_step=1e-3)
+                                      max_nfev=100 * (len(idx) + 1), diff_step=1e-3)
                     mejor = min(mejor, float(np.linalg.norm(r.fun)))
                 except Exception:
                     pass
