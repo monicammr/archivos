@@ -3,6 +3,14 @@
  "p": 22,
  "n_salidas": 1440,
  "colinealidad": {
+  "sin_efecto": [
+   "gamma35",
+   "gamma36",
+   "gamma57",
+   "gamma68"
+  ],
+  "kappa_con_efecto": 16404.35089200115,
+  "VIF_max_con_efecto": 18814750.757203694,
   "kappa_todos": Infinity,
   "VIF_max_todos": Infinity,
   "pares_cos_ge_0.95": [

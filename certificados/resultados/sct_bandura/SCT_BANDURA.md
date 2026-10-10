@@ -1,11 +1,11 @@
-# SCT Bandura con el método final
+# SCT Bandura con el método final (valores: codigo; entradas: codigo)
 
 Modelo lineal de 6 estados, 22 parámetros, 3 condiciones de entrada; salida medida y = x₄. Sin datos experimentales ni parámetros de calibración.
 
-| Variante | Salidas | κ (22 parámetros) | VIF máx (22) | Pares con cos ≥ 0,95 | Etapa | S | e_rel ±5 % | e_ajuste ±5 % | Patrón |
+| Variante | Salidas | Sin efecto | κ (con efecto) | VIF máx (con efecto) | Pares con cos ≥ 0,95 | Etapa | S | e_rel ±5 % | e_ajuste ±5 % | Patrón |
 |---|---|---|---|---|---|---|---|---|---|
-| salida | 240 | inf | inf | 55 | Stage 2 | beta43, tau4 | 61.9 % | 2.0 % | A |
-| estados | 1440 | inf | inf | 9 | Stage 1 | gamma33, beta43 | 20.2 % | 17.7 % | A |
+| salida | 240 | gamma35, gamma36, gamma57, gamma68 | inf | 4.01e+14 | 55 | Stage 2 | beta43, tau4 | 61.9 % | 2.0 % | A |
+| estados | 1440 | gamma35, gamma36, gamma57, gamma68 | 1.64e+04 | 1.88e+07 | 9 | Stage 1 | gamma33, beta43 | 20.2 % | 17.7 % | A |
 
 ## salida
 

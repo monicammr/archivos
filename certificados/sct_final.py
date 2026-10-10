@@ -33,7 +33,24 @@ OUT.mkdir(parents=True, exist_ok=True)
 DELTA, ETA, TAU_R, TAU_K, EMAX, KMIN = 0.01, 0.1, 0.89, 10.0, float(np.sqrt(1 - 0.81)), 2
 N_ESC, SEED = 15, 42
 NIVELES = [0.01, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50]
-th0 = M.THETA_NOM.copy(); names = list(M.PARAM_NAMES); p = len(th0)
+import os
+names = list(M.PARAM_NAMES); p = len(names)
+# Valores nominales: "codigo" = THETA_NOM del script original; "etcm" = Tabla III (estimación DE)
+# de Miranda et al., ETCM 2025.
+ETCM = dict(tau1=0.8155, tau2=5, tau3=3.4696, tau4=0.3655, tau5=0.1636, tau6=0.1,
+            beta14=0.8637, beta21=0.2058, beta25=0.6155, beta31=0.6217, beta34=0.2372,
+            beta42=0.2515, beta43=0.3709, beta45=0.9084, beta46=0.1, beta54=0.6224,
+            gamma33=0.1, gamma35=0.9999, gamma36=0.1, gamma57=0.9555, gamma64=0.5217, gamma68=0.1)
+VALORES = os.environ.get("SCT_VALORES", "codigo")
+th0 = M.THETA_NOM.copy() if VALORES == "codigo" else np.array([ETCM[n] for n in names], float)
+# Entradas: "codigo" = 3 condiciones con escalón en los canales 1 y 2 (script original);
+# "seis" = 6 condiciones, escalón unitario en cada uno de los 6 canales de entrada ξ3–ξ8.
+ENTRADAS = os.environ.get("SCT_ENTRADAS", "codigo")
+if ENTRADAS == "seis":
+    M.INPUTS = []
+    for k in range(6):
+        u = np.zeros((M.N_PTS, 6)); u[:, k] = 1.0; M.INPUTS.append(u)
+SUF = "" if (VALORES, ENTRADAS) == ("codigo", "codigo") else f"_{VALORES}_{ENTRADAS}"
 
 
 def salida_x4(theta):
@@ -137,7 +154,10 @@ def corre(var):
     C = Z.T @ Z
     pares = sorted([(abs(C[i, j]), names[i], names[j]) for i in range(p) for j in range(i + 1, p)
                     if abs(C[i, j]) >= 0.95], reverse=True)
-    col = {"kappa_todos": kappa(J, list(range(p))), "VIF_max_todos": vif(J, list(range(p))),
+    nulos = [names[j] for j in range(p) if E[j] < 1e-20 * E.max()]
+    vivos = [j for j in range(p) if names[j] not in nulos]
+    col = {"sin_efecto": nulos, "kappa_con_efecto": kappa(J, vivos), "VIF_max_con_efecto": vif(J, vivos),
+           "kappa_todos": kappa(J, list(range(p))), "VIF_max_todos": vif(J, list(range(p))),
            "pares_cos_ge_0.95": [{"a": a, "b": b, "cos": float(c)} for c, a, b in pares]}
 
     orden1 = [int(j) for j in np.argsort(-E) if E[j] > 0]
@@ -181,19 +201,19 @@ def corre(var):
             i = ok.index(False)
             pat = "C" if any(ok[i:]) else ("B" if NIVELES[i] >= 0.20 else "D")
         res.update({"niveles": niv, "patron": pat})
-    (OUT / f"{var}.json").write_text(json.dumps(res, indent=1, ensure_ascii=False), encoding="utf-8")
+    (OUT / f"{var}{SUF}.json").write_text(json.dumps(res, indent=1, ensure_ascii=False), encoding="utf-8")
     return res
 
 
 def resumen(rs):
-    L = ["# SCT Bandura con el método final", "",
-         "Modelo lineal de 6 estados, 22 parámetros, 3 condiciones de entrada; salida medida y = x₄. "
+    L = [f"# SCT Bandura con el método final (valores: {VALORES}; entradas: {ENTRADAS})", "",
+         f"Modelo lineal de 6 estados, 22 parámetros, {len(M.INPUTS)} condiciones de entrada; salida medida y = x₄. "
          "Sin datos experimentales ni parámetros de calibración.", "",
-         "| Variante | Salidas | κ (22 parámetros) | VIF máx (22) | Pares con cos ≥ 0,95 | Etapa | S | e_rel ±5 % | e_ajuste ±5 % | Patrón |",
+         "| Variante | Salidas | Sin efecto | κ (con efecto) | VIF máx (con efecto) | Pares con cos ≥ 0,95 | Etapa | S | e_rel ±5 % | e_ajuste ±5 % | Patrón |",
          "|---|---|---|---|---|---|---|---|---|---|"]
     for r in rs:
         c = r["colinealidad"]
-        L.append(f"| {r['variante']} | {r['n_salidas']} | {c['kappa_todos']:.3g} | {c['VIF_max_todos']:.3g} | "
+        L.append(f"| {r['variante']} | {r['n_salidas']} | {', '.join(c['sin_efecto']) or '—'} | {c['kappa_con_efecto']:.3g} | {c['VIF_max_con_efecto']:.3g} | "
                  f"{len(c['pares_cos_ge_0.95'])} | {r['etapa']} | {', '.join(r['S'])} | "
                  f"{100 * r['erel_med']:.1f} % | {100 * r['eajuste_med']:.1f} % | {r.get('patron', '—')} |")
     for r in rs:
@@ -209,7 +229,7 @@ def resumen(rs):
         if "niveles" in r:
             L += ["* e_ajuste por nivel: " + ", ".join(
                 f"±{k} %: {100 * v['eaj_med']:.1f} %" for k, v in r["niveles"].items()) + "."]
-    (OUT / "SCT_BANDURA.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+    (OUT / f"SCT_BANDURA{SUF}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
 
 
