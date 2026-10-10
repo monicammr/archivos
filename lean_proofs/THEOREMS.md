@@ -490,25 +490,25 @@ Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axi
 
 Cada archivo de `Models/` es un modelo traducido de SBML; su teorema final establece regularidad, existencia de solución en el horizonte simulado y no negatividad de las concentraciones.
 
-* `Armistead_CellDeathDis2024`: —
-* `Bachmann_MSB2011`: —
-* `Blasi_CellSystems2016`: —
-* `Boehm_JProteomeRes2014`: —
-* `Borghans_BiophysChem1997`: —
-* `Brannmark_JBC2010`: —
-* `Chen_MSB2009`: —
-* `Crauste_CellSystems2017`: —
-* `Elowitz_Nature2000`: —
-* `Fiedler_BMCSystBiol2016`: —
-* `Froehlich_CellSystems2018`: —
-* `Giordano_Nature2020`: —
-* `Lang_PLOSComputBiol2024`: —
-* `Okuonghae_ChaosSolitonsFractals2020`: —
-* `Rahman_MBS2016`: —
-* `Raia_CancerResearch2011`: —
-* `Raimundez_PCB2020`: —
-* `SalazarCavazos_MBoC2020`: —
-* `Sneyd_PNAS2002`: —
-* `Weber_BMC2015`: —
-* `Zhao_QuantBiol2020`: —
-* `Zheng_PNAS2012`: —
+* `Armistead_CellDeathDis2024`: `Models.Armistead_CellDeathDis2024.final`
+* `Bachmann_MSB2011`: `Models.Bachmann_MSB2011.final`
+* `Blasi_CellSystems2016`: `Models.Blasi_CellSystems2016.final`
+* `Boehm_JProteomeRes2014`: `Models.Boehm_JProteomeRes2014.final`
+* `Borghans_BiophysChem1997`: `Models.Borghans_BiophysChem1997.final`
+* `Brannmark_JBC2010`: `Models.Brannmark_JBC2010.final`
+* `Chen_MSB2009`: `Models.Chen_MSB2009.final`
+* `Crauste_CellSystems2017`: `Models.Crauste_CellSystems2017.final`
+* `Elowitz_Nature2000`: `Models.Elowitz_Nature2000.final`
+* `Fiedler_BMCSystBiol2016`: `Models.Fiedler_BMCSystBiol2016.final`
+* `Froehlich_CellSystems2018`: `Models.Froehlich_CellSystems2018.final`
+* `Giordano_Nature2020`: `Models.Giordano_Nature2020.final`
+* `Lang_PLOSComputBiol2024`: `Models.Lang_PLOSComputBiol2024.final`
+* `Okuonghae_ChaosSolitonsFractals2020`: `Models.Okuonghae_ChaosSolitonsFractals2020.final`
+* `Rahman_MBS2016`: `Models.Rahman_MBS2016.final`
+* `Raia_CancerResearch2011`: `Models.Raia_CancerResearch2011.final`
+* `Raimundez_PCB2020`: `Models.Raimundez_PCB2020.final`
+* `SalazarCavazos_MBoC2020`: `Models.SalazarCavazos_MBoC2020.final`
+* `Sneyd_PNAS2002`: `Models.Sneyd_PNAS2002.final`
+* `Weber_BMC2015`: `Models.Weber_BMC2015.final`
+* `Zhao_QuantBiol2020`: `Models.Zhao_QuantBiol2020.final`
+* `Zheng_PNAS2012`: `Models.Zheng_PNAS2012.final`

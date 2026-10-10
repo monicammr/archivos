@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 D = Path(__file__).resolve().parent
-TEORIA = sorted(p for p in D.glob("*.lean") if p.stem not in ("All", "AllModels", "CheckAxioms", "lakefile"))
+TEORIA = sorted(p for p in D.glob("*.lean") if p.stem not in ("All", "AllModels", "CheckAxioms", "CheckModelAxioms", "lakefile"))
 MODELOS = sorted((D / "Models").glob("*.lean"))
 
 
@@ -67,9 +67,12 @@ def main():
     L += ["## Modelos del benchmark", "",
           "Cada archivo de `Models/` es un modelo traducido de SBML; su teorema final establece "
           "regularidad, existencia de solución en el horizonte simulado y no negatividad de las concentraciones.", ""]
+    axm = ["-- Generado por catalogo.py: axiomas del teorema final de cada modelo.", "import AllModels", ""]
     for p in MODELOS:
-        fin = [n for k, n, d, _ in decls(p) if n.split(".")[-1].startswith("final") or "final" in n.split(".")[-1]]
+        fin = [f"Models.{p.stem}.{n}" for n in re.findall(r"^(?:theorem|def)\s+(final\w*)", p.read_text(encoding="utf-8"), re.M)]
         L.append(f"* `{p.stem}`: " + (", ".join(f"`{n}`" for n in fin) or "—"))
+        axm += [f"#print axioms {n}" for n in fin]
+    (D / "CheckModelAxioms.lean").write_text("\n".join(axm) + "\n", encoding="utf-8")
     (D / "THEOREMS.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     (D / "CheckAxioms.lean").write_text("\n".join(ax) + "\n", encoding="utf-8")
     print(f"{len(TEORIA)} módulos, {total} declaraciones, {len(MODELOS)} modelos")

@@ -12,5 +12,7 @@ lake exe cache get
 echo "3/4  Compilando teoría y modelos (la primera vez, ~1–2 h; Chen y Froehlich son los más largos)..."
 lake build
 echo "4/4  Axiomas usados por cada teorema:"
-lake env lean CheckAxioms.lean 2>&1 | tee axiomas.log | grep -oE "\[[^]]*\]" | sort | uniq -c
+lake env lean CheckAxioms.lean 2>&1 | tee axiomas.log | tr "\n" " " | grep -oE "depends on axioms: \[[^]]*\]" | sort | uniq -c
+echo "Axiomas del teorema final de cada modelo:"
+lake env lean --tstack=4000000 CheckModelAxioms.lean 2>&1 | tee axiomas_modelos.log | tr "\n" " " | grep -oE "depends on axioms: \[[^]]*\]" | sort | uniq -c
 echo "Listo. Deben aparecer sólo [propext, Classical.choice, Quot.sound] (o subconjuntos)."

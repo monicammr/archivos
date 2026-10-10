@@ -27,7 +27,7 @@ The complete list of theorems, with a one-line description of each, is in
 
    which (i) checks that no file contains `sorry` or `axiom`, (ii) downloads the precompiled
    Mathlib (`lake exe cache get`), (iii) compiles the theory and the models (`lake build`) and
-   (iv) prints the axioms used by every theorem (`CheckAxioms.lean`).
+   (iv) prints the axioms used by every theorem (`CheckAxioms.lean`) and by the final theorem of every model (`CheckModelAxioms.lean`).
 
    Equivalent manual steps: `lake exe cache get && lake build && lake env lean CheckAxioms.lean`.
 
@@ -70,7 +70,8 @@ the correctness of the numerical ODE simulator.
 | `*.lean` (31 files) | theory modules |
 | `Models/` | 22 benchmark models (Chen and Froehlich split into parts) |
 | `All.lean`, `AllModels.lean` | import all theory modules / all models |
-| `CheckAxioms.lean` | `#print axioms` for every theorem |
+| `CheckAxioms.lean` | `#print axioms` for every theorem of the theory |
+| `CheckModelAxioms.lean` | `#print axioms` for the final theorem of every model |
 | `THEOREMS.md` | catalogue of all theorems and lemmas |
 | `BUILD_LOG.md` | log of our complete compilation |
 | `verify.sh` | one-command verification |
