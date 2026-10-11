@@ -8,7 +8,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 |---|---|---|---|---|---|
 | Alkan_SciSignal2018 | condiciones nuevas | 2 / 44 | 2.75 | 3.38 | 2.47 |
 | Armistead_CellDeathDis2024 | condiciones nuevas | 2 / 10 | 1.22 | 1.37 | 1.16 |
-| Bachmann_MSB2011 | condiciones nuevas | 2 / 101 | 4.77 | — | 1.05 |
+| Bachmann_MSB2011 | condiciones nuevas | 2 / 101 | 4.77 | 12.23 | 1.05 |
 | Boehm_JProteomeRes2014 | extrapolación temporal (t ≥ 80) | 2 / 6 | 2.57 | 11.35 | 0.34 |
 | Borghans_BiophysChem1997 | extrapolación temporal (t ≥ 6.48875) | 2 / 22 | 0.74 | 0.74 | 0.74 |
 | Brannmark_JBC2010 | condiciones nuevas | 2 / 18 | 5.79 | 2145.47 | 0.94 |
@@ -21,7 +21,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Lang_PLOSComputBiol2024 | extrapolación temporal (t ≥ 86391.6) | 2 / 277 | 8.98 | — | 7.33 |
 | Laske_PLOSComputBiol2019 | condiciones nuevas | 2 / 8 | 0.76 | 1.88 | 0.44 |
 | Liu_IFACPapersOnLine2025 | condiciones nuevas | 2 / 7 | 0.95 | 1.02 | 0.94 |
-| Lucarelli_CellSystems2018 | condiciones nuevas | 10 / 72 | 1.57 | — | 1.02 |
+| Lucarelli_CellSystems2018 | condiciones nuevas | 10 / 72 | 1.64 | 3.22 | 1.02 |
 | Okuonghae_ChaosSolitonsFractals2020 | extrapolación temporal (t ≥ 32) | 2 / 14 | 46705.21 | 122419.25 | 28748.50 |
 | Oliveira_NatCommun2021 | extrapolación temporal (t ≥ 40) | 2 / 12 | 914.51 | 81453.15 | 460396.13 |
 | Perelson_Science1996 | extrapolación temporal (t ≥ 2.038) | 2 / 2 | 0.00 | 0.00 | 0.00 |
@@ -42,7 +42,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 |---|---|---|---|---|---|
 | Alkan_SciSignal2018 | 0.13 | 0.15 | 1.07 | 1.06 | sí |
 | Armistead_CellDeathDis2024 | 0.85 | 0.18 | 1.11 | 0.58 | no |
-| Bachmann_MSB2011 | 3.10 | — | 3.37 | — | no |
+| Bachmann_MSB2011 | 3.10 | 6.91 | 3.37 | 12.62 | no |
 | Boehm_JProteomeRes2014 | 0.45 | 6.63 | 0.57 | 24.18 | no |
 | Borghans_BiophysChem1997 | 1.04 | 0.31 | 2.89 | 0.90 | no |
 | Brannmark_JBC2010 | 0.92 | 3.97 | 6.14 | 87.79 | no |
@@ -55,7 +55,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Lang_PLOSComputBiol2024 | 0.17 | — | 1.32 | — | sí |
 | Laske_PLOSComputBiol2019 | 0.50 | 4.72 | 0.44 | 4.63 | no |
 | Liu_IFACPapersOnLine2025 | 0.65 | 2.15 | 0.58 | 0.75 | no |
-| Lucarelli_CellSystems2018 | 2.01 | — | 1.30 | — | no |
+| Lucarelli_CellSystems2018 | 2.01 | 6.96 | 1.30 | 3.49 | no |
 | Okuonghae_ChaosSolitonsFractals2020 | 0.08 | 0.04 | 277.82 | 73.16 | sí |
 | Oliveira_NatCommun2021 | 0.29 | 0.00 | 5480367.73 | 141.96 | sí |
 | Perelson_Science1996 | 23.29 | 23.29 | 0.68 | 0.68 | no |
@@ -73,8 +73,8 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 ## Resumen
 
 * Sistemas evaluados: 29; no evaluables: 2; errores: 0.
-* Datos reales: el reducido predice igual o mejor que el completo reajustado en 22 de 25 sistemas.
-* Sintético: e_pred del reducido ≤ 0,436 en 11 de 29; reducido igual o mejor que el completo en 14 de 24.
+* Datos reales: el reducido predice igual o mejor que el completo reajustado en 24 de 27 sistemas.
+* Sintético: e_pred del reducido ≤ 0,436 en 11 de 29; reducido igual o mejor que el completo en 16 de 26.
 * Sintético, sistemas donde la señal supera al ruido (χ²(θ₀) ≥ 2): 13; e_pred ≤ 0,436 en 8; reducido igual o mejor que el completo en 6 de 11.
 * Sintético, señal menor que el ruido: 15; el reducido predice al nivel del ruido (χ²/n ≤ 2) en 13 (e_pred no informativo en estos casos).
 * Datos reales frente al ajuste publicado θ₀ (que usó todos los datos): χ²/n del reducido ≤ 2·χ²/n(θ₀) en 22 de 29. En Okuonghae, Oliveira y Smith incluso θ₀ tiene χ²/n ≫ 1: los σ del benchmark no corresponden a la dispersión de los datos.
