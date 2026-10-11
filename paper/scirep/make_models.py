@@ -330,5 +330,5 @@ p = HERE / "supplementary.tex"
 s = p.read_text(encoding="utf-8")
 key = r"\section*{Supplementary Note 4."
 a = s.index(key) if key in s else s.index(r"\end{document}")
-p.write_text(s[:a] + "\n".join(L) + "\n" + r"\input{suppl_reproduction}" + "\n\n" + r"\input{suppl_sct}" + "\n\n" + r"\input{suppl_conclusion}" + "\n\n" + r"\end{document}" + "\n", encoding="utf-8")
+p.write_text(s[:a] + "\n".join(L) + "\n" + r"\input{suppl_reproduction}" + "\n\n" + r"\input{suppl_sct}" + "\n\n" + r"\input{suppl_systems}" + "\n\n" + r"\input{suppl_conclusion}" + "\n\n" + r"\end{document}" + "\n", encoding="utf-8")
 print(len(models), "models;", {m["name"]: (m["n"], m["p"], m["nterms"]) for m in models})
