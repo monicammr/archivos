@@ -52,7 +52,7 @@ $e_{\mathrm{pred}}$ & relative prediction error with respect to a known truth (s
 
 \section*{Supplementary Table S3. Formal proofs}
 
-All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repository, a self-contained Lean~4 project (Lean 4.23.0, Mathlib v4.23.0) that compiles with a single command (\texttt{./verify.sh}). It contains 31 theory modules with 289 theorems and lemmas, and 22 benchmark models translated from SBML. No file contains \texttt{sorry} or \texttt{axiom}, and \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. The file \texttt{THEOREMS.md} in that folder lists every theorem and lemma; $n$ is the number of theorems and lemmas per module.
+All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repository, a self-contained Lean~4 project (Lean 4.23.0, Mathlib v4.23.0) that compiles with a single command (\texttt{./verify.sh}). It contains 31 theory modules with 289 theorems and lemmas, and 22 benchmark models translated from SBML. No file contains \texttt{sorry} or \texttt{axiom}, and \texttt{\#print axioms} reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. The file \texttt{THEOREMS.md} in that folder lists every theorem and lemma, and Supplementary Note 2 gives the statement and meaning of each of them; $n$ is the number of theorems and lemmas per module.
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedleft\arraybackslash}p{0.6cm}>{\raggedright\arraybackslash}p{6.3cm}>{\raggedright\arraybackslash}p{4.9cm}@{}}
@@ -105,8 +105,826 @@ Total & 289 & & \\
 
 \textbf{Verified benchmark models.} Armistead, Bachmann, Blasi, Boehm, Borghans, Brannmark, Chen (500 species, in four parts), Crauste (horizon $T\le 1$), Elowitz, Fiedler, Froehlich (1,228 species, in twelve parts), Giordano, Lang, Okuonghae, Rahman, Raia, Raimundez, SalazarCavazos, Sneyd, Weber, Zhao and Zheng (folder \texttt{lean\_proofs/Models/}). For each model, the final theorem establishes that the vector field is smooth on its domain, that the solution exists on the simulated horizon and that concentrations remain non-negative.
 
-\section*{Supplementary Note. Verification of the simulator}
+\section*{Supplementary Note 1. Verification of the simulator}
 
 Our simulation of the measured outputs was compared, at the nominal parameters, with the reference simulations distributed with the benchmark, matching each measurement by observable, condition and time. For the problems with comparable reference files the median relative difference was below $10^{-5}$ in all but five cases: Chen ($1.1\times 10^{-4}$), Zheng (whose reference file contains the measured data rather than a simulation), Crauste (0.8\%, very stiff model), Lang (2.8\%, an oscillating cell-cycle model simulated to $t=136{,}472$, where peaks differ by an accumulated phase shift) and Perelson (17\%; the initial state of the model is stationary and our simulation respects it, which suggests that the reference was generated with different values). Several problems have no comparable reference (no file, or different condition identifiers). The full comparison is given in the repository (\texttt{certificados/resultados/salidas/VERIFICACION\_SIMULADOR.md}).
+
+\section*{Supplementary Note 2. Statements of the formal theorems}
+
+This note states, in mathematical notation, every theorem and lemma of the Lean formalisation (31 modules, 289 declarations) and explains what it means, so that the formal statements can be read alongside the code. The Lean name is given as it appears in the source (prefixed by the module namespace). Hypotheses are written before $\Rightarrow$; standing assumptions of each module are given in its description. Table~S4 explains the symbols used throughout; symbols specific to a module are explained at the start of that module. The same content, with the Lean identifiers, is in \texttt{lean\_proofs/FORMULAS.md}.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{7.2cm}@{}}
+\caption*{\textbf{Supplementary Table S4.} Notation of the formalisation.}\\
+\toprule
+Symbol & Lean & Meaning \\
+\midrule
+\endhead
+$n,\ p,\ N$ & \texttt{n, p, N} & number of state variables, of parameters and of sampling times \\
+$\theta\in\mathbb{R}^p,\ \theta_0$ & \texttt{$\theta$, $\theta_0$} & parameter vector; nominal (published) parameter values \\
+$\dot x=f(x,\theta)$ & \texttt{f} & right-hand side of the ODE (vector field) \\
+$x(t;\theta)\in\mathbb{R}^n$ & \texttt{x $\theta$ t} & solution of the ODE at time t for parameters $\theta$ \\
+$x_0(t)$ & \texttt{x$_0$} & nominal solution, i.e. the solution for $\theta$ = $\theta_0$ \\
+$x^0(\theta),\ D_0$ & \texttt{x0, D0} & initial value as a function of $\theta$, and its derivative at $\theta_0$ \\
+$U$ & \texttt{U} & open set of (state, parameter) pairs on which f is continuously differentiable (ContDiffOn $\mathbb R$ 1) \\
+$K$ & \texttt{K} & convex set containing all trajectories considered (used for explicit constants) \\
+$[0,T]$ & \texttt{Icc 0 T} & simulation horizon \\
+$x \text{ solves the ODE}$ & \texttt{HasDerivWithinAt (x $\theta$) (f (x $\theta$ t) $\theta$) (Icc 0 T) t} & x($\cdot$;$\theta$) is differentiable on [0,T] and its derivative equals f(x,$\theta$) \\
+$t_1,\dots,t_N$ & \texttt{tk} & sampling (measurement) times \\
+$\mathcal{F}(\theta)\in\mathbb{R}^{Nn}$ & \texttt{sampled x tk $\theta$} & states at all sampling times stacked into one vector \\
+$F:\mathbb{R}^p\to\mathbb{R}^m$ & \texttt{F} & generic differentiable output map (for example the stacked, noise-scaled measured outputs) \\
+$DF(\theta),\ J$ & \texttt{DF $\theta$, J, L} & derivative of F (sensitivity matrix); J = DF($\theta_0$) \\
+$J_{ij}$ & \texttt{jacobianOf L} & entry (i, j) of the matrix of the linear map L: J\_ij = (L e\_j)\_i \\
+$S(t)=\partial x(t;\theta_0)/\partial\theta$ & \texttt{S, S$_0$} & state sensitivity matrix; solves the variational equation \\
+$\mathcal{S}$ & \texttt{sampledCLM S tk, sensMatrix S tk} & sensitivity at all sampling times stacked into one Nn $\times$ p matrix \\
+$\dot S=\partial_x f\,S+\partial_\theta f$ & \texttt{HasDerivWithinAt S (\dots{} $\circ$L S t + \dots{})} & variational (sensitivity) equation along the nominal solution \\
+$S\subseteq\{1,\dots,p\}$ & \texttt{S, Sset : Finset (Fin p)} & subset of parameters that are re-estimated; the others stay at $\theta_0$ \\
+$S^c$ & \texttt{removedSet S} & discarded (fixed) parameters \\
+$h,\ \Delta\theta$ & \texttt{h, $\Delta\theta$} & parameter perturbation \\
+$h_S$ & \texttt{keepS S h} & perturbation restricted to S (components outside S set to 0) \\
+$E_j=\sum_i J_{ij}^2$ & \texttt{columnEnergy J j} & sensitivity energy of parameter j (diagonal entry of J$^\top$J) \\
+$E=\operatorname{tr}(J^\top J)$ & \texttt{totalColumnEnergy J} & total sensitivity energy \\
+$E_S,\ E_{S^c}$ & \texttt{keptColumnEnergy J S, removedColumnEnergy J S} & energy of the selected and of the discarded parameters \\
+$R_{\mathrm{var}}(S)=E_S/E$ & \texttt{r * totalColumnEnergy $\le$ keptColumnEnergy} & fraction of sensitivity energy kept; the condition R\_var(S) $\ge$ r is written r$\cdot$E $\le$ E\_S \\
+$\|h_{S^c}\|^2=\sum_{j\notin S}h_j^2$ & \texttt{removedParamSq S h} & squared size of the perturbation of the discarded parameters \\
+$\cos(a,b)=\dfrac{\langle a,b\rangle}{\|a\|\,\|b\|}$ & \texttt{cosv a b} & cosine between two vectors \\
+$\cos\Delta(h)$ & \texttt{cosv (F ($\theta_0$+h) - F $\theta_0$) (F ($\theta_0$+h\_S) - F $\theta_0$)} & cosine between the output change of the full perturbation and that of the perturbation restricted to S \\
+$c$ & \texttt{c} & cosine threshold (the method uses c = 0.9, i.e. $\tau_e$ = $\surd$(1 -- c$^2$) = 0.436) \\
+$\bar B(\theta_0,\rho_0)$ & \texttt{closedBall $\theta_0$ $\rho_0$} & closed ball of radius $\rho_0$ around $\theta_0$ (range of perturbations) \\
+$L_c$ & \texttt{Lc} & Lipschitz constant of DF on the ball: $\|$DF($\theta$) -- DF($\theta_0$)$\|$ $\le$ L\_c $\|\theta$ -- $\theta_0\|$ \\
+$M_1,\ M_2$ & \texttt{$M_1$, $M_2$} & bounds on $\|$Df$\|$ and on the Lipschitz constant of Df on K \\
+$Z$ & \texttt{Z} & linear map whose columns are the (normalised) sensitivity columns of the candidate subset \\
+$\sigma_{\min},\ \sigma_{\max}$ & \texttt{$\sigma$min, $\sigma$max} & lower and upper bounds $\sigma_{\min}\|$u$\|$ $\le$ $\|$Zu$\|$ $\le$ $\sigma_{\max}\|$u$\|$ (extreme singular values) \\
+$\kappa_0,\ V$ & \texttt{$\kappa_0$, V, Vb} & thresholds on the condition number $\kappa$ and on the variance inflation factor VIF \\
+$\operatorname{supp}u\subseteq S$ & \texttt{SupportedOn S u} & u\_i = 0 for all i outside S \\
+$v\in\operatorname{LS}(Z,y)$ & \texttt{IsLSMin Z y v} & v minimises $\|$Zv -- y$\|$ (least-squares estimate) \\
+$\forall\theta\approx\theta_0$ & \texttt{$\forall^{\mathrm f}$ $\theta$ in $\mathcal N$ $\theta_0$} & for all $\theta$ in some neighbourhood of $\theta_0$ \\
+$o(\|\Delta\theta\|)$ & \texttt{=o[$\mathcal N$ 0]} & little-o as $\Delta\theta$ $\to$ 0 \\
+$e,\ e(x,\theta)$ & \texttt{e : KExpr n p, e.eval (x, $\theta$)} & syntax tree of a rate law built from constants, x\_i, $\theta$\_j, +, --, $\times$, $\div$, integer and real powers, exp and log; its value \\
+$\operatorname{ok}_e(x,\theta)$ & \texttt{e.ok (x, $\theta$)} & e is well defined at (x, $\theta$): non-zero denominators, positive bases of real powers and positive arguments of log \\
+$F_1,\dots,F_n;\ f_F$ & \texttt{F : Fin n $\to$ KExpr n p, field F x $\theta$} & rate expressions of a kinetic model and the vector field they define \\
+$\mathcal{D}_F$ & \texttt{domain F} & set of (x, $\theta$) where all F\_i are well defined \\
+$P,\ \theta_P>0$ & \texttt{pos, PosParams pos $\theta$} & parameters declared positive, and the condition $\theta$\_j $>$ 0 for those parameters \\
+$y\ge 0$ & \texttt{Nonneg y} & all components of y are non-negative \\
+$\Sigma,\ y\in P_\Sigma$ & \texttt{sx, SPos sx y} & species required to stay strictly positive; y $\ge$ 0 and y\_j $>$ 0 for j $\in$ $\Sigma$ \\
+$(r_k,\nu_k)$ & \texttt{Rx : List (KExpr $\times$ List (Fin n $\times$ $\mathbb Q$))} & reaction k with rate law r\_k and stoichiometric column $\nu$\_k \\
+$f_i=\sum_k\nu_{ik}r_k$ & \texttt{netF Rx, coef} & vector field of a reaction network; $\nu$\_ik = coef \\
+$w_i$ & \texttt{c : Fin n $\to$ $\mathbb Q$} & positive weights of the growth (Lyapunov-type) bound $\Sigma$\_i w\_i f\_i $\le$ a + b $\Sigma$\_i w\_i x\_i \\
+$\theta_q,\ x_q$ & \texttt{$\theta$q, xq} & rational parameter values and initial values taken from the model files \\
+$\iota(q)$ & \texttt{qvec q} & rational vector viewed as a real vector \\
+$\mathtt{check}(\cdot)=\mathrm{true}$ & \texttt{checkModel, checkNet, \dots{} = true} & a Boolean checker, executed by Lean on the model, returns true \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Sensitivity energy and trajectory error}
+
+\subsubsection*{\texttt{FirstOrderErrorBound} (12)}
+First-order (linearised) output error when the parameters outside S are fixed. Here J is a numeric m $\times$ p matrix.
+
+{\small\raggedright Notation: $(J\Delta\theta)_i$ (\texttt{linResponse J $\Delta\theta$ i}): linear response of output i: $\Sigma$\_j J\_ij $\Delta\theta$\_j; $(J\Delta\theta_S)_i$ (\texttt{reducedResponse J S $\Delta\theta$ i}): linear response with only the parameters in S perturbed; $\|v\|^2$ (\texttt{sqNorm v}): sum of squares of the components of v.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{sqNorm\_\allowbreak{}nonneg} & $\displaystyle \|v\|^2\ge 0$ & A sum of squares is non-negative. \\[3pt]
+\texttt{columnEnergy\_\allowbreak{}nonneg} & $\displaystyle E_j\ge 0$ & Each sensitivity energy is non-negative. \\[3pt]
+\texttt{removedColumnEnergy\_\allowbreak{}nonneg} & $\displaystyle E_{S^c}\ge 0$ & The discarded energy is non-negative. \\[3pt]
+\texttt{removedParamSq\_\allowbreak{}nonneg} & $\displaystyle \|\Delta\theta_{S^c}\|^2\ge 0$ & The size of the discarded perturbation is non-negative. \\[3pt]
+\texttt{sum\_\allowbreak{}split} & $\displaystyle \sum_{j}f_j=\sum_{j\in S}f_j+\sum_{j\notin S}f_j$ & A sum over all parameters splits into selected plus discarded ones. \\[3pt]
+\texttt{total\_\allowbreak{}eq\_\allowbreak{}kept\_\allowbreak{}add\_\allowbreak{}removed} & $\displaystyle \operatorname{tr}(J^\top J)=E_S+E_{S^c}$ & Total energy = kept energy + discarded energy. \\[3pt]
+\texttt{response\_\allowbreak{}sub\_\allowbreak{}reduced} & $\displaystyle (J\Delta\theta)_i-(J\Delta\theta_S)_i=\sum_{j\notin S}J_{ij}\Delta\theta_j$ & The truncation error is exactly the contribution of the discarded columns. \\[3pt]
+\texttt{first\_\allowbreak{}order\_\allowbreak{}error\_\allowbreak{}sq\_\allowbreak{}bound} & $\displaystyle \|J\Delta\theta-J\Delta\theta_S\|^2\le E_{S^c}\,\|\Delta\theta_{S^c}\|^2$ & First-order error bound (squared form, Cauchy--Schwarz). \\[3pt]
+\texttt{first\_\allowbreak{}order\_\allowbreak{}error\_\allowbreak{}bound} & $\displaystyle \|J\Delta\theta-J\Delta\theta_S\|\le\sqrt{E_{S^c}}\,\|\Delta\theta_{S^c}\|$ & First-order error bound (norm form). \\[3pt]
+\texttt{removedParamSq\_\allowbreak{}le} & $\displaystyle \|\Delta\theta_{S^c}\|^2\le\|\Delta\theta\|^2$ & The discarded part of a perturbation is no larger than the whole perturbation. \\[3pt]
+\texttt{first\_\allowbreak{}order\_\allowbreak{}error\_\allowbreak{}from\_\allowbreak{}removed\_\allowbreak{}fraction} & $\displaystyle E_{S^c}\le\varepsilon E\ \Rightarrow\ \|J\Delta\theta-J\Delta\theta_S\|^2\le\varepsilon\,E\,\|\Delta\theta\|^2$ & If at most a fraction $\varepsilon$ of the energy is discarded, the first-order error is at most $\surd$($\varepsilon$E)$\|\Delta\theta\|$. \\[3pt]
+\texttt{first\_\allowbreak{}order\_\allowbreak{}error\_\allowbreak{}from\_\allowbreak{}Rvar} & $\displaystyle rE\le E_S\ \Rightarrow\ \|J\Delta\theta-J\Delta\theta_S\|^2\le(1-r)\,E\,\|\Delta\theta\|^2$ & Stage-1 criterion: R\_var(S) $\ge$ r bounds the first-order error by $\surd$((1 -- r)E)$\|\Delta\theta\|$. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{TrajectoryErrorBound} (9)}
+From the linear map to the true (nonlinear) output: error of the reduced model for small perturbations.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{keepS\_\allowbreak{}apply} & $\displaystyle (h_S)_j=\begin{cases}h_j & j\in S\\ 0 & j\notin S\end{cases}$ & Definition of the restricted perturbation. \\[3pt]
+\texttt{norm\_\allowbreak{}keepS\_\allowbreak{}le} & $\displaystyle \|h_S\|\le\|h\|$ & Restricting a perturbation cannot increase its size. \\[3pt]
+\texttt{clm\_\allowbreak{}apply\_\allowbreak{}eq\_\allowbreak{}linResponse} & $\displaystyle (L\Delta\theta)_i=\sum_j J_{ij}\Delta\theta_j$ & A linear map acts through its matrix J. \\[3pt]
+\texttt{clm\_\allowbreak{}keepS\_\allowbreak{}eq\_\allowbreak{}reducedResponse} & $\displaystyle (L\Delta\theta_S)_i=\sum_{j\in S}J_{ij}\Delta\theta_j$ & Same for the restricted perturbation. \\[3pt]
+\texttt{linear\_\allowbreak{}part\_\allowbreak{}bound} & $\displaystyle \|L\Delta\theta-L\Delta\theta_S\|\le\sqrt{E_{S^c}}\,\|\Delta\theta_{S^c}\|$ & Linear error bound for a linear map. \\[3pt]
+\texttt{sqrt\_\allowbreak{}removedParamSq\_\allowbreak{}le} & $\displaystyle \|\Delta\theta_{S^c}\|\le\|\Delta\theta\|$ & Norm form of the previous inequality on perturbations. \\[3pt]
+\texttt{remainder\_\allowbreak{}isLittleO} & $\displaystyle \bigl[F(\theta_0{+}\Delta\theta)-F(\theta_0{+}\Delta\theta_S)\bigr]-\bigl[L\Delta\theta-L\Delta\theta_S\bigr]=o(\|\Delta\theta\|)$ & If F is differentiable at $\theta_0$ with derivative L, the nonlinear error differs from the linear one by a term of higher order. \\[3pt]
+\texttt{trajectory\_\allowbreak{}error\_\allowbreak{}bound} & $\displaystyle \forall\eta>0,\ \forall\Delta\theta\approx 0:\ \|F(\theta_0{+}\Delta\theta)-F(\theta_0{+}\Delta\theta_S)\|\le\sqrt{E_{S^c}}\,\|\Delta\theta_{S^c}\|+\eta\|\Delta\theta\|$ & Local error bound of the reduced model for the true output map. \\[3pt]
+\texttt{trajectory\_\allowbreak{}error\_\allowbreak{}from\_\allowbreak{}Rvar} & $\displaystyle rE\le E_S\Rightarrow\forall\eta>0,\forall\Delta\theta\approx0:\ \|F(\theta_0{+}\Delta\theta)-F(\theta_0{+}\Delta\theta_S)\|\le\bigl(\sqrt{(1-r)E}+\eta\bigr)\|\Delta\theta\|$ & Same bound expressed with R\_var(S) $\ge$ r. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{CertifiedODEReduction} (1)}
+Main local theorem for ODE models: the sensitivity exists and R\_var(S) bounds the error of the reduced model.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{certified\_\allowbreak{}parameter\_\allowbreak{}reduction} & $\displaystyle \exists S(\cdot):\ S(0)=D_0,\ \dot S=\partial_xf\,S+\partial_\theta f,\ \text{and } rE(\mathcal S)\le E_S(\mathcal S)\Rightarrow\forall\eta>0,\forall\Delta\theta\approx0:\ \|\mathcal F(\theta_0{+}\Delta\theta)-\mathcal F(\theta_0{+}\Delta\theta_S)\|\le\bigl(\sqrt{(1-r)E}+\eta\bigr)\|\Delta\theta\|$ & Hypotheses: f is C$^1$ on an open set U containing the nominal trajectory, solutions exist for $\theta$ near $\theta_0$ with initial value $x^0$($\theta$) differentiable at $\theta_0$. Conclusion: the sampled sensitivity matrix $\mathcal S$ exists, solves the variational equation, and the energy criterion computed from it bounds the trajectory error of fixing the parameters outside S. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Differential equations: existence and sensitivities}
+
+\subsubsection*{\texttt{GlobalLipschitzODE} (3)}
+Existence of solutions on a whole interval for vector fields that are Lipschitz in the state.
+
+{\small\raggedright Notation: $\operatorname{Sol}_{[a,c]}(\alpha)$ (\texttt{IsSolOn v a c $\alpha$}): $\alpha$ solves $\alpha'$(t) = v(t, $\alpha$(t)) on [a, c].}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{isSolOn\_\allowbreak{}self} & $\displaystyle \operatorname{Sol}_{[a,a]}(\alpha)$ & Every function solves the equation on a single point (base case). \\[3pt]
+\texttt{extend\_\allowbreak{}solution} & $\displaystyle K(d-c)\le\tfrac12,\ \operatorname{Sol}_{[a,c]}(\alpha)\Rightarrow\exists\gamma:\ \gamma(a)=\alpha(a),\ \operatorname{Sol}_{[a,d]}(\gamma)$ & If v(t,$\cdot$) is K-Lipschitz and continuous in t, a solution can be extended by a step of length at most 1/(2K) (Picard iteration). \\[3pt]
+\texttt{exists\_\allowbreak{}solution\_\allowbreak{}Icc} & $\displaystyle \forall y_0\ \exists\alpha:\ \alpha(a)=y_0,\ \operatorname{Sol}_{[a,b]}(\alpha)$ & Global existence on [a, b] for a vector field that is K-Lipschitz in the state. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{ParamDiffODE} (8)}
+Differentiable dependence of ODE solutions on parameters and initial values (the derivative solves the variational equation).
+
+{\small\raggedright Notation: $\iota_1,\ \iota_2$ (\texttt{ContinuousLinearMap.inl / inr}): embeddings u $\mapsto$ (u, 0) and k $\mapsto$ (0, k) of the state and parameter spaces into their product.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{uniform\_\allowbreak{}linearization} & $\displaystyle \exists\delta\in(0,R]\ \forall z\in K_0,\ \|w-z\|\le\delta:\ \|g(w)-g(z)-Dg(z)(w-z)\|\le\eta\|w-z\|$ & A C$^1$ function is uniformly linearisable near a compact set $K_0$ whose R-neighbourhood lies in U, for every $\eta$ $>$ 0. \\[3pt]
+\texttt{tube\_\allowbreak{}gronwall} & $\displaystyle \|x_\theta(t)-y_h(t)\|\le\delta_0e^{KT}+\varepsilon_g\dfrac{e^{KT}-1}{K}\quad\forall t\in[0,T]$ & Gr\"onwall inequality in a tube: an approximate solution y\_h with defect $\le$ $\varepsilon_g$ that stays within $\sigma$ of the nominal trajectory, compared with an exact solution x\_$\theta$ starting $\delta_0$ away; the exact solution does not leave the tube where v is K-Lipschitz. \\[3pt]
+\texttt{norm\_\allowbreak{}comp\_\allowbreak{}inl\_\allowbreak{}le} & $\displaystyle \|L\circ\iota_1\|\le\|L\|$ & Restricting a linear map on a product to the first factor does not increase its norm. \\[3pt]
+\texttt{clm\_\allowbreak{}prod\_\allowbreak{}apply\_\allowbreak{}split} & $\displaystyle L(u,k)=L(\iota_1u)+L(\iota_2k)$ & A linear map on a product splits into its state and parameter parts. \\[3pt]
+\texttt{lipschitzOn\_\allowbreak{}slice} & $\displaystyle \|Df\|\le M\text{ on }\bar B(c,\rho)\times\{\theta\}\Rightarrow y\mapsto f(y,\theta)\text{ is }M\text{-Lipschitz on }\bar B(c,\rho)$ & Lipschitz constant of a slice from a bound on the derivative. \\[3pt]
+\texttt{hasFDerivAt\_\allowbreak{}solution\_\allowbreak{}param\_\allowbreak{}init} & $\displaystyle \exists S:\ S(0)=D_0,\ \dot S(t)=\partial_xf(x_0(t),\theta_0)S(t)+\partial_\theta f(x_0(t),\theta_0),\ \dfrac{\partial x(t;\theta)}{\partial\theta}\Big|_{\theta_0}=S(t)$ & Main theorem: if f is C$^1$ on an open U containing the nominal trajectory, solutions exist for $\theta$ near $\theta_0$ and x(0;$\theta$) = $x^0$($\theta$) is differentiable, then x(t;$\theta$) is differentiable in $\theta$ for every t $\in$ [0,T] and its derivative solves the variational equation. \\[3pt]
+\texttt{hasFDerivAt\_\allowbreak{}solution\_\allowbreak{}param\_\allowbreak{}on} & $\displaystyle x(0;\theta)=x(0;\theta_0)\Rightarrow\exists S:\ S(0)=0,\ \dot S=\partial_xf\,S+\partial_\theta f,\ \partial_\theta x(t;\theta_0)=S(t)$ & Same with an initial value that does not depend on $\theta$. \\[3pt]
+\texttt{hasFDerivAt\_\allowbreak{}solution\_\allowbreak{}param} & $\displaystyle f\in C^1(\mathbb{R}^n\times\mathbb{R}^p)\Rightarrow\exists S:\ S(0)=0,\ \dot S=\partial_xf\,S+\partial_\theta f,\ \partial_\theta x(t;\theta_0)=S(t)$ & Same for a vector field that is C$^1$ everywhere. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{LocalExistence} (9)}
+Solutions exist for all parameters near $\theta_0$ as soon as the nominal solution exists (removes the hypothesis that perturbed solutions exist).
+
+{\small\raggedright Notation: $\operatorname{clamp}_c(y)_i=\max(-c,\min(c,y_i))$ (\texttt{clampE c y}): truncation of each component to [--c, c].}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{clampE\_\allowbreak{}apply} & $\displaystyle \operatorname{clamp}_c(y)_i=\max(-c,\min(c,y_i))$ & Definition. \\[3pt]
+\texttt{abs\_\allowbreak{}clamp\_\allowbreak{}sub\_\allowbreak{}le} & $\displaystyle |\operatorname{clamp}_c(a)-\operatorname{clamp}_c(b)|\le|a-b|$ & Scalar truncation is 1-Lipschitz. \\[3pt]
+\texttt{dist\_\allowbreak{}clampE\_\allowbreak{}le} & $\displaystyle \|\operatorname{clamp}_c(y)-\operatorname{clamp}_c(y')\|\le\|y-y'\|$ & Vector truncation is 1-Lipschitz. \\[3pt]
+\texttt{lipschitz\_\allowbreak{}clampE} & $\displaystyle \operatorname{clamp}_c\ \text{is 1-Lipschitz}$ & Same, as a Lipschitz statement. \\[3pt]
+\texttt{clampE\_\allowbreak{}eq} & $\displaystyle \|y\|\le c\Rightarrow\operatorname{clamp}_c(y)=y$ & Truncation does not change small vectors. \\[3pt]
+\texttt{clampE\_\allowbreak{}zero} & $\displaystyle c\ge0\Rightarrow\operatorname{clamp}_c(0)=0$ & Truncation fixes the origin. \\[3pt]
+\texttt{norm\_\allowbreak{}clampE\_\allowbreak{}le} & $\displaystyle \|\operatorname{clamp}_c(y)\|\le(n+1)\,c$ & Truncated vectors are bounded. \\[3pt]
+\texttt{exists\_\allowbreak{}solutions\_\allowbreak{}near} & $\displaystyle \exists x(\cdot;\theta):\ x(\cdot;\theta_0)=x_0,\ \forall\theta\approx\theta_0:\ x(0;\theta)=x^0(\theta),\ \dot x=f(x,\theta),\ (x(t;\theta),\theta)\in U$ & If f is C$^1$ on U, the nominal solution exists on [0,T] inside U and $x^0$ is continuous at $\theta_0$, then solutions exist on the same interval for all $\theta$ close to $\theta_0$. \\[3pt]
+\texttt{hasFDerivAt\_\allowbreak{}of\_\allowbreak{}nominal\_\allowbreak{}solution} & $\displaystyle \exists x(\cdot;\theta),\ \exists S:\ S(0)=D_0,\ \dot S=\partial_xf\,S+\partial_\theta f,\ \partial_\theta x(t;\theta_0)=S(t)$ & Existence near $\theta_0$ and differentiability, assuming only the nominal solution. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{SensitivityLipschitz} (8)}
+Explicit constants: Lipschitz dependence of trajectories and sensitivities on $\theta$ (Gr\"onwall).
+
+{\small\raggedright Notation: $g(z)=f(x,\theta),\ Dg$ (\texttt{g, Dg}): vector field as a function of z = (x, $\theta$) and its derivative.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{gronwall\_\allowbreak{}zero\_\allowbreak{}init} & $\displaystyle u(0)=0,\ \|u'\|\le K\|u\|+\varepsilon\Rightarrow\|u(t)\|\le\varepsilon\dfrac{e^{KT}-1}{K}$ & Gr\"onwall inequality with zero initial value. \\[3pt]
+\texttt{norm\_\allowbreak{}comp\_\allowbreak{}inl\_\allowbreak{}le} & $\displaystyle \|\partial_x g\|\le\|Dg\|$ & The state part of a derivative is bounded by the whole derivative. \\[3pt]
+\texttt{norm\_\allowbreak{}comp\_\allowbreak{}inr\_\allowbreak{}le} & $\displaystyle \|\partial_\theta g\|\le\|Dg\|$ & Same for the parameter part. \\[3pt]
+\texttt{g\_\allowbreak{}lipschitz} & $\displaystyle \|Dg\|\le M_1\text{ on convex }K\Rightarrow\|g(z)-g(z')\|\le M_1\|z-z'\|$ & Mean-value inequality. \\[3pt]
+\texttt{norm\_\allowbreak{}pair\_\allowbreak{}sub\_\allowbreak{}le} & $\displaystyle \|(a,b)-(a',b')\|\le\|a-a'\|+\|b-b'\|$ & Norm on the product space. \\[3pt]
+\texttt{traj\_\allowbreak{}lipschitz} & $\displaystyle \|x(t;\theta)-x(t;\theta')\|\le\|\theta-\theta'\|\,(e^{M_1T}-1)$ & Trajectories depend Lipschitz-continuously on $\theta$. \\[3pt]
+\texttt{sens\_\allowbreak{}bound} & $\displaystyle \|S(t)\|\le e^{M_1T}-1$ & Explicit bound on the sensitivity. \\[3pt]
+\texttt{sens\_\allowbreak{}lipschitz} & $\displaystyle \|S_\theta(t)-S_{\theta'}(t)\|\le\|\theta-\theta'\|\,M_2\,e^{2M_1T}\dfrac{e^{M_1T}-1}{M_1}$ & Sensitivities depend Lipschitz-continuously on $\theta$; this gives the constant L\_c used in the certificates. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Finite perturbations and cosine certificates}
+
+\subsubsection*{\texttt{CosineCertificate} (5)}
+Non-asymptotic bounds for finite perturbations and a per-scenario certificate of cos $\Delta$.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{cos\_\allowbreak{}lower\_\allowbreak{}of\_\allowbreak{}rel\_\allowbreak{}error} & $\displaystyle c^2+\varepsilon^2\le1,\ \|a-b\|\le\varepsilon\|a\|\Rightarrow c\,\|a\|\,\|b\|\le\langle a,b\rangle$ & A small relative error implies a large cosine. \\[3pt]
+\texttt{cos\_\allowbreak{}ge\_\allowbreak{}of\_\allowbreak{}rel\_\allowbreak{}error} & $\displaystyle 0\le\varepsilon<1,\ c\ge0,\ c^2+\varepsilon^2\le1,\ \|a-b\|\le\varepsilon\|a\|,\ a\ne0\Rightarrow b\ne0,\ \cos(a,b)\ge c$ & Same, with the cosine itself. \\[3pt]
+\texttt{taylor\_\allowbreak{}bound} & $\displaystyle \|F(\theta_0+h)-F(\theta_0)-DF(\theta_0)h\|\le L_c\|h\|^2\quad(\|h\|\le\rho_0)$ & Taylor bound when DF is L\_c-Lipschitz on the ball. \\[3pt]
+\texttt{finite\_\allowbreak{}trajectory\_\allowbreak{}error} & $\displaystyle \|F(\theta_0+h)-F(\theta_0+h_S)\|\le\sqrt{E_{S^c}}\,\|h_{S^c}\|+2L_c\|h\|^2$ & Error of the reduced model for a finite perturbation (E computed from J = DF($\theta_0$)). \\[3pt]
+\texttt{finite\_\allowbreak{}cos\_\allowbreak{}certificate} & $\displaystyle A=\|Jh\|-L_c\|h\|^2>0,\ \bigl(\sqrt{E_{S^c}}\|h_{S^c}\|+2L_c\|h\|^2\bigr)^2\le(1-c^2)A^2\Rightarrow\cos\Delta(h)\ge c$ & Certificate of cos $\Delta$ for one perturbation h, computable from J, L\_c and $\|$h$\|$. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{CertifiedFiniteODE} (5)}
+Certificate of cos $\Delta$ for ODE models with a Lipschitz constant L\_c that is itself bounded formally.
+
+{\small\raggedright Notation: $\mathcal{S}u$ (\texttt{sampledCLM S tk u}): (S(t\_1)u, \dots{}, S(t\_N)u), the sampled sensitivity applied to u.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{sampledCLM\_\allowbreak{}apply} & $\displaystyle (\mathcal{S}u)_{(k,i)}=(S(t_k)u)_i$ & Component (k, i) of the sampled sensitivity is component i of S(t\_k)u. \\[3pt]
+\texttt{hasFDerivAt\_\allowbreak{}sampled} & $\displaystyle \forall k:\ \partial_\theta x(t_k;\theta)=S(t_k)\Rightarrow D\mathcal F(\theta)=\mathcal S$ & If every sampled state is differentiable, so is the stacked vector, with the stacked sensitivity as derivative. \\[3pt]
+\texttt{jacobianOf\_\allowbreak{}sampledCLM} & $\displaystyle J(\mathcal S)=\texttt{sensMatrix}(S,t)$ & The matrix of the sampled map is the Nn $\times$ p sensitivity matrix. \\[3pt]
+\texttt{sampledCLM\_\allowbreak{}sub\_\allowbreak{}le} & $\displaystyle \|S(t_k)-S'(t_k)\|\le B\ \forall k\Rightarrow\|\mathcal S-\mathcal S'\|\le\sqrt N\,B$ & Sampling N times multiplies a uniform bound by $\surd$N. \\[3pt]
+\texttt{certified\_\allowbreak{}cos\_\allowbreak{}ode} & $\displaystyle \bigl(\sqrt{E_{S^c}}\|h_{S^c}\|+2L_c\|h\|^2\bigr)^2\le(1-c^2)\bigl(\|\mathcal S_0h\|-L_c\|h\|^2\bigr)^2\Rightarrow\cos\Delta(h)\ge c,\quad L_c=\sqrt N M_2e^{2M_1T}\dfrac{e^{M_1T}-1}{M_1}$ & Hypotheses: f is C$^1$ on U; on a convex K $\subseteq$ U, $\|$Df$\|$ $\le$ $M_1$ and Df is $M_2$-Lipschitz; solutions exist for $\theta$ in a set containing the ball $\bar B$($\theta_0$, $\rho_0$), start from the same initial value and stay in K. Conclusion: the sensitivity $\mathcal S_0$ exists and, for every subset S and every $\|$h$\|$ $\le$ $\rho_0$ with $\|\mathcal S_0$h$\|$ -- L\_c$\|$h$\|^2$ $>$ 0, the displayed inequality certifies cos $\Delta$(h) $\ge$ c. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{ExactLinearCertificate} (13)}
+(A1) Certificates with the exact linear error $\|$J(h -- h\_S)$\|$ instead of its energy bound, and (A2) a local version without Lipschitz constants.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{cos\_\allowbreak{}certificate\_\allowbreak{}of\_\allowbreak{}bounds} & $\displaystyle 0<A\le\|a\|,\ \|a-b\|\le e,\ e^2\le(1-c^2)A^2,\ c>0\Rightarrow b\ne0,\ \cos(a,b)\ge c$ & Generic certificate lemma. \\[3pt]
+\texttt{cosv\_\allowbreak{}smul} & $\displaystyle \cos(ra,rb)=\cos(a,b)\quad(r>0)$ & The cosine is invariant under a common positive rescaling. \\[3pt]
+\texttt{continuousAt\_\allowbreak{}cosv} & $\displaystyle (a,b)\mapsto\cos(a,b)\ \text{is continuous at } a\ne0,\ b\ne0$ & Continuity of the cosine. \\[3pt]
+\texttt{keepS\_\allowbreak{}smul} & $\displaystyle (sh)_S=s\,h_S$ & Restriction to S is linear. \\[3pt]
+\texttt{norm\_\allowbreak{}linear\_\allowbreak{}part\_\allowbreak{}eq} & $\displaystyle \|Jh-Jh_S\|=\sqrt{\textstyle\sum_i\bigl(\sum_{j\notin S}J_{ij}h_j\bigr)^2}$ & The exact linear error is computable from J. \\[3pt]
+\texttt{finite\_\allowbreak{}trajectory\_\allowbreak{}error\_\allowbreak{}exact} & $\displaystyle \|F(\theta_0+h)-F(\theta_0+h_S)\|\le\|J(h-h_S)\|+2L_c\|h\|^2$ & (A1) Finite-perturbation error with the exact linear term. \\[3pt]
+\texttt{exact\_\allowbreak{}le\_\allowbreak{}Rvar\_\allowbreak{}bound} & $\displaystyle \|Jh-Jh_S\|\le\sqrt{E_{S^c}}\,\|h_{S^c}\|$ & The exact bound is never worse than the energy bound. \\[3pt]
+\texttt{finite\_\allowbreak{}cos\_\allowbreak{}certificate\_\allowbreak{}exact} & $\displaystyle \|Jh\|-L_c\|h\|^2>0,\ \bigl(\|J(h-h_S)\|+2L_c\|h\|^2\bigr)^2\le(1-c^2)\bigl(\|Jh\|-L_c\|h\|^2\bigr)^2\Rightarrow\cos\Delta(h)\ge c$ & (A1) Certificate of cos $\Delta$ with the exact linear error. \\[3pt]
+\texttt{certified\_\allowbreak{}cos\_\allowbreak{}ode\_\allowbreak{}exact} & $\displaystyle \bigl(\|\mathcal S_0(h-h_S)\|+2L_c\|h\|^2\bigr)^2\le(1-c^2)\bigl(\|\mathcal S_0h\|-L_c\|h\|^2\bigr)^2\Rightarrow\cos\Delta(h)\ge c$ & (A1) ODE version with the formally bounded L\_c of certified\_cos\_ode. \\[3pt]
+\texttt{tendsto\_\allowbreak{}cos\_\allowbreak{}delta} & $\displaystyle Jh\ne0,\ Jh_S\ne0\Rightarrow\lim_{s\to0^+}\cos\Delta(sh)=\cos(Jh,Jh_S)$ & (A2) For small perturbations, cos $\Delta$ tends to the linear cosine computed from J. \\[3pt]
+\texttt{eventually\_\allowbreak{}cos\_\allowbreak{}delta\_\allowbreak{}gt} & $\displaystyle c<\cos(Jh,Jh_S)\Rightarrow\cos\Delta(sh)>c\ \text{for all sufficiently small } s>0$ & (A2) Local certificate without L\_c. \\[3pt]
+\texttt{exists\_\allowbreak{}cos\_\allowbreak{}delta\_\allowbreak{}gt} & $\displaystyle c<\cos(Jh,Jh_S)\Rightarrow\exists s_0>0\ \forall s\in(0,s_0):\ \cos\Delta(sh)>c$ & Explicit form of the previous statement. \\[3pt]
+\texttt{local\_\allowbreak{}cos\_\allowbreak{}ode} & $\displaystyle \exists\mathcal S_0\ \forall S,h:\ c<\cos(\mathcal S_0h,\mathcal S_0h_S)\Rightarrow\exists s_0>0\ \forall s\in(0,s_0):\ \cos\Delta_{\mathcal F}(sh)>c$ & (A2) ODE version: if f is C$^1$ around the nominal trajectory and solutions exist near $\theta_0$, the linear cosine computed from the sampled sensitivity certifies cos $\Delta$ for small perturbations. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{NominalCertificate} (1)}
+Local certificate of cos $\Delta$ assuming only the nominal solution.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{local\_\allowbreak{}cos\_\allowbreak{}from\_\allowbreak{}nominal} & $\displaystyle \exists x(\cdot;\theta),\ \exists\mathcal S_0:\ \forall S,h:\ c<\cos(\mathcal S_0h,\mathcal S_0h_S)\Rightarrow\exists s_0>0\ \forall s\in(0,s_0):\ \cos\Delta_{\mathcal F}(sh)>c$ & Combines LocalExistence and ExactLinearCertificate: from the nominal solution alone, solutions near $\theta_0$ and the sensitivity exist, and the linear cosine certifies cos $\Delta$ for small perturbations. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{ScaledError} (5)}
+Theorem 1 of the paper: the minimum relative error after rescaling the reduced response equals $\surd$(1 -- cos$^2\Delta$).
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{norm\_\allowbreak{}sub\_\allowbreak{}smul\_\allowbreak{}sq} & $\displaystyle \|a-\alpha b\|^2=\|a\|^2-2\alpha\langle a,b\rangle+\alpha^2\|b\|^2$ & Expansion of the squared error. \\[3pt]
+\texttt{scaled\_\allowbreak{}error\_\allowbreak{}ge} & $\displaystyle \|a\|^2-\dfrac{\langle a,b\rangle^2}{\|b\|^2}\le\|a-\alpha b\|^2\quad\forall\alpha$ & Lower bound for every scaling $\alpha$ (b $\ne$ 0). \\[3pt]
+\texttt{scaled\_\allowbreak{}error\_\allowbreak{}eq} & $\displaystyle \Bigl\|a-\dfrac{\langle a,b\rangle}{\|b\|^2}b\Bigr\|^2=\|a\|^2-\dfrac{\langle a,b\rangle^2}{\|b\|^2}$ & The bound is attained at $\alpha^*$ = $\langle$a,b$\rangle$/$\|$b$\|^2$. \\[3pt]
+\texttt{scaled\_\allowbreak{}error\_\allowbreak{}cos} & $\displaystyle \|a\|^2-\dfrac{\langle a,b\rangle^2}{\|b\|^2}=\|a\|^2\bigl(1-\cos^2(a,b)\bigr)$ & Rewriting in terms of the cosine. \\[3pt]
+\texttt{min\_\allowbreak{}rel\_\allowbreak{}error\_\allowbreak{}eq} & $\displaystyle \min_\alpha\dfrac{\|a-\alpha b\|}{\|a\|}=\sqrt{1-\cos^2(a,b)}$ & Theorem 1: with a the full response and b the reduced one, the best relative error is $\surd$(1 -- cos$^2\Delta$); hence cos $\Delta$ $\ge$ c $\Leftrightarrow$ error $\le$ $\tau_e$. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Selection, conditioning and identifiability}
+
+\subsubsection*{\texttt{GreedySelection} (7)}
+The greedy selection algorithm with permanent discard and its guarantees.
+
+{\small\raggedright Notation: $G=\operatorname{greedy}(\mathrm{ok},\mathrm{stop},l,S)$ (\texttt{greedy ok stop l S}): scan the ordered list l; add j if ok(S $\cup$ \{j\}), otherwise discard j permanently; stop when stop(S); $\mathrm{okKappa}(Z,\kappa_0,S)$ (\texttt{okKappa Z $\kappa_0$ S}): $\exists$ $\sigma_{\min}$ $>$ 0, $\sigma_{\max}$ $\le$ $\kappa_0\sigma_{\min}$ with $\sigma_{\min}\|$u$\|$ $\le$ $\|$Zu$\|$ $\le$ $\sigma_{\max}\|$u$\|$ for all u supported on S ($\kappa$ $\le$ $\kappa_0$); $\mathrm{okVIF}(Z,V,S)$ (\texttt{okVIF Z V S}): for j $\in$ S and every u supported on S with u\_j = 1: $\|$Zu$\|^2$ $\ge$ 1/V (VIF\_j $\le$ V).}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{greedy\_\allowbreak{}ok} & $\displaystyle \mathrm{ok}(S)\Rightarrow\mathrm{ok}(G)$ & The result always passes the test. \\[3pt]
+\texttt{greedy\_\allowbreak{}subset} & $\displaystyle S\subseteq G\subseteq S\cup l$ & The result only contains the start set and candidates from the list. \\[3pt]
+\texttt{greedy\_\allowbreak{}discard\_\allowbreak{}permanent} & $\displaystyle \mathrm{ok}\text{ anti-monotone},\ j\in l,\ j\notin G\Rightarrow\neg\,\mathrm{ok}(G\cup\{j\})\ \lor\ \mathrm{stop}(G)$ & Discarding is never a mistake: a rejected candidate would still fail with the final set. \\[3pt]
+\texttt{supportedOn\_\allowbreak{}mono} & $\displaystyle S\subseteq T,\ \operatorname{supp}u\subseteq S\Rightarrow\operatorname{supp}u\subseteq T$ & Support is monotone. \\[3pt]
+\texttt{okKappa\_\allowbreak{}anti} & $\displaystyle S\subseteq T,\ \mathrm{okKappa}(T)\Rightarrow\mathrm{okKappa}(S)$ & Removing parameters never worsens the condition number. \\[3pt]
+\texttt{okVIF\_\allowbreak{}anti} & $\displaystyle S\subseteq T,\ \mathrm{okVIF}(T)\Rightarrow\mathrm{okVIF}(S)$ & Removing parameters never worsens the VIF. \\[3pt]
+\texttt{greedy\_\allowbreak{}kappa\_\allowbreak{}vif\_\allowbreak{}guarantee} & $\displaystyle R=\operatorname{greedy}(\mathrm{okKappa}\wedge\mathrm{okVIF},\mathrm{stop},l,\emptyset):\ \kappa(R)\le\kappa_0,\ \mathrm{VIF}(R)\le V,\ R\subseteq l,\ \forall j\in l\setminus R:\ R\cup\{j\}\text{ fails}\ \lor\ \mathrm{stop}(R)$ & Guarantee of the selection step: the returned subset satisfies $\kappa$ $\le$ $\tau_\kappa$ and VIF $\le$ $\tau_{\mathrm{VIF}}$, and every discarded candidate would violate one of them. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{IdentifiabilityConditioning} (10)}
+Bounds on $\kappa$ and VIF imply unique and stable least-squares estimates.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{IsLSMin.\allowbreak{}inner\_\allowbreak{}residual\_\allowbreak{}eq\_\allowbreak{}zero} & $\displaystyle v\in\operatorname{LS}(Z,y)\Rightarrow\langle Zv-y,Zw\rangle=0\ \ \forall w$ & Normal equations: the residual is orthogonal to the range of Z. \\[3pt]
+\texttt{ls\_\allowbreak{}response\_\allowbreak{}stability} & $\displaystyle \|Z(v-v')\|\le\|y-y'\|$ & Fitted responses are 1-Lipschitz in the data (v, v$'$ least-squares estimates for data y, y$'$). \\[3pt]
+\texttt{ls\_\allowbreak{}param\_\allowbreak{}stability} & $\displaystyle \sigma_{\min}\|u\|\le\|Zu\|\Rightarrow\|v-v'\|\le\|y-y'\|/\sigma_{\min}$ & Parameter estimates are stable when $\sigma_{\min}$ $>$ 0. \\[3pt]
+\texttt{ls\_\allowbreak{}unique} & $\displaystyle \sigma_{\min}>0\Rightarrow v=v'\ (\text{same }y)$ & The least-squares estimate is unique. \\[3pt]
+\texttt{one\_\allowbreak{}le\_\allowbreak{}kappa\_\allowbreak{}mul\_\allowbreak{}sigmaMin} & $\displaystyle \|Ze_j\|=1,\ \sigma_{\max}\le\kappa\sigma_{\min}\Rightarrow1\le\kappa\,\sigma_{\min}$ & With unit columns, $\sigma_{\max}$ $\ge$ 1. \\[3pt]
+\texttt{ls\_\allowbreak{}kappa\_\allowbreak{}stability} & $\displaystyle \|Ze_j\|=1\Rightarrow\|v-v'\|\le\kappa\,\|y-y'\|$ & With normalised columns, $\kappa$ bounds the sensitivity of the estimates to the data. \\[3pt]
+\texttt{ls\_\allowbreak{}param\_\allowbreak{}kappa\_\allowbreak{}stability} & $\displaystyle \|D(\theta-\theta')\|\le\kappa\,\|y-y'\|$ & Same for the estimates in the original scale, $\theta$ = D$^{-1}$v with a column-scaling D. \\[3pt]
+\texttt{ls\_\allowbreak{}vif\_\allowbreak{}coordinate\_\allowbreak{}stability} & $\displaystyle \bigl(u_j=1\Rightarrow\|Zu\|^2\ge1/V\bigr)\Rightarrow|v_j-v'_j|\le\sqrt V\,\|y-y'\|$ & A bounded VIF makes each coordinate stable. \\[3pt]
+\texttt{vif\_\allowbreak{}geometric\_\allowbreak{}of\_\allowbreak{}inverse} & $\displaystyle \langle Zw,Zu\rangle=u_j\ \forall u,\ w_j\le V\Rightarrow\bigl(u_j=1\Rightarrow\|Zu\|^2\ge1/V\bigr)$ & The VIF computed from the inverse Gram matrix (w = (Z$^\top$Z)$^{-1}$e\_j, VIF\_j = w\_j) implies the geometric condition. \\[3pt]
+\texttt{ls\_\allowbreak{}vif\_\allowbreak{}inverse\_\allowbreak{}stability} & $\displaystyle w_j\le V\Rightarrow|v_j-v'_j|\le\sqrt V\,\|y-y'\|$ & Coordinate stability from the VIF as computed numerically. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{SpectralConditioning} (22)}
+$\kappa$ and VIF exactly as computed numerically: eigenvalues of the Gram matrix and the inverse matrix.
+
+{\small\raggedright Notation: $G=Z^\top Z$ (\texttt{gram Z}): Gram operator; $\lambda_1\ge\dots\ge\lambda_k,\ v_i$ (\texttt{lam Z, evec Z}): eigenvalues (decreasing) and orthonormal eigenvectors of G; $\lambda_{\max}=\lambda_1,\ \lambda_{\min}=\lambda_k$ (\texttt{lam Z (iMax hk), lam Z (iMin hk)}): largest and smallest eigenvalue (k $>$ 0); $\kappa=\sqrt{\lambda_{\max}/\lambda_{\min}}$: condition number of Z; $M$ (\texttt{M : Matrix (Fin m) (Fin k) $\mathbb R$, matCLM M}): numeric matrix and the linear map it defines.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{inner\_\allowbreak{}gram} & $\displaystyle \langle Gu,v\rangle=\langle Zu,Zv\rangle$ & Defining property of the Gram operator. \\[3pt]
+\texttt{gram\_\allowbreak{}isSymmetric} & $\displaystyle G=G^\top$ & The Gram operator is symmetric. \\[3pt]
+\texttt{finrank\_\allowbreak{}eq} & $\displaystyle \dim\mathbb{R}^k=k$ & Dimension (needed for the spectral theorem). \\[3pt]
+\texttt{lam\_\allowbreak{}antitone} & $\displaystyle \lambda_1\ge\lambda_2\ge\dots\ge\lambda_k$ & Eigenvalues are sorted in decreasing order. \\[3pt]
+\texttt{gram\_\allowbreak{}evec} & $\displaystyle Gv_i=\lambda_iv_i$ & Eigenvector equation. \\[3pt]
+\texttt{sq\_\allowbreak{}norm\_\allowbreak{}apply\_\allowbreak{}evec} & $\displaystyle \|Zv_i\|^2=\lambda_i$ & Eigenvalues are squared singular values. \\[3pt]
+\texttt{lam\_\allowbreak{}nonneg} & $\displaystyle \lambda_i\ge0$ & The Gram matrix is positive semidefinite. \\[3pt]
+\texttt{sq\_\allowbreak{}norm\_\allowbreak{}apply\_\allowbreak{}eq\_\allowbreak{}sum} & $\displaystyle \|Zu\|^2=\sum_i\lambda_i\langle v_i,u\rangle^2$ & Spectral decomposition of $\|$Zu$\|^2$. \\[3pt]
+\texttt{sq\_\allowbreak{}norm\_\allowbreak{}eq\_\allowbreak{}sum} & $\displaystyle \|u\|^2=\sum_i\langle v_i,u\rangle^2$ & Parseval identity in the eigenbasis. \\[3pt]
+\texttt{sq\_\allowbreak{}norm\_\allowbreak{}bounds} & $\displaystyle lo\le\lambda_i\le hi\ \forall i\Rightarrow lo\,\|u\|^2\le\|Zu\|^2\le hi\,\|u\|^2$ & Eigenvalue bounds give norm bounds. \\[3pt]
+\texttt{lam\_\allowbreak{}le\_\allowbreak{}max} & $\displaystyle \lambda_i\le\lambda_{\max}$ & Largest eigenvalue. \\[3pt]
+\texttt{min\_\allowbreak{}le\_\allowbreak{}lam} & $\displaystyle \lambda_{\min}\le\lambda_i$ & Smallest eigenvalue. \\[3pt]
+\texttt{norm\_\allowbreak{}bounds} & $\displaystyle \sqrt{\lambda_{\min}}\,\|u\|\le\|Zu\|\le\sqrt{\lambda_{\max}}\,\|u\|$ & Extreme singular values bound $\|$Zu$\|$. \\[3pt]
+\texttt{opNorm\_\allowbreak{}eq\_\allowbreak{}sqrt\_\allowbreak{}lamMax} & $\displaystyle \|Z\|=\sqrt{\lambda_{\max}}$ & The operator norm is the largest singular value. \\[3pt]
+\texttt{sqrt\_\allowbreak{}lamMin\_\allowbreak{}mul\_\allowbreak{}le} & $\displaystyle \sqrt{\lambda_{\min}}\,\|u\|\le\|Zu\|$ & Lower bound by the smallest singular value. \\[3pt]
+\texttt{le\_\allowbreak{}sqrt\_\allowbreak{}lamMin} & $\displaystyle \bigl(\forall u:\ \sigma\|u\|\le\|Zu\|\bigr)\Rightarrow\sigma\le\sqrt{\lambda_{\min}}$ & $\surd\lambda_{\min}$ is the best possible lower constant. \\[3pt]
+\texttt{ls\_\allowbreak{}kappa\_\allowbreak{}stability\_\allowbreak{}spectral} & $\displaystyle \|Ze_j\|=1,\ \lambda_{\min}>0\Rightarrow\|v-v'\|\le\sqrt{\lambda_{\max}/\lambda_{\min}}\,\|y-y'\|$ & Stability of least squares with $\kappa$ exactly as computed (ratio of singular values). \\[3pt]
+\texttt{matCLM\_\allowbreak{}apply} & $\displaystyle (\mathrm{matCLM}\,M)\,u=Mu$ & A matrix acts on vectors by multiplication. \\[3pt]
+\texttt{inner\_\allowbreak{}matCLM} & $\displaystyle \langle Mu,Mv\rangle=u^\top(M^\top M)v$ & Inner products through the Gram matrix. \\[3pt]
+\texttt{gram\_\allowbreak{}toEuclideanLin} & $\displaystyle G(\mathrm{matCLM}\,M)=M^\top M$ & The abstract Gram operator is the matrix M$^\top$M. \\[3pt]
+\texttt{vif\_\allowbreak{}matrix\_\allowbreak{}inverse} & $\displaystyle \det(M^\top M)\ne0,\ w=(M^\top M)^{-1}e_j\Rightarrow\langle Mw,Mu\rangle=u_j\ \forall u,\ w_j=[(M^\top M)^{-1}]_{jj}$ & The diagonal of the inverse Gram matrix (the VIF for normalised columns) satisfies the hypothesis of vif\_geometric\_of\_inverse. \\[3pt]
+\texttt{ls\_\allowbreak{}vif\_\allowbreak{}matrix\_\allowbreak{}stability} & $\displaystyle [(M^\top M)^{-1}]_{jj}\le V\Rightarrow|v_j-v'_j|\le\sqrt V\,\|y-y'\|$ & Coordinate stability with the VIF exactly as computed numerically. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{NumericalRobustness} (6)}
+From approximate numerical values (finite differences, rounding) to the exact hypotheses, with explicit margins.
+
+{\small\raggedright Notation: $\tilde J,\ \tilde Z$ (\texttt{Jt, Zt}): approximate (computed) matrices; $\tau,\ \tau_j$ (\texttt{$\tau$}): bounds on the approximation error; $J_{\cdot j}$ (\texttt{col J j}): column j of J.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{fd\_\allowbreak{}column\_\allowbreak{}error} & $\displaystyle \|v\|=1,\ 0<\delta\le\rho_0\Rightarrow\Bigl\|\dfrac{F(\theta_0+\delta v)-F(\theta_0)}{\delta}-DF(\theta_0)v\Bigr\|\le L_c\,\delta$ & Error of a finite-difference column with step $\delta$. \\[3pt]
+\texttt{columnEnergy\_\allowbreak{}eq\_\allowbreak{}norm\_\allowbreak{}sq} & $\displaystyle E_j=\|J_{\cdot j}\|^2$ & Energy of a column is its squared norm. \\[3pt]
+\texttt{rvar\_\allowbreak{}certified\_\allowbreak{}from\_\allowbreak{}approx} & $\displaystyle \|J_{\cdot j}-\tilde J_{\cdot j}\|\le\tau_j,\ r\Bigl(\sum_{j\in S}(\|\tilde J_{\cdot j}\|-\tau_j)_+^2+\sum_{j\notin S}(\|\tilde J_{\cdot j}\|+\tau_j)^2\Bigr)\le\sum_{j\in S}(\|\tilde J_{\cdot j}\|-\tau_j)_+^2\Rightarrow rE(J)\le E_S(J)$ & R\_var(S) $\ge$ r for the exact matrix follows from a check on the approximate one with margins. \\[3pt]
+\texttt{opNorm\_\allowbreak{}le\_\allowbreak{}frobenius} & $\displaystyle \|Du\|\le\sqrt{\textstyle\sum_j\|De_j\|^2}\,\|u\|$ & Operator norm bounded by the Frobenius norm. \\[3pt]
+\texttt{kappa\_\allowbreak{}certified\_\allowbreak{}from\_\allowbreak{}approx} & $\displaystyle \|(Z-\tilde Z)u\|\le\tau\|u\|,\ \tau<\tilde\sigma_{\min},\ \tilde\sigma_{\max}+\tau\le\kappa_0(\tilde\sigma_{\min}-\tau)\Rightarrow\mathrm{okKappa}(Z,\kappa_0,S)$ & $\kappa$ $\le$ $\kappa_0$ for the exact matrix from bounds on the approximate one. \\[3pt]
+\texttt{vif\_\allowbreak{}certified\_\allowbreak{}from\_\allowbreak{}approx} & $\displaystyle \mathrm{okVIF}(\tilde Z,\tilde V,S),\ \tau<\tilde\sigma_{\min}\Rightarrow\mathrm{okVIF}\Bigl(Z,\dfrac{\tilde V}{(1-\tau/\tilde\sigma_{\min})^2},S\Bigr)$ & VIF bound for the exact matrix from the approximate one. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{PatternMechanisms} (4)}
+Mechanisms behind the robustness patterns: opposing effects and zero discarded energy.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{not\_\allowbreak{}okKappa\_\allowbreak{}of\_\allowbreak{}kernel} & $\displaystyle u\ne0,\ \operatorname{supp}u\subseteq S,\ Zu=0\Rightarrow\neg\,\mathrm{okKappa}(Z,\kappa_0,S)\ \forall\kappa_0$ & If two or more parameters in S have exactly compensating effects, no threshold accepts S. \\[3pt]
+\texttt{ls\_\allowbreak{}not\_\allowbreak{}unique\_\allowbreak{}of\_\allowbreak{}kernel} & $\displaystyle Zu=0,\ u\ne0,\ v\in\operatorname{LS}(Z,y)\Rightarrow v+u\in\operatorname{LS}(Z,y),\ v+u\ne v$ & In that case the estimate is not unique (non-identifiability). \\[3pt]
+\texttt{opposing\_\allowbreak{}pair\_\allowbreak{}kernel} & $\displaystyle Ze_a=\lambda Ze_b,\ a\ne b\Rightarrow e_a-\lambda e_b\ne0,\ Z(e_a-\lambda e_b)=0$ & Two proportional sensitivity columns give a kernel vector. \\[3pt]
+\texttt{exact\_\allowbreak{}reduction\_\allowbreak{}of\_\allowbreak{}zero\_\allowbreak{}energy} & $\displaystyle E_{S^c}=0\Rightarrow J\Delta\theta=J\Delta\theta_S$ & If the discarded parameters have zero sensitivity, the reduction is exact to first order. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Re-estimation, minimality and measured outputs}
+
+\subsubsection*{\texttt{RefitMonotone} (5)}
+Re-estimating more parameters never increases the fitting error.
+
+{\small\raggedright Notation: $\mathcal{B}$ (\texttt{B}): admissible parameter region (bounds); $r(\theta)\ge0$ (\texttt{r}): fitting error of $\theta$ (for example the relative output error); $\mathrm{feas}(S)$ (\texttt{feas $\theta_0$ B S}): \{$\theta$ $\in$ $\mathcal B$ : $\theta$\_j = $\theta_{0,j}$ for j $\notin$ S\}; $e_{\mathrm{fit}}(S)=\inf_{\theta\in\mathrm{feas}(S)}r(\theta)$ (\texttt{fitErr r $\theta_0$ B S}): best error when only S is re-estimated.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{feas\_\allowbreak{}mono} & $\displaystyle S\subseteq T\Rightarrow\mathrm{feas}(S)\subseteq\mathrm{feas}(T)$ & More free parameters, more candidates. \\[3pt]
+\texttt{fitErr\_\allowbreak{}anti} & $\displaystyle S\subseteq T\Rightarrow e_{\mathrm{fit}}(T)\le e_{\mathrm{fit}}(S)$ & The fitting error is anti-monotone in S. \\[3pt]
+\texttt{fitErr\_\allowbreak{}union\_\allowbreak{}le} & $\displaystyle e_{\mathrm{fit}}(S\cup C)\le e_{\mathrm{fit}}(S)$ & Adding the calibration parameters C never hurts. \\[3pt]
+\texttt{fitErr\_\allowbreak{}le\_\allowbreak{}erel} & $\displaystyle \theta_s\in\mathrm{feas}(S)\Rightarrow e_{\mathrm{fit}}(S)\le r(\theta_s)$ & e\_fit $\le$ e\_rel: re-estimating is never worse than keeping the perturbed values of S. \\[3pt]
+\texttt{admissible\_\allowbreak{}mono} & $\displaystyle S\subseteq T,\ e_{\mathrm{fit}}(S)\le\tau\Rightarrow e_{\mathrm{fit}}(T)\le\tau$ & Admissibility is preserved when parameters are added. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{Poda} (2)}
+Theorem 2 of the paper: backward elimination (pruning) returns an inclusion-minimal admissible subset.
+
+{\small\raggedright Notation: $Q(S)$ (\texttt{Q}): admissibility predicate; $\operatorname{prune}(S)$ (\texttt{prune Q pick hpick S}): repeatedly remove an element whose removal keeps Q, until none exists.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{prune\_\allowbreak{}spec} & $\displaystyle Q(S)\Rightarrow Q(R)\ \wedge\ R\subseteq S\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\}),\quad R=\operatorname{prune}(S)$ & Pruning keeps admissibility and stops at a set from which no single parameter can be removed. \\[3pt]
+\texttt{exists\_\allowbreak{}minimal\_\allowbreak{}admissible} & $\displaystyle Q(S)\Rightarrow\exists R\subseteq S:\ Q(R)\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\})$ & Every admissible subset contains an inclusion-minimal admissible subset. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{OutputComposition} (4)}
+Error bounds transfer from states to measured outputs y\_i = h(g\_i(x(t\_i), $\theta$))/$\sigma$\_i, including log and log10 transforms.
+
+{\small\raggedright Notation: $G_i$ (\texttt{G i}): observation function of output i.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{output\_\allowbreak{}sq\_\allowbreak{}bound} & $\displaystyle |G_i(x_i)-G_i(x'_i)|\le K\|x_i-x'_i\|\Rightarrow\sum_i\bigl(G_i(x_i)-G_i(x'_i)\bigr)^2\le K^2\sum_i\|x_i-x'_i\|^2$ & Lipschitz observables transfer squared state errors to outputs. \\[3pt]
+\texttt{output\_\allowbreak{}uniform\_\allowbreak{}bound} & $\displaystyle \|x_i-x'_i\|\le\varepsilon\Rightarrow\sum_{i\in s}\bigl(G_i(x_i)-G_i(x'_i)\bigr)^2\le|s|\,K^2\varepsilon^2$ & Uniform version. \\[3pt]
+\texttt{log\_\allowbreak{}lipschitz} & $\displaystyle a,b\ge c>0\Rightarrow|\log a-\log b|\le|a-b|/c$ & Natural logarithm is Lipschitz away from 0. \\[3pt]
+\texttt{log10\_\allowbreak{}lipschitz} & $\displaystyle a,b\ge c>0\Rightarrow|\log_{10}a-\log_{10}b|\le\dfrac{|a-b|}{c\ln10}$ & Same for log10 (PEtab observable transformation). \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{LinearizedFit} (3)}
+The linearised e\_fit (used for large systems) and its relation to the exact e\_fit.
+
+{\small\raggedright Notation: $A(c),\ F(c)$ (\texttt{A, F}): linear and exact responses as functions of the re-estimated parameters c; $d$ (\texttt{d}): target response (perturbed full model).}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{lin\_\allowbreak{}le\_\allowbreak{}scaled} & $\displaystyle b\in V,\ v=\arg\min_{w\in V}\|d-w\|\Rightarrow\|d-v\|\le\|d\|\sqrt{1-\cos^2(d,b)}$ & The linear best fit in a subspace containing b is at least as good as rescaling b. \\[3pt]
+\texttt{fit\_\allowbreak{}upper\_\allowbreak{}of\_\allowbreak{}lin} & $\displaystyle \|F(c)-A(c)\|\le M\|c\|^2\Rightarrow\|F(c)-d\|\le\|A(c)-d\|+M\|c\|^2$ & Upper bound: the exact error at the linear optimum exceeds the linear error by at most a second-order term. \\[3pt]
+\texttt{fit\_\allowbreak{}lower\_\allowbreak{}of\_\allowbreak{}lin} & $\displaystyle \|F(c)-A(c)\|\le M\|c\|^2\ \forall c,\ e_{\mathrm{lin}}\le\|A(c)-d\|\ \forall c,\ \|c\|\le\rho\Rightarrow e_{\mathrm{lin}}-M\rho^2\le\|F(c)-d\|$ & Lower bound: no exact fit within radius $\rho$ is better than e\_lin -- M$\rho^2$. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Model assumptions for kinetic models}
+
+\subsubsection*{\texttt{KineticRegularity} (11)}
+Hypothesis 1: rate laws (mass action, Michaelis--Menten, Hill, \dots{}) define infinitely differentiable vector fields on their domain.
+
+{\small\raggedright Notation: $\mathrm{MM}(V,K,x)=\dfrac{Vx}{K+x}$ (\texttt{mm V K x}): Michaelis--Menten law; $\mathrm{Hill}_m=\dfrac{Vx^m}{K^m+x^m}$ (\texttt{hill V K x m, hillR V K x h}): Hill law with integer (m) or real (h) exponent; $\mathrm{noDen}(e)$ (\texttt{e.noDen}): e has no division, real power or logarithm (mass action).}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{KExpr.\allowbreak{}contDiffAt\_\allowbreak{}eval} & $\displaystyle \operatorname{ok}_e(z)\Rightarrow e\in C^k\text{ near }z\ (\forall k)$ & Every well-defined rate expression is smooth. \\[3pt]
+\texttt{KExpr.\allowbreak{}isOpen\_\allowbreak{}ok} & $\displaystyle \{z:\operatorname{ok}_e(z)\}\ \text{is open}$ & The set where e is well defined is open. \\[3pt]
+\texttt{KExpr.\allowbreak{}ok\_\allowbreak{}of\_\allowbreak{}noDen} & $\displaystyle \mathrm{noDen}(e)\Rightarrow\operatorname{ok}_e(z)\ \forall z$ & Mass-action expressions are defined everywhere. \\[3pt]
+\texttt{KExpr.\allowbreak{}ok\_\allowbreak{}mm} & $\displaystyle K>0,\ x\ge0\Rightarrow\operatorname{ok}(\mathrm{MM}(V,K,x))$ & Michaelis--Menten is well defined for positive K and non-negative x. \\[3pt]
+\texttt{KExpr.\allowbreak{}ok\_\allowbreak{}hill} & $\displaystyle K>0,\ x\ge0\Rightarrow\operatorname{ok}(\mathrm{Hill}_m(V,K,x))$ & Hill law with integer exponent. \\[3pt]
+\texttt{KExpr.\allowbreak{}ok\_\allowbreak{}hillR} & $\displaystyle K>0,\ x>0\Rightarrow\operatorname{ok}(\mathrm{Hill}_h(V,K,x))$ & Hill law with real exponent requires x $>$ 0. \\[3pt]
+\texttt{isOpen\_\allowbreak{}domain} & $\displaystyle \mathcal D_F\ \text{is open}$ & The domain of a kinetic model is open. \\[3pt]
+\texttt{contDiffOn\_\allowbreak{}field} & $\displaystyle f_F\in C^k(\mathcal D_F)\ (\forall k)$ & The vector field of a kinetic model is smooth on its domain. \\[3pt]
+\texttt{domain\_\allowbreak{}eq\_\allowbreak{}univ} & $\displaystyle \forall i:\ \mathrm{noDen}(F_i)\Rightarrow\mathcal D_F=\mathbb{R}^n\times\mathbb{R}^p$ & Pure mass-action models are defined everywhere. \\[3pt]
+\texttt{kinetic\_\allowbreak{}hasFDerivAt} & $\displaystyle (x_0(t),\theta_0)\in\mathcal D_F\ \forall t\Rightarrow\exists x(\cdot;\theta),S:\ S(0)=D_0,\ \dot S=\partial_xf_F\,S+\partial_\theta f_F,\ \partial_\theta x(t;\theta_0)=S(t)$ & Existence near $\theta_0$ and differentiability for every kinetic model whose nominal solution stays in the domain. \\[3pt]
+\texttt{kinetic\_\allowbreak{}local\_\allowbreak{}cos} & $\displaystyle \exists x(\cdot;\theta),\mathcal S_0:\ c<\cos(\mathcal S_0h,\mathcal S_0h_S)\Rightarrow\exists s_0>0\ \forall s\in(0,s_0):\ \cos\Delta_{\mathcal F}(sh)>c$ & Local cos $\Delta$ certificate for kinetic models. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{EventSystems} (1)}
+Hypothesis 2: systems with events at fixed times (piecewise ODEs with reset maps).
+
+{\small\raggedright Notation: $f_k,\ L_k,\ R_k$ (\texttt{f k, L k, R k}): vector field, length and reset map of segment k: y\_\{k+1\}(0) = R\_k(y\_k(L\_k), $\theta$).}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{event\_\allowbreak{}hasFDerivAt} & $\displaystyle \exists Y_k(\cdot;\theta):\ Y_k(\cdot;\theta_0)=y_k,\ \dot Y_k=f_k(Y_k,\theta),\ Y_{k+1}(0;\theta)=R_k(Y_k(L_k;\theta),\theta),\ \theta\mapsto Y_k(s;\theta)\text{ differentiable at }\theta_0$ & If each f\_k is C$^1$, each R\_k is differentiable and the nominal segments exist, solutions exist near $\theta_0$ on every segment and are differentiable in $\theta$. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{PositivityInvariance} (15)}
+Quasi-positive models keep concentrations non-negative.
+
+{\small\raggedright Notation: $y^+=\max(y,0)$ (\texttt{pos y}): componentwise positive part.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{pos\_\allowbreak{}apply} & $\displaystyle (y^+)_i=\max(y_i,0)$ & Definition. \\[3pt]
+\texttt{pos\_\allowbreak{}nonneg} & $\displaystyle y^+\ge0$ & The positive part is non-negative. \\[3pt]
+\texttt{pos\_\allowbreak{}eq\_\allowbreak{}self} & $\displaystyle y\ge0\Rightarrow y^+=y$ & Non-negative vectors are unchanged. \\[3pt]
+\texttt{dist\_\allowbreak{}pos\_\allowbreak{}le} & $\displaystyle \|y^+-y'^+\|\le\|y-y'\|$ & The positive part is 1-Lipschitz. \\[3pt]
+\texttt{sub\_\allowbreak{}pos\_\allowbreak{}apply} & $\displaystyle (y-y^+)_i=\min(y_i,0)$ & Negative part. \\[3pt]
+\texttt{pos\_\allowbreak{}apply\_\allowbreak{}eq\_\allowbreak{}zero} & $\displaystyle y_i<0\Rightarrow(y^+)_i=0$ & Negative components are set to 0. \\[3pt]
+\texttt{isClosed\_\allowbreak{}nonneg} & $\displaystyle \{y:\ y\ge0\}\ \text{is closed}$ & The non-negative orthant is closed. \\[3pt]
+\texttt{hasDerivAt\_\allowbreak{}negSq} & $\displaystyle \dfrac{d}{da}\min(a,0)^2=2\min(a,0)$ & Derivative of the squared negative part. \\[3pt]
+\texttt{nonneg\_\allowbreak{}core} & $\displaystyle x(a)\ge0,\ \|v(x)-v(x^+)\|\le K\|x-x^+\|,\ \bigl(x^+_i=0\Rightarrow v_i(x^+)\ge0\bigr)\Rightarrow x(t)\ge0\ \forall t\in[a,b]$ & Core argument: the squared negative part satisfies a Gr\"onwall inequality with zero initial value. \\[3pt]
+\texttt{nonneg\_\allowbreak{}of\_\allowbreak{}quasiPositive} & $\displaystyle \bigl(y\ge0,\ y_i=0\Rightarrow v_i(y)\ge0\bigr),\ x(0)\ge0\Rightarrow x(t)\ge0\ \forall t\in[0,T]$ & Quasi-positive C$^1$ vector fields keep the orthant invariant. \\[3pt]
+\texttt{kinetic\_\allowbreak{}nonneg} & $\displaystyle \mathbb{R}^n_{\ge0}\times\{\theta\}\subseteq\mathcal D_F,\ f_F\text{ quasi-positive},\ x(0)\ge0\Rightarrow x(t)\ge0,\ (x(t),\theta)\in\mathcal D_F$ & Kinetic version. \\[3pt]
+\texttt{kinetic\_\allowbreak{}hasFDerivAt\_\allowbreak{}of\_\allowbreak{}nonneg} & $\displaystyle \Rightarrow\exists x(\cdot;\theta),S:\ S(0)=D_0,\ \partial_\theta x(t;\theta_0)=S(t)$ & Kinetic models defined on the orthant: positivity plus existence near $\theta_0$ and differentiability. \\[3pt]
+\texttt{exampleModel\_\allowbreak{}orth} & $\displaystyle \dot x=\theta_0-\dfrac{\theta_1x}{\theta_2+x}:\ \theta_2>0,\ x\ge0\Rightarrow(x,\theta)\in\mathcal D$ & Worked example (Michaelis--Menten degradation): well defined on the orthant. \\[3pt]
+\texttt{exampleModel\_\allowbreak{}qp} & $\displaystyle \theta_0\ge0,\ x=0\Rightarrow\dot x\ge0$ & The example is quasi-positive. \\[3pt]
+\texttt{exampleModel\_\allowbreak{}nonneg} & $\displaystyle \theta_0\ge0,\ \theta_2>0,\ x(0)\ge0\Rightarrow x(t)\ge0$ & The example stays non-negative. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{KineticCheck} (19)}
+Verified Boolean checkers that Lean runs on each translated model (SBML $\to$ KExpr $\to$ Lean).
+
+{\small\raggedright Notation: $\mathrm{isNonneg},\ \mathrm{isPos},\ \mathrm{okOrth}$ (\texttt{isNonneg pos e, isPos pos e, okOrth pos e}): syntactic tests: e $\ge$ 0, e $>$ 0, e well defined on the orthant; $\mathrm{vanishes}_i,\ \mathrm{qp}_i$ (\texttt{vanishes i e, qp pos i e}): e = 0 when x\_i = 0; quasi-positivity of component i; $\mathrm{checkModel},\ \mathrm{checkInit}$ (\texttt{checkModel pos F, checkInit pos G}): all components pass okOrth and qp; initial expressions G pass okOrth and isNonneg.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{KExpr\textquotesingle{}.\allowbreak{}isNonneg\_\allowbreak{}sound} & $\displaystyle y\ge0,\ \theta_P>0,\ \mathrm{isNonneg}(e)\Rightarrow e(y,\theta)\ge0$ & Soundness of the non-negativity checker. \\[3pt]
+\texttt{KExpr\textquotesingle{}.\allowbreak{}isPos\_\allowbreak{}sound} & $\displaystyle y\ge0,\ \theta_P>0,\ \mathrm{isPos}(e)\Rightarrow e(y,\theta)>0$ & Soundness of the positivity checker. \\[3pt]
+\texttt{KExpr\textquotesingle{}.\allowbreak{}okOrth\_\allowbreak{}sound} & $\displaystyle y\ge0,\ \theta_P>0,\ \mathrm{okOrth}(e)\Rightarrow\operatorname{ok}_e(y,\theta)$ & Soundness of the domain checker. \\[3pt]
+\texttt{KExpr\textquotesingle{}.\allowbreak{}vanishes\_\allowbreak{}sound} & $\displaystyle y_i=0,\ \mathrm{vanishes}_i(e)\Rightarrow e(y,\theta)=0$ & Soundness of the vanishing checker. \\[3pt]
+\texttt{KExpr\textquotesingle{}.\allowbreak{}qp\_\allowbreak{}sound} & $\displaystyle y\ge0,\ y_i=0,\ \theta_P>0,\ \mathrm{qp}_i(e)\Rightarrow e(y,\theta)\ge0$ & Soundness of the quasi-positivity checker. \\[3pt]
+\texttt{checkModel\_\allowbreak{}spec} & $\displaystyle \mathrm{checkModel}(F)\Rightarrow\mathrm{okOrth}(F_i)\wedge\mathrm{qp}_i(F_i)\ \forall i$ & Unfolding of the model checker. \\[3pt]
+\texttt{checkModel\_\allowbreak{}sound} & $\displaystyle \mathrm{checkModel}(F),\ \theta_P>0\Rightarrow\mathbb{R}^n_{\ge0}\times\{\theta\}\subseteq\mathcal D_F\ \wedge\ \bigl(y\ge0,y_i=0\Rightarrow f_{F,i}(y,\theta)\ge0\bigr)$ & A checked model is well defined and quasi-positive on the orthant. \\[3pt]
+\texttt{checked\_\allowbreak{}model\_\allowbreak{}hasFDerivAt} & $\displaystyle x_0(0)\ge0\Rightarrow x_0(t)\ge0,\ (x_0(t),\theta_0)\in\mathcal D_F,\ \exists x(\cdot;\theta),S:\ S(0)=D_0,\ \partial_\theta x(t;\theta_0)=S(t)$ & Checked model: positivity, existence near $\theta_0$ and differentiability. \\[3pt]
+\texttt{checked\_\allowbreak{}segments\_\allowbreak{}hasFDerivAt} & $\displaystyle y_{k+1}(0)=y_k(L_k)\Rightarrow\exists Y_k(\cdot;\theta):\ \text{segments solve and are differentiable in }\theta$ & Same for models simulated in segments (condition changes at fixed times). \\[3pt]
+\texttt{qvec\_\allowbreak{}apply} & $\displaystyle \iota(q)_i=q_i$ & Rational vectors as real vectors. \\[3pt]
+\texttt{posParams\_\allowbreak{}qvec} & $\displaystyle \mathrm{checkPosParams}(\theta_q)\Rightarrow\iota(\theta_q)_P>0$ & The rational parameter values are positive where declared. \\[3pt]
+\texttt{nonneg\_\allowbreak{}qvec} & $\displaystyle \mathrm{checkNonneg}(x_q)\Rightarrow\iota(x_q)\ge0$ & The rational initial values are non-negative. \\[3pt]
+\texttt{checked\_\allowbreak{}model\_\allowbreak{}final} & $\displaystyle \mathrm{checkModel}\wedge\mathrm{checkPosParams}\wedge\mathrm{checkNonneg}\Rightarrow x_0\ge0,\ \text{in }\mathcal D_F,\ \exists x(\cdot;\theta),S:\ S(0)=0,\ \partial_\theta x(t;\theta_q)=S(t)$ & End-to-end theorem for a checked model with rational parameters and initial values. \\[3pt]
+\texttt{checked\_\allowbreak{}segments\_\allowbreak{}final} & $\displaystyle \text{same, for segmented models}$ & End-to-end theorem for segmented models. \\[3pt]
+\texttt{checkInit\_\allowbreak{}spec} & $\displaystyle \mathrm{checkInit}(G)\Rightarrow\mathrm{okOrth}(G_i)\wedge\mathrm{isNonneg}(G_i)$ & Unfolding of the initial-value checker. \\[3pt]
+\texttt{nonneg\_\allowbreak{}zero} & $\displaystyle 0\ge0$ & The zero vector is non-negative. \\[3pt]
+\texttt{init\_\allowbreak{}differentiable} & $\displaystyle \mathrm{checkInit}(G)\Rightarrow\theta\mapsto G(\theta)\ \text{differentiable at }\theta_0$ & Parameter-dependent initial values are differentiable. \\[3pt]
+\texttt{init\_\allowbreak{}nonneg} & $\displaystyle \mathrm{checkInit}(G)\Rightarrow G(\theta_0)\ge0$ & Parameter-dependent initial values are non-negative. \\[3pt]
+\texttt{checked\_\allowbreak{}model\_\allowbreak{}final\_\allowbreak{}init} & $\displaystyle x(0;\theta)=G(\theta):\ \dots,\ S(0)=\partial_\theta G(\theta_q)$ & End-to-end theorem with parameter-dependent initial values. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{GlobalExistence} (11)}
+Condition C4: global existence of the nominal solution under a linear growth bound on the non-negative orthant.
+
+{\small\raggedright Notation: $\operatorname{clamp}_B(z)_i=\max(0,\min(B,z_i))$ (\texttt{clampB B z}): truncation to the box [0, B]$^n$; $[0,B]^n$ (\texttt{box B}): box.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{clampB\_\allowbreak{}apply} & $\displaystyle \operatorname{clamp}_B(z)_i=\max(0,\min(B,z_i))$ & Definition. \\[3pt]
+\texttt{clampB\_\allowbreak{}nonneg} & $\displaystyle \operatorname{clamp}_B(z)\ge0$ & Truncation is non-negative. \\[3pt]
+\texttt{clampB\_\allowbreak{}le} & $\displaystyle B\ge0\Rightarrow\operatorname{clamp}_B(z)_i\le B$ & Truncation is bounded by B. \\[3pt]
+\texttt{clampB\_\allowbreak{}pos} & $\displaystyle \operatorname{clamp}_B(z^+)=\operatorname{clamp}_B(z)$ & Truncation ignores the negative part. \\[3pt]
+\texttt{clampB\_\allowbreak{}eq} & $\displaystyle 0\le z\le B\Rightarrow\operatorname{clamp}_B(z)=z$ & Truncation fixes points of the box. \\[3pt]
+\texttt{dist\_\allowbreak{}clampB\_\allowbreak{}le} & $\displaystyle \|\operatorname{clamp}_B(y)-\operatorname{clamp}_B(y')\|\le\|y-y'\|$ & Truncation is 1-Lipschitz. \\[3pt]
+\texttt{clampB\_\allowbreak{}mem} & $\displaystyle \operatorname{clamp}_B(z)\in[0,B]^n$ & Truncation lands in the box. \\[3pt]
+\texttt{convex\_\allowbreak{}box} & $\displaystyle [0,B]^n\ \text{is convex}$ & Convexity of the box. \\[3pt]
+\texttt{isCompact\_\allowbreak{}box} & $\displaystyle [0,B]^n\ \text{is compact}$ & Compactness of the box. \\[3pt]
+\texttt{lipschitzOn\_\allowbreak{}box} & $\displaystyle v\in C^1(U),\ [0,B]^n\subseteq U\Rightarrow\exists L:\ v\ \text{is }L\text{-Lipschitz on }[0,B]^n$ & C$^1$ vector fields are Lipschitz on compact boxes. \\[3pt]
+\texttt{exists\_\allowbreak{}global\_\allowbreak{}solution} & $\displaystyle v\text{ quasi-positive},\ \sum_iw_iv_i(z)\le a+b\sum_iw_iz_i\ (z\ge0),\ x^0\ge0\Rightarrow\exists x:\ x(0)=x^0,\ \dot x=v(x),\ x(t)\ge0\ \forall t\in[0,T]$ & Global existence for every horizon T: the weighted sum $\Sigma$ w\_i x\_i grows at most exponentially, so the solution cannot blow up. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{KineticNetwork} (18)}
+Reaction networks f\_i = $\Sigma$\_k $\nu$\_ik r\_k: complete automatic check including global existence (C4).
+
+{\small\raggedright Notation: $\mathrm{checkNet},\ \mathrm{checkGrowth}$ (\texttt{checkNet pos Rx, checkGrowth pos c Rx}): every reaction passes the domain and quasi-positivity test; every reaction passes the linear-growth test with weights w; $\ell_e(\theta)$ (\texttt{lowval pos $\theta$ e}): positive constant lower bound of e (from lowerpos); $A_e,B_e$ (\texttt{linBound pos $\theta$ e}): coefficients of a linear bound e $\le$ A + B $\Sigma$\_j y\_j.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{eval\_\allowbreak{}netExpr} & $\displaystyle f_i(z)=\sum_k\nu_{ik}\,r_k(z)$ & The network vector field is the stoichiometric sum. \\[3pt]
+\texttt{ok\_\allowbreak{}netExpr} & $\displaystyle \forall k:\ \operatorname{ok}_{r_k}(z)\Rightarrow\operatorname{ok}_{f_i}(z)$ & Well-defined rates give a well-defined field. \\[3pt]
+\texttt{coef\_\allowbreak{}mul\_\allowbreak{}nonneg} & $\displaystyle \mathrm{termOK}(r_k,\nu_k),\ y\ge0,\ y_i=0\Rightarrow\nu_{ik}\,r_k(y,\theta)\ge0$ & Each reaction respects quasi-positivity (consumption terms vanish when the species is absent). \\[3pt]
+\texttt{checkNet\_\allowbreak{}sound} & $\displaystyle \mathrm{checkNet}\Rightarrow\mathbb{R}^n_{\ge0}\times\{\theta\}\subseteq\mathcal D\ \wedge\ f\ \text{quasi-positive}$ & Soundness of the network checker. \\[3pt]
+\texttt{eval\_\allowbreak{}varfree} & $\displaystyle e\ \text{without state variables}\Rightarrow e(y,\theta)=e(y',\theta)$ & Constant expressions do not depend on the state. \\[3pt]
+\texttt{ssum\_\allowbreak{}nonneg} & $\displaystyle y\ge0\Rightarrow\sum_jy_j\ge0$ & Sum of a non-negative vector. \\[3pt]
+\texttt{lowerpos\_\allowbreak{}sound} & $\displaystyle \mathrm{lowerpos}(e),\ y\ge0\Rightarrow0<\ell_e(\theta)\le e(y,\theta)$ & Denominators bounded away from 0. \\[3pt]
+\texttt{linBound\_\allowbreak{}sound} & $\displaystyle \mathrm{linOK}(e),\ y\ge0\Rightarrow A_e,B_e\ge0,\ e(y,\theta)\le A_e+B_e\sum_jy_j$ & Linear upper bound of a rate law. \\[3pt]
+\texttt{sum\_\allowbreak{}c\_\allowbreak{}coef} & $\displaystyle \sum_iw_i\nu_{ik}=\langle w,\nu_k\rangle$ & Weighted stoichiometry. \\[3pt]
+\texttt{sum\_\allowbreak{}c\_\allowbreak{}netExpr} & $\displaystyle \sum_iw_if_i=\sum_k\langle w,\nu_k\rangle\,r_k$ & Weighted sum of the vector field. \\[3pt]
+\texttt{checkGrowth\_\allowbreak{}sound} & $\displaystyle \mathrm{checkGrowth}\Rightarrow\exists a,b\ge0:\ \sum_iw_if_i(y,\theta)\le a+b\sum_iw_iy_i\ (y\ge0)$ & Soundness of the growth checker. \\[3pt]
+\texttt{checkNet\_\allowbreak{}append} & $\displaystyle \mathrm{checkNet}(A\mathbin{+\!\!+}B)=\mathrm{checkNet}(A)\wedge\mathrm{checkNet}(B)$ & The check can be split over parts of a large model. \\[3pt]
+\texttt{checkGrowth\_\allowbreak{}append} & $\displaystyle \mathrm{checkGrowth}(A\mathbin{+\!\!+}B)=\mathrm{checkGrowth}(A)\wedge\mathrm{checkGrowth}(B)$ & Same for the growth check. \\[3pt]
+\texttt{c\_\allowbreak{}ge\_\allowbreak{}one} & $\displaystyle \mathrm{checkGrowth}\Rightarrow w_i\ge1$ & Weights are at least 1. \\[3pt]
+\texttt{network\_\allowbreak{}exists} & $\displaystyle \mathrm{checkNet},\ \mathrm{checkGrowth},\ x^0\ge0\Rightarrow\exists x:\ \dot x=f(x,\theta_0),\ x(t)\ge0\ \forall t\in[0,T]$ & Global existence for checked networks. \\[3pt]
+\texttt{network\_\allowbreak{}final} & $\displaystyle \Rightarrow\exists x_0\ge0\text{ on }[0,T],\ \exists x(\cdot;\theta),S:\ S(0)=0,\ \partial_\theta x(t;\theta_q)=S(t)$ & End-to-end theorem for a network with rational parameters and initial values. Used by the models Blasi, Boehm, Brannmark, Chen, Froehlich, Lang, Raimundez, Sneyd, Weber, Zhao, Zheng. \\[3pt]
+\texttt{network\_\allowbreak{}final\_\allowbreak{}init} & $\displaystyle x(0;\theta)=G(\theta):\ \dots,\ S(0)=\partial_\theta G(\theta_q)$ & Same with parameter-dependent initial values. Used by the models Bachmann, Raia, SalazarCavazos. \\[3pt]
+\texttt{network\_\allowbreak{}segments\_\allowbreak{}final} & $\displaystyle \text{same, for segmented models}$ & Same for models simulated in segments. Used by the models Giordano. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{StrictExistence} (12)}
+Global existence when some species must stay strictly positive (for example denominators x\_j).
+
+{\small\raggedright Notation: $\ell_i=\varepsilon\ (i\in\Sigma),\ 0\ (i\notin\Sigma)$ (\texttt{lo sx $\varepsilon$ i}): lower corner of the box; $\operatorname{clamp}_Q(z)_i=\max(\ell_i,\min(B,z_i))$ (\texttt{clampQ sx $\varepsilon$ B z}): truncation to the box Q = $\Pi$\_i [$\ell$\_i, B]; $Q$ (\texttt{boxQ sx $\varepsilon$ B}): box.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{lo\_\allowbreak{}nonneg} & $\displaystyle \varepsilon\ge0\Rightarrow\ell_i\ge0$ & Lower corner is non-negative. \\[3pt]
+\texttt{lo\_\allowbreak{}le} & $\displaystyle 0\le\varepsilon\le B\Rightarrow\ell_i\le B$ & Lower corner is below B. \\[3pt]
+\texttt{clampQ\_\allowbreak{}apply} & $\displaystyle \operatorname{clamp}_Q(z)_i=\max(\ell_i,\min(B,z_i))$ & Definition. \\[3pt]
+\texttt{clampQ\_\allowbreak{}mem} & $\displaystyle \operatorname{clamp}_Q(z)\in Q$ & Truncation lands in the box. \\[3pt]
+\texttt{boxQ\_\allowbreak{}sPos} & $\displaystyle \varepsilon>0,\ z\in Q\Rightarrow z\in P_\Sigma$ & The box lies in the strict region. \\[3pt]
+\texttt{clampQ\_\allowbreak{}pos} & $\displaystyle \operatorname{clamp}_Q(z^+)=\operatorname{clamp}_Q(z)$ & Truncation ignores the negative part. \\[3pt]
+\texttt{clampQ\_\allowbreak{}eq} & $\displaystyle \ell\le z\le B\Rightarrow\operatorname{clamp}_Q(z)=z$ & Truncation fixes points of the box. \\[3pt]
+\texttt{dist\_\allowbreak{}clampQ\_\allowbreak{}le} & $\displaystyle \|\operatorname{clamp}_Q(y)-\operatorname{clamp}_Q(y')\|\le\|y-y'\|$ & Truncation is 1-Lipschitz. \\[3pt]
+\texttt{convex\_\allowbreak{}boxQ} & $\displaystyle Q\ \text{is convex}$ & Convexity. \\[3pt]
+\texttt{isCompact\_\allowbreak{}boxQ} & $\displaystyle Q\ \text{is compact}$ & Compactness. \\[3pt]
+\texttt{lipschitzOn\_\allowbreak{}boxQ} & $\displaystyle v\in C^1(U),\ Q\subseteq U\Rightarrow v\ \text{Lipschitz on }Q$ & Lipschitz on the box. \\[3pt]
+\texttt{exists\_\allowbreak{}global\_\allowbreak{}solution\_\allowbreak{}strict} & $\displaystyle v\text{ quasi-positive on }P_\Sigma,\ v_i(z)\ge-C_Bz_i\ (i\in\Sigma,\ z\le B),\ \sum_iw_iv_i\le a+b\sum_iw_iz_i,\ x^0\in P_\Sigma\Rightarrow\exists x:\ x(t)\in P_\Sigma\ \forall t\in[0,T]$ & Global existence staying in the strict region: species in $\Sigma$ decay at most exponentially and never reach 0. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{StrictNetwork} (46)}
+Reaction networks with strictly positive domains (e.g. $\beta$SI/N, Hill laws with real exponents): checkers and their soundness.
+
+{\small\raggedright Notation: $\mathrm{UB}(\theta)$ (\texttt{UB ub $\theta$}): declared lower/upper bounds of parameters hold; $\mathrm{PP}(\theta)$ (\texttt{PP pos ub $\theta$}): $\theta$\_P $>$ 0 and UB($\theta$); $\mathrm{sNonneg},\mathrm{snp},\mathrm{expLe1},\mathrm{sPos},\mathrm{sOk}$: syntactic tests on P\_$\Sigma$: e $\ge$ 0, e $\le$ 0, 0 $\le$ e $\le$ 1 (exponential of a non-positive term), e $>$ 0, e well defined; $\mathrm{Bnd}(e)$ (\texttt{BndB sx $\theta$ bx e}): $\forall$B $\exists$M: 0 $\le$ e(y,$\theta$) $\le$ M on P\_$\Sigma$ (and on [0,B]$^n$ if bx); $\mathrm{Cons}_i(e)$ (\texttt{ConsB sx $\theta$ i e}): $\forall$B $\exists$K: 0 $\le$ e(y,$\theta$) $\le$ K$\cdot$y\_i on P\_$\Sigma$ $\cap$ [0,B]$^n$ (consumption term proportional to y\_i); $\mathrm{checkNetS},\ \mathrm{checkGrowthS}$ (\texttt{checkNetS pos ub sx Rx, checkGrowthS pos ub c Rx}): network checks on the strict region.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{keq\_\allowbreak{}sound} & $\displaystyle \mathrm{keq}(a,b)\Rightarrow a=b$ & Syntactic equality is sound. \\[3pt]
+\texttt{qge1\_\allowbreak{}sound} & $\displaystyle \mathrm{qge1}(e)\Rightarrow e\ge1$ & Rational constant $\ge$ 1. \\[3pt]
+\texttt{qgt1\_\allowbreak{}sound} & $\displaystyle \mathrm{qgt1}(e)\Rightarrow e>1$ & Rational constant $>$ 1. \\[3pt]
+\texttt{addlb\_\allowbreak{}sound} & $\displaystyle \theta_j\ge r\ge-q\Rightarrow q+\theta_j\ge0$ & Sum of a constant and a parameter with a declared lower bound. \\[3pt]
+\texttt{subub\_\allowbreak{}sound} & $\displaystyle 0<\theta_j\le r\le q\Rightarrow0\le q-\theta_j\le q$ & Difference of a constant and a parameter with a declared upper bound. \\[3pt]
+\texttt{ub\_\allowbreak{}qvec} & $\displaystyle \mathrm{checkUB}(\theta_q)\Rightarrow\mathrm{UB}(\iota(\theta_q))$ & The rational parameters satisfy the declared bounds. \\[3pt]
+\texttt{sign\_\allowbreak{}sound} & $\displaystyle \mathrm{sNonneg}(e)\Rightarrow e\ge0,\ \mathrm{snp}(e)\Rightarrow e\le0,\ \mathrm{expLe1}(e)\Rightarrow0\le e\le1$ & Joint soundness of the sign checkers (y $\ge$ 0, PP($\theta$)). \\[3pt]
+\texttt{sNonneg\_\allowbreak{}sound} & $\displaystyle \mathrm{sNonneg}(e)\Rightarrow e(y,\theta)\ge0$ & Non-negativity checker. \\[3pt]
+\texttt{expLe1\_\allowbreak{}sound} & $\displaystyle \mathrm{expLe1}(e)\Rightarrow0\le e(y,\theta)\le1$ & Exponential of a non-positive term. \\[3pt]
+\texttt{sPos\_\allowbreak{}sound} & $\displaystyle y\in P_\Sigma,\ \mathrm{sPos}(e)\Rightarrow e(y,\theta)>0$ & Positivity checker on the strict region. \\[3pt]
+\texttt{sOk\_\allowbreak{}sound} & $\displaystyle y\in P_\Sigma,\ \mathrm{sOk}(e)\Rightarrow\operatorname{ok}_e(y,\theta)$ & Domain checker on the strict region. \\[3pt]
+\texttt{snp\_\allowbreak{}sound} & $\displaystyle \mathrm{snp}(e)\Rightarrow e(y,\theta)\le0$ & Non-positivity checker. \\[3pt]
+\texttt{summand\_\allowbreak{}sound} & $\displaystyle \mathrm{summand}(X,d)\Rightarrow0\le X\le d$ & X is a non-negative summand of d, so X/d $\in$ [0, 1]. \\[3pt]
+\texttt{bndB\_\allowbreak{}const} & $\displaystyle e\ \text{constant},\ e\ge0\Rightarrow\mathrm{Bnd}(e)$ & Constants are bounded. \\[3pt]
+\texttt{bndB\_\allowbreak{}div\_\allowbreak{}lowerpos} & $\displaystyle \mathrm{Bnd}(a),\ d\ge\ell>0\Rightarrow\mathrm{Bnd}(a/d)$ & Division by a term bounded away from 0. \\[3pt]
+\texttt{bndB\_\allowbreak{}summand} & $\displaystyle \mathrm{summand}(a,d)\Rightarrow\mathrm{Bnd}(a/d)$ & Saturating terms a/(a + \dots{}) are bounded. \\[3pt]
+\texttt{bndB\_\allowbreak{}mul} & $\displaystyle \mathrm{Bnd}(a),\mathrm{Bnd}(b)\Rightarrow\mathrm{Bnd}(ab)$ & Products of bounded terms. \\[3pt]
+\texttt{bndB\_\allowbreak{}add} & $\displaystyle \mathrm{Bnd}(a),\mathrm{Bnd}(b)\Rightarrow\mathrm{Bnd}(a+b)$ & Sums of bounded terms. \\[3pt]
+\texttt{bndB\_\allowbreak{}frac\_\allowbreak{}mul\_\allowbreak{}l} & $\displaystyle \mathrm{Bnd}(u/d),\mathrm{Bnd}(v)\Rightarrow\mathrm{Bnd}(uv/d)$ & Bounded fraction times bounded factor. \\[3pt]
+\texttt{bndB\_\allowbreak{}frac\_\allowbreak{}mul\_\allowbreak{}r} & $\displaystyle \mathrm{Bnd}(u),\mathrm{Bnd}(v/d)\Rightarrow\mathrm{Bnd}(uv/d)$ & Same, factor on the left. \\[3pt]
+\texttt{bndB\_\allowbreak{}pair} & $\displaystyle \mathrm{Bnd}(a_1/d_1),\mathrm{Bnd}(a_2/d_2)\Rightarrow\mathrm{Bnd}\bigl(a_1a_2/(d_1d_2)\bigr)$ & Product of two bounded fractions. \\[3pt]
+\texttt{bndB\_\allowbreak{}pair\textquotesingle{}} & $\displaystyle \mathrm{Bnd}(a_1/d_2),\mathrm{Bnd}(a_2/d_1)\Rightarrow\mathrm{Bnd}\bigl(a_1a_2/(d_1d_2)\bigr)$ & Same, crossed pairing. \\[3pt]
+\texttt{consB\_\allowbreak{}mul\_\allowbreak{}l} & $\displaystyle \mathrm{Cons}_i(a),\mathrm{Bnd}(b)\Rightarrow\mathrm{Cons}_i(ab)$ & Proportional to y\_i times bounded. \\[3pt]
+\texttt{consB\_\allowbreak{}mul\_\allowbreak{}r} & $\displaystyle \mathrm{Bnd}(a),\mathrm{Cons}_i(b)\Rightarrow\mathrm{Cons}_i(ab)$ & Same, factor on the left. \\[3pt]
+\texttt{consB\_\allowbreak{}div\_\allowbreak{}lowerpos} & $\displaystyle \mathrm{Cons}_i(a),\ d\ge\ell>0\Rightarrow\mathrm{Cons}_i(a/d)$ & Proportional term divided by a positive term. \\[3pt]
+\texttt{bndB\_\allowbreak{}congr} & $\displaystyle e\equiv e',\ \mathrm{Bnd}(e')\Rightarrow\mathrm{Bnd}(e)$ & Bounds depend only on the value of the expression. \\[3pt]
+\texttt{consB\_\allowbreak{}congr} & $\displaystyle e\equiv e',\ \mathrm{Cons}_i(e')\Rightarrow\mathrm{Cons}_i(e)$ & Same for proportional bounds. \\[3pt]
+\texttt{eval\_\allowbreak{}pair} & $\displaystyle \dfrac{a_1a_2}{d_1d_2}=\dfrac{a_1}{d_1}\cdot\dfrac{a_2}{d_2}$ & Algebraic identity used to pair factors. \\[3pt]
+\texttt{eval\_\allowbreak{}pair\textquotesingle{}} & $\displaystyle \dfrac{a_1a_2}{d_1d_2}=\dfrac{a_1}{d_2}\cdot\dfrac{a_2}{d_1}$ & Crossed pairing. \\[3pt]
+\texttt{consB\_\allowbreak{}var} & $\displaystyle \mathrm{Cons}_i(y_i)$ & A species is proportional to itself. \\[3pt]
+\texttt{consB\_\allowbreak{}npow} & $\displaystyle k\ge1,\ \mathrm{Cons}_i(a),\ \mathrm{Bnd}(a)\Rightarrow\mathrm{Cons}_i(a^k)$ & Powers of proportional terms. \\[3pt]
+\texttt{bndB\_\allowbreak{}npow} & $\displaystyle \mathrm{Bnd}(a)\Rightarrow\mathrm{Bnd}(a^k)$ & Powers of bounded terms. \\[3pt]
+\texttt{bndB\_\allowbreak{}exp\_\allowbreak{}np} & $\displaystyle a\le0\Rightarrow\mathrm{Bnd}(e^a)$ & Exponential of a non-positive term is in (0, 1]. \\[3pt]
+\texttt{bndB\_\allowbreak{}var} & $\displaystyle \mathrm{Bnd}(y_j)\ \text{on }[0,B]^n$ & Species are bounded on the box. \\[3pt]
+\texttt{bq\_\allowbreak{}of} & $\displaystyle \bigl(\mathrm{Bnd}(a)\wedge d\ge\ell>0\bigr)\lor\mathrm{satb}\lor\mathrm{bpair}\Rightarrow\mathrm{Bnd}(a/d)$ & Assembles the three ways of bounding a fraction. \\[3pt]
+\texttt{cq\_\allowbreak{}of} & $\displaystyle \bigl(\mathrm{Cons}_i(a)\wedge d\ge\ell>0\bigr)\lor\mathrm{cpair}\Rightarrow\mathrm{Cons}_i(a/d)$ & Assembles the ways of proving a proportional fraction. \\[3pt]
+\texttt{bnd\_\allowbreak{}sound} & $\displaystyle \mathrm{bnd},\mathrm{satb},\mathrm{bpair}\Rightarrow\mathrm{Bnd};\ \ \mathrm{cons},\mathrm{cpair}\Rightarrow\mathrm{Cons}_i$ & Joint soundness of the bound checkers. \\[3pt]
+\texttt{term\_\allowbreak{}qp} & $\displaystyle \mathrm{termOKS}(r_k,\nu_k),\ y\in P_\Sigma,\ y_i=0\Rightarrow\nu_{ik}r_k(y,\theta)\ge0$ & Quasi-positivity of each reaction on the strict region. \\[3pt]
+\texttt{term\_\allowbreak{}decay} & $\displaystyle i\in\Sigma\Rightarrow\forall B\ \exists K\ge0:\ \nu_{ik}r_k(y,\theta)\ge-Ky_i\ (y\in P_\Sigma,\ y\le B)$ & Consumption of a strictly positive species is at most proportional to it. \\[3pt]
+\texttt{checkNetS\_\allowbreak{}sound} & $\displaystyle \mathrm{checkNetS}\Rightarrow P_\Sigma\times\{\theta\}\subseteq\mathcal D,\ f\ \text{quasi-positive},\ f_i\ge-C_By_i\ (i\in\Sigma)$ & Soundness of the strict network checker. \\[3pt]
+\texttt{term\_\allowbreak{}growth} & $\displaystyle \mathrm{growthOKS}\Rightarrow\exists A,B\ge0:\ \langle w,\nu_k\rangle r_k(y,\theta)\le A+B\sum_jy_j$ & Growth bound for one reaction. \\[3pt]
+\texttt{checkGrowthS\_\allowbreak{}sound} & $\displaystyle \mathrm{checkGrowthS}\Rightarrow\exists a,b\ge0:\ \sum_iw_if_i\le a+b\sum_iw_iy_i\ (y\in P_\Sigma)$ & Growth bound for the network. \\[3pt]
+\texttt{c\_\allowbreak{}ge\_\allowbreak{}oneS} & $\displaystyle \mathrm{checkGrowthS}\Rightarrow w_i\ge1$ & Weights are at least 1. \\[3pt]
+\texttt{strict\_\allowbreak{}exists} & $\displaystyle x^0\in P_\Sigma\Rightarrow\exists x:\ \dot x=f(x,\theta_0),\ x(t)\in P_\Sigma\ \forall t\in[0,T]$ & Global existence in the strict region. \\[3pt]
+\texttt{init\_\allowbreak{}sPos} & $\displaystyle \mathrm{checkInitS}(G),\ \mathrm{PP}(\theta_0)\Rightarrow G(\theta_0)\in P_\Sigma$ & Initial values lie in the strict region. \\[3pt]
+\texttt{strict\_\allowbreak{}final\_\allowbreak{}init} & $\displaystyle \Rightarrow x_0(t)\in P_\Sigma\cap\mathcal D,\ \exists x(\cdot;\theta),S:\ S(0)=\partial_\theta G(\theta_q),\ \partial_\theta x(t;\theta_q)=S(t)$ & End-to-end theorem for networks with strictly positive domains. Used by the models Armistead, Borghans, Elowitz, Okuonghae, Rahman. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{RiccatiNetwork} (9)}
+Existence on a finite horizon under quadratic growth (Riccati bound); used for Crauste.
+
+{\small\raggedright Notation: $\varphi(y)=\sum_iw_iy_i$ (\texttt{phi c y}): weighted total; $Q$ (\texttt{Qof (tot c $\theta$q Rx)}): Riccati constant max(A, B/2, C) of the bound $\Sigma$ w\_i f\_i $\le$ A + B$\varphi$ + C$\varphi^2$.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{exists\_\allowbreak{}solution\_\allowbreak{}riccati} & $\displaystyle \sum_iw_iv_i(z)\le Q(\varphi(z)+1)^2,\ (1+\delta)Q(\varphi(x^0)+1)T<1\Rightarrow\exists x\ge0\ \text{on }[0,T]$ & Quasi-positive field with quadratic growth: the solution exists up to the Riccati blow-up time. \\[3pt]
+\texttt{qval\_\allowbreak{}sound} & $\displaystyle \mathrm{qc}(e)\Rightarrow e(y,\iota(\theta_q))=\mathrm{qval}(e)\in\mathbb{Q}$ & Constant expressions evaluate exactly in rational arithmetic. \\[3pt]
+\texttt{qnn\_\allowbreak{}sound} & $\displaystyle \mathrm{qnn}(e)\Rightarrow e=\mathrm{qval}(e)\ge0$ & Non-negative rational constants. \\[3pt]
+\texttt{var\_\allowbreak{}le\_\allowbreak{}phi} & $\displaystyle w>0,\ y\ge0\Rightarrow y_j\le\varphi(y)/w_j$ & Each species is bounded by the weighted total. \\[3pt]
+\texttt{linV\_\allowbreak{}sound} & $\displaystyle \mathrm{linC}(e)\Rightarrow0\le e\le A+B\varphi(y),\ A,B\ge0$ & Linear bound of a rate law. \\[3pt]
+\texttt{prodV\_\allowbreak{}sound} & $\displaystyle 0\le a\le A_1+B_1\varphi,\ 0\le b\le A_2+B_2\varphi\Rightarrow0\le ab\le A+B\varphi+C\varphi^2$ & Product of two linear bounds is a quadratic bound. \\[3pt]
+\texttt{quadV\_\allowbreak{}sound} & $\displaystyle \mathrm{quadC}(e)\Rightarrow0\le e\le A+B\varphi+C\varphi^2$ & Quadratic bound of a rate law. \\[3pt]
+\texttt{tot\_\allowbreak{}sound} & $\displaystyle \sum_k\langle w,\nu_k\rangle r_k\le A+B\varphi+C\varphi^2$ & Quadratic bound of the weighted vector field (sum over reactions with positive weight). \\[3pt]
+\texttt{riccati\_\allowbreak{}final} & $\displaystyle \mathrm{checkRiccati}:\ 1.1\,Q(\varphi(x_q)+1)T_q<1,\ T\le T_q\Rightarrow\exists x_0\ge0\text{ on }[0,T],\ \exists x(\cdot;\theta),S:\ \partial_\theta x(t;\theta_q)=S(t)$ & End-to-end theorem on a finite horizon (Crauste: T $\le$ 1). Used by the models Crauste. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsubsection*{\texttt{IntervalInit} (5)}
+Parameter-dependent initial values certified with rational interval arithmetic.
+
+{\small\raggedright Notation: $[l,u]$ (\texttt{ival $\theta$q e = some (l, u)}): rational interval enclosing the value of e at $\theta$\_q; $\mathrm{checkInitI}$ (\texttt{checkInitI sx $\theta$q G}): interval check that G($\theta$\_q) $\ge$ 0 and $>$ 0 on $\Sigma$.}
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{mul\_\allowbreak{}mem\_\allowbreak{}corners} & $\displaystyle x\in[a_1,a_2],\ y\in[b_1,b_2]\Rightarrow\min_{i,j}a_ib_j\le xy\le\max_{i,j}a_ib_j$ & Interval multiplication rule. \\[3pt]
+\texttt{imul\_\allowbreak{}sound} & $\displaystyle x\in a,\ y\in b\Rightarrow xy\in a\otimes b$ & Rational interval product encloses the real product. \\[3pt]
+\texttt{ival\_\allowbreak{}sound} & $\displaystyle \mathrm{ival}(e)=[l,u]\Rightarrow\operatorname{ok}_e(y,\iota(\theta_q))\ \wedge\ l\le e(y,\iota(\theta_q))\le u$ & Interval evaluation is sound (real powers restricted to square roots). \\[3pt]
+\texttt{initI\_\allowbreak{}sound} & $\displaystyle \mathrm{checkInitI}(G)\Rightarrow(0,\iota(\theta_q))\in\mathcal D_G,\ G(\iota(\theta_q))\in P_\Sigma$ & The initial values are well defined and lie in the strict region. \\[3pt]
+\texttt{strict\_\allowbreak{}final\_\allowbreak{}initI} & $\displaystyle x(0;\theta)=G(\theta):\ x_0(t)\in P_\Sigma\cap\mathcal D,\ \exists x(\cdot;\theta),S:\ S(0)=\partial_\theta G(\theta_q),\ \partial_\theta x(t;\theta_q)=S(t)$ & End-to-end theorem with initial values checked by interval arithmetic. Used by the models Fiedler. \\[3pt]
+\bottomrule
+\end{longtable}
+}
 
 \end{document}

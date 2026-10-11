@@ -59,7 +59,7 @@ L = [r"\section*{Supplementary Table S3. Formal proofs}", "",
      f"It contains {len(names)} theory modules with {tot} theorems and lemmas, and 22 benchmark models translated from SBML. "
      r"No file contains \texttt{sorry} or \texttt{axiom}, and \texttt{\#print axioms} reports only \texttt{propext}, "
      r"\texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. The file \texttt{THEOREMS.md} in that "
-     r"folder lists every theorem and lemma; $n$ is the number of theorems and lemmas per module.", "",
+     r"folder lists every theorem and lemma, and Supplementary Note 2 gives the statement and meaning of each of them; $n$ is the number of theorems and lemmas per module.", "",
      r"{\small", r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedleft\arraybackslash}p{0.6cm}>{\raggedright\arraybackslash}p{6.3cm}>{\raggedright\arraybackslash}p{4.9cm}@{}}",
      r"\toprule", r"Module & $n$ & Content & Main theorems \\", r"\midrule", r"\endhead"]
 for g, mods in G:
