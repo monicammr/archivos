@@ -165,6 +165,9 @@ def load_lean(name):
     th = rationals(tq)
     xm = re.search(r"def xqL : [^=]*:= \[(.*)\]", txt) or re.search(r"def xq : [^=]*:= !\[(.*)\]", txt)
     xq = rationals(xm.group(1)) if xm else None
+    xc = re.search(r"def xq : [^=]*:= fun _ => (\((-?\d+)(?: / (\d+))? : ℚ\))", txt)
+    if xq is None and xc:                       # vector constante
+        xq = [float(Fraction(int(xc.group(2)), int(xc.group(3) or 1)))] * n
     G = None
     gm = re.search(r"^def G : [^\n]*:= !\[\n(.*?)\n\]", txt, re.S | re.M)
     if gm:
@@ -245,9 +248,12 @@ def uno(name, n_rand=5, seed=0):
         scale = np.maximum(np.abs(fr[ok]), np.abs(fl[ok])) + 1e-9 * (np.abs(fr[ok]).max() + 1e-300)
         errs.append(float(np.max(np.abs(fl[ok] - fr[ok]) / scale)) if ok.any() else np.nan)
     # θ y x(0) del archivo Lean frente a PEtab/SBML
-    th_petab = np.array([S.theta0[S.idx[nm]] for nm in L["pnames"]])
+    import pandas as pd                          # valores nominales de PEtab tal cual (sin sustituir los 0)
+    pt = pd.read_csv(CS.BENCH / name / "v1" / "parameters.tsv", sep="\t")
+    nomv = dict(zip(pt.parameterId.astype(str), pt.nominalValue.astype(float)))
+    th_petab = np.array([nomv[nm] for nm in L["pnames"]])
     th_lean = np.array(L["theta"])
-    err_theta = float(np.max(np.abs(th_lean - th_petab) / np.maximum(np.abs(th_petab), 1e-300))) if len(th_lean) else 0.0
+    err_theta = float(np.max(np.abs(th_lean - th_petab) / np.maximum(np.abs(th_petab), 1e-12))) if len(th_lean) else 0.0
     err_x0 = None
     if L["xq"] is None and L.get("G") is not None:     # x(0) = G(θ): se evalúa G en θ del archivo
         L["xq"] = [float(ev(g, np.zeros(L["n"]), L["theta"])) for g in L["G"]]
