@@ -51,7 +51,7 @@ BIO = "--bio" in sys.argv
 if BIO:
     SUBS = HERE / "resultados" / "reclasificacion_salidas_bio_poda"
     OUTD = HERE / "resultados" / "validacion_externa_bio"
-P_MAX_COMPLETO = 60          # ajuste del modelo completo sólo hasta este número de parámetros
+P_MAX_COMPLETO = int(os.environ.get("VAL_PMAX", 60))   # ajuste del modelo completo sólo hasta este número de parámetros
 SEED, NIVEL_VERDAD = 42, 0.20
 EMAX = float(np.sqrt(1 - 0.9 ** 2))
 
