@@ -106,7 +106,9 @@ p = HERE / "supplementary.tex"
 s = p.read_text(encoding="utf-8")
 key = r"\input{note_sequence}"
 a = s.index(key) if key in s else s.index(r"\section*{Supplementary Note 2.")
-p.write_text(s[:a] + key + "\n\n" + "\n".join(L) + "\n" + r"\end{document}" + "\n", encoding="utf-8")
+k4 = r"\section*{Supplementary Note 4."
+tail = s[s.index(k4):] if k4 in s else r"\end{document}" + "\n"
+p.write_text(s[:a] + key + "\n\n" + "\n".join(L) + "\n" + tail, encoding="utf-8")
 
 # ------------------------------------------------------------------ Markdown
 D = ["# Statements of the formal theorems", "",

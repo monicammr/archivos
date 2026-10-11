@@ -81,11 +81,11 @@ for part, title, mods in fo.PARTS:
         L.append(f"{fo.STEP[m]} & {mm} & {cnt[m]} & {uu} & {d} & {kk} \\\\")
 L += [r"\midrule", f" & Total & {tot} & & & \\\\", r"\bottomrule", r"\end{longtable}", "}", "",
       r"\textbf{Verified benchmark models.} Armistead, Bachmann, Blasi, Boehm, Borghans, Brannmark, Chen "
-      r"(500 species, in four parts), Crauste (horizon $T\le 1$), Elowitz, Fiedler, Froehlich (1,228 species, "
+      r"(501 states, in four parts), Crauste (horizon $T\le 1$), Elowitz, Fiedler, Froehlich (1,228 states, "
       r"in twelve parts), Giordano, Lang, Okuonghae, Rahman, Raia, Raimundez, SalazarCavazos, Sneyd, Weber, Zhao "
       r"and Zheng (folder \texttt{lean\_proofs/Models/}). For each model, the final theorem establishes that the "
       r"vector field is smooth on its domain, that the solution exists on the simulated horizon and that "
-      r"concentrations remain non-negative.", ""]
+      r"concentrations remain non-negative. The data of each model and the checks executed are given in Supplementary Note~4 and Table~S5.", ""]
 
 p = HERE / "supplementary.tex"
 s = p.read_text()
