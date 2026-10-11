@@ -1,0 +1,109 @@
+\section*{Supplementary Note 2. Logical sequence of the formal proofs}
+\sloppy
+
+This note explains, in mathematical terms, the chain of results that the Lean code proves, in the order in which they build on each other. The order is that of the import graph of \texttt{lean\_proofs/}: step $k$ only uses steps with a smaller number (Supplementary Table~S3, column `Uses'). Lean names of the main results are given in \texttt{typewriter} font; the statement and meaning of every theorem are in Supplementary Note~3, and the notation in Supplementary Table~S4.
+
+\subsection*{Setting and goal}
+
+A model is an ODE $\dot x=f(x,\theta)$ on $[0,T]$ with $x(0)=x^0(\theta)$, $\theta\in\mathbb{R}^p$, sampled at times $t_1,\dots,t_N$; the sampled (noise-scaled) outputs form a vector $F(\theta)\in\mathbb{R}^m$. Fixing the parameters outside a subset $S$ at their nominal values means replacing a perturbation $\Delta\theta$ by $\Delta\theta_S$, whose components outside $S$ are zero. The proofs establish five guarantees:
+\begin{itemize}\itemsep0pt
+\item[(G1)] the output error of the reduced model, $\|F(\theta_0+\Delta\theta)-F(\theta_0+\Delta\theta_S)\|$, is bounded by the sensitivity energy discarded, i.e.\ by $R_{\mathrm{var}}(S)$;
+\item[(G2)] the cosine $\cos\Delta$ between full and reduced output changes certifies the relative fitting error, $\min_\alpha$ error $=\sqrt{1-\cos^2\Delta}$;
+\item[(G3)] the conditioning tests ($\kappa$, VIF) imply that the re-estimation of $\theta_S$ has a unique and stable solution;
+\item[(G4)] re-estimation and backward elimination behave as claimed (monotone fitting error, inclusion-minimal subset);
+\item[(G5)] the hypotheses needed for (G1)--(G2) (smoothness, existence of solutions, positivity) hold for the benchmark models.
+\end{itemize}
+Parts I--III prove (G1)--(G4) for any model satisfying explicit hypotheses; Part IV proves that the 22 verified benchmark models satisfy them.
+
+\subsection*{Part I. Finite-dimensional core (steps 1--13)}
+
+Here the sensitivity matrix $J=DF(\theta_0)$ is a fixed $m\times p$ matrix with column energies $E_j=\sum_iJ_{ij}^2$, $E=\sum_jE_j$, $E_S=\sum_{j\in S}E_j$.
+
+\textbf{Steps 1--2 (error of the reduced model, G1).} The total energy splits as $E=E_S+E_{S^c}$, and by Cauchy--Schwarz
+\[
+\|J\Delta\theta-J\Delta\theta_S\|=\Bigl\|\sum_{j\notin S}J_{\cdot j}\Delta\theta_j\Bigr\|\le\sqrt{E_{S^c}}\,\|\Delta\theta_{S^c}\|\le\sqrt{(1-R_{\mathrm{var}}(S))\,E}\;\|\Delta\theta\|
+\]
+(\texttt{first\_order\_error\_from\_Rvar}). If $F$ is differentiable at $\theta_0$, the nonlinear error differs from the linear one by $o(\|\Delta\theta\|)$, so for every $\eta>0$ and small $\Delta\theta$, $\|F(\theta_0+\Delta\theta)-F(\theta_0+\Delta\theta_S)\|\le(\sqrt{(1-r)E}+\eta)\|\Delta\theta\|$ whenever $R_{\mathrm{var}}(S)\ge r$ (\texttt{trajectory\_error\_from\_Rvar}).
+
+\textbf{Step 3 (cosine and fitting error, G2).} For vectors $a$ (full response) and $b$ (reduced response),
+\[
+\min_{\alpha\in\mathbb{R}}\frac{\|a-\alpha b\|}{\|a\|}=\sqrt{1-\cos^2(a,b)},
+\]
+attained at $\alpha^*=\langle a,b\rangle/\|b\|^2$ (\texttt{min\_rel\_error\_eq}, Theorem~1 of the paper). Hence $\cos\Delta\ge c$ is equivalent to a relative error of at most $\tau_e=\sqrt{1-c^2}$ after rescaling.
+
+\textbf{Step 4 (finite perturbations).} If $DF$ is $L_c$-Lipschitz on the ball $\bar B(\theta_0,\rho_0)$, Taylor's theorem gives $\|F(\theta_0+h)-F(\theta_0)-Jh\|\le L_c\|h\|^2$, hence
+\[
+\|F(\theta_0+h)-F(\theta_0+h_S)\|\le\sqrt{E_{S^c}}\,\|h_{S^c}\|+2L_c\|h\|^2,
+\]
+and, writing $A=\|Jh\|-L_c\|h\|^2>0$, the inequality $(\sqrt{E_{S^c}}\|h_{S^c}\|+2L_c\|h\|^2)^2\le(1-c^2)A^2$ certifies $\cos\Delta(h)\ge c$ for that perturbation (\texttt{finite\_cos\_certificate}).
+
+\textbf{Steps 5--6 (re-estimation and pruning, G4).} With $e_{\mathrm{fit}}(S)=\inf\{r(\theta):\theta_j=\theta_{0,j}\ \forall j\notin S\}$, enlarging $S$ (or adding calibration parameters) never increases $e_{\mathrm{fit}}$, and $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ (\texttt{fitErr\_anti}, \texttt{fitErr\_le\_erel}); therefore admissibility is preserved under enlargement. Backward elimination stops at an admissible $R\subseteq S$ such that $R\setminus\{x\}$ is not admissible for any $x\in R$ (\texttt{prune\_spec}, Theorem~2 of the paper).
+
+\textbf{Steps 7--9 (conditioning and selection, G3).} Let $Z$ have the normalised sensitivity columns of $S$. If $\sigma_{\min}\|u\|\le\|Zu\|\le\sigma_{\max}\|u\|$ with $\sigma_{\min}>0$, the least-squares estimate is unique and, for two data vectors $y,y'$,
+\[
+\|v-v'\|\le\kappa\,\|y-y'\|,\qquad |v_j-v'_j|\le\sqrt{\mathrm{VIF}_j}\,\|y-y'\|
+\]
+(\texttt{ls\_unique}, \texttt{ls\_kappa\_stability}, \texttt{ls\_vif\_inverse\_stability}). Step~8 identifies these quantities with what is computed numerically: $\kappa=\sqrt{\lambda_{\max}/\lambda_{\min}}$ from the eigenvalues of $Z^\top Z$ and $\mathrm{VIF}_j=[(Z^\top Z)^{-1}]_{jj}$ (\texttt{ls\_kappa\_stability\_spectral}, \texttt{ls\_vif\_matrix\_stability}). Step~9 proves that the greedy selection returns a subset with $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$, and, because both tests are inherited by subsets, that a discarded candidate would still fail at the end (\texttt{greedy\_kappa\_vif\_guarantee}).
+
+\textbf{Steps 10--13 (complements).} Two parameters with proportional sensitivity columns ($Ze_a=\lambda Ze_b$) give $Z(e_a-\lambda e_b)=0$, so no $\kappa$ threshold accepts both and the estimate is not unique; zero discarded energy makes the reduction exact to first order (step~10). Values computed with finite differences and rounding certify $R_{\mathrm{var}}$, $\kappa$ and VIF for the exact matrix when explicit margins hold (step~11). The linearised $e_{\mathrm{fit}}$ used for large systems differs from the exact one by at most $M\rho^2$ (step~12). Error bounds transfer from states to measured outputs through Lipschitz observation functions, including $\log$ and $\log_{10}$ (step~13).
+
+\subsection*{Part II. Ordinary differential equations (steps 14--18)}
+
+Part~I needs $F$ to be differentiable, with known derivative, for every $\theta$ near $\theta_0$. Part~II proves this for ODE models.
+
+\textbf{Step 14.} If $v(t,\cdot)$ is $K$-Lipschitz, Picard iteration on intervals of length at most $1/(2K)$ gives a solution on all of $[a,b]$ (\texttt{exists\_solution\_Icc}).
+
+\textbf{Step 15 (sensitivities).} If $f$ is $C^1$ on an open set $U$ containing the nominal trajectory and $x^0$ is differentiable, then $x(t;\theta)$ is differentiable in $\theta$ at $\theta_0$ for every $t\in[0,T]$, and its derivative $S(t)$ solves the variational equation
+\[
+\dot S(t)=\partial_xf(x_0(t),\theta_0)\,S(t)+\partial_\theta f(x_0(t),\theta_0),\qquad S(0)=\partial_\theta x^0(\theta_0)
+\]
+(\texttt{hasFDerivAt\_solution\_param\_init}). The proof combines a uniform linearisation of $f$ near the compact trajectory with a Grönwall estimate in a tube around it.
+
+\textbf{Step 16.} Solutions for $\theta$ near $\theta_0$ exist automatically once the nominal solution exists (\texttt{exists\_solutions\_near}), so this need not be assumed.
+
+\textbf{Step 17 (explicit constants).} If $\|Df\|\le M_1$ and $Df$ is $M_2$-Lipschitz on a convex set containing the trajectories,
+\[
+\|x(t;\theta)-x(t;\theta')\|\le(e^{M_1T}-1)\|\theta-\theta'\|,\qquad \|S_\theta(t)-S_{\theta'}(t)\|\le M_2e^{2M_1T}\frac{e^{M_1T}-1}{M_1}\|\theta-\theta'\|
+\]
+(\texttt{traj\_lipschitz}, \texttt{sens\_lipschitz}).
+
+\textbf{Step 18.} The same holds segment by segment for systems with events at fixed times (\texttt{event\_hasFDerivAt}).
+
+\subsection*{Part III. Certificates for ODE models (steps 19--22)}
+
+Part~III applies Part~I to $F=\mathcal{F}$, the vector of states at the sampling times, whose derivative is the sampled sensitivity matrix $\mathcal{S}=(S(t_1),\dots,S(t_N))$ given by Part~II.
+
+\textbf{Step 19.} The energy criterion computed from $\mathcal{S}$ bounds the trajectory error of the reduced model: for every $\eta>0$ and small $\Delta\theta$,
+\[
+R_{\mathrm{var}}(S)\ge r\ \Rightarrow\ \|\mathcal F(\theta_0+\Delta\theta)-\mathcal F(\theta_0+\Delta\theta_S)\|\le\bigl(\sqrt{(1-r)E}+\eta\bigr)\|\Delta\theta\|
+\]
+(\texttt{certified\_parameter\_reduction}).
+
+\textbf{Step 20.} Step~17, applied at the $N$ sampling times, provides the Lipschitz constant needed in step~4, $L_c=\sqrt N\,M_2e^{2M_1T}(e^{M_1T}-1)/M_1$, so the finite-perturbation certificate of $\cos\Delta$ becomes fully explicit for ODE models (\texttt{certified\_cos\_ode}).
+
+\textbf{Step 21.} The certificate is sharpened by using the exact linear error $\|\mathcal S(h-h_S)\|$ instead of its energy bound, and a local version without any Lipschitz constant is proved: $\lim_{s\to0^+}\cos\Delta(sh)=\cos(\mathcal Sh,\mathcal Sh_S)$, so if the linear cosine computed from $\mathcal S$ exceeds $c$, then $\cos\Delta(sh)>c$ for all small $s>0$ (\texttt{certified\_cos\_ode\_exact}, \texttt{local\_cos\_ode}).
+
+\textbf{Step 22.} Combining steps~16 and~21, the local certificate requires only that the nominal solution exist (\texttt{local\_cos\_from\_nominal}).
+
+\subsection*{Part IV. Hypotheses of the benchmark models (steps 23--31)}
+
+The results of Parts~II--III assume that $f$ is $C^1$ on an open set containing the trajectory and that the nominal solution exists on $[0,T]$. Part~IV proves these assumptions for the benchmark models from their equations.
+
+\textbf{Step 23 (smoothness).} Rate laws are represented as expressions built from constants, concentrations, parameters, $+,-,\times,\div$, powers, $\exp$ and $\log$. Wherever an expression is well defined (non-zero denominators, positive bases of real powers and arguments of $\log$) it is $C^\infty$, and this set is open (\texttt{contDiffOn\_field}); Michaelis--Menten and Hill laws are covered (\texttt{ok\_mm}, \texttt{ok\_hill}, \texttt{ok\_hillR}). This yields the local certificate for every kinetic model (\texttt{kinetic\_local\_cos}).
+
+\textbf{Step 24 (positivity).} If $f$ is quasi-positive ($y\ge0$, $y_i=0\Rightarrow f_i(y)\ge0$), solutions starting in the non-negative orthant stay there (\texttt{nonneg\_of\_quasiPositive}); the proof applies Grönwall's inequality to the squared negative part.
+
+\textbf{Step 25 (global existence).} If, in addition, $\sum_iw_if_i(y)\le a+b\sum_iw_iy_i$ on the orthant for weights $w_i>0$, then $\sum_iw_ix_i(t)$ grows at most exponentially, the solution remains in a box $[0,B]^n$ on which $f$ is Lipschitz, and by step~14 it exists on $[0,T]$ for every $T$ (\texttt{exists\_global\_solution}).
+
+\textbf{Step 26.} The same holds when some species must remain strictly positive (for example, when they appear in denominators), provided their consumption is at most proportional to their concentration (\texttt{exists\_global\_solution\_strict}).
+
+\textbf{Steps 27--28 (automatic checks).} Boolean functions that inspect the syntax of the rate laws decide well-definedness, sign and quasi-positivity, and each is proved sound (for example \texttt{qp\_sound}). For a reaction network $f_i=\sum_k\nu_{ik}r_k$, the checks \texttt{checkNet} and \texttt{checkGrowth} imply the hypotheses of steps~23--25 (\texttt{checkNet\_sound}, \texttt{checkGrowth\_sound}), and the end-to-end theorem \texttt{network\_final} gives existence, positivity and differentiability for every horizon.
+
+\textbf{Steps 29--31.} Three extensions cover the remaining models: quadratic growth, $\sum_iw_if_i\le Q(\sum_iw_iy_i+1)^2$, gives existence up to the Riccati time $1/(Q(\sum_iw_ix^0_i+1))$ (\texttt{riccati\_final}, used for Crauste with $T\le1$); networks with strictly positive domains (\texttt{strict\_final\_init}); and parameter-dependent initial values checked with rational interval arithmetic (\texttt{strict\_final\_initI}).
+
+\textbf{Benchmark models.} Each file in \texttt{lean\_proofs/Models/} contains the rate laws, stoichiometry, parameter values and initial values of one model, translated from SBML with exact rational numbers. The checks of steps~27--31 are executed by the Lean kernel (\texttt{decide +kernel}), and one end-to-end theorem is then applied: \texttt{network\_final} (11 models), \texttt{network\_final\_init} (3), \texttt{network\_segments\_final} (1), \texttt{strict\_final\_init} (5), \texttt{strict\_final\_initI} (1) or \texttt{riccati\_final} (1). The resulting theorem states that the model satisfies the hypotheses of Parts~II--III.
+
+\subsection*{What the proofs do not cover}
+
+Lean proves the implications above; it does not recompute the numerical results. The sensitivity matrices, $R_{\mathrm{var}}$, $\kappa$, VIF, $\cos\Delta$ and $e_{\mathrm{fit}}$ reported in the paper are computed in Python. The formalisation guarantees that, if these values satisfy the stated inequalities (with the margins of step~11 when computed approximately), the stated conclusions follow.
+\fussy

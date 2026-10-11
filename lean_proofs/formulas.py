@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mathematical statement and meaning of every theorem and lemma in lean_proofs/.
 
-Used by paper/scirep/make_formulas.py (Supplementary Note 2) and by this folder's FORMULAS.md.
+Used by paper/scirep/make_formulas.py (Supplementary Notes 2 and 3) and by this folder's FORMULAS.md.
 Each entry is (Lean name without the module namespace, statement in LaTeX math, meaning).
 The generator checks that the entries match the declarations found by catalogo.py exactly."""
 
@@ -559,3 +559,21 @@ mod("IntervalInit", G6,
      ])
 
 GROUPS = [G1, G2, G3, G4, G5, G6]
+
+# ------------------------------------------------------------------ logical order (Supplementary Note 2, Table S3)
+# Topological order of the import graph: every module only imports modules with a smaller step number.
+PARTS = [
+    ("I", "Finite-dimensional core of the method (fixed sensitivity matrix)",
+     ["FirstOrderErrorBound", "TrajectoryErrorBound", "ScaledError", "CosineCertificate", "RefitMonotone", "Poda",
+      "IdentifiabilityConditioning", "SpectralConditioning", "GreedySelection", "PatternMechanisms",
+      "NumericalRobustness", "LinearizedFit", "OutputComposition"]),
+    ("II", "Ordinary differential equations: existence and sensitivities",
+     ["GlobalLipschitzODE", "ParamDiffODE", "LocalExistence", "SensitivityLipschitz", "EventSystems"]),
+    ("III", "Certificates for ODE models",
+     ["CertifiedODEReduction", "CertifiedFiniteODE", "ExactLinearCertificate", "NominalCertificate"]),
+    ("IV", "Hypotheses of the benchmark models (kinetic models and reaction networks)",
+     ["KineticRegularity", "PositivityInvariance", "GlobalExistence", "StrictExistence", "KineticCheck",
+      "KineticNetwork", "RiccatiNetwork", "StrictNetwork", "IntervalInit"]),
+]
+ORDER = [m for _, _, ms in PARTS for m in ms]
+STEP = {m: i + 1 for i, m in enumerate(ORDER)}

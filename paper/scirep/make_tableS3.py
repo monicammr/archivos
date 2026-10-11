@@ -50,26 +50,36 @@ G = [
         ("IntervalInit", r"Parameter-dependent initial values certified with rational interval arithmetic", r"strict\_final\_initI")]),
 ]
 
-names = [m for _, g in G for m, _, _ in g]
-assert sorted(names) == sorted(cnt), set(cnt) ^ set(names)
+spec2 = importlib.util.spec_from_file_location("fo", ROOT / "lean_proofs" / "formulas.py")
+fo = importlib.util.module_from_spec(spec2); spec2.loader.exec_module(fo)
+info = {m: (d, k) for _, g in G for m, d, k in g}
+names = fo.ORDER
+assert sorted(names) == sorted(cnt) == sorted(info), set(cnt) ^ set(names)
+deps = {m: [l.split()[1] for l in (ROOT / "lean_proofs" / f"{m}.lean").read_text(encoding="utf-8").splitlines()
+            if l.startswith("import ") and not l.startswith("import Mathlib")] for m in names}
 tot = sum(cnt.values())
 L = [r"\section*{Supplementary Table S3. Formal proofs}", "",
      r"All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repository, a self-contained "
      r"Lean~4 project (Lean 4.23.0, Mathlib v4.23.0) that compiles with a single command (\texttt{./verify.sh}). "
      f"It contains {len(names)} theory modules with {tot} theorems and lemmas, and 22 benchmark models translated from SBML. "
      r"No file contains \texttt{sorry} or \texttt{axiom}, and \texttt{\#print axioms} reports only \texttt{propext}, "
-     r"\texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. The file \texttt{THEOREMS.md} in that "
-     r"folder lists every theorem and lemma, and Supplementary Note 2 gives the statement and meaning of each of them; $n$ is the number of theorems and lemmas per module.", "",
-     r"{\small", r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedleft\arraybackslash}p{0.6cm}>{\raggedright\arraybackslash}p{6.3cm}>{\raggedright\arraybackslash}p{4.9cm}@{}}",
-     r"\toprule", r"Module & $n$ & Content & Main theorems \\", r"\midrule", r"\endhead"]
-for g, mods in G:
-    L.append(r"\multicolumn{4}{@{}l}{\textit{" + g + r"}} \\")
-    for m, d, k in mods:
+     r"\texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. Modules are listed in the logical order "
+     r"of the proofs (Supplementary Note~2): \# is the step number, and every module only uses modules with a smaller "
+     r"number (column `Uses'). $n$ is the number of theorems and lemmas in the module (its size, not an index). "
+     r"Supplementary Note~3 gives the statement and meaning of every theorem and lemma; the file \texttt{THEOREMS.md} "
+     r"in the folder lists them as well.", "",
+     r"{\small", r"\begin{longtable}{@{}>{\raggedleft\arraybackslash}p{0.45cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedleft\arraybackslash}p{0.55cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{5.1cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}",
+     r"\toprule", r"\# & Module & $n$ & Uses & Content & Main theorems \\", r"\midrule", r"\endhead"]
+for part, title, mods in fo.PARTS:
+    L.append(r"\multicolumn{6}{@{}l}{\textit{Part " + part + ". " + title + r"}} \\")
+    for m in mods:
+        d, k = info[m]
         brk = lambda t: t.replace(r"\_", r"\_\allowbreak{}").replace(", ", r", \allowbreak{}")
         kk = r"\texttt{" + brk(k) + "}" if k else "--"
         mm = r"\texttt{" + "\\allowbreak{}".join(__import__("re").findall(r"[A-Z][a-z]*|[A-Z]+(?![a-z])|\d+", m)) + "}"
-        L.append(f"{mm} & {cnt[m]} & {d} & {kk} \\\\")
-L += [r"\midrule", f"Total & {tot} & & \\\\", r"\bottomrule", r"\end{longtable}", "}", "",
+        uu = ", ".join(str(fo.STEP[x]) for x in sorted(deps[m], key=fo.STEP.get)) or "--"
+        L.append(f"{fo.STEP[m]} & {mm} & {cnt[m]} & {uu} & {d} & {kk} \\\\")
+L += [r"\midrule", f" & Total & {tot} & & & \\\\", r"\bottomrule", r"\end{longtable}", "}", "",
       r"\textbf{Verified benchmark models.} Armistead, Bachmann, Blasi, Boehm, Borghans, Brannmark, Chen "
       r"(500 species, in four parts), Crauste (horizon $T\le 1$), Elowitz, Fiedler, Froehlich (1,228 species, "
       r"in twelve parts), Giordano, Lang, Okuonghae, Rahman, Raia, Raimundez, SalazarCavazos, Sneyd, Weber, Zhao "
