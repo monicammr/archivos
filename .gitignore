@@ -13,3 +13,4 @@ certificados/resultados/bio_*_log.txt
 certificados/resultados/bio_chen_log.txt
 certificados/resultados/valbio_log.txt
 certificados/datos_sct/
+certificados/resultados/*/checkpoints/

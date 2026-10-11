@@ -53,6 +53,11 @@ if BIO:
     OUTD = HERE / "resultados" / "validacion_externa_bio"
 P_MAX_COMPLETO = int(os.environ.get("VAL_PMAX", 60))   # ajuste del modelo completo sólo hasta este número de parámetros
 SEED, NIVEL_VERDAD = 42, 0.20
+# Puntos de control: cada ajuste guarda su mejor θ cada VAL_CKPT_MIN minutos en
+# OUTD/checkpoints/<sistema>/<etapa>.npz; al relanzar el mismo sistema, las etapas terminadas se
+# reutilizan y la etapa interrumpida continúa desde el último θ guardado.
+CKPT_MIN = float(os.environ.get("VAL_CKPT_MIN", 10))
+CKDIR = {"dir": None, "reanudado": []}
 EMAX = float(np.sqrt(1 - 0.9 ** 2))
 
 
@@ -99,7 +104,7 @@ def locales_de_prueba(S, train, test):
     return {S.idx[n] for n in rt - rr - compartidos if n in S.idx}
 
 
-def ajusta(S, libres, th_ini, gidx, objetivo, filas, max_nfev):
+def ajusta(S, libres, th_ini, gidx, objetivo, filas, max_nfev, tag=None):
     th0 = S.theta0
     sgn = np.where(th0[libres] < 0, -1.0, 1.0)
     mag0 = np.maximum(np.abs(th0[libres]), 1e-12)
@@ -110,16 +115,41 @@ def ajusta(S, libres, th_ini, gidx, objetivo, filas, max_nfev):
         t = th_ini.copy(); t[libres] = sgn * np.exp(u)
         return t
 
+    ck = CKDIR["dir"] / f"{tag}.npz" if (tag and CKDIR["dir"] is not None) else None
+    if ck is not None and ck.exists():
+        d = np.load(ck)
+        if len(d["u"]) == len(libres):
+            if bool(d["terminado"]):
+                return theta(d["u"]), int(d["nfev"])
+            x0 = np.clip(d["u"], lo + 1e-9, hi - 1e-9)       # continúa desde el mejor θ guardado
+            CKDIR["reanudado"].append(tag)
+    mejor = {"c": np.inf, "u": x0.copy(), "n": 0, "t": time.time()}
+
+    def guarda(u, terminado, nfev):
+        if ck is not None:
+            tmp = ck.with_suffix(".tmp.npz")
+            np.savez(tmp, u=u, terminado=terminado, nfev=nfev)
+            os.replace(tmp, ck)
+
     def res(u):
         z = S.z(theta(u), gidx)
         if z is None:
-            return np.full(int(filas.sum()), 1e3)
-        r = z[filas] - objetivo[filas]
-        return np.where(np.isfinite(r), r, 1e3)
+            r = np.full(int(filas.sum()), 1e3)
+        else:
+            r = z[filas] - objetivo[filas]
+            r = np.where(np.isfinite(r), r, 1e3)
+        mejor["n"] += 1
+        c = float(r @ r)
+        if c < mejor["c"]:
+            mejor["c"], mejor["u"] = c, np.array(u, copy=True)
+        if time.time() - mejor["t"] >= 60 * CKPT_MIN:
+            guarda(mejor["u"], False, mejor["n"]); mejor["t"] = time.time()
+        return r
 
     try:
         r = least_squares(res, x0, bounds=(lo, hi), method="trf", max_nfev=max_nfev,
                           diff_step=1e-3)
+        guarda(r.x, True, int(r.nfev))
         return theta(r.x), int(r.nfev)
     except Exception:
         return th_ini.copy(), 0
@@ -140,6 +170,9 @@ def uno(name, S_nombres=None):
         info = dict(info, S=list(S_nombres))
     S = PO.PSys(name)
     th0 = S.theta0
+    CKDIR["dir"] = OUTD / "checkpoints" / (name if S_nombres is None else name + "_" + "_".join(S_nombres))
+    CKDIR["dir"].mkdir(parents=True, exist_ok=True)
+    CKDIR["reanudado"] = []
     Ssel = [S.names.index(q) for q in info["S"] if q in S.names]
     n_bio = len(Ssel)
     Ssel += [S.names.index(q) for q in info.get("calibracion", []) if q in S.names]
@@ -174,12 +207,12 @@ def uno(name, S_nombres=None):
     fte = ftest & np.isfinite(zd)
     z0 = S.z(th0)
     res["A_chi2_test_theta0"] = chi2(z0, zd, fte)
-    th_r, _ = ajusta(S, Ssel, th0, train, zd, ftr, nf_red)
+    th_r, _ = ajusta(S, Ssel, th0, train, zd, ftr, nf_red, "A_red")
     zr = S.z(th_r)
     res["A_chi2_train_red"] = chi2(zr, zd, ftr)
     res["A_chi2_test_red"] = chi2(zr, zd, fte)
     if hacer_full:
-        th_f, _ = ajusta(S, libres_full, th0, train, zd, ftr, nf_full)
+        th_f, _ = ajusta(S, libres_full, th0, train, zd, ftr, nf_full, "A_full")
         zf = S.z(th_f)
         res["A_chi2_train_full"] = chi2(zf, zd, ftr)
         res["A_chi2_test_full"] = chi2(zf, zd, fte)
@@ -197,7 +230,7 @@ def uno(name, S_nombres=None):
     else:
         datos = zt + rng.standard_normal(len(zt))
         ftr_b, fte_b = ftrain_all.copy(), ftest.copy()
-        th_rb, _ = ajusta(S, Ssel, th0, train, datos, ftr_b, nf_red)
+        th_rb, _ = ajusta(S, Ssel, th0, train, datos, ftr_b, nf_red, "B_red")
         zrb = S.z(th_rb)
         den = np.linalg.norm((zt - z0)[fte_b])
         res["B_chi2_test_theta0"] = chi2(z0, datos, fte_b)
@@ -206,12 +239,14 @@ def uno(name, S_nombres=None):
                               if zrb is not None and den > 0 else float("nan"))
         res["B_epred_theta0"] = 1.0
         if hacer_full:
-            th_fb, _ = ajusta(S, libres_full, th0, train, datos, ftr_b, nf_full)
+            th_fb, _ = ajusta(S, libres_full, th0, train, datos, ftr_b, nf_full, "B_full")
             zfb = S.z(th_fb)
             res["B_chi2_test_full"] = chi2(zfb, datos, fte_b)
             res["B_epred_full"] = (float(np.linalg.norm((zfb - zt)[fte_b]) / den)
                                    if zfb is not None and den > 0 else float("nan"))
     res["segundos"] = round(time.time() - t0, 1)
+    if CKDIR["reanudado"]:
+        res["etapas_reanudadas"] = list(CKDIR["reanudado"])   # continuaron desde un punto de control
     return res
 
 
