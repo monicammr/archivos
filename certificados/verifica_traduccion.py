@@ -251,6 +251,10 @@ def uno(name, n_rand=5, seed=0):
     import pandas as pd                          # valores nominales de PEtab tal cual (sin sustituir los 0)
     pt = pd.read_csv(CS.BENCH / name / "v1" / "parameters.tsv", sep="\t")
     nomv = dict(zip(pt.parameterId.astype(str), pt.nominalValue.astype(float)))
+    if "parameterScale" in pt.columns:          # nominal 0 en escala log: 1e-12 (convención del traductor y del análisis)
+        for pid, sc, v in zip(pt.parameterId.astype(str), pt.parameterScale.astype(str), pt.nominalValue.astype(float)):
+            if sc.startswith("log") and v == 0:
+                nomv[pid] = 1e-12
     th_petab = np.array([nomv[nm] for nm in L["pnames"]])
     th_lean = np.array(L["theta"])
     err_theta = float(np.max(np.abs(th_lean - th_petab) / np.maximum(np.abs(th_petab), 1e-12))) if len(th_lean) else 0.0
