@@ -13,6 +13,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Borghans_BiophysChem1997 | extrapolación temporal (t ≥ 6.48875) | 2 / 22 | 0.74 | 0.74 | 0.74 |
 | Brannmark_JBC2010 | condiciones nuevas | 2 / 18 | 5.79 | 2145.47 | 0.94 |
 | Bruno_JExpBot2016 | condiciones nuevas | 5 / 13 | 0.91 | 7.86 | 0.91 |
+| Chen_MSB2009 | condiciones nuevas | 2 / 155 | 20.77 | — | 15.22 |
 | Elowitz_Nature2000 | extrapolación temporal (t ≥ 410) | 2 / 20 | 1.50 | 4.45 | 1.38 |
 | Fiedler_BMCSystBiol2016 | condiciones nuevas | 2 / 20 | 11.21 | 14.11 | 1.22 |
 | Fujita_SciSignal2010 | condiciones nuevas | 2 / 19 | 5.94 | 8.04 | 5.63 |
@@ -47,6 +48,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Borghans_BiophysChem1997 | 1.04 | 0.31 | 2.89 | 0.90 | no |
 | Brannmark_JBC2010 | 0.92 | 3.97 | 6.14 | 87.79 | no |
 | Bruno_JExpBot2016 | 0.41 | 3.74 | 0.46 | 8.31 | sí |
+| Chen_MSB2009 | 0.08 | — | 0.91 | — | sí |
 | Elowitz_Nature2000 | 0.47 | 0.11 | 1.51 | 0.79 | no |
 | Fiedler_BMCSystBiol2016 | 0.23 | 3.12 | 0.53 | 10.17 | sí |
 | Fujita_SciSignal2010 | 0.95 | 0.44 | 1.47 | 1.06 | no |
@@ -72,12 +74,12 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 
 ## Resumen
 
-* Sistemas evaluados: 29; no evaluables: 2; errores: 0.
+* Sistemas evaluados: 30; no evaluables: 2; errores: 0.
 * Datos reales: el reducido predice igual o mejor que el completo reajustado en 24 de 27 sistemas.
-* Sintético: e_pred del reducido ≤ 0,436 en 11 de 29; reducido igual o mejor que el completo en 16 de 26.
-* Sintético, sistemas donde la señal supera al ruido (χ²(θ₀) ≥ 2): 13; e_pred ≤ 0,436 en 8; reducido igual o mejor que el completo en 6 de 11.
+* Sintético: e_pred del reducido ≤ 0,436 en 12 de 30; reducido igual o mejor que el completo en 16 de 26.
+* Sintético, sistemas donde la señal supera al ruido (χ²(θ₀) ≥ 2): 14; e_pred ≤ 0,436 en 9; reducido igual o mejor que el completo en 6 de 11.
 * Sintético, señal menor que el ruido: 15; el reducido predice al nivel del ruido (χ²/n ≤ 2) en 13 (e_pred no informativo en estos casos).
-* Datos reales frente al ajuste publicado θ₀ (que usó todos los datos): χ²/n del reducido ≤ 2·χ²/n(θ₀) en 22 de 29. En Okuonghae, Oliveira y Smith incluso θ₀ tiene χ²/n ≫ 1: los σ del benchmark no corresponden a la dispersión de los datos.
+* Datos reales frente al ajuste publicado θ₀ (que usó todos los datos): χ²/n del reducido ≤ 2·χ²/n(θ₀) en 23 de 30. En Okuonghae, Oliveira y Smith incluso θ₀ tiene χ²/n ≫ 1: los σ del benchmark no corresponden a la dispersión de los datos.
 
 No evaluables:
 
