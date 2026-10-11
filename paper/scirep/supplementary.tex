@@ -3,6 +3,17 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs,longtable,array}
 \usepackage{url}
+\usepackage[hidelinks,bookmarksopen,bookmarksdepth=3,pdftitle={Supplementary Information},pdfauthor={Monica Miranda R., Carlos Salazar, Cesar Martin, Adriana Aguirre}]{hyperref}
+\usepackage{bookmark}
+% Unnumbered headings that still appear in the table of contents and in the PDF bookmarks
+\makeatletter
+\let\oldsection\section \let\oldsubsection\subsection \let\oldsubsubsection\subsubsection
+\renewcommand{\section}{\@ifstar{\tocstar{section}{\oldsection}}{\oldsection}}
+\renewcommand{\subsection}{\@ifstar{\tocstar{subsection}{\oldsubsection}}{\oldsubsection}}
+\renewcommand{\subsubsection}{\@ifstar{\tocstar{subsubsection}{\oldsubsubsection}}{\oldsubsubsection}}
+\newcommand{\tocstar}[3]{#2*{#3}\phantomsection\addcontentsline{toc}{#1}{#3}}
+\makeatother
+\setcounter{tocdepth}{2}
 \renewcommand{\thetable}{S\arabic{table}}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
@@ -14,6 +25,12 @@
 {\large Few biological parameters suffice to reproduce measured dynamics in systems biology models: local sensitivity-based reduction with formally verified mathematical guarantees}\\[6pt]
 M\'onica Miranda R., Carlos Salazar, C\'esar Mart\'in, Adriana Aguirre
 \end{center}
+
+{\small
+\renewcommand{\contentsname}{Contents}
+{\let\section\oldsection\tableofcontents}
+}
+\clearpage
 
 \section*{Supplementary Table S1. Selected biological parameters}
 
@@ -1277,5 +1294,7 @@ Zheng\_\allowbreak{}PNAS2012 & 15 & 45 & 44 & -- & all $T\ge0$ & \texttt{network
 \item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
 \item \textbf{Final theorem} (\texttt{Models.Zheng\_PNAS2012.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
 \end{itemize}
+
+\input{suppl_conclusion}
 
 \end{document}

@@ -1,0 +1,71 @@
+\contentsline {section}{Supplementary Table S1. Selected biological parameters}{3}{section*.3}%
+\contentsline {section}{Supplementary Table S2. Notation}{4}{section*.5}%
+\contentsline {section}{Supplementary Table S3. Formal proofs}{5}{section*.7}%
+\contentsline {section}{Supplementary Note 1. Verification of the simulator}{7}{section*.9}%
+\contentsline {section}{Supplementary Note 2. Logical sequence of the formal proofs}{7}{section*.11}%
+\contentsline {subsection}{Setting and goal}{7}{section*.13}%
+\contentsline {subsection}{Part I. Finite-dimensional core (steps 1--13)}{8}{section*.15}%
+\contentsline {subsection}{Part II. Ordinary differential equations (steps 14--18)}{9}{section*.17}%
+\contentsline {subsection}{Part III. Certificates for ODE models (steps 19--22)}{9}{section*.19}%
+\contentsline {subsection}{Part IV. Hypotheses of the benchmark models (steps 23--31)}{10}{section*.21}%
+\contentsline {subsection}{What the proofs do not cover}{11}{section*.23}%
+\contentsline {section}{Supplementary Note 3. Statements of the formal theorems}{11}{section*.25}%
+\contentsline {subsection}{Part I. Finite-dimensional core of the method (fixed sensitivity matrix)}{13}{section*.27}%
+\contentsline {subsubsection}{Step 1. \texttt {FirstOrderErrorBound} (12)}{13}{section*.29}%
+\contentsline {subsubsection}{Step 2. \texttt {TrajectoryErrorBound} (9)}{14}{section*.31}%
+\contentsline {subsubsection}{Step 3. \texttt {ScaledError} (5)}{14}{section*.33}%
+\contentsline {subsubsection}{Step 4. \texttt {CosineCertificate} (5)}{15}{section*.35}%
+\contentsline {subsubsection}{Step 5. \texttt {RefitMonotone} (5)}{15}{section*.37}%
+\contentsline {subsubsection}{Step 6. \texttt {Poda} (2)}{15}{section*.39}%
+\contentsline {subsubsection}{Step 7. \texttt {IdentifiabilityConditioning} (10)}{16}{section*.41}%
+\contentsline {subsubsection}{Step 8. \texttt {SpectralConditioning} (22)}{16}{section*.43}%
+\contentsline {subsubsection}{Step 9. \texttt {GreedySelection} (7)}{17}{section*.45}%
+\contentsline {subsubsection}{Step 10. \texttt {PatternMechanisms} (4)}{18}{section*.47}%
+\contentsline {subsubsection}{Step 11. \texttt {NumericalRobustness} (6)}{18}{section*.49}%
+\contentsline {subsubsection}{Step 12. \texttt {LinearizedFit} (3)}{19}{section*.51}%
+\contentsline {subsubsection}{Step 13. \texttt {OutputComposition} (4)}{19}{section*.53}%
+\contentsline {subsection}{Part II. Ordinary differential equations: existence and sensitivities}{20}{section*.55}%
+\contentsline {subsubsection}{Step 14. \texttt {GlobalLipschitzODE} (3)}{20}{section*.57}%
+\contentsline {subsubsection}{Step 15. \texttt {ParamDiffODE} (8)}{20}{section*.59}%
+\contentsline {subsubsection}{Step 16. \texttt {LocalExistence} (9)}{21}{section*.61}%
+\contentsline {subsubsection}{Step 17. \texttt {SensitivityLipschitz} (8)}{21}{section*.63}%
+\contentsline {subsubsection}{Step 18. \texttt {EventSystems} (1)}{22}{section*.65}%
+\contentsline {subsection}{Part III. Certificates for ODE models}{22}{section*.67}%
+\contentsline {subsubsection}{Step 19. \texttt {CertifiedODEReduction} (1)}{22}{section*.69}%
+\contentsline {subsubsection}{Step 20. \texttt {CertifiedFiniteODE} (5)}{22}{section*.71}%
+\contentsline {subsubsection}{Step 21. \texttt {ExactLinearCertificate} (13)}{23}{section*.73}%
+\contentsline {subsubsection}{Step 22. \texttt {NominalCertificate} (1)}{24}{section*.75}%
+\contentsline {subsection}{Part IV. Hypotheses of the benchmark models (kinetic models and reaction networks)}{24}{section*.77}%
+\contentsline {subsubsection}{Step 23. \texttt {KineticRegularity} (11)}{24}{section*.79}%
+\contentsline {subsubsection}{Step 24. \texttt {PositivityInvariance} (15)}{25}{section*.81}%
+\contentsline {subsubsection}{Step 25. \texttt {GlobalExistence} (11)}{25}{section*.83}%
+\contentsline {subsubsection}{Step 26. \texttt {StrictExistence} (12)}{26}{section*.85}%
+\contentsline {subsubsection}{Step 27. \texttt {KineticCheck} (19)}{27}{section*.87}%
+\contentsline {subsubsection}{Step 28. \texttt {KineticNetwork} (18)}{27}{section*.89}%
+\contentsline {subsubsection}{Step 29. \texttt {RiccatiNetwork} (9)}{29}{section*.91}%
+\contentsline {subsubsection}{Step 30. \texttt {StrictNetwork} (46)}{29}{section*.93}%
+\contentsline {subsubsection}{Step 31. \texttt {IntervalInit} (5)}{31}{section*.95}%
+\contentsline {section}{Supplementary Note 4. The verified benchmark models}{31}{section*.97}%
+\contentsline {subsection}{Armistead\_CellDeathDis2024}{33}{section*.99}%
+\contentsline {subsection}{Bachmann\_MSB2011}{33}{section*.101}%
+\contentsline {subsection}{Blasi\_CellSystems2016}{33}{section*.103}%
+\contentsline {subsection}{Boehm\_JProteomeRes2014}{34}{section*.105}%
+\contentsline {subsection}{Borghans\_BiophysChem1997}{34}{section*.107}%
+\contentsline {subsection}{Brannmark\_JBC2010}{35}{section*.109}%
+\contentsline {subsection}{Chen\_MSB2009}{35}{section*.111}%
+\contentsline {subsection}{Crauste\_CellSystems2017}{35}{section*.113}%
+\contentsline {subsection}{Elowitz\_Nature2000}{36}{section*.115}%
+\contentsline {subsection}{Fiedler\_BMCSystBiol2016}{36}{section*.117}%
+\contentsline {subsection}{Froehlich\_CellSystems2018}{37}{section*.119}%
+\contentsline {subsection}{Giordano\_Nature2020}{37}{section*.121}%
+\contentsline {subsection}{Lang\_PLOSComputBiol2024}{38}{section*.123}%
+\contentsline {subsection}{Okuonghae\_ChaosSolitonsFractals2020}{38}{section*.125}%
+\contentsline {subsection}{Rahman\_MBS2016}{39}{section*.127}%
+\contentsline {subsection}{Raia\_CancerResearch2011}{39}{section*.129}%
+\contentsline {subsection}{Raimundez\_PCB2020}{39}{section*.131}%
+\contentsline {subsection}{SalazarCavazos\_MBoC2020}{40}{section*.133}%
+\contentsline {subsection}{Sneyd\_PNAS2002}{41}{section*.135}%
+\contentsline {subsection}{Weber\_BMC2015}{41}{section*.137}%
+\contentsline {subsection}{Zhao\_QuantBiol2020}{41}{section*.139}%
+\contentsline {subsection}{Zheng\_PNAS2012}{42}{section*.141}%
+\contentsline {section}{Concluding remarks}{42}{section*.143}%
