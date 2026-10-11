@@ -118,22 +118,26 @@ for main in sorted(MD.glob("*.lean")):
 NM = len(models)
 assert NM == 28, NM
 missing = [m["name"] for m in models if FID.get(m["name"], {}).get("err_rel_max") is None]
-assert not missing, missing
+assert len(missing) <= 1, missing      # (comprobación en curso, como mucho un modelo)
 
 
 def fidv(nm):
+    if nm not in FID:
+        return None
     d = FID[nm]
     return max(d["err_rel_max"], d["err_theta"], d["err_x0"] or 0.0)
 
 
 def fmte(x):
+    if x is None:
+        return "pending"
     if x == 0:
         return "0"
     a, b = f"{x:.0e}".split("e")
     return f"${a}\\times10^{{{int(b)}}}$"
 
 
-FMAX = max(fidv(m["name"]) for m in models)
+FMAX = max(fidv(m["name"]) for m in models if fidv(m["name"]) is not None)
 
 # ------------------------------------------------------------------ LaTeX
 L = [r"\section*{Supplementary Note 4. The verified benchmark models}", r"\sloppy", "",
@@ -173,8 +177,8 @@ L += [r"\subsection*{Agreement of the translation with the SBML models}", "",
       r"directly from the Lean files, evaluates the vector field in floating point, and compares it with the "
       r"derivatives computed by libRoadRunner from the original SBML model with the nominal parameters of the PEtab "
       r"table, at the initial state and at five random positive states. It also compares $\theta_q$ with the PEtab "
-      r"nominal values and the initial values (or $G(\theta_q)$) with those of the SBML model. Over the " + str(NM) +
-      r" models the largest relative difference is " + fmte(FMAX) + r", i.e.\ agreement to rounding error "
+      r"nominal values and the initial values (or $G(\theta_q)$) with those of the SBML model. Over the " + str(NM - len(missing)) +
+      r" models" + (f" checked so far (the check of {missing[0].split('_')[0]} is still running)," if missing else ",") + r" the largest relative difference is " + fmte(FMAX) + r", i.e.\ agreement to rounding error "
       r"(Table~S6, last column). As a control, changing one parameter value, one initial value or one stoichiometric "
       r"coefficient of the Lean file by 1\% is detected (relative differences of $10^{-2}$). The comparison covers the "
       r"model without condition-specific overrides, which is what the Lean files describe; for models defined by "
@@ -256,11 +260,13 @@ L += [r"\bottomrule", r"\end{longtable}", "}", "",
       r"family $x(\cdot;\theta)$ of solutions for $\theta$ near $\theta_q$ with $x(\cdot;\theta_q)=x_0$; and "
       r"$x(t;\theta)$ is differentiable in $\theta$ at $\theta_q$ with derivative $S(t)$, $S(0)=0$, solving the "
       r"variational equation. These are the hypotheses of Parts~II--III for this model.".replace("θq", r"$\theta_q$"), "",
-      r"\textbf{5. Reproduction.} From the folder \texttt{lean\_proofs/}, the command "
-      r"\texttt{lake env lean Models/Boehm\_JProteomeRes2014.lean} compiles the file in a few seconds and prints "
-      r"\texttt{'Models.Boehm\_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound]}. "
-      r"The command \texttt{python3 certificados/verifica\_traduccion.py Boehm\_JProteomeRes2014} compares the file "
-      r"with the SBML model (largest relative difference " + fmte(fidv(B)) + r").", ""]
+      r"\textbf{5. Reproduction.} From the folder \texttt{lean\_proofs/}, the command", "",
+      r"\begin{quote}\small\raggedright\texttt{lake env lean Models/Boehm\_JProteomeRes2014.lean}\end{quote}", "",
+      r"compiles the file in a few seconds and prints", "",
+      r"\begin{quote}\small\raggedright\texttt{'Models.Boehm\_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound]}\end{quote}", "",
+      r"and, from the folder \texttt{certificados/}, the command", "",
+      r"\begin{quote}\small\raggedright\texttt{python3 verifica\_traduccion.py Boehm\_JProteomeRes2014}\end{quote}", "",
+      r"compares the file with the SBML model (largest relative difference " + fmte(fidv(B)) + r").", ""]
 
 # ---------------- benchmark problems without a verified model
 L += [r"\subsection*{Benchmark problems without a verified model}", "",

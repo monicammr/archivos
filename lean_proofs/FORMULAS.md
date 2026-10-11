@@ -567,8 +567,8 @@ Notation: $\mathrm{checkNet},\ \mathrm{checkGrowth}$ (`checkNet pos Rx, checkGro
 | `KineticNetwork.checkGrowth_append` | $\mathrm{checkGrowth}(A\mathbin{+\!\!+}B)=\mathrm{checkGrowth}(A)\wedge\mathrm{checkGrowth}(B)$ | Same for the growth check. |
 | `KineticNetwork.c_ge_one` | $\mathrm{checkGrowth}\Rightarrow w_i\ge1$ | Weights are at least 1. |
 | `KineticNetwork.network_exists` | $\mathrm{checkNet},\ \mathrm{checkGrowth},\ x^0\ge0\Rightarrow\exists x:\ \dot x=f(x,\theta_0),\ x(t)\ge0\ \forall t\in[0,T]$ | Global existence for checked networks. |
-| `KineticNetwork.network_final` | $\Rightarrow\exists x_0\ge0\text{ on }[0,T],\ \exists x(\cdot;\theta),S:\ S(0)=0,\ \partial_\theta x(t;\theta_q)=S(t)$ | End-to-end theorem for a network with rational parameters and initial values. Used by the models Blasi, Boehm, Brannmark, Chen, Froehlich, Lang, Raimundez, Sneyd, Weber, Zhao, Zheng. |
-| `KineticNetwork.network_final_init` | $x(0;\theta)=G(\theta):\ \dots,\ S(0)=\partial_\theta G(\theta_q)$ | Same with parameter-dependent initial values. Used by the models Bachmann, Raia, SalazarCavazos. |
+| `KineticNetwork.network_final` | $\Rightarrow\exists x_0\ge0\text{ on }[0,T],\ \exists x(\cdot;\theta),S:\ S(0)=0,\ \partial_\theta x(t;\theta_q)=S(t)$ | End-to-end theorem for a network with rational parameters and initial values. Used by the models Bertozzi, Blasi, Boehm, Brannmark, Bruno, Chen, Froehlich, Isensee, Lang, Laske, Raimundez, Sneyd, Weber, Zhao, Zheng. |
+| `KineticNetwork.network_final_init` | $x(0;\theta)=G(\theta):\ \dots,\ S(0)=\partial_\theta G(\theta_q)$ | Same with parameter-dependent initial values. Used by the models Bachmann, Fujita, Lucarelli, Raia, SalazarCavazos. |
 | `KineticNetwork.network_segments_final` | $\text{same, for segmented models}$ | Same for models simulated in segments. Used by the models Giordano. |
 
 ### Step 29. `RiccatiNetwork` (9)
