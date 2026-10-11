@@ -28,7 +28,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Perelson_Science1996 | extrapolación temporal (t ≥ 2.038) | 2 / 2 | 0.00 | 0.00 | 0.00 |
 | Rahman_MBS2016 | extrapolación temporal (t ≥ 15) | 2 / 9 | 0.00 | 0.03 | 0.00 |
 | Raia_CancerResearch2011 | condiciones nuevas | 2 / 23 | 8.23 | 5.10 | 0.42 |
-| Raimundez_PCB2020 | condiciones nuevas | 2 / 136 | 1.19 | — | 0.98 |
+| Raimundez_PCB2020 | condiciones nuevas | 2 / 136 | 1.19 | 1.46 | 0.98 |
 | SalazarCavazos_MBoC2020 | condiciones nuevas | 2 / 6 | 101.83 | 124.19 | 96.93 |
 | Schwen_PONE2014 | condiciones nuevas | 2 / 28 | 8.20 | 8.40 | 0.77 |
 | Smith_BMCSystBiol2013 | condiciones nuevas | 2 / 25 | 14976.89 | 14977.66 | 82920.71 |
@@ -63,7 +63,7 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 | Perelson_Science1996 | 23.29 | 23.29 | 0.68 | 0.68 | no |
 | Rahman_MBS2016 | 0.07 | 0.10 | 1.95 | 2.82 | sí |
 | Raia_CancerResearch2011 | 0.48 | 1.08 | 0.92 | 0.96 | no |
-| Raimundez_PCB2020 | 1.27 | — | 8.96 | — | no |
+| Raimundez_PCB2020 | 1.27 | 0.39 | 8.96 | 1.69 | no |
 | SalazarCavazos_MBoC2020 | 0.17 | 0.11 | 0.44 | 0.55 | sí |
 | Schwen_PONE2014 | 2.03 | 1.94 | 4.56 | 4.51 | no |
 | Smith_BMCSystBiol2013 | 0.07 | 0.07 | 20.08 | 22.73 | sí |
@@ -75,9 +75,9 @@ Ajuste con una parte de los experimentos y predicción de los que NO se usaron (
 ## Resumen
 
 * Sistemas evaluados: 30; no evaluables: 2; errores: 0.
-* Datos reales: el reducido predice igual o mejor que el completo reajustado en 24 de 27 sistemas.
-* Sintético: e_pred del reducido ≤ 0,436 en 12 de 30; reducido igual o mejor que el completo en 16 de 26.
-* Sintético, sistemas donde la señal supera al ruido (χ²(θ₀) ≥ 2): 14; e_pred ≤ 0,436 en 9; reducido igual o mejor que el completo en 6 de 11.
+* Datos reales: el reducido predice igual o mejor que el completo reajustado en 25 de 28 sistemas.
+* Sintético: e_pred del reducido ≤ 0,436 en 12 de 30; reducido igual o mejor que el completo en 16 de 27.
+* Sintético, sistemas donde la señal supera al ruido (χ²(θ₀) ≥ 2): 14; e_pred ≤ 0,436 en 9; reducido igual o mejor que el completo en 6 de 12.
 * Sintético, señal menor que el ruido: 15; el reducido predice al nivel del ruido (χ²/n ≤ 2) en 13 (e_pred no informativo en estos casos).
 * Datos reales frente al ajuste publicado θ₀ (que usó todos los datos): χ²/n del reducido ≤ 2·χ²/n(θ₀) en 23 de 30. En Okuonghae, Oliveira y Smith incluso θ₀ tiene χ²/n ≫ 1: los σ del benchmark no corresponden a la dispersión de los datos.
 
