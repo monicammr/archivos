@@ -48,12 +48,12 @@ $\tau_{6}$ & 10.9 & 0.609 & 12 & 0.0\% & -- \\
 
 \textbf{Admissibility and robustness.} Re-estimating only these two parameters reproduces the output of the full model with a median $e_{\mathrm{fit}}$ of 11.4\% at $\pm5\%$, and between 10.6\% and 15.1\% for perturbations up to $\pm50\%$ (pattern A). The median $\cos\Delta$ is 0.94 and $R_{\mathrm{var}}=0.73$, so the subset reaches level 2 of the guarantees defined in Supplementary Table~S1.
 
-\textbf{Prediction of unseen days.} Both models were refitted to days 1--24 (by least squares from $\theta_0$, within the bounds and with the stability constraint) and used to predict days 25--31 (Figure~S2). The reduced model predicted the held-out week with $R^2=0.84$ (test $\chi^2/n$ 1.63), better than the full 22-parameter model ($R^2=0.67$, $\chi^2/n$ 3.44; refitted with the same differential-evolution search: $R^2=0.79$, $\chi^2/n$ 2.13), even though the full model fits the training days more closely ($\chi^2/n$ 0.65 versus 0.84). All refitted models are stable.
+\textbf{Prediction of unseen days.} Both models were refitted to days 1--24 (by least squares from $\theta_0$, within the bounds and with the stability constraint) and used to predict days 25--31 (Figure~S1). The reduced model predicted the held-out week with $R^2=0.84$ (test $\chi^2/n$ 1.63), better than the full 22-parameter model ($R^2=0.67$, $\chi^2/n$ 3.44; refitted with the same differential-evolution search: $R^2=0.79$, $\chi^2/n$ 2.13), even though the full model fits the training days more closely ($\chi^2/n$ 0.65 versus 0.84). All refitted models are stable.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[width=\textwidth]{figures/figS2_sct.pdf}
-\caption*{\textbf{Supplementary Figure S2. SCT model of one participant.} Standardised daily steps (dots), the fit of $\theta_0$ to all 31 days (grey), and the reduced (two parameters, blue) and full (22 parameters, red dashed) models refitted to days 1--24; the shaded region contains the seven test days.}
+\includegraphics[width=\textwidth]{figures/figS1_sct.pdf}
+\caption*{\textbf{Supplementary Figure S1. SCT model of one participant.} Standardised daily steps (dots), the fit of $\theta_0$ to all 31 days (grey), and the reduced (two parameters, blue) and full (22 parameters, red dashed) models refitted to days 1--24; the shaded region contains the seven test days.}
 \end{figure}
 
 \subsection*{Relation with the formal results}

@@ -202,9 +202,9 @@ def nivel(d):
 LEVEL = {1: r"level~1 ($e_{\mathrm{fit}}\le\tau_e$ only)",
          2: r"level~2 ($\cos\Delta\ge0.9$ as well)",
          3: r"level~3 ($\cos\Delta\ge0.9$ and $R_{\mathrm{var}}\ge0.89$)"}
-PATTERN = {"A": "pattern~A: the error stays below the threshold up to $\\pm$50\\%",
-           "B": "pattern~B: the error grows with the size of the perturbation and crosses the threshold for large changes",
-           "C": "pattern~C: the error stays close to the threshold at all perturbation sizes"}
+PATTERN = {"A": "pattern~A: admissible at all perturbation sizes up to $\\pm$50\\%",
+           "B": "pattern~B: admissible up to at least $\\pm$20\\% but not for larger changes",
+           "C": "pattern~C: irregular, with an error that stays close to the threshold and crosses it at some sizes"}
 
 
 def validation(s, d):

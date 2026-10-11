@@ -14,7 +14,7 @@ A model is an ODE $\dot x=f(x,\theta)$ on $[0,T]$ with $x(0)=x^0(\theta)$, $\the
 \item[(G4)] the fitting error is monotone in the re-estimated set, and backward elimination returns a subset from which no single parameter can be removed;
 \item[(G5)] the hypotheses needed for (G1)--(G3) (smoothness, existence of solutions, positivity, differentiability) hold for the translated benchmark models.
 \end{itemize}
-Parts I--III prove (G1)--(G4) for any model satisfying explicit hypotheses; Part IV proves that the 28 verified benchmark models satisfy them. Supplementary Table~S4 states, for each guarantee, what is proved, what is not, and which numerical quantity connects it with the results of the paper.
+Parts I--III prove (G1)--(G4) for any model satisfying explicit hypotheses; Part IV proves that the 28 verified benchmark models satisfy them. Figure~5 of the main text shows how these formal results connect with the numerical computations. Supplementary Table~S4 states, for each guarantee, what is proved, what is not, and which numerical quantity connects it with the results of the paper.
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.7cm}@{}}
@@ -31,12 +31,6 @@ G5. Benchmark models & For 28 translated models: smooth vector field, existence 
 \bottomrule
 \end{longtable}
 }
-
-\begin{figure}[!htb]
-\centering
-\input{figS1_architecture}
-\caption*{\textbf{Supplementary Figure S1. Architecture of the formal and numerical verification.} Python (left) performs all computations on the PEtab problems; Lean~4 (right) proves the general theorems (Parts I--III, guarantees G1--G4) and checks the hypotheses of each translated model (Part IV, G5). The translation of each model into Lean is compared independently with the SBML model (dashed arrow; Supplementary Note~4). The formal conclusions apply to a result of the paper when the hypotheses of the model are verified and the numerical quantities computed in Python satisfy the inequalities that the theorems require (bottom).}
-\end{figure}
 
 \subsection*{Part I. Finite-dimensional core (steps 1--13)}
 
