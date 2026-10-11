@@ -35,12 +35,16 @@
   "s_pMAPK_ID9_HS746T_FM",
   "s_pMAPK_ID9_HS746T_HM_30EGF"
  ],
- "A_chi2_test_theta0": 0.9804303032688384,
- "A_chi2_train_red": 5.794361999560773,
- "A_chi2_test_red": 1.1882382724744514,
- "B_chi2_test_theta0": 5.502556176262643,
- "B_chi2_test_red": 8.962636698453169,
- "B_epred_red": 1.265747203864135,
+ "A_chi2_test_theta0": 0.9804303167926699,
+ "A_chi2_train_red": 5.794361926322739,
+ "A_chi2_test_red": 1.1885004263437224,
+ "A_chi2_train_full": 5.729885270020015,
+ "A_chi2_test_full": 1.4607619363030582,
+ "B_chi2_test_theta0": 5.502556233257641,
+ "B_chi2_test_red": 8.962482704673514,
+ "B_epred_red": 1.2657347868829822,
  "B_epred_theta0": 1.0,
- "segundos": 340.1
+ "B_chi2_test_full": 1.6874720220949375,
+ "B_epred_full": 0.3913439490848231,
+ "segundos": 6067.9
 }
