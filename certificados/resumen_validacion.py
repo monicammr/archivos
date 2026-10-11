@@ -84,7 +84,7 @@ def main():
           f"los datos."]
     if ne:
         L += ["", "No evaluables:", ""] + [f"* {r['sistema']}: {r['no_evaluable']}" for r in ne]
-    (D / "RESUMEN_VALIDACION.md").write_text("\n".join(L) + "\n")
+    (D / "RESUMEN_VALIDACION.md").write_text("\n".join(L) + "\n", encoding="utf-8")
     print("\n".join(L))
 
 

@@ -221,7 +221,7 @@ def _seguro(name):
     except Exception as e:
         r = {"sistema": name, "error": repr(e)}
     OUTD.mkdir(parents=True, exist_ok=True)
-    (OUTD / f"{name}.json").write_text(json.dumps(r, indent=1, default=str))
+    (OUTD / f"{name}.json").write_text(json.dumps(r, indent=1, default=str), encoding="utf-8")
     print(json.dumps(r, default=str), flush=True)
     return r
 
