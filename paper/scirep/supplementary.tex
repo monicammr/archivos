@@ -5,6 +5,9 @@
 \usepackage{url}
 \usepackage[hidelinks,bookmarksopen,bookmarksdepth=3,pdftitle={Supplementary Information},pdfauthor={Monica Miranda R., Carlos Salazar, Cesar Martin, Adriana Aguirre}]{hyperref}
 \usepackage{bookmark}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows.meta}
 % Unnumbered headings that still appear in the table of contents and in the PDF bookmarks
 \makeatletter
 \let\oldsection\section \let\oldsubsection\subsection \let\oldsubsubsection\subsubsection
@@ -122,7 +125,7 @@ All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repo
 
 \section*{Supplementary Note 1. Verification of the simulator}
 
-Our simulation of the measured outputs was compared, at the nominal parameters, with the reference simulations distributed with the benchmark, matching each measurement by observable, condition and time. For the problems with comparable reference files the median relative difference was below $10^{-5}$ in all but five cases: Chen ($1.1\times 10^{-4}$), Zheng (whose reference file contains the measured data rather than a simulation), Crauste (0.8\%, very stiff model), Lang (2.8\%, an oscillating cell-cycle model simulated to $t=136{,}472$, where peaks differ by an accumulated phase shift) and Perelson (17\%; the initial state of the model is stationary and our simulation respects it, which suggests that the reference was generated with different values). Several problems have no comparable reference (no file, or different condition identifiers). The full comparison is given in the repository (\texttt{certificados/resultados/salidas/VERIFICACION\_SIMULADOR.md}).
+Our simulation of the measured outputs was compared, at the nominal parameters, with the reference simulations distributed with the benchmark, matching each measurement by observable, condition and time. For the problems with comparable reference files the median relative difference was below $10^{-5}$ in all but five cases: Chen ($1.1\times 10^{-4}$), Zheng (whose reference file contains the measured data rather than a simulation), Crauste (0.8\%, very stiff model), Lang (2.8\%, an oscillating cell-cycle model simulated to $t=136{,}472$, where peaks differ by an accumulated phase shift) and Perelson (17\%; the initial state of the model is stationary and our simulation respects it, which suggests that the reference was generated with different values). Lang and Perelson are therefore not close agreements with their references; for Lang the difference is an accumulated phase shift of an oscillator over a long horizon, and for Perelson our simulation is consistent with the equations and the stationary initial state of the SBML model, so the discrepancy most likely lies in the reference. Both models were kept in the analysis, and their results should be read with this caveat. Several problems have no comparable reference (no file, or different condition identifiers). The full comparison is given in the repository (\texttt{certificados/resultados/salidas/VERIFICACION\_SIMULADOR.md}).
 
 \input{note_sequence}
 

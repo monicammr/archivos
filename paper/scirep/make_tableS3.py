@@ -61,7 +61,7 @@ tot = sum(cnt.values())
 L = [r"\section*{Supplementary Table S3. Formal proofs}", "",
      r"All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repository, a self-contained "
      r"Lean~4 project (Lean 4.23.0, Mathlib v4.23.0) that compiles with a single command (\texttt{./verify.sh}). "
-     f"It contains {len(names)} theory modules with {tot} theorems and lemmas, and 22 benchmark models translated from SBML. "
+     f"It contains {len(names)} theory modules with {tot} theorems and lemmas, and 28 benchmark models translated from SBML. "
      r"No file contains \texttt{sorry} or \texttt{axiom}, and \texttt{\#print axioms} reports only \texttt{propext}, "
      r"\texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. Modules are listed in the logical order "
      r"of the proofs (Supplementary Note~2): \# is the step number, and every module only uses modules with a smaller "
@@ -80,12 +80,12 @@ for part, title, mods in fo.PARTS:
         uu = ", ".join(str(fo.STEP[x]) for x in sorted(deps[m], key=fo.STEP.get)) or "--"
         L.append(f"{fo.STEP[m]} & {mm} & {cnt[m]} & {uu} & {d} & {kk} \\\\")
 L += [r"\midrule", f" & Total & {tot} & & & \\\\", r"\bottomrule", r"\end{longtable}", "}", "",
-      r"\textbf{Verified benchmark models.} Armistead, Bachmann, Blasi, Boehm, Borghans, Brannmark, Chen "
-      r"(501 states, in four parts), Crauste (horizon $T\le 1$), Elowitz, Fiedler, Froehlich (1,228 states, "
-      r"in twelve parts), Giordano, Lang, Okuonghae, Rahman, Raia, Raimundez, SalazarCavazos, Sneyd, Weber, Zhao "
-      r"and Zheng (folder \texttt{lean\_proofs/Models/}). For each model, the final theorem establishes that the "
+      r"\textbf{Verified benchmark models (28).} Armistead, Bachmann, Bertozzi, Blasi, Boehm, Borghans, Brannmark, "
+      r"Bruno, Chen (501 states, in four parts), Crauste (horizon $T\le 1$), Elowitz, Fiedler, Froehlich (1,228 states, "
+      r"in twelve parts), Fujita, Giordano, Isensee, Lang, Laske, Lucarelli, Okuonghae, Rahman, Raia, Raimundez, "
+      r"SalazarCavazos, Sneyd, Weber, Zhao and Zheng (folder \texttt{lean\_proofs/Models/}). For each model, the final theorem establishes that the "
       r"vector field is smooth on its domain, that the solution exists on the simulated horizon and that "
-      r"concentrations remain non-negative. The data of each model and the checks executed are given in Supplementary Note~4 and Table~S5.", ""]
+      r"concentrations remain non-negative. The data of each model and the checks executed are given in Supplementary Note~4 and Table~S6, which also explain why the remaining seven benchmark problems were not verified.", ""]
 
 p = HERE / "supplementary.tex"
 s = p.read_text()

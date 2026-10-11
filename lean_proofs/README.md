@@ -6,7 +6,7 @@ local sensitivity-based reduction with formally verified mathematical guarantees
 It is a self-contained Lake project: everything can be compiled from here with one command.
 
 * **31 theory modules, 289 theorems and lemmas** (one `.lean` file per module, listed below).
-* **22 benchmark models** translated from SBML (`Models/`), each with a final theorem stating
+* **28 benchmark models** translated from SBML (`Models/`), each with a final theorem stating
   smoothness of the vector field, existence of the solution on the simulated horizon and
   non-negativity of concentrations.
 * No `sorry` and no `axiom` declarations. `#print axioms` reports only Lean's standard axioms
@@ -32,9 +32,14 @@ The complete list of theorems, with a one-line description of each, is in
    Equivalent manual steps: `lake exe cache get && lake build && lake env lean CheckAxioms.lean`.
 
 The theory compiles in a few minutes. The models take longer; the two largest
-(Froehlich, 1,228 species, and Chen, 500 species) are split into parts of at most 3 GB of memory
+(Froehlich, 1,228 species, and Chen, 500 species plus time) are split into parts of at most 3 GB of memory
 each and take about 30 min each on a laptop. The log of our complete build is in
 [`BUILD_LOG.md`](BUILD_LOG.md).
+
+**Fidelity of the model files.** The Lean files in `Models/` were generated from the SBML models of the
+benchmark. `certificados/verifica_traduccion.py` reads the rate laws, stoichiometry, parameter values and
+initial values directly from these files and compares them with the SBML models evaluated by libRoadRunner;
+for all 28 models the agreement is at the level of rounding error (`certificados/resultados/sbml_lean/fidelidad.json`).
 
 ## Correspondence with the manuscript
 
@@ -54,7 +59,7 @@ each and take about 30 min each on a laptop. The log of our complete build is in
 | First-order $e_{\mathrm{fit}}$ for large models | `LinearizedFit.lin_le_scaled`, `fit_upper_of_lin`, `fit_lower_of_lin` |
 | Mechanisms behind robustness patterns | `PatternMechanisms.not_okKappa_of_kernel`, `ls_not_unique_of_kernel`, `exact_reduction_of_zero_energy` |
 | Model assumptions: smoothness, positivity, existence | `KineticRegularity`, `KineticCheck`, `KineticNetwork.network_final`, `PositivityInvariance`, `GlobalExistence`, `StrictExistence`, `StrictNetwork.strict_final_init`, `RiccatiNetwork.riccati_final`, `IntervalInit`, `EventSystems` |
-| The 22 benchmark models | `Models/*.lean` (final theorem of each file) |
+| The 28 benchmark models | `Models/*.lean` (final theorem of each file) |
 
 ## What is and is not proved
 
@@ -68,7 +73,7 @@ the correctness of the numerical ODE simulator.
 | File | Purpose |
 |---|---|
 | `*.lean` (31 files) | theory modules |
-| `Models/` | 22 benchmark models (Chen and Froehlich split into parts) |
+| `Models/` | 28 benchmark models (Chen and Froehlich split into parts) |
 | `All.lean`, `AllModels.lean` | import all theory modules / all models |
 | `CheckAxioms.lean` | `#print axioms` for every theorem of the theory |
 | `CheckModelAxioms.lean` | `#print axioms` for the final theorem of every model |

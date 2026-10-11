@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Supplementary Note 4 and Table S5: the 22 benchmark models verified in Lean, with the data contained in
+"""Supplementary Note 4 and Table S6: the benchmark models verified in Lean, with the data contained in
 each file of lean_proofs/Models/ (states, parameters and nominal values, reactions, positivity masks,
 weights, initial values, horizon), the checks executed by the Lean kernel and the final theorem applied.
 All information is read from the Lean files and from lean_proofs/BUILD_LOG.md."""
@@ -15,8 +15,13 @@ RAT = re.compile(r"\((-?\d+)(?: / (\d+))? : ℚ\)")
 times = {}
 for l in (LP / "BUILD_LOG.md").read_text(encoding="utf-8").splitlines():
     m = re.match(r"\| `Models\.([^`.]+)(?:\.[^`]+)?` \| ([\d.]+) \|", l)
+    m = m or re.match(r"\| `Models\.([^`.]+)` \| `\w+` \| ([\d.]+) \|", l)
     if m:
         times[m.group(1)] = times.get(m.group(1), 0.0) + float(m.group(2))
+import json, sys
+FID = {d["sistema"]: d for d in json.loads((HERE.parent.parent / "certificados" / "resultados" / "sbml_lean" /
+                                            "fidelidad.json").read_text(encoding="utf-8"))}
+sys.path.insert(0, str(HERE.parent.parent / "certificados"))
 
 CHECK = {
     "net_ok": "rate laws well defined on the non-negative orthant and quasi-positive (\\texttt{checkNet})",
@@ -110,11 +115,29 @@ for main in sorted(MD.glob("*.lean")):
                        checks=ck, init=init, nnz=nnz, parts=len(files) - 1 if len(files) > 1 else 0,
                        time=times.get(name)))
 
-assert len(models) == 22, len(models)
+NM = len(models)
+assert NM == 28, NM
+missing = [m["name"] for m in models if FID.get(m["name"], {}).get("err_rel_max") is None]
+assert not missing, missing
+
+
+def fidv(nm):
+    d = FID[nm]
+    return max(d["err_rel_max"], d["err_theta"], d["err_x0"] or 0.0)
+
+
+def fmte(x):
+    if x == 0:
+        return "0"
+    a, b = f"{x:.0e}".split("e")
+    return f"${a}\\times10^{{{int(b)}}}$"
+
+
+FMAX = max(fidv(m["name"]) for m in models)
 
 # ------------------------------------------------------------------ LaTeX
 L = [r"\section*{Supplementary Note 4. The verified benchmark models}", r"\sloppy", "",
-     r"This note lists, for each of the 22 benchmark models verified in Lean, the data contained in its file in "
+     r"This note lists, for each of the " + str(NM) + r" benchmark models verified in Lean, the data contained in its file in "
      r"\texttt{lean\_proofs/Models/}, the checks executed by the Lean kernel on those data and the final theorem "
      r"that results. Each file was generated from the SBML model and the PEtab parameter table of the benchmark by "
      r"\texttt{certificados/sbml\_to\_lean.py}, with every number written as an exact rational. The checks are "
@@ -124,24 +147,146 @@ L = [r"\section*{Supplementary Note 4. The verified benchmark models}", r"\slopp
      r"assumptions of Parts~II--III (smooth vector field on a domain containing the trajectory, existence of the "
      r"nominal solution on the horizon, non-negativity, and differentiability of the solution with respect to the "
      r"parameters). \texttt{\#print axioms} for every final theorem reports only \texttt{propext}, "
-     r"\texttt{Classical.choice} and \texttt{Quot.sound} (\texttt{CheckModelAxioms.lean}). Table~S5 summarises the "
-     r"models; the paragraphs below give the data of each one.", "",
-     r"{\small", r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}rrrr>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{2.9cm}r@{}}",
-     r"\caption*{\textbf{Supplementary Table S5.} Benchmark models verified in Lean. $n$: species (states); $p$: "
-     r"parameters; $R$: rate terms (reactions after splitting reversible ones); $|\Sigma|$: species proved strictly "
-     r"positive; time: compilation time of the model files (s).}\\",
-     r"\toprule", r"Model & $n$ & $p$ & $R$ & $|\Sigma|$ & Horizon & Final theorem & Time \\", r"\midrule", r"\endhead"]
+     r"\texttt{Classical.choice} and \texttt{Quot.sound} (\texttt{CheckModelAxioms.lean}). Table~S6 summarises the "
+     r"models, the next subsections describe the independent check of the translation, a complete example (Boehm) "
+     r"and the benchmark problems that were not verified, and the last subsections give the data of each model.", "",
+     r"{\small", r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}rrrr>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.5cm}rr@{}}",
+     r"\caption*{\textbf{Supplementary Table S6.} Benchmark models verified in Lean. $n$: states (species, plus "
+     r"time when a rate law depends on it); $p$: parameters; $R$: rate terms (reactions after splitting reversible "
+     r"ones); $|\Sigma|$: species proved strictly positive; time: compilation time of the model files (s); "
+     r"fidelity: largest relative difference between the Lean translation and the SBML model evaluated by "
+     r"libRoadRunner (vector field, parameter values and initial values).}\\",
+     r"\toprule", r"Model & $n$ & $p$ & $R$ & $|\Sigma|$ & Horizon & Final theorem & Time & Fidelity \\", r"\midrule", r"\endhead"]
 for m in models:
     hz = (r"$T\le" + m["Tq"] + "$") if m["Tq"] else ("6 segments" if m["segs"] else r"all $T\ge0$")
     t = f"{m['time']:.0f}" if m["time"] else "--"
     br = lambda x: re.sub(r"([a-z])([A-Z])", r"\1\\allowbreak{}\2", esc(x).replace(r"\_", r"\_\allowbreak{}"))
     L.append(f"{br(m['name'])} & {m['n']:,} & {m['p']:,} & {m['nterms']:,} & {len(m['sigma']) or '--'} & {hz} & "
-             f"\\texttt{{{br(m['final'])}}} & {t} \\\\".replace(",", "{,}"))
+             f"\\texttt{{{br(m['final'])}}} & {t} & {fmte(fidv(m['name']))} \\\\".replace(",", "{,}"))
 L += [r"\bottomrule", r"\end{longtable}", "}", ""]
+
+# ---------------- fidelity of the translation
+L += [r"\subsection*{Agreement of the translation with the SBML models}", "",
+      r"Lean checks the expressions it is given; whether these expressions are the model of the benchmark is a "
+      r"separate question. The script \texttt{certificados/verifica\_traduccion.py} answers it without using the "
+      r"translator: it reads the rate laws, the stoichiometry, the parameter values $\theta_q$ and the initial values "
+      r"directly from the Lean files, evaluates the vector field in floating point, and compares it with the "
+      r"derivatives computed by libRoadRunner from the original SBML model with the nominal parameters of the PEtab "
+      r"table, at the initial state and at five random positive states. It also compares $\theta_q$ with the PEtab "
+      r"nominal values and the initial values (or $G(\theta_q)$) with those of the SBML model. Over the " + str(NM) +
+      r" models the largest relative difference is " + fmte(FMAX) + r", i.e.\ agreement to rounding error "
+      r"(Table~S6, last column). As a control, changing one parameter value, one initial value or one stoichiometric "
+      r"coefficient of the Lean file by 1\% is detected (relative differences of $10^{-2}$). The comparison covers the "
+      r"model without condition-specific overrides, which is what the Lean files describe; for models defined by "
+      r"segments it covers the first segment.", ""]
+
+# ---------------- worked example
+import verifica_traduccion as V
+from fractions import Fraction as _F
+B = "Boehm_JProteomeRes2014"
+LB = V.load_lean(B)
+bm = next(m for m in models if m["name"] == B)
+snames = [s.split(" (")[0] for s in LB["states"]]
+
+
+def tex(e, prec=0):
+    k = e[0]
+    def wrap(t, pr):
+        return f"\\left({t}\\right)" if pr < prec else t
+    if k in ("qconst", "const"):
+        q = _F(e[1]).limit_denominator(10 ** 12)
+        t = str(q.numerator) if q.denominator == 1 else f"\\tfrac{{{q.numerator}}}{{{q.denominator}}}"
+        return wrap(t, 3) if q < 0 else t
+    if k == "var":
+        nm = snames[e[1]]
+        return "\\tau" if "tiempo" in LB["states"][e[1]] else f"\\mathrm{{{esc(nm)}}}"
+    if k == "par":
+        return f"\\theta_{{{e[1] + 1}}}"
+    if k == "add":
+        return wrap(f"{tex(e[1], 1)}+{tex(e[2], 1)}", 1)
+    if k == "sub":
+        return wrap(f"{tex(e[1], 1)}-{tex(e[2], 2)}", 1)
+    if k == "mul":
+        a, b = e[1], e[2]
+        if a[0] == "qconst" and a[1] == -1:
+            return wrap(f"-{tex(b, 2)}", 1)
+        return wrap(f"{tex(a, 2)}\\,{tex(b, 2)}", 2)
+    if k == "div":
+        return f"\\dfrac{{{tex(e[1])}}}{{{tex(e[2])}}}"
+    if k == "npow":
+        return f"{tex(e[1], 3)}^{{{e[2]}}}"
+    if k == "rpow":
+        return f"{tex(e[1], 3)}^{{{e[2]:g}}}"
+    if k == "exp":
+        return f"e^{{{tex(e[1])}}}"
+    if k == "log":
+        return f"\\log{tex(e[1], 3)}"
+
+
+def col(c):
+    return ", ".join(f"{snames[i] if 'tiempo' not in LB['states'][i] else 'tau'}: {_F(v).limit_denominator(10**9)}" for i, v in c)
+
+
+L += [r"\subsection*{A complete example: Boehm\_JProteomeRes2014}", "",
+      r"The model of STAT5 dimerisation by Boehm et al.\ is small enough to follow every step. Its file is "
+      r"\texttt{lean\_proofs/Models/Boehm\_JProteomeRes2014.lean} (about 60 lines).", "",
+      r"\textbf{1. Model.} The SBML model has 8 species, and the stimulus decays as $e^{-\theta_1\tau}$, where "
+      r"$\tau$ is time; the translator therefore adds $\tau$ as a ninth state with $\dot\tau=1$. The six estimated "
+      r"parameters are " + ", ".join(f"$\\theta_{{{j+1}}}=$ {esc(a)} ({fmt(v)})" for j, (a, v) in enumerate(zip(bm['pnames'], bm['theta']))) +
+      r". The vector field is $f_i=\sum_k\nu_{ik}v_k$ with the following rate terms $v_k$ and stoichiometric "
+      r"coefficients $\nu_{ik}$ (the constants come from compartment volumes and fixed parameters of the SBML model):", "",
+      r"{\small", r"\begin{longtable}{@{}r>{\raggedright\arraybackslash}p{9.6cm}>{\raggedright\arraybackslash}p{5.2cm}@{}}",
+      r"\toprule", r"$k$ & Rate term $v_k$ & Stoichiometry $\nu_{\cdot k}$ \\", r"\midrule"]
+for k, (e, c) in enumerate(LB["R"]):
+    L.append(f"{k + 1} & ${tex(e)}$ & {esc(col(c))} \\\\")
+L += [r"\bottomrule", r"\end{longtable}", "}", "",
+      r"\textbf{2. Translation into Lean.} Each rate term is a \texttt{KExpr}, for example "
+      r"\texttt{KExpr.npow (KExpr.var 0) 2} stands for $\mathrm{STAT5A}^2$; numbers are exact rationals, "
+      r"and the list \texttt{Rx} pairs each term with its stoichiometric column. The initial value is the rational "
+      r"vector \texttt{xq} (STAT5A and STAT5B positive, all other states 0), and \texttt{θq} holds the six parameters.".replace("θq", r"$\theta_q$"), "",
+      r"\textbf{3. Checks.} Four Boolean checks are evaluated by the Lean kernel: \texttt{net\_ok} (every rate term is "
+      r"well defined for $x\ge0$, and every term that consumes a species vanishes when that species is 0, so the field "
+      r"is quasi-positive), \texttt{growth\_ok} (with weights $w_i=1$, $\sum_if_i\le a+b\sum_ix_i$: the stoichiometric "
+      r"columns of six terms have a negative sum, and the remaining ones, the nuclear-import terms 7--9 and "
+      r"$\dot\tau=1$, are at most linear in the states), \texttt{theta\_ok} "
+      r"(all $\theta_j>0$) and \texttt{x0\_ok} ($x_q\ge0$).", "",
+      r"\textbf{4. Final theorem.} \texttt{def final := network\_final pos Rx net\_ok c growth\_ok θq theta\_ok xq x0\_ok} "
+      r"applies the end-to-end theorem of step~28 to these data. Its statement is: for every $T\ge0$ there is a "
+      r"solution $x_0$ on $[0,T]$ with $x_0(0)=x_q$, $x_0(t)\ge0$ and $(x_0(t),\theta_q)$ in the domain; there is a "
+      r"family $x(\cdot;\theta)$ of solutions for $\theta$ near $\theta_q$ with $x(\cdot;\theta_q)=x_0$; and "
+      r"$x(t;\theta)$ is differentiable in $\theta$ at $\theta_q$ with derivative $S(t)$, $S(0)=0$, solving the "
+      r"variational equation. These are the hypotheses of Parts~II--III for this model.".replace("θq", r"$\theta_q$"), "",
+      r"\textbf{5. Reproduction.} From the folder \texttt{lean\_proofs/}, the command "
+      r"\texttt{lake env lean Models/Boehm\_JProteomeRes2014.lean} compiles the file in a few seconds and prints "
+      r"\texttt{'Models.Boehm\_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound]}. "
+      r"The command \texttt{python3 certificados/verifica\_traduccion.py Boehm\_JProteomeRes2014} compares the file "
+      r"with the SBML model (largest relative difference " + fmte(fidv(B)) + r").", ""]
+
+# ---------------- benchmark problems without a verified model
+L += [r"\subsection*{Benchmark problems without a verified model}", "",
+      r"Of the 34 benchmark problems analysed in the paper, 27 have a verified model; Froehlich, which is verified in "
+      r"Lean, is the further problem analysed only on its state trajectories. The remaining seven problems were not "
+      r"verified, for the following reasons. They are not counted in any statement that relies on G5.", "",
+      r"\begin{itemize}\itemsep0pt\small",
+      r"\item \textbf{Smith}: two reactions use $\max(\mathrm{PIP3}-\mathrm{basal},0)$, which is not differentiable, so the "
+      r"vector field is not $C^1$ and the sensitivity theorem does not apply.",
+      r"\item \textbf{Liu} and \textbf{Oliveira}: they contain events triggered by the state or by a parameter-dependent "
+      r"condition, not at fixed times; such events are outside Hypothesis~2 (step~18).",
+      r"\item \textbf{Alkan}: the model translates, but the syntactic checkers cannot establish well-definedness for 22 "
+      r"rate terms or quasi-positivity for 6 of them; this does not mean that the properties fail, only that the "
+      r"automatic proof does not cover them.",
+      r"\item \textbf{Perelson} and \textbf{Schwen}: the quasi-positivity check fails for two rate terms each, so "
+      r"non-negativity of the solutions is not established by the checker.",
+      r"\item \textbf{Beer}: smoothness and quasi-positivity are verified on both segments of the model, but the linear "
+      r"growth check is not satisfied, so existence of the nominal solution on the horizon is not proved; only a "
+      r"conditional theorem (assuming the solution exists) is available.",
+      r"\end{itemize}", ""]
+
+L += [r"\subsection*{Data of each model}", ""]
 
 for m in models:
     nm = esc(m["name"])
-    L += [r"\subsection*{" + nm + "}", ""]
+    L += [r"\subsubsection*{" + nm + "}", ""]
     items = []
     fl = f"\\texttt{{Models/{nm}.lean}}" + (f" and {m['parts']} part files in \\texttt{{Models/{nm}/}}" if m["parts"] else "")
     items.append(f"\\textbf{{File:}} {fl}.")
@@ -169,6 +314,7 @@ for m in models:
     if m["Tq"]:
         items.append(f"\\textbf{{Horizon:}} $T\\le T_q={m['Tq']}$ (quadratic growth; Riccati bound).")
     items.append(r"\textbf{Checks executed by the kernel:} " + "; ".join(CHECK[c] for c in m["checks"]) + ".")
+    items.append(r"\textbf{Fidelity of the translation:} largest relative difference " + fmte(fidv(m["name"])) + ".")
     items.append(f"\\textbf{{Final theorem}} (\\texttt{{Models.{nm}.final}} $:=$ \\texttt{{{esc(m['final'])}}}): " + FINAL[m["final"]] + ".")
     L += [r"\begin{itemize}\itemsep0pt\small"] + [r"\item " + it for it in items] + [r"\end{itemize}", ""]
 
@@ -178,5 +324,5 @@ p = HERE / "supplementary.tex"
 s = p.read_text(encoding="utf-8")
 key = r"\section*{Supplementary Note 4."
 a = s.index(key) if key in s else s.index(r"\end{document}")
-p.write_text(s[:a] + "\n".join(L) + "\n" + r"\input{suppl_conclusion}" + "\n\n" + r"\end{document}" + "\n", encoding="utf-8")
+p.write_text(s[:a] + "\n".join(L) + "\n" + r"\input{suppl_reproduction}" + "\n\n" + r"\input{suppl_conclusion}" + "\n\n" + r"\end{document}" + "\n", encoding="utf-8")
 print(len(models), "models;", {m["name"]: (m["n"], m["p"], m["nterms"]) for m in models})

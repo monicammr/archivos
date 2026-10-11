@@ -2,7 +2,7 @@
 
 Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axiomas propios.
 
-**Módulos de teoría:** 31; **teoremas y lemas:** 289. **Modelos del benchmark verificados:** 22.
+**Módulos de teoría:** 31; **teoremas y lemas:** 289. **Modelos del benchmark verificados:** 28.
 
 ## Resumen por módulo
 
@@ -492,17 +492,23 @@ Cada archivo de `Models/` es un modelo traducido de SBML; su teorema final estab
 
 * `Armistead_CellDeathDis2024`: `Models.Armistead_CellDeathDis2024.final`
 * `Bachmann_MSB2011`: `Models.Bachmann_MSB2011.final`
+* `Bertozzi_PNAS2020`: `Models.Bertozzi_PNAS2020.final`
 * `Blasi_CellSystems2016`: `Models.Blasi_CellSystems2016.final`
 * `Boehm_JProteomeRes2014`: `Models.Boehm_JProteomeRes2014.final`
 * `Borghans_BiophysChem1997`: `Models.Borghans_BiophysChem1997.final`
 * `Brannmark_JBC2010`: `Models.Brannmark_JBC2010.final`
+* `Bruno_JExpBot2016`: `Models.Bruno_JExpBot2016.final`
 * `Chen_MSB2009`: `Models.Chen_MSB2009.final`
 * `Crauste_CellSystems2017`: `Models.Crauste_CellSystems2017.final`
 * `Elowitz_Nature2000`: `Models.Elowitz_Nature2000.final`
 * `Fiedler_BMCSystBiol2016`: `Models.Fiedler_BMCSystBiol2016.final`
 * `Froehlich_CellSystems2018`: `Models.Froehlich_CellSystems2018.final`
+* `Fujita_SciSignal2010`: `Models.Fujita_SciSignal2010.final`
 * `Giordano_Nature2020`: `Models.Giordano_Nature2020.final`
+* `Isensee_JCB2018`: `Models.Isensee_JCB2018.final`
 * `Lang_PLOSComputBiol2024`: `Models.Lang_PLOSComputBiol2024.final`
+* `Laske_PLOSComputBiol2019`: `Models.Laske_PLOSComputBiol2019.final`
+* `Lucarelli_CellSystems2018`: `Models.Lucarelli_CellSystems2018.final`
 * `Okuonghae_ChaosSolitonsFractals2020`: `Models.Okuonghae_ChaosSolitonsFractals2020.final`
 * `Rahman_MBS2016`: `Models.Rahman_MBS2016.final`
 * `Raia_CancerResearch2011`: `Models.Raia_CancerResearch2011.final`

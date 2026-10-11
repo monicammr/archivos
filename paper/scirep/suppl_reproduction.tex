@@ -1,0 +1,24 @@
+\section*{Supplementary Note 5. Independent reproduction of the verification}
+
+This note describes how a reader can check the formal verification without relying on our statements. Three different things can be checked, and they answer different questions.
+
+\subsection*{What each check establishes}
+\begin{itemize}\itemsep0pt
+\item \emph{Compilation} establishes that every proof is accepted by the Lean kernel, i.e.\ that each theorem follows from its hypotheses.
+\item \emph{Axiom inspection} (\texttt{\#print axioms}) establishes that no proof relies on an unproved assumption: the only axioms are \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, which are part of Lean's standard logic.
+\item \emph{The fidelity check} of Supplementary Note~4 establishes that the data on which the model checks run (rate laws, stoichiometry, parameter values and initial values) are those of the benchmark models.
+\end{itemize}
+The statements themselves should be compared with the mathematics they are meant to encode; Supplementary Note~3 gives each statement in mathematical notation for this purpose.
+
+\subsection*{Versions}
+Lean~4.23.0 (file \texttt{lean\_proofs/lean-toolchain}) and Mathlib at tag \texttt{v4.23.0} (file \texttt{lean\_proofs/lakefile.lean}). The repository is \url{https://github.com/monicammr/archivos}; the version used for this article will be archived on Zenodo with a DOI upon acceptance, and the exact commit is stated there. The Python checks use Python~3.11, libRoadRunner and libSBML.
+
+\subsection*{Steps}
+\begin{enumerate}\itemsep0pt
+\item Install the Lean version manager \texttt{elan} (\url{https://github.com/leanprover/elan}); it reads the Lean version from \texttt{lean-toolchain}.
+\item In the folder \texttt{lean\_proofs/}, run \texttt{./verify.sh}. The script (i) checks that no file contains \texttt{sorry} or an \texttt{axiom} declaration, (ii) downloads the precompiled Mathlib (\texttt{lake exe cache get}), (iii) compiles the 31 theory modules and the 28 models (\texttt{lake build}) and (iv) prints the axioms of every theorem (\texttt{CheckAxioms.lean}) and of the final theorem of every model (\texttt{CheckModelAxioms.lean}). The theory compiles in a few minutes; the models take longer, the largest (Chen and Froehlich) about 30 minutes each. A large stack is needed (\texttt{ulimit -s unlimited}; the build passes \texttt{--tstack=4000000} to the model files).
+\item To inspect one model only: \texttt{lake env lean Models/<model>.lean}. The last line of each model file prints the axioms of its final theorem.
+\item To locate a theorem: Supplementary Table~S3 gives the module of every main result, and \texttt{lean\_proofs/THEOREMS.md} and \texttt{FORMULAS.md} list every declaration with its module; the module \texttt{X} is the file \texttt{lean\_proofs/X.lean}.
+\item To check the translation of the models: from the folder \texttt{certificados/}, \texttt{python3 verifica\_traduccion.py} compares every model file with its SBML model and writes \texttt{resultados/sbml\_lean/fidelidad.json}; a single model can be given as argument.
+\end{enumerate}
+Our complete build log, with the compilation time of every module, is \texttt{lean\_proofs/BUILD\_LOG.md}.

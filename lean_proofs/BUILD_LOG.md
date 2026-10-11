@@ -8,7 +8,7 @@ stack `ulimit -s unlimited`, `--tstack=4000000` for the models). Generated 2026-
 * `CheckAxioms.lean` (all 289 theorems and lemmas of the theory):
   * 288 × `[propext, Classical.choice, Quot.sound]`
   * 1 × `[propext, Quot.sound]`
-* `CheckModelAxioms.lean` (final theorem of each of the 22 models):
+* `CheckModelAxioms.lean` (final theorem of each of the 22 models of the first build):
   * 22 × `[propext, Classical.choice, Quot.sound]`
 
 No theorem depends on any axiom beyond Lean's standard ones (`propext`, `Classical.choice`, `Quot.sound`).
@@ -88,3 +88,21 @@ No theorem depends on any axiom beyond Lean's standard ones (`propext`, `Classic
 | `PatternMechanisms` | 2.8 |
 | `RefitMonotone` | 2.0 |
 | `Poda` | 1.5 |
+
+## Models added on 2026-10-11
+
+Six further benchmark models were translated with `certificados/sbml_to_lean.py` (horizon = last
+measurement time of each PEtab problem) and compiled individually with the same toolchain
+(`lean --tstack=4000000`, stack unlimited). Each final theorem reports only the standard axioms:
+
+| Model | Final theorem | Time (s) | `#print axioms` |
+|---|---|---|---|
+| `Models.Bertozzi_PNAS2020` | `network_final` | 188 | `[propext, Classical.choice, Quot.sound]` |
+| `Models.Bruno_JExpBot2016` | `network_final` | 4 | `[propext, Classical.choice, Quot.sound]` |
+| `Models.Fujita_SciSignal2010` | `network_final_init` | 5 | `[propext, Classical.choice, Quot.sound]` |
+| `Models.Isensee_JCB2018` | `network_final` | 8 | `[propext, Classical.choice, Quot.sound]` |
+| `Models.Laske_PLOSComputBiol2019` | `network_final` | 10 | `[propext, Classical.choice, Quot.sound]` |
+| `Models.Lucarelli_CellSystems2018` | `network_final_init` | 26 | `[propext, Classical.choice, Quot.sound]` |
+
+(The 188 s of the first file include loading the compiled theory.) `AllModels.lean` and
+`CheckModelAxioms.lean` now cover the 28 models.

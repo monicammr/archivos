@@ -154,7 +154,7 @@ $\tau_e=0.50$ & 25 & 2.08 & 24/26 \\
 
 \subsection*{Formal guarantees}\label{sec:formal}\pdfbookmark[1]{Formal guarantees}{bm9}
 
-Table~\ref{tab:theorems} lists the mathematical statements on which the method relies and that are verified in Lean~4 with Mathlib; The complete development comprises 31 modules with 289 theorems and lemmas and 22 verified benchmark models; Supplementary Table~S3 lists all modules and their main theorems, and all proofs compile together with a single command (Code availability). None of the proofs uses unproved assumptions (\texttt{sorry}) or additional axioms. Two statements are central to the method:
+Table~\ref{tab:theorems} lists the mathematical statements on which the method relies and that are verified in Lean~4 with Mathlib; The complete development comprises 31 modules with 289 theorems and lemmas and 28 verified benchmark models; Supplementary Table~S3 lists all modules and their main theorems, and all proofs compile together with a single command (Code availability). None of the proofs uses unproved assumptions (\texttt{sorry}) or additional axioms. Two statements are central to the method:
 
 \begin{theorem}\label{thm:cos}
 For vectors $d\neq 0$ and $b\neq 0$ in a real inner-product space, $\min_{\lambda\in\mathbb{R}}\|d-\lambda b\|/\|d\| = \sqrt{1-\cos^2(d,b)}$.
@@ -164,7 +164,7 @@ For vectors $d\neq 0$ and $b\neq 0$ in a real inner-product space, $\min_{\lambd
 Let $\mathcal{A}$ be any admissibility predicate on finite sets and $S$ an admissible set. Backward elimination (removing one element at a time whenever the remaining set is still admissible, until no element can be removed) returns an admissible subset of $S$ from which no element can be removed without losing admissibility.
 \end{theorem}
 
-Theorem~\ref{thm:cos} justifies the threshold $\tau_e$: an error of at most $\sqrt{1-c^2}$ after re-estimation is the natural counterpart of a cosine similarity of at least $c$. Theorem~\ref{thm:prune} gives the precise sense in which the selected subsets are minimal: no parameter can be removed, although a different, smaller admissible subset that is not contained in the result may exist. The other verified statements cover the remaining steps: re-estimating more parameters never increases the fitting error and $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the selection keeps $\kappa$ and VIF below their thresholds and permanently discarding a rejected candidate is correct because both quantities can only increase when parameters are added; $\kappa$ and VIF bounds imply unique and stable least-squares estimates; error bounds on the states transfer to the measured outputs, including logarithmic transformations; and the first-order version of $e_{\mathrm{fit}}$ used for the largest models differs from the exact one by a second-order term. The verification is local: it does not prove that a subset remains adequate far from $\theta_0$, which is assessed empirically above.
+Theorem~\ref{thm:cos} relates the threshold $\tau_e$ to the cosine: whenever $\cos\Delta\ge c$, rescaling the reduced response already gives a relative error of at most $\sqrt{1-c^2}$, and re-estimating several parameters can only do better to first order. The converse does not hold, and admissibility itself is decided by the numerically computed $e_{\mathrm{fit}}$. Theorem~\ref{thm:prune} gives the precise sense in which the selected subsets are minimal: no parameter can be removed, although a different, smaller admissible subset that is not contained in the result may exist. The other verified statements cover the remaining steps: re-estimating more parameters never increases the fitting error and $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the selection keeps $\kappa$ and VIF below their thresholds and permanently discarding a rejected candidate is correct because both quantities can only increase when parameters are added; $\kappa$ and VIF bounds imply that the linearised least-squares problem for the retained parameters has a unique and stable solution (which is not a proof of identifiability of the nonlinear model); error bounds on the states transfer to the measured outputs, including logarithmic transformations; and the first-order version of $e_{\mathrm{fit}}$ used for the largest models differs from the exact one by a second-order term. The verification is local: it does not prove that a subset remains adequate far from $\theta_0$, which is assessed empirically above. The theorems are implications; the quantities to which they are applied ($\kappa$, VIF, $R_{\mathrm{var}}$, $e_{\mathrm{fit}}$) are computed in floating point, and Supplementary Table~S4 states the scope of each guarantee and the numerical values that connect it with our results. The model files used by Lean were checked against the SBML models of the benchmark, with agreement to rounding error (Supplementary Note~4).
 
 \begin{table}[t]
 \caption{\textbf{Formally verified statements (Lean~4/Mathlib).} Each statement is proved without unproved assumptions or additional axioms. The corresponding formal theorems are listed in Supplementary Table~S3.}
@@ -178,13 +178,13 @@ Step of the method & Verified statement \\
 Energy and $R_{\mathrm{var}}$ & $E_j=(J^\top J)_{jj}$; the total energy is the sum of retained and discarded energy; the first-order output change caused by discarded parameters is bounded by their energy \\
 Sensitivities of the ODE & For $C^1$ vector fields, solutions depend differentiably on parameters and initial conditions, and the sensitivity solves the variational equation \\
 Greedy selection & The returned subset satisfies $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$; rejected candidates would still violate the test with the final subset \\
-Identifiability & $\kappa$ and VIF bounds imply uniqueness and stability of least-squares estimates of the retained parameters \\
-Admissibility threshold & Theorem~\ref{thm:cos} (minimum error after rescaling equals $\sqrt{1-\cos^2}$) \\
+Identifiability & $\kappa$ and VIF bounds imply uniqueness and stability of the linearised least-squares estimates of the retained parameters \\
+Admissibility threshold & Theorem~\ref{thm:cos} (minimum error after rescaling equals $\sqrt{1-\cos^2}$); re-estimating several parameters is at least as good to first order \\
 Re-estimation & Adding parameters to the re-estimated set cannot increase the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ \\
 Backward elimination & Theorem~\ref{thm:prune} (minimality with respect to inclusion) \\
 Measured outputs & Error bounds on states transfer to outputs $y_i=h(g_i(x))/\sigma_i$ with Lipschitz observables; $\log$ and $\log_{10}$ are Lipschitz on $[c,\infty)$ \\
 First-order $e_{\mathrm{fit}}$ & The linearised fitting error never exceeds the rescaled error and differs from the exact one by at most a second-order term \\
-Model assumptions & For 22 of the benchmark models translated from SBML, the vector field is smooth, solutions exist on the simulated horizon and concentrations remain non-negative \\
+Model assumptions & For 28 benchmark models translated from SBML (and checked against the SBML models), the vector field is smooth, solutions exist on the simulated horizon, concentrations remain non-negative and solutions are differentiable in the parameters \\
 \botrule
 \end{tabular}
 \end{table}
@@ -254,7 +254,7 @@ For each admissible problem, the final subset was kept fixed and $e_{\mathrm{fit
 
 \subsection*{Formal verification}\pdfbookmark[1]{Formal verification}{bm21}
 
-The formal development uses Lean~4 (version 4.23.0) and Mathlib\cite{bib19,bib21}. Model regularity (smoothness of the vector field, existence of solutions on the simulated horizon and non-negativity of concentrations) was verified for 22 benchmark models by translating their SBML rate laws into Lean expressions and applying verified checkers. All files compile without \texttt{sorry}, and \texttt{\#print axioms} reports only the standard axioms of Lean's logic (\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}).
+The formal development uses Lean~4 (version 4.23.0) and Mathlib\cite{bib19,bib21}. Model regularity (smoothness of the vector field, existence of solutions on the simulated horizon and non-negativity of concentrations) was verified for 28 benchmark models (27 of the 34 problems analysed, and Froehlich) by translating their SBML rate laws into Lean expressions and applying verified checkers; the reasons why the other seven problems were not verified are given in Supplementary Note~4. The translated vector fields, parameter values and initial values were compared with the SBML models evaluated by libRoadRunner and agree to rounding error. All files compile without \texttt{sorry}, and \texttt{\#print axioms} reports only the standard axioms of Lean's logic (\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}).
 
 \subsection*{Use of large language models}\pdfbookmark[1]{Use of large language models}{bm22}
 
@@ -280,7 +280,7 @@ This research received no external funding.
 \bmhead{Additional information}
 \textbf{Competing interests:} The authors declare no competing interests.\\
 \textbf{Correspondence} and requests for materials should be addressed to M.M.R.\\
-\textbf{Supplementary information} accompanies this paper (Supplementary Tables S1--S5 and Supplementary Notes 1--4).
+\textbf{Supplementary information} accompanies this paper (Supplementary Tables S1--S6, Supplementary Figure S1 and Supplementary Notes 1--5).
 
 \input{references.tex}
 

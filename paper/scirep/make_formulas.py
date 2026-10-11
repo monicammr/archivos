@@ -73,11 +73,11 @@ L = [r"\section*{Supplementary Note 3. Statements of the formal theorems}", r"\s
      rf"({len(decl)} modules, {tot} declarations) and explains what it means, so that the formal statements can be "
      r"read alongside the code. The Lean name is given as it appears in the source (prefixed by the module "
      r"namespace). Hypotheses are written before $\Rightarrow$; standing assumptions of each module are given in "
-     r"its description. Table~S4 explains the symbols used throughout; symbols specific to a module are explained "
+     r"its description. Table~S5 explains the symbols used throughout; symbols specific to a module are explained "
      r"at the start of that module. The same content, with the Lean identifiers, is in \texttt{lean\_proofs/FORMULAS.md}.",
      "", r"{\small",
      r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{7.2cm}@{}}",
-     r"\caption*{\textbf{Supplementary Table S4.} Notation of the formalisation.}\\", r"\toprule",
+     r"\caption*{\textbf{Supplementary Table S5.} Notation of the formalisation.}\\", r"\toprule",
      r"Symbol & Lean & Meaning \\", r"\midrule", r"\endhead"]
 for sym, lean, mean in fo.GLOSSARY:
     L.append(f"${sym}$ & {lean_tx(lean)} & {tx(mean)} \\\\")

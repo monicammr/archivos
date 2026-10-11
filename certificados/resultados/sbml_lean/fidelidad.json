@@ -1,0 +1,288 @@
+[
+ {
+  "sistema": "Armistead_CellDeathDis2024",
+  "n_lean": 4,
+  "n_comparados": 4,
+  "puntos": 6,
+  "err_rel_max": 0.0,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "sistema": "Bachmann_MSB2011",
+  "n_lean": 25,
+  "n_comparados": 25,
+  "puntos": 6,
+  "err_rel_max": 3.006288648466512e-15,
+  "err_por_punto": [
+   4.2249652177928953e-16,
+   6.367493265948476e-16,
+   5.205988470332002e-16,
+   1.3472183721075473e-15,
+   2.4889877422716952e-15,
+   3.006288648466512e-15
+  ]
+ },
+ {
+  "sistema": "Blasi_CellSystems2016",
+  "n_lean": 16,
+  "n_comparados": 16,
+  "puntos": 6,
+  "err_rel_max": 3.8138380899501195e-15,
+  "err_por_punto": [
+   0.0,
+   1.881154085071398e-15,
+   7.298476713533512e-16,
+   4.613940340297485e-16,
+   3.659522346540019e-16,
+   3.8138380899501195e-15
+  ]
+ },
+ {
+  "sistema": "Boehm_JProteomeRes2014",
+  "n_lean": 9,
+  "n_comparados": 8,
+  "puntos": 6,
+  "err_rel_max": 3.7648379641050713e-16,
+  "err_por_punto": [
+   2.0848558836799329e-16,
+   2.0260947204472606e-16,
+   3.049072263490171e-16,
+   3.7648379641050713e-16,
+   2.2094172752854257e-16,
+   2.0849810688314408e-16
+  ]
+ },
+ {
+  "sistema": "Borghans_BiophysChem1997",
+  "n_lean": 3,
+  "n_comparados": 3,
+  "puntos": 6,
+  "err_rel_max": 1.9250142618732282e-16,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   1.4841898600348958e-16,
+   0.0,
+   0.0,
+   1.9250142618732282e-16
+  ]
+ },
+ {
+  "sistema": "Brannmark_JBC2010",
+  "n_lean": 9,
+  "n_comparados": 9,
+  "puntos": 6,
+  "err_rel_max": 1.4973491369452637e-13,
+  "err_por_punto": [
+   1.4973491369452637e-13,
+   2.193078675612945e-16,
+   1.8545515112836903e-16,
+   1.381694883563881e-16,
+   1.1946975074998026e-16,
+   2.208216847821683e-16
+  ]
+ },
+ {
+  "sistema": "Chen_MSB2009",
+  "error": "AttributeError(\"'NoneType' object has no attribute 'group'\")"
+ },
+ {
+  "sistema": "Crauste_CellSystems2017",
+  "n_lean": 5,
+  "n_comparados": 5,
+  "puntos": 6,
+  "err_rel_max": 0.0,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "sistema": "Elowitz_Nature2000",
+  "n_lean": 8,
+  "n_comparados": 8,
+  "puntos": 6,
+  "err_rel_max": 1.691798700831736e-16,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   0.0,
+   1.4963529676469596e-16,
+   1.4039909705911302e-16,
+   1.691798700831736e-16
+  ]
+ },
+ {
+  "sistema": "Fiedler_BMCSystBiol2016",
+  "n_lean": 7,
+  "n_comparados": 6,
+  "puntos": 6,
+  "err_rel_max": 0.0,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "sistema": "Froehlich_CellSystems2018",
+  "error": "AttributeError(\"'NoneType' object has no attribute 'group'\")"
+ },
+ {
+  "sistema": "Giordano_Nature2020",
+  "n_lean": 10,
+  "n_comparados": 10,
+  "puntos": 6,
+  "err_rel_max": 4.240869557555414e-16,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   0.0,
+   4.240869557555414e-16,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "sistema": "Lang_PLOSComputBiol2024",
+  "error": "AttributeError(\"'NoneType' object has no attribute 'group'\")"
+ },
+ {
+  "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+  "n_lean": 8,
+  "n_comparados": 8,
+  "puntos": 6,
+  "err_rel_max": 6.588756859290529e-16,
+  "err_por_punto": [
+   2.730128190660572e-16,
+   2.626169903213471e-16,
+   6.175186316525134e-16,
+   6.588756859290529e-16,
+   4.573414525424582e-16,
+   4.1828032367325237e-16
+  ]
+ },
+ {
+  "sistema": "Rahman_MBS2016",
+  "n_lean": 7,
+  "n_comparados": 7,
+  "puntos": 6,
+  "err_rel_max": 1.3048627263443712e-15,
+  "err_por_punto": [
+   6.903889180367514e-16,
+   0.0,
+   0.0,
+   1.3048627263443712e-15,
+   0.0,
+   2.2755496752888307e-16
+  ]
+ },
+ {
+  "sistema": "Raia_CancerResearch2011",
+  "n_lean": 14,
+  "n_comparados": 14,
+  "puntos": 6,
+  "err_rel_max": 6.005890600954998e-16,
+  "err_por_punto": [
+   6.005890600954998e-16,
+   1.1781615779596546e-16,
+   3.6678682155659106e-16,
+   5.78914831198688e-16,
+   1.591497108289176e-16,
+   1.6565356914864417e-16
+  ]
+ },
+ {
+  "sistema": "Raimundez_PCB2020",
+  "n_lean": 22,
+  "n_comparados": 22,
+  "puntos": 6,
+  "err_rel_max": 8.049561254903875e-16,
+  "err_por_punto": [
+   1.36645250019066e-16,
+   1.438815277101613e-16,
+   8.049561254903875e-16,
+   0.0,
+   3.723310654932096e-16,
+   4.336555416857063e-16
+  ]
+ },
+ {
+  "sistema": "SalazarCavazos_MBoC2020",
+  "error": "AttributeError(\"'NoneType' object has no attribute 'group'\")"
+ },
+ {
+  "sistema": "Sneyd_PNAS2002",
+  "n_lean": 6,
+  "n_comparados": 6,
+  "puntos": 6,
+  "err_rel_max": 4.0652117147830145e-15,
+  "err_por_punto": [
+   1.5996748908362061e-16,
+   2.773960576879424e-16,
+   2.1096352004498397e-16,
+   2.540159744092698e-16,
+   4.0652117147830145e-15,
+   3.350486507246472e-16
+  ]
+ },
+ {
+  "sistema": "Weber_BMC2015",
+  "n_lean": 7,
+  "n_comparados": 7,
+  "puntos": 6,
+  "err_rel_max": 0.0,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "sistema": "Zhao_QuantBiol2020",
+  "n_lean": 4,
+  "n_comparados": 4,
+  "puntos": 6,
+  "err_rel_max": 0.0,
+  "err_por_punto": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ {
+  "sistema": "Zheng_PNAS2012",
+  "n_lean": 15,
+  "n_comparados": 15,
+  "puntos": 6,
+  "err_rel_max": 1.2306436017391718e-15,
+  "err_por_punto": [
+   1.2306436017391718e-15,
+   0.0,
+   1.8565270087047241e-16,
+   2.719123600863495e-16,
+   2.8833577973129454e-16,
+   1.4424768592505316e-16
+  ]
+ }
+]
