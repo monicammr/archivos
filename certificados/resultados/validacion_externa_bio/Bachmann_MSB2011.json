@@ -43,12 +43,16 @@
   "scale_pEpoR_fine",
   "scale_pJAK2_fine"
  ],
- "A_chi2_test_theta0": 1.053346477865389,
- "A_chi2_train_red": 0.8833898754702997,
- "A_chi2_test_red": 4.767638397475885,
- "B_chi2_test_theta0": 1.2282141639054904,
- "B_chi2_test_red": 3.368312637495084,
- "B_epred_red": 3.09878698756542,
+ "A_chi2_test_theta0": 1.0533464778653865,
+ "A_chi2_train_red": 0.8833898711156505,
+ "A_chi2_test_red": 4.767652118202476,
+ "A_chi2_train_full": 0.853783037299115,
+ "A_chi2_test_full": 12.22721852178201,
+ "B_chi2_test_theta0": 1.2282141639063895,
+ "B_chi2_test_red": 3.370016471498536,
+ "B_epred_red": 3.099885993112706,
  "B_epred_theta0": 1.0,
- "segundos": 85.5
+ "B_chi2_test_full": 12.624957894445142,
+ "B_epred_full": 6.911785672069835,
+ "segundos": 290.2
 }
