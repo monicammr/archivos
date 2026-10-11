@@ -71,15 +71,33 @@ def table1():
     (OUT / "table1.tex").write_text("\n".join(L) + "\n")
 
 
+def nivel(d):
+    """Nivel de garantía de un subconjunto admisible: 1 = e_fit; 2 = además cos Δ ≥ c; 3 = además R_var ≥ 0,89."""
+    if not d.get("admisible"):
+        return None
+    lv = 1
+    if d["cos_med"] >= 0.9:
+        lv = 2
+        if d["Rvar_%"] >= 89:
+            lv = 3
+    return lv
+
+
 def tableS1():
     brk = lambda t: tex(t).replace(r"\_", r"\_\allowbreak{}").replace(", ", ", \\allowbreak{}")
-    L = [r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedright\arraybackslash}p{6.3cm}>{\raggedright\arraybackslash}p{5.0cm}@{}}", r"\toprule",
-         r"System & Selected biological parameters $S$ & Removed by backward elimination \\", r"\midrule",
+    L = [r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.3cm}>{\raggedright\arraybackslash}p{2.9cm}rrrrrc@{}}", r"\toprule",
+         r"System & Selected biological parameters $S$ & Removed by backward elimination & $\kappa$ & VIF & $R_{\mathrm{var}}$ (\%) & $\cos\Delta$ & $e_{\mathrm{fit}}$ (\%) & Level \\", r"\midrule",
          r"\endhead"]
     for name, d in sorted(SEL.items(), key=lambda kv: kv[0].lower()):
-        L.append(f"{brk(name.split('_')[0])} & {brk(', '.join(d['S']))} & {brk(', '.join(d.get('podados', []) or ['--']))} \\\\")
+        lv = nivel(d)
+        ef = 100 * d["eajuste_med"]
+        efs = "n.d." if name == "Crauste_CellSystems2017" else f"{ef:.1f}"
+        L.append(f"{brk(name.split('_')[0])} & {brk(', '.join(d['S']))} & {brk(', '.join(d.get('podados', []) or ['--']))} & "
+                 f"{d['kappa']:.1f} & {d['VIF']:.1f} & {d['Rvar_%']:.0f} & {d['cos_med']:.2f} & {efs} & {lv if lv else '--'} \\\\")
     L += [r"\bottomrule", r"\end{longtable}"]
     (OUT / "tableS1.tex").write_text("\n".join(L) + "\n")
+    lv = [nivel(d) for d in SEL.values() if d.get("admisible")]
+    print("niveles:", {k: lv.count(k) for k in (1, 2, 3)})
 
 
 if __name__ == "__main__":
