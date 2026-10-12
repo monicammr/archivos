@@ -216,6 +216,24 @@
   "x0_de_theta": true
  },
  {
+  "sistema": "Froehlich_CellSystems2018",
+  "n_lean": 1228,
+  "n_comparados": 1228,
+  "puntos": 6,
+  "err_rel_max": 6.287695356132918e-14,
+  "err_por_punto": [
+   0.0,
+   8.883326429144176e-15,
+   1.6222202092795296e-14,
+   6.287695356132918e-14,
+   5.18861640142413e-15,
+   4.551651062960463e-15
+  ],
+  "err_theta": 0.0,
+  "err_x0": 0.0,
+  "x0_de_theta": false
+ },
+ {
   "sistema": "Fujita_SciSignal2010",
   "n_lean": 9,
   "n_comparados": 9,

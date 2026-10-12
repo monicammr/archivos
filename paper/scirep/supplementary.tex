@@ -969,7 +969,7 @@ Chen\_\allowbreak{}MSB2009 & 501 & 152 & 1{,}243 & -- & all $T\ge0$ & \texttt{ne
 Crauste\_\allowbreak{}Cell\allowbreak{}Systems2017 & 5 & 12 & 12 & -- & $T\le1$ & \texttt{riccati\_\allowbreak{}final} & 6 & 0 \\
 Elowitz\_\allowbreak{}Nature2000 & 8 & 18 & 18 & 8 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init} & 6 & $2\times10^{-16}$ \\
 Fiedler\_\allowbreak{}BMCSyst\allowbreak{}Biol2016 & 7 & 12 & 8 & 6 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init\allowbreak{}I} & 15 & 0 \\
-Froehlich\_\allowbreak{}Cell\allowbreak{}Systems2018 & 1{,}228 & 4{,}088 & 4{,}487 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 2021 & pending \\
+Froehlich\_\allowbreak{}Cell\allowbreak{}Systems2018 & 1{,}228 & 4{,}088 & 4{,}487 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 2021 & $6\times10^{-14}$ \\
 Fujita\_\allowbreak{}Sci\allowbreak{}Signal2010 & 9 & 16 & 13 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final\_\allowbreak{}init} & 5 & $1\times10^{-16}$ \\
 Giordano\_\allowbreak{}Nature2020 & 10 & 43 & 96 & -- & 6 segments & \texttt{network\_\allowbreak{}segments\_\allowbreak{}final} & 8 & $4\times10^{-16}$ \\
 Isensee\_\allowbreak{}JCB2018 & 25 & 32 & 34 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 8 & $1\times10^{-14}$ \\
@@ -991,7 +991,7 @@ Zheng\_\allowbreak{}PNAS2012 & 15 & 45 & 44 & -- & all $T\ge0$ & \texttt{network
 
 \subsection*{Agreement of the translation with the SBML models}
 
-Lean checks the expressions it is given; whether these expressions are the model of the benchmark is a separate question. The script \texttt{certificados/verifica\_traduccion.py} answers it without using the translator: it reads the rate laws, the stoichiometry, the parameter values $\theta_q$ and the initial values directly from the Lean files, evaluates the vector field in floating point, and compares it with the derivatives computed by libRoadRunner from the original SBML model with the nominal parameters of the PEtab table, at the initial state and at five random positive states. It also compares $\theta_q$ with the PEtab nominal values and the initial values (or $G(\theta_q)$) with those of the SBML model. Over the 27 models checked so far (the check of Froehlich is still running), the largest relative difference is $1\times10^{-12}$, i.e.\ agreement to rounding error (Table~S6, last column). As a control, changing one parameter value, one initial value or one stoichiometric coefficient of the Lean file by 1\% is detected (relative differences of $10^{-2}$). The comparison covers the model without condition-specific overrides, which is what the Lean files describe; for models defined by segments it covers the first segment.
+Lean checks the expressions it is given; whether these expressions are the model of the benchmark is a separate question. The script \texttt{certificados/verifica\_traduccion.py} answers it without using the translator: it reads the rate laws, the stoichiometry, the parameter values $\theta_q$ and the initial values directly from the Lean files, evaluates the vector field in floating point, and compares it with the derivatives computed by libRoadRunner from the original SBML model with the nominal parameters of the PEtab table, at the initial state and at five random positive states. It also compares $\theta_q$ with the PEtab nominal values and the initial values (or $G(\theta_q)$) with those of the SBML model. Over the 28 models, the largest relative difference is $1\times10^{-12}$, i.e.\ agreement to rounding error (Table~S6, last column). As a control, changing one parameter value, one initial value or one stoichiometric coefficient of the Lean file by 1\% is detected (relative differences of $10^{-2}$). The comparison covers the model without condition-specific overrides, which is what the Lean files describe; for models defined by segments it covers the first segment.
 
 \subsection*{A complete example: Boehm\_JProteomeRes2014}
 
@@ -1248,7 +1248,7 @@ Of the 34 benchmark problems analysed in the paper, 27 have a verified model; Fr
 \item \textbf{Initial values:} constant rational vector $x_q$ (0 non-zero entries).
 \item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
 \item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
-\item \textbf{Fidelity of the translation:} largest relative difference pending.
+\item \textbf{Fidelity of the translation:} largest relative difference $6\times10^{-14}$.
 \item \textbf{Final theorem} (\texttt{Models.Froehlich\_CellSystems2018.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
 \end{itemize}
 
