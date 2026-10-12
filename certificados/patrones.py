@@ -29,7 +29,7 @@ import petab_outputs as PO
 
 HERE = Path(__file__).resolve().parent
 SEL = HERE / "resultados" / "reclasificacion_salidas_bio_poda"
-OUTD = HERE / "resultados" / "patrones"
+OUTD = HERE / "resultados" / os.environ.get("PATRONES_OUT", "patrones")
 NIVELES = [0.01, 0.05, 0.10, 0.20, 0.30, 0.40, 0.50]
 N_ESC, SEED = 15, 42
 EMAX = float(np.sqrt(1 - 0.9 ** 2))
@@ -61,11 +61,16 @@ def uno(name):
                 Js[:, c] = (yp - ym).ravel() / 0.02
     res = {"sistema": name, "S": info["S"], "n_calibracion": len(info.get("calibracion", [])),
            "niveles": {}}
+    U = np.random.default_rng(SEED).uniform(-1, 1, size=(N_ESC, p))   # las 15 direcciones u(k)
+    res["semilla"] = SEED
+    res["u"] = U.tolist()
     for nivel in NIVELES:
-        cs, es, fs = [], [], []
+        cs, es, fs, ks = [], [], [], []
         rng = np.random.default_rng(SEED)   # misma semilla por nivel: ±5 % = escenarios de la selección
-        for _ in range(N_ESC):
-            th = np.maximum(th0 * (1 + nivel * rng.uniform(-1, 1, size=p)), 1e-12)
+        for k in range(N_ESC):
+            u_k = rng.uniform(-1, 1, size=p)
+            assert np.array_equal(u_k, U[k])   # mismas direcciones en todos los niveles (diseño emparejado)
+            th = np.maximum(th0 * (1 + nivel * u_k), 1e-12)
             yf = Sy.sim(th)
             if yf is None:
                 continue
@@ -83,6 +88,7 @@ def uno(name):
             er = float(np.linalg.norm(d - ds) / nf)
             es.append(er)
 
+            ks.append(k)
             if lineal:
                 c_, *_ = np.linalg.lstsq(Js, d, rcond=None)
                 fs.append(min(er, float(np.linalg.norm(d - Js @ c_) / nf)))
@@ -104,7 +110,8 @@ def uno(name):
         q = lambda v, k: float(np.percentile(v, k)) if v else float("nan")
         res["niveles"][f"{int(round(100 * nivel))}"] = {
             "n": len(fs), "cos_med": q(cs, 50), "erel_med": q(es, 50),
-            "eaj_med": q(fs, 50), "eaj_q25": q(fs, 25), "eaj_q75": q(fs, 75)}
+            "eaj_med": q(fs, 50), "eaj_q25": q(fs, 25), "eaj_q75": q(fs, 75),
+            "escenarios": ks, "eaj": fs, "erel": es, "cos": cs}
     ok = [res["niveles"][k]["eaj_med"] <= EMAX for k in res["niveles"]
           if np.isfinite(res["niveles"][k]["eaj_med"])]
     niv = [NIVELES[i] for i in range(len(ok))]
