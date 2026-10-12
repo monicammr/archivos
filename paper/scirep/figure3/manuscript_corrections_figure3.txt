@@ -1,0 +1,21 @@
+PROPOSED CORRECTIONS RELATED TO FIGURE 3 (main.tex)
+============================================================
+
+RESULTS - 'Reduced models predict held-out experiments', second paragraph. Replace:
+
+  OLD: ...in 27 of 28 problems in which both could be compared (Fig. 3a; in two of these, Zhao and Isensee, the two test errors differed by less than 0.2%). ... the reduced model reached a test chi2/n no larger than twice that of theta0 in 23 of 30 problems (Fig. 3b). In three problems (Okuonghae, Oliveira, Smith) even theta0 has chi2/n >> 1, ...
+
+  NEW (LaTeX):
+
+The reduced model predicted the held-out experiments as well as or better than the full model (test $\chi^2/n$ within 5\% of the full model or lower) in 27 of the 28 problems in which both could be compared (Fig.~\ref{fig:validation}a, which shows the 25 problems with noisy data); in 5 of them (Borghans, Isensee, Perelson, Smith, Zhao) the two test errors differed by less than 0.2\%. The exception was Raia (test $\chi^2/n$ of 8.2 versus 5.1). In several problems the full model overfitted the training data and predicted much worse, for example Brannmark (test $\chi^2/n$ 5.8 versus 2,145), Weber (1.0 versus 226), Zheng (1.6 versus 20.6) and Bachmann (4.8 versus 12.2). Compared with the published estimate $\theta_0$, which was obtained using all data including the test set, the reduced model reached a test $\chi^2/n$ no larger than twice that of $\theta_0$ in 23 of 30 problems (21 of the 27 shown in Fig.~\ref{fig:validation}b). In 5 problems (Chen, Okuonghae, Oliveira, Salazar-Cavazos and Smith) even $\theta_0$ has $\chi^2/n>10$, which indicates that the noise levels recorded in the benchmark do not match the scatter of the data; in these problems a favourable ratio does not imply a good absolute fit.
+
+
+FIGURE 3 CAPTION: replace with the LaTeX version in figure3_caption_revised.txt (old caption says n = 27 and n = 29; the panels show n = 25 and n = 27).
+
+
+METHODS - 'External validation': add at the end:
+
+  Problems whose test $\chi^2/n$ at $\theta_0$ was below 0.01 (Giordano, Perelson, Rahman) reproduce the data to far below the recorded noise level; their $\chi^2/n$ values are not comparable and they are counted in the text but not shown in Fig.~\ref{fig:validation}. Test errors were compared through the ratio of the reduced to the reference $\chi^2/n$; ratios between 0.95 and 1.05 were considered equivalent.
+
+
+ABSTRACT/INTRODUCTION sentence '27 of 28 testable cases': correct as it stands (counts all 28 pairs).

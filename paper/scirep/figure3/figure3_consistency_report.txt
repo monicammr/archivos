@@ -1,0 +1,92 @@
+FIGURE 3 - CONSISTENCY REPORT
+==============================================================================
+Source: certificados/resultados/validacion_externa_bio/<problem>.json (validacion_externa.py),
+keys A_chi2_test_red / A_chi2_test_full / A_chi2_test_theta0 / n_test / division / no_evaluable.
+All three chi2 columns exist (A_chi2_test_theta0 included), so both panels can be built.
+
+1. PROBLEMS
+   34 benchmark problems; 32 admissible; external validation was run for the admissible ones.
+   Not validated (no admissible subset): Beer, Crauste.
+   Validation possible (train/test split): 30  (by condition 20, by time 10)
+   No valid split: Bertozzi (selected parameters act only in the test conditions),
+                   Blasi (single condition and single time point).
+
+2. VALID PAIRS
+   reduced_chi2 and full_chi2 both valid:   28  (missing full: Chen, Lang - full re-estimation not run)
+   reduced_chi2 and theta0_chi2 both valid: 30
+   Noise-free data (test chi2/n of theta0 < 0.01): Giordano, Perelson, Rahman
+      Giordano   reduced 1.02e-07  full 0.0552  theta0 7.45e-09
+      Perelson   reduced 3.96e-13  full 3.96e-13  theta0 3.96e-13
+      Rahman     reduced 0.00199  full 0.0257  theta0 0.00148
+   For these, chi2/n is far below 1 for every fit: the recorded noise is much larger than the scatter,
+   so ratios of tiny numbers are not informative; they are excluded from the figure (as in the current one).
+
+3. PANELS OF THE FIGURE
+   Panel a (reduced vs full):   n = 25   excluded: Bertozzi, Blasi (no split); Chen, Lang (no full refit);
+                                         Giordano, Perelson, Rahman (noise-free); Beer, Crauste (not admissible)
+   Panel b (reduced vs theta0): n = 27   excluded: Bertozzi, Blasi (no split); Giordano, Perelson, Rahman (noise-free);
+                                         Beer, Crauste (not admissible)
+
+4. COUNTS (ratio q = reduced/reference; equivalent if 0.95 <= q <= 1.05)
+   all valid pairs, reduced vs full (n = 28):
+      better (q < 0.95):              21
+      equivalent (0.95 <= q <= 1.05):  6  Borghans, Isensee, Perelson, Schwen, Smith, Zhao
+      worse (q > 1.05):                1  Raia
+      equivalent or better:           27 of 28
+      q <= 2:                         28 of 28
+      |q - 1| < 0.2 %:                Borghans, Isensee, Perelson, Smith, Zhao
+   panel a, reduced vs full (n = 25):
+      better (q < 0.95):              19
+      equivalent (0.95 <= q <= 1.05):  5  Borghans, Isensee, Schwen, Smith, Zhao
+      worse (q > 1.05):                1  Raia
+      equivalent or better:           24 of 25
+      q <= 2:                         25 of 25
+      |q - 1| < 0.2 %:                Borghans, Isensee, Smith, Zhao
+   all valid pairs, reduced vs theta0 (n = 30):
+      better (q < 0.95):               2
+      equivalent (0.95 <= q <= 1.05):  7  Borghans, Bruno, Isensee, Liu, Perelson, Weber, Zhao
+      worse (q > 1.05):               21  Alkan, Armistead, Bachmann, Boehm, Brannmark, Chen, Elowitz, Fiedler, Fujita, Giordano, Lang, Laske, Lucarelli, Okuonghae, Rahman, Raia, Raimundez, Salazar-Cavazos, Schwen, Sneyd, Zheng
+      equivalent or better:            9 of 30
+      q <= 2:                         23 of 30
+      |q - 1| < 0.2 %:                Bruno, Perelson, Zhao
+   panel b, reduced vs theta0 (n = 27):
+      better (q < 0.95):               2
+      equivalent (0.95 <= q <= 1.05):  6  Borghans, Bruno, Isensee, Liu, Weber, Zhao
+      worse (q > 1.05):               19  Alkan, Armistead, Bachmann, Boehm, Brannmark, Chen, Elowitz, Fiedler, Fujita, Lang, Laske, Lucarelli, Okuonghae, Raia, Raimundez, Salazar-Cavazos, Schwen, Sneyd, Zheng
+      equivalent or better:            8 of 27
+      q <= 2:                         21 of 27
+      |q - 1| < 0.2 %:                Bruno, Zhao
+
+5. POOR ABSOLUTE FIT (reduced chi2/n > 10, shown with a marker in the figure)
+   Chen             reduced 20.77   theta0 15.22
+   Fiedler          reduced 11.21   theta0 1.217   full 14.11
+   Okuonghae        reduced 4.671e+04   theta0 2.875e+04   full 1.224e+05
+   Oliveira         reduced 914.5   theta0 4.604e+05   full 8.145e+04
+   Salazar-Cavazos  reduced 101.8   theta0 96.93   full 124.2
+   Smith            reduced 1.498e+04   theta0 8.292e+04   full 1.498e+04
+   theta0 itself has chi2/n > 10 in: Chen, Okuonghae, Oliveira, Salazar-Cavazos, Smith
+
+6. COMPARISON WITH THE MANUSCRIPT (main.tex)
+   > [Fig. 3 caption] \caption{\textbf{Prediction of held-out experiments with real data.} Mean squared noise-scaled residual ($\chi^2/n$) on the test experiments for the reduced model (vertical axis) against \textbf{a}, the full model re-estimated on the same training experiments ($n=27$ problems) and \textbf{b}, the published estimate $\theta_0$, which was obtained using all data including the test e
+   > When fitted to part of the experiments, the reduced models predicted the remaining experiments as well as or better than the full models in 27 of 28 testable cases, and most remained adequate for parameter changes of up to 50\%.
+   > The reduced model predicted the held-out experiments as well as or better than the full model in 27 of 28 problems in which both could be compared (Fig.
+   > Compared with the published estimate $\theta_0$, which was obtained using all data including the test set, the reduced model reached a test $\chi^2/n$ no larger than twice that of $\theta_0$ in 23 of 30 problems (Fig.
+   > ~\ref{fig:validation}a; in two of these, Zhao and Isensee, the two test errors differed by less than 0.
+   > In three problems (Okuonghae, Oliveira, Smith) even $\theta_0$ has $\chi^2/n\gg 1$, which indicates that the noise levels recorded in the benchmark do not match the scatter of the data.
+   > We therefore split the measurements of each problem into training and test sets, by experimental condition when several conditions were available (21 problems) and by time otherwise, using the later time points as test set (11 problems); calibration or condition-specific parameters that appear only in the test set were excluded.
+
+   [OK] '27 of 28' (reduced as good as or better than full): computed 27 of 28 over all valid pairs (noise-free problems included). Correct as a count over all 28 pairs.
+   [DISCREPANCY] Fig. 3a caption says n = 27; the panel shows 25 problems (the 28 pairs minus the 3 noise-free).
+                 In panel a: 24 of 25 equivalent or better; the only worse case is Raia.
+   [OK] '23 of 30' (reduced chi2 <= 2 x theta0): computed 23 of 30 over all valid pairs (noise-free included).
+   [DISCREPANCY] Fig. 3b caption says n = 29; the panel shows 27 problems (the 30 pairs minus the 3 noise-free).
+                 In panel b: 21 of 27 have q <= 2.
+   [DISCREPANCY] 'in two of these, Zhao and Isensee, the two test errors differed by less than 0.2%':
+                 |q-1| < 0.2 % holds for 5 problems: Borghans, Isensee, Perelson, Smith, Zhao.
+   [DISCREPANCY] 'In three problems (Okuonghae, Oliveira, Smith) even theta0 has chi2/n >> 1': theta0 chi2/n > 10
+                 in 5 problems: Chen, Okuonghae, Oliveira, Salazar-Cavazos, Smith.
+   [OK] Raia is the only problem in which the full model predicts better (8.2 vs 5.1).
+   [OK] Brannmark 5.8 vs 2,145; Weber 1.0 vs 226; Zheng 1.6 vs 20.6; Bachmann 4.8 vs 12.2.
+   [OK] Results: 'by experimental condition (21 problems) ... by time (11 problems)': the files give 21 and 11 over the 32 admissible problems (Bertozzi and Blasi included, although their split is not usable).
+
+7. SENTENCES TO CHANGE: see manuscript_corrections_figure3.txt
