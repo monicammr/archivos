@@ -17,3 +17,4 @@ certificados/resultados/*/checkpoints/
 paper/scirep/*.toc
 __pycache__/
 *.pyc
+certificados/resultados/patrones_escenarios/parcial/
