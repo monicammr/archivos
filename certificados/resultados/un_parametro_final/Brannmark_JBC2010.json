@@ -1,0 +1,87 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "calibracion": [
+  "k_IRP_1Step",
+  "k_IRSiP_1Step",
+  "k_IRSiP_2Step"
+ ],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "k1f",
+   "e_rel": 0.6946907756863107,
+   "e_fit": 0.11282253813079308,
+   "admisible": true
+  },
+  {
+   "parametro": "k3",
+   "e_rel": 0.6470437051301245,
+   "e_fit": 0.11292794413462881,
+   "admisible": true
+  },
+  {
+   "parametro": "k1c",
+   "e_rel": 0.5604248726787696,
+   "e_fit": 0.09663385957477048,
+   "admisible": true
+  },
+  {
+   "parametro": "km2",
+   "e_rel": 0.6970808103143795,
+   "e_fit": 0.09441545970677949,
+   "admisible": true
+  },
+  {
+   "parametro": "k22",
+   "e_rel": 0.6859714932382202,
+   "e_fit": 0.11497025781853475,
+   "admisible": true
+  },
+  {
+   "parametro": "k21",
+   "e_rel": 0.6821452315257964,
+   "e_fit": 0.11496876457606012,
+   "admisible": true
+  },
+  {
+   "parametro": "km3",
+   "e_rel": 0.6720175912904413,
+   "e_fit": 0.1394602356425338,
+   "admisible": true
+  },
+  {
+   "parametro": "k1a",
+   "e_rel": 0.6823453427315134,
+   "e_fit": 0.14097053825490682,
+   "admisible": true
+  },
+  {
+   "parametro": "k_IRSiP_DosR",
+   "e_rel": 0.6823520616127683,
+   "e_fit": 0.13215993219896044,
+   "admisible": true
+  },
+  {
+   "parametro": "k1r",
+   "e_rel": 0.7085494214955179,
+   "e_fit": 0.1287572139329078,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "km2",
+ "mejor_efit_10": 0.09391708616725919,
+ "S_efit_10": 0.07813328309036749,
+ "mejor_validacion": {
+  "A_chi2_test_red": 0.9477935979655523,
+  "B_chi2_test_theta0": 5.545374220392146,
+  "B_epred_red": 1.8690093018595069,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 131.1
+}

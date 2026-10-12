@@ -1,0 +1,94 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "calibracion": [
+  "scale_p21_mRNA_fold",
+  "scale_patm_au",
+  "scale_pchk1_au",
+  "scale_pchk2_au",
+  "scale_pdnapk_au",
+  "scale_pp53_au",
+  "scale_tp21_au",
+  "scale_tp53_au",
+  "scale_wip1_mRNA_fold",
+  "scale_yh2ax_au"
+ ],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "kt",
+   "e_rel": 0.20840614880925024,
+   "e_fit": 0.20840614880925024,
+   "admisible": true
+  },
+  {
+   "parametro": "k_rep_nhej",
+   "e_rel": 0.9571717748837776,
+   "e_fit": 0.911180969258851,
+   "admisible": false
+  },
+  {
+   "parametro": "p_atm_act_dsb",
+   "e_rel": 0.9535300716757124,
+   "e_fit": 0.9445302636079567,
+   "admisible": false
+  },
+  {
+   "parametro": "k_damage_dox_dsb",
+   "e_rel": 0.9543119187021023,
+   "e_fit": 0.9272203530397549,
+   "admisible": false
+  },
+  {
+   "parametro": "p_chk1_act",
+   "e_rel": 0.9496850015557362,
+   "e_fit": 0.9453725502816003,
+   "admisible": false
+  },
+  {
+   "parametro": "k_damage_sn38_ssb",
+   "e_rel": 0.9582989656673353,
+   "e_fit": 0.922340199991509,
+   "admisible": false
+  },
+  {
+   "parametro": "p_p53_act_atm",
+   "e_rel": 0.9546843131169914,
+   "e_fit": 0.9343229990091194,
+   "admisible": false
+  },
+  {
+   "parametro": "k_damage_gem_ssb",
+   "e_rel": 0.9530176483561795,
+   "e_fit": 0.9032280208862676,
+   "admisible": false
+  },
+  {
+   "parametro": "p_chk1_dea_wip1",
+   "e_rel": 0.9500561385464285,
+   "e_fit": 0.9458593495794128,
+   "admisible": false
+  },
+  {
+   "parametro": "p_p21_mrna_turn",
+   "e_rel": 0.9559312585872393,
+   "e_fit": 0.9476856065794931,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "kt",
+ "mejor_efit_10": 0.13390586328185533,
+ "S_efit_10": 0.12232467823867357,
+ "mejor_validacion": {
+  "A_chi2_test_red": 2.4931480845985035,
+  "B_chi2_test_theta0": 2.2159959998811765,
+  "B_epred_red": 0.35890934397188395,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 3622.5
+}

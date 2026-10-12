@@ -1,0 +1,76 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "calibracion": [],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "kb1",
+   "e_rel": 0.911091642499815,
+   "e_fit": 0.8589180820361588,
+   "admisible": false
+  },
+  {
+   "parametro": "init_bcar2",
+   "e_rel": 0.929891006920972,
+   "e_fit": 0.9043177942087711,
+   "admisible": false
+  },
+  {
+   "parametro": "init_zea_1",
+   "e_rel": 0.8781251515775765,
+   "e_fit": 0.8781196359860236,
+   "admisible": false
+  },
+  {
+   "parametro": "init_bcar1",
+   "e_rel": 0.9834840228838901,
+   "e_fit": 0.9571044655114309,
+   "admisible": false
+  },
+  {
+   "parametro": "szea",
+   "e_rel": 0.9590092255478626,
+   "e_fit": 0.8972147270988073,
+   "admisible": false
+  },
+  {
+   "parametro": "init_bcry_1",
+   "e_rel": 0.9762247114606071,
+   "e_fit": 0.9757999374281013,
+   "admisible": false
+  },
+  {
+   "parametro": "init_b10_1",
+   "e_rel": 0.9899519534164524,
+   "e_fit": 0.9849365809351193,
+   "admisible": false
+  },
+  {
+   "parametro": "kc2",
+   "e_rel": 0.9895390711388925,
+   "e_fit": 0.9830182625533984,
+   "admisible": false
+  },
+  {
+   "parametro": "kb2",
+   "e_rel": 0.9843239104317366,
+   "e_fit": 0.977634658005635,
+   "admisible": false
+  },
+  {
+   "parametro": "init_ohb10_1",
+   "e_rel": 0.993228752255213,
+   "e_fit": 0.9932179915638023,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 8.2
+}

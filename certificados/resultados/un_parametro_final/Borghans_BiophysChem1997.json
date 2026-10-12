@@ -1,0 +1,116 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "calibracion": [
+  "offset",
+  "scale"
+ ],
+ "candidatos": 15,
+ "un_parametro": [
+  {
+   "parametro": "v1",
+   "e_rel": 1.0200841973964472,
+   "e_fit": 0.5443484326524638,
+   "admisible": false
+  },
+  {
+   "parametro": "beta_par",
+   "e_rel": 1.1489231231643022,
+   "e_fit": 0.5215346378526572,
+   "admisible": false
+  },
+  {
+   "parametro": "Vm2",
+   "e_rel": 0.8974499725619155,
+   "e_fit": 0.4617959686326767,
+   "admisible": false
+  },
+  {
+   "parametro": "Vm3",
+   "e_rel": 1.1184377143638826,
+   "e_fit": 0.5095441149238847,
+   "admisible": false
+  },
+  {
+   "parametro": "Kz",
+   "e_rel": 0.46991110347471243,
+   "e_fit": 0.12797169751620452,
+   "admisible": true
+  },
+  {
+   "parametro": "K_par",
+   "e_rel": 0.8646469469987829,
+   "e_fit": 0.5879595945870386,
+   "admisible": false
+  },
+  {
+   "parametro": "v0",
+   "e_rel": 0.5425605198262485,
+   "e_fit": 0.10453285938665867,
+   "admisible": true
+  },
+  {
+   "parametro": "Kf",
+   "e_rel": 1.02741330270878,
+   "e_fit": 0.5094155624781104,
+   "admisible": false
+  },
+  {
+   "parametro": "Kp",
+   "e_rel": 1.0297840864731396,
+   "e_fit": 0.5476821734661804,
+   "admisible": false
+  },
+  {
+   "parametro": "Ka",
+   "e_rel": 1.0094305222626796,
+   "e_fit": 0.5476803695995354,
+   "admisible": false
+  },
+  {
+   "parametro": "Kd",
+   "e_rel": 1.0173654549221598,
+   "e_fit": 0.5476606395609193,
+   "admisible": false
+  },
+  {
+   "parametro": "Vp",
+   "e_rel": 1.0010356388586197,
+   "e_fit": 0.5476784121099243,
+   "admisible": false
+  },
+  {
+   "parametro": "Ky",
+   "e_rel": 1.0277305778827586,
+   "e_fit": 0.5476572447200535,
+   "admisible": false
+  },
+  {
+   "parametro": "n_par",
+   "e_rel": 1.0013154180132495,
+   "e_fit": 0.5476802090002434,
+   "admisible": false
+  },
+  {
+   "parametro": "Vd",
+   "e_rel": 0.999115945257492,
+   "e_fit": 0.5476835557036291,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "v0",
+ "mejor_efit_10": 0.13610136811716997,
+ "S_efit_10": 0.08306495322938841,
+ "mejor_validacion": {
+  "A_chi2_test_red": 0.7451622883428733,
+  "B_chi2_test_theta0": 2.7170962542289927,
+  "B_epred_red": 1.000620509943875,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 204.8
+}

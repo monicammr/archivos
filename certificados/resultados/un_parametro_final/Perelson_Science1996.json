@@ -1,0 +1,25 @@
+{
+ "sistema": "Perelson_Science1996",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "calibracion": [],
+ "candidatos": 2,
+ "un_parametro": [
+  {
+   "parametro": "c",
+   "e_rel": 0.5509771278966683,
+   "e_fit": 0.5079788268740184,
+   "admisible": false
+  },
+  {
+   "parametro": "delta",
+   "e_rel": 0.6339228051574354,
+   "e_fit": 0.5864250119049773,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 0.2
+}

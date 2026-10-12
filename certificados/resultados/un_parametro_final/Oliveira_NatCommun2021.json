@@ -1,0 +1,83 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "calibracion": [],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "beta_0",
+   "e_rel": 1.3356572338749724,
+   "e_fit": 0.12930013336020457,
+   "admisible": true
+  },
+  {
+   "parametro": "delta_",
+   "e_rel": 0.8895626629614708,
+   "e_fit": 0.11245676544007252,
+   "admisible": true
+  },
+  {
+   "parametro": "t_1",
+   "e_rel": 0.9882511220928984,
+   "e_fit": 0.12872912179318988,
+   "admisible": true
+  },
+  {
+   "parametro": "beta_1",
+   "e_rel": 0.8904477840412708,
+   "e_fit": 0.24404998080344653,
+   "admisible": true
+  },
+  {
+   "parametro": "asymptomatic_init_concentration",
+   "e_rel": 0.9793621758799993,
+   "e_fit": 0.14336042401635338,
+   "admisible": true
+  },
+  {
+   "parametro": "symptomatic_init_concentration",
+   "e_rel": 1.0223981030290599,
+   "e_fit": 0.14635820825981308,
+   "admisible": true
+  },
+  {
+   "parametro": "exposed_init_concentration",
+   "e_rel": 1.0006865139277106,
+   "e_fit": 0.4722488330187323,
+   "admisible": false
+  },
+  {
+   "parametro": "h_hosp_rate",
+   "e_rel": 0.9999937329485284,
+   "e_fit": 0.9998053722982881,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_u",
+   "e_rel": 0.9999904548038252,
+   "e_fit": 0.9998603073260423,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_h",
+   "e_rel": 1.0000045603576153,
+   "e_fit": 0.9998631196364851,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "delta_",
+ "mejor_efit_10": 0.12321041268047046,
+ "S_efit_10": 0.13208435239190375,
+ "mejor_validacion": {
+  "A_chi2_test_red": 20075.8854979217,
+  "B_chi2_test_theta0": 66983590.35027821,
+  "B_epred_red": 0.38424595613418916,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 18.1
+}

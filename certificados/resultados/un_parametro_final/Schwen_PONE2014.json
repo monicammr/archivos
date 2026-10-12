@@ -1,0 +1,99 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "calibracion": [
+  "fragments",
+  "km_nExpID1",
+  "km_nExpID2",
+  "km_nExpID3",
+  "km_nExpID4",
+  "offset",
+  "offset_nExpID1",
+  "offset_nExpID2",
+  "offset_nExpID3",
+  "offset_nExpID4",
+  "scale",
+  "scaleElisa_nExpID1",
+  "scaleElisa_nExpID2",
+  "scaleElisa_nExpID3",
+  "scaleElisa_nExpID4"
+ ],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "ini_R1",
+   "e_rel": 0.4184709732254191,
+   "e_fit": 0.4184709732254191,
+   "admisible": true
+  },
+  {
+   "parametro": "ini_R2fold",
+   "e_rel": 0.4630344429858967,
+   "e_fit": 0.1858376865456936,
+   "admisible": true
+  },
+  {
+   "parametro": "ka1",
+   "e_rel": 0.5555202089789338,
+   "e_fit": 0.21282123155932256,
+   "admisible": true
+  },
+  {
+   "parametro": "kd1",
+   "e_rel": 0.5738631710787961,
+   "e_fit": 0.21173381737582717,
+   "admisible": true
+  },
+  {
+   "parametro": "kon_unspec",
+   "e_rel": 0.6134419175471287,
+   "e_fit": 0.2127598462305582,
+   "admisible": true
+  },
+  {
+   "parametro": "koff_unspec",
+   "e_rel": 0.5899619967907801,
+   "e_fit": 0.21254881227742828,
+   "admisible": true
+  },
+  {
+   "parametro": "ka2fold",
+   "e_rel": 0.5622689623145998,
+   "e_fit": 0.20345687122560782,
+   "admisible": true
+  },
+  {
+   "parametro": "kd2fold",
+   "e_rel": 0.4961408686039952,
+   "e_fit": 0.20345690392928467,
+   "admisible": true
+  },
+  {
+   "parametro": "kin2",
+   "e_rel": 0.5788416894454657,
+   "e_fit": 0.20175537042477498,
+   "admisible": true
+  },
+  {
+   "parametro": "kout_frag",
+   "e_rel": 0.6030052280737987,
+   "e_fit": 0.26442603685520477,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "ini_R2fold",
+ "mejor_efit_10": 0.19114979952473526,
+ "S_efit_10": 0.17314070019546693,
+ "mejor_validacion": {
+  "A_chi2_test_red": 0.8439672420555839,
+  "B_chi2_test_theta0": 1.4355246377976056,
+  "B_epred_red": 0.7604924610130468,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 859.5
+}

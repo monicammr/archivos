@@ -1,0 +1,81 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "calibracion": [],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "init_Rec",
+   "e_rel": 0.9750184123959151,
+   "e_fit": 0.9473923192651842,
+   "admisible": false
+  },
+  {
+   "parametro": "S2tot",
+   "e_rel": 0.9358568161215383,
+   "e_fit": 0.9042916517240237,
+   "admisible": false
+  },
+  {
+   "parametro": "S_dephosphos",
+   "e_rel": 1.0121484118814688,
+   "e_fit": 0.9842765900034606,
+   "admisible": false
+  },
+  {
+   "parametro": "S3tot",
+   "e_rel": 0.9696007687599539,
+   "e_fit": 0.9308034465057744,
+   "admisible": false
+  },
+  {
+   "parametro": "S_phos",
+   "e_rel": 1.0030688034979671,
+   "e_fit": 0.9832763814249881,
+   "admisible": false
+  },
+  {
+   "parametro": "pRec_degind",
+   "e_rel": 1.006769640191317,
+   "e_fit": 0.9818788678133562,
+   "admisible": false
+  },
+  {
+   "parametro": "geneF_turn",
+   "e_rel": 0.9904219361676425,
+   "e_fit": 0.9707743347052625,
+   "admisible": false
+  },
+  {
+   "parametro": "Rec_act",
+   "e_rel": 0.9985646378143473,
+   "e_fit": 0.9804843756176969,
+   "admisible": false
+  },
+  {
+   "parametro": "geneF_act1",
+   "e_rel": 0.9989338390518955,
+   "e_fit": 0.9700109615566371,
+   "admisible": false
+  },
+  {
+   "parametro": "k_234",
+   "e_rel": 0.9987439746478107,
+   "e_fit": 0.9767659376910732,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 232.5
+}
