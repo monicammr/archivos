@@ -241,39 +241,89 @@ def fig1_example():
 
 
 def fig2():
-    rows = sorted(SEL.values(), key=lambda d: d["p"])
-    n = len(rows); yy = np.arange(n)
-    fig, (a, b) = plt.subplots(1, 2, figsize=(7.0, 5.6), sharey=True,
-                               gridspec_kw={"width_ratios": [1, 1.2]})
-    lc = False
-    for i, d in enumerate(rows):
-        p, c, k = d["p"], len(d.get("calibracion", [])), len(d["S"])
-        a.plot([k, p], [i, i], color="0.8", lw=0.8, zorder=1)
-        a.scatter(p, i, s=14, marker="o", color="0.45", zorder=2, label="all parameters $p$" if i == 0 else None)
-        if c:
-            a.scatter(c, i, s=14, marker="s", color="#4c8bc9", zorder=3,
-                      label=None if lc else "calibration $|\\Theta_C|$")
-            lc = True
-        a.scatter(k, i, s=18, marker="D", color="#c0392b" if d["admisible"] else "white",
-                  edgecolor="#c0392b", zorder=4, label="selected biological $|S|$" if i == 0 else None)
-    a.set_xscale("log"); a.set_xlabel("Number of parameters")
-    a.set_yticks(yy); a.set_yticklabels([short(d["sistema"]) for d in rows], fontsize=6.5)
-    a.legend(loc="lower right", fontsize=6.5, frameon=False)
-    a.text(-0.02, 1.01, "a", transform=a.transAxes, fontweight="bold", fontsize=10, ha="right")
-    for i, d in enumerate(rows):
-        e = d.get("eajuste_med", np.nan); r = d.get("erel_med", np.nan)
-        b.plot([e, r], [i, i], color="0.85", lw=0.8, zorder=1)
-        b.scatter(r, i, s=14, marker="o", facecolor="white", edgecolor="0.4", zorder=2,
-                  label="$e_{\\mathrm{rel}}$ (no re-estimation)" if i == 0 else None)
-        b.scatter(e, i, s=18, marker="D", color="#c0392b" if d["admisible"] else "white",
-                  edgecolor="#c0392b", zorder=3, label="$e_{\\mathrm{fit}}$ (re-estimation)" if i == 0 else None)
-    b.axvline(TAU, color="k", ls="--", lw=0.8)
-    b.text(TAU * 1.04, n - 0.6, "$\\tau_e=0.436$", fontsize=6.5)
-    b.set_xscale("symlog", linthresh=0.01); b.set_xlim(0, 3)
-    b.set_xlabel("Median relative error at $\\pm$5 % (15 scenarios)")
-    b.legend(loc="lower right", fontsize=6.5, frameon=False)
-    b.text(-0.02, 1.01, "b", transform=b.transAxes, fontweight="bold", fontsize=10, ha="right")
-    fig.tight_layout(); fig.savefig(OUT / "fig2_benchmark.pdf", bbox_inches="tight"); plt.close(fig)
+    """(a) Reduction from the full to the retained parameters; (b) error before and after re-estimation."""
+    from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
+    LIN = {"Alkan_SciSignal2018", "Bachmann_MSB2011", "Beer_MolBioSystems2014", "Chen_MSB2009",
+           "Isensee_JCB2018", "Lang_PLOSComputBiol2024", "Lucarelli_CellSystems2018", "Raimundez_PCB2020"}
+    INK, MUTED, GRID = "#222222", "#6b6b6b", "#e6e6e6"
+    BLUE, ORANGE, GREEN, GREY = "#2a78d6", "#eb6834", "#1baf7a", "#8c8c8c"
+    rows = []
+    for d in SEL.values():
+        k, c = len(d["S"]), len(d.get("calibracion", []))
+        rows.append(dict(d=d, k=k, c=c, red=1 - (k + c) / d["p"]))
+    rows.sort(key=lambda r: (not r["d"]["admisible"], -r["red"], r["d"]["sistema"].lower()))
+    n = len(rows); yy = np.arange(n)[::-1]
+    nad = sum(r["d"]["admisible"] for r in rows)
+
+    fig, (a, b) = plt.subplots(1, 2, figsize=(7.2, 9.2), sharey=True, gridspec_kw={"width_ratios": [1, 1]})
+    fig.subplots_adjust(left=0.14, right=0.985, top=0.91, bottom=0.115, wspace=0.16)
+    for ax in (a, b):
+        for sp in ("top", "right"):
+            ax.spines[sp].set_visible(False)
+        ax.spines["left"].set_color(MUTED); ax.spines["bottom"].set_color(MUTED)
+        ax.tick_params(labelsize=6.8, length=2.5, color=MUTED)
+        ax.axhline(yy[nad - 1] - 0.5, color=ORANGE, ls=(0, (3, 2)), lw=0.9)
+    # ---- a: reduction
+    for y, r in zip(yy, rows):
+        d = r["d"]; p = d["p"]; ret = r["k"] + r["c"]; ok = d["admisible"]
+        col = BLUE if ok else ORANGE
+        a.plot([ret, p], [y, y], color="#cfd8e3" if ok else "#f5c6b1", lw=2.2, solid_capstyle="round", zorder=1)
+        a.scatter(p, y, s=16, color=GREY, zorder=3)
+        if ok:
+            a.scatter(ret, y, s=20, color=BLUE, zorder=4)
+        else:
+            a.scatter(ret, y, s=26, marker="D", facecolor="white", edgecolor=ORANGE, lw=1.1, zorder=4)
+        comp = f"{r['k']}" + (f"+{r['c']}" if r["c"] else "")
+        a.text(p * 1.13, y, f"{100 * r['red']:.0f}%  ({comp})", va="center", fontsize=6.0, color=INK if ok else ORANGE)
+    a.set_xscale("log"); a.set_xlim(0.8, 1500)
+    a.set_yticks(yy); a.set_yticklabels([short(r["d"]["sistema"]) for r in rows], fontsize=6.8)
+    a.set_ylim(-0.8, n - 0.2)
+    a.grid(axis="x", color=GRID, lw=0.5, which="major"); a.set_axisbelow(True)
+    a.set_xlabel("Number of estimated parameters (log scale)", fontsize=7.2, labelpad=4)
+    # ---- b: error before / after re-estimation
+    b.axvspan(0, 100 * TAU, color="#e8f6f0", lw=0, zorder=0)
+    b.axvline(100 * TAU, color=INK, ls="--", lw=0.8, zorder=1)
+    b.text(100 * TAU + 1.5, n - 0.6, "$\\tau_e=43.6\\%$", fontsize=6.4, va="center", color=INK)
+    b.text(1.5, n - 0.6, "admissible", fontsize=6.4, va="center", color="#138a60", fontweight="bold")
+    for y, r in zip(yy, rows):
+        d = r["d"]; ok = d["admisible"]
+        er, ef = 100 * d.get("erel_med", np.nan), 100 * d["eajuste_med"]
+        if d["sistema"].startswith("Crauste"):
+            b.text(2, y, "not defined (no solution for 1% changes)", fontsize=6.0, va="center", color=ORANGE, style="italic")
+            continue
+        if er - ef > 2.5:
+            b.annotate("", (ef + 1.2, y), (er - 1.2, y), arrowprops=dict(arrowstyle="-|>", color="#a8a8a8", lw=0.8, mutation_scale=6))
+        b.scatter(er, y, s=18, facecolor="white", edgecolor=GREY, lw=0.9, zorder=3)
+        if not ok:
+            b.scatter(ef, y, s=26, marker="D", facecolor="white", edgecolor=ORANGE, lw=1.1, zorder=4)
+        elif d["sistema"] in LIN:
+            b.scatter(ef, y, s=50, marker="*", color=GREEN, edgecolor="white", lw=0.3, zorder=4)
+        else:
+            b.scatter(ef, y, s=20, color=GREEN, zorder=4)
+    b.set_xlim(0, 140)
+    b.grid(axis="x", color=GRID, lw=0.5); b.set_axisbelow(True)
+    b.set_xlabel("Median relative error at $\\pm$5% (15 scenarios, %)", fontsize=7.2, labelpad=4)
+    b.text(139, yy[nad - 1] - 0.5 + 0.35, "no admissible subset", fontsize=6.0, color=ORANGE, ha="right", va="bottom", fontweight="bold")
+    # ---- panel headings: title and a separate subtitle line
+    for ax, letter, title, sub in (
+            (a, "a", "Reduction: full model $\\rightarrow$ retained", "labels: % reduction (biological + calibration retained)"),
+            (b, "b", "Recovery: before $\\rightarrow$ after re-estimation", "re-estimation brings the error below $\\tau_e$")):
+        x0 = -0.30 if ax is a else -0.05
+        ax.text(x0, 1.062, letter, transform=ax.transAxes, fontsize=11, fontweight="bold", va="bottom")
+        ax.text(0.0, 1.062, title, transform=ax.transAxes, fontsize=8.2, fontweight="bold", va="bottom", color=INK)
+        ax.text(0.0, 1.022, sub, transform=ax.transAxes, fontsize=6.6, va="bottom", color=MUTED)
+    # ---- legend, below both panels
+    h = [Line2D([], [], marker="o", ls="", color=GREY, ms=4.5, label="full model, $p$"),
+         Line2D([], [], marker="o", ls="", color=BLUE, ms=4.8, label="retained, $|S|+|\\Theta_C|$"),
+         Line2D([], [], marker="o", ls="", mfc="white", mec=GREY, ms=4.8, label="before, $e_{\\mathrm{rel}}$"),
+         Line2D([], [], marker="o", ls="", color=GREEN, ms=4.8, label="after, $e_{\\mathrm{fit}}$"),
+         Line2D([], [], marker="*", ls="", color=GREEN, ms=7, label="after, first-order estimate"),
+         Line2D([], [], marker="D", ls="", mfc="white", mec=ORANGE, ms=4.8, label="not admissible"),
+         Patch(fc="#e8f6f0", ec="none", label="admissible region, $e_{\\mathrm{fit}}\\leq\\tau_e$")]
+    fig.legend(handles=h, loc="lower center", ncol=4, fontsize=6.8, frameon=False, bbox_to_anchor=(0.56, 0.005),
+               columnspacing=1.6, handletextpad=0.4)
+    fig.savefig(OUT / "fig2_benchmark.pdf"); plt.close(fig)
 
 
 def fig3():

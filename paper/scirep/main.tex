@@ -79,10 +79,10 @@ The method found an admissible subset in 32 of the 34 problems (Fig.~\ref{fig:be
 
 Re-estimation is essential. When the selected parameters are simply set to their perturbed values, without re-estimation, the median relative error $e_{\mathrm{rel}}$ exceeds $\tau_e$ in 23 of the 32 admissible problems (Fig.~\ref{fig:benchmark}b); after re-estimation the median error $e_{\mathrm{fit}}$ is 14\% (maximum 43.5\%). In other words, the selected parameters do not replicate the effect of every individual perturbation; rather, adjusting them compensates for the perturbations of all other parameters in the measured outputs. This is precisely the property needed when the reduced model is fitted to data.
 
-\begin{figure}[t]
+\begin{figure}[p]
 \centering
-\includegraphics[width=\textwidth]{figures/fig2_benchmark.pdf}
-\caption{\textbf{Reduction across 34 benchmark problems.} \textbf{a}, Number of parameters of the full model ($p$, grey circles), calibration parameters that are always re-estimated ($|\Theta_C|$, blue squares) and selected biological parameters ($|S|$, red diamonds; open diamonds, no admissible subset). Problems are sorted by $p$. \textbf{b}, Median relative error over 15 random scenarios at $\pm$5\% when the selected parameters are set to their perturbed values without re-estimation ($e_{\mathrm{rel}}$, open circles) and after re-estimating them together with the calibration parameters ($e_{\mathrm{fit}}$, red diamonds). The dashed line marks the admissibility threshold $\tau_e=0.436$, equivalent to a cosine similarity of 0.9. The horizontal axis is linear below 0.01 and logarithmic above.}
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/fig2_benchmark.pdf}
+\caption{\textbf{Reduction and recovery across 34 benchmark problems.} Problems are ordered by the reduction achieved; the two without an admissible subset are at the bottom. \textbf{a}, Estimated parameters of the full model ($p$, grey) and parameters re-estimated in the reduced model (selected biological plus calibration parameters, blue). \textbf{b}, Median relative error over 15 random scenarios at $\pm$5\% before ($e_{\mathrm{rel}}$, open circles) and after re-estimating the retained parameters ($e_{\mathrm{fit}}$, green; stars, first-order estimate). The shaded region is the admissible region, $e_{\mathrm{fit}}\le\tau_e=43.6\%$.}
 \label{fig:benchmark}
 \end{figure}
 
