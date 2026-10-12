@@ -40,7 +40,70 @@ PAT = {k: v for k, v in load("patrones").items() if "niveles" in v}
 
 
 def fig1():
-    """Method overview: a flow of six steps, each illustrated with the real computation for Boehm."""
+    """Method overview: the steps of the method arranged by phase, with the stage-1/stage-2 decision loop."""
+    from matplotlib.patches import Polygon
+    INK, MUTED = "#222222", "#6b6b6b"
+    BLUE, ORANGE, GREEN = "#2a78d6", "#eb6834", "#1baf7a"
+    fig, ax = plt.subplots(figsize=(7.0, 2.9))
+    ax.set_xlim(0, 100); ax.set_ylim(0, 42); ax.axis("off")
+    W = 17.4
+    cols = [0.9 + 20.0 * i for i in range(5)]
+    phases = ["Inputs", "Sensitivity", "Selection", "Decision", "Result"]
+    for x, ph in zip(cols, phases):                   # phase columns
+        ax.add_patch(FancyBboxPatch((x - 0.8, 0.4), W + 1.6, 40.8, boxstyle="round,pad=0,rounding_size=1.2",
+                                    fc="#f5f6f8", ec="none", zorder=0))
+        ax.text(x + W / 2, 38.6, ph.upper(), ha="center", va="center", fontsize=6.4, color=MUTED,
+                fontweight="bold", zorder=1)
+
+    def box(x, y, h, text, n, color, fc="white", w=None, ls="-"):
+        w = W if w is None else w
+        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=1.0",
+                                    fc=fc, ec=color, lw=1.0, ls=ls, zorder=2))
+        ax.text(x + w / 2 + 0.3, y + h / 2, text, ha="center", va="center", fontsize=6.0, color=INK, zorder=3,
+                linespacing=1.25)
+        ax.text(x + 0.2, y + h - 0.2, str(n), ha="center", va="center", fontsize=6.2, fontweight="bold",
+                color="white", zorder=4, bbox=dict(boxstyle="circle,pad=0.22", fc=color, ec="none"))
+
+    arr = dict(arrowstyle="-|>", color=INK, lw=0.9, shrinkA=0, shrinkB=0)
+    yT, yB, h = 20.0, 3.0, 14.0        # top and bottom rows
+    yM = 11.5                          # middle row
+    box(cols[0], yT, h, "Measured outputs\n$y_i=h(g_i(x(t_i),\\theta))/\\sigma_i$\nPEtab conditions,\nnoise, transforms", 1, BLUE)
+    box(cols[0], yB, h, "Parameter classes\nbiological $\\theta_B$\ncalibration $\\theta_C$\n(always re-estimated)", 2, BLUE)
+    box(cols[1], yM, h, "Relative sensitivity\n$J=\\partial y/\\partial\\log\\theta$\nenergies $E_j$", 3, BLUE)
+    box(cols[2], yT, h, "Stage 1: greedy\nselection by $E_j$\n$\\kappa$, VIF $\\leq\\tau_\\kappa$\nuntil $R_{\\mathrm{var}}\\geq\\tau_R$", 4, BLUE)
+    box(cols[2], yB, h, "Stage 2: greedy\nselection by finite\neffect $s_j$ until\nadmissible", 5, ORANGE, ls=(0, (3, 1.5)))
+    box(cols[4] + 1.2, yM, h, "Backward\nelimination:\ninclusion-minimal $S$;\nexternal validation", 7, GREEN, w=W - 0.4)
+    # decision node (hexagon)
+    cx, cy, hw, hh = cols[3] + W / 2, yM + h / 2, W / 2 + 0.2, 9.2
+    hexa = [(cx - hw, cy), (cx - hw + 3, cy + hh), (cx + hw - 3, cy + hh), (cx + hw, cy), (cx + hw - 3, cy - hh), (cx - hw + 3, cy - hh)]
+    ax.add_patch(Polygon(hexa, closed=True, fc="#fdf0ea", ec=ORANGE, lw=1.0, zorder=2))
+    ax.text(cx, cy, "Admissible?\n$|S|\\geq 2$ and median\n$e_{\\mathrm{fit}}(S)\\leq\\tau_e$\n(re-estimate $\\theta_S,\\theta_C$)",
+            ha="center", va="center", fontsize=6.0, color=INK, zorder=3, linespacing=1.25)
+    ax.text(cx - hw + 2.2, cy + hh - 0.6, "6", ha="center", va="center", fontsize=6.2, fontweight="bold", color="white",
+            zorder=4, bbox=dict(boxstyle="circle,pad=0.22", fc=ORANGE, ec="none"))
+    # arrows: inputs -> sensitivity
+    xin = cols[1] - 0.2
+    for y0_ in (yT + h / 2, yB + h / 2):
+        ax.annotate("", (xin, yM + h / 2 + (2.5 if y0_ > yM + h / 2 else -2.5)), (cols[0] + W + 0.2, y0_), arrowprops=dict(arr, connectionstyle="arc3,rad=0"))
+    # sensitivity -> stage 1
+    ax.annotate("", (cols[2] - 0.2, yT + h / 2), (cols[1] + W + 0.2, yM + h / 2 + 2.5), arrowprops=arr)
+    # stage 1 -> decision
+    ax.annotate("", (cx - hw + 1.2, cy + 3.6), (cols[2] + W + 0.2, yT + h / 2), arrowprops=arr)
+    # decision -> no -> stage 2 (bottom loop)
+    yl = 1.3
+    ax.plot([cx, cx, cols[2] + W / 2], [cy - hh, yl, yl], color=ORANGE, lw=0.9, zorder=1, solid_joinstyle="round")
+    ax.annotate("", (cols[2] + W / 2, yB - 0.1), (cols[2] + W / 2, yl), arrowprops=dict(arr, color=ORANGE))
+    ax.text(cx + 1.0, (cy - hh + yl) / 2, "no", fontsize=6.0, color=ORANGE, fontweight="bold", va="center")
+    # stage 2 -> decision
+    ax.annotate("", (cx - hw + 1.2, cy - 3.6), (cols[2] + W + 0.2, yB + h / 2), arrowprops=dict(arr, color=ORANGE))
+    # decision -> yes -> result
+    ax.annotate("", (cols[4] + 1.0, cy), (cx + hw + 0.2, cy), arrowprops=dict(arr, color=GREEN))
+    ax.text((cx + hw + cols[4] + 1.2) / 2, cy + 1.8, "yes", fontsize=6.0, color=GREEN, fontweight="bold", ha="center")
+    fig.savefig(OUT / "fig1_pipeline.pdf", bbox_inches="tight", pad_inches=0.02); plt.close(fig)
+
+
+def fig1_example():
+    """Alternative overview (not in the paper): the six steps illustrated with the real computation for Boehm."""
     from matplotlib.gridspec import GridSpec
     from matplotlib.colors import TwoSlopeNorm
     D = json.loads((RES / "fig1" / "boehm.json").read_text())
@@ -175,7 +238,7 @@ def fig1():
     f.set_xlim(-5, 260); f.set_xlabel("time (min)", fontsize=6.8); f.set_ylabel("pSTAT5A $/\\,\\sigma_i$", fontsize=6.8)
     f.legend(fontsize=5.8, frameon=False, loc="lower right", handlelength=1.6)
     tag(f, "f", "Refit to $t<80$, predict $t\\geq80$")
-    fig.savefig(OUT / "fig1_pipeline.pdf"); plt.close(fig)
+    fig.savefig(HERE / "alternativas" / "fig1_example_boehm.pdf"); plt.close(fig)
 
 
 def fig2():
