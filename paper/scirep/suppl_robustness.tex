@@ -17,7 +17,7 @@ The error after re-estimation is the smallest relative distance between the redu
 where $\theta_0[S\leftarrow v]$ is $\theta_0$ with the components in $S$ replaced by $v$. The inner minimisation is a bounded nonlinear least-squares problem in $\log|v|$ (trust-region reflective method, at most $100(|S|+1)$ function evaluations, finite-difference step $10^{-3}$), started from the scenario values (clipped to $B$) and from $\theta_0$; the smaller result is kept. Since $v=\theta^{(k)}_S$ is admissible when it lies in $B$, $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ always holds (this is also proved in Lean, step~5). For the problems whose simulations are too slow for repeated nonlinear fits (Alkan, Bachmann, Chen, Isensee, Lang, Lucarelli, Raimundez), the first-order version is used,
 \[ e^{(k)}_{\mathrm{fit,lin}}=\min\Bigl\{e^{(k)}_{\mathrm{rel}},\ \min_{c\in\mathbb R^{|S|}}\frac{\|\Delta y^{(k)}_{\mathrm{full}}-J_S\,c\|}{\|\Delta y^{(k)}_{\mathrm{full}}\|}\Bigr\}, \]
 with $J_S$ the columns of the relative sensitivity matrix for $S$ (central differences, step 1\%); it differs from the exact value by a second-order term (Lean, step~12).
-A scenario is discarded when the simulation fails or when the full-model change is negligible, $\|\Delta y^{(k)}_{\mathrm{full}}\|<\max(10^{-10}\|y(\theta_0)\|,10^{-6})$, because the relative errors are then undefined; the number $n\le15$ of valid scenarios is reported for every problem and size.
+A scenario is discarded when the simulation fails or when the full-model change is negligible, $\|\Delta y^{(k)}_{\mathrm{full}}\|<\max(10^{-10}\|y(\theta_0)\|,10^{-6})$, because the relative errors are then undefined; the number $n\le15$ of valid scenarios is reported for every problem and size. For Chen some simulations fail in a run-dependent way, so the set of valid scenarios (7 to 13 of 15) differs slightly between runs; the medians of this rerun differ from those of the main text by at most 1.2 percentage points and the pattern is unchanged.
 
 \subsection*{Summaries over the scenarios}
 For each problem and size $\varepsilon$, with $e^{(1)},\dots,e^{(n)}$ the values of $e_{\mathrm{fit}}$ in the valid scenarios:
@@ -30,4 +30,85 @@ For each problem and size $\varepsilon$, with $e^{(1)},\dots,e^{(n)}$ the values
 Admissibility at $\pm5\%$ and the robustness patterns of the main text use the median: pattern A, $\tilde e_{\mathrm{fit}}\le\tau_e$ at every size; B, admissible up to at least $\pm20\%$ and not beyond; C, irregular (fails and is admissible again at a larger size); D, not admissible at $\pm10\%$ or less. The median requires that at least half of the scenarios are reproduced; the pass rate and the maximum show how many, and how badly the others fail.
 
 \subsection*{Results}
-\textit{Per-scenario results are being computed for 31 problems; this section is generated automatically when they are complete.}
+At $\pm5\%$, the size used for selection, all 32 admissible problems reproduce the full model in at least half of the scenarios by construction, and 15 of them in all scenarios. Supplementary Fig.~\ref{fig:robscen} shows, for every problem, the median, the interquartile range, the 5--95\% range and the worst scenario at each size; Supplementary Table~\ref{tab:passrate} gives the pass rate and Supplementary Table~\ref{tab:robstats} the full summary at $\pm5\%$ and $\pm50\%$.
+
+\begin{figure}[!htb]\centering
+\includegraphics[width=\textwidth]{figures/figS_robustness_scenarios.pdf}
+\caption{\textbf{Fitting error over the fifteen scenarios at each perturbation size.} For every admissible problem (pattern in parentheses): median $\tilde e_{\mathrm{fit}}$ (line), interquartile range (dark band), 5--95\% range (light band) and worst scenario (red marks); dashed line, $\tau_e=43.6\%$. The same fifteen directions are used at every size.}\label{fig:robscen}
+\end{figure}
+
+{\small
+\begin{longtable}{@{}lrrrrrrrc@{}}
+\caption{Pass rate $\pi(\varepsilon)$: percentage of valid scenarios with $e_{\mathrm{fit}}\le\tau_e$, and number of valid scenarios when it is below 15 (in parentheses).}\label{tab:passrate}\\
+\toprule Problem & $\pm$1\% & $\pm$5\% & $\pm$10\% & $\pm$20\% & $\pm$30\% & $\pm$40\% & $\pm$50\% & Pattern \\ \midrule \endfirsthead \toprule Problem & $\pm$1\% & $\pm$5\% & $\pm$10\% & $\pm$20\% & $\pm$30\% & $\pm$40\% & $\pm$50\% & Pattern \\ \midrule \endhead
+Alkan & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Bachmann & 100 & 100 & 100 & 100 & 100 & 93 & 93 & A \\
+Boehm & 93 & 93 & 93 & 93 & 100 & 100 & 93 & A \\
+Borghans & 60 & 80 & 73 & 73 & 73 & 93 & 93 & A \\
+Brannmark & 93 & 93 & 93 & 93 & 93 & 93 & 93 & A \\
+Bruno & 60 & 60 & 60 & 60 & 60 & 60 & 67 & A \\
+Chen & 100 (11) & 100 (8) & 100 (9) & 100 (13) & 100 (12) & 100 (8) & 100 (8) & A \\
+Fiedler & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Fujita & 80 & 67 & 67 & 73 & 73 & 73 & 73 & A \\
+Giordano & 93 & 93 & 93 & 93 & 93 & 93 & 87 & A \\
+Isensee & 100 (1) & 100 (4) & 100 (6) & 100 (6) & 100 (3) & 100 (5) & 100 (2) & A \\
+Lang & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Laske & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Liu & 80 & 80 & 80 & 80 & 80 & 73 & 80 & A \\
+Okuonghae & 93 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Oliveira & 87 & 87 & 100 & 93 & 93 & 100 & 100 & A \\
+Perelson & -- & 100 (2) & 100 (11) & 100 & 100 & 100 & 100 & A \\
+Rahman & 100 & 100 & 100 & 100 & 93 & 87 & 87 & A \\
+Raia & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Raimundez & 100 & 100 & 100 & 93 & 93 & 93 & 87 & A \\
+Salazar-Cavazos & 87 & 87 & 87 & 87 & 87 & 87 & 87 & A \\
+Schwen & 93 & 93 & 93 & 93 & 93 & 93 & 93 & A \\
+Smith & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Sneyd & 67 & 60 & 60 & 60 & 60 & 73 & 73 & A \\
+Weber & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
+Zhao & 60 & 73 & 73 & 73 & 67 & 67 & 60 & A \\
+Zheng & 73 & 73 & 73 & 73 & 73 & 67 & 67 & A \\
+Armistead & 100 & 100 & 93 & 67 & 27 & 20 & 13 & B \\
+Bertozzi & 60 & 60 & 60 & 53 & 47 & 47 & 40 & B \\
+Blasi & 53 & 53 & 53 & 53 & 47 & 47 & 47 & B \\
+Elowitz & 60 & 60 & 60 & 47 & 47 & 40 & 33 & B \\
+Lucarelli & 47 & 53 & 53 & 53 & 47 & 47 & 47 & C \\
+\bottomrule \end{longtable}}
+
+{\small
+\begin{longtable}{@{}lrrrrrrrrrr@{}}
+\caption{Summary of $e_{\mathrm{fit}}$ (\%) over the scenarios at $\pm5\%$ and $\pm50\%$: median, interquartile range $[Q_1,Q_3]$, 5--95\% range $[P_5,P_{95}]$, maximum and pass rate $\pi$.}\label{tab:robstats}\\
+\toprule & \multicolumn{5}{c}{$\pm5\%$} & \multicolumn{5}{c@{}}{$\pm50\%$} \\ \cmidrule(lr){2-6}\cmidrule(l){7-11}Problem & Median & $[Q_1,Q_3]$ & $[P_5,P_{95}]$ & Max & $\pi$ & Median & $[Q_1,Q_3]$ & $[P_5,P_{95}]$ & Max & $\pi$ \\ \midrule \endfirsthead \toprule & \multicolumn{5}{c}{$\pm5\%$} & \multicolumn{5}{c@{}}{$\pm50\%$} \\ \cmidrule(lr){2-6}\cmidrule(l){7-11}Problem & Median & $[Q_1,Q_3]$ & $[P_5,P_{95}]$ & Max & $\pi$ & Median & $[Q_1,Q_3]$ & $[P_5,P_{95}]$ & Max & $\pi$ \\ \midrule \endhead
+Alkan & 12 & [9, 21] & [5, 25] & 26 & 100 & 15 & [11, 25] & [7, 30] & 31 & 100 \\
+Bachmann & 34 & [22, 37] & [20, 41] & 42 & 100 & 34 & [28, 39] & [22, 43] & 44 & 93 \\
+Boehm & 9 & [3, 17] & [1, 47] & 62 & 93 & 10 & [3, 28] & [2, 42] & 45 & 93 \\
+Borghans & 4 & [2, 17] & [1, 66] & 69 & 80 & 16 & [5, 30] & [0, 46] & 51 & 93 \\
+Brannmark & 8 & [6, 15] & [5, 46] & 73 & 93 & 7 & [6, 16] & [3, 46] & 66 & 93 \\
+Bruno & 38 & [34, 54] & [29, 63] & 65 & 60 & 41 & [28, 48] & [24, 55] & 66 & 67 \\
+Chen & 8 & [7, 9] & [4, 10] & 10 & 100 & 11 & [8, 13] & [6, 16] & 17 & 100 \\
+Fiedler & 15 & [10, 17] & [6, 25] & 29 & 100 & 10 & [9, 15] & [5, 29] & 31 & 100 \\
+Fujita & 29 & [24, 44] & [12, 63] & 63 & 67 & 25 & [14, 43] & [10, 78] & 87 & 73 \\
+Giordano & 6 & [4, 18] & [4, 38] & 49 & 93 & 9 & [6, 24] & [3, 48] & 52 & 87 \\
+Isensee & 10 & [8, 11] & [6, 13] & 13 & 100 & 6 & [6, 7] & [6, 7] & 7 & 100 \\
+Lang & 16 & [16, 16] & [15, 17] & 17 & 100 & 5 & [4, 5] & [3, 6] & 6 & 100 \\
+Laske & 10 & [6, 18] & [4, 24] & 26 & 100 & 12 & [7, 21] & [3, 23] & 23 & 100 \\
+Liu & 26 & [16, 31] & [8, 81] & 83 & 80 & 22 & [15, 41] & [9, 65] & 93 & 80 \\
+Okuonghae & 4 & [3, 7] & [0, 29] & 37 & 100 & 5 & [3, 7] & [1, 17] & 22 & 100 \\
+Oliveira & 13 & [7, 24] & [5, 48] & 50 & 87 & 17 & [6, 24] & [1, 36] & 42 & 100 \\
+Perelson & 0 & [0, 0] & [0, 0] & 0 & 100 & 0 & [0, 0] & [0, 0] & 0 & 100 \\
+Rahman & 4 & [2, 11] & [1, 27] & 28 & 100 & 5 & [2, 9] & [0, 54] & 63 & 87 \\
+Raia & 3 & [1, 7] & [1, 19] & 26 & 100 & 4 & [2, 9] & [1, 18] & 29 & 100 \\
+Raimundez & 37 & [37, 38] & [37, 39] & 39 & 100 & 34 & [30, 40] & [28, 47] & 54 & 87 \\
+Salazar-Cavazos & 19 & [8, 24] & [4, 50] & 51 & 87 & 17 & [7, 23] & [3, 61] & 91 & 87 \\
+Schwen & 17 & [10, 22] & [6, 39] & 56 & 93 & 17 & [7, 21] & [4, 45] & 52 & 93 \\
+Smith & 8 & [5, 9] & [2, 22] & 22 & 100 & 6 & [5, 11] & [2, 26] & 29 & 100 \\
+Sneyd & 38 & [22, 51] & [18, 77] & 91 & 60 & 33 & [22, 43] & [12, 81] & 96 & 73 \\
+Weber & 4 & [3, 5] & [2, 10] & 11 & 100 & 4 & [2, 7] & [2, 12] & 20 & 100 \\
+Zhao & 30 & [19, 49] & [16, 74] & 77 & 73 & 16 & [5, 61] & [2, 84] & 95 & 60 \\
+Zheng & 30 & [24, 41] & [12, 66] & 79 & 73 & 33 & [26, 55] & [10, 84] & 99 & 67 \\
+Armistead & 12 & [9, 15] & [6, 19] & 22 & 100 & 63 & [52, 68] & [27, 91] & 92 & 13 \\
+Bertozzi & 33 & [18, 71] & [12, 83] & 85 & 60 & 55 & [27, 65] & [11, 91] & 93 & 40 \\
+Blasi & 40 & [26, 61] & [22, 76] & 87 & 53 & 44 & [24, 76] & [20, 84] & 93 & 47 \\
+Elowitz & 36 & [25, 57] & [10, 86] & 90 & 60 & 48 & [32, 67] & [12, 82] & 86 & 33 \\
+Lucarelli & 44 & [34, 51] & [29, 64] & 75 & 53 & 47 & [36, 53] & [24, 63] & 75 & 47 \\
+\bottomrule \end{longtable}}

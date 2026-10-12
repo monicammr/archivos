@@ -2,4 +2,39 @@
 
 The method depends on a finite-difference step $\delta$, the integrator tolerances, the perturbation size used for admissibility and four thresholds ($\tau_R$, $\tau_\kappa=\tau_{\mathrm{VIF}}$, $\tau_e$). The complete method (selection, admissibility and backward elimination, with the calibration parameters always re-estimated) was re-run changing one setting at a time, with all others at their baseline values ($\delta=1\%$, relative/absolute tolerances $10^{-7}/10^{-10}$, perturbation $\pm5\%$, $\tau_R=0.89$, $\tau_\kappa=\tau_{\mathrm{VIF}}=10$, $\tau_e=0.436$). The 26 problems whose complete method could be re-run fifteen times in reasonable time were used; the other 8 (Alkan, Bachmann, Beer, Chen, Isensee, Lang, Lucarelli, Raimundez) need hours per run. For each setting and problem we record whether the selected subset is identical to the baseline and whether the problem is admissible.
 
-\textit{Being re-computed with the final method for 6 settings; this section is generated automatically when complete.}
+{\footnotesize
+\begin{longtable}{@{}lccccccccccccccc@{}}
+\caption{Effect of each setting on every problem: $=$, same subset and admissibility as the baseline; $\neq$, different subset (still admissible); $\times$, not admissible; $\circ$, not admissible in the baseline either. Columns in the order of Table~2 of the main text.}\label{tab:settings}\\
+\toprule Problem & \rotatebox{90}{$\delta=0.1\%$} & \rotatebox{90}{$\delta=5\%$} & \rotatebox{90}{tolerances $10^{-9}/10^{-12}$} & \rotatebox{90}{tolerances $10^{-6}/10^{-8}$} & \rotatebox{90}{perturbation $\pm1\%$} & \rotatebox{90}{perturbation $\pm10\%$} & \rotatebox{90}{$\tau_R=0.80$} & \rotatebox{90}{$\tau_R=0.85$} & \rotatebox{90}{$\tau_R=0.95$} & \rotatebox{90}{$\tau_\kappa=\tau_{\mathrm{VIF}}=5$} & \rotatebox{90}{$\tau_\kappa=\tau_{\mathrm{VIF}}=30$} & \rotatebox{90}{$\tau_e=0.10$} & \rotatebox{90}{$\tau_e=0.20$} & \rotatebox{90}{$\tau_e=0.30$} & \rotatebox{90}{$\tau_e=0.50$} \\ \midrule \endfirsthead
+\toprule Problem & \rotatebox{90}{$\delta=0.1\%$} & \rotatebox{90}{$\delta=5\%$} & \rotatebox{90}{tolerances $10^{-9}/10^{-12}$} & \rotatebox{90}{tolerances $10^{-6}/10^{-8}$} & \rotatebox{90}{perturbation $\pm1\%$} & \rotatebox{90}{perturbation $\pm10\%$} & \rotatebox{90}{$\tau_R=0.80$} & \rotatebox{90}{$\tau_R=0.85$} & \rotatebox{90}{$\tau_R=0.95$} & \rotatebox{90}{$\tau_\kappa=\tau_{\mathrm{VIF}}=5$} & \rotatebox{90}{$\tau_\kappa=\tau_{\mathrm{VIF}}=30$} & \rotatebox{90}{$\tau_e=0.10$} & \rotatebox{90}{$\tau_e=0.20$} & \rotatebox{90}{$\tau_e=0.30$} & \rotatebox{90}{$\tau_e=0.50$} \\ \midrule \endhead
+Armistead & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ \\
+Bertozzi & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $\neq$ & $=$ \\
+Blasi & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $\neq$ & $=$ \\
+Boehm & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ \\
+Borghans & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ \\
+Brannmark & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ & $=$ \\
+Bruno & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $\neq$ & $\neq$ \\
+Crauste & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ \\
+Elowitz & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $\neq$ & $=$ \\
+Fiedler & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ \\
+Fujita & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $=$ & $=$ \\
+Giordano & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ & $=$ \\
+Laske & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ \\
+Liu & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\times$ & $\times$ & $=$ & $=$ \\
+Okuonghae & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ & $=$ \\
+Oliveira & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\times$ & $=$ & $=$ & $=$ \\
+Perelson & $=$ & $=$ & $=$ & $=$ & $\times$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ \\
+Rahman & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ & $=$ & $=$ \\
+Raia & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ & $=$ & $=$ \\
+Salazar-Cavazos & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $\times$ & $=$ & $=$ & $=$ \\
+Schwen & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $=$ & $=$ & $=$ \\
+Smith & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ \\
+Sneyd & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $\neq$ & $=$ \\
+Weber & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ \\
+Zhao & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $=$ & $\neq$ \\
+Zheng & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $=$ & $\neq$ & $\neq$ & $\neq$ & $=$ \\
+\midrule
+Admissible & 25 & 25 & 25 & 25 & 24 & 25 & 25 & 25 & 25 & 25 & 25 & 22 & 24 & 25 & 25 \\
+Same $S$ & 26 & 26 & 26 & 26 & 25 & 25 & 26 & 26 & 26 & 23 & 22 & 12 & 17 & 20 & 24 \\
+\bottomrule \end{longtable}}
+

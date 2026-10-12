@@ -6,4 +6,29 @@ The method requires at least $k_{\min}=2$ biological parameters. This note exami
 For every admissible problem the candidates are the ten biological parameters with the largest sensitivity energy $E_j$ and the ten with the largest finite effect $s_j$ (the two orderings of the method). Each candidate $j$ is tested alone, with the calibration parameters $\Theta_C$ re-estimated together with it as in the method: $\{j\}$ is admissible if the median $e_{\mathrm{fit}}$ over the same 15 scenarios at $\pm5\%$ is at most $\tau_e$ (without the requirement $|S|\ge2$). For the best admissible candidate $j^\ast$ (smallest median $e_{\mathrm{fit}}$) we also computed the median $e_{\mathrm{fit}}$ at $\pm10\%$ and its external validation, real and synthetic, exactly as for the selected subset $S$ (Supplementary Note~\emph{Synthetic prediction experiment}). Bachmann, Chen, Isensee, Lang, Raimundez were not included because the repeated nonlinear re-estimations are too slow.
 
 \subsection*{Results}
-\textit{Being computed for 26 problems; this section is generated automatically when complete.}
+A single parameter was admissible at $\pm5\%$ in 16 of the 27 problems examined. In the synthetic prediction experiment the selected subset $S$ predicted better than the best single parameter (smaller $e_{\mathrm{pred}}$) in 13 of the 16 problems where both could be evaluated (Supplementary Table~\ref{tab:single}), which supports the minimum size of two.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{3.0cm}rrrrrrr@{}}
+\caption{Problems in which a single biological parameter $j^\ast$ is admissible: median $e_{\mathrm{fit}}$ (\%) at $\pm5\%$ and $\pm10\%$, test $\chi^2/n$ on real data and $e_{\mathrm{pred}}$ in the synthetic experiment, for $\{j^\ast\}$ and for the selected subset $S$ (both with $\Theta_C$ re-estimated).}\label{tab:single}\\
+\toprule & & \multicolumn{2}{c}{$e_{\mathrm{fit}}$ $\pm5\%$} & \multicolumn{2}{c}{$e_{\mathrm{fit}}$ $\pm10\%$} & \multicolumn{2}{c}{Real $\chi^2/n$} & \\ \cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
+Problem & $j^\ast$ & $j^\ast$ & $S$ & $j^\ast$ & $S$ & $j^\ast$ & $S$ & $e_{\mathrm{pred}}$ $j^\ast$ / $S$ \\ \midrule \endfirsthead
+\toprule Problem & $j^\ast$ & \multicolumn{7}{c}{(continued)} \\ \midrule \endhead
+Alkan & \texttt{kt} & 21 & 12 & 13 & 12 & 2.49 & 2.75 & 0.36 / 0.13 \\
+Armistead & \texttt{alpha\_cer} & 16 & 12 & 30 & 20 & 1.16 & 1.22 & 1.00 / 0.85 \\
+Borghans & \texttt{v0} & 10 & 4 & 14 & 8 & 0.75 & 0.74 & 1.00 / 1.04 \\
+Brannmark & \texttt{km2} & 9 & 8 & 9 & 8 & 0.95 & 5.79 & 1.87 / 0.92 \\
+Fiedler & \texttt{k10} & 15 & 15 & 15 & 14 & 1.22 & 11.21 & 1.69 / 0.23 \\
+Fujita & \texttt{reaction\_2\_k1} & 20 & 29 & 22 & 28 & 5.63 & 5.94 & 1.21 / 0.95 \\
+Giordano & \texttt{gamma\_4} & 11 & 6 & 11 & 5 & $1.1\times10^{-8}$ & $1.0\times10^{-7}$ & 1.78 / 1,027 \\
+Laske & \texttt{k\_imp} & 16 & 10 & 16 & 10 & 0.44 & 0.76 & 3.19 / 0.50 \\
+Okuonghae & \texttt{gamma\_0} & 5 & 4 & 5 & 4 & $4.1\times10^{4}$ & $4.7\times10^{4}$ & 0.30 / 0.08 \\
+Oliveira & \texttt{delta\_} & 11 & 13 & 12 & 13 & $2.0\times10^{4}$ & 915 & 0.38 / 0.29 \\
+Rahman & \texttt{infected\_moderate\_transmission\_rate} & 11 & 4 & 12 & 4 & $1.5\times10^{-3}$ & $2.0\times10^{-3}$ & 0.35 / 0.07 \\
+Raia & \texttt{init\_Rec\_i} & 4 & 3 & 4 & 3 & 47.77 & 8.23 & 36.87 / 0.48 \\
+Salazar-Cavazos & \texttt{ratio\_kpkd\_Y1068\_\_FREE} & 30 & 19 & 29 & 19 & 100.00 & 102 & 0.79 / 0.17 \\
+Schwen & \texttt{ini\_R2fold} & 19 & 17 & 19 & 17 & 0.84 & 8.20 & 0.76 / 2.03 \\
+Smith & \texttt{k30r} & 8 & 8 & 8 & 8 & $7.1\times10^{4}$ & $1.5\times10^{4}$ & 1.00 / 0.07 \\
+Weber & \texttt{a21} & 6 & 4 & 6 & 4 & 0.99 & 1.00 & 0.94 / 0.63 \\
+\bottomrule \end{longtable}}
+

@@ -31,9 +31,10 @@ Mediana de e_ajuste (S biológico + calibración, reajustados) frente al tamaño
 | Raimundez_PCB2020 | 2 | 37% ✓ | 37% ✓ | 37% ✓ | 36% ✓ | 36% ✓ | 34% ✓ | 34% ✓ | **A** |
 | SalazarCavazos_MBoC2020 | 2 | 19% ✓ | 19% ✓ | 19% ✓ | 19% ✓ | 19% ✓ | 18% ✓ | 17% ✓ | **A** |
 | Schwen_PONE2014 | 2 | 17% ✓ | 17% ✓ | 17% ✓ | 18% ✓ | 19% ✓ | 18% ✓ | 17% ✓ | **A** |
+| Smith_BMCSystBiol2013 | 2 | 8% ✓ | 8% ✓ | 8% ✓ | 7% ✓ | 6% ✓ | 6% ✓ | 6% ✓ | **A** |
 | Sneyd_PNAS2002 | 2 | 41% ✓ | 38% ✓ | 34% ✓ | 35% ✓ | 35% ✓ | 33% ✓ | 33% ✓ | **A** |
 | Weber_BMC2015 | 2 | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | 4% ✓ | **A** |
 | Zhao_QuantBiol2020 | 3 | 27% ✓ | 30% ✓ | 33% ✓ | 28% ✓ | 26% ✓ | 19% ✓ | 16% ✓ | **A** |
 | Zheng_PNAS2012 | 2 | 30% ✓ | 30% ✓ | 30% ✓ | 30% ✓ | 30% ✓ | 32% ✓ | 33% ✓ | **A** |
 
-Recuento: A: 26, B: 4, C: 1.
+Recuento: A: 27, B: 4, C: 1.
