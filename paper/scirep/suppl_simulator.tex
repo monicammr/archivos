@@ -1,0 +1,49 @@
+\snote{sim}
+
+Our simulation of the measured outputs (\texttt{certificados/petab\_outputs.py}, libRoadRunner with CVODE, relative and absolute tolerances $10^{-7}$ and $10^{-10}$) was compared, at the nominal parameters $\theta_0$, with the reference simulations distributed with the benchmark (file \texttt{simulations.tsv} of each problem), matching every measurement by observable, experimental condition and time. For measurement $i$ the relative difference is $|\hat y_i-y^{\mathrm{ref}}_i|/\max(|y^{\mathrm{ref}}_i|,10^{-12})$; Supplementary Table~\ref{tab:simulator} gives its median and maximum for every problem.
+
+In all problems with a comparable reference the median difference is below $10^{-5}$ except Chen ($1.1\times10^{-4}$), Crauste (0.8\%, a very stiff model), Lang, Perelson and Zheng. In Lang, an oscillating cell-cycle model simulated to $t=136{,}472$, the median difference is 2.8\% and the peaks differ by an accumulated phase shift. In Perelson the difference is 17\%; the initial state of the SBML model is stationary and our simulation respects it, so the discrepancy most likely lies in the reference. In Zheng the reference file contains the measured data rather than a simulation. Lang and Perelson were kept in the analysis, and their results should be read with this caveat. Problems without a comparable reference have no file in the benchmark or use different condition identifiers.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.6cm}rrrrrr>{\raggedright\arraybackslash}p{5.3cm}@{}}
+\caption{Agreement of our simulation of the measured outputs with the reference simulations of the benchmark at $\theta_0$: number of measurements and conditions, estimated parameters $p$ and those that affect the outputs, and median and maximum relative difference.}\label{tab:simulator}\\
+\toprule Problem & Meas. & Cond. & $p$ & $p_y$ & Median & Max & Note \\ \midrule \endfirsthead
+\toprule Problem & Meas. & Cond. & $p$ & $p_y$ & Median & Max & Note \\ \midrule \endhead
+Alkan & 1733 & 73 & 44 & 44 & $3.1\times10^{-8}$ & $3.1\times10^{-5}$ & agrees \\
+Armistead & 58 & 2 & 14 & 10 & $0$ & $6.1\times10^{-7}$ & agrees \\
+Bachmann & 541 & 36 & 113 & 101 & $7.1\times10^{-8}$ & $2.2\times10^{-5}$ & agrees \\
+Beer & 27132 & 19 & 72 & 70 & $5.9\times10^{-8}$ & $3.8\times10^{-4}$ & agrees \\
+Bertozzi & 22 & 2 & 8 & 6 & $1.6\times10^{-7}$ & $1.3\times10^{-6}$ & agrees \\
+Blasi & 252 & 1 & 9 & 8 & -- & -- & reference file has 288 rows for 252 measurements \\
+Boehm & 48 & 1 & 9 & 6 & $1.1\times10^{-7}$ & $8.6\times10^{-7}$ & agrees \\
+Borghans & 111 & 1 & 23 & 22 & $2.2\times10^{-6}$ & $1.6\times10^{-4}$ & agrees \\
+Brannmark & 43 & 8 & 22 & 18 & $2.3\times10^{-7}$ & $1.3\times10^{-5}$ & agrees \\
+Bruno & 77 & 6 & 13 & 13 & $1.3\times10^{-7}$ & $2.3\times10^{-6}$ & agrees \\
+Chen & 120 & 4 & 155 & 155 & $1.1\times10^{-4}$ & $2.8\times10^{-3}$ & agrees \\
+Crauste & 21 & 1 & 12 & 12 & $7.8\times10^{-3}$ & $7.9\times10^{-2}$ & median difference below 1\% (very stiff model) \\
+Elowitz & 58 & 1 & 21 & 20 & $1.6\times10^{-6}$ & $1.7\times10^{-5}$ & agrees \\
+Fiedler & 72 & 3 & 22 & 20 & $1.1\times10^{-7}$ & $9.9\times10^{-7}$ & agrees \\
+Fujita & 144 & 6 & 19 & 19 & -- & -- & reference uses other condition identifiers \\
+Giordano & 313 & 1 & 50 & 43 & $8.9\times10^{-7}$ & $2.0\times10^{-6}$ & agrees \\
+Isensee & 687 & 123 & 46 & 43 & -- & -- & reference uses other condition identifiers \\
+Lang & 9600 & 1 & 294 & 277 & $2.8\times10^{-2}$ & $2.3\times10^{0}$ & oscillator simulated to $t=136{,}472$: medians agree, peaks differ by an accumulated phase shift \\
+Laske & 42 & 3 & 13 & 8 & $1.3\times10^{-7}$ & $4.5\times10^{-7}$ & agrees \\
+Liu & 100 & 2 & 9 & 7 & $2.9\times10^{-8}$ & $6.1\times10^{-7}$ & agrees \\
+Lucarelli & 1755 & 16 & 84 & 72 & $0$ & $1.5\times10^{-6}$ & agrees \\
+Okuonghae & 92 & 1 & 16 & 14 & -- & -- & no reference file in the benchmark \\
+Oliveira & 120 & 1 & 12 & 12 & -- & -- & no reference file in the benchmark \\
+Perelson & 16 & 1 & 3 & 2 & $1.7\times10^{-1}$ & $4.5\times10^{-1}$ & discrepancy; the initial state is stationary ($\dot V(0)=0$) and our simulation respects it, so the reference was probably generated with other values \\
+Rahman & 23 & 1 & 9 & 9 & $6.5\times10^{-8}$ & $6.0\times10^{-7}$ & agrees \\
+Raia & 205 & 4 & 39 & 23 & -- & -- & reference uses other condition identifiers \\
+Raimundez & 627 & 170 & 136 & 136 & $9.3\times10^{-6}$ & $3.3\times10^{-5}$ & agrees \\
+Salazar-Cavazos & 18 & 4 & 6 & 6 & $7.5\times10^{-9}$ & $1.2\times10^{-7}$ & agrees \\
+Schwen & 286 & 19 & 30 & 28 & $2.0\times10^{-8}$ & $2.1\times10^{-7}$ & agrees \\
+Smith & 62 & 35 & 25 & 25 & $2.6\times10^{-8}$ & $7.2\times10^{-7}$ & agrees \\
+Sneyd & 135 & 9 & 15 & 14 & $2.0\times10^{-7}$ & $5.3\times10^{-1}$ & median exact; the maximum comes from duplicated rows at the same time \\
+Weber & 135 & 2 & 36 & 31 & $1.0\times10^{-10}$ & $1.5\times10^{-8}$ & agrees \\
+Zhao & 82 & 7 & 28 & 21 & -- & -- & reference file has 169 rows \\
+Zheng & 60 & 1 & 46 & 45 & $1.1\times10^{-1}$ & $9.0\times10^{-1}$ & reference file contains the measured data, not a simulation \\
+\bottomrule \end{longtable}}
+
+Froehlich is not included: its 9,169 experimental conditions, each requiring a simulation of a model with 1,228 species, made the analysis of its measured outputs infeasible with the resources available (Supplementary Note~\emph{Computational cost}).
+

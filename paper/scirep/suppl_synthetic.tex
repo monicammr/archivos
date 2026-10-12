@@ -1,0 +1,58 @@
+\snote{synth}
+
+With real data the true parameters are unknown, so the test $\chi^2/n$ of Figure~3 measures agreement with noisy data, not with the true response. To measure the prediction error itself we repeated the external validation with synthetic data generated from a known truth.
+
+\subsection*{Design}
+\begin{enumerate}\itemsep0pt
+\item \emph{Truth.} With a fixed seed (NumPy \texttt{default\_rng(42)}) a vector $u\in[-1,1]^p$ with components $u_j\sim\mathcal U(-1,1)$ is drawn and $\theta^\ast_j=\theta_{0,j}(1+0.2\,u_j)$ for every parameter that can be estimated from the training data (parameters acting only in test conditions stay at $\theta_{0,j}$, since no method could learn them).
+\item \emph{Data.} $\tilde y_i=y_i(\theta^\ast)+\epsilon_i$ with $\epsilon_i\sim\mathcal N(0,1)$ in noise-scaled units, i.e.\ Gaussian noise with the standard deviation $\sigma_i$ recorded in the benchmark, for every measurement of every condition.
+\item \emph{Split and fits.} The same training/test split as for the real data (main text, Methods). The reduced model (re-estimating $S\cup\Theta_C$) and the full model (re-estimating all parameters, except for Chen and Lang) are fitted to the synthetic training data starting from $\theta_0$, with the same least-squares method and bounds.
+\item \emph{Prediction error.} On the test measurements,
+\[ e_{\mathrm{pred}}=\frac{\|y_{\mathrm{test}}(\hat\theta)-y_{\mathrm{test}}(\theta^\ast)\|}{\|y_{\mathrm{test}}(\theta^\ast)-y_{\mathrm{test}}(\theta_0)\|}, \]
+the error of the prediction relative to the change of the true response; $e_{\mathrm{pred}}=1$ for the published estimate $\theta_0$, and $e_{\mathrm{pred}}\le\tau_e=0.436$ is used as the success criterion.
+\item \emph{Signal and noise.} When the change from $\theta_0$ to $\theta^\ast$ moves the test outputs less than the noise, $e_{\mathrm{pred}}$ measures only noise. The signal is considered larger than the noise when the test $\chi^2/n$ of $\theta_0$ on the synthetic data is at least 2.
+\end{enumerate}
+
+\subsection*{Results}
+The experiment could be evaluated in 29 of the 32 admissible problems (Bertozzi and Blasi have no training/test split; for Isensee the simulation of $\theta^\ast$ failed). In 15 problems the signal was below the noise; in 13 of these the reduced model predicted at the noise level (test $\chi^2/n\le2$). In the 14 problems where the signal exceeded the noise, the reduced model reached $e_{\mathrm{pred}}\le\tau_e$ in 9, and its $e_{\mathrm{pred}}$ was no larger than that of the full model in 6 of the 12 problems where the full model was also fitted (Supplementary Table~\ref{tab:synthetic}).
+
+{\small
+\begin{longtable}{@{}lrrrrrc@{}}
+\caption{Synthetic prediction experiment: test $\chi^2/n$ of $\theta_0$ (signal-to-noise indicator), of the reduced and of the full model, and prediction error $e_{\mathrm{pred}}$ of the reduced and full models. Signal, test $\chi^2/n$ of $\theta_0\ge2$.}\label{tab:synthetic}\\
+\toprule & \multicolumn{3}{c}{Test $\chi^2/n$} & \multicolumn{2}{c}{$e_{\mathrm{pred}}$} & \\ \cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Problem & $\theta_0$ & Reduced & Full & Reduced & Full & Signal \\ \midrule \endfirsthead
+\toprule Problem & $\theta_0$ & Reduced & Full & Reduced & Full & Signal \\ \midrule \endhead
+Alkan & 2.22 & 1.07 & 1.06 & 0.13 & 0.15 & yes \\
+Borghans & 2.72 & 2.89 & 0.90 & 1.04 & 0.31 & yes \\
+Brannmark & 5.55 & 6.14 & 87.79 & 0.92 & 3.97 & yes \\
+Chen & 10.36 & 0.91 & -- & 0.08 & -- & yes \\
+Elowitz & 6.04 & 1.51 & 0.79 & 0.47 & 0.11 & yes \\
+Lang & 11.81 & 1.32 & -- & 0.17 & -- & yes \\
+Okuonghae & $4.0\times10^{4}$ & 278 & 73.16 & 0.08 & 0.04 & yes \\
+Oliveira & $6.7\times10^{7}$ & $5.5\times10^{6}$ & 142 & 0.29 & $1.5\times10^{-3}$ & yes \\
+Rahman & 126 & 1.95 & 2.82 & 0.07 & 0.10 & yes \\
+Raimundez & 5.50 & 8.96 & 1.69 & 1.27 & 0.39 & yes \\
+Salazar-Cavazos & 6.14 & 0.44 & 0.55 & 0.17 & 0.11 & yes \\
+Smith & 4,578 & 20.08 & 22.73 & 0.07 & 0.07 & yes \\
+Weber & 118 & 46.69 & 353 & 0.63 & 1.72 & yes \\
+Zheng & 22.01 & 2.42 & 2.94 & 0.36 & 0.37 & yes \\
+Armistead & 1.20 & 1.11 & 0.58 & 0.85 & 0.18 & no \\
+Bachmann & 1.23 & 3.37 & 12.62 & 3.10 & 6.91 & no \\
+Boehm & 1.06 & 0.57 & 24.18 & 0.45 & 6.63 & no \\
+Bruno & 0.93 & 0.46 & 8.31 & 0.41 & 3.74 & no \\
+Fiedler & 1.63 & 0.53 & 10.17 & 0.23 & 3.12 & no \\
+Fujita & 1.38 & 1.47 & 1.06 & 0.95 & 0.44 & no \\
+Giordano & 0.86 & 0.86 & 1.10 & 1,027 & 3,136 & no \\
+Laske & 0.49 & 0.44 & 4.63 & 0.50 & 4.72 & no \\
+Liu & 0.57 & 0.58 & 0.75 & 0.65 & 2.15 & no \\
+Lucarelli & 1.10 & 1.30 & 3.49 & 2.01 & 6.96 & no \\
+Perelson & 0.68 & 0.68 & 0.68 & 23.29 & 23.29 & no \\
+Raia & 0.91 & 0.92 & 0.96 & 0.48 & 1.08 & no \\
+Schwen & 1.44 & 4.56 & 4.51 & 2.03 & 1.94 & no \\
+Sneyd & 1.68 & 0.90 & 0.94 & 0.29 & 0.23 & no \\
+Zhao & 0.87 & 0.87 & 0.87 & 1.00 & 1.00 & no \\
+Bertozzi & \multicolumn{6}{l}{\textit{not evaluable: no training/test split}} \\
+Blasi & \multicolumn{6}{l}{\textit{not evaluable: no training/test split}} \\
+Isensee & \multicolumn{6}{l}{\textit{not evaluable: simulation of $\theta^\ast$ failed}} \\
+\bottomrule \end{longtable}}
+

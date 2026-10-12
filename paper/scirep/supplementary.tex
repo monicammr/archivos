@@ -31,6 +31,10 @@
 \def\snt@sim{Verification of the simulator}
 \def\snt@val{Prediction of held-out experiments}
 \def\snt@robust{Robustness to the size of parameter changes}
+\def\snt@synth{Synthetic prediction experiment}
+\def\snt@single{Single-parameter subsets}
+\def\snt@settings{Sensitivity to the method settings}
+\def\snt@cost{Computational cost}
 \def\snt@seq{Logical sequence of the formal proofs}
 \def\snt@stmts{Statements of the formal theorems}
 \def\snt@models{Verified benchmark models}
@@ -97,10 +101,6 @@ $e_{\mathrm{pred}}$ & relative prediction error with respect to a known truth (s
 \bottomrule
 \end{longtable}
 
-\snote{sim}
-
-Our simulation of the measured outputs was compared, at the nominal parameters, with the reference simulations distributed with the benchmark, matching each measurement by observable, condition and time. For the problems with comparable reference files the median relative difference was below $10^{-5}$ in all but five cases: Chen ($1.1\times 10^{-4}$), Zheng (whose reference file contains the measured data rather than a simulation), Crauste (0.8\%, very stiff model), Lang (2.8\%, an oscillating cell-cycle model simulated to $t=136{,}472$, where peaks differ by an accumulated phase shift) and Perelson (17\%; the initial state of the model is stationary and our simulation respects it, which suggests that the reference was generated with different values). Lang and Perelson are therefore not close agreements with their references; for Lang the difference is an accumulated phase shift of an oscillator over a long horizon, and for Perelson our simulation is consistent with the equations and the stationary initial state of the SBML model, so the discrepancy most likely lies in the reference. Both models were kept in the analysis, and their results should be read with this caveat. Several problems have no comparable reference (no file, or different condition identifiers). The full comparison is given in the repository (\texttt{certificados/resultados/salidas/VERIFICACION\_SIMULADOR.md}).
-
 \input{suppl_validation}
 
 \input{note_sequence}
@@ -111,7 +111,17 @@ Our simulation of the measured outputs was compared, at the nominal parameters, 
 
 \input{suppl_reproduction}
 
+\input{suppl_simulator}
+
 \input{suppl_robustness}
+
+\input{suppl_synthetic}
+
+\input{suppl_single}
+
+\input{suppl_settings}
+
+\input{suppl_cost}
 
 \input{suppl_sct}
 

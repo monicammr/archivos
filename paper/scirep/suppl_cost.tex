@@ -1,0 +1,29 @@
+\snote{cost}
+
+The dominant cost of the selection is the number of model simulations: the relative sensitivity matrix $J$ by central differences needs $2p$ simulations and the stage-2 ordering by finite effects $p$ more, $3p$ in total; all of them are independent and can run in parallel. The greedy selection, the conditioning tests, backward elimination and the first-order $e_{\mathrm{fit}}$ use only $J$ (linear algebra, negligible in comparison). The admissibility test adds, for each candidate subset, 15 scenario simulations and the re-estimations, whose cost depends on the number of retained parameters rather than on $p$. Supplementary Table~\ref{tab:cost} gives the measured time of one simulation of all measured outputs (all experimental conditions) at $\theta_0$ and the resulting time for the $3p$ simulations, in series and on four cores, for the problems timed.
+
+{\small
+\begin{longtable}{@{}lrlrrrr@{}}
+\caption{Computational cost of the sensitivity computations: estimated parameters $p$, outputs used, time of one simulation, number of simulations for $J$ and the stage-2 ordering ($3p$), and total time in series and on four cores.}\label{tab:cost}\\
+\toprule Problem & $p$ & Outputs & $t_{\mathrm{sim}}$ (s) & $3p$ & Series & 4 cores \\ \midrule \endfirsthead
+\toprule Problem & $p$ & Outputs & $t_{\mathrm{sim}}$ (s) & $3p$ & Series & 4 cores \\ \midrule \endhead
+Boehm & 9 & measured & 0.00168 & 27 & 0 s & 0 s \\
+Elowitz & 21 & measured & 0.00243 & 63 & 0 s & 0 s \\
+Fiedler & 22 & measured & 0.00257 & 66 & 0 s & 0 s \\
+Weber & 36 & measured & 0.00374 & 108 & 0 s & 0 s \\
+Raia & 39 & measured & 0.0106 & 117 & 1 s & 0 s \\
+Alkan & 44 & measured & 0.13 & 132 & 17 s & 4 s \\
+Zheng & 46 & measured & 0.00449 & 138 & 1 s & 0 s \\
+Isensee & 46 & measured & 0.64 & 138 & 88 s & 22 s \\
+Giordano & 50 & measured & 0.00613 & 150 & 1 s & 0 s \\
+Beer & 72 & measured & 0.173 & 216 & 37 s & 9 s \\
+Lucarelli & 84 & measured & 0.04 & 252 & 10 s & 3 s \\
+Bachmann & 113 & measured & 0.04 & 339 & 14 s & 3 s \\
+Raimundez & 136 & measured & 0.37 & 408 & 3 min & 38 s \\
+Chen & 155 & measured & 35 & 465 & 4.5 h & 68 min \\
+Lang & 294 & measured & 0.65 & 882 & 10 min & 2 min \\
+Froehlich & 4,231 & states & 2.93 & 12,693 & 10.3 h & 2.6 h \\
+\bottomrule \end{longtable}}
+
+For Froehlich (4,231 parameters, 1,228 species) the analysis was carried out on the state trajectories; on its measured outputs each evaluation requires about 9,000 simulations (one per experimental condition), which was infeasible with the resources available.
+
