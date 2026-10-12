@@ -227,7 +227,7 @@ def rr_rates(S, L, x, tau):
 
 def uno(name, n_rand=5, seed=0):
     L = load_lean(name)
-    S = PO.PSys(name)
+    S = PO.PSys(name, simular=False)
     names = [s.split(" (")[0] for s in L["states"]]
     tau_j = [j for j, s in enumerate(L["states"]) if "tiempo" in s]
     L["states"] = names

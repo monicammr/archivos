@@ -100,7 +100,7 @@ def _split(v):
 
 
 class PSys:
-    def __init__(self, name, t_end=None):
+    def __init__(self, name, t_end=None, simular=True):
         self.name = name
         folder = CS.BENCH / name / "v1"
         par = pd.read_csv(folder / "parameters.tsv", sep="\t", encoding="utf-8-sig")
@@ -204,6 +204,8 @@ class PSys:
         self.calib = np.array([(n not in self.gparams) and (n not in self.comps)
                                and (n not in refs_cond) for n in self.names])
         self.sigma = None
+        if not simular:       # sólo se necesita el modelo cargado (p. ej. verifica_traduccion.py)
+            return
         y0 = self._raw(self.theta0)
         if y0 is None:
             self.sigma = np.ones(self.n_meas)
