@@ -78,5 +78,12 @@
   "p": 155,
   "t_sim": 35.0,
   "modo": "salidas"
+ },
+ "Smith_BMCSystBiol2013": {
+  "p": 25,
+  "t_sim": 0.3459339683261494,
+  "modo": "salidas",
+  "t_sim_medido": 0.5359220504760742,
+  "nota": "medido en otra m\u00e1quina y escalado por 1.55 (cociente medio Boehm y Weber entre ambas m\u00e1quinas)"
  }
 }

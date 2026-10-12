@@ -321,6 +321,8 @@ def cost():
         L.append(f"{tex(short(p))} & {d['p']:,} & {'measured' if d['modo'] == 'salidas' else 'states'} & "
                  f"{d['t_sim']:.3g} & {n:,} & {fmt(tot)} & {fmt(tot / 4)} \\\\")
     L += [r"\bottomrule \end{longtable}}", "",
+          r"The time of Smith was measured later on a different machine and scaled by the ratio of the times of Boehm and Weber "
+          r"measured on both machines (factor 1.55). "
           r"For Froehlich (4,231 parameters, 1,228 species) the analysis was carried out on the state trajectories; on its measured "
           r"outputs each evaluation requires about 9,000 simulations (one per experimental condition), which was infeasible with the "
           r"resources available.", ""]

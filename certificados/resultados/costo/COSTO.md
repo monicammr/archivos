@@ -7,6 +7,7 @@ J (diferencias centradas) = 2p simulaciones; barrido de la Etapa 2 = p simulacio
 | Boehm_JProteomeRes2014 | 9 | salidas | 0.00168 s | 27 | 0 s | 0 s |
 | Elowitz_Nature2000 | 21 | salidas | 0.00243 s | 63 | 0 s | 0 s |
 | Fiedler_BMCSystBiol2016 | 22 | salidas | 0.00257 s | 66 | 0 s | 0 s |
+| Smith_BMCSystBiol2013 | 25 | salidas | 0.346 s | 75 | 26 s | 6 s |
 | Weber_BMC2015 | 36 | salidas | 0.00374 s | 108 | 0 s | 0 s |
 | Raia_CancerResearch2011 | 39 | salidas | 0.0106 s | 117 | 1 s | 0 s |
 | Alkan_SciSignal2018 | 44 | salidas | 0.13 s | 132 | 17 s | 4 s |
