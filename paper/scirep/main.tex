@@ -63,7 +63,7 @@ The relative sensitivity matrix $J=\partial y/\partial\log\theta$ is computed on
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig1_pipeline.pdf}
-\caption{\textbf{Overview of the reduction method.} Measured outputs are scaled by their noise level; biological and calibration parameters are separated; the relative sensitivity matrix $J$ is computed at the nominal parameters. Stage~1 selects biological parameters in decreasing order of sensitivity energy, rejecting candidates that make the selection ill-conditioned ($\kappa$ or VIF above $\tau_\kappa$), until a fraction $\tau_R$ of the energy is captured. The subset is admissible if re-estimating it, together with the calibration parameters, reproduces the full model in random perturbation scenarios (median $e_{\mathrm{fit}}\le\tau_e$) and it has at least two parameters. Otherwise stage~2 (dashed) repeats the selection ordered by finite-perturbation effects until the subset is admissible. Backward elimination then removes unnecessary parameters, and the reduced model is validated on held-out experiments.}
+\caption{\textbf{Overview of the reduction method.} Biological parameters are ranked by their effect on the measured outputs and selected without collinearity (stage~1, or stage~2 if needed, dashed). A subset is accepted when re-estimating it reproduces the full model; backward elimination then makes it minimal, and the reduced model is validated on held-out data.}
 \label{fig:pipeline}
 \end{figure}
 
