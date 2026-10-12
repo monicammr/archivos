@@ -50,8 +50,6 @@ def fig1():
     cols = [0.9 + 20.0 * i for i in range(5)]
     phases = ["Inputs", "Sensitivity", "Selection", "Decision", "Result"]
     for x, ph in zip(cols, phases):                   # phase columns
-        ax.add_patch(FancyBboxPatch((x - 0.8, 0.4), W + 1.6, 40.8, boxstyle="round,pad=0,rounding_size=1.2",
-                                    fc="#f5f6f8", ec="none", zorder=0))
         ax.text(x + W / 2, 38.6, ph.upper(), ha="center", va="center", fontsize=6.4, color=MUTED,
                 fontweight="bold", zorder=1)
 
