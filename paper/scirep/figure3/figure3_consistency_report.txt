@@ -67,12 +67,9 @@ All three chi2 columns exist (A_chi2_test_theta0 included), so both panels can b
    theta0 itself has chi2/n > 10 in: Chen, Okuonghae, Oliveira, Salazar-Cavazos, Smith
 
 6. COMPARISON WITH THE MANUSCRIPT (main.tex)
-   > [Fig. 3 caption] \caption{\textbf{Prediction of held-out experiments with real data.} Mean squared noise-scaled residual ($\chi^2/n$) on the test experiments for the reduced model (vertical axis) against \textbf{a}, the full model re-estimated on the same training experiments ($n=27$ problems) and \textbf{b}, the published estimate $\theta_0$, which was obtained using all data including the test e
+   > [Fig. 3 caption] \caption{\textbf{Prediction of held-out experiments with real data.} Ratio of the test $\chi^2/n$ (mean squared noise-scaled residual on the held-out experiments) of the reduced model to that of a reference, on a logarithmic scale. \textbf{a}, Reference: the full model re-estimated on the same training data ($n=25$ problems). \textbf{b}, Reference: the published estimate $\theta_0
    > When fitted to part of the experiments, the reduced models predicted the remaining experiments as well as or better than the full models in 27 of 28 testable cases, and most remained adequate for parameter changes of up to 50\%.
-   > The reduced model predicted the held-out experiments as well as or better than the full model in 27 of 28 problems in which both could be compared (Fig.
-   > Compared with the published estimate $\theta_0$, which was obtained using all data including the test set, the reduced model reached a test $\chi^2/n$ no larger than twice that of $\theta_0$ in 23 of 30 problems (Fig.
-   > ~\ref{fig:validation}a; in two of these, Zhao and Isensee, the two test errors differed by less than 0.
-   > In three problems (Okuonghae, Oliveira, Smith) even $\theta_0$ has $\chi^2/n\gg 1$, which indicates that the noise levels recorded in the benchmark do not match the scatter of the data.
+   > Compared with the published estimate $\theta_0$, which was obtained using all data including the test set, the reduced model reached a test $\chi^2/n$ no larger than twice that of $\theta_0$ in 23 of 30 problems (21 of the 27 shown in Fig.
    > We therefore split the measurements of each problem into training and test sets, by experimental condition when several conditions were available (21 problems) and by time otherwise, using the later time points as test set (11 problems); calibration or condition-specific parameters that appear only in the test set were excluded.
 
    [OK] '27 of 28' (reduced as good as or better than full): computed 27 of 28 over all valid pairs (noise-free problems included). Correct as a count over all 28 pairs.

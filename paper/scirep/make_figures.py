@@ -326,34 +326,13 @@ def fig2():
 
 
 def fig3():
-    fig, (a, b) = plt.subplots(1, 2, figsize=(7.0, 3.2))
-    for ax, key, lab in ((a, "A_chi2_test_full", "full model re-estimated on training data"),
-                         (b, "A_chi2_test_theta0", "published estimate $\\theta_0$ (all data)")):
-        xs, ys, nm = [], [], []
-        for k, d in VAL.items():
-            r, f = d.get("A_chi2_test_red"), d.get(key)
-            t0 = d.get("A_chi2_test_theta0")
-            if r is None or f is None or not (np.isfinite(r) and np.isfinite(f)) or r <= 0 or f <= 0:
-                continue
-            if t0 is not None and t0 < 1e-2:      # noise-free benchmark data: χ² not interpretable
-                continue
-            xs.append(f); ys.append(r); nm.append(short(k))
-        xs, ys = np.array(xs), np.array(ys)
-        lo, hi = min(xs.min(), ys.min()) / 2, max(xs.max(), ys.max()) * 2
-        ax.plot([lo, hi], [lo, hi], "k--", lw=0.7)
-        better = ys <= xs * 1.05
-        ax.scatter(xs[better], ys[better], s=16, color="#c0392b", zorder=3)
-        ax.scatter(xs[~better], ys[~better], s=16, facecolor="white", edgecolor="#c0392b", zorder=3)
-        for x, y, t in zip(xs, ys, nm):
-            if abs(np.log10(y / x)) < 0.3 and y < 20:
-                continue
-            ax.annotate(t, (x, y), fontsize=5.5, xytext=(2, 2), textcoords="offset points", color="0.3")
-        ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(lo, hi); ax.set_ylim(lo, hi)
-        ax.set_xlabel(f"Test $\\chi^2/n$, {lab}"); ax.set_ylabel("Test $\\chi^2/n$, reduced model")
-        ax.set_aspect("equal")
-    a.text(-0.12, 1.02, "a", transform=a.transAxes, fontweight="bold", fontsize=10)
-    b.text(-0.12, 1.02, "b", transform=b.transAxes, fontweight="bold", fontsize=10)
-    fig.tight_layout(); fig.savefig(OUT / "fig3_validation.pdf", bbox_inches="tight"); plt.close(fig)
+    """Held-out prediction: ratio redesign (main text) and scatter version (Supplementary Fig. S1),
+    both produced and verified against the consolidated CSV by figure3/make_figure3_redesign.py."""
+    import shutil, subprocess, sys
+    d = HERE / "figure3"
+    subprocess.run([sys.executable, str(d / "make_figure3_redesign.py")], check=True, cwd=d)
+    shutil.copy(d / "figure3_ratio_redesign.pdf", OUT / "fig3_validation.pdf")
+    shutil.copy(d / "figure3_scatter_redesign.pdf", OUT / "figS1_validation_scatter.pdf")
 
 
 def fig4():

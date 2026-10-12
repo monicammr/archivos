@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Supplementary Note "The social cognitive theory model" (the social cognitive theory model, the motivating case of the method) and
-Supplementary Fig. S1, from certificados/resultados/sct_bandura/datos_reales_modelo22.json and the model
+Supplementary Fig. S2, from certificados/resultados/sct_bandura/datos_reales_modelo22.json and the model
 of certificados/sct_modelo22.py. The validation refits are recomputed here (same procedure as
 sct_datos22.py) and checked against the stored values."""
 import json
@@ -54,7 +54,7 @@ E = (J ** 2).sum(0); share = E / E.sum(); rvar = float(share[S].sum())
 cos5, ef5 = D["cos_med"], D["eajuste_med"]
 level = 1 + (cos5 >= 0.9) + (cos5 >= 0.9 and rvar >= 0.89)
 
-# ---------------- Supplementary Fig. S1
+# ---------------- Supplementary Fig. S2
 days = np.arange(1, N + 1)
 fig, ax = plt.subplots(figsize=(7.0, 3.2))
 ax.axvspan(NTR + 0.5, N + 0.5, color="0.92", lw=0)
@@ -68,7 +68,7 @@ ax.legend(fontsize=7, frameon=False, ncol=2, loc="lower center", bbox_to_anchor=
 ax.spines[["top", "right"]].set_visible(False)
 fig.tight_layout()
 (HERE / "figures").mkdir(exist_ok=True)
-fig.savefig(HERE / "figures" / "figS1_sct.pdf")
+fig.savefig(HERE / "figures" / "figS2_sct.pdf")
 
 # ---------------- LaTeX
 G = {"beta": r"\beta", "gamma": r"\gamma", "tau": r"\tau"}
@@ -142,7 +142,7 @@ L += [r"\bottomrule", r"\end{longtable}", "}", "",
       r"$R^2=" + f"{V['R2_test_full_DE']:.2f}" + r"$, $\chi^2/n$ " + f"{V['chi2_test_full_DE']:.2f}" + r"), even though "
       r"the full model fits the training days more closely ($\chi^2/n$ " + f"{V['chi2_train_full']:.2f}" + r" versus "
       + f"{V['chi2_train_red']:.2f}" + r"). All refitted models are stable.", "",
-      r"\begin{figure}[!htb]", r"\centering", r"\includegraphics[width=\textwidth]{figures/figS1_sct.pdf}",
+      r"\begin{figure}[!htb]", r"\centering", r"\includegraphics[width=\textwidth]{figures/figS2_sct.pdf}",
       r"\caption{\textbf{SCT model of one participant.} Standardised daily steps (dots), "
       r"the fit of $\theta_0$ to all 31 days (grey), and the reduced (two parameters, blue) and full (22 parameters, "
       r"red dashed) models refitted to days 1--24; the shaded region contains the seven test days.}\label{fig:sct}",
