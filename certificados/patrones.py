@@ -64,7 +64,13 @@ def uno(name):
     U = np.random.default_rng(SEED).uniform(-1, 1, size=(N_ESC, p))   # las 15 direcciones u(k)
     res["semilla"] = SEED
     res["u"] = U.tolist()
+    ckf = OUTD / "parcial" / f"{name}.json"          # punto de control por nivel (reanudación)
+    hechos = json.loads(ckf.read_text()) if ckf.exists() else {}
     for nivel in NIVELES:
+        clave = f"{int(round(100 * nivel))}"
+        if clave in hechos:
+            res["niveles"][clave] = hechos[clave]
+            continue
         cs, es, fs, ks = [], [], [], []
         rng = np.random.default_rng(SEED)   # misma semilla por nivel: ±5 % = escenarios de la selección
         for k in range(N_ESC):
@@ -112,6 +118,9 @@ def uno(name):
             "n": len(fs), "cos_med": q(cs, 50), "erel_med": q(es, 50),
             "eaj_med": q(fs, 50), "eaj_q25": q(fs, 25), "eaj_q75": q(fs, 75),
             "escenarios": ks, "eaj": fs, "erel": es, "cos": cs}
+        ckf.parent.mkdir(parents=True, exist_ok=True)
+        hechos[clave] = res["niveles"][clave]
+        ckf.write_text(json.dumps(hechos))
     ok = [res["niveles"][k]["eaj_med"] <= EMAX for k in res["niveles"]
           if np.isfinite(res["niveles"][k]["eaj_med"])]
     niv = [NIVELES[i] for i in range(len(ok))]
