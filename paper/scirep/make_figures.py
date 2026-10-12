@@ -50,7 +50,8 @@ def fig1():
     cols = [0.9 + 20.0 * i for i in range(5)]
     phases = ["Inputs", "Sensitivity", "Selection", "Decision", "Result"]
     for x, ph in zip(cols, phases):                   # phase columns
-        ax.text(x + W / 2, 38.6, ph.upper(), ha="center", va="center", fontsize=6.4, color=MUTED,
+        ax.text(x + W / 2, 38.6, ph.upper(), ha="center", va="center", fontsize=6.6,
+                color={"Decision": ORANGE, "Result": GREEN}.get(ph, BLUE),
                 fontweight="bold", zorder=1)
 
     def box(x, y, h, text, n, color, fc="white", w=None, ls="-"):
