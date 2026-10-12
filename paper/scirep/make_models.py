@@ -274,10 +274,19 @@ L += [r"\bottomrule", r"\end{longtable}", "}", "",
 L += [r"\subsection*{Benchmark problems without a verified model}", "",
       r"Of the 34 benchmark problems analysed in the paper, 27 have a verified model; Froehlich, which is verified in "
       r"Lean, is the further problem analysed only on its state trajectories. The remaining seven problems were not "
-      r"verified, for the following reasons. They are not counted in any statement that relies on G5.", "",
+      r"verified, for the following reasons. They are not counted in any statement that relies on G5. "
+      r"Here \emph{verified} refers only to the formal verification in Lean of the hypotheses on the dynamics (G5): the "
+      r"numerical analysis of these seven problems (selection, admissibility, external validation and robustness) is "
+      r"complete and is reported together with the other problems in the main text and in this Supplementary Information; "
+      r"what is missing for them is only the machine-checked proof that their equations satisfy the hypotheses of the "
+      r"theorems.", "",
       r"\begin{itemize}\itemsep0pt\small",
-      r"\item \textbf{Smith}: two reactions use $\max(\mathrm{PIP3}-\mathrm{basal},0)$, which is not differentiable, so the "
-      r"vector field is not $C^1$ and the sensitivity theorem does not apply.",
+      r"\item \textbf{Smith}: two reactions (R16f and R17f) have rates $k_{11}\,\mathrm{Akt}\,\max(\mathrm{PIP3}-\mathrm{basal},0)$ "
+      r"and $k_{12}\,\mathrm{PKC}\,\max(\mathrm{PIP3}-\mathrm{basal},0)$, written in the SBML model as a piecewise expression. "
+      r"The maximum has a kink at $\mathrm{PIP3}=\mathrm{basal}$, so the vector field is not $C^1$ and the theorem on the "
+      r"differentiability of the solution with respect to the parameters (steps 15--17) does not apply. Finite-difference "
+      r"sensitivities remain valid as long as the trajectory does not cross the kink; a proof that it never does on the "
+      r"simulated horizon would allow the model to be verified, but it is not implemented.",
       r"\item \textbf{Liu} and \textbf{Oliveira}: they contain events triggered by the state or by a parameter-dependent "
       r"condition, not at fixed times; such events are outside Hypothesis~2 (step~18).",
       r"\item \textbf{Alkan}: the model translates, but the syntactic checkers cannot establish well-definedness for 22 "
