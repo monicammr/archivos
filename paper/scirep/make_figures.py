@@ -56,7 +56,7 @@ def fig1():
     gs = GridSpec(2, 3, figure=fig, hspace=0.62, wspace=0.45, left=0.075, right=0.985, top=0.855, bottom=0.08)
     # ---- flow ribbon
     rib = fig.add_axes([0.01, 0.925, 0.98, 0.07]); rib.axis("off"); rib.set_xlim(0, 6); rib.set_ylim(0, 1)
-    steps = [("Outputs", "noise-scaled data"), ("Sensitivity", "matrix $J$"),
+    steps = [("Data", "divided by noise $\\sigma_i$"), ("Sensitivity", "matrix $J$"),
              ("Stage 1", "greedy by $E_j$"), ("Stage 2", "greedy by $s_j$"),
              ("Admissibility", "re-estimate $\\theta_S$"), ("Validation", "predict new data")]
     for i, (t1, t2) in enumerate(steps):
@@ -87,8 +87,8 @@ def fig1():
         a.plot(t[m][k], y0[m][k], color=c, lw=1.2)
         a.scatter(t[m], y[m], s=9, color=c, edgecolor="white", linewidth=0.4, zorder=3)
         a.text(t[m][k][-1] + 6, y0[m][k][-1] + {"pSTAT5A": 1.2, "pSTAT5B": -1.0, "rSTAT5A": 0.0}[txt], txt, color=c, fontsize=6.2, va="center")
-    a.set_xlim(-5, 300); a.set_xlabel("time (min)", fontsize=6.8); a.set_ylabel("$y_i$ (noise units)", fontsize=6.8)
-    tag(a, "a", "Data (dots) and model at $\\theta_0$")
+    a.set_xlim(-5, 300); a.set_xlabel("time (min)", fontsize=6.8); a.set_ylabel("measurement $/\\,\\sigma_i$", fontsize=6.8)
+    tag(a, "a", "Measured data and model at $\\theta_0$")
 
     # ---- b: sensitivity matrix
     b = fig.add_subplot(gs[0, 1])
@@ -172,7 +172,7 @@ def fig1():
     pr = {kk: np.array(vv) for kk, vv in D["pred"].items()}
     f.plot(t[m][k], pr["full"][m][k], color=GREY, ls="--", lw=1.1, label=f"full model ($\\chi^2/n$ {D['chi_test']['full']:.1f})")
     f.plot(t[m][k], pr["red"][m][k], color=RED, lw=1.4, label=f"reduced, 2 parameters ({D['chi_test']['red']:.1f})")
-    f.set_xlim(-5, 260); f.set_xlabel("time (min)", fontsize=6.8); f.set_ylabel("pSTAT5A (noise units)", fontsize=6.8)
+    f.set_xlim(-5, 260); f.set_xlabel("time (min)", fontsize=6.8); f.set_ylabel("pSTAT5A $/\\,\\sigma_i$", fontsize=6.8)
     f.legend(fontsize=5.8, frameon=False, loc="lower right", handlelength=1.6)
     tag(f, "f", "Refit to $t<80$, predict $t\\geq80$")
     fig.savefig(OUT / "fig1_pipeline.pdf"); plt.close(fig)
