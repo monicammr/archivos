@@ -336,26 +336,70 @@ def fig3():
 
 
 def fig4():
+    """(a) Median e_fit versus perturbation size; (b) pass rate: share of the 15 paired scenarios with e_fit <= tau_e.
+    Per-scenario data: certificados/resultados/patrones_escenarios (patrones.py, same 15 directions at every size)."""
+    from matplotlib.colors import LinearSegmentedColormap
+    from matplotlib.gridspec import GridSpec
+    PS = {f.stem: json.loads(f.read_text()) for f in sorted((RES / "patrones_escenarios").glob("*.json"))}
     lv = [1, 5, 10, 20, 30, 40, 50]
-    col = {"A": "#4c8bc9", "B": "#c0392b", "C": "#e69f00", "D": "0.3"}
-    fig, ax = plt.subplots(figsize=(4.6, 3.2))
+    INK, MUTED = "#222222", "#666666"
+    col = {"A": "#2a78d6", "B": "#eb6834", "C": "#1baf7a", "D": "#555555"}
+    fig = plt.figure(figsize=(7.2, 5.6))
+    gs = GridSpec(1, 2, figure=fig, width_ratios=[1.0, 1.05], wspace=0.42, left=0.08, right=0.93, top=0.9, bottom=0.1)
+    a = fig.add_subplot(gs[0, 0])
     seen = set()
-    for k, d in sorted(PAT.items()):
-        y = [d["niveles"].get(str(l), {}).get("eaj_med", np.nan) for l in lv]
+    for k, d in sorted(PS.items()):
+        y = [d["niveles"][str(l)]["eaj_med"] if d["niveles"].get(str(l), {}).get("eaj") else np.nan for l in lv]
         pt = d["patron"]
-        ax.plot(lv, y, "-o", ms=2.5, lw=0.9, color=col[pt], alpha=0.85,
-                label=f"pattern {pt}" if pt not in seen else None)
+        a.plot(lv, 100 * np.array(y), "-o", ms=2.6, lw=0.9, color=col[pt], alpha=0.9 if pt != "A" else 0.55,
+               label=f"pattern {pt} ({sum(v['patron'] == pt for v in PS.values())})" if pt not in seen else None, zorder=3 if pt != "A" else 2)
         seen.add(pt)
         if pt != "A":
-            ax.annotate(short(k), (lv[-1], y[-1]), fontsize=5.5, xytext=(3, 0), textcoords="offset points",
-                        color=col[pt])
-    ax.axhline(TAU, color="k", ls="--", lw=0.8)
-    ax.text(1.05, TAU * 1.05, "$\\tau_e=0.436$", fontsize=6.5)
-    ax.set_xscale("log"); ax.set_xticks(lv); ax.set_xticklabels([f"{l}" for l in lv])
-    ax.set_xlabel("Perturbation size (±%)"); ax.set_ylabel("Median $e_{\\mathrm{fit}}$ (15 scenarios)")
-    ax.set_ylim(0, 0.8); ax.set_xlim(0.9, 75)
-    ax.legend(fontsize=6.5, frameon=False, loc="upper left")
-    fig.tight_layout(); fig.savefig(OUT / "fig4_robustness.pdf", bbox_inches="tight"); plt.close(fig)
+            a.annotate(short(k), (lv[-1], 100 * y[-1]), fontsize=6, xytext=(4, 0), textcoords="offset points", color=col[pt], va="center")
+    a.axhline(100 * TAU, color=INK, ls="--", lw=0.8)
+    a.text(1.05, 100 * TAU + 1.5, "$\\tau_e=43.6\\%$", fontsize=6.5)
+    a.set_xscale("log"); a.set_xticks([1, 5, 10, 20, 50]); a.set_xticklabels(["1", "5", "10", "20", "50"], fontsize=6.8); a.minorticks_off()
+    a.set_xlabel("Perturbation size ($\\pm$%)", fontsize=7.5); a.set_ylabel("Median $e_{\\mathrm{fit}}$ over 15 scenarios (%)", fontsize=7.5)
+    a.set_ylim(0, 80); a.set_xlim(0.9, 80); a.tick_params(labelsize=6.8)
+    a.legend(fontsize=6.5, frameon=False, loc="upper left")
+    for sp in ("top", "right"):
+        a.spines[sp].set_visible(False)
+    a.text(-0.16, 1.04, "a", transform=a.transAxes, fontsize=10.5, fontweight="bold")
+    a.text(-0.06, 1.04, "Median error", transform=a.transAxes, fontsize=8.2, fontweight="bold")
+    # ---- b: pass rate heat map
+    b = fig.add_subplot(gs[0, 1])
+    order = sorted(PS, key=lambda k: ("ABCD".index(PS[k]["patron"]),
+                                      -np.nanmean([np.mean(np.array(PS[k]["niveles"][str(l)]["eaj"]) <= TAU) for l in lv
+                                                   if PS[k]["niveles"][str(l)]["eaj"]]), short(k).lower()))
+    M = np.full((len(order), len(lv)), np.nan)
+    for i, k in enumerate(order):
+        for j, l in enumerate(lv):
+            e = PS[k]["niveles"][str(l)]["eaj"]
+            if e:
+                M[i, j] = 100 * np.mean(np.array(e) <= TAU)
+    cmap = LinearSegmentedColormap.from_list("pass", ["#fbe3d6", "#f2a27a", "#9cc3ec", "#1f5fa8"])
+    im = b.imshow(M, aspect="auto", cmap=cmap, vmin=0, vmax=100, interpolation="nearest")
+    for i in range(M.shape[0]):
+        for j in range(M.shape[1]):
+            v = M[i, j]
+            if np.isfinite(v) and v < 100:
+                b.text(j, i, f"{v:.0f}", ha="center", va="center", fontsize=5.2, color=INK if v > 40 else "#5a1d00")
+            elif not np.isfinite(v):
+                b.text(j, i, "--", ha="center", va="center", fontsize=5.2, color=MUTED)
+    b.set_xticks(range(len(lv))); b.set_xticklabels([str(l) for l in lv], fontsize=6.8)
+    b.set_yticks(range(len(order)))
+    b.set_yticklabels([f"{short(k)}  {PS[k]['patron']}" for k in order], fontsize=6.2)
+    for t, k in zip(b.get_yticklabels(), order):
+        t.set_color(col[PS[k]["patron"]] if PS[k]["patron"] != "A" else INK)
+    b.set_xlabel("Perturbation size ($\\pm$%)", fontsize=7.5)
+    b.tick_params(length=0)
+    for sp in b.spines.values():
+        sp.set_visible(False)
+    cb = fig.colorbar(im, ax=b, fraction=0.045, pad=0.03); cb.ax.tick_params(labelsize=6); cb.outline.set_visible(False)
+    cb.set_label("Scenarios with $e_{\\mathrm{fit}}\\leq\\tau_e$ (%)", fontsize=6.8)
+    b.text(-0.42, 1.04, "b", transform=b.transAxes, fontsize=10.5, fontweight="bold")
+    b.text(-0.32, 1.04, "Pass rate (numbers shown below 100%)", transform=b.transAxes, fontsize=8.2, fontweight="bold")
+    fig.savefig(OUT / "fig4_robustness.pdf"); plt.close(fig)
 
 
 def exportar():
