@@ -10,6 +10,7 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{amsthm}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{xcolor}
 \usepackage{url}
 \usepackage{lineno}
@@ -129,7 +130,7 @@ The method depends on a finite-difference step $\delta$, integrator tolerances, 
 The dominant cost is the computation of $J$ (2$p$ simulations) and of the stage-2 ordering ($p$ simulations), so the number of simulations grows linearly with the number of parameters, and all of them are independent and can run in parallel; the selection, condition-number tests, backward elimination and the first-order version of $e_{\mathrm{fit}}$ only use linear algebra on $J$. On a four-core server, these simulations took less than 40~s for all but two of the problems we timed, 2~min for Lang (294 parameters) and 68~min for Chen (155 parameters, 35~s per simulation). On state trajectories, the 4,231-parameter Froehlich model required 12,693 simulations and 2.6~h. For models of this size on measured outputs, forward or adjoint sensitivity equations\cite{bib13} compute $J$ at the cost of a few simulations.
 
 \begin{table}[t]
-\caption{\textbf{Sensitivity of the selection to the method settings.} The complete method was re-run on 26 problems changing one setting at a time (baseline: $\delta=1\%$, perturbation $\pm$5\%, $\tau_R=0.89$, $\tau_\kappa=\tau_{\mathrm{VIF}}=10$, $\tau_e=0.436$). Same $S$, number of problems in which the selected subset is identical to the baseline; $\overline{|S|}$, mean number of selected biological parameters among admissible problems.}
+\caption{\textbf{Sensitivity of the selection to the method settings.} The complete method was re-run on 26 problems changing one setting at a time (baseline: $\delta=1\%$, tolerances $10^{-7}/10^{-10}$, perturbation $\pm$5\%, $\tau_R=0.89$, $\tau_\kappa=\tau_{\mathrm{VIF}}=10$, $\tau_e=0.436$). Setting, the setting changed with respect to the baseline ($\delta$, relative step of the finite differences used for $J$; tolerances, relative/absolute tolerances of the ODE integrator; perturbation, size of the random parameter changes used for admissibility; $\tau_R$, $\tau_\kappa$, $\tau_{\mathrm{VIF}}$ and $\tau_e$, thresholds on $R_{\mathrm{var}}$, condition number, VIF and $e_{\mathrm{fit}}$); entries separated by a slash give the result for each of the values listed in that row. Admissible, number of the 26 problems with an admissible subset; $\overline{|S|}$, mean number of selected biological parameters among admissible problems; Same $S$, number of problems in which the selected subset is identical to the baseline.}
 \label{tab:settings}
 \centering
 \small
@@ -166,25 +167,41 @@ Let $\mathcal{A}$ be any admissibility predicate on finite sets and $S$ an admis
 
 Theorem~\ref{thm:cos} relates the threshold $\tau_e$ to the cosine: whenever $\cos\Delta\ge c$, rescaling the reduced response already gives a relative error of at most $\sqrt{1-c^2}$, and re-estimating several parameters can only do better to first order. The converse does not hold, and admissibility itself is decided by the numerically computed $e_{\mathrm{fit}}$. Theorem~\ref{thm:prune} gives the precise sense in which the selected subsets are minimal: no parameter can be removed, although a different, smaller admissible subset that is not contained in the result may exist. The other verified statements cover the remaining steps: re-estimating more parameters never increases the fitting error and $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the selection keeps $\kappa$ and VIF below their thresholds and permanently discarding a rejected candidate is correct because both quantities can only increase when parameters are added; $\kappa$ and VIF bounds imply that the linearised least-squares problem for the retained parameters has a unique and stable solution (which is not a proof of identifiability of the nonlinear model); error bounds on the states transfer to the measured outputs, including logarithmic transformations; and the first-order version of $e_{\mathrm{fit}}$ used for the largest models differs from the exact one by a second-order term. The verification is local: it does not prove that a subset remains adequate far from $\theta_0$, which is assessed empirically above. The theorems are implications; the quantities to which they are applied ($\kappa$, VIF, $R_{\mathrm{var}}$, $e_{\mathrm{fit}}$) are computed in floating point, and Supplementary Table~S4 states the scope of each guarantee and the numerical values that connect it with our results. The model files used by Lean were checked against the SBML models of the benchmark, with agreement to rounding error (Supplementary Note~4). Figure~\ref{fig:architecture} summarises how the two parts fit together: Python performs every computation on the benchmark problems, Lean proves the general statements of Table~\ref{tab:theorems} and checks the hypotheses of each model, and a conclusion of Table~\ref{tab:theorems} applies to a result of the paper only when both the model hypotheses are verified and the computed quantities satisfy the inequalities that the theorem requires.
 
-\begin{table}[t]
-\caption{\textbf{Formally verified statements (Lean~4/Mathlib).} Each statement is proved without unproved assumptions or additional axioms. The corresponding formal theorems are listed in Supplementary Table~S3.}
+\begin{table}[!tbp]
+\caption{\textbf{Formally verified statements (Lean~4/Mathlib).} The table covers all 31 modules of the formalisation (289 theorems and lemmas), grouped in the four parts of Supplementary Note~2. Step, part of the method to which the statements refer; Verified statement, what is proved, in words (precise statements in Supplementary Note~3); Modules, step numbers in Supplementary Table~S3. Parts I--III hold for any model that satisfies the stated hypotheses; Part IV proves those hypotheses for 28 benchmark models. Every statement is proved without unproved assumptions or additional axioms.}
 \label{tab:theorems}
 \centering
-\small
-\begin{tabular}{@{}p{0.30\textwidth}p{0.64\textwidth}@{}}
+\footnotesize\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.71\textwidth}>{\raggedright\arraybackslash}p{0.06\textwidth}@{}}
 \toprule
-Step of the method & Verified statement \\
+Step & Verified statement & Modules \\
 \midrule
-Energy and $R_{\mathrm{var}}$ & $E_j=(J^\top J)_{jj}$; the total energy is the sum of retained and discarded energy; the first-order output change caused by discarded parameters is bounded by their energy \\
-Sensitivities of the ODE & For $C^1$ vector fields, solutions depend differentiably on parameters and initial conditions, and the sensitivity solves the variational equation \\
-Greedy selection & The returned subset satisfies $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$; rejected candidates would still violate the test with the final subset \\
-Identifiability & $\kappa$ and VIF bounds imply uniqueness and stability of the linearised least-squares estimates of the retained parameters \\
-Admissibility threshold & Theorem~\ref{thm:cos} (minimum error after rescaling equals $\sqrt{1-\cos^2}$); re-estimating several parameters is at least as good to first order \\
-Re-estimation & Adding parameters to the re-estimated set cannot increase the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ \\
-Backward elimination & Theorem~\ref{thm:prune} (minimality with respect to inclusion) \\
-Measured outputs & Error bounds on states transfer to outputs $y_i=h(g_i(x))/\sigma_i$ with Lipschitz observables; $\log$ and $\log_{10}$ are Lipschitz on $[c,\infty)$ \\
-First-order $e_{\mathrm{fit}}$ & The linearised fitting error never exceeds the rescaled error and differs from the exact one by at most a second-order term \\
-Model assumptions & For 28 benchmark models translated from SBML (and checked against the SBML models), the vector field is smooth, solutions exist on the simulated horizon, concentrations remain non-negative and solutions are differentiable in the parameters \\
+\multicolumn{3}{@{}l}{\textit{Part I. Selection, conditioning and re-estimation (any fixed sensitivity matrix $J$)}} \\
+Energy and $R_{\mathrm{var}}$ & $E_j=(J^\top J)_{jj}$; the total energy is the sum of retained and discarded energy; the first-order output change caused by the discarded parameters is bounded by their energy, $\sqrt{(1-R_{\mathrm{var}})E}\,\|\Delta\theta\|$ & 1, 2 \\
+Admissibility threshold & Theorem~\ref{thm:cos}: the minimum relative error after rescaling equals $\sqrt{1-\cos^2\Delta}$; re-estimating several parameters is at least as good to first order & 3 \\
+Finite perturbations & Non-asymptotic bounds on the output error and a certificate of $\cos\Delta$ for each finite perturbation scenario & 4 \\
+Re-estimation & Adding parameters to the re-estimated set cannot increase the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; admissibility is preserved when parameters are added & 5 \\
+Backward elimination & Theorem~\ref{thm:prune}: the result is admissible and minimal with respect to inclusion & 6 \\
+Conditioning & $\kappa$ and VIF, defined exactly as computed numerically (singular values and matrix inverse), bound the uniqueness and stability of the linearised least-squares estimates of the retained parameters & 7, 8 \\
+Greedy selection & The returned subset satisfies $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$; permanently discarding a rejected candidate is correct, because both quantities can only increase when parameters are added & 9 \\
+Mechanisms & Parameters with opposing effects (a combination of sensitivity columns equal to zero) are rejected by the $\kappa$ test and are not identifiable; zero discarded energy implies an exact first-order reduction & 10 \\
+Numerical robustness & The finite-difference error of the sensitivity columns is bounded; $R_{\mathrm{var}}$, $\kappa$ and VIF are certified from approximate values with explicit margins & 11 \\
+First-order $e_{\mathrm{fit}}$ & The linearised fitting error never exceeds the rescaled error and differs from the exact one by at most a second-order term & 12 \\
+Measured outputs & Error bounds on states transfer to outputs $y_i=h(g_i(x))/\sigma_i$ with Lipschitz observables; $\log$ and $\log_{10}$ are Lipschitz on $[c,\infty)$ & 13 \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Part II. Solutions of the ODE and their sensitivities}} \\
+Existence & Global existence on a finite interval for globally Lipschitz vector fields; solutions exist for parameters near $\theta_0$ when the nominal solution exists & 14, 16 \\
+Sensitivities & For $C^1$ vector fields, solutions depend differentiably on parameters and initial values, and the sensitivity solves the variational equation; trajectories and sensitivities are Lipschitz in $\theta$ with explicit constants (Gr\"onwall) & 15, 17 \\
+Events & The same results hold for systems with events at fixed times, segment by segment & 18 \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Part III. Certificates for ODE models}} \\
+Reduced ODE model & $R_{\mathrm{var}}(S)\ge r$ bounds the trajectory error of the reduced model for small perturbations & 19 \\
+$\cos\Delta$ certificates & Certificates of $\cos\Delta$ for finite perturbations of the ODE: with an explicit Lipschitz constant, with the exact linear error, or from the nominal trajectory only & 20--22 \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{Part IV. Hypotheses of the benchmark models}} \\
+Rate laws & Mass action, Michaelis--Menten, Hill and other rate laws define smooth vector fields on their domain; verified automatic checkers apply to the translated rate laws & 23, 27 \\
+Positivity and existence & Quasi-positive models keep concentrations non-negative (or strictly positive); solutions exist globally under linear growth, or on a finite horizon under quadratic growth (Riccati bound) & 24--26, 29 \\
+Model assumptions & For 28 benchmark models translated from SBML (and checked against the SBML models), the vector field is smooth, solutions exist on the simulated horizon, concentrations remain non-negative and solutions are differentiable in the parameters; parameter-dependent initial values are certified with interval arithmetic & 28, 30, 31 \\
 \botrule
 \end{tabular}
 \end{table}

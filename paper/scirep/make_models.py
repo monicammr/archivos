@@ -157,7 +157,9 @@ L = [r"\section*{Supplementary Note 4. The verified benchmark models}", r"\slopp
      r"{\small", r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}rrrr>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.5cm}rr@{}}",
      r"\caption*{\textbf{Supplementary Table S6.} Benchmark models verified in Lean. $n$: states (species, plus "
      r"time when a rate law depends on it); $p$: parameters; $R$: rate terms (reactions after splitting reversible "
-     r"ones); $|\Sigma|$: species proved strictly positive; time: compilation time of the model files (s); "
+     r"ones); $|\Sigma|$: species proved strictly positive; horizon: time interval on which existence of the "
+     r"solution is proved; final theorem: family of the end-to-end theorem that the model instantiates (Supplementary Note~3); "
+     r"time: compilation time of the model files (s); "
      r"fidelity: largest relative difference between the Lean translation and the SBML model evaluated by "
      r"libRoadRunner (vector field, parameter values and initial values).}\\",
      r"\toprule", r"Model & $n$ & $p$ & $R$ & $|\Sigma|$ & Horizon & Final theorem & Time & Fidelity \\", r"\midrule", r"\endhead"]

@@ -14,9 +14,9 @@
 \node[box, fill=blue!6, below=of p1] (p2) {Selection: $R_{\mathrm{var}}$, $\kappa\le10$, VIF $\le10$};
 \node[box, fill=blue!6, below=of p2] (p3) {Admissibility: median $e_{\mathrm{fit}}\le0.436$ over 15 scenarios; backward elimination};
 \node[box, fill=blue!6, below=of p3] (p4) {External validation and robustness};
-\node[box, fill=green!7, below=4mm of lean] (l1) {General theorems: 31 modules, 289 theorems and lemmas (Table 3, rows 1--9)};
+\node[box, fill=green!7, below=4mm of lean] (l1) {General theorems for any model satisfying the hypotheses (Table 3, Parts I--III)};
 \node[box, fill=green!7, below=of l1] (l2) {SBML $\to$ Lean translation of each model (exact rationals)};
-\node[box, fill=green!7, below=of l2] (l3) {Checks executed by the Lean kernel; final theorem of each model (28 models; Table 3, last row)};
+\node[box, fill=green!7, below=of l2] (l3) {Checks executed by the Lean kernel; final theorem of each model (28 models; Table 3, Part IV)};
 \node[box=11.8cm, fill=orange!10, anchor=north] (out) at ($(p4.south -| 0,0)+(0,-0.7)$) {\textbf{Applicability of the formal conclusions to a result of the paper}\\ hypotheses of the model verified \;$+$\; computed values satisfy the inequalities of the theorems \;$\Rightarrow$\; the conclusions of Table 3 hold};
 \draw[->] (in.south -| py) -- (py.north);
 \draw[->] (in.south -| lean) -- (lean.north);

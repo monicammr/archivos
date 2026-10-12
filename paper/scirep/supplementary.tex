@@ -952,7 +952,7 @@ This note lists, for each of the 28 benchmark models verified in Lean, the data 
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}rrrr>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.5cm}rr@{}}
-\caption*{\textbf{Supplementary Table S6.} Benchmark models verified in Lean. $n$: states (species, plus time when a rate law depends on it); $p$: parameters; $R$: rate terms (reactions after splitting reversible ones); $|\Sigma|$: species proved strictly positive; time: compilation time of the model files (s); fidelity: largest relative difference between the Lean translation and the SBML model evaluated by libRoadRunner (vector field, parameter values and initial values).}\\
+\caption*{\textbf{Supplementary Table S6.} Benchmark models verified in Lean. $n$: states (species, plus time when a rate law depends on it); $p$: parameters; $R$: rate terms (reactions after splitting reversible ones); $|\Sigma|$: species proved strictly positive; horizon: time interval on which existence of the solution is proved; final theorem: family of the end-to-end theorem that the model instantiates (Supplementary Note~3); time: compilation time of the model files (s); fidelity: largest relative difference between the Lean translation and the SBML model evaluated by libRoadRunner (vector field, parameter values and initial values).}\\
 \toprule
 Model & $n$ & $p$ & $R$ & $|\Sigma|$ & Horizon & Final theorem & Time & Fidelity \\
 \midrule
