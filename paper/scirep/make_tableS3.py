@@ -58,20 +58,22 @@ assert sorted(names) == sorted(cnt) == sorted(info), set(cnt) ^ set(names)
 deps = {m: [l.split()[1] for l in (ROOT / "lean_proofs" / f"{m}.lean").read_text(encoding="utf-8").splitlines()
             if l.startswith("import ") and not l.startswith("import Mathlib")] for m in names}
 tot = sum(cnt.values())
-L = [r"\section*{Supplementary Table S3. Formal proofs}", "",
-     r"All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repository, a self-contained "
+L = [r"All formal proofs are collected in the folder \texttt{lean\_proofs/} of the repository, a self-contained "
      r"Lean~4 project (Lean 4.23.0, Mathlib v4.23.0) that compiles with a single command (\texttt{./verify.sh}). "
      f"It contains {len(names)} theory modules with {tot} theorems and lemmas, and 28 benchmark models translated from SBML. "
      r"No file contains \texttt{sorry} or \texttt{axiom}, and \texttt{\#print axioms} reports only \texttt{propext}, "
-     r"\texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. Modules are listed in the logical order "
-     r"of the proofs (Supplementary Note~2): \# is the step number, and every module only uses modules with a smaller "
+     r"\texttt{Classical.choice} and \texttt{Quot.sound} for every theorem. Supplementary Table~\ref{tab:modules} lists the modules in the "
+     r"logical order of the proofs: \# is the step number, and every module only uses modules with a smaller "
      r"number (column `Uses'). $n$ is the number of theorems and lemmas in the module (its size, not an index). "
-     r"Supplementary Note~3 gives the statement and meaning of every theorem and lemma; the file \texttt{THEOREMS.md} "
+     r"\sref{stmts} gives the statement and meaning of every theorem and lemma; the file \texttt{THEOREMS.md} "
      r"in the folder lists them as well.", "",
      r"{\small", r"\begin{longtable}{@{}>{\raggedleft\arraybackslash}p{0.45cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedleft\arraybackslash}p{0.55cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{5.1cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}",
+     r"\caption{Modules of the Lean formalisation in the logical order of the proofs.}\label{tab:modules}\\",
+     r"\toprule", r"\# & Module & $n$ & Uses & Content & Main theorems \\", r"\midrule", r"\endfirsthead",
      r"\toprule", r"\# & Module & $n$ & Uses & Content & Main theorems \\", r"\midrule", r"\endhead"]
 for part, title, mods in fo.PARTS:
-    L.append(r"\multicolumn{6}{@{}l}{\textit{Part " + part + ". " + title + r"}} \\")
+    st = [fo.STEP[m] for m in mods]
+    L.append(r"\multicolumn{6}{@{}l}{\textit{Steps " + f"{min(st)}--{max(st)}. " + title + r"}} \\")
     for m in mods:
         d, k = info[m]
         brk = lambda t: t.replace(r"\_", r"\_\allowbreak{}").replace(", ", r", \allowbreak{}")
@@ -85,11 +87,7 @@ L += [r"\midrule", f" & Total & {tot} & & & \\\\", r"\bottomrule", r"\end{longta
       r"in twelve parts), Fujita, Giordano, Isensee, Lang, Laske, Lucarelli, Okuonghae, Rahman, Raia, Raimundez, "
       r"SalazarCavazos, Sneyd, Weber, Zhao and Zheng (folder \texttt{lean\_proofs/Models/}). For each model, the final theorem establishes that the "
       r"vector field is smooth on its domain, that the solution exists on the simulated horizon and that "
-      r"concentrations remain non-negative. The data of each model and the checks executed are given in Supplementary Note~4 and Table~S6, which also explain why the remaining seven benchmark problems were not verified.", ""]
+      r"concentrations remain non-negative. The data of each model and the checks executed are given in \sref{models} and Supplementary Table~\ref{tab:models}, which also explain why the remaining seven benchmark problems were not verified.", ""]
 
-p = HERE / "supplementary.tex"
-s = p.read_text()
-a = s.index(r"\section*{Supplementary Table S3.")
-b = s.index(r"\section*{Supplementary Note")
-p.write_text(s[:a] + "\n".join(L) + "\n" + s[b:])
+(HERE / "tables" / "tableS3.tex").write_text("\n".join(L) + "\n")
 print(len(names), "modules,", tot, "theorems and lemmas")

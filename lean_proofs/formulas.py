@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mathematical statement and meaning of every theorem and lemma in lean_proofs/.
 
-Used by paper/scirep/make_formulas.py (Supplementary Notes 2 and 3) and by this folder's FORMULAS.md.
+Used by paper/scirep/make_formulas.py (Supplementary Notes "Logical sequence of the formal proofs" and "Statements of the formal theorems") and by this folder's FORMULAS.md.
 Each entry is (Lean name without the module namespace, statement in LaTeX math, meaning).
 The generator checks that the entries match the declarations found by catalogo.py exactly."""
 
@@ -560,7 +560,7 @@ mod("IntervalInit", G6,
 
 GROUPS = [G1, G2, G3, G4, G5, G6]
 
-# ------------------------------------------------------------------ logical order (Supplementary Note 2, Table S3)
+# ------------------------------------------------------------------ logical order (Supplementary Note "Logical sequence of the formal proofs", Supplementary Table S3)
 # Topological order of the import graph: every module only imports modules with a smaller step number.
 PARTS = [
     ("I", "Finite-dimensional core of the method (fixed sensitivity matrix)",

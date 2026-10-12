@@ -1,8 +1,12 @@
-\section*{Supplementary Note 2. Logical sequence of the formal proofs}
+\snote{seq}
 \sloppy
 
-This note explains, in mathematical terms, the chain of results that the Lean code proves, in the order in which they build on each other. The order is that of the import graph of \texttt{lean\_proofs/}: step $k$ only uses steps with a smaller number (Supplementary Table~S3, column `Uses'). Lean names of the main results are given in \texttt{typewriter} font; the statement and meaning of every theorem are in Supplementary Note~3, and the notation in Supplementary Table~S5. Supplementary Figure~S1 shows how the formal and the numerical parts of the work fit together, and Supplementary Table~S4 states the scope of each formal guarantee.
+This note explains, in mathematical terms, the chain of results that the Lean code proves, in the order in which they build on each other. The order is that of the import graph of \texttt{lean\_proofs/}: step $k$ only uses steps with a smaller number (Supplementary Table~\ref{tab:modules}, column `Uses'). Lean names of the main results are given in \texttt{typewriter} font; the statement and meaning of every theorem are in \sref{stmts}, and the notation in Supplementary Table~\ref{tab:leannot}. Figure~5 of the main text shows how the formal and the numerical parts of the work fit together, and Supplementary Table~\ref{tab:scope} states the scope of each formal guarantee.
 
+
+\subsection*{Modules of the formalisation}
+
+\input{tables/tableS3.tex}
 
 \subsection*{Setting and goal}
 
@@ -14,25 +18,25 @@ A model is an ODE $\dot x=f(x,\theta)$ on $[0,T]$ with $x(0)=x^0(\theta)$, $\the
 \item[(G4)] the fitting error is monotone in the re-estimated set, and backward elimination returns a subset from which no single parameter can be removed;
 \item[(G5)] the hypotheses needed for (G1)--(G3) (smoothness, existence of solutions, positivity, differentiability) hold for the translated benchmark models.
 \end{itemize}
-Parts I--III prove (G1)--(G4) for any model satisfying explicit hypotheses; Part IV proves that the 28 verified benchmark models satisfy them. Figure~5 of the main text shows how these formal results connect with the numerical computations. Supplementary Table~S4 states, for each guarantee, what is proved, what is not, and which numerical quantity connects it with the results of the paper.
+Steps 1--22 prove (G1)--(G4) for any model satisfying explicit hypotheses; steps 23--31 prove that the 28 verified benchmark models satisfy them. Supplementary Table~\ref{tab:scope} states, for each guarantee, what is proved, what is not, and which numerical quantity connects it with the results of the paper.
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.7cm}@{}}
-\caption*{\textbf{Supplementary Table S4.} Scope of the formal guarantees. Numerical values refer to the final subsets of the 32 admissible benchmark problems and were computed in Python in double precision.}\\
+\caption{Scope of the formal guarantees. Numerical values refer to the final subsets of the 32 admissible benchmark problems and were computed in Python in double precision.}\label{tab:scope}\\
 \toprule
 Guarantee & What Lean proves & What it does not prove & Numerical connection with the paper \\
 \midrule
 \endhead
-G1. Error of the reduced model & For small $\Delta\theta$: $\|F(\theta_0{+}\Delta\theta)-F(\theta_0{+}\Delta\theta_S)\|\le(\sqrt{(1-R_{\mathrm{var}})E}+\eta)\|\Delta\theta\|$; an explicit version for finite $\|h\|\le\rho_0$ with a Lipschitz constant $L_c$ (steps 1--4, 19--20) & A small error for arbitrarily large perturbations; that the selected subsets have $R_{\mathrm{var}}$ close to 1 & $R_{\mathrm{var}}(S)$ of the final subsets has median 0.56 and is $\ge0.89$ in 2 of 32 (level 3 of Supplementary Table~S1); the bound is therefore informative only for some subsets, and admissibility is decided by $e_{\mathrm{fit}}$ (G2, G4); the explicit finite version could not certify any benchmark scenario because $L_c$ is very large (see below) \\
-G2. Cosine and fitting error & $\min_\alpha\|a-\alpha b\|/\|a\|=\sqrt{1-\cos^2(a,b)}$; the linearised fit of several parameters is no worse; certificates of $\cos\Delta$ for finite and small perturbations (steps 3--4, 12, 20--22) & That the nonlinear multi-parameter optimisation performed in Python reaches its optimum; the value of $e_{\mathrm{fit}}$ itself & Median $e_{\mathrm{fit}}$ over 15 scenarios at $\pm5\%$ is $\le\tau_e=0.436$ in all 32 admissible problems (largest value 0.4355); the median $\cos\Delta$ is $\ge0.9$ in 18 of them (levels 2--3 of Supplementary Table~S1), so a subset can be admissible because re-estimating several parameters fits better than rescaling \\
+G1. Error of the reduced model & For small $\Delta\theta$: $\|F(\theta_0{+}\Delta\theta)-F(\theta_0{+}\Delta\theta_S)\|\le(\sqrt{(1-R_{\mathrm{var}})E}+\eta)\|\Delta\theta\|$; an explicit version for finite $\|h\|\le\rho_0$ with a Lipschitz constant $L_c$ (steps 1--4, 19--20) & A small error for arbitrarily large perturbations; that the selected subsets have $R_{\mathrm{var}}$ close to 1 & $R_{\mathrm{var}}(S)$ of the final subsets has median 0.56 and is $\ge0.89$ in 2 of 32 (level 3 of Supplementary Table~\ref{tab:selected}); the bound is therefore informative only for some subsets, and admissibility is decided by $e_{\mathrm{fit}}$ (G2, G4); the explicit finite version could not certify any benchmark scenario because $L_c$ is very large (see below) \\
+G2. Cosine and fitting error & $\min_\alpha\|a-\alpha b\|/\|a\|=\sqrt{1-\cos^2(a,b)}$; the linearised fit of several parameters is no worse; certificates of $\cos\Delta$ for finite and small perturbations (steps 3--4, 12, 20--22) & That the nonlinear multi-parameter optimisation performed in Python reaches its optimum; the value of $e_{\mathrm{fit}}$ itself & Median $e_{\mathrm{fit}}$ over 15 scenarios at $\pm5\%$ is $\le\tau_e=0.436$ in all 32 admissible problems (largest value 0.4355); the median $\cos\Delta$ is $\ge0.9$ in 18 of them (levels 2--3 of Supplementary Table~\ref{tab:selected}), so a subset can be admissible because re-estimating several parameters fits better than rescaling \\
 G3. Conditioning & Uniqueness and stability of the linear least-squares estimate with normalised sensitivity columns, with $\kappa=\sqrt{\lambda_{\max}/\lambda_{\min}}$ and $\mathrm{VIF}_j=[(Z^\top Z)^{-1}]_{jj}$ as computed (steps 7--9) & Global or structural identifiability of the nonlinear model; uniqueness of the nonlinear calibration & $\kappa\le6.6$ and $\mathrm{VIF}\le9.85$ for all 32 final subsets (thresholds $\tau_\kappa=\tau_{\mathrm{VIF}}=10$) \\
 G4. Re-estimation and pruning & $e_{\mathrm{fit}}$ never increases when parameters are added; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; pruning returns an admissible subset that is minimal with respect to inclusion (steps 5--6) & That the result is the admissible subset of smallest size; that the numerical evaluation of admissibility is exact & Admissibility of each candidate subset is evaluated numerically (15 scenarios, median $e_{\mathrm{fit}}\le0.436$) \\
-G5. Benchmark models & For 28 translated models: smooth vector field, existence of the solution on the horizon (every $T$, or $T\le1$ for Crauste), non-negativity, solutions for $\theta$ near $\theta_0$ and their differentiability (steps 23--31) & That the SBML and PEtab files are correct; the accuracy of the numerical simulations; experimental conditions that override parameters or initial values (the translation uses the nominal values) & The translated vector fields, parameter values and initial values agree with the SBML models evaluated by libRoadRunner (Supplementary Note~4) \\
+G5. Benchmark models & For 28 translated models: smooth vector field, existence of the solution on the horizon (every $T$, or $T\le1$ for Crauste), non-negativity, solutions for $\theta$ near $\theta_0$ and their differentiability (steps 23--31) & That the SBML and PEtab files are correct; the accuracy of the numerical simulations; experimental conditions that override parameters or initial values (the translation uses the nominal values) & The translated vector fields, parameter values and initial values agree with the SBML models evaluated by libRoadRunner (\sref{models}) \\
 \bottomrule
 \end{longtable}
 }
 
-\subsection*{Part I. Finite-dimensional core (steps 1--13)}
+\subsection*{Steps 1--13. Finite-dimensional core of the method}
 
 Here the sensitivity matrix $J=DF(\theta_0)$ is a fixed $m\times p$ matrix with column energies $E_j=\sum_iJ_{ij}^2$, $E=\sum_jE_j$, $E_S=\sum_{j\in S}E_j$.
 
@@ -64,9 +68,9 @@ and, writing $A=\|Jh\|-L_c\|h\|^2>0$, the inequality $(\sqrt{E_{S^c}}\|h_{S^c}\|
 
 \textbf{Steps 10--13 (complements).} Two parameters with proportional sensitivity columns ($Ze_a=\lambda Ze_b$) give $Z(e_a-\lambda e_b)=0$, so no $\kappa$ threshold accepts both and the estimate is not unique; zero discarded energy makes the reduction exact to first order (step~10). Values computed with finite differences and rounding certify $R_{\mathrm{var}}$, $\kappa$ and VIF for the exact matrix when explicit margins hold (step~11). The linearised $e_{\mathrm{fit}}$ used for large systems differs from the exact one by at most $M\rho^2$ (step~12). Error bounds transfer from states to measured outputs through Lipschitz observation functions, including $\log$ and $\log_{10}$ (step~13).
 
-\subsection*{Part II. Ordinary differential equations (steps 14--18)}
+\subsection*{Steps 14--18. Ordinary differential equations}
 
-Part~I needs $F$ to be differentiable, with known derivative, for every $\theta$ near $\theta_0$. Part~II proves this for ODE models.
+Steps 1--13 need $F$ to be differentiable, with known derivative, for every $\theta$ near $\theta_0$. Steps 14--18 prove this for ODE models.
 
 \textbf{Step 14.} If $v(t,\cdot)$ is $K$-Lipschitz, Picard iteration on intervals of length at most $1/(2K)$ gives a solution on all of $[a,b]$ (\texttt{exists\_solution\_Icc}).
 
@@ -86,9 +90,9 @@ Part~I needs $F$ to be differentiable, with known derivative, for every $\theta$
 
 \textbf{Step 18.} The same holds segment by segment for systems with events at fixed times (\texttt{event\_hasFDerivAt}).
 
-\subsection*{Part III. Certificates for ODE models (steps 19--22)}
+\subsection*{Steps 19--22. Certificates for ODE models}
 
-Part~III applies Part~I to $F=\mathcal{F}$, the vector of states at the sampling times, whose derivative is the sampled sensitivity matrix $\mathcal{S}=(S(t_1),\dots,S(t_N))$ given by Part~II.
+Steps 19--22 apply steps 1--13 to $F=\mathcal{F}$, the vector of states at the sampling times, whose derivative is the sampled sensitivity matrix $\mathcal{S}=(S(t_1),\dots,S(t_N))$ given by steps 14--18.
 
 \textbf{Step 19.} The energy criterion computed from $\mathcal{S}$ bounds the trajectory error of the reduced model: for every $\eta>0$ and small $\Delta\theta$,
 \[
@@ -102,9 +106,9 @@ R_{\mathrm{var}}(S)\ge r\ \Rightarrow\ \|\mathcal F(\theta_0+\Delta\theta)-\math
 
 \textbf{Step 22.} Combining steps~16 and~21, the local certificate requires only that the nominal solution exist (\texttt{local\_cos\_from\_nominal}).
 
-\subsection*{Part IV. Hypotheses of the benchmark models (steps 23--31)}
+\subsection*{Steps 23--31. Hypotheses of the benchmark models}
 
-The results of Parts~II--III assume that $f$ is $C^1$ on an open set containing the trajectory and that the nominal solution exists on $[0,T]$. Part~IV proves these assumptions for the benchmark models from their equations.
+The results of steps 14--22 assume that $f$ is $C^1$ on an open set containing the trajectory and that the nominal solution exists on $[0,T]$. Steps 23--31 prove these assumptions for the benchmark models from their equations.
 
 \textbf{Step 23 (smoothness).} Rate laws are represented as expressions built from constants, concentrations, parameters, $+,-,\times,\div$, powers, $\exp$ and $\log$. Wherever an expression is well defined (non-zero denominators, positive bases of real powers and arguments of $\log$) it is $C^\infty$, and this set is open (\texttt{contDiffOn\_field}); Michaelis--Menten and Hill laws are covered (\texttt{ok\_mm}, \texttt{ok\_hill}, \texttt{ok\_hillR}). This yields the local certificate for every kinetic model (\texttt{kinetic\_local\_cos}).
 
@@ -118,15 +122,15 @@ The results of Parts~II--III assume that $f$ is $C^1$ on an open set containing 
 
 \textbf{Steps 29--31.} Three extensions cover the remaining models: quadratic growth, $\sum_iw_if_i\le Q(\sum_iw_iy_i+1)^2$, gives existence up to the Riccati time $1/(Q(\sum_iw_ix^0_i+1))$ (\texttt{riccati\_final}, used for Crauste with $T\le1$); networks with strictly positive domains (\texttt{strict\_final\_init}); and parameter-dependent initial values checked with rational interval arithmetic (\texttt{strict\_final\_initI}).
 
-\textbf{Benchmark models.} Each file in \texttt{lean\_proofs/Models/} contains the rate laws, stoichiometry, parameter values and initial values of one model, translated from SBML with exact rational numbers. The checks of steps~27--31 are executed by the Lean kernel (\texttt{decide +kernel}), and one end-to-end theorem is then applied: \texttt{network\_final} (15 models), \texttt{network\_final\_init} (5), \texttt{network\_segments\_final} (1), \texttt{strict\_final\_init} (5), \texttt{strict\_final\_initI} (1) or \texttt{riccati\_final} (1). The resulting theorem states that the model satisfies the hypotheses of Parts~II--III. Supplementary Note~4 gives the data and the checks of each model.
+\textbf{Benchmark models.} Each file in \texttt{lean\_proofs/Models/} contains the rate laws, stoichiometry, parameter values and initial values of one model, translated from SBML with exact rational numbers. The checks of steps~27--31 are executed by the Lean kernel (\texttt{decide +kernel}), and one end-to-end theorem is then applied: \texttt{network\_final} (15 models), \texttt{network\_final\_init} (5), \texttt{network\_segments\_final} (1), \texttt{strict\_final\_init} (5), \texttt{strict\_final\_initI} (1) or \texttt{riccati\_final} (1). The resulting theorem states that the model satisfies the hypotheses of Parts~II--III. \sref{models} gives the data and the checks of each model.
 
 \subsection*{Connection with the numerical results and what the proofs do not cover}
 
 Lean proves implications; it does not recompute the numerical results. The sensitivity matrices, $R_{\mathrm{var}}$, $\kappa$, VIF, $\cos\Delta$ and $e_{\mathrm{fit}}$ reported in the paper are computed in Python, in double precision. Three levels of evidence should therefore be distinguished.
 \begin{itemize}\itemsep0pt
 \item \emph{General mathematics (G1--G4).} Proved in Lean for every model that satisfies the stated hypotheses.
-\item \emph{Hypotheses of specific models (G5).} Proved in Lean for 28 benchmark models from their translated equations; the translation was compared independently with the SBML models (Supplementary Note~4).
-\item \emph{Numerical conditions.} The inequalities required by the theorems ($\kappa\le10$, $\mathrm{VIF}\le10$, median $e_{\mathrm{fit}}\le0.436$, and $R_{\mathrm{var}}\ge r$ for the bound of G1) were evaluated in floating-point arithmetic; Supplementary Table~S4 gives their values. The certified margins of step~11 were not applied to these computations. In a preliminary analysis with an earlier version of the selection, the explicit finite-perturbation certificates of steps~4 and~20 were evaluated with bounds $M_1$, $M_2$ computed from the vector fields: the resulting constants $L_c$ ranged from about $10^2$ to $10^{24}$ and no scenario at $\pm5\%$ could be certified in any model (\texttt{certificados/resultados/tabla\_certificados.md}). These certificates are therefore of theoretical value; in practice the method relies on the local results (steps~19, 21 and~22) and on the numerical admissibility test. The conclusions of G1--G3 for a particular problem are therefore conditional on the computed values; for the closest cases (VIF $=9.85$ in Lucarelli and $e_{\mathrm{fit}}=0.4355$ in Lucarelli) a small numerical error could change the decision.
+\item \emph{Hypotheses of specific models (G5).} Proved in Lean for 28 benchmark models from their translated equations; the translation was compared independently with the SBML models (\sref{models}).
+\item \emph{Numerical conditions.} The inequalities required by the theorems ($\kappa\le10$, $\mathrm{VIF}\le10$, median $e_{\mathrm{fit}}\le0.436$, and $R_{\mathrm{var}}\ge r$ for the bound of G1) were evaluated in floating-point arithmetic; Supplementary Table~\ref{tab:scope} gives their values. The certified margins of step~11 were not applied to these computations. In a preliminary analysis with an earlier version of the selection, the explicit finite-perturbation certificates of steps~4 and~20 were evaluated with bounds $M_1$, $M_2$ computed from the vector fields: the resulting constants $L_c$ ranged from about $10^2$ to $10^{24}$ and no scenario at $\pm5\%$ could be certified in any model (\texttt{certificados/resultados/tabla\_certificados.md}). These certificates are therefore of theoretical value; in practice the method relies on the local results (steps~19, 21 and~22) and on the numerical admissibility test. The conclusions of G1--G3 for a particular problem are therefore conditional on the computed values; for the closest cases (VIF $=9.85$ in Lucarelli and $e_{\mathrm{fit}}=0.4355$ in Lucarelli) a small numerical error could change the decision.
 \end{itemize}
 The sensitivities used by the method are relative, $J=\partial y/\partial\log\theta$; the theorems apply to them through the change of variables $\theta=e^{u}$, which is smooth for $\theta>0$. Finally, the formal results are local, around the published estimate $\theta_0$; the behaviour for large parameter changes is assessed empirically in the paper.
 \fussy

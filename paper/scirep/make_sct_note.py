@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Supplementary Note 6 (the social cognitive theory model, the motivating case of the method) and
-Supplementary Figure S1, from certificados/resultados/sct_bandura/datos_reales_modelo22.json and the model
+"""Supplementary Note "The social cognitive theory model" (the social cognitive theory model, the motivating case of the method) and
+Supplementary Fig. S1, from certificados/resultados/sct_bandura/datos_reales_modelo22.json and the model
 of certificados/sct_modelo22.py. The validation refits are recomputed here (same procedure as
 sct_datos22.py) and checked against the stored values."""
 import json
@@ -54,7 +54,7 @@ E = (J ** 2).sum(0); share = E / E.sum(); rvar = float(share[S].sum())
 cos5, ef5 = D["cos_med"], D["eajuste_med"]
 level = 1 + (cos5 >= 0.9) + (cos5 >= 0.9 and rvar >= 0.89)
 
-# ---------------- Figure S1
+# ---------------- Supplementary Fig. S1
 days = np.arange(1, N + 1)
 fig, ax = plt.subplots(figsize=(7.0, 3.2))
 ax.axvspan(NTR + 0.5, N + 0.5, color="0.92", lw=0)
@@ -77,7 +77,7 @@ disp = D["DE_100"]["dispersion_R2_ge_0.87"]
 nsign = sum(1 for n in M.NAMES if disp[n]["cambia_signo"])
 r2 = D["DE_100"]["R2"]
 f3 = lambda x: f"{x:.3g}" if abs(x) >= 1e-3 else f"{x:.1e}"
-L = [r"\section*{Supplementary Note 6. The social cognitive theory model: the motivating case}", "",
+L = [r"\snote{sct}", "",
      r"The method was conceived while estimating a dynamical model of Bandura's social cognitive theory (SCT) of "
      r"physical activity from the daily records of one participant (Miranda et al., 2025 IEEE Ecuador Technical Chapters Meeting, "
      r"doi:10.1109/ETCM67548.2025.11304524; cited in the main text). This note documents that case. It is "
@@ -102,13 +102,13 @@ L = [r"\section*{Supplementary Note 6. The social cognitive theory model: the mo
      r"framework, with stability enforced and couplings of either sign (seed 2026, $R^2=" + f"{D['R2_theta0']:.3f}" + r"$). "
      r"Repeating the search with 100 seeds gave fits of essentially the same quality ($R^2$ between "
      + f"{min(r2):.3f} and {max(r2):.3f}" + r") with very different parameters: " + str(nsign) + r" of the ten couplings "
-     r"change sign between runs, and most parameters span almost their whole admissible range (Table~S7). The data "
+     r"change sign between runs, and most parameters span almost their whole admissible range (Supplementary Table~\ref{tab:sct}). The data "
      r"cannot separate the parameters, and fitting all 22 of them is ill-posed. Deciding which few parameters the "
      r"data can inform, before fitting, is the question that the method answers.", "",
      r"{\small", r"\begin{longtable}{@{}lrrrrc@{}}",
-     r"\caption*{\textbf{Supplementary Table S7.} Parameters of the SCT model: value at $\theta_0$, range over the 100 "
+     r"\caption{Parameters of the SCT model: value at $\theta_0$, range over the 100 "
      r"differential-evolution runs (all with $R^2\ge0.87$), sign change between runs, and share of the sensitivity "
-     r"energy $E_j/\sum_kE_k$ of behaviour at $\theta_0$.}\\",
+     r"energy $E_j/\sum_kE_k$ of behaviour at $\theta_0$.}\label{tab:sct}\\",
      r"\toprule", r"Parameter & $\theta_0$ & min & max & Energy share & Sign change \\", r"\midrule", r"\endhead"]
 for j, n in enumerate(M.NAMES):
     L.append(f"{sym(n)} & {f3(th0[j])} & {f3(disp[n]['min'])} & {f3(disp[n]['max'])} & {100 * share[j]:.1f}\\% & "
@@ -133,9 +133,9 @@ L += [r"\bottomrule", r"\end{longtable}", "}", "",
       + f"{100 * max(v['eaj_med'] for v in D['niveles'].values()):.1f}" + r"\% for perturbations up to $\pm50\%$ "
       r"(pattern " + D["patron"] + r"). The median $\cos\Delta$ is " + f"{cos5:.2f}" + r" and $R_{\mathrm{var}}="
       + f"{rvar:.2f}" + r"$, so the subset reaches level " + str(level) + r" of the guarantees defined in "
-      r"Supplementary Table~S1.", "",
+      r"Supplementary Table~\ref{tab:selected}.", "",
       r"\textbf{Prediction of unseen days.} Both models were refitted to days 1--24 (by least squares from $\theta_0$, "
-      r"within the bounds and with the stability constraint) and used to predict days 25--31 (Figure~S1). The reduced "
+      r"within the bounds and with the stability constraint) and used to predict days 25--31 (Supplementary Fig.~\ref{fig:sct}). The reduced "
       r"model predicted the held-out week with $R^2=" + f"{V['R2_test_red']:.2f}" + r"$ (test $\chi^2/n$ "
       + f"{V['chi2_test_red']:.2f}" + r"), better than the full 22-parameter model ($R^2=" + f"{V['R2_test_full']:.2f}"
       + r"$, $\chi^2/n$ " + f"{V['chi2_test_full']:.2f}" + r"; refitted with the same differential-evolution search: "
@@ -143,13 +143,13 @@ L += [r"\bottomrule", r"\end{longtable}", "}", "",
       r"the full model fits the training days more closely ($\chi^2/n$ " + f"{V['chi2_train_full']:.2f}" + r" versus "
       + f"{V['chi2_train_red']:.2f}" + r"). All refitted models are stable.", "",
       r"\begin{figure}[!htb]", r"\centering", r"\includegraphics[width=\textwidth]{figures/figS1_sct.pdf}",
-      r"\caption*{\textbf{Supplementary Figure S1. SCT model of one participant.} Standardised daily steps (dots), "
+      r"\caption{\textbf{SCT model of one participant.} Standardised daily steps (dots), "
       r"the fit of $\theta_0$ to all 31 days (grey), and the reduced (two parameters, blue) and full (22 parameters, "
-      r"red dashed) models refitted to days 1--24; the shaded region contains the seven test days.}",
+      r"red dashed) models refitted to days 1--24; the shaded region contains the seven test days.}\label{fig:sct}",
       r"\end{figure}", "",
       r"\subsection*{Relation with the formal results}",
       r"The SCT model is linear with constant inputs on each day, so its vector field is globally Lipschitz and the "
-      r"existence and differentiability results of Part~II of Supplementary Note~2 apply directly; the model was not "
+      r"existence and differentiability results of steps 14--18 (\sref{seq}) apply directly; the model was not "
       r"translated into Lean, so this is a mathematical observation rather than a machine-checked statement. The "
       r"model shows on a small, transparent example the situation that the method is designed for: a good fit of the "
       r"data, parameters that the data cannot determine, and a reduced set of two parameters that reproduces and "

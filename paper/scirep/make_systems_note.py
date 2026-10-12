@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Supplementary Note 7: system-by-system summary of the 34 benchmark problems (suppl_systems.tex).
+"""Supplementary Note "System-by-system summary": of the 34 benchmark problems (suppl_systems.tex).
 
 The numbers (sizes, subsets, conditioning, e_fit, level, pattern, validation) are read from
 certificados/resultados; the description of each model and of the role of each selected parameter
@@ -32,7 +32,7 @@ for line in (ROOT / "certificados" / "bench" / "README.md").read_text().splitlin
     elif m and pm:
         DOI[m.group(1)] = ("pubmed", pm.group(1))
 
-# models with a Lean proof (Supplementary Note 4) and reason for the others
+# models with a Lean proof (Supplementary Note "Verified benchmark models") and reason for the others
 NOT_VERIFIED = {
     "Alkan_SciSignal2018": "the automatic checks of the domain and quasi-positivity conditions fail",
     "Beer_MolBioSystems2014": "the growth check fails",
@@ -259,7 +259,7 @@ def paragraph(s):
                  r"changing a single parameter by 1\% (for example, decreasing the proliferation rate of early effectors $\rho_E$) makes the effector populations grow from about $5\times10^2$ to $5\times10^5$ cells within four days, "
                  r"after which no solution exists on the measured horizon. This happened for 8--9 of the 24 one-at-a-time perturbations of $\pm$1\% and for 7 of the 15 scenarios at $\pm$5\%, "
                  r"so the sensitivity matrix and the admissibility test are not defined and no local reduction method is applicable. "
-                 r"Consistently, the existence of solutions could only be proved in Lean on a short horizon ($T\le1$, Supplementary Note~4).")
+                 r"Consistently, the existence of solutions could only be proved in Lean on a short horizon ($T\le1$, \sref{models}).")
         return L
     if s == "Beer_MolBioSystems2014":
         L.append(head + rf" \textbf{{Not admissible.}} The selection stopped at {len(S)} parameters (synthesis, dimerisation and degradation rates of particular strains, growth rates $\beta$ of particular experiments and the initial amount of bacteria), "
@@ -283,7 +283,7 @@ def paragraph(s):
            rf"median $\cos\Delta={d['cos_med']:.2f}$ and median $e_{{\mathrm{{fit}}}}={100 * d['eajuste_med']:.1f}\%$ at $\pm$5\%: " +
            (r"the reduced model reproduces the full one, although only just within the threshold" if d["eajuste_med"] > 0.4 else r"the reduced model reproduces the full one") + rf", with guarantee {LEVEL[lv]}; robustness {PATTERN[pt]}.")
     lean = (f" The model was not verified in Lean because {NOT_VERIFIED[s]}." if s in NOT_VERIFIED
-            else " The hypotheses on the dynamics were verified in Lean (Supplementary Note~4).")
+            else r" The hypotheses on the dynamics were verified in Lean (\sref{models}).")
     L.append(head + " " + sel + roles + " " + met)
     L.append("")
     L.append(validation(s, d) + lean)
@@ -293,11 +293,11 @@ def paragraph(s):
 def main():
     systems = sorted(SEL, key=str.lower)
     assert set(systems) == set(TXT), set(systems) ^ set(TXT)
-    L = [r"\section*{Supplementary Note 7. System-by-system summary}", "",
+    L = [r"\snote{systems}", "",
          r"This note summarises, for each of the 34 benchmark problems, what the model describes, which parameters the method selected and what they mean in the model, "
          r"how well the reduced model reproduces the full one, and how it predicted held-out data. The meaning of each selected parameter was taken from the reactions and rules of the SBML model in which it appears "
          r"(following assignment rules and condition-specific parameters to the reactions they affect). "
-         r"The numbers are those of Table~1 of the main text and Supplementary Table~S1: $p$ is the number of estimated parameters, "
+         r"The numbers are those of Table~1 of the main text and Supplementary Table~\ref{tab:selected}: $p$ is the number of estimated parameters, "
          r"$\kappa$ and VIF are the condition number and largest variance inflation factor of the selected sensitivity columns, $R_{\mathrm{var}}$ is the fraction of sensitivity energy kept, "
          r"$\cos\Delta$ and $e_{\mathrm{fit}}$ are medians over 15 random scenarios at $\pm$5\% (threshold $\tau_e=0.436$), the level of guarantee is defined in the Results of the main text, "
          r"and the robustness patterns A--D are those of Fig.~4 of the main text. In the external validation, both the reduced and the full model are refitted to the training data, and the test $\chi^2/n$ "

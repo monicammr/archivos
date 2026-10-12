@@ -1,0 +1,536 @@
+\snote{models}
+\sloppy
+
+This note lists, for each of the 28 benchmark models verified in Lean, the data contained in its file in \texttt{lean\_proofs/Models/}, the checks executed by the Lean kernel on those data and the final theorem that results. Each file was generated from the SBML model and the PEtab parameter table of the benchmark by \texttt{certificados/sbml\_to\_lean.py}, with every number written as an exact rational. The checks are Boolean functions proved sound in steps 27--31 (\sref{seq}); each is evaluated by the Lean kernel (\texttt{decide +kernel}), so its value \texttt{true} is part of the proof. The final theorem \texttt{Models.<model>.final} then has no pending hypotheses: it states that the model satisfies the assumptions of steps 14--22 (smooth vector field on a domain containing the trajectory, existence of the nominal solution on the horizon, non-negativity, and differentiability of the solution with respect to the parameters). \texttt{\#print axioms} for every final theorem reports only \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound} (\texttt{CheckModelAxioms.lean}). Supplementary Table~\ref{tab:models} summarises the models, the next subsections describe the independent check of the translation, a complete example (Boehm) and the benchmark problems that were not verified, and the last subsections give the data of each model.
+
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}rrrr>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.5cm}rr@{}}
+\caption{Benchmark models verified in Lean. $n$: states (species, plus time when a rate law depends on it); $p$: parameters; $R$: rate terms (reactions after splitting reversible ones); $|\Sigma|$: species proved strictly positive; horizon: time interval on which existence of the solution is proved; final theorem: family of the end-to-end theorem that the model instantiates (\sref{stmts}); time: compilation time of the model files (s); fidelity: largest relative difference between the Lean translation and the SBML model evaluated by libRoadRunner (vector field, parameter values and initial values).}\label{tab:models}\\
+\toprule
+Model & $n$ & $p$ & $R$ & $|\Sigma|$ & Horizon & Final theorem & Time & Fidelity \\
+\midrule
+\endhead
+Armistead\_\allowbreak{}Cell\allowbreak{}Death\allowbreak{}Dis2024 & 4 & 10 & 8 & 4 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init} & 5 & 0 \\
+Bachmann\_\allowbreak{}MSB2011 & 25 & 27 & 43 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final\_\allowbreak{}init} & 12 & $3\times10^{-15}$ \\
+Bertozzi\_\allowbreak{}PNAS2020 & 3 & 0 & 2 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 188 & 0 \\
+Blasi\_\allowbreak{}Cell\allowbreak{}Systems2016 & 16 & 8 & 36 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 8 & $4\times10^{-15}$ \\
+Boehm\_\allowbreak{}JProteome\allowbreak{}Res2014 & 9 & 6 & 10 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 7 & $4\times10^{-16}$ \\
+Borghans\_\allowbreak{}Biophys\allowbreak{}Chem1997 & 3 & 20 & 9 & 3 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init} & 5 & $2\times10^{-16}$ \\
+Brannmark\_\allowbreak{}JBC2010 & 9 & 15 & 14 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 6 & $1\times10^{-13}$ \\
+Bruno\_\allowbreak{}JExp\allowbreak{}Bot2016 & 7 & 6 & 6 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 4 & $2\times10^{-16}$ \\
+Chen\_\allowbreak{}MSB2009 & 501 & 152 & 1{,}243 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 1080 & $8\times10^{-14}$ \\
+Crauste\_\allowbreak{}Cell\allowbreak{}Systems2017 & 5 & 12 & 12 & -- & $T\le1$ & \texttt{riccati\_\allowbreak{}final} & 6 & 0 \\
+Elowitz\_\allowbreak{}Nature2000 & 8 & 18 & 18 & 8 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init} & 6 & $2\times10^{-16}$ \\
+Fiedler\_\allowbreak{}BMCSyst\allowbreak{}Biol2016 & 7 & 12 & 8 & 6 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init\allowbreak{}I} & 15 & 0 \\
+Froehlich\_\allowbreak{}Cell\allowbreak{}Systems2018 & 1{,}228 & 4{,}088 & 4{,}487 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 2021 & $6\times10^{-14}$ \\
+Fujita\_\allowbreak{}Sci\allowbreak{}Signal2010 & 9 & 16 & 13 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final\_\allowbreak{}init} & 5 & $1\times10^{-16}$ \\
+Giordano\_\allowbreak{}Nature2020 & 10 & 43 & 96 & -- & 6 segments & \texttt{network\_\allowbreak{}segments\_\allowbreak{}final} & 8 & $4\times10^{-16}$ \\
+Isensee\_\allowbreak{}JCB2018 & 25 & 32 & 34 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 8 & $1\times10^{-14}$ \\
+Lang\_\allowbreak{}PLOSComput\allowbreak{}Biol2024 & 124 & 164 & 663 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 264 & $2\times10^{-15}$ \\
+Laske\_\allowbreak{}PLOSComput\allowbreak{}Biol2019 & 34 & 6 & 51 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 10 & 0 \\
+Lucarelli\_\allowbreak{}Cell\allowbreak{}Systems2018 & 33 & 69 & 67 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final\_\allowbreak{}init} & 26 & $4\times10^{-15}$ \\
+Okuonghae\_\allowbreak{}Chaos\allowbreak{}Solitons\allowbreak{}Fractals2020 & 8 & 14 & 11 & 6 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init} & 5 & $7\times10^{-16}$ \\
+Rahman\_\allowbreak{}MBS2016 & 7 & 9 & 19 & 4 & all $T\ge0$ & \texttt{strict\_\allowbreak{}final\_\allowbreak{}init} & 5 & $1\times10^{-15}$ \\
+Raia\_\allowbreak{}Cancer\allowbreak{}Research2011 & 14 & 18 & 14 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final\_\allowbreak{}init} & 5 & $6\times10^{-16}$ \\
+Raimundez\_\allowbreak{}PCB2020 & 22 & 57 & 91 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 15 & $1\times10^{-12}$ \\
+Salazar\allowbreak{}Cavazos\_\allowbreak{}MBo\allowbreak{}C2020 & 75 & 6 & 457 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final\_\allowbreak{}init} & 318 & $2\times10^{-13}$ \\
+Sneyd\_\allowbreak{}PNAS2002 & 6 & 14 & 16 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 5 & $4\times10^{-15}$ \\
+Weber\_\allowbreak{}BMC2015 & 7 & 26 & 18 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 6 & 0 \\
+Zhao\_\allowbreak{}Quant\allowbreak{}Biol2020 & 4 & 21 & 3 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 5 & 0 \\
+Zheng\_\allowbreak{}PNAS2012 & 15 & 45 & 44 & -- & all $T\ge0$ & \texttt{network\_\allowbreak{}final} & 7 & $1\times10^{-15}$ \\
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Agreement of the translation with the SBML models}
+
+Lean checks the expressions it is given; whether these expressions are the model of the benchmark is a separate question. The script \texttt{certificados/verifica\_traduccion.py} answers it without using the translator: it reads the rate laws, the stoichiometry, the parameter values $\theta_q$ and the initial values directly from the Lean files, evaluates the vector field in floating point, and compares it with the derivatives computed by libRoadRunner from the original SBML model with the nominal parameters of the PEtab table, at the initial state and at five random positive states. It also compares $\theta_q$ with the PEtab nominal values and the initial values (or $G(\theta_q)$) with those of the SBML model. Over the 28 models, the largest relative difference is $1\times10^{-12}$, i.e.\ agreement to rounding error (Supplementary Table~\ref{tab:models}, last column). As a control, changing one parameter value, one initial value or one stoichiometric coefficient of the Lean file by 1\% is detected (relative differences of $10^{-2}$). The comparison covers the model without condition-specific overrides, which is what the Lean files describe; for models defined by segments it covers the first segment.
+
+\subsection*{A complete example: Boehm\_JProteomeRes2014}
+
+The model of STAT5 dimerisation by Boehm et al.\ is small enough to follow every step. Its file is \texttt{lean\_proofs/Models/Boehm\_JProteomeRes2014.lean} (about 60 lines).
+
+\textbf{1. Model.} The SBML model has 8 species, and the stimulus decays as $e^{-\theta_1\tau}$, where $\tau$ is time; the translator therefore adds $\tau$ as a ninth state with $\dot\tau=1$. The six estimated parameters are $\theta_{1}=$ Epo\_degradation\_BaF3 (0.02698), $\theta_{2}=$ k\_exp\_hetero ($1.001\times10^{-5}$), $\theta_{3}=$ k\_exp\_homo (0.00617), $\theta_{4}=$ k\_imp\_hetero (0.01637), $\theta_{5}=$ k\_imp\_homo ($9.775\times10^{4}$), $\theta_{6}=$ k\_phos ($1.577\times10^{4}$). The vector field is $f_i=\sum_k\nu_{ik}v_k$ with the following rate terms $v_k$ and stoichiometric coefficients $\nu_{ik}$, listed in Supplementary Table~\ref{tab:boehm} (the constants come from compartment volumes and fixed parameters of the SBML model).
+
+{\small
+\begin{longtable}{@{}r>{\raggedright\arraybackslash}p{9.6cm}>{\raggedright\arraybackslash}p{5.2cm}@{}}
+\caption{Rate terms and stoichiometry of the Lean model of Boehm\_JProteomeRes2014.}\label{tab:boehm}\\
+\toprule
+$k$ & Rate term $v_k$ & Stoichiometry $\nu_{\cdot k}$ \\
+\midrule
+1 & $\tfrac{7}{5}\,\tfrac{1}{8000000}\,e^{\left(-\theta_{1}\right)\,\tau}\,\mathrm{STAT5A}^{2}\,\theta_{6}$ & STAT5A: -10/7, pApA: 5/7 \\
+2 & $\tfrac{7}{5}\,\tfrac{1}{8000000}\,e^{\left(-\theta_{1}\right)\,\tau}\,\mathrm{STAT5A}\,\mathrm{STAT5B}\,\theta_{6}$ & STAT5A: -5/7, STAT5B: -5/7, pApB: 5/7 \\
+3 & $\tfrac{9}{20}\,\theta_{3}\,\mathrm{nucpApA}$ & STAT5A: 10/7, nucpApA: -20/9 \\
+4 & $\tfrac{9}{20}\,\theta_{2}\,\mathrm{nucpApB}$ & STAT5A: 5/7, STAT5B: 5/7, nucpApB: -20/9 \\
+5 & $\tfrac{7}{5}\,\tfrac{1}{8000000}\,e^{\left(-\theta_{1}\right)\,\tau}\,\mathrm{STAT5B}^{2}\,\theta_{6}$ & STAT5B: -10/7, pBpB: 5/7 \\
+6 & $\tfrac{9}{20}\,\theta_{3}\,\mathrm{nucpBpB}$ & STAT5B: 10/7, nucpBpB: -20/9 \\
+7 & $\tfrac{7}{5}\,\theta_{4}\,\mathrm{pApB}$ & pApB: -5/7, nucpApB: 20/9 \\
+8 & $\tfrac{7}{5}\,\theta_{5}\,\mathrm{pApA}$ & pApA: -5/7, nucpApA: 20/9 \\
+9 & $\tfrac{7}{5}\,\theta_{5}\,\mathrm{pBpB}$ & pBpB: -5/7, nucpBpB: 20/9 \\
+10 & $1$ & tau: 1 \\
+\bottomrule
+\end{longtable}
+}
+
+\textbf{2. Translation into Lean.} Each rate term is a \texttt{KExpr}, for example \texttt{KExpr.npow (KExpr.var 0) 2} stands for $\mathrm{STAT5A}^2$; numbers are exact rationals, and the list \texttt{Rx} pairs each term with its stoichiometric column. The initial value is the rational vector \texttt{xq} (STAT5A and STAT5B positive, all other states 0), and \texttt{$\theta_q$} holds the six parameters.
+
+\textbf{3. Checks.} Four Boolean checks are evaluated by the Lean kernel: \texttt{net\_ok} (every rate term is well defined for $x\ge0$, and every term that consumes a species vanishes when that species is 0, so the field is quasi-positive), \texttt{growth\_ok} (with weights $w_i=1$, $\sum_if_i\le a+b\sum_ix_i$: the stoichiometric columns of six terms have a negative sum, and the remaining ones, the nuclear-import terms 7--9 and $\dot\tau=1$, are at most linear in the states), \texttt{theta\_ok} (all $\theta_j>0$) and \texttt{x0\_ok} ($x_q\ge0$).
+
+\textbf{4. Final theorem.} \texttt{def final := network\_final pos Rx net\_ok c growth\_ok $\theta_q$ theta\_ok xq x0\_ok} applies the end-to-end theorem of step~28 to these data. Its statement is: for every $T\ge0$ there is a solution $x_0$ on $[0,T]$ with $x_0(0)=x_q$, $x_0(t)\ge0$ and $(x_0(t),\theta_q)$ in the domain; there is a family $x(\cdot;\theta)$ of solutions for $\theta$ near $\theta_q$ with $x(\cdot;\theta_q)=x_0$; and $x(t;\theta)$ is differentiable in $\theta$ at $\theta_q$ with derivative $S(t)$, $S(0)=0$, solving the variational equation. These are the hypotheses of steps 14--22 for this model.
+
+\textbf{5. Reproduction.} From the folder \texttt{lean\_proofs/}, the command
+
+\begin{quote}\small\raggedright\texttt{lake env lean Models/Boehm\_JProteomeRes2014.lean}\end{quote}
+
+compiles the file in a few seconds and prints
+
+\begin{quote}\small\raggedright\texttt{'Models.Boehm\_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound]}\end{quote}
+
+and, from the folder \texttt{certificados/}, the command
+
+\begin{quote}\small\raggedright\texttt{python3 verifica\_traduccion.py Boehm\_JProteomeRes2014}\end{quote}
+
+compares the file with the SBML model (largest relative difference $4\times10^{-16}$).
+
+\subsection*{Benchmark problems without a verified model}
+
+Of the 34 benchmark problems analysed in the paper, 27 have a verified model; Froehlich, which is verified in Lean, is the further problem analysed only on its state trajectories. The remaining seven problems were not verified, for the following reasons. They are not counted in any statement that relies on G5.
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{Smith}: two reactions use $\max(\mathrm{PIP3}-\mathrm{basal},0)$, which is not differentiable, so the vector field is not $C^1$ and the sensitivity theorem does not apply.
+\item \textbf{Liu} and \textbf{Oliveira}: they contain events triggered by the state or by a parameter-dependent condition, not at fixed times; such events are outside Hypothesis~2 (step~18).
+\item \textbf{Alkan}: the model translates, but the syntactic checkers cannot establish well-definedness for 22 rate terms or quasi-positivity for 6 of them; this does not mean that the properties fail, only that the automatic proof does not cover them.
+\item \textbf{Perelson} and \textbf{Schwen}: the quasi-positivity check fails for two rate terms each, so non-negativity of the solutions is not established by the checker.
+\item \textbf{Beer}: smoothness and quasi-positivity are verified on both segments of the model, but the linear growth check is not satisfied, so existence of the nominal solution on the horizon is not proved; only a conditional theorem (assuming the solution exists) is available.
+\end{itemize}
+
+\subsection*{Data of each model}
+
+\subsubsection*{Armistead\_CellDeathDis2024}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Armistead\_CellDeathDis2024.lean}.
+\item \textbf{States ($n=4$):} Cer, Sphingo, S1P, Sphinga.
+\item \textbf{Strictly positive species $\Sigma$ (4):} Cer, Sphingo, S1P, Sphinga.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=10$):} k00 $=$ 0.2381; k0 $=$ 1000; k\_d $=$ 0.9068; k1 $=$ 0.3011; k2 $=$ 1000; k3 $=$ 0.001; k4 $=$ 2.362; k5 $=$ 0.001001; alpha\_hai1a $=$ 0.5; alpha\_cer $=$ -0.3275.
+\item \textbf{Parameters declared positive:} 9 of 10.
+\item \textbf{Rate terms:} 8, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the strict region $P_\Sigma$, quasi-positive, and consumption of species in $\Sigma$ at most proportional to their concentration (\texttt{checkNetS}); linear growth bound on $P_\Sigma$ (\texttt{checkGrowthS}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta_0)\in P_\Sigma$ (\texttt{checkInitS}); declared parameter bounds hold at $\theta_0$ (\texttt{checkUB}).
+\item \textbf{Fidelity of the translation:} largest relative difference 0.
+\item \textbf{Final theorem} (\texttt{Models.Armistead\_CellDeathDis2024.final} $:=$ \texttt{strict\_final\_init}): for every $T\ge0$ the nominal solution exists on $[0,T]$ and stays in $P_\Sigma$ (species in $\Sigma$ strictly positive) and in the domain; solutions near $\theta_0$ exist and are differentiable, $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Bachmann\_MSB2011}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Bachmann\_MSB2011.lean}.
+\item \textbf{States ($n=25$):} EpoRJAK2, EpoRpJAK2, p1EpoRpJAK2, p2EpoRpJAK2, p12EpoRpJAK2, EpoRJAK2\_CIS, SHP1, SHP1Act, STAT5, pSTAT5, npSTAT5, CISnRNA1, CISnRNA2, CISnRNA3, CISnRNA4, CISnRNA5, CISRNA, CIS, SOCS3nRNA1, SOCS3nRNA2, SOCS3nRNA3, SOCS3nRNA4, SOCS3nRNA5, SOCS3RNA, SOCS3.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=27$):} CISEqc $=$ 432.9; CISEqcOE $=$ 0.5303; CISInh $=$ $7.852\times10^{8}$; CISRNADelay $=$ 0.1448; CISRNATurn $=$ 1000; CISTurn $=$ 0.008399; EpoRActJAK2 $=$ 0.2673; EpoRCISInh $=$ $1\times10^{6}$; EpoRCISRemove $=$ 5.43; JAK2ActEpo $=$ $6.332\times10^{5}$; JAK2EpoRDeaSHP1 $=$ 142.7; SHP1ActEpoR $=$ 0.001; SHP1Dea $=$ 0.008162; SHP1ProOE $=$ 2.826; SOCS3Eqc $=$ 173.6; SOCS3EqcOE $=$ 0.6792; SOCS3Inh $=$ 10.41; SOCS3RNADelay $=$ 1.065; SOCS3RNATurn $=$ 0.008309; SOCS3Turn $=$ $1\times10^{4}$; STAT5ActEpoR $=$ 39; STAT5ActJAK2 $=$ 0.07811; STAT5Exp $=$ 0.07451; STAT5Imp $=$ 0.02689; init\_EpoRJAK2 $=$ 3.976; init\_SHP1 $=$ 26.73; init\_STAT5 $=$ 79.75.
+\item \textbf{Parameters declared positive:} 27 of 27.
+\item \textbf{Rate terms:} 43, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta)$ well defined and non-negative at $\theta_0$ (\texttt{checkInit}).
+\item \textbf{Fidelity of the translation:} largest relative difference $3\times10^{-15}$.
+\item \textbf{Final theorem} (\texttt{Models.Bachmann\_MSB2011.final} $:=$ \texttt{network\_final\_init}): same as \texttt{network\_final}, with initial value $x(0)=G(\theta)$ and $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Bertozzi\_PNAS2020}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Bertozzi\_PNAS2020.lean}.
+\item \textbf{States ($n=3$):} I\_, R\_, S\_.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=0$):} .
+\item \textbf{Parameters declared positive:} 0 of 0.
+\item \textbf{Rate terms:} 2, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (2 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference 0.
+\item \textbf{Final theorem} (\texttt{Models.Bertozzi\_PNAS2020.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Blasi\_CellSystems2016}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Blasi\_CellSystems2016.lean}.
+\item \textbf{States ($n=16$):} x\_0ac, x\_k8, x\_k5, x\_k12, x\_k16, x\_k5k8, x\_k5k12, x\_k5k16, x\_k8k12, x\_k8k16, x\_k12k16, x\_k5k8k12, x\_k5k8k16, x\_k5k12k16, x\_k8k12k16, x\_4ac.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=8$):} a\_basal $=$ 0.0668; a\_k8 $=$ 0.0273; a\_k5\_k5k12 $=$ 2.062; a\_k12\_k5k12 $=$ 0.5519; a\_k16\_k12k16 $=$ 0.6959; a\_k5k12\_k5k8k12 $=$ 0.3253; a\_k12k16\_k8k12k16 $=$ 2.205; a\_k8k12k16\_4ac $=$ 3.592.
+\item \textbf{Parameters declared positive:} 8 of 8.
+\item \textbf{Rate terms:} 36, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (1 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $4\times10^{-15}$.
+\item \textbf{Final theorem} (\texttt{Models.Blasi\_CellSystems2016.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Boehm\_JProteomeRes2014}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Boehm\_JProteomeRes2014.lean}.
+\item \textbf{States ($n=9$):} STAT5A, STAT5B, pApB, pApA, pBpB, nucpApA, nucpApB, nucpBpB, $\tau$ (tiempo).
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=6$):} Epo\_degradation\_BaF3 $=$ 0.02698; k\_exp\_hetero $=$ $1.001\times10^{-5}$; k\_exp\_homo $=$ 0.00617; k\_imp\_hetero $=$ 0.01637; k\_imp\_homo $=$ $9.775\times10^{4}$; k\_phos $=$ $1.577\times10^{4}$.
+\item \textbf{Parameters declared positive:} 6 of 6.
+\item \textbf{Rate terms:} 10, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (2 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $4\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Boehm\_JProteomeRes2014.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Borghans\_BiophysChem1997}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Borghans\_BiophysChem1997.lean}.
+\item \textbf{States ($n=3$):} Z\_state, Y\_state, A\_state.
+\item \textbf{Strictly positive species $\Sigma$ (3):} Z\_state, Y\_state, A\_state.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=20$):} K2 $=$ 0.09995; K\_par $=$ 11.41; Ka $=$ 0.1976; Kd $=$ 0.3925; Kf $=$ 1.138; Kp $=$ 0.9966; Ky $=$ 0.2004; Kz $=$ 0.3034; Vd $=$ 92.87; Vm2 $=$ 7.457; Vm3 $=$ 22.7; Vp $=$ 2.757; beta\_par $=$ 1.124; epsilon\_par $=$ 0.1632; init\_A\_state $=$ 1; init\_Y\_state $=$ 0.9993; init\_Z\_state $=$ 0.08792; n\_par $=$ 4.103; v0 $=$ 2.318; v1 $=$ 1.005.
+\item \textbf{Parameters declared positive:} 20 of 20.
+\item \textbf{Rate terms:} 9, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the strict region $P_\Sigma$, quasi-positive, and consumption of species in $\Sigma$ at most proportional to their concentration (\texttt{checkNetS}); linear growth bound on $P_\Sigma$ (\texttt{checkGrowthS}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta_0)\in P_\Sigma$ (\texttt{checkInitS}); declared parameter bounds hold at $\theta_0$ (\texttt{checkUB}).
+\item \textbf{Fidelity of the translation:} largest relative difference $2\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Borghans\_BiophysChem1997.final} $:=$ \texttt{strict\_final\_init}): for every $T\ge0$ the nominal solution exists on $[0,T]$ and stays in $P_\Sigma$ (species in $\Sigma$ strictly positive) and in the domain; solutions near $\theta_0$ exist and are differentiable, $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Brannmark\_JBC2010}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Brannmark\_JBC2010.lean}.
+\item \textbf{States ($n=9$):} IR, IRins, IRp, IRiP, IRi, IRS, IRSiP, X, Xp.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=15$):} k1a $=$ 0.1772; k1aBasic $=$ 0.0003928; k1b $=$ 0.1747; k1c $=$ 0.05086; k1d $=$ $5\times10^{5}$; k1e $=$ $1\times10^{-6}$; k1f $=$ $5\times10^{5}$; k1g $=$ 1729; k1r $=$ 0.0267; k21 $=$ 2.102; k22 $=$ 666.8; k3 $=$ $4.944\times10^{-5}$; k\_IRSiP\_DosR $=$ 37.94; km2 $=$ 1.16; km3 $=$ 0.4164.
+\item \textbf{Parameters declared positive:} 15 of 15.
+\item \textbf{Rate terms:} 14, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (9 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $1\times10^{-13}$.
+\item \textbf{Final theorem} (\texttt{Models.Brannmark\_JBC2010.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Bruno\_JExpBot2016}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Bruno\_JExpBot2016.lean}.
+\item \textbf{States ($n=7$):} bcar, bcry, b10, bio, ohb10, ohbio, zea.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=6$):} k5 $=$ 0.003087; kb1 $=$ 0.01663; kb2 $=$ 0.005844; kc1 $=$ 0.001679; kc2 $=$ 0.006976; kc4 $=$ 0.006083.
+\item \textbf{Parameters declared positive:} 6 of 6.
+\item \textbf{Rate terms:} 6, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (5 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $2\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Bruno\_JExpBot2016.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Chen\_MSB2009}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Chen\_MSB2009.lean} and 5 part files in \texttt{Models/Chen\_MSB2009/}.
+\item \textbf{States:} $n=501$ species (listed in the file).
+\item \textbf{Parameters:} $p=152$, with nominal values in \texttt{$\theta_q$} (exact rationals) in the file.
+\item \textbf{Parameters declared positive:} 152 of 152.
+\item \textbf{Rate terms:} 1{,}243, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (27 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $8\times10^{-14}$.
+\item \textbf{Final theorem} (\texttt{Models.Chen\_MSB2009.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Crauste\_CellSystems2017}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Crauste\_CellSystems2017.lean}.
+\item \textbf{States ($n=5$):} Naive, EarlyEffector, LateEffector, Memory, Pathogen.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=12$):} delta\_EL $=$ 0.5179; delta\_LM $=$ 0.02258; delta\_NE $=$ 0.01193; mu\_EE $=$ $3.914\times10^{-5}$; mu\_LE $=$ $1\times10^{-10}$; mu\_LL $=$ $8.115\times10^{-6}$; mu\_N $=$ 0.7399; mu\_P $=$ $1\times10^{-5}$; mu\_PE $=$ $1.412\times10^{-10}$; mu\_PL $=$ $3.634\times10^{-5}$; rho\_E $=$ 0.5074; rho\_P $=$ 0.1264.
+\item \textbf{Parameters declared positive:} 12 of 12.
+\item \textbf{Rate terms:} 12, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (2 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} values 1, $1\times10^{5}$.
+\item \textbf{Horizon:} $T\le T_q=1$ (quadratic growth; Riccati bound).
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}); quadratic growth bound $\sum_iw_if_i\le Q(\varphi+1)^2$ and $1.1\,Q(\varphi(x_q)+1)T_q<1$ (\texttt{checkRiccati}).
+\item \textbf{Fidelity of the translation:} largest relative difference 0.
+\item \textbf{Final theorem} (\texttt{Models.Crauste\_CellSystems2017.final} $:=$ \texttt{riccati\_final}): for every $T\le T_q$ the nominal solution exists on $[0,T]$, is non-negative and stays in the domain; solutions near $\theta_0$ exist and are differentiable, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Elowitz\_Nature2000}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Elowitz\_Nature2000.lean}.
+\item \textbf{States ($n=8$):} X\_protein, Y\_protein, Z\_protein, GFP, X\_mRNA, Y\_mRNA, Z\_mRNA, GFP\_mRNA.
+\item \textbf{Strictly positive species $\Sigma$ (8):} X\_protein, Y\_protein, Z\_protein, GFP, X\_mRNA, Y\_mRNA, Z\_mRNA, GFP\_mRNA.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=18$):} KM $=$ $1\times10^{-5}$; eff $=$ 0.03016; eff\_GFP $=$ 0.001952; init\_GFP $=$ $3.387\times10^{-5}$; init\_GFP\_mRNA $=$ 131.4; init\_X\_mRNA $=$ 2.557; init\_X\_protein $=$ 30.81; init\_Y\_mRNA $=$ 1000; init\_Y\_protein $=$ 0.0008183; init\_Z\_mRNA $=$ 19.37; init\_Z\_protein $=$ 994.4; n\_Hill $=$ 1.523; tau\_mRNA $=$ 12.62; tau\_mRNA\_GFP $=$ 0.0004041; tau\_prot $=$ 5.359; tau\_prot\_GFP $=$ 71.93; tps\_active $=$ 0.6123; tps\_repr $=$ $1\times10^{-5}$.
+\item \textbf{Parameters declared positive:} 18 of 18.
+\item \textbf{Rate terms:} 18, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the strict region $P_\Sigma$, quasi-positive, and consumption of species in $\Sigma$ at most proportional to their concentration (\texttt{checkNetS}); linear growth bound on $P_\Sigma$ (\texttt{checkGrowthS}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta_0)\in P_\Sigma$ (\texttt{checkInitS}); declared parameter bounds hold at $\theta_0$ (\texttt{checkUB}).
+\item \textbf{Fidelity of the translation:} largest relative difference $2\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Elowitz\_Nature2000.final} $:=$ \texttt{strict\_final\_init}): for every $T\ge0$ the nominal solution exists on $[0,T]$ and stays in $P_\Sigma$ (species in $\Sigma$ strictly positive) and in the domain; solutions near $\theta_0$ exist and are differentiable, $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Fiedler\_BMCSystBiol2016}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Fiedler\_BMCSystBiol2016.lean}.
+\item \textbf{States ($n=7$):} RAF, pRAF, MEK, pMEK, ERK, pERK, $\tau$ (tiempo).
+\item \textbf{Strictly positive species $\Sigma$ (6):} RAF, pRAF, MEK, pMEK, ERK, pERK.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=12$):} K\_1 $=$ $1\times10^{-5}$; K\_2 $=$ 1.511; K\_3 $=$ 0.9605; k10 $=$ 0.02641; k11 $=$ 163.2; k2 $=$ 1.226; k3 $=$ 769.2; k4 $=$ 2.907; k5 $=$ 577.6; k6 $=$ 3.608; tau1 $=$ 0.2428; tau2 $=$ 0.02114.
+\item \textbf{Parameters declared positive:} 12 of 12.
+\item \textbf{Rate terms:} 8, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the strict region $P_\Sigma$, quasi-positive, and consumption of species in $\Sigma$ at most proportional to their concentration (\texttt{checkNetS}); linear growth bound on $P_\Sigma$ (\texttt{checkGrowthS}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values $G(\theta_0)\in P_\Sigma$ certified by rational interval arithmetic (\texttt{checkInitI}); declared parameter bounds hold at $\theta_0$ (\texttt{checkUB}); the real powers in $G$ are square roots.
+\item \textbf{Fidelity of the translation:} largest relative difference 0.
+\item \textbf{Final theorem} (\texttt{Models.Fiedler\_BMCSystBiol2016.final} $:=$ \texttt{strict\_final\_initI}): same as \texttt{strict\_final\_init}, with the initial values certified by interval arithmetic.
+\end{itemize}
+
+\subsubsection*{Froehlich\_CellSystems2018}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Froehlich\_CellSystems2018.lean} and 13 part files in \texttt{Models/Froehlich\_CellSystems2018/}.
+\item \textbf{States:} $n=1{,}228$ species (listed in the file).
+\item \textbf{Parameters:} $p=4088$, with nominal values in \texttt{$\theta_q$} (exact rationals) in the file.
+\item \textbf{Parameters declared positive:} 4088 of 4088.
+\item \textbf{Rate terms:} 4{,}487, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (0 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $6\times10^{-14}$.
+\item \textbf{Final theorem} (\texttt{Models.Froehlich\_CellSystems2018.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Fujita\_SciSignal2010}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Fujita\_SciSignal2010.lean}.
+\item \textbf{States ($n=9$):} EGFR, pEGFR, pEGFR\_Akt, Akt, pAkt, S6, pAkt\_S6, pS6, EGF\_EGFR.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=16$):} EGFR\_turnover $=$ 0.00148; init\_AKT $=$ 0.02693; init\_EGFR $=$ $3.754\times10^{7}$; init\_S6 $=$ 188.1; reaction\_1\_k1 $=$ 0.003691; reaction\_1\_k2 $=$ 0.002301; reaction\_2\_k1 $=$ 0.0009365; reaction\_2\_k2 $=$ $6.097\times10^{4}$; reaction\_3\_k1 $=$ 0.4332; reaction\_4\_k1 $=$ 0.03016; reaction\_5\_k1 $=$ $3.273\times10^{-6}$; reaction\_5\_k2 $=$ 0.0003985; reaction\_6\_k1 $=$ $5.463\times10^{-6}$; reaction\_7\_k1 $=$ 0.0118; reaction\_8\_k1 $=$ 0.0009448; reaction\_9\_k1 $=$ 0.02851.
+\item \textbf{Parameters declared positive:} 16 of 16.
+\item \textbf{Rate terms:} 13, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta)$ well defined and non-negative at $\theta_0$ (\texttt{checkInit}).
+\item \textbf{Fidelity of the translation:} largest relative difference $1\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Fujita\_SciSignal2010.final} $:=$ \texttt{network\_final\_init}): same as \texttt{network\_final}, with initial value $x(0)=G(\theta)$ and $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Giordano\_Nature2020}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Giordano\_Nature2020.lean}.
+\item \textbf{States ($n=10$):} Susceptible, Infected, Diagnosed, Ailing, Recognized, Threatened, Healed, Extinct, CumulativeDiagnosed, DiagnosedHealed.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=43$):} alpha\_0 $=$ 0.57; beta\_0 $=$ 0.011; delta\_0 $=$ 0.011; epsilon\_0 $=$ 0.171; eta\_0 $=$ 0.125; gamma\_0 $=$ 0.456; kappa\_0 $=$ 0.017; lam\_0 $=$ 0.034; mu\_0 $=$ 0.017; nu\_0 $=$ 0.027; rho\_0 $=$ 0.034; sigma\_0 $=$ 0.017; tau $=$ 0.01; theta $=$ 0.371; xi\_0 $=$ 0.017; zeta\_0 $=$ 0.125; alpha\_4 $=$ 0.422; alpha\_22 $=$ 0.36; alpha\_28 $=$ 0.21; beta\_4 $=$ 0.0057; beta\_22 $=$ 0.005; delta\_4 $=$ 0.0057; delta\_22 $=$ 0.005; epsilon\_12 $=$ 0.143; epsilon\_38 $=$ 0.2; eta\_22 $=$ 0.034; eta\_38 $=$ 0.025; gamma\_4 $=$ 0.285; gamma\_22 $=$ 0.2; gamma\_28 $=$ 0.11; kappa\_22 $=$ 0.017; kappa\_38 $=$ 0.02; lam\_22 $=$ 0.08; mu\_22 $=$ 0.008; nu\_22 $=$ 0.015; rho\_22 $=$ 0.017; rho\_38 $=$ 0.02; sigma\_22 $=$ 0.017; sigma\_38 $=$ 0.01; xi\_22 $=$ 0.017; xi\_38 $=$ 0.02; zeta\_22 $=$ 0.034; zeta\_38 $=$ 0.025.
+\item \textbf{Parameters declared positive:} 43 of 43.
+\item \textbf{Rate terms:} 96, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (6 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Segments:} [0, 4], [4, 12], [12, 22], [22, 28], [28, 38], [38, 50].
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}); segment lengths are non-negative.
+\item \textbf{Fidelity of the translation:} largest relative difference $4\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Giordano\_Nature2020.final} $:=$ \texttt{network\_segments\_final}): the same conclusions on each segment of the piecewise-defined model, with continuity across segment boundaries.
+\end{itemize}
+
+\subsubsection*{Isensee\_JCB2018}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Isensee\_JCB2018.lean}.
+\item \textbf{States ($n=25$):} AC, pAC, AC\_Fsk, pAC\_Fsk, cAMP, Csub, Csub\_H89, RII\_C\_2, RIIp\_C\_2, RIIp\_cAMP\_C\_2, RIIp\_cAMP\_2, Sp8\_Br\_cAMPS, Rp8\_Br\_cAMPS, Rp8\_pCPT\_cAMPS, Rp\_cAMPS, RIIp\_Rp8\_Br\_cAMPS\_C\_2, RIIp\_Rp8\_pCPT\_cAMPS\_C\_2, RIIp\_Rp\_cAMPS\_C\_2, RIIp\_Sp8\_Br\_cAMPS\_C\_2, RIIp\_Sp8\_Br\_cAMPS\_2, RIIp\_2, RII\_2, IBMX, PDE, pPDE.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=32$):} KD\_Fsk $=$ 14.28; KD\_H89 $=$ 0.04807; KD\_IBMX $=$ 11.96; KD\_cAMP $=$ 2.85; kdeg\_cAMP $=$ $1\times10^{-5}$; kdeg\_cAMP\_free $=$ 7.384; kf\_Fsk $=$ 1000; kf\_H89 $=$ 0.0007427; kf\_RII\_2\_\_RII\_C\_2 $=$ 1.264; kf\_RII\_C\_2\_\_RII\_2 $=$ 0.01875; kf\_RII\_C\_2\_\_RIIp\_C\_2 $=$ 0.02277; kf\_RIIp\_2\_\_RII\_2 $=$ 0.0323; kf\_RIIp\_C\_2\_\_RII\_C\_2 $=$ 0.0257; kf\_RIIp\_cAMP\_C\_2\_\_RIIp\_2 $=$ 0.1053; kf\_cAMP $=$ 0.5015; ki\_IBMX $=$ 1000; ki\_Rp8\_Br\_cAMPS\_pAB $=$ 6.446; ki\_Rp8\_pCPT\_cAMPS\_pAB $=$ 9.39; ki\_Rp\_cAMPS\_pAB $=$ 0.01632; ki\_Sp8\_Br\_cAMPS\_AM $=$ 0.1317; ks\_AC\_cAMP $=$ 0.4232; xi\_AC\_cAMP\_Fsk $=$ 642.4; xi\_b\_Rp8\_Br\_cAMPS $=$ 0.04056; xi\_b\_Rp8\_pCPT\_cAMPS $=$ 0.02668; xi\_b\_Rp\_cAMPS $=$ 0.6039; xi\_b\_Sp8\_Br\_cAMPS $=$ 21.62; xi\_kf\_RII\_2\_\_RII\_C\_2 $=$ 0.01893; xi\_kf\_RII\_C\_2\_\_RII\_2 $=$ 0.811; xi\_KD\_Rp8\_Br\_cAMPS $=$ 0.03996; xi\_KD\_Rp8\_pCPT\_cAMPS $=$ 0.1942; xi\_KD\_Rp\_cAMPS $=$ 0.163; xi\_KD\_Sp8\_Br\_cAMPS $=$ 0.2232.
+\item \textbf{Parameters declared positive:} 32 of 32.
+\item \textbf{Rate terms:} 34, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (10 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $1\times10^{-14}$.
+\item \textbf{Final theorem} (\texttt{Models.Isensee\_JCB2018.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Lang\_PLOSComputBiol2024}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Lang\_PLOSComputBiol2024.lean}.
+\item \textbf{States:} $n=124$ species (listed in the file).
+\item \textbf{Parameters:} $p=164$, with nominal values in \texttt{$\theta_q$} (exact rationals) in the file.
+\item \textbf{Parameters declared positive:} 164 of 164.
+\item \textbf{Rate terms:} 663, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (107 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} values 1, 2, 3.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $2\times10^{-15}$.
+\item \textbf{Final theorem} (\texttt{Models.Lang\_PLOSComputBiol2024.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Laske\_PLOSComputBiol2019}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Laske\_PLOSComputBiol2019.lean}.
+\item \textbf{States ($n=34$):} V\_ex, V\_end, Vp\_cyt, Vp\_nuc, R\_C, R\_C\_RdRp, R\_V, R\_V\_RdRp, R\_M1, R\_M2, R\_M3, R\_M4, R\_M5, R\_M6, R\_M7, R\_M8, P\_B1, P\_B2, P\_PA, P\_HA, P\_NP, P\_NA, P\_M1, P\_NEP, Vp\_nuc\_M1, Vp\_cyt\_M1, V\_rel, P\_RdRp, Cp, V\_att\_Hi, V\_att\_Lo, P\_M2, B\_att\_Lo, B\_att\_Hi.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=6$):} k\_imp $=$ 0.296; k\_syn\_R\_M $=$ $3.06\times10^{4}$; k\_syn\_R\_C $=$ 1.53; k\_syn\_R\_V $=$ 100.9; k\_bind\_M1 $=$ $1.82\times10^{-6}$; k\_rel $=$ 0.0011.
+\item \textbf{Parameters declared positive:} 6 of 6.
+\item \textbf{Rate terms:} 51, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (3 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference 0.
+\item \textbf{Final theorem} (\texttt{Models.Laske\_PLOSComputBiol2019.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Lucarelli\_CellSystems2018}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Lucarelli\_CellSystems2018.lean}.
+\item \textbf{States ($n=33$):} TGFb, Rec, TGFb\_pRec, S2, S3, S4, S2\_S4\_S4, ppS2\_ppS2\_ppS2, ppS3\_ppS3\_ppS3, S4\_S4\_S4, pS2, pS3, ppS2, ppS3, ppS2\_ppS2\_S4, ppS2\_ppS2\_ppS3, ppS2\_ppS3\_ppS3, ppS3\_ppS3\_S4, ppS2\_ppS3\_S4, ppS3\_S4\_S4, ppS2\_S4\_S4, geneA, geneB, geneC, geneD, geneE, geneF, geneG, geneH, geneI, geneJ, geneK, geneL.
+\item \textbf{Parameters:} $p=69$, with nominal values in \texttt{$\theta_q$} (exact rationals) in the file.
+\item \textbf{Parameters declared positive:} 69 of 69.
+\item \textbf{Rate terms:} 67, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta)$ well defined and non-negative at $\theta_0$ (\texttt{checkInit}).
+\item \textbf{Fidelity of the translation:} largest relative difference $4\times10^{-15}$.
+\item \textbf{Final theorem} (\texttt{Models.Lucarelli\_CellSystems2018.final} $:=$ \texttt{network\_final\_init}): same as \texttt{network\_final}, with initial value $x(0)=G(\theta)$ and $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Okuonghae\_ChaosSolitonsFractals2020}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Okuonghae\_ChaosSolitonsFractals2020.lean}.
+\item \textbf{States ($n=8$):} susceptible, exposed, asymptomatic, symptomatic, detected, recovered, deceased, detected\_cumulative.
+\item \textbf{Strictly positive species $\Sigma$ (6):} susceptible, exposed, asymptomatic, symptomatic, detected, detected\_cumulative.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=14$):} alpha $=$ 0.5; d\_0 $=$ 0.015; d\_D $=$ 0.015; gamma\_0 $=$ 0.1398; gamma\_a $=$ 0.1398; gamma\_i $=$ 0.06667; nu $=$ 0.5; psi $=$ 0.0135; sigma $=$ 0.1923; theta $=$ $2\times10^{-12}$; asymptomatic\_start $=$ 188; symptomatic\_start $=$ 212; exposed\_start $=$ 441; transmission\_rate\_effective $=$ 0.4236.
+\item \textbf{Parameters declared positive:} 14 of 14.
+\item \textbf{Rate terms:} 11, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the strict region $P_\Sigma$, quasi-positive, and consumption of species in $\Sigma$ at most proportional to their concentration (\texttt{checkNetS}); linear growth bound on $P_\Sigma$ (\texttt{checkGrowthS}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta_0)\in P_\Sigma$ (\texttt{checkInitS}); declared parameter bounds hold at $\theta_0$ (\texttt{checkUB}).
+\item \textbf{Fidelity of the translation:} largest relative difference $7\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Okuonghae\_ChaosSolitonsFractals2020.final} $:=$ \texttt{strict\_final\_init}): for every $T\ge0$ the nominal solution exists on $[0,T]$ and stays in $P_\Sigma$ (species in $\Sigma$ strictly positive) and in the domain; solutions near $\theta_0$ exist and are differentiable, $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Rahman\_MBS2016}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Rahman\_MBS2016.lean}.
+\item \textbf{States ($n=7$):} susceptible, infected\_normal, infected\_moderate, infected\_weak, treated\_normal, treated\_moderate, treated\_weak.
+\item \textbf{Strictly positive species $\Sigma$ (4):} susceptible, infected\_normal, infected\_moderate, infected\_weak.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=9$):} infected\_normal\_transmission\_rate\_relative $=$ 427.5; infected\_moderate\_transmission\_rate $=$ 0.002927; infected\_weak\_transmission\_rate\_relative $=$ 993; infected\_weak\_treatment\_rate $=$ 0.0001; infected\_normal\_worsen\_rate $=$ 0.6654; infected\_moderate\_worsen\_rate $=$ 0.007976; treated\_moderate\_improve\_rate $=$ 0.1364; treated\_weak\_improve\_rate $=$ 0.7756; behavioural\_change\_rate $=$ $1.338\times10^{-7}$.
+\item \textbf{Parameters declared positive:} 9 of 9.
+\item \textbf{Rate terms:} 19, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the strict region $P_\Sigma$, quasi-positive, and consumption of species in $\Sigma$ at most proportional to their concentration (\texttt{checkNetS}); linear growth bound on $P_\Sigma$ (\texttt{checkGrowthS}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta_0)\in P_\Sigma$ (\texttt{checkInitS}); declared parameter bounds hold at $\theta_0$ (\texttt{checkUB}).
+\item \textbf{Fidelity of the translation:} largest relative difference $1\times10^{-15}$.
+\item \textbf{Final theorem} (\texttt{Models.Rahman\_MBS2016.final} $:=$ \texttt{strict\_final\_init}): for every $T\ge0$ the nominal solution exists on $[0,T]$ and stays in $P_\Sigma$ (species in $\Sigma$ strictly positive) and in the domain; solutions near $\theta_0$ exist and are differentiable, $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Raia\_CancerResearch2011}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Raia\_CancerResearch2011.lean}.
+\item \textbf{States ($n=14$):} Rec, Rec\_i, IL13\_Rec, p\_IL13\_Rec, p\_IL13\_Rec\_i, JAK2, pJAK2, STAT5, pSTAT5, SOCS3mRNA, DecoyR, IL13\_DecoyR, SOCS3, CD274mRNA.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=18$):} CD274mRNA\_production $=$ 0.02121; DecoyR\_binding $=$ 0.003851; JAK2\_p\_inhibition $=$ 0.07814; JAK2\_phosphorylation $=$ 1.017; Kon\_IL13Rec $=$ 0.002278; Rec\_intern $=$ 0.3441; Rec\_phosphorylation $=$ 1000; Rec\_recycle $=$ 0.002098; SOCS3\_accumulation $=$ 451.8; SOCS3\_degradation $=$ 0.04338; SOCS3\_translation $=$ 15.72; SOCS3mRNA\_production $=$ 0.1434; STAT5\_phosphorylation $=$ 0.01948; init\_Rec\_i $=$ 235.1; pJAK2\_dephosphorylation $=$ 0.0001759; pRec\_degradation $=$ 0.2096; pRec\_intern $=$ 0.5853; pSTAT5\_dephosphorylation $=$ 0.0002748.
+\item \textbf{Parameters declared positive:} 18 of 18.
+\item \textbf{Rate terms:} 14, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta)$ well defined and non-negative at $\theta_0$ (\texttt{checkInit}).
+\item \textbf{Fidelity of the translation:} largest relative difference $6\times10^{-16}$.
+\item \textbf{Final theorem} (\texttt{Models.Raia\_CancerResearch2011.final} $:=$ \texttt{network\_final\_init}): same as \texttt{network\_final}, with initial value $x(0)=G(\theta)$ and $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Raimundez\_PCB2020}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Raimundez\_PCB2020.lean}.
+\item \textbf{States ($n=22$):} EGFR, EGFR\_CET, EGFR\_EGF, EGFR\_EGF\_2, pEGFR\_EGF\_2, pEGFR\_EGF\_2\_i, MMET, MMET\_2, pMMET\_2, pMMET\_2\_i, MMET\_EGFR, pMMET\_pEGFR, pMMET\_pEGFR\_i, MMET\_METinh, MMET\_MMET\_METinh, MMET\_METinh\_2, EGFR\_MMET\_METinh, RAS\_GTP, pMAPK, pPI3K, pMPI3K, pAKT.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=57$):} KD\_EGFR\_CET $=$ 0.218; KD\_EGFR\_EGF $=$ 0.3208; KD\_METinh $=$ 0.04194; d\_AKTtotal\_\_MKN1\_2\_HS746T $=$ 0; d\_AKTtotal\_\_fm\_2\_hm $=$ 0.8229; d\_MAPKtotal\_\_MKN1\_2\_HS746T $=$ 0; d\_MAPKtotal\_\_fm\_2\_hm $=$ 0.4275; d\_MPI3Ktotal\_\_fm\_2\_hm $=$ -1.545; d\_PI3Ktotal\_\_fm\_2\_hm $=$ -0.5318; d\_RAStotal\_\_MKN1\_2\_HS746T $=$ $-1.06\times10^{-22}$; d\_RAStotal\_\_fm\_2\_hm $=$ -0.5382; d\_kdeg\_membran\_\_MKN1\_2\_HS746T $=$ -0.6; d\_kdeg\_pEGFR\_EGF\_2\_i\_\_MKN1\_2\_HS746T $=$ 3; d\_kexp\_pEGFR\_EGF\_2\_i\_\_MKN1\_2\_HS746T $=$ -0.2382; d\_kimp\_pEGFR\_EGF\_2\_\_MKN1\_2\_HS746T $=$ -1.746; d\_ksyn\_EGFR\_\_MKN1\_2\_HS746T $=$ -3; d\_ksyn\_EGFR\_\_fm\_2\_hm $=$ -0.0876; d\_ksyn\_MMET\_\_fm\_2\_hm $=$ -0.5189; ka\_AKT\_\_MKN1 $=$ 443.1; ka\_MAPK\_\_MKN1 $=$ 1000; ka\_PI3K\_\_basal $=$ 0.0003649; ka\_PI3K\_\_pEGFR\_EGF\_2 $=$ 0.001701; ka\_RAS\_\_basal\_\_MKN1 $=$ 0.0002145; ka\_RAS\_\_pEGFR\_EGF\_2\_\_MKN1 $=$ $1.47\times10^{-5}$; kbin\_EGFR\_CET $=$ 0.5853; kbin\_EGFR\_EGF $=$ 8.882; kdeg\_membran\_\_MKN1 $=$ 0.002259; kdeg\_pEGFR\_EGF\_2\_i\_\_MKN1 $=$ 0.0668; kdim\_EGFR\_EGF $=$ 0.03239; kdim\_MMET $=$ $2.61\times10^{-5}$; kdim\_MMET\_EGFR $=$ 0.001882; kdim\_MMETinh $=$ 0.03127; kexp\_pEGFR\_EGF\_2\_i\_\_MKN1 $=$ 0.7517; ki\_AKT\_\_MKN1 $=$ 18.47; ki\_MAPK $=$ 2.177; ki\_PI3K\_\_MKN1 $=$ 1.316; ki\_RAS\_\_MKN1 $=$ 0.327; kimp\_pEGFR\_EGF\_2\_\_MKN1 $=$ 0.7469; kpho\_EGFR\_EGF $=$ 1.344; kpho\_MMET $=$ 2.543; kpho\_MMET\_EGFR $=$ 4.563; ksyn\_MMET\_\_HS746T\_fm $=$ 0.02635; xi\_ka\_PI3K\_pMMET\_2 $=$ 301.3; xi\_ka\_PI3K\_pMMET\_pEGFR $=$ 0.7655; xi\_ka\_RAS\_pMMET\_2 $=$ 0.4494; xi\_ka\_RAS\_pMMET\_pEGFR $=$ 0.2536; xi\_kdeg\_pMMET\_2\_i $=$ 0.7837; xi\_kdeg\_pMMET\_pEGFR\_i $=$ 3.533; xi\_kdim\_MMET $=$ 0.9748; xi\_kdim\_MMET\_EGFR $=$ 1; xi\_kexp\_pMMET\_2\_i $=$ 1.243; xi\_kexp\_pMMET\_pEGFR\_i $=$ 0.2864; xi\_ki\_MPI3K $=$ 0.00322; xi\_kimp\_pMMET\_2 $=$ 0.07715; xi\_kimp\_pMMET\_pEGFR $=$ 0.00796; xi\_kpho\_MMET $=$ 0.008328; xi\_kpho\_MMET\_EGFR $=$ 0.06967.
+\item \textbf{Parameters declared positive:} 45 of 57.
+\item \textbf{Rate terms:} 91, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (0 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $1\times10^{-12}$.
+\item \textbf{Final theorem} (\texttt{Models.Raimundez\_PCB2020.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{SalazarCavazos\_MBoC2020}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/SalazarCavazos\_MBoC2020.lean}.
+\item \textbf{States:} $n=75$ species (listed in the file).
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=6$):} GRB2\_total\_\_FREE $=$ $1.699\times10^{5}$; SHC1\_total\_\_FREE $=$ $6.494\times10^{5}$; kdephosY1068\_\_FREE $=$ 1.659; kdephosYN\_\_FREE $=$ 0.01718; ratio\_kpkd\_Y1068\_\_FREE $=$ 0.1575; ratio\_kpkd\_YN\_\_FREE $=$ 0.4448.
+\item \textbf{Parameters declared positive:} 6 of 6.
+\item \textbf{Rate terms:} 457, each with its stoichiometric column.
+\item \textbf{Initial values:} expressions $G(\theta)$ in the parameters (SBML initial assignments).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); parameter-dependent initial values $G(\theta)$ well defined and non-negative at $\theta_0$ (\texttt{checkInit}).
+\item \textbf{Fidelity of the translation:} largest relative difference $2\times10^{-13}$.
+\item \textbf{Final theorem} (\texttt{Models.SalazarCavazos\_MBoC2020.final} $:=$ \texttt{network\_final\_init}): same as \texttt{network\_final}, with initial value $x(0)=G(\theta)$ and $S(0)=\partial_\theta G(\theta_0)$.
+\end{itemize}
+
+\subsubsection*{Sneyd\_PNAS2002}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Sneyd\_PNAS2002.lean}.
+\item \textbf{States ($n=6$):} IPR\_O, IPR\_R, IPR\_I1, IPR\_S, IPR\_A, IPR\_I2.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=14$):} k1 $=$ 3.727; k2 $=$ $1\times10^{5}$; k3 $=$ 15.75; k4 $=$ $9.994\times10^{4}$; k\_1 $=$ 0.9239; k\_2 $=$ 0.001002; k\_3 $=$ 1.915; k\_4 $=$ 3079; l2 $=$ 0.9401; l4 $=$ 2.858; l6 $=$ $1\times10^{5}$; l\_2 $=$ 0.3477; l\_4 $=$ 0.01388; l\_6 $=$ 0.001.
+\item \textbf{Parameters declared positive:} 14 of 14.
+\item \textbf{Rate terms:} 16, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (1 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $4\times10^{-15}$.
+\item \textbf{Final theorem} (\texttt{Models.Sneyd\_PNAS2002.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Weber\_BMC2015}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Weber\_BMC2015.lean}.
+\item \textbf{States ($n=7$):} PKD, PKDDAGa, PI4K3B, PI4K3Ba, CERTERa, CERT, CERTTGNa.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=26$):} a11 $=$ 0.1825; a12 $=$ 26.67; a21 $=$ 1.877; a22 $=$ 0.0001; a31 $=$ 0.1353; a32 $=$ 0.0001; a33 $=$ 0.0001; m11 $=$ $1\times10^{10}$; m22 $=$ 2154; m31 $=$ $9.97\times10^{9}$; m33 $=$ $4.187\times10^{7}$; p11 $=$ 4.244; p12 $=$ 0.005936; p13 $=$ 0.00246; p21 $=$ 5.629; p22 $=$ 21.79; p31 $=$ 2538; p32 $=$ 16.77; p33 $=$ $2.166\times10^{4}$; pu3 $=$ $1\times10^{8}$; pu4 $=$ $3.313\times10^{7}$; pu5 $=$ 33.7; pu6 $=$ 113.4; s12 $=$ $8.846\times10^{4}$; s21 $=$ $2.961\times10^{6}$; s31 $=$ $4.328\times10^{6}$.
+\item \textbf{Parameters declared positive:} 26 of 26.
+\item \textbf{Rate terms:} 18, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (7 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference 0.
+\item \textbf{Final theorem} (\texttt{Models.Weber\_BMC2015.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Zhao\_QuantBiol2020}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Zhao\_QuantBiol2020.lean}.
+\item \textbf{States ($n=4$):} Susceptible, Unquarantined\_Infected, Quarantined\_Infected, Confirmed\_Infected.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=21$):} R\_Stage\_I\_Wuhan $=$ 4.709; gamma\_1\_Stage\_I\_Wuhan $=$ 0.063; gamma\_2\_Stage\_I\_Wuhan $=$ 0.05; R\_Stage\_II\_Wuhan $=$ 0.7575; gamma\_1\_Stage\_II\_Wuhan $=$ 0.3917; gamma\_2\_Stage\_II\_Wuhan $=$ 0.0643; R\_Stage\_III\_Wuhan $=$ 0.4797; gamma\_1\_Stage\_III\_Wuhan $=$ 0.6185; gamma\_2\_Stage\_III\_Wuhan $=$ 0.322; R\_Stage\_I\_Hubei $=$ 5.934; gamma\_1\_Stage\_I\_Hubei $=$ 0.05; gamma\_2\_Stage\_I\_Hubei $=$ 0.05; R\_Stage\_II\_Hubei $=$ 0.6079; gamma\_1\_Stage\_II\_Hubei $=$ 0.488; gamma\_2\_Stage\_II\_Hubei $=$ 0.1914; R\_Stage\_I\_China $=$ 1.528; gamma\_1\_Stage\_I\_China $=$ 0.1941; gamma\_2\_Stage\_I\_China $=$ 0.05; R\_Stage\_II\_China $=$ 0.5753; gamma\_1\_Stage\_II\_China $=$ 0.5157; gamma\_2\_Stage\_II\_China $=$ 0.2189.
+\item \textbf{Parameters declared positive:} 21 of 21.
+\item \textbf{Rate terms:} 3, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (3 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference 0.
+\item \textbf{Final theorem} (\texttt{Models.Zhao\_QuantBiol2020.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+
+\subsubsection*{Zheng\_PNAS2012}
+
+\begin{itemize}\itemsep0pt\small
+\item \textbf{File:} \texttt{Models/Zheng\_PNAS2012.lean}.
+\item \textbf{States ($n=15$):} K27me0K36me0, K27me0K36me1, K27me1K36me0, K27me0K36me2, K27me1K36me1, K27me2K36me0, K27me0K36me3, K27me1K36me2, K27me2K36me1, K27me3K36me0, K27me1K36me3, K27me2K36me2, K27me3K36me1, K27me2K36me3, K27me3K36me2.
+\item \textbf{Parameters and nominal values $\theta_0$ ($p=45$):} inflowp $=$ 0.03048; k00\_01 $=$ 997.3; k00\_10 $=$ 0.234; k01\_00 $=$ 479.8; k01\_02 $=$ 1.913; k01\_11 $=$ 2.651; k02\_01 $=$ 0.06996; k02\_03 $=$ $1\times10^{-5}$; k02\_12 $=$ $1\times10^{-5}$; k03\_02 $=$ $1\times10^{-5}$; k03\_13 $=$ 988.1; k10\_00 $=$ $1\times10^{-5}$; k10\_11 $=$ $1\times10^{-5}$; k10\_20 $=$ 0.2692; k11\_01 $=$ $1\times10^{-5}$; k11\_10 $=$ $1\times10^{-5}$; k11\_12 $=$ 11.85; k11\_21 $=$ $1\times10^{-5}$; k12\_02 $=$ $1\times10^{-5}$; k12\_11 $=$ 0.107; k12\_13 $=$ 0.03563; k12\_22 $=$ 0.01062; k13\_03 $=$ 450.4; k13\_12 $=$ 0.1953; k13\_23 $=$ $1\times10^{-5}$; k20\_10 $=$ $1\times10^{-5}$; k20\_21 $=$ $1\times10^{-5}$; k20\_30 $=$ 0.1507; k21\_11 $=$ $1\times10^{-5}$; k21\_20 $=$ 0.0354; k21\_22 $=$ 999.3; k21\_31 $=$ $1\times10^{-5}$; k22\_12 $=$ 0.05338; k22\_21 $=$ 426.1; k22\_23 $=$ 0.1517; k22\_32 $=$ $1\times10^{-5}$; k23\_13 $=$ 0.7912; k23\_22 $=$ $1\times10^{-5}$; k30\_20 $=$ $1\times10^{-5}$; k30\_31 $=$ 0.2813; k31\_21 $=$ $1.001\times10^{-5}$; k31\_30 $=$ $1\times10^{-5}$; k31\_32 $=$ 0.3536; k32\_22 $=$ 0.633; k32\_31 $=$ $1\times10^{-5}$.
+\item \textbf{Parameters declared positive:} 45 of 45.
+\item \textbf{Rate terms:} 44, each with its stoichiometric column.
+\item \textbf{Initial values:} constant rational vector $x_q$ (15 non-zero entries).
+\item \textbf{Weights $w_i$ of the growth bound:} all equal to 1.
+\item \textbf{Checks executed by the kernel:} rate laws well defined on the non-negative orthant and quasi-positive (\texttt{checkNet}); linear growth bound $\sum_iw_if_i\le a+b\sum_iw_ix_i$ with the weights $w$ (\texttt{checkGrowth}); nominal parameters positive where declared (\texttt{checkPosParams}); initial values non-negative (\texttt{checkNonneg}).
+\item \textbf{Fidelity of the translation:} largest relative difference $1\times10^{-15}$.
+\item \textbf{Final theorem} (\texttt{Models.Zheng\_PNAS2012.final} $:=$ \texttt{network\_final}): for every $T\ge0$ the nominal solution from $x_q$ exists on $[0,T]$, is non-negative and stays in the domain of the rate laws; solutions exist for all $\theta$ near $\theta_0$, and $x(t;\theta)$ is differentiable in $\theta$ with sensitivity $S(t)$, $S(0)=0$.
+\end{itemize}
+

@@ -85,9 +85,9 @@ def nivel(d):
 
 def tableS1():
     brk = lambda t: tex(t).replace(r"\_", r"\_\allowbreak{}").replace(", ", ", \\allowbreak{}")
-    L = [r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{2.7cm}rrrrrc@{}}", r"\toprule",
+    L = [r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{2.7cm}rrrrrc@{}}", r"\caption{Selected biological parameters of each benchmark problem and characteristics of the subset.}\label{tab:selected}\\", r"\toprule",
          r"System & Selected biological parameters $S$ & Removed by backward elimination & $\kappa$ & VIF & $R_{\mathrm{var}}$ (\%) & $\cos\Delta$ & $e_{\mathrm{fit}}$ (\%) & Level \\", r"\midrule",
-         r"\endhead"]
+         r"\endfirsthead", r"\toprule", r"System & Selected biological parameters $S$ & Removed by backward elimination & $\kappa$ & VIF & $R_{\mathrm{var}}$ (\%) & $\cos\Delta$ & $e_{\mathrm{fit}}$ (\%) & Level \\", r"\midrule", r"\endhead"]
     for name, d in sorted(SEL.items(), key=lambda kv: kv[0].lower()):
         lv = nivel(d)
         ef = 100 * d["eajuste_med"]

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Supplementary Note 4 and Table S6: the benchmark models verified in Lean, with the data contained in
+"""Supplementary Note "Verified benchmark models" and its tables: the benchmark models verified in Lean, with the data contained in
 each file of lean_proofs/Models/ (states, parameters and nominal values, reactions, positivity masks,
 weights, initial values, horizon), the checks executed by the Lean kernel and the final theorem applied.
 All information is read from the Lean files and from lean_proofs/BUILD_LOG.md."""
@@ -140,28 +140,28 @@ def fmte(x):
 FMAX = max(fidv(m["name"]) for m in models if fidv(m["name"]) is not None)
 
 # ------------------------------------------------------------------ LaTeX
-L = [r"\section*{Supplementary Note 4. The verified benchmark models}", r"\sloppy", "",
+L = [r"\snote{models}", r"\sloppy", "",
      r"This note lists, for each of the " + str(NM) + r" benchmark models verified in Lean, the data contained in its file in "
      r"\texttt{lean\_proofs/Models/}, the checks executed by the Lean kernel on those data and the final theorem "
      r"that results. Each file was generated from the SBML model and the PEtab parameter table of the benchmark by "
      r"\texttt{certificados/sbml\_to\_lean.py}, with every number written as an exact rational. The checks are "
-     r"Boolean functions proved sound in steps 27--31 of Supplementary Note~2; each is evaluated by the Lean kernel "
+     r"Boolean functions proved sound in steps 27--31 (\sref{seq}); each is evaluated by the Lean kernel "
      r"(\texttt{decide +kernel}), so its value \texttt{true} is part of the proof. The final theorem "
      r"\texttt{Models.<model>.final} then has no pending hypotheses: it states that the model satisfies the "
-     r"assumptions of Parts~II--III (smooth vector field on a domain containing the trajectory, existence of the "
+     r"assumptions of steps 14--22 (smooth vector field on a domain containing the trajectory, existence of the "
      r"nominal solution on the horizon, non-negativity, and differentiability of the solution with respect to the "
      r"parameters). \texttt{\#print axioms} for every final theorem reports only \texttt{propext}, "
-     r"\texttt{Classical.choice} and \texttt{Quot.sound} (\texttt{CheckModelAxioms.lean}). Table~S6 summarises the "
+     r"\texttt{Classical.choice} and \texttt{Quot.sound} (\texttt{CheckModelAxioms.lean}). Supplementary Table~\ref{tab:models} summarises the "
      r"models, the next subsections describe the independent check of the translation, a complete example (Boehm) "
      r"and the benchmark problems that were not verified, and the last subsections give the data of each model.", "",
      r"{\small", r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}rrrr>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.5cm}rr@{}}",
-     r"\caption*{\textbf{Supplementary Table S6.} Benchmark models verified in Lean. $n$: states (species, plus "
+     r"\caption{Benchmark models verified in Lean. $n$: states (species, plus "
      r"time when a rate law depends on it); $p$: parameters; $R$: rate terms (reactions after splitting reversible "
      r"ones); $|\Sigma|$: species proved strictly positive; horizon: time interval on which existence of the "
-     r"solution is proved; final theorem: family of the end-to-end theorem that the model instantiates (Supplementary Note~3); "
+     r"solution is proved; final theorem: family of the end-to-end theorem that the model instantiates (\sref{stmts}); "
      r"time: compilation time of the model files (s); "
      r"fidelity: largest relative difference between the Lean translation and the SBML model evaluated by "
-     r"libRoadRunner (vector field, parameter values and initial values).}\\",
+     r"libRoadRunner (vector field, parameter values and initial values).}\label{tab:models}\\",
      r"\toprule", r"Model & $n$ & $p$ & $R$ & $|\Sigma|$ & Horizon & Final theorem & Time & Fidelity \\", r"\midrule", r"\endhead"]
 for m in models:
     hz = (r"$T\le" + m["Tq"] + "$") if m["Tq"] else ("6 segments" if m["segs"] else r"all $T\ge0$")
@@ -181,7 +181,7 @@ L += [r"\subsection*{Agreement of the translation with the SBML models}", "",
       r"table, at the initial state and at five random positive states. It also compares $\theta_q$ with the PEtab "
       r"nominal values and the initial values (or $G(\theta_q)$) with those of the SBML model. Over the " + str(NM - len(missing)) +
       r" models" + (f" checked so far (the check of {missing[0].split('_')[0]} is still running)," if missing else ",") + r" the largest relative difference is " + fmte(FMAX) + r", i.e.\ agreement to rounding error "
-      r"(Table~S6, last column). As a control, changing one parameter value, one initial value or one stoichiometric "
+      r"(Supplementary Table~\ref{tab:models}, last column). As a control, changing one parameter value, one initial value or one stoichiometric "
       r"coefficient of the Lean file by 1\% is detected (relative differences of $10^{-2}$). The comparison covers the "
       r"model without condition-specific overrides, which is what the Lean files describe; for models defined by "
       r"segments it covers the first segment.", ""]
@@ -240,9 +240,9 @@ L += [r"\subsection*{A complete example: Boehm\_JProteomeRes2014}", "",
       r"$\tau$ is time; the translator therefore adds $\tau$ as a ninth state with $\dot\tau=1$. The six estimated "
       r"parameters are " + ", ".join(f"$\\theta_{{{j+1}}}=$ {esc(a)} ({fmt(v)})" for j, (a, v) in enumerate(zip(bm['pnames'], bm['theta']))) +
       r". The vector field is $f_i=\sum_k\nu_{ik}v_k$ with the following rate terms $v_k$ and stoichiometric "
-      r"coefficients $\nu_{ik}$ (the constants come from compartment volumes and fixed parameters of the SBML model):", "",
+      r"coefficients $\nu_{ik}$, listed in Supplementary Table~\ref{tab:boehm} (the constants come from compartment volumes and fixed parameters of the SBML model).", "",
       r"{\small", r"\begin{longtable}{@{}r>{\raggedright\arraybackslash}p{9.6cm}>{\raggedright\arraybackslash}p{5.2cm}@{}}",
-      r"\toprule", r"$k$ & Rate term $v_k$ & Stoichiometry $\nu_{\cdot k}$ \\", r"\midrule"]
+      r"\caption{Rate terms and stoichiometry of the Lean model of Boehm\_JProteomeRes2014.}\label{tab:boehm}\\", r"\toprule", r"$k$ & Rate term $v_k$ & Stoichiometry $\nu_{\cdot k}$ \\", r"\midrule"]
 for k, (e, c) in enumerate(LB["R"]):
     L.append(f"{k + 1} & ${tex(e)}$ & {esc(col(c))} \\\\")
 L += [r"\bottomrule", r"\end{longtable}", "}", "",
@@ -261,7 +261,7 @@ L += [r"\bottomrule", r"\end{longtable}", "}", "",
       r"solution $x_0$ on $[0,T]$ with $x_0(0)=x_q$, $x_0(t)\ge0$ and $(x_0(t),\theta_q)$ in the domain; there is a "
       r"family $x(\cdot;\theta)$ of solutions for $\theta$ near $\theta_q$ with $x(\cdot;\theta_q)=x_0$; and "
       r"$x(t;\theta)$ is differentiable in $\theta$ at $\theta_q$ with derivative $S(t)$, $S(0)=0$, solving the "
-      r"variational equation. These are the hypotheses of Parts~II--III for this model.".replace("θq", r"$\theta_q$"), "",
+      r"variational equation. These are the hypotheses of steps 14--22 for this model.".replace("θq", r"$\theta_q$"), "",
       r"\textbf{5. Reproduction.} From the folder \texttt{lean\_proofs/}, the command", "",
       r"\begin{quote}\small\raggedright\texttt{lake env lean Models/Boehm\_JProteomeRes2014.lean}\end{quote}", "",
       r"compiles the file in a few seconds and prints", "",
@@ -328,9 +328,5 @@ for m in models:
 
 bad = sorted({ch for l in L for ch in l if ord(ch) > 127})
 assert not bad, bad
-p = HERE / "supplementary.tex"
-s = p.read_text(encoding="utf-8")
-key = r"\section*{Supplementary Note 4."
-a = s.index(key) if key in s else s.index(r"\end{document}")
-p.write_text(s[:a] + "\n".join(L) + "\n" + r"\input{suppl_reproduction}" + "\n\n" + r"\input{suppl_sct}" + "\n\n" + r"\input{suppl_systems}" + "\n\n" + r"\input{suppl_conclusion}" + "\n\n" + r"\end{document}" + "\n", encoding="utf-8")
+(HERE / "suppl_models.tex").write_text("\n".join(L) + "\n", encoding="utf-8")
 print(len(models), "models;", {m["name"]: (m["n"], m["p"], m["nterms"]) for m in models})
