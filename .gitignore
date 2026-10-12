@@ -15,3 +15,5 @@ certificados/resultados/valbio_log.txt
 certificados/datos_sct/
 certificados/resultados/*/checkpoints/
 paper/scirep/*.toc
+__pycache__/
+*.pyc
