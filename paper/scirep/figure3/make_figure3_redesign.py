@@ -203,19 +203,21 @@ def report(rows, C):
         w("   > " + s[:400])
     w("")
     ok = lambda cond: "OK" if cond else "DISCREPANCY"
+    txt = MAIN.read_text()
+    st = lambda old: "DISCREPANCY" if old in txt else "FIXED in main.tex"
     eb_a = len(va["better"]) + len(va["equivalent"])
     w(f"   [{ok(eb_a == 27 and va['n'] == 28)}] '27 of 28' (reduced as good as or better than full): computed {eb_a} of {va['n']}"
       " over all valid pairs (noise-free problems included). Correct as a count over all 28 pairs.")
     eb_pa = len(a["better"]) + len(a["equivalent"])
-    w(f"   [DISCREPANCY] Fig. 3a caption says n = 27; the panel shows {a['n']} problems (the 28 pairs minus the 3 noise-free).")
+    w(f"   [{st('($n=27$ problems)')}] Fig. 3a caption said n = 27; the panel shows {a['n']} problems (the 28 pairs minus the 3 noise-free).")
     w(f"                 In panel a: {eb_pa} of {a['n']} equivalent or better; the only worse case is {', '.join(a['worse'])}.")
     w(f"   [{ok(len(vb['le_twice']) == 23 and vb['n'] == 30)}] '23 of 30' (reduced chi2 <= 2 x theta0): computed {len(vb['le_twice'])} of {vb['n']}"
       " over all valid pairs (noise-free included).")
-    w(f"   [DISCREPANCY] Fig. 3b caption says n = 29; the panel shows {b['n']} problems (the 30 pairs minus the 3 noise-free).")
+    w(f"   [{st('($n=29$)')}] Fig. 3b caption said n = 29; the panel shows {b['n']} problems (the 30 pairs minus the 3 noise-free).")
     w(f"                 In panel b: {len(b['le_twice'])} of {b['n']} have q <= 2.")
-    w(f"   [DISCREPANCY] 'in two of these, Zhao and Isensee, the two test errors differed by less than 0.2%':")
+    w(f"   [{st('Zhao and Isensee')}] 'in two of these, Zhao and Isensee, the two test errors differed by less than 0.2%':")
     w(f"                 |q-1| < 0.2 % holds for {len(va['within_02pct'])} problems: {', '.join(va['within_02pct'])}.")
-    w(f"   [DISCREPANCY] 'In three problems (Okuonghae, Oliveira, Smith) even theta0 has chi2/n >> 1': theta0 chi2/n > {HIGH:g}")
+    w(f"   [{st('(Okuonghae, Oliveira, Smith)')}] 'In three problems (Okuonghae, Oliveira, Smith) even theta0 has chi2/n >> 1': theta0 chi2/n > {HIGH:g}")
     w(f"                 in {len(th_hi)} problems: {', '.join(th_hi)}.")
     w("   [OK] Raia is the only problem in which the full model predicts better (8.2 vs 5.1).")
     w("   [OK] Brannmark 5.8 vs 2,145; Weber 1.0 vs 226; Zheng 1.6 vs 20.6; Bachmann 4.8 vs 12.2.")

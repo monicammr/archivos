@@ -73,14 +73,14 @@ All three chi2 columns exist (A_chi2_test_theta0 included), so both panels can b
    > We therefore split the measurements of each problem into training and test sets, by experimental condition when several conditions were available (21 problems) and by time otherwise, using the later time points as test set (11 problems); calibration or condition-specific parameters that appear only in the test set were excluded.
 
    [OK] '27 of 28' (reduced as good as or better than full): computed 27 of 28 over all valid pairs (noise-free problems included). Correct as a count over all 28 pairs.
-   [DISCREPANCY] Fig. 3a caption says n = 27; the panel shows 25 problems (the 28 pairs minus the 3 noise-free).
+   [FIXED in main.tex] Fig. 3a caption said n = 27; the panel shows 25 problems (the 28 pairs minus the 3 noise-free).
                  In panel a: 24 of 25 equivalent or better; the only worse case is Raia.
    [OK] '23 of 30' (reduced chi2 <= 2 x theta0): computed 23 of 30 over all valid pairs (noise-free included).
-   [DISCREPANCY] Fig. 3b caption says n = 29; the panel shows 27 problems (the 30 pairs minus the 3 noise-free).
+   [FIXED in main.tex] Fig. 3b caption said n = 29; the panel shows 27 problems (the 30 pairs minus the 3 noise-free).
                  In panel b: 21 of 27 have q <= 2.
-   [DISCREPANCY] 'in two of these, Zhao and Isensee, the two test errors differed by less than 0.2%':
+   [FIXED in main.tex] 'in two of these, Zhao and Isensee, the two test errors differed by less than 0.2%':
                  |q-1| < 0.2 % holds for 5 problems: Borghans, Isensee, Perelson, Smith, Zhao.
-   [DISCREPANCY] 'In three problems (Okuonghae, Oliveira, Smith) even theta0 has chi2/n >> 1': theta0 chi2/n > 10
+   [FIXED in main.tex] 'In three problems (Okuonghae, Oliveira, Smith) even theta0 has chi2/n >> 1': theta0 chi2/n > 10
                  in 5 problems: Chen, Okuonghae, Oliveira, Salazar-Cavazos, Smith.
    [OK] Raia is the only problem in which the full model predicts better (8.2 vs 5.1).
    [OK] Brannmark 5.8 vs 2,145; Weber 1.0 vs 226; Zheng 1.6 vs 20.6; Bachmann 4.8 vs 12.2.
