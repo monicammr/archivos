@@ -257,7 +257,7 @@ def fig2():
     nad = sum(r["d"]["admisible"] for r in rows)
 
     fig, (a, b) = plt.subplots(1, 2, figsize=(7.2, 9.2), sharey=True, gridspec_kw={"width_ratios": [1, 1]})
-    fig.subplots_adjust(left=0.14, right=0.985, top=0.885, bottom=0.115, wspace=0.16)
+    fig.subplots_adjust(left=0.14, right=0.985, top=0.91, bottom=0.115, wspace=0.16)
     for ax in (a, b):
         for sp in ("top", "right"):
             ax.spines[sp].set_visible(False)
@@ -312,8 +312,6 @@ def fig2():
         ax.text(0.0, 1.062, letter, transform=ax.transAxes, fontsize=10, fontweight="bold", va="bottom", color=INK)
         ax.text(0.065 if ax is a else 0.07, 1.062, title, transform=ax.transAxes, fontsize=8.2, fontweight="bold", va="bottom", color=INK)
         ax.text(0.065 if ax is a else 0.07, 1.022, sub, transform=ax.transAxes, fontsize=6.6, va="bottom", color=MUTED)
-    fig.text(0.5, 0.982, "Parameter reduction and recovery of the full-model output in 34 benchmark problems",
-             ha="center", va="top", fontsize=9.6, fontweight="bold", color=INK)
     # ---- legend, below both panels
     h = [Line2D([], [], marker="o", ls="", color=GREY, ms=4.5, label="full model, $p$"),
          Line2D([], [], marker="o", ls="", color=BLUE, ms=4.8, label="retained, $|S|+|\\Theta_C|$"),
