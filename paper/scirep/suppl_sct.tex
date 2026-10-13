@@ -50,7 +50,7 @@ $\tau_{6}$ & 10.9 & 0.609 & 12 & 0.0\% & -- \\
 
 \textbf{Prediction of unseen days.} Both models were refitted to days 1--24 (by least squares from $\theta_0$, within the bounds and with the stability constraint) and used to predict days 25--31 (Supplementary Fig.~\ref{fig:sct}). The reduced model predicted the held-out week with $R^2=0.84$ (test $\chi^2/n$ 1.63), better than the full 22-parameter model ($R^2=0.67$, $\chi^2/n$ 3.44; refitted with the same differential-evolution search: $R^2=0.79$, $\chi^2/n$ 2.13), even though the full model fits the training days more closely ($\chi^2/n$ 0.65 versus 0.84). All refitted models are stable.
 
-\begin{figure}[!htb]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/figS2_sct.pdf}
 \caption{\textbf{SCT model of one participant.} Standardised daily steps (dots), the fit of $\theta_0$ to all 31 days (grey), and the reduced (two parameters, blue) and full (22 parameters, red dashed) models refitted to days 1--24; the shaded region contains the seven test days.}\label{fig:sct}
