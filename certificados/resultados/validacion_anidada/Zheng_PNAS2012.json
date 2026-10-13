@@ -1,0 +1,17 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "S": [
+  "k01_02",
+  "k13_12"
+ ],
+ "|S|": 2,
+ "division": "extrapolacion temporal (t >= 10)",
+ "n_train": 30,
+ "n_test": 30,
+ "chi2_test_red_original": 1.5818297897976195,
+ "chi2_test_full_train": 20.815622959680216,
+ "chi2_test_red_nested": 20.815655731681,
+ "chi2_test_theta0": 1.5053826558373309,
+ "ratio_nested_vs_original": 13.159226021621564,
+ "segundos": 41.2
+}

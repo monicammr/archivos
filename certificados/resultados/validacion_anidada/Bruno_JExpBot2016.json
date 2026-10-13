@@ -1,0 +1,20 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "|S|": 5,
+ "division": "condiciones nuevas",
+ "n_train": 49,
+ "n_test": 28,
+ "chi2_test_red_original": 0.9093632518020328,
+ "chi2_test_full_train": 207.96662032564518,
+ "chi2_test_red_nested": 207.96662033030265,
+ "chi2_test_theta0": 0.9093579432330835,
+ "ratio_nested_vs_original": 228.69477067408118,
+ "segundos": 0.5
+}

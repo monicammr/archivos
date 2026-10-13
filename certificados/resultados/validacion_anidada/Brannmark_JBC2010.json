@@ -1,0 +1,17 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 17,
+ "n_test": 26,
+ "chi2_test_red_original": 5.955850686824016,
+ "chi2_test_full_train": 6277.3050696316495,
+ "chi2_test_red_nested": 6277.3039775762545,
+ "chi2_test_theta0": 0.9384720295100861,
+ "ratio_nested_vs_original": 1053.97269133415,
+ "segundos": 5.2
+}

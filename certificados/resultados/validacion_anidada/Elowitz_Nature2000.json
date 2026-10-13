@@ -1,0 +1,17 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "|S|": 2,
+ "division": "extrapolacion temporal (t >= 410)",
+ "n_train": 38,
+ "n_test": 20,
+ "chi2_test_red_original": 1.49838255411681,
+ "chi2_test_full_train": 3.8867626437946554,
+ "chi2_test_red_nested": 3.886748103234974,
+ "chi2_test_theta0": 1.3755589956346181,
+ "ratio_nested_vs_original": 2.5939624647631696,
+ "segundos": 2.9
+}

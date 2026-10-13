@@ -1,0 +1,17 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 267,
+ "n_test": 19,
+ "chi2_test_red_original": 8.195942168849825,
+ "chi2_test_full_train": 8.402806500102018,
+ "chi2_test_red_nested": 8.402688795157507,
+ "chi2_test_theta0": 0.7681682837230753,
+ "ratio_nested_vs_original": 1.0252254862282288,
+ "segundos": 29.2
+}

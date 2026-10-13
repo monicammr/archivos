@@ -1,0 +1,17 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 47,
+ "n_test": 15,
+ "chi2_test_red_original": 14976.894073807967,
+ "chi2_test_full_train": 14975.696635172362,
+ "chi2_test_red_nested": 14975.77693710906,
+ "chi2_test_theta0": 82920.70750484259,
+ "ratio_nested_vs_original": 0.9999254093209579,
+ "segundos": 374.0
+}

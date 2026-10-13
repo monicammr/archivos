@@ -1,0 +1,17 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 133,
+ "n_test": 72,
+ "chi2_test_red_original": 8.223759823396664,
+ "chi2_test_full_train": 5.10254999457327,
+ "chi2_test_red_nested": 4.811261525995164,
+ "chi2_test_theta0": 0.41702781312862786,
+ "ratio_nested_vs_original": 0.5850440223591021,
+ "segundos": 12.5
+}
