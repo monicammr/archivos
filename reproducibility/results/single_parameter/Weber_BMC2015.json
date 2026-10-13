@@ -1,0 +1,101 @@
+{
+ "sistema": "Weber_BMC2015",
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "calibracion": [
+  "scale_yCERTpRN24",
+  "scale_yPI4K3BpRN24",
+  "scale_yPKDpN0",
+  "scale_yPKDpN24",
+  "scale_yPKDpN25"
+ ],
+ "un_parametro": [
+  {
+   "parametro": "a21",
+   "e_rel": 0.8208898511999508,
+   "e_fit": 0.05871999920357381,
+   "admisible": true
+  },
+  {
+   "parametro": "s12",
+   "e_rel": 0.8607681707285684,
+   "e_fit": 0.0693574149847111,
+   "admisible": true
+  },
+  {
+   "parametro": "a12",
+   "e_rel": 0.9525855149033208,
+   "e_fit": 0.07465031045455658,
+   "admisible": true
+  },
+  {
+   "parametro": "a11",
+   "e_rel": 0.9273055593065893,
+   "e_fit": 0.06947281772630906,
+   "admisible": true
+  },
+  {
+   "parametro": "pu3",
+   "e_rel": 0.9299805979038599,
+   "e_fit": 0.06281550831642152,
+   "admisible": true
+  },
+  {
+   "parametro": "p21",
+   "e_rel": 0.9216683616891749,
+   "e_fit": 0.06888693966571202,
+   "admisible": true
+  },
+  {
+   "parametro": "p22",
+   "e_rel": 0.962034516069135,
+   "e_fit": 0.0689706782750403,
+   "admisible": true
+  },
+  {
+   "parametro": "p11",
+   "e_rel": 1.0272384538123327,
+   "e_fit": 0.08485709428959762,
+   "admisible": true
+  },
+  {
+   "parametro": "m11",
+   "e_rel": 1.098601291564901,
+   "e_fit": 0.08485847737120314,
+   "admisible": true
+  },
+  {
+   "parametro": "m31",
+   "e_rel": 0.9645535452790899,
+   "e_fit": 0.11573531236871341,
+   "admisible": true
+  },
+  {
+   "parametro": "p31",
+   "e_rel": 0.8149666983169958,
+   "e_fit": 0.11576353365855539,
+   "admisible": true
+  },
+  {
+   "parametro": "s21",
+   "e_rel": 0.8931704257345555,
+   "e_fit": 0.17291390468123624,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "a21",
+ "mejor_efit_10": 0.05858906647196398,
+ "S_efit_10": 0.038441653489320916,
+ "mejor_validacion": {
+  "A_chi2_test_red": 0.9972497128700022,
+  "B_chi2_test_theta0": 118.16612761665424,
+  "B_epred_red": 0.9368532799936652,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "mejor_validacion_calibracion": 5,
+ "segundos": 166.6
+}

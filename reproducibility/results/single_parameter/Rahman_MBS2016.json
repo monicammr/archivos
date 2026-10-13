@@ -1,0 +1,77 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "calibracion": [],
+ "un_parametro": [
+  {
+   "parametro": "infected_moderate_transmission_rate",
+   "e_rel": 0.7282854490876335,
+   "e_fit": 0.1124492420745925,
+   "admisible": true
+  },
+  {
+   "parametro": "infected_normal_transmission_rate_relative",
+   "e_rel": 0.6202780421326466,
+   "e_fit": 0.1280877853480384,
+   "admisible": true
+  },
+  {
+   "parametro": "infected_normal_worsen_rate",
+   "e_rel": 0.7141196452374776,
+   "e_fit": 0.2005672424545494,
+   "admisible": true
+  },
+  {
+   "parametro": "behavioural_change_rate",
+   "e_rel": 0.9899586166940179,
+   "e_fit": 0.49045169352282736,
+   "admisible": false
+  },
+  {
+   "parametro": "infected_weak_transmission_rate_relative",
+   "e_rel": 1.0066116373742409,
+   "e_fit": 0.2914158654362474,
+   "admisible": true
+  },
+  {
+   "parametro": "infected_moderate_worsen_rate",
+   "e_rel": 0.9864027002843981,
+   "e_fit": 0.5983051189262318,
+   "admisible": false
+  },
+  {
+   "parametro": "infected_weak_treatment_rate",
+   "e_rel": 0.9999951768615137,
+   "e_fit": 0.9987890027693679,
+   "admisible": false
+  },
+  {
+   "parametro": "treated_weak_improve_rate",
+   "e_rel": 0.9999970360859918,
+   "e_fit": 0.9999956562506757,
+   "admisible": false
+  },
+  {
+   "parametro": "treated_moderate_improve_rate",
+   "e_rel": 0.9999986010113563,
+   "e_fit": 0.99999753043471,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "infected_moderate_transmission_rate",
+ "mejor_efit_10": 0.12416710707195924,
+ "S_efit_10": 0.03978869252612322,
+ "mejor_validacion": {
+  "A_chi2_test_red": 0.001542217307186132,
+  "B_chi2_test_theta0": 125.7827223088206,
+  "B_epred_red": 0.35254656160746667,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "mejor_validacion_calibracion": 0,
+ "segundos": 5.4
+}

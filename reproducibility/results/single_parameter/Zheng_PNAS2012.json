@@ -1,0 +1,72 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "S": [
+  "k01_02",
+  "k13_12"
+ ],
+ "calibracion": [],
+ "un_parametro": [
+  {
+   "parametro": "k13_12",
+   "e_rel": 0.9973048566618193,
+   "e_fit": 0.7247587105346879,
+   "admisible": false
+  },
+  {
+   "parametro": "k01_11",
+   "e_rel": 0.9670712590479023,
+   "e_fit": 0.6969536689458137,
+   "admisible": false
+  },
+  {
+   "parametro": "k01_02",
+   "e_rel": 1.0619334231481887,
+   "e_fit": 0.6712480852821396,
+   "admisible": false
+  },
+  {
+   "parametro": "k12_13",
+   "e_rel": 0.9508441626315677,
+   "e_fit": 0.719126622360022,
+   "admisible": false
+  },
+  {
+   "parametro": "k02_01",
+   "e_rel": 0.926925622581617,
+   "e_fit": 0.7026951267470756,
+   "admisible": false
+  },
+  {
+   "parametro": "inflowp",
+   "e_rel": 1.0400870536330642,
+   "e_fit": 0.6944130174436988,
+   "admisible": false
+  },
+  {
+   "parametro": "k12_22",
+   "e_rel": 0.8814108716447451,
+   "e_fit": 0.7982058730449477,
+   "admisible": false
+  },
+  {
+   "parametro": "k03_13",
+   "e_rel": 1.0003431734419492,
+   "e_fit": 0.8567921590597244,
+   "admisible": false
+  },
+  {
+   "parametro": "k13_03",
+   "e_rel": 1.0034965960126918,
+   "e_fit": 0.8567912016270421,
+   "admisible": false
+  },
+  {
+   "parametro": "k22_23",
+   "e_rel": 1.0018267696211873,
+   "e_fit": 0.9548509163179683,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 21.4
+}

@@ -106,11 +106,12 @@
  "mejor_efit_10": 0.13610136811716997,
  "S_efit_10": 0.08306495322938841,
  "mejor_validacion": {
-  "A_chi2_test_red": 0.7451622883428733,
-  "B_chi2_test_theta0": 2.7170962542289927,
-  "B_epred_red": 1.000620509943875,
+  "A_chi2_test_red": 0.7444399029193203,
+  "B_chi2_test_theta0": 2.717094228634578,
+  "B_epred_red": 1.010563866191214,
   "no_evaluable": null,
   "B_error": null
  },
- "segundos": 204.8
+ "segundos": 204.8,
+ "mejor_validacion_calibracion": 2
 }
