@@ -1,0 +1,58 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "p": 13,
+ "T": 50.0,
+ "S1": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "szea",
+  "init_bcry_1",
+  "init_b10_1"
+ ],
+ "Rvar_S1_%": 89.02301695103338,
+ "S1_cumple": true,
+ "cos_S1": 0.9537463860075474,
+ "erel_S1": 0.3045597379055639,
+ "motivo_stage2": "Stage 1 cumple R_var pero no es admisible",
+ "etapa": "Stage 2",
+ "S": [
+  "init_bcar2",
+  "kb1",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1",
+  "szea",
+  "init_b10_1",
+  "kc2",
+  "init_ohb10_1"
+ ],
+ "Rvar_%": 93.68308507586849,
+ "kappa": 4.847373119261745,
+ "VIF": 3.6211421246100355,
+ "cos_med": 0.9741803283026182,
+ "erel_med": 0.23211461064171773,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "init_bcar2",
+  "kb1",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1",
+  "szea",
+  "init_b10_1",
+  "kc2",
+  "kb2",
+  "init_ohb10_1"
+ ],
+ "podados": [
+  "kb2"
+ ],
+ "admisible": true,
+ "eajuste_med": 0.1910464822356528,
+ "calibracion": [],
+ "segundos": 42.4,
+ "etapa_paper": "No admisible",
+ "S_paper": []
+}

@@ -1,0 +1,34 @@
+{"sistema": "Armistead_CellDeathDis2024", "p": 14, "p_y": 10, "mediciones": 58, "condiciones": 2, "err_rel_max_vs_simulations": 6.087086384541561e-07, "err_rel_mediana": 0.0}
+{"sistema": "Bachmann_MSB2011", "p": 113, "p_y": 101, "mediciones": 541, "condiciones": 36, "err_rel_max_vs_simulations": 2.2057054414979513e-05, "err_rel_mediana": 7.077690353493489e-08}
+{"sistema": "Alkan_SciSignal2018", "p": 44, "p_y": 44, "mediciones": 1733, "condiciones": 73, "err_rel_max_vs_simulations": 3.0996699330692916e-05, "err_rel_mediana": 3.1455688130426637e-08}
+{"sistema": "Bertozzi_PNAS2020", "p": 8, "p_y": 6, "mediciones": 22, "condiciones": 2, "err_rel_max_vs_simulations": 1.284111909684078e-06, "err_rel_mediana": 1.623650892350656e-07}
+{"sistema": "Blasi_CellSystems2016", "p": 9, "p_y": 8, "mediciones": 252, "condiciones": 1, "nota": "simulations.tsv tiene 288 filas"}
+{"sistema": "Boehm_JProteomeRes2014", "p": 9, "p_y": 6, "mediciones": 48, "condiciones": 1, "err_rel_max_vs_simulations": 8.642345966668968e-07, "err_rel_mediana": 1.1437252083903319e-07}
+{"sistema": "Borghans_BiophysChem1997", "p": 23, "p_y": 22, "mediciones": 111, "condiciones": 1, "err_rel_max_vs_simulations": 0.00015950001076487502, "err_rel_mediana": 2.160094937670356e-06}
+{"sistema": "Brannmark_JBC2010", "p": 22, "p_y": 18, "mediciones": 43, "condiciones": 8, "err_rel_max_vs_simulations": 1.3009184760361753e-05, "err_rel_mediana": 2.3333107623041448e-07}
+{"sistema": "Bruno_JExpBot2016", "p": 13, "p_y": 13, "mediciones": 77, "condiciones": 6, "err_rel_max_vs_simulations": 2.322306930102256e-06, "err_rel_mediana": 1.278481387211195e-07}
+{"sistema": "Crauste_CellSystems2017", "p": 12, "p_y": 12, "mediciones": 21, "condiciones": 1, "err_rel_max_vs_simulations": 0.07851995535879698, "err_rel_mediana": 0.007805558480599224}
+{"sistema": "Elowitz_Nature2000", "p": 21, "p_y": 20, "mediciones": 58, "condiciones": 1, "err_rel_max_vs_simulations": 1.6753168448852916e-05, "err_rel_mediana": 1.569619988857249e-06}
+{"sistema": "Fiedler_BMCSystBiol2016", "p": 22, "p_y": 20, "mediciones": 72, "condiciones": 3, "err_rel_max_vs_simulations": 9.854717054620068e-07, "err_rel_mediana": 1.0744577747906392e-07}
+{"sistema": "Beer_MolBioSystems2014", "p": 72, "p_y": 70, "mediciones": 27132, "condiciones": 19, "err_rel_max_vs_simulations": 0.00037536230419313245, "err_rel_mediana": 5.916794711478899e-08}
+{"sistema": "Fujita_SciSignal2010", "p": 19, "p_y": 19, "mediciones": 144, "condiciones": 6, "nota": "simulations.tsv no comparable (otros identificadores de condici\u00f3n)"}
+{"sistema": "Giordano_Nature2020", "p": 50, "p_y": 43, "mediciones": 313, "condiciones": 1, "err_rel_max_vs_simulations": 2.0435082752911918e-06, "err_rel_mediana": 8.929691575778893e-07}
+{"sistema": "Lang_PLOSComputBiol2024", "p": 294, "p_y": 277, "mediciones": 9600, "condiciones": 1, "err_rel_max_vs_simulations": 2.2620752695818864, "err_rel_mediana": 0.02824652965312223}
+{"sistema": "Laske_PLOSComputBiol2019", "p": 13, "p_y": 8, "mediciones": 42, "condiciones": 3, "err_rel_max_vs_simulations": 4.461047131114453e-07, "err_rel_mediana": 1.3051020100526395e-07}
+{"sistema": "Liu_IFACPapersOnLine2025", "p": 9, "p_y": 7, "mediciones": 100, "condiciones": 2, "err_rel_max_vs_simulations": 6.116549917693905e-07, "err_rel_mediana": 2.9379509398665117e-08}
+{"sistema": "Lucarelli_CellSystems2018", "p": 84, "p_y": 72, "mediciones": 1755, "condiciones": 16, "err_rel_max_vs_simulations": 1.490046374434138e-06, "err_rel_mediana": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "p": 16, "p_y": 14, "mediciones": 92, "condiciones": 1}
+{"sistema": "Oliveira_NatCommun2021", "p": 12, "p_y": 12, "mediciones": 120, "condiciones": 1}
+{"sistema": "Perelson_Science1996", "p": 3, "p_y": 2, "mediciones": 16, "condiciones": 1, "err_rel_max_vs_simulations": 0.4499705086743462, "err_rel_mediana": 0.1679368635552087}
+{"sistema": "Rahman_MBS2016", "p": 9, "p_y": 9, "mediciones": 23, "condiciones": 1, "err_rel_max_vs_simulations": 6.01999650039047e-07, "err_rel_mediana": 6.47860505666656e-08}
+{"sistema": "Raia_CancerResearch2011", "p": 39, "p_y": 23, "mediciones": 205, "condiciones": 4, "nota": "simulations.tsv no comparable (otros identificadores de condici\u00f3n)"}
+{"sistema": "Raimundez_PCB2020", "p": 136, "p_y": 136, "mediciones": 627, "condiciones": 170, "err_rel_max_vs_simulations": 3.3321592676016325e-05, "err_rel_mediana": 9.319847857020505e-06}
+{"sistema": "SalazarCavazos_MBoC2020", "p": 6, "p_y": 6, "mediciones": 18, "condiciones": 4, "err_rel_max_vs_simulations": 1.21100377750118e-07, "err_rel_mediana": 7.48130869116782e-09}
+{"sistema": "Schwen_PONE2014", "p": 30, "p_y": 28, "mediciones": 286, "condiciones": 19, "err_rel_max_vs_simulations": 2.082302167388468e-07, "err_rel_mediana": 1.9868890997244694e-08}
+{"sistema": "Isensee_JCB2018", "p": 46, "p_y": 43, "mediciones": 687, "condiciones": 123, "nota": "simulations.tsv no comparable (otros identificadores de condici\u00f3n)"}
+{"sistema": "Sneyd_PNAS2002", "p": 15, "p_y": 14, "mediciones": 135, "condiciones": 9, "err_rel_max_vs_simulations": 0.5299450323129372, "err_rel_mediana": 2.0057783708294213e-07}
+{"sistema": "Weber_BMC2015", "p": 36, "p_y": 31, "mediciones": 135, "condiciones": 2, "err_rel_max_vs_simulations": 1.5365770170520596e-08, "err_rel_mediana": 9.953535292162915e-11}
+{"sistema": "Smith_BMCSystBiol2013", "p": 25, "p_y": 25, "mediciones": 62, "condiciones": 35, "err_rel_max_vs_simulations": 7.245184969778224e-07, "err_rel_mediana": 2.5814592145965713e-08}
+{"sistema": "Zhao_QuantBiol2020", "p": 28, "p_y": 21, "mediciones": 82, "condiciones": 7, "nota": "simulations.tsv tiene 169 filas"}
+{"sistema": "Zheng_PNAS2012", "p": 46, "p_y": 45, "mediciones": 60, "condiciones": 1, "err_rel_max_vs_simulations": 0.8965749996959805, "err_rel_mediana": 0.11209553049517258}
+{"sistema": "Chen_MSB2009", "p": 155, "p_y": 155, "mediciones": 120, "condiciones": 4, "err_rel_max_vs_simulations": 0.0027568335470569247, "err_rel_mediana": 0.00010917397988748716}

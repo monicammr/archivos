@@ -82,11 +82,35 @@ def uno(name):
         Sf = [names.index(q) for q in info["S"]] + cal
         res["mejor_efit_10"] = ev10.eajuste(jb)
         res["S_efit_10"] = ev10.eajuste(Sf)
-        v = VE.uno(name, S_nombres=[jbest])
+        v = validar_uno(name, jbest)
         res["mejor_validacion"] = {k: v.get(k) for k in ("A_chi2_test_red", "B_chi2_test_theta0", "B_epred_red",
                                                          "no_evaluable", "B_error")}
     res["segundos"] = round(time.time() - t0, 1)
     return res
+
+
+def validar_uno(name, jbest):
+    """External validation of {j*} exactly as for the selected subset S: the subset file of the
+    final selection is used, so the calibration parameters are re-estimated together with j*."""
+    VE.SUBS = SEL
+    VE.OUTD = HERE / "resultados" / "validacion_externa_bio"
+    return VE.uno(name, S_nombres=[jbest])
+
+
+def solo_validacion(name):
+    """Recompute only the external validation of the best single parameter (keeps the rest)."""
+    f = OUTD / f"{name}.json"
+    r = json.loads(f.read_text())
+    if "mejor" not in r:
+        return
+    t0 = time.time()
+    v = validar_uno(name, r["mejor"])
+    r["mejor_validacion"] = {k: v.get(k) for k in ("A_chi2_test_red", "B_chi2_test_theta0", "B_epred_red",
+                                                    "no_evaluable", "B_error")}
+    r["mejor_validacion_calibracion"] = len(json.loads((SEL / f"{name}.json").read_text()).get("calibracion", []))
+    f.write_text(json.dumps(r, indent=1, default=str))
+    print(json.dumps({"sistema": name, "mejor": r["mejor"], **r["mejor_validacion"],
+                      "segundos": round(time.time() - t0, 1)}, default=str), flush=True)
 
 
 def _seguro(name):
@@ -101,6 +125,10 @@ def _seguro(name):
 
 if __name__ == "__main__":
     nombres = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if "--solo-validacion" in sys.argv:
+        with Pool(int(os.environ.get("NPROC", 2))) as pool:
+            list(pool.imap_unordered(solo_validacion, nombres))
+        sys.exit()
     if not nombres:
         nombres = sorted(f.stem for f in SEL.glob("*.json")
                          if json.loads(f.read_text())["admisible"] and f.stem not in SLOW)
