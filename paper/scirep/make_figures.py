@@ -402,6 +402,17 @@ def fig4():
     fig.savefig(OUT / "fig4_robustness.pdf"); plt.close(fig)
 
 
+def fig5():
+    import subprocess
+    subprocess.run(["python3", str(HERE / "make_fig5_settings.py")], check=True)
+
+
+def fig6():
+    """Architecture (standalone TikZ)."""
+    import subprocess
+    subprocess.run(["pdflatex", "-interaction=batchmode", "fig6_architecture.tex"], cwd=OUT, check=True)
+
+
 def exportar():
     """Archivos individuales para el envío: EPS (vectorial) y TIFF a 300 dpi."""
     import subprocess
@@ -412,5 +423,5 @@ def exportar():
 
 
 if __name__ == "__main__":
-    fig1(); fig2(); fig3(); fig4(); exportar()
+    fig1(); fig2(); fig3(); fig4(); fig5(); fig6(); exportar()
     print("figures written to", OUT)

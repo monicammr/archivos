@@ -270,7 +270,7 @@ def settings():
               r"\begin{longtable}{@{}l" + "c" * len(SETTINGS) + r"@{}}",
               r"\caption{Effect of each setting on every problem: $=$, same subset and admissibility as the baseline; $\neq$, different "
               r"subset (still admissible); $\times$, not admissible; $\circ$, not admissible in the baseline either. Columns in the order of "
-              r"Table~2 of the main text.}\label{tab:settings}\\",
+              r"the rows of Fig.~5 of the main text.}\label{tab:settings}\\",
               r"\toprule Problem & " + " & ".join(f"\\rotatebox{{90}}{{{lab}}}" for _, lab in SETTINGS) + r" \\ \midrule \endfirsthead",
               r"\toprule Problem & " + " & ".join(f"\\rotatebox{{90}}{{{lab}}}" for _, lab in SETTINGS) + r" \\ \midrule \endhead"]
         for p in probs:

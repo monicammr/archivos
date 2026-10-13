@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Preview: Table 2 (sensitivity of the selection to the method settings) drawn as a figure.
-Not included in the manuscript. Single-panel version. Output: alternativas/fig_table2_settings_single.{pdf,png}"""
+"""Figure 5: sensitivity of the selection to the method settings (one setting changed at a time, 26 problems).
+Output: figures/fig5_settings.pdf"""
 import json
 from pathlib import Path
 
@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-RES = HERE.parent.parent.parent / "certificados" / "resultados"
+RES = HERE.parent.parent / "certificados" / "resultados"
 plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["DejaVu Sans"], "font.size": 7,
                      "axes.spines.top": False, "axes.spines.right": False, "axes.linewidth": 0.6,
                      "xtick.major.width": 0.6, "ytick.major.width": 0.6, "pdf.fonttype": 42})
@@ -78,5 +78,4 @@ ax.set_xlabel(f"Number of problems (of {N})")
 ax.scatter([], [], s=20, color=BLUE, label="same subset $S$ as baseline")
 ax.scatter([], [], s=55, marker="s", fc="none", ec=GREEN, lw=1.0, label=f"admissible (baseline {B['adm']})")
 ax.legend(loc="lower center", frameon=False, fontsize=6.3, ncol=2, bbox_to_anchor=(0.5, 1.0), handletextpad=0.2, columnspacing=1.2)
-fig.savefig(HERE / "fig_table2_settings_single.pdf")
-fig.savefig(HERE / "fig_table2_settings_single.png", dpi=300)
+fig.savefig(HERE / "figures" / "fig5_settings.pdf")

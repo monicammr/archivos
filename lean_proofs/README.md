@@ -43,7 +43,7 @@ for all 28 models the agreement is at the level of rounding error (`certificados
 
 ## Correspondence with the manuscript
 
-| Step of the method (manuscript, Table 3) | Main theorems |
+| Step of the method (manuscript, Table 2) | Main theorems |
 |---|---|
 | Energy and $R_{\mathrm{var}}$; first-order bound | `FirstOrderErrorBound.total_eq_kept_add_removed`, `first_order_error_bound`, `first_order_error_from_Rvar` |
 | From the Jacobian to the trajectory | `TrajectoryErrorBound` (module), `CertifiedODEReduction.certified_parameter_reduction` |

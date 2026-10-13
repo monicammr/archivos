@@ -125,33 +125,16 @@ All 32 admissible problems were evaluated. Twenty-seven follow pattern A (Fig.~\
 
 \subsection*{Sensitivity to method settings and computational cost}\label{sec:settings}\pdfbookmark[1]{Sensitivity to method settings and computational cost}{bm8}
 
-The method depends on a finite-difference step $\delta$, integrator tolerances, the perturbation size used for admissibility and four thresholds ($\tau_R$, $\tau_\kappa$, $\tau_{\mathrm{VIF}}$, $\tau_e$). We re-ran the complete method on the 26 small and medium problems changing one setting at a time (Table~\ref{tab:settings}). The selected subset was identical to the baseline in all 26 problems for $\delta=0.1\%$ and $5\%$, for both sets of integrator tolerances and for $\tau_R$ between 0.80 and 0.95; with perturbations of $\pm$1\% or $\pm$10\% it differed only in Zhao, where backward elimination removed one of its three parameters, and admissibility changed only for Perelson at $\pm$1\%, where the perturbed output change falls below the numerical noise floor (Supplementary Note \textit{Sensitivity to the method settings}). The $\kappa$/VIF threshold changed the subset in three or four problems without changing the number of admissible problems. As expected, the error threshold $\tau_e$ has the largest influence: requiring $e_{\mathrm{fit}}\le 10\%$ leaves 22 admissible problems with a mean of 3.6 biological parameters, whereas $\tau_e$ between 0.30 and 0.50 gives 25 admissible problems with 2.1--2.4 parameters. The threshold therefore acts as an accuracy--parsimony trade-off that the user can set; we also examined single-parameter subsets: in 16 of the 27 problems examined, a single biological parameter re-estimated together with the calibration parameters reached the threshold at $\pm$5\%, but in the synthetic prediction experiment the selected subset predicted better in 13 of these 16 (Supplementary Note \textit{Single-parameter subsets}), which supports the minimum size of two.
+The method depends on a finite-difference step $\delta$, integrator tolerances, the perturbation size used for admissibility and four thresholds ($\tau_R$, $\tau_\kappa$, $\tau_{\mathrm{VIF}}$, $\tau_e$). We re-ran the complete method on the 26 small and medium problems changing one setting at a time (Fig.~\ref{fig:settings}). The selected subset was identical to the baseline in all 26 problems for $\delta=0.1\%$ and $5\%$, for both sets of integrator tolerances and for $\tau_R$ between 0.80 and 0.95; with perturbations of $\pm$1\% or $\pm$10\% it differed only in Zhao, where backward elimination removed one of its three parameters, and admissibility changed only for Perelson at $\pm$1\%, where the perturbed output change falls below the numerical noise floor (Supplementary Note \textit{Sensitivity to the method settings}). The $\kappa$/VIF threshold changed the subset in three or four problems without changing the number of admissible problems. As expected, the error threshold $\tau_e$ has the largest influence: requiring $e_{\mathrm{fit}}\le 10\%$ leaves 22 admissible problems with a mean of 3.6 biological parameters, whereas $\tau_e$ between 0.30 and 0.50 gives 25 admissible problems with 2.1--2.4 parameters. The threshold therefore acts as an accuracy--parsimony trade-off that the user can set; we also examined single-parameter subsets: in 16 of the 27 problems examined, a single biological parameter re-estimated together with the calibration parameters reached the threshold at $\pm$5\%, but in the synthetic prediction experiment the selected subset predicted better in 13 of these 16 (Supplementary Note \textit{Single-parameter subsets}), which supports the minimum size of two.
 
 The dominant cost is the computation of $J$ (2$p$ simulations) and of the stage-2 ordering ($p$ simulations), so the number of simulations grows linearly with the number of parameters, and all of them are independent and can run in parallel; the selection, condition-number tests, backward elimination and the first-order version of $e_{\mathrm{fit}}$ only use linear algebra on $J$. On a four-core server, these simulations took less than 40~s for all but two of the problems we timed, 2~min for Lang (294 parameters) and 68~min for Chen (155 parameters, 35~s per simulation). On state trajectories, the 4,231-parameter Froehlich model required 12,693 simulations and 2.6~h. For models of this size on measured outputs, forward or adjoint sensitivity equations\cite{bib13} compute $J$ at the cost of a few simulations.
 
-\begin{table}[t]
-\caption{\textbf{Sensitivity of the selection to the method settings.} The complete method was re-run on 26 problems changing one setting at a time (baseline: $\delta=1\%$, tolerances $10^{-7}/10^{-10}$, perturbation $\pm$5\%, $\tau_R=0.89$, $\tau_\kappa=\tau_{\mathrm{VIF}}=10$, $\tau_e=0.436$). Setting, the setting changed with respect to the baseline ($\delta$, relative step of the finite differences used for $J$; tolerances, relative/absolute tolerances of the ODE integrator; perturbation, size of the random parameter changes used for admissibility; $\tau_R$, $\tau_\kappa$, $\tau_{\mathrm{VIF}}$ and $\tau_e$, thresholds on $R_{\mathrm{var}}$, condition number, VIF and $e_{\mathrm{fit}}$); entries separated by a slash give the result for each of the values listed in that row. Admissible, number of the 26 problems with an admissible subset; $\overline{|S|}$, mean number of selected biological parameters among admissible problems; Same $S$, number of problems in which the selected subset is identical to the baseline.}
-\label{tab:settings}
+\begin{figure}[t]
 \centering
-\small
-\begin{tabular}{@{}lccc@{}}
-\toprule
-Setting & Admissible & $\overline{|S|}$ & Same $S$ \\
-\midrule
-Baseline & 25 & 2.16 & 26/26 \\
-$\delta=0.1\%$ / $\delta=5\%$ & 25 / 25 & 2.16 & 26/26 / 26/26 \\
-Tolerances $10^{-9}/10^{-12}$ / $10^{-6}/10^{-8}$ & 25 / 25 & 2.16 & 26/26 / 26/26 \\
-Perturbation $\pm$1\% / $\pm$10\% & 24 / 25 & 2.12 & 25/26 / 25/26 \\
-$\tau_R=0.80$ / $0.85$ / $0.95$ & 25 & 2.16 & 26/26 \\
-$\tau_\kappa=\tau_{\mathrm{VIF}}=5$ & 25 & 2.16 & 23/26 \\
-$\tau_\kappa=\tau_{\mathrm{VIF}}=30$ & 25 & 2.16 & 22/26 \\
-$\tau_e=0.10$ & 22 & 3.64 & 12/26 \\
-$\tau_e=0.20$ & 24 & 2.71 & 17/26 \\
-$\tau_e=0.30$ & 25 & 2.44 & 20/26 \\
-$\tau_e=0.50$ & 25 & 2.08 & 24/26 \\
-\botrule
-\end{tabular}
-\end{table}
+\includegraphics[width=0.66\textwidth]{figures/fig5_settings.pdf}
+\caption{\textbf{Sensitivity of the selection to the method settings.} The complete method was re-run on 26 problems changing one setting at a time with respect to the baseline ($\delta=1\%$, tolerances $10^{-7}/10^{-10}$, perturbation $\pm$5\%, $\tau_R=0.89$, $\tau_\kappa=\tau_{\mathrm{VIF}}=10$, $\tau_e=0.436$; 25 admissible problems with a mean of 2.16 selected biological parameters). $\delta$, relative step of the finite differences used for $J$; ODE tolerances, relative/absolute tolerances of the integrator; perturbation level, size of the random parameter changes used for admissibility; $\tau_R$, $\tau_\kappa$, $\tau_{\mathrm{VIF}}$ and $\tau_e$, thresholds on $R_{\mathrm{var}}$, condition number, VIF and $e_{\mathrm{fit}}$. Filled circles, number of problems whose selected subset is identical to the baseline (also given as a fraction on the right); open squares, number of problems with an admissible subset; dashed line, all 26 problems. $|S|$, mean number of selected biological parameters among admissible problems, shown only where it differs from the baseline. The admissibility threshold $\tau_e$ (shaded) is the only setting with a large effect. Results for every problem are given in Supplementary Table~S14.}
+\label{fig:settings}
+\end{figure}
 
 \subsection*{Formal guarantees}\label{sec:formal}\pdfbookmark[1]{Formal guarantees}{bm9}
 
@@ -208,7 +191,7 @@ Model assumptions & For 28 benchmark models translated from SBML (and checked ag
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/fig5_architecture.pdf}
+\includegraphics[width=\textwidth]{figures/fig6_architecture.pdf}
 \caption{\textbf{Architecture of the formal and numerical verification.} Python (left) performs all computations on the PEtab problems: simulation, sensitivities, selection, admissibility, validation and robustness. Lean~4 with Mathlib (right) proves the general theorems behind each step of the method (Table~\ref{tab:theorems}) and, for 28 benchmark models translated from SBML, checks with the Lean kernel that the hypotheses on the dynamics hold. The translation of each model is compared independently with the SBML model (dashed arrow; Supplementary Note \textit{Verified benchmark models}). A formal conclusion applies to a result of the paper when the hypotheses of the model are verified and the numerical quantities computed in Python satisfy the inequalities that the theorem requires (bottom); Supplementary Table~S4 gives, for each guarantee, what it establishes and what it does not.}
 \label{fig:architecture}
 \end{figure}
@@ -266,7 +249,7 @@ where $\theta_{0,\overline{S}}$ denotes the nominal values of all other biologic
 
 \subsection*{Settings}\pdfbookmark[1]{Settings}{bm18}
 
-Unless stated otherwise: $\delta=0.01$; $\eta=0.1$; $\tau_R=0.89$; $\tau_\kappa=\tau_{\mathrm{VIF}}=10$; $N=15$ scenarios; $\varepsilon=0.05$; random seed 42; $c=0.9$, so $\tau_e=0.436$; $k_{\min}=2$. The sensitivity analysis (Table~\ref{tab:settings}) changed one setting at a time on the 26 problems that could be re-run completely in reasonable time.
+Unless stated otherwise: $\delta=0.01$; $\eta=0.1$; $\tau_R=0.89$; $\tau_\kappa=\tau_{\mathrm{VIF}}=10$; $N=15$ scenarios; $\varepsilon=0.05$; random seed 42; $c=0.9$, so $\tau_e=0.436$; $k_{\min}=2$. The sensitivity analysis (Fig.~\ref{fig:settings}) changed one setting at a time on the 26 problems that could be re-run completely in reasonable time.
 
 \subsection*{External validation}\pdfbookmark[1]{External validation}{bm19}
 
