@@ -13,12 +13,19 @@
  "p_y": 155,
  "locales_prueba": [],
  "S_locales_prueba": [],
- "A_chi2_test_theta0": 15.224170244358465,
- "A_chi2_train_red": 206.63578601398427,
- "A_chi2_test_red": 20.77129622089336,
- "B_chi2_test_theta0": 10.356281847795854,
- "B_chi2_test_red": 0.9075255058046268,
- "B_epred_red": 0.07592595961372942,
+ "A_chi2_test_theta0": 15.22417006060476,
+ "A_chi2_train_red": 206.63578631856387,
+ "A_chi2_test_red": 20.771296748957017,
+ "A_chi2_train_full": 22.100192627055634,
+ "A_chi2_test_full": 15.121192195295105,
+ "B_chi2_test_theta0": 10.35628290924421,
+ "B_chi2_test_red": 0.9075253920462855,
+ "B_epred_red": 0.07592592880630775,
  "B_epred_theta0": 1.0,
- "segundos": 9003.8
+ "B_chi2_test_full": 10.285719208898078,
+ "B_epred_full": 0.9981273130541766,
+ "segundos": 1877.1,
+ "etapas_reanudadas": [
+  "B_full"
+ ]
 }

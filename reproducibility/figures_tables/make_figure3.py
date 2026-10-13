@@ -78,7 +78,7 @@ def build_rows():
         else:
             noise_free = r["theta0"] is not None and r["theta0"] < NOISE_FREE
             nf = "noise-free benchmark data (test chi2/n of theta0 < 0.01)"
-            ra = ("full model not re-estimated (155/277 parameters, computation pending)" if r["full"] is None
+            ra = ("full model not re-estimated (277 parameters, computation pending)" if r["full"] is None
                   else nf if noise_free else "")
             rb = nf if noise_free else ("" if r["theta0"] is not None else "theta0 chi2 missing")
             r.update(reason_a=ra, reason_b=rb)
@@ -149,7 +149,7 @@ def report(rows, C):
     w("                   Blasi (single condition and single time point).")
     w("")
     w("2. VALID PAIRS")
-    w(f"   reduced_chi2 and full_chi2 both valid:   {va['n']}  (missing full: Chen, Lang - full re-estimation not run)")
+    w(f"   reduced_chi2 and full_chi2 both valid:   {va['n']}  (missing full: Lang - full re-estimation not run)")
     w(f"   reduced_chi2 and theta0_chi2 both valid: {vb['n']}")
     nf = sorted(r["system"] for r in rows if r["theta0"] is not None and r["theta0"] < NOISE_FREE)
     w(f"   Noise-free data (test chi2/n of theta0 < {NOISE_FREE}): {', '.join(nf)}")
@@ -160,7 +160,7 @@ def report(rows, C):
     w("   so ratios of tiny numbers are not informative; they are excluded from the figure (as in the current one).")
     w("")
     w("3. PANELS OF THE FIGURE")
-    w(f"   Panel a (reduced vs full):   n = {a['n']}   excluded: Bertozzi, Blasi (no split); Chen, Lang (no full refit);")
+    w(f"   Panel a (reduced vs full):   n = {a['n']}   excluded: Bertozzi, Blasi (no split); Lang (no full refit);")
     w(f"                                         {', '.join(nf)} (noise-free); Beer, Crauste (not admissible)")
     w(f"   Panel b (reduced vs theta0): n = {b['n']}   excluded: Bertozzi, Blasi (no split); {', '.join(nf)} (noise-free);")
     w("                                         Beer, Crauste (not admissible)")
@@ -224,7 +224,7 @@ def excluded_text(rows, key):
     short = {"no admissible subset (not validated)": "no admissible subset",
              "selected parameters act only in the test conditions": "selected parameters act only in test conditions",
              "single condition and single time point: no training/test split": "no training/test split possible",
-             "full model not re-estimated (155/277 parameters, computation pending)": "full model not re-estimated",
+             "full model not re-estimated (277 parameters, computation pending)": "full model not re-estimated",
              "noise-free benchmark data (test chi2/n of theta0 < 0.01)": "noise-free data ($\\theta_0$ test $\\chi^2/n<0.01$)"}
     return "Not shown: " + "; ".join(f"{', '.join(v)} ({short.get(k, k)})" for k, v in groups.items()) + "."
 
@@ -411,7 +411,7 @@ def cap_tex(rows, C, nf):
             r"Left of the vertical line (circles) the reduced model predicts better; the grey band marks equivalence within 5\% (squares); "
             r"triangles mark worse predictions. Labels give the ratio; $\blacklozenge$ flags a reduced test $\chi^2/n$ above 10, where a "
             r"favourable ratio does not imply a good absolute fit. Problems without a training/test split (Bertozzi, Blasi), without a full "
-            rf"re-estimation (Chen, Lang; \textbf{{a}} only) or with noise-free data (test $\chi^2/n$ of $\theta_0$ below 0.01: {nf}) are not shown.}}")
+            rf"re-estimation (Lang; \textbf{{a}} only) or with noise-free data (test $\chi^2/n$ of $\theta_0$ below 0.01: {nf}) are not shown.}}")
 
 
 def write_texts(rows, C):
