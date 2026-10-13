@@ -21,6 +21,7 @@
 \newtheorem{theorem}{Theorem}
 
 \makeatletter\def\toclevel@subparagraph{0}\makeatother % back-matter headings as top-level PDF bookmarks
+\renewcommand{\floatpagefraction}{0.6}% allow float pages (Tables 1 and 2) that are not almost full
 \begin{document}
 
 \title[Few biological parameters reproduce measured dynamics]{Few biological parameters suffice to reproduce measured dynamics in systems biology models: local sensitivity-based reduction with formally verified mathematical guarantees}
@@ -86,7 +87,7 @@ Re-estimation is essential. When the selected parameters are simply set to their
 \label{fig:benchmark}
 \end{figure}
 
-\begin{table}[t]
+\begin{table}[p]
 \caption{\textbf{Per-problem results.} $p$, number of estimated parameters; $m$, number of measurements; $|\Theta_C|$, calibration parameters (always re-estimated); $|S|$, selected biological parameters; Stage, stage that produced the subset; $e_{\mathrm{rel}}$ and $e_{\mathrm{fit}}$, median relative error over 15 scenarios at $\pm$5\% without and with re-estimation (admissibility: $e_{\mathrm{fit}}\le 43.6\%$; italic, not admissible; $^{\ast}$, $e_{\mathrm{fit}}$ computed to first order because of simulation cost; $^{\dagger}$, not defined because the model has no solution on the measured horizon for 1\% parameter changes); Pattern, behaviour of the median $e_{\mathrm{fit}}$ for perturbation sizes from $\pm$1\% to $\pm$50\% (A, admissible at all sizes; B, admissible up to at least $\pm$20\% and not beyond; C, irregular; D, not admissible at $\pm$10\% or less; --, not applicable); Test $\chi^2/n$, mean squared noise-scaled residual on held-out experiments for the reduced and the full model, both re-estimated on the training experiments (values near 1 mean errors of the size of the measurement noise; --, not evaluable or not run).}
 \label{tab:benchmark}
 \centering
@@ -150,11 +151,11 @@ Let $\mathcal{A}$ be any admissibility predicate on finite sets and $S$ an admis
 
 Theorem~\ref{thm:cos} relates the threshold $\tau_e$ to the cosine: whenever $\cos\Delta\ge c$, rescaling the reduced response already gives a relative error of at most $\sqrt{1-c^2}$, and re-estimating several parameters can only do better to first order. The converse does not hold, and admissibility itself is decided by the numerically computed $e_{\mathrm{fit}}$. Theorem~\ref{thm:prune} gives the precise sense in which the selected subsets are minimal: no parameter can be removed, although a different, smaller admissible subset that is not contained in the result may exist. The other verified statements cover the remaining steps: re-estimating more parameters never increases the fitting error and $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the selection keeps $\kappa$ and VIF below their thresholds and permanently discarding a rejected candidate is correct because both quantities can only increase when parameters are added; $\kappa$ and VIF bounds imply that the linearised least-squares problem for the retained parameters has a unique and stable solution (which is not a proof of identifiability of the nonlinear model); error bounds on the states transfer to the measured outputs, including logarithmic transformations; and the first-order version of $e_{\mathrm{fit}}$ used for the largest models differs from the exact one by a second-order term. The verification is local: it does not prove that a subset remains adequate far from $\theta_0$, which is assessed empirically above. The theorems are implications; the quantities to which they are applied ($\kappa$, VIF, $R_{\mathrm{var}}$, $e_{\mathrm{fit}}$) are computed in floating point, and Supplementary Table~S4 states the scope of each guarantee and the numerical values that connect it with our results. The model files used by Lean were checked against the SBML models of the benchmark, with agreement to rounding error (Supplementary Note \textit{Verified benchmark models}). Figure~\ref{fig:architecture} summarises how the two parts fit together: Python performs every computation on the benchmark problems, Lean proves the general statements of Table~\ref{tab:theorems} and checks the hypotheses of each model, and a conclusion of Table~\ref{tab:theorems} applies to a result of the paper only when both the model hypotheses are verified and the computed quantities satisfy the inequalities that the theorem requires.
 
-\begin{table}[!tbp]
-\caption{\textbf{Formally verified statements (Lean~4/Mathlib).} The table covers all 31 modules of the formalisation (289 theorems and lemmas), grouped by the step numbers of Supplementary Table~S3 as in the Supplementary Note \textit{Logical sequence of the formal proofs}. Step, part of the method to which the statements refer; Verified statement, what is proved, in words (precise statements in Supplementary Note \textit{Statements of the formal theorems}); Modules, step numbers in Supplementary Table~S3. Steps 1--22 hold for any model that satisfies the stated hypotheses; steps 23--31 prove those hypotheses for 28 benchmark models. Every statement is proved without unproved assumptions or additional axioms.}
+\begin{table}[p]
+\caption{\textbf{Formally verified statements (Lean~4/Mathlib).} The table covers all 31 modules of the formalisation (289 theorems and lemmas), grouped by the step numbers of Supplementary Table~S3 as in the Supplementary Note \textit{Logical sequence of the formal proofs}. Step, part of the method to which the statements refer; Verified statement, what is proved, in words (precise statements in Supplementary Note \textit{Statements of the formal theorems}); Modules, step numbers in Supplementary Table~S3. Steps 1--22 hold for any model that satisfies the stated hypotheses; steps 23--31 prove those hypotheses for 28 benchmark models.}
 \label{tab:theorems}
 \centering
-\footnotesize\renewcommand{\arraystretch}{1.05}
+\footnotesize\renewcommand{\arraystretch}{0.9}
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\textwidth}>{\raggedright\arraybackslash}p{0.71\textwidth}>{\raggedright\arraybackslash}p{0.06\textwidth}@{}}
 \toprule
 Step & Verified statement & Modules \\
