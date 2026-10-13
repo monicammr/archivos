@@ -48,7 +48,7 @@ for t, v in T.items():
 print("baseline", B)
 
 fig = plt.figure(figsize=(7.0, 3.6))
-gs = fig.add_gridspec(2, 2, width_ratios=[1.55, 1], hspace=0.55, wspace=0.55, left=0.24, right=0.98, top=0.83, bottom=0.12)
+gs = fig.add_gridspec(2, 2, width_ratios=[1.55, 1], hspace=0.55, wspace=0.5, left=0.24, right=0.98, top=0.86, bottom=0.12)
 ax = fig.add_subplot(gs[:, 0])
 y, ticks, labs, heads = 0, [], [], []
 for gname, g in GROUPS:
@@ -71,15 +71,14 @@ ax.set_xlim(10, N + 7.5); ax.set_xticks([10, 15, 20, N])
 ax.set_xlabel(f"Number of problems (of {N})")
 ax.scatter([], [], s=24, color=BLUE, label="same subset $S$ as baseline")
 ax.scatter([], [], s=22, marker="s", fc="white", ec=GREEN, lw=1.0, label=f"admissible (baseline {B['adm']})")
-ax.legend(loc="lower left", frameon=False, fontsize=6.3, ncol=2, bbox_to_anchor=(-0.02, 0.985), handletextpad=0.2, columnspacing=1.2)
-fig.text(0.01, 0.95, "a", fontsize=9, fontweight="bold")
-fig.text(0.035, 0.95, "One setting changed at a time", fontsize=8, fontweight="bold")
+ax.legend(loc="lower center", frameon=False, fontsize=6.3, ncol=2, bbox_to_anchor=(0.5, 0.985), handletextpad=0.2, columnspacing=1.2)
 
 te = [0.10, 0.20, 0.30, 0.436, 0.50]
 keys = ["emax010", "emax020", "emax030", None, "emax050"]
+bx = []
 get = lambda k, f: B[f] if k is None else T[k][f]
 for i, (f, lab, col) in enumerate([("adm", "Admissible problems", GREEN), ("mean", r"Mean $|S|$", ORANGE)]):
-    a = fig.add_subplot(gs[i, 1])
+    a = fig.add_subplot(gs[i, 1]); bx.append(a)
     vals = [get(k, f) for k in keys]
     a.plot(te, vals, color=col, lw=1.2, marker="o", ms=3.5, zorder=3)
     a.scatter([0.436], [get(None, f)], s=46, fc="white", ec=GREY, lw=1.0, zorder=4)
@@ -91,10 +90,21 @@ for i, (f, lab, col) in enumerate([("adm", "Admissible problems", GREEN), ("mean
     a.set_ylabel(lab)
     if f == "adm":
         a.set_ylim(20.5, 26.5); a.set_yticks([21, 23, 25])
-        fig.text(0.6, 0.95, "b", fontsize=9, fontweight="bold")
-        fig.text(0.625, 0.95, r"Effect of the admissibility threshold $\tau_e$", fontsize=8, fontweight="bold")
         a.text(0.43, 21.0, "baseline\n0.436", fontsize=6, color=GREY, ha="right")
     else:
         a.set_ylim(1.65, 4.0); a.set_xlabel(r"$\tau_e$")
+# panel titles centred over the plotting area of each panel
+fig.canvas.draw()
+r = fig.canvas.get_renderer()
+inv = fig.transFigure.inverted()
+ba = inv.transform_bbox(ax.get_tightbbox(r))
+bb = inv.transform_bbox(matplotlib.transforms.Bbox.union([a.get_tightbbox(r) for a in bx]))
+ytit = max(ba.y1, bb.y1) + 0.03
+pa, pb = ax.get_position(), matplotlib.transforms.Bbox.union([a.get_position() for a in bx])
+for bbx, letter, title in [(pa, "a", "One setting changed at a time"),
+                           (pb, "b", r"Admissibility threshold $\tau_e$")]:
+    t = fig.text((bbx.x0 + bbx.x1) / 2, ytit, title, fontsize=8, fontweight="bold", va="bottom", ha="center")
+    x0 = inv.transform_bbox(t.get_window_extent(r)).x0
+    fig.text(x0 - 0.008, ytit, letter, fontsize=9, fontweight="bold", va="bottom", ha="right")
 fig.savefig(HERE / "fig_table2_settings_preview.pdf")
 fig.savefig(HERE / "fig_table2_settings_preview.png", dpi=300)
