@@ -6,7 +6,7 @@ With real data the true parameters are unknown, so the test $\chi^2/n$ of Figure
 \begin{enumerate}\itemsep0pt
 \item \emph{Truth.} With a fixed seed (NumPy \texttt{default\_rng(42)}) a vector $u\in[-1,1]^p$ with components $u_j\sim\mathcal U(-1,1)$ is drawn and $\theta^\ast_j=\theta_{0,j}(1+0.2\,u_j)$ for every parameter that can be estimated from the training data (parameters acting only in test conditions stay at $\theta_{0,j}$, since no method could learn them).
 \item \emph{Data.} $\tilde y_i=y_i(\theta^\ast)+\epsilon_i$ with $\epsilon_i\sim\mathcal N(0,1)$ in noise-scaled units, i.e.\ Gaussian noise with the standard deviation $\sigma_i$ recorded in the benchmark, for every measurement of every condition.
-\item \emph{Split and fits.} The same training/test split as for the real data (main text, Methods). The reduced model (re-estimating $S\cup\Theta_C$) and the full model (re-estimating all parameters, except for Chen and Lang) are fitted to the synthetic training data starting from $\theta_0$, with the same least-squares method and bounds.
+\item \emph{Split and fits.} The same training/test split as for the real data (main text, Methods). The reduced model (re-estimating $S\cup\Theta_C$) and the full model (re-estimating all parameters, except for Lang) are fitted to the synthetic training data starting from $\theta_0$, with the same least-squares method and bounds.
 \item \emph{Prediction error.} On the test measurements,
 \[ e_{\mathrm{pred}}=\frac{\|y_{\mathrm{test}}(\hat\theta)-y_{\mathrm{test}}(\theta^\ast)\|}{\|y_{\mathrm{test}}(\theta^\ast)-y_{\mathrm{test}}(\theta_0)\|}, \]
 the error of the prediction relative to the change of the true response; $e_{\mathrm{pred}}=1$ for the published estimate $\theta_0$, and $e_{\mathrm{pred}}\le\tau_e=0.436$ is used as the success criterion.
@@ -14,7 +14,7 @@ the error of the prediction relative to the change of the true response; $e_{\ma
 \end{enumerate}
 
 \subsection*{Results}
-The experiment could be evaluated in 29 of the 32 admissible problems (Bertozzi and Blasi have no training/test split; for Isensee the simulation of $\theta^\ast$ failed). In 15 problems the signal was below the noise; in 13 of these the reduced model predicted at the noise level (test $\chi^2/n\le2$). In the 14 problems where the signal exceeded the noise, the reduced model reached $e_{\mathrm{pred}}\le\tau_e$ in 9, and its $e_{\mathrm{pred}}$ was no larger than that of the full model in 6 of the 12 problems where the full model was also fitted (Supplementary Table~\ref{tab:synthetic}).
+The experiment could be evaluated in 29 of the 32 admissible problems (Bertozzi and Blasi have no training/test split; for Isensee the simulation of $\theta^\ast$ failed). In 15 problems the signal was below the noise; in 13 of these the reduced model predicted at the noise level (test $\chi^2/n\le2$). In the 14 problems where the signal exceeded the noise, the reduced model reached $e_{\mathrm{pred}}\le\tau_e$ in 9, and its $e_{\mathrm{pred}}$ was no larger than that of the full model in 7 of the 13 problems where the full model was also fitted (Supplementary Table~\ref{tab:synthetic}).
 
 {\small
 \begin{longtable}{@{}lrrrrrc@{}}
@@ -25,7 +25,7 @@ Problem & $\theta_0$ & Reduced & Full & Reduced & Full & Signal \\ \midrule \end
 Alkan & 2.22 & 1.07 & 1.06 & 0.13 & 0.15 & yes \\
 Borghans & 2.72 & 2.89 & 0.90 & 1.04 & 0.31 & yes \\
 Brannmark & 5.55 & 6.14 & 87.79 & 0.92 & 3.97 & yes \\
-Chen & 10.36 & 0.91 & -- & 0.08 & -- & yes \\
+Chen & 10.36 & 0.91 & 10.29 & 0.08 & 1.00 & yes \\
 Elowitz & 6.04 & 1.51 & 0.79 & 0.47 & 0.11 & yes \\
 Lang & 11.81 & 1.32 & -- & 0.17 & -- & yes \\
 Okuonghae & $4.0\times10^{4}$ & 278 & 73.16 & 0.08 & 0.04 & yes \\
