@@ -10,8 +10,8 @@
  "n_test": 48,
  "chi2_test_red_original": 5.939147165229708,
  "chi2_test_full_train": 8.03123904884982,
- "chi2_test_red_nested": 8.034782507965678,
+ "chi2_test_red_nested": 8.034788147891794,
  "chi2_test_theta0": 5.630719456962645,
- "ratio_nested_vs_original": 1.352851223321205,
- "segundos": 3.2
+ "ratio_nested_vs_original": 1.3528521729400576,
+ "segundos": 0.6
 }

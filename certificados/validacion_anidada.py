@@ -83,7 +83,7 @@ def locales_de_prueba(S, train, test):
 
 
 def ajusta(S, libres, th_ini, gidx, objetivo, filas, max_nfev, ckpt=None):
-    th0 = S.theta0
+    th0 = th_ini  # bounds and signs relative to starting point, not global theta0
     sgn = np.where(th0[libres] < 0, -1.0, 1.0)
     mag0 = np.maximum(np.abs(th0[libres]), 1e-12)
     lo, hi = np.log(mag0 / 10), np.log(mag0 * 10)

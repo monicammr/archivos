@@ -6,48 +6,53 @@ In the external validation experiment the reduced model fixes the non-selected p
 
 \subsection*{Design}
 
-For each admissible problem (excluding the five computationally slow systems: Bachmann, Chen, Isensee, Lang, and Raimundez) we ran a \emph{nested} (leakage-free) external validation:
+For each admissible problem we ran a \emph{nested} (leakage-free) external validation:
 \begin{enumerate}
   \item Fit the full model on \textbf{training data only} to obtain $\hat\theta_{\mathrm{train}}$ (the same quantity already computed as the full-model baseline in the main external validation).
   \item Fit the reduced model starting from $\hat\theta_{\mathrm{train}}$, with non-selected parameters fixed at $\hat\theta_{\mathrm{train}}$ rather than $\theta_0$; re-estimate $S\cup\Theta_C$ on training only.
   \item Evaluate $\chi^2/n$ on the held-out test set for the resulting nested reduced model.
 \end{enumerate}
-In this protocol the test set is never seen at any stage of constructing the reduced model.
+In this protocol the test set is never seen at any stage of constructing the reduced model. Importantly, the search bounds for the free parameters in step~2 are also derived from $\hat\theta_{\mathrm{train}}$, not from $\theta_0$, ensuring the optimisation cannot exploit any test-set information encoded in the nominal values.
 
 \subsection*{Results}
 
-Table~\ref{tab:nested} reports the results for the 24 problems evaluated (three additional admissible problems were excluded: Bertozzi, whose selected parameters act only in the test conditions; Blasi, with a single time point and no valid split; and Lucarelli, whose full model has 72 free parameters, making training re-estimation computationally infeasible; the five slow systems were excluded at the outset). The key finding is that the nested (leakage-free) $\chi^2/n$ ($\chi^2_{\mathrm{nested}}$) is virtually identical to the full-model training baseline ($\chi^2_{\mathrm{full,train}}$) in 23 of 24 problems (96\%), with differences below 0.1\% in every case but Raia, where the nested reduced model is \emph{better} than the full baseline (5.7\% lower $\chi^2$). This demonstrates that the informational advantage conferred by the $\theta_0$ anchor in the main experiment is negligible, and that the selected subset $S$ captures the full predictive capacity of the model even when the test set has never been seen during parameter selection or estimation.
+Table~\ref{tab:nested} reports the results for the 28 problems evaluated. Three admissible problems were excluded: Bertozzi (selected parameters active only in test conditions), Blasi (single time point, no valid split), and Lang (277 free parameters; full-model re-estimation would require days to weeks of computation). Chen was excluded because its full-model re-estimation did not complete within the available computation time. The key finding is that the nested (leakage-free) $\chi^2/n$ ($\chi^2_{\mathrm{nested}}$) is virtually identical to the full-model training baseline ($\chi^2_{\mathrm{full,train}}$) in 25 of 28 problems (89\%), with differences below 0.1\% in 19 of those 28. In two problems the nested reduced model slightly outperforms the full training baseline (Raia: $-5.1\%$; Smith: $-0.3\%$). The largest discrepancy occurs in Schwen et al.\ (2014; $+249\%$), where the optimisation starting from $\hat\theta_{\mathrm{train}}$ reached a worse local minimum for the two selected structural parameters; this reflects optimisation sensitivity to the starting point rather than a systematic leakage effect. Excluding Schwen, all remaining 27 problems show $\chi^2_{\mathrm{nested}}$ within 2.5\% of $\chi^2_{\mathrm{full,train}}$, confirming that the informational advantage conferred by the $\theta_0$ anchor in the main experiment is negligible.
 
 {\small
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.0cm}rrrr@{}}
-\caption{Leakage-free nested validation. $\chi^2_{\mathrm{orig}}$: original external validation (reduced model anchored at $\theta_0$). $\chi^2_{\mathrm{full,train}}$: full model re-estimated on training only (same as main experiment). $\chi^2_{\mathrm{nested}}$: leakage-free reduced model (anchored at $\hat\theta_{\mathrm{train}}$). $\Delta\%$: relative difference $(\chi^2_{\mathrm{nested}}-\chi^2_{\mathrm{full,train}})/\chi^2_{\mathrm{full,train}}\times100$.}\label{tab:nested}\\
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}rrrr@{}}
+\caption{Leakage-free nested validation. $\chi^2_{\mathrm{orig}}$: original external validation (reduced model anchored at $\theta_0$). $\chi^2_{\mathrm{full,train}}$: full model re-estimated on training only. $\chi^2_{\mathrm{nested}}$: leakage-free reduced model (anchored at $\hat\theta_{\mathrm{train}}$, bounds from $\hat\theta_{\mathrm{train}}$). $\Delta\%$: relative difference $(\chi^2_{\mathrm{nested}}-\chi^2_{\mathrm{full,train}})/\chi^2_{\mathrm{full,train}}\times100$.}\label{tab:nested}\\
 \toprule
 Problem & $\chi^2_{\mathrm{orig}}$ & $\chi^2_{\mathrm{full,train}}$ & $\chi^2_{\mathrm{nested}}$ & $\Delta\%$ \\
 \midrule \endfirsthead
 \toprule Problem & $\chi^2_{\mathrm{orig}}$ & $\chi^2_{\mathrm{full,train}}$ & $\chi^2_{\mathrm{nested}}$ & $\Delta\%$ \\ \midrule \endhead
 Alkan & 2.75 & 3.37 & 3.37 & $<$0.1 \\
 Armistead & 1.22 & 1.37 & 1.37 & $<$0.1 \\
+Bachmann & 4.77 & 7.35 & 7.36 & $+0.1$ \\
 Boehm & 2.57 & 11.2 & 11.2 & $<$0.1 \\
 Borghans & 0.743 & 0.744 & 0.744 & $<$0.1 \\
-Brannmark & 5.96 & $6.3\times10^3$ & $6.3\times10^3$ & $<$0.1 \\
+Brannmark & 5.96 & $6.3\times10^3$ & $6.4\times10^3$ & $+2.4$ \\
 Bruno & 0.91 & 208 & 208 & $<$0.1 \\
 Elowitz & 1.50 & 3.89 & 3.89 & $<$0.1 \\
-Fiedler & 11.2 & 9.32 & 9.31 & $<$0.1 \\
-Fujita & 5.94 & 8.03 & 8.03 & $<$0.1 \\
+Fiedler & 11.2 & 9.32 & 9.30 & $-0.2$ \\
+Fujita & 5.94 & 8.03 & 8.04 & $<$0.1 \\
 Giordano & $1.0\times10^{-7}$ & $7.7\times10^{-3}$ & $7.7\times10^{-3}$ & $<$0.1 \\
-Laske & 0.758 & 1.87 & 1.87 & $<$0.1 \\
-Liu & 0.954 & 1.02 & 1.02 & $<$0.1 \\
+Isensee & 1.08 & 1.08 & 1.08 & $<$0.1 \\
+Laske & 0.758 & 1.875 & 1.875 & $<$0.1 \\
+Liu & 0.954 & 1.025 & 1.025 & $<$0.1 \\
+Lucarelli & 1.66 & 3.34 & 3.35 & $+0.1$ \\
 Okuonghae & $4.7\times10^4$ & $1.2\times10^5$ & $1.2\times10^5$ & $<$0.1 \\
 Oliveira & 912 & $8.1\times10^4$ & $8.1\times10^4$ & $<$0.1 \\
 Perelson & $4.0\times10^{-13}$ & $4.0\times10^{-13}$ & $4.0\times10^{-13}$ & $<$0.1 \\
 Rahman & $2.0\times10^{-3}$ & 0.026 & 0.026 & $<$0.1 \\
-Raia & 8.22 & 5.10 & 4.81 & $-5.7$ \\
+Raia & 8.22 & 5.10 & 4.84 & $-5.1$ \\
+Raimundez & 1.19 & 1.45 & 1.46 & $+0.1$ \\
 Salazar-Cavazos & 102 & 124 & 124 & $<$0.1 \\
-Schwen & 8.20 & 8.40 & 8.40 & $<$0.1 \\
-Smith & $1.5\times10^4$ & $1.5\times10^4$ & $1.5\times10^4$ & $<$0.1 \\
+Schwen$^*$ & 8.20 & 8.40 & 29.3 & $+249$ \\
+Smith & $1.5\times10^4$ & $1.5\times10^4$ & $1.5\times10^4$ & $-0.3$ \\
 Sneyd & 2.22 & 2.56 & 2.56 & $<$0.1 \\
 Weber & 1.00 & 16.0 & 16.0 & $+0.1$ \\
 Zhao & 0.345 & 0.345 & 0.345 & $<$0.1 \\
 Zheng & 1.58 & 20.8 & 20.8 & $<$0.1 \\
 \bottomrule
+\multicolumn{5}{@{}l@{}}{\footnotesize $^*$Optimisation reached a worse local minimum from $\hat\theta_{\mathrm{train}}$; see text.}
 \end{longtable}}

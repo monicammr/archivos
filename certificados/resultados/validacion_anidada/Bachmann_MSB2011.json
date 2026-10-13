@@ -1,0 +1,17 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 339,
+ "n_test": 202,
+ "chi2_test_red_original": 4.767639179580845,
+ "chi2_test_full_train": 7.346663437344841,
+ "chi2_test_red_nested": 7.355631614522382,
+ "chi2_test_theta0": 1.0533464778653892,
+ "ratio_nested_vs_original": 1.542824726759013,
+ "segundos": 93.0
+}
