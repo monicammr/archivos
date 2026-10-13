@@ -18,3 +18,8 @@ paper/scirep/*.toc
 __pycache__/
 *.pyc
 certificados/resultados/patrones_escenarios/parcial/
+
+# Generated files not for version control
+reproducibility.zip
+reproducibility/DATA_DICTIONARY.pdf
+certificados/resultados/validacion_externa_bio/respaldo/
