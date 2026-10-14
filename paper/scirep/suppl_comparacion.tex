@@ -19,7 +19,7 @@ The computation requires repeated re-estimation of the full model and was feasib
 \subsection*{Results}
 Supplementary Table~\ref{tab:perfil} gives the classification of every problem. The median number of identifiable biological parameters was 2 (17\% of the biological parameters); six problems had none and 14 of the 26 had two or fewer. This agrees with the size of the subsets selected by our method, obtained by a different principle. The selected parameters, however, rarely coincide (Supplementary Table~\ref{tab:selecciones}): a flat profile means that other free parameters can compensate for changes in the profiled parameter, whereas our method asks which parameters suffice when all others are fixed at $\theta_0$. Supplementary Figure~\ref{fig:perfiles} shows the profiles of three problems. Three problems needed re-estimations of the optimum (Borghans, Okuonghae, Raia), which shows that the full-model fit from $\theta_0$ on the training data had not converged; Isensee kept a residual improvement of 1.16 after its three re-estimations, slightly above the criterion of one unit.
 
-{\small
+{\footnotesize\setlength{\tabcolsep}{4pt}
 \input{tables/tableS_perfil.tex}
 }
 
@@ -42,7 +42,7 @@ The main text cites two further families of selection criteria: indices based on
 
 Chen and Lang were not included, because the sensitivity computations alone would take hours, as in the pivoted-QR comparison. Supplementary Table~\ref{tab:selecciones} lists the parameters selected by all five criteria.
 
-{\scriptsize
+{\scriptsize\setlength{\tabcolsep}{3pt}
 \input{tables/tableS_selecciones.tex}
 }
 
@@ -50,7 +50,7 @@ Chen and Lang were not included, because the sensitivity computations alone woul
 
 Supplementary Table~\ref{tab:realdata} gives the test $\chi^2/n$ on the held-out experiments of every criterion and baseline, together with the full model and the published estimate, and Supplementary Table~\ref{tab:wilcoxonreal} the paired comparison with our method over problems. When the non-selected parameters are kept at $\theta_0$, all selection criteria and the random and calibration-only baselines predict similarly: the median ratios to our method are between 0.98 and 1.00, and only pivoted QR (1\% lower $\chi^2$) and calibration-only re-estimation (2\% lower) differ significantly, in favour of the alternative. Oliveira is the only problem in which the specific selection matters strongly. As discussed in the main text, this test does not discriminate between criteria because the fixed parameters carry the information of $\theta_0$, which was estimated with all data.
 
-{\small
+{\scriptsize\setlength{\tabcolsep}{3pt}
 \input{tables/tableS_realdata.tex}
 }
 

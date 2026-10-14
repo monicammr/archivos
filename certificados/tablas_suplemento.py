@@ -34,7 +34,7 @@ def corto(s):
 
 
 def esc(s):
-    return str(s).replace("_", "\\_")
+    return str(s).replace("_", "\\_\\allowbreak{}").replace(">", "$>$")
 
 
 def num(x, d=3):
@@ -42,7 +42,9 @@ def num(x, d=3):
         return "--"
     if x == 0:
         return "0"
-    if 1e-3 <= abs(x) < 1e4:
+    if 1e3 <= abs(x) < 1e4:
+        return f"{x:,.0f}"
+    if 1e-3 <= abs(x) < 1e3:
         return f"{x:.{d}g}"
     e = int(math.floor(math.log10(abs(x))))
     return f"${x / 10 ** e:.1f}\\times10^{{{e}}}$"
@@ -80,13 +82,13 @@ for s, r in sorted(pf.items()):
     if r.get("rondas_reajuste"):
         nota.append(f"{r['rondas_reajuste']} re-fits")
     if (r.get("dchi2_minimo_perfiles") or 0) < -1:
-        nota.append(f"residual {-r['dchi2_minimo_perfiles']:.2f}")
+        nota.append(f"res. {-r['dchi2_minimo_perfiles']:.2f}")
     filas.append([corto(s), str(r["k"]), str(r["n_bio"]), str(r["n_identificables"]),
                   str(r["n_no_identificables_practicos"]), str(r["n_planos"]),
                   ", ".join(esc(x) for x in r["S_perfil"]), str(r["overlap_perfil_ours"]),
                   "; ".join(nota) or "--"])
 escribe("tableS_perfil.tex", longtable(
-    "@{}lrrrrrp{5.2cm}rl@{}",
+    "@{}lrrrrr>{\\raggedright}p{4.0cm}rl@{}",
     "Profile likelihood of the biological parameters (training data). Ident.: profile above $\\Delta\\chi^2=3.84$ on both sides; one side: only on one side; flat: on neither side. Selected: the $k$ parameters with the narrowest profile confidence interval. Common: parameters shared with the subset of our method. Re-fits: times the full model was re-estimated because a profile point improved the optimum; residual: remaining improvement (in units of $\\chi^2$) after the last re-fit.",
     "tab:perfil", ["Problem", "$k$", "Bio", "Ident.", "One side", "Flat", "Selected by profile likelihood", "Common", "Note"], filas))
 
@@ -118,7 +120,8 @@ for s in sorted(an):
     v = [f(s) for _, f in cols]
     sel = [x for x in v[:7] if ok(x)]
     mejor = min(sel) if sel else None
-    filas.append([corto(s)] + [("\\textbf{" + num(x) + "}" if ok(x) and x == mejor and not x == 0 else num(x)) for x in v])
+    filas.append([corto(s)] + [("\\textbf{" + num(x) + "}" if i < 7 and ok(x) and x == mejor and not x == 0 else num(x))
+                               for i, x in enumerate(v)])
 escribe("tableS_realdata.tex", longtable(
     "@{}lrrrrrrrrr@{}",
     "Test $\\chi^2/n$ on the held-out experiments (real data) of every selection criterion and baseline. All variants keep the non-selected parameters at $\\theta_0$ except the full model, which re-estimates all parameters on the training data. Bold: lowest value among the seven selection variants. $\\theta_0$, published estimate, obtained using all data including the test experiments.",

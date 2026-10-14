@@ -1,4 +1,4 @@
-\begin{longtable}{@{}lrrrrrp{5.2cm}rl@{}}
+\begin{longtable}{@{}lrrrrr>{\raggedright}p{4.0cm}rl@{}}
 \caption{Profile likelihood of the biological parameters (training data). Ident.: profile above $\Delta\chi^2=3.84$ on both sides; one side: only on one side; flat: on neither side. Selected: the $k$ parameters with the narrowest profile confidence interval. Common: parameters shared with the subset of our method. Re-fits: times the full model was re-estimated because a profile point improved the optimum; residual: remaining improvement (in units of $\chi^2$) after the last re-fit.}\label{tab:perfil}\\
 \toprule
 Problem & $k$ & Bio & Ident. & One side & Flat & Selected by profile likelihood & Common & Note \\
@@ -9,37 +9,37 @@ Problem & $k$ & Bio & Ident. & One side & Flat & Selected by profile likelihood 
 Problem & $k$ & Bio & Ident. & One side & Flat & Selected by profile likelihood & Common & Note \\
 \midrule
 \endhead
-Alkan & 2 & 34 & 14 & 9 & 11 & kt, k\_death\_reox & 1 & -- \\
-Armistead & 2 & 10 & 1 & 0 & 9 & k\_d, k2 & 1 & -- \\
-Bachmann & \multicolumn{8}{l}{\emph{not evaluated: 90 free parameters > PL\_PMAX=60}} \\
-Bertozzi & 2 & 3 & 1 & 1 & 1 & I0\_CA, R0\_CA & 0 & -- \\
+Alkan & 2 & 34 & 14 & 9 & 11 & kt, k\_\allowbreak{}death\_\allowbreak{}reox & 1 & -- \\
+Armistead & 2 & 10 & 1 & 0 & 9 & k\_\allowbreak{}d, k2 & 1 & -- \\
+Bachmann & \multicolumn{8}{l}{\emph{not evaluated: 90 free parameters $>$ PL\_\allowbreak{}PMAX=60}} \\
+Bertozzi & 2 & 3 & 1 & 1 & 1 & I0\_\allowbreak{}CA, R0\_\allowbreak{}CA & 0 & -- \\
 Blasi & \multicolumn{8}{l}{\emph{not evaluated: no training/test split}} \\
-Boehm & 2 & 6 & 1 & 3 & 2 & k\_phos, k\_exp\_homo & 1 & -- \\
-Borghans & 2 & 20 & 17 & 2 & 1 & Kz, v0 & 1 & 3 re-fits; residual 1.56 \\
-Brannmark & 2 & 15 & 0 & 2 & 13 & k\_IRSiP\_DosR, km2 & 1 & -- \\
-Bruno & 5 & 10 & 9 & 0 & 1 & init\_bcar1, kb1, init\_bcry\_1, init\_b10\_1, kc2 & 3 & -- \\
-Chen & \multicolumn{8}{l}{\emph{not evaluated: 155 free parameters > PL\_PMAX=60}} \\
-Elowitz & 2 & 18 & 3 & 1 & 14 & n\_Hill, tau\_prot\_GFP & 1 & -- \\
-Fiedler & 2 & 12 & 0 & 3 & 9 & K\_2, k6 & 1 & -- \\
-Fujita & 2 & 16 & 7 & 2 & 7 & reaction\_8\_k1, EGFR\_turnover & 0 & -- \\
-Giordano & 2 & 43 & 0 & 0 & 43 & nu\_0, rho\_22 & 0 & -- \\
-Isensee & 2 & 32 & 23 & 3 & 6 & kf\_RIIp\_2\_\_RII\_2, kf\_RII\_C\_2\_\_RIIp\_C\_2 & 0 & 3 re-fits; residual 1.16 \\
-Lang & \multicolumn{8}{l}{\emph{not evaluated: 277 free parameters > PL\_PMAX=60}} \\
-Laske & 2 & 6 & 0 & 2 & 4 & k\_bind\_M1, k\_syn\_R\_M & 1 & -- \\
+Boehm & 2 & 6 & 1 & 3 & 2 & k\_\allowbreak{}phos, k\_\allowbreak{}exp\_\allowbreak{}homo & 1 & -- \\
+Borghans & 2 & 20 & 17 & 2 & 1 & Kz, v0 & 1 & 3 re-fits; res. 1.56 \\
+Brannmark & 2 & 15 & 0 & 2 & 13 & k\_\allowbreak{}IRSiP\_\allowbreak{}DosR, km2 & 1 & -- \\
+Bruno & 5 & 10 & 9 & 0 & 1 & init\_\allowbreak{}bcar1, kb1, init\_\allowbreak{}bcry\_\allowbreak{}1, init\_\allowbreak{}b10\_\allowbreak{}1, kc2 & 3 & -- \\
+Chen & \multicolumn{8}{l}{\emph{not evaluated: 155 free parameters $>$ PL\_\allowbreak{}PMAX=60}} \\
+Elowitz & 2 & 18 & 3 & 1 & 14 & n\_\allowbreak{}Hill, tau\_\allowbreak{}prot\_\allowbreak{}GFP & 1 & -- \\
+Fiedler & 2 & 12 & 0 & 3 & 9 & K\_\allowbreak{}2, k6 & 1 & -- \\
+Fujita & 2 & 16 & 7 & 2 & 7 & reaction\_\allowbreak{}8\_\allowbreak{}k1, EGFR\_\allowbreak{}turnover & 0 & -- \\
+Giordano & 2 & 43 & 0 & 0 & 43 & nu\_\allowbreak{}0, rho\_\allowbreak{}22 & 0 & -- \\
+Isensee & 2 & 32 & 23 & 3 & 6 & kf\_\allowbreak{}RIIp\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RII\_\allowbreak{}2, kf\_\allowbreak{}RII\_\allowbreak{}C\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RIIp\_\allowbreak{}C\_\allowbreak{}2 & 0 & 3 re-fits; res. 1.16 \\
+Lang & \multicolumn{8}{l}{\emph{not evaluated: 277 free parameters $>$ PL\_\allowbreak{}PMAX=60}} \\
+Laske & 2 & 6 & 0 & 2 & 4 & k\_\allowbreak{}bind\_\allowbreak{}M1, k\_\allowbreak{}syn\_\allowbreak{}R\_\allowbreak{}M & 1 & -- \\
 Liu & 2 & 7 & 2 & 0 & 5 & kappa, rho & 1 & -- \\
-Lucarelli & \multicolumn{8}{l}{\emph{not evaluated: 72 free parameters > PL\_PMAX=60}} \\
+Lucarelli & \multicolumn{8}{l}{\emph{not evaluated: 72 free parameters $>$ PL\_\allowbreak{}PMAX=60}} \\
 Okuonghae & 2 & 14 & 3 & 9 & 2 & sigma, nu & 0 & 2 re-fits \\
-Oliveira & 2 & 12 & 2 & 6 & 4 & t\_1, beta\_1 & 0 & -- \\
+Oliveira & 2 & 12 & 2 & 6 & 4 & t\_\allowbreak{}1, beta\_\allowbreak{}1 & 0 & -- \\
 Perelson & 2 & 2 & 0 & 0 & 2 & c, delta & 2 & -- \\
-Rahman & 2 & 9 & 0 & 1 & 8 & behavioural\_change\_rate, infected\_normal\_worsen\_rate & 1 & -- \\
-Raia & 2 & 18 & 5 & 13 & 0 & pSTAT5\_dephosphorylation, pJAK2\_dephosphorylation & 0 & 4 re-fits \\
-Raimundez & \multicolumn{8}{l}{\emph{not evaluated: 126 free parameters > PL\_PMAX=60}} \\
-Salazar-Cavazos & 2 & 6 & 4 & 0 & 2 & ratio\_kpkd\_YN\_\_FREE, kdephosYN\_\_FREE & 1 & -- \\
-Schwen & 2 & 13 & 1 & 4 & 8 & ini\_R2fold, ini\_R1 & 2 & -- \\
+Rahman & 2 & 9 & 0 & 1 & 8 & behavioural\_\allowbreak{}change\_\allowbreak{}rate, infected\_\allowbreak{}normal\_\allowbreak{}worsen\_\allowbreak{}rate & 1 & -- \\
+Raia & 2 & 18 & 5 & 13 & 0 & pSTAT5\_\allowbreak{}dephosphorylation, pJAK2\_\allowbreak{}dephosphorylation & 0 & 4 re-fits \\
+Raimundez & \multicolumn{8}{l}{\emph{not evaluated: 126 free parameters $>$ PL\_\allowbreak{}PMAX=60}} \\
+Salazar-Cavazos & 2 & 6 & 4 & 0 & 2 & ratio\_\allowbreak{}kpkd\_\allowbreak{}YN\_\allowbreak{}\_\allowbreak{}FREE, kdephosYN\_\allowbreak{}\_\allowbreak{}FREE & 1 & -- \\
+Schwen & 2 & 13 & 1 & 4 & 8 & ini\_\allowbreak{}R2fold, ini\_\allowbreak{}R1 & 2 & -- \\
 Smith & 2 & 16 & 6 & 9 & 1 & kminus7b, k30r & 1 & -- \\
-Sneyd & 2 & 14 & 2 & 3 & 9 & l4, k\_3 & 1 & -- \\
+Sneyd & 2 & 14 & 2 & 3 & 9 & l4, k\_\allowbreak{}3 & 1 & -- \\
 Weber & 2 & 26 & 1 & 11 & 14 & pu5, m22 & 0 & -- \\
-Zhao & 3 & 21 & 3 & 5 & 13 & R\_Stage\_II\_Hubei, R\_Stage\_II\_China, gamma\_2\_Stage\_III\_Wuhan & 0 & -- \\
-Zheng & 2 & 45 & 4 & 0 & 41 & k02\_01, k01\_02 & 1 & -- \\
+Zhao & 3 & 21 & 3 & 5 & 13 & R\_\allowbreak{}Stage\_\allowbreak{}II\_\allowbreak{}Hubei, R\_\allowbreak{}Stage\_\allowbreak{}II\_\allowbreak{}China, gamma\_\allowbreak{}2\_\allowbreak{}Stage\_\allowbreak{}III\_\allowbreak{}Wuhan & 0 & -- \\
+Zheng & 2 & 45 & 4 & 0 & 41 & k02\_\allowbreak{}01, k01\_\allowbreak{}02 & 1 & -- \\
 \bottomrule
 \end{longtable}

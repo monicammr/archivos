@@ -49,19 +49,19 @@ The comparable performance of the two methods shows that the additional computat
 
 Table~\ref{tab:brun_params} lists the biological parameters selected by each method for every problem.  Parameter names follow the model's own PEtab identifiers.  The overlap column gives the number of shared selections.
 
-{\footnotesize
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.5cm}r>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.0cm}c@{}}
+{\scriptsize
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.3cm}r>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.0cm}c@{}}
 \caption{Biological parameters selected by our method ($S_{\mathrm{ours}}$) and by column-pivoted QR ($S_{\mathrm{QR}}$) for each evaluated problem. \emph{Overlap}: number of parameters shared by both subsets. Parameter names are PEtab identifiers; long names are line-broken.}\label{tab:brun_params}\\
 \toprule
 Problem & $k$ & $S_{\mathrm{ours}}$ & $S_{\mathrm{QR}}$ & Ovlp \\
 \midrule \endfirsthead
 \toprule Problem & $k$ & $S_{\mathrm{ours}}$ & $S_{\mathrm{QR}}$ & Ovlp \\ \midrule \endhead
 Alkan & 2
-  & \texttt{kt}, \texttt{k\_rep\_nhej}
-  & \texttt{p\_chk1\_dea\_wip1}, \texttt{k\_death\_reox}
+  & \texttt{kt}, \texttt{k\_\allowbreak{}rep\_\allowbreak{}nhej}
+  & \texttt{p\_\allowbreak{}chk1\_\allowbreak{}dea\_\allowbreak{}wip1}, \texttt{k\_\allowbreak{}death\_\allowbreak{}reox}
   & 0 \\
 Armistead & 2
-  & \texttt{k\_d}, \texttt{alpha\_cer}
+  & \texttt{k\_\allowbreak{}d}, \texttt{alpha\_\allowbreak{}cer}
   & \texttt{k00}, \texttt{k2}
   & 0 \\
 Bachmann & 2
@@ -69,83 +69,83 @@ Bachmann & 2
   & \texttt{SOCS3Inh}, \texttt{CISEqcOE}
   & 0 \\
 Boehm & 2
-  & \texttt{k\_imp\_hetero}, \texttt{k\_phos}
-  & \texttt{k\_phos}, \texttt{k\_imp\_homo}
+  & \texttt{k\_\allowbreak{}imp\_\allowbreak{}hetero}, \texttt{k\_\allowbreak{}phos}
+  & \texttt{k\_\allowbreak{}phos}, \texttt{k\_\allowbreak{}imp\_\allowbreak{}homo}
   & 1 \\
 Borghans & 2
-  & \texttt{Kz}, \texttt{K\_par}
-  & \texttt{Kd}, \texttt{init\_A\_state}
+  & \texttt{Kz}, \texttt{K\_\allowbreak{}par}
+  & \texttt{Kd}, \texttt{init\_\allowbreak{}A\_\allowbreak{}state}
   & 0 \\
 Brannmark & 2
   & \texttt{k1f}, \texttt{km2}
-  & \texttt{k1a}, \texttt{k\_IRSiP\_DosR}
+  & \texttt{k1a}, \texttt{k\_\allowbreak{}IRSiP\_\allowbreak{}DosR}
   & 0 \\
 Bruno & 5
-  & \texttt{kb1}, \texttt{init\_bcar2}, \texttt{init\_zea\_1}, \texttt{init\_bcar1}, \texttt{init\_bcry\_1}
-  & \texttt{init\_b10\_1}, \texttt{init\_bcar1}, \texttt{kc4}, \texttt{kc1}, \texttt{kc2}
+  & \texttt{kb1}, \texttt{init\_\allowbreak{}bcar2}, \texttt{init\_\allowbreak{}zea\_\allowbreak{}1}, \texttt{init\_\allowbreak{}bcar1}, \texttt{init\_\allowbreak{}bcry\_\allowbreak{}1}
+  & \texttt{init\_\allowbreak{}b10\_\allowbreak{}1}, \texttt{init\_\allowbreak{}bcar1}, \texttt{kc4}, \texttt{kc1}, \texttt{kc2}
   & 1 \\
 Elowitz & 2
-  & \texttt{n\_Hill}, \texttt{tau\_mRNA}
-  & \texttt{eff\_GFP}, \texttt{tau\_prot\_GFP}
+  & \texttt{n\_\allowbreak{}Hill}, \texttt{tau\_\allowbreak{}mRNA}
+  & \texttt{eff\_\allowbreak{}GFP}, \texttt{tau\_\allowbreak{}prot\_\allowbreak{}GFP}
   & 0 \\
 Fiedler & 2
   & \texttt{tau2}, \texttt{k6}
   & \texttt{k11}, \texttt{k5}
   & 0 \\
 Fujita & 2
-  & \texttt{init\_AKT}, \texttt{reaction\_6\_k1}
-  & \texttt{reaction\_1\_k1}, \texttt{reaction\_6\_k1}
+  & \texttt{init\_\allowbreak{}AKT}, \texttt{reaction\_\allowbreak{}6\_\allowbreak{}k1}
+  & \texttt{reaction\_\allowbreak{}1\_\allowbreak{}k1}, \texttt{reaction\_\allowbreak{}6\_\allowbreak{}k1}
   & 1 \\
 Giordano & 2
-  & \texttt{alpha\_4}, \texttt{alpha\_28}
-  & \texttt{delta\_0}, \texttt{eta\_0}
+  & \texttt{alpha\_\allowbreak{}4}, \texttt{alpha\_\allowbreak{}28}
+  & \texttt{delta\_\allowbreak{}0}, \texttt{eta\_\allowbreak{}0}
   & 0 \\
 Isensee & 2
-  & \texttt{kf\_RIIp\_C\_2\_\_RII\_C\_2}, \texttt{xi\_kf\_RII\_C\_2\_\_RII\_2}
-  & \texttt{kf\_Fsk}, \texttt{KD\_H89}
+  & \texttt{kf\_\allowbreak{}RIIp\_\allowbreak{}C\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RII\_\allowbreak{}C\_\allowbreak{}2}, \texttt{xi\_\allowbreak{}kf\_\allowbreak{}RII\_\allowbreak{}C\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RII\_\allowbreak{}2}
+  & \texttt{kf\_\allowbreak{}Fsk}, \texttt{KD\_\allowbreak{}H89}
   & 0 \\
 Laske & 2
-  & \texttt{k\_imp}, \texttt{k\_syn\_R\_M}
-  & \texttt{k\_imp}, \texttt{k\_rel}
+  & \texttt{k\_\allowbreak{}imp}, \texttt{k\_\allowbreak{}syn\_\allowbreak{}R\_\allowbreak{}M}
+  & \texttt{k\_\allowbreak{}imp}, \texttt{k\_\allowbreak{}rel}
   & 1 \\
 Liu & 2
   & \texttt{kappa}, \texttt{phi}
   & \texttt{kappa}, \texttt{rho}
   & 1 \\
 Lucarelli & 10
-  & \texttt{init\_Rec}, \texttt{S2tot}, \texttt{S3tot}, \texttt{S\_dephosphos}, \texttt{S\_phos}, \texttt{geneF\_turn}, \texttt{k\_234}, \texttt{geneK\_turn}, \texttt{S4tot}, \texttt{geneH\_turn}
-  & \texttt{S4tot}, \texttt{geneK\_turn}, \texttt{geneJ\_turn}, \texttt{geneB\_act2}, \texttt{geneG\_act1}, \texttt{geneH\_turn}, \texttt{geneL\_turn}, \texttt{geneE\_act2}, \texttt{geneI\_act1}, \texttt{geneC\_act1}
+  & \texttt{init\_\allowbreak{}Rec}, \texttt{S2tot}, \texttt{S3tot}, \texttt{S\_\allowbreak{}dephosphos}, \texttt{S\_\allowbreak{}phos}, \texttt{geneF\_\allowbreak{}turn}, \texttt{k\_\allowbreak{}234}, \texttt{geneK\_\allowbreak{}turn}, \texttt{S4tot}, \texttt{geneH\_\allowbreak{}turn}
+  & \texttt{S4tot}, \texttt{geneK\_\allowbreak{}turn}, \texttt{geneJ\_\allowbreak{}turn}, \texttt{geneB\_\allowbreak{}act2}, \texttt{geneG\_\allowbreak{}act1}, \texttt{geneH\_\allowbreak{}turn}, \texttt{geneL\_\allowbreak{}turn}, \texttt{geneE\_\allowbreak{}act2}, \texttt{geneI\_\allowbreak{}act1}, \texttt{geneC\_\allowbreak{}act1}
   & 3 \\
 Okuonghae & 2
-  & \texttt{transmission\_rate\_effective}, \texttt{gamma\_i}
-  & \texttt{asymptomatic\_start}, \texttt{d\_D}
+  & \texttt{transmission\_\allowbreak{}rate\_\allowbreak{}effective}, \texttt{gamma\_\allowbreak{}i}
+  & \texttt{asymptomatic\_\allowbreak{}start}, \texttt{d\_\allowbreak{}D}
   & 0 \\
 Oliveira & 2
-  & \texttt{beta\_0}, \texttt{h\_hosp\_rate}
-  & \texttt{beta\_1}, \texttt{symptomatic\_init\_concentration}
+  & \texttt{beta\_\allowbreak{}0}, \texttt{h\_\allowbreak{}hosp\_\allowbreak{}rate}
+  & \texttt{beta\_\allowbreak{}1}, \texttt{symptomatic\_\allowbreak{}init\_\allowbreak{}concentration}
   & 0 \\
 Perelson & 2
   & \texttt{c}, \texttt{delta}
   & \texttt{c}, \texttt{delta}
   & 2 \\
 Rahman & 2
-  & \texttt{infected\_moderate\_transmission\_rate}, \texttt{infected\_normal\_worsen\_rate}
-  & \texttt{infected\_moderate\_transmission\_rate}, \texttt{treated\_moderate\_improve\_rate}
+  & \texttt{infected\_\allowbreak{}moderate\_\allowbreak{}transmission\_\allowbreak{}rate}, \texttt{infected\_\allowbreak{}normal\_\allowbreak{}worsen\_\allowbreak{}rate}
+  & \texttt{infected\_\allowbreak{}moderate\_\allowbreak{}transmission\_\allowbreak{}rate}, \texttt{treated\_\allowbreak{}moderate\_\allowbreak{}improve\_\allowbreak{}rate}
   & 1 \\
 Raia & 2
-  & \texttt{SOCS3mRNA\_production}, \texttt{init\_Rec\_i}
-  & \texttt{Rec\_recycle}, \texttt{DecoyR\_binding}
+  & \texttt{SOCS3mRNA\_\allowbreak{}production}, \texttt{init\_\allowbreak{}Rec\_\allowbreak{}i}
+  & \texttt{Rec\_\allowbreak{}recycle}, \texttt{DecoyR\_\allowbreak{}binding}
   & 0 \\
 Raimundez & 2
-  & \texttt{kdeg\_membran\_\_MKN1}, \texttt{d\_kimp\_pEGFR\_EGF\_2\_\_MKN1\_2\_HS746T}
-  & \texttt{d\_MAPKtotal\_\_MKN1\_2\_HS746T}, \texttt{d\_MPI3Ktotal\_\_fm\_2\_hm}
+  & \texttt{kdeg\_\allowbreak{}membran\_\allowbreak{}\_\allowbreak{}MKN1}, \texttt{d\_\allowbreak{}kimp\_\allowbreak{}pEGFR\_\allowbreak{}EGF\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}MKN1\_\allowbreak{}2\_\allowbreak{}HS746T}
+  & \texttt{d\_\allowbreak{}MAPKtotal\_\allowbreak{}\_\allowbreak{}MKN1\_\allowbreak{}2\_\allowbreak{}HS746T}, \texttt{d\_\allowbreak{}MPI3Ktotal\_\allowbreak{}\_\allowbreak{}fm\_\allowbreak{}2\_\allowbreak{}hm}
   & 0 \\
 Salazar-Cavazos & 2
-  & \texttt{ratio\_kpkd\_Y1068\_\_FREE}, \texttt{ratio\_kpkd\_YN\_\_FREE}
-  & \texttt{GRB2\_total\_\_FREE}, \texttt{kdephosYN\_\_FREE}
+  & \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}Y1068\_\allowbreak{}\_\allowbreak{}FREE}, \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}YN\_\allowbreak{}\_\allowbreak{}FREE}
+  & \texttt{GRB2\_\allowbreak{}total\_\allowbreak{}\_\allowbreak{}FREE}, \texttt{kdephosYN\_\allowbreak{}\_\allowbreak{}FREE}
   & 0 \\
 Schwen & 2
-  & \texttt{ini\_R1}, \texttt{ini\_R2fold}
+  & \texttt{ini\_\allowbreak{}R1}, \texttt{ini\_\allowbreak{}R2fold}
   & \texttt{kd2fold}, \texttt{kout}
   & 0 \\
 Smith & 2
@@ -154,19 +154,19 @@ Smith & 2
   & 0 \\
 Sneyd & 2
   & \texttt{l4}, \texttt{l2}
-  & \texttt{k\_2}, \texttt{k\_3}
+  & \texttt{k\_\allowbreak{}2}, \texttt{k\_\allowbreak{}3}
   & 0 \\
 Weber & 2
   & \texttt{s12}, \texttt{a21}
   & \texttt{a22}, \texttt{pu5}
   & 0 \\
 Zhao & 3
-  & \texttt{R\_Stage\_I\_China}, \texttt{R\_Stage\_II\_Wuhan}, \texttt{gamma\_1\_Stage\_I\_Hubei}
-  & \texttt{R\_Stage\_I\_Wuhan}, \texttt{R\_Stage\_III\_Wuhan}, \texttt{R\_Stage\_II\_Hubei}
+  & \texttt{R\_\allowbreak{}Stage\_\allowbreak{}I\_\allowbreak{}China}, \texttt{R\_\allowbreak{}Stage\_\allowbreak{}II\_\allowbreak{}Wuhan}, \texttt{gamma\_\allowbreak{}1\_\allowbreak{}Stage\_\allowbreak{}I\_\allowbreak{}Hubei}
+  & \texttt{R\_\allowbreak{}Stage\_\allowbreak{}I\_\allowbreak{}Wuhan}, \texttt{R\_\allowbreak{}Stage\_\allowbreak{}III\_\allowbreak{}Wuhan}, \texttt{R\_\allowbreak{}Stage\_\allowbreak{}II\_\allowbreak{}Hubei}
   & 0 \\
 Zheng & 2
-  & \texttt{k01\_02}, \texttt{k13\_12}
-  & \texttt{k01\_11}, \texttt{k10\_00}
+  & \texttt{k01\_\allowbreak{}02}, \texttt{k13\_\allowbreak{}12}
+  & \texttt{k01\_\allowbreak{}11}, \texttt{k10\_\allowbreak{}00}
   & 0 \\
 \bottomrule
 \end{longtable}}

@@ -65,7 +65,7 @@ L = [r"All formal proofs are collected in the folder \texttt{lean\_proofs/} of t
      r"number (column `Uses'). $n$ is the number of theorems and lemmas in the module (its size, not an index). "
      r"\sref{stmts} gives the statement and meaning of every theorem and lemma; the file \texttt{THEOREMS.md} "
      r"in the folder lists them as well.", "",
-     r"{\small", r"\begin{longtable}{@{}>{\raggedleft\arraybackslash}p{0.45cm}>{\raggedright\arraybackslash}p{3.3cm}>{\raggedleft\arraybackslash}p{0.55cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{5.1cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}",
+     r"{\footnotesize\setlength{\tabcolsep}{4pt}", r"\begin{longtable}{@{}>{\raggedleft\arraybackslash}p{0.45cm}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedleft\arraybackslash}p{0.55cm}>{\raggedright\arraybackslash}p{1.3cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{3.9cm}@{}}",
      r"\caption{Modules of the Lean formalisation in the logical order of the proofs.}\label{tab:modules}\\",
      r"\toprule", r"\# & Module & $n$ & Uses & Content & Main theorems \\", r"\midrule", r"\endfirsthead",
      r"\toprule", r"\# & Module & $n$ & Uses & Content & Main theorems \\", r"\midrule", r"\endhead"]
