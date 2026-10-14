@@ -1,0 +1,14 @@
+{
+ "S": [
+  "nu_0",
+  "rho_22"
+ ],
+ "semilla": 53,
+ "B_chi2_test_theta0": 0.8899730009657941,
+ "B_chi2_test_red": 0.8900416085738164,
+ "B_epred_red": 2.3381312818356212,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.1
+}

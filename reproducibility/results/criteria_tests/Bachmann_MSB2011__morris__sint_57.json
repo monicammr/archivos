@@ -1,0 +1,14 @@
+{
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "semilla": 57,
+ "B_chi2_test_theta0": 1.0793496240017222,
+ "B_chi2_test_red": 4.443913935260409,
+ "B_epred_red": 4.192917364064399,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 77.5
+}

@@ -1,0 +1,36 @@
+Verosimilitud perfilada: 26 problemas, 6 omitidos, NPROC=120, PL_PMAX=60
+  omitido Bachmann_MSB2011: 90 parámetros libres > PL_PMAX=60
+  omitido Blasi_CellSystems2016: sin división entrenamiento/prueba
+  omitido Chen_MSB2009: 155 parámetros libres > PL_PMAX=60
+  omitido Lang_PLOSComputBiol2024: 277 parámetros libres > PL_PMAX=60
+  omitido Lucarelli_CellSystems2018: 72 parámetros libres > PL_PMAX=60
+  omitido Raimundez_PCB2020: 126 parámetros libres > PL_PMAX=60
+{"sistema": "Alkan_SciSignal2018", "terminado": true, "puntos": 244, "seg_total": 1645.2}
+{"sistema": "Armistead_CellDeathDis2024", "terminado": true, "puntos": 94, "seg_total": 2.7}
+{"sistema": "Bertozzi_PNAS2020", "terminado": true, "puntos": 29, "seg_total": 0.5}
+{"sistema": "Boehm_JProteomeRes2014", "terminado": true, "puntos": 0, "seg_total": 0.2}
+{"sistema": "Borghans_BiophysChem1997", "terminado": true, "puntos": 200, "seg_total": 30.7}
+{"sistema": "Brannmark_JBC2010", "terminado": true, "puntos": 110, "seg_total": 13.2}
+{"sistema": "Bruno_JExpBot2016", "terminado": true, "puntos": 88, "seg_total": 2.3}
+{"sistema": "Elowitz_Nature2000", "terminado": true, "puntos": 155, "seg_total": 9.6}
+{"sistema": "Fiedler_BMCSystBiol2016", "terminado": true, "puntos": 0, "seg_total": 0.6}
+{"sistema": "Fujita_SciSignal2010", "terminado": true, "puntos": 144, "seg_total": 25.9}
+{"sistema": "Giordano_Nature2020", "terminado": true, "puntos": 370, "seg_total": 123.1}
+{"fase": 1, "sistema": "Isensee_JCB2018", "coste": 457.450116009999, "nfev": 16, "seg": 76.3}
+{"sistema": "Isensee_JCB2018", "terminado": true, "puntos": 305, "seg_total": 4452.9}
+{"sistema": "Laske_PLOSComputBiol2019", "terminado": true, "puntos": 54, "seg_total": 5.3}
+{"sistema": "Liu_IFACPapersOnLine2025", "terminado": true, "puntos": 68, "seg_total": 1.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "terminado": true, "puntos": 120, "seg_total": 6.8}
+{"sistema": "Oliveira_NatCommun2021", "terminado": true, "puntos": 93, "seg_total": 5.1}
+{"sistema": "Perelson_Science1996", "terminado": true, "puntos": 20, "seg_total": 0.4}
+{"sistema": "Rahman_MBS2016", "terminado": true, "puntos": 78, "seg_total": 2.1}
+{"sistema": "Raia_CancerResearch2011", "terminado": true, "puntos": 140, "seg_total": 14.1}
+{"sistema": "SalazarCavazos_MBoC2020", "terminado": true, "puntos": 48, "seg_total": 13.9}
+{"sistema": "Schwen_PONE2014", "terminado": true, "puntos": 108, "seg_total": 109.8}
+{"fase": 1, "sistema": "Smith_BMCSystBiol2013", "coste": 14848.816568036556, "nfev": 73, "seg": 36.1}
+{"sistema": "Smith_BMCSystBiol2013", "terminado": true, "puntos": 109, "seg_total": 854.0}
+{"sistema": "Sneyd_PNAS2002", "terminado": true, "puntos": 117, "seg_total": 4.0}
+{"sistema": "Weber_BMC2015", "terminado": true, "puntos": 202, "seg_total": 120.1}
+{"sistema": "Zhao_QuantBiol2020", "terminado": true, "puntos": 178, "seg_total": 20.5}
+{"sistema": "Zheng_PNAS2012", "terminado": true, "puntos": 354, "seg_total": 286.7}
+Done.

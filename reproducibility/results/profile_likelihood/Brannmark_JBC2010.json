@@ -1,0 +1,185 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 16,
+ "n_bio": 15,
+ "n_identificables": 0,
+ "n_no_identificables_practicos": 2,
+ "n_planos": 13,
+ "S_ours": [
+  "k1f",
+  "km2"
+ ],
+ "S_perfil": [
+  "k_IRSiP_DosR",
+  "km2"
+ ],
+ "S_qr": [
+  "k1a",
+  "k_IRSiP_DosR"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 1,
+ "chi2_ours": 5.955850686824016,
+ "chi2_qr": 0.9512202274335088,
+ "chi2_perfil": 1.8193434621837197,
+ "ratio_perfil_vs_ours": 0.30547163752922973,
+ "coste_min_train": 6.176009155974937,
+ "dchi2_minimo_perfiles": -0.003636207132782232,
+ "puntos_fallidos": 0,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "k_IRSiP_DosR",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 7.660724705266345,
+   "dchi2_max_der": 3.341106927219494,
+   "dchi2_min_lado": 3.341106927219494,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.2977166158541307
+  },
+  {
+   "parametro": "km2",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 5.16090746890082,
+   "dchi2_max_der": 1.5039050069149358,
+   "dchi2_min_lado": 1.5039050069149358,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.00933340663060278
+  },
+  {
+   "parametro": "km3",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.1619535456236676,
+   "dchi2_max_der": 0.2871595446023534,
+   "dchi2_min_lado": 0.1619535456236676,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.0034929723217604902
+  },
+  {
+   "parametro": "k1aBasic",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.6749594458329824,
+   "dchi2_max_der": 0.14260747731383017,
+   "dchi2_min_lado": 0.14260747731383017,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.006140752998339494
+  },
+  {
+   "parametro": "k1b",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.46941948283712875,
+   "dchi2_max_der": 0.0384346217089524,
+   "dchi2_min_lado": 0.0384346217089524,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.0024755481134635104
+  },
+  {
+   "parametro": "k1c",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.006322511646020601,
+   "dchi2_max_der": 0.2051108617216144,
+   "dchi2_min_lado": 0.006322511646020601,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.003636207132782232
+  },
+  {
+   "parametro": "k1a",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.7723595622571109,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.007836201918864028
+  },
+  {
+   "parametro": "k1d",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.00030914137862936286,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.003122915491916345
+  },
+  {
+   "parametro": "k1e",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.7384922363916644e-06,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0017971463265116228
+  },
+  {
+   "parametro": "k1f",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.20929270125080635,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.01914862044183341
+  },
+  {
+   "parametro": "k1g",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 9.326544774879153e-05,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0005887559368344952
+  },
+  {
+   "parametro": "k1r",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0054591313193510516,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.0004134513883116142
+  },
+  {
+   "parametro": "k21",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.032546871407643785,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 3.320538020901154e-05
+  },
+  {
+   "parametro": "k22",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.12152755251130198,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0013125329339995773
+  },
+  {
+   "parametro": "k3",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.22231252123029765,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.018843520299136607
+  }
+ ],
+ "segundos_fase3": 0.3
+}

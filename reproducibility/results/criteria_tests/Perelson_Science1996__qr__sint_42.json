@@ -1,0 +1,14 @@
+{
+ "S": [
+  "c",
+  "delta"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 0.6757879825738473,
+ "B_chi2_test_red": 0.6757855516901742,
+ "B_epred_red": 23.292132397900037,
+ "sistema": "Perelson_Science1996",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.1
+}

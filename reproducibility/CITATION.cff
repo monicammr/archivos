@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "If you use this package, please cite the paper and this package."
 title: "Reproducibility package: Few biological parameters suffice to reproduce measured dynamics in systems biology models"
-version: 1.0.0
-date-released: 2026-10-13
+version: 1.1.0
+date-released: 2026-10-14
 license: MIT
 authors:
   - family-names: "Miranda R."

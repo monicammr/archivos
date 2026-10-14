@@ -1,0 +1,17 @@
+{
+ "sistema": "Chen_MSB2009",
+ "S": [
+  "k106",
+  "k44"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 90,
+ "n_test": 30,
+ "chi2_test_red_original": 20.8812404218197,
+ "chi2_test_full_train": 17.708441366152293,
+ "chi2_test_red_nested": 17.0603463945694,
+ "chi2_test_theta0": 15.224177487260697,
+ "ratio_nested_vs_original": 0.8170178614840484,
+ "segundos": 657.5
+}

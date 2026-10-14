@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k01_02",
+  "k12_13"
+ ],
+ "semilla": 59,
+ "B_chi2_test_theta0": 24.74898010742327,
+ "B_chi2_test_red": 4.460865549185982,
+ "B_epred_red": 0.3772636791739095,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.2
+}

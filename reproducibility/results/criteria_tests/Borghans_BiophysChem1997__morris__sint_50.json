@@ -1,0 +1,14 @@
+{
+ "S": [
+  "K_par",
+  "beta_par"
+ ],
+ "semilla": 50,
+ "B_chi2_test_theta0": 3.4886919308925375,
+ "B_chi2_test_red": 3.4047574759816412,
+ "B_epred_red": 0.9391326842780475,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.7
+}

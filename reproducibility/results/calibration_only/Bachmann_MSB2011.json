@@ -1,0 +1,9 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "k": 2,
+ "n_cal": 63,
+ "chi2_ours": 4.767639179580845,
+ "chi2_vacio": 4.7593873909734095,
+ "ratio_vacio_vs_ours": 0.9982692086593346,
+ "segundos": 18.6
+}

@@ -1,0 +1,51 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 80)",
+ "n_bio": 6,
+ "S_ours": [
+  "k_imp_hetero",
+  "k_phos"
+ ],
+ "S_brun": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "chi2_brun": 2.5674334260629963,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 0.2,
+ "detalle_brun": {
+  "gamma": 1.5353517888697867,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "k_phos": 2.1076987553076956,
+   "k_imp_hetero": 1.0631880437940069,
+   "Epo_degradation_BaF3": 0.7833038225831653,
+   "k_exp_homo": 0.3668351161482821,
+   "k_imp_homo": 0.004041983817624622,
+   "k_exp_hetero": 0.00038815337498104016
+  }
+ },
+ "S_morris": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "chi2_morris": 2.5674334260629963,
+ "overlap_morris_ours": 2,
+ "segundos_morris": 0.7,
+ "detalle_morris": {
+  "mu_star_top": {
+   "k_phos": 59.98861034365099,
+   "k_imp_hetero": 38.743741335043076,
+   "Epo_degradation_BaF3": 33.14193041049606,
+   "k_exp_homo": 8.72515801744524,
+   "k_exp_hetero": 0.015776496061918915,
+   "k_imp_homo": 5.908383559247384e-05
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 2.5674334260629963,
+ "chi2_qr": 0.3485668081852154,
+ "chi2_perfil": 0.4252997904016601,
+ "segundos": 2.6
+}

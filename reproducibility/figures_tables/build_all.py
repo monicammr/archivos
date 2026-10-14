@@ -27,6 +27,11 @@ STEPS = [
     ("Supplementary Table S3 (Lean modules)", "make_tableS3.py"),
     ("Note: verified benchmark models (Supplementary Tables S7, S8)", "make_models.py"),
     ("Note: SCT model (Supplementary Table S16, Fig. S3; needs the participant data)", "make_sct_note.py"),
+    ("Comparison with other criteria: Fig. 3 (revised) and Fig. 4", "comparison_figures.py"),
+    ("Comparison with other criteria: supplementary figures", "comparison_suppl_figures.py"),
+    ("Comparison with other criteria and further validations: supplementary tables", "comparison_tables.py"),
+    ("Comparison with other criteria: bootstrap and McNemar statistics", "comparison_statistics.py"),
+    ("Comparison with other criteria: summary of the counts quoted in the text", "comparison_summary.py"),
 ]
 
 if __name__ == "__main__":

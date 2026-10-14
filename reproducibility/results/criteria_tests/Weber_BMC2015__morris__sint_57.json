@@ -1,0 +1,14 @@
+{
+ "S": [
+  "pu3",
+  "a21"
+ ],
+ "semilla": 57,
+ "B_chi2_test_theta0": 2.6620258581504572,
+ "B_chi2_test_red": 1.9119359123661326,
+ "B_epred_red": 0.7584688911550929,
+ "sistema": "Weber_BMC2015",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.4
+}

@@ -1,0 +1,14 @@
+{
+ "S": [
+  "K_par",
+  "Vm2"
+ ],
+ "semilla": 46,
+ "B_chi2_test_theta0": 1.3239049824823845,
+ "B_chi2_test_red": 0.8822008915333539,
+ "B_epred_red": 0.4173076017644194,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 1.2
+}

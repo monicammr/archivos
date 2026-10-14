@@ -1,0 +1,18 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "k": 2,
+ "S_ours": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "S_qr": [
+  "beta_1",
+  "symptomatic_init_concentration"
+ ],
+ "overlap": 0,
+ "chi2_ours": 912.4437319197926,
+ "chi2_qr": 73200.29397045507,
+ "ratio_qr_vs_ours": 80.22444717378984,
+ "tipo": "extrapolacion temporal (t >= 40)",
+ "segundos": 0.1
+}

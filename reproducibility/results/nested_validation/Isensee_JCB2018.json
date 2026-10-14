@@ -1,0 +1,17 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 468,
+ "n_test": 219,
+ "chi2_test_red_original": 1.082488285497682,
+ "chi2_test_full_train": 1.0763274165905738,
+ "chi2_test_red_nested": 1.0763267580402307,
+ "chi2_test_theta0": 1.0412121079634666,
+ "ratio_nested_vs_original": 0.9943079961788053,
+ "segundos": 637.9
+}

@@ -1,0 +1,64 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 18,
+ "S_ours": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "S_brun": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "chi2_brun": 8.232025292511514,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 5.7,
+ "detalle_brun": {
+  "gamma": 4.110510312618721,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "SOCS3mRNA_production": 118.19695041625343,
+   "STAT5_phosphorylation": 59.16943402656839,
+   "pSTAT5_dephosphorylation": 39.03489919058957,
+   "JAK2_phosphorylation": 16.60336571813912,
+   "pRec_intern": 14.345570758463158,
+   "init_Rec_i": 14.268547376473892,
+   "Rec_recycle": 14.075421573471338,
+   "pJAK2_dephosphorylation": 13.71635378027168,
+   "Kon_IL13Rec": 13.407818332958671,
+   "Rec_intern": 11.067421390382286,
+   "SOCS3_translation": 6.450422000576309,
+   "JAK2_p_inhibition": 6.339039405354806,
+   "SOCS3_accumulation": 4.176627390791161,
+   "SOCS3_degradation": 2.8048255667140314,
+   "pRec_degradation": 1.9215424699405181
+  }
+ },
+ "S_morris": [
+  "SOCS3mRNA_production",
+  "Rec_recycle"
+ ],
+ "chi2_morris": 8.154029940955784,
+ "overlap_morris_ours": 1,
+ "segundos_morris": 4.1,
+ "detalle_morris": {
+  "mu_star_top": {
+   "SOCS3mRNA_production": 11242.182211772719,
+   "Rec_recycle": 3724.8321354283153,
+   "pJAK2_dephosphorylation": 3271.7225423465597,
+   "Rec_intern": 3096.683369856717,
+   "STAT5_phosphorylation": 1698.2762249870789,
+   "pSTAT5_dephosphorylation": 1344.7480518112468,
+   "pRec_intern": 1288.0029307201862,
+   "JAK2_phosphorylation": 1212.834898701954,
+   "init_Rec_i": 1126.3821480674974,
+   "Kon_IL13Rec": 755.1727683813731
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 8.223759823396664,
+ "chi2_qr": 7.235711468453537,
+ "chi2_perfil": 0.7981589059057621,
+ "segundos": 11.4
+}

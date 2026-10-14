@@ -1,0 +1,14 @@
+{
+ "sistema": "Perelson_Science1996",
+ "semilla": 58,
+ "p_y": 2,
+ "B_chi2_test_theta0": 0.28125370171441283,
+ "B_chi2_test_red": 0.2812449640195706,
+ "B_epred_red": 25.49408310433454,
+ "nfev_red": 4,
+ "seg_red": 0.6,
+ "B_chi2_test_full": 0.2812449640195706,
+ "B_epred_full": 25.49408310433454,
+ "nfev_full": 4,
+ "segundos": 0.6
+}

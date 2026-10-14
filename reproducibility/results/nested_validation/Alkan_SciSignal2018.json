@@ -1,0 +1,17 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 1178,
+ "n_test": 555,
+ "chi2_test_red_original": 2.748324922924577,
+ "chi2_test_full_train": 3.3722137613474628,
+ "chi2_test_red_nested": 3.3723408853078602,
+ "chi2_test_theta0": 2.4747340229608623,
+ "ratio_nested_vs_original": 1.2270531978144887,
+ "segundos": 6.2
+}

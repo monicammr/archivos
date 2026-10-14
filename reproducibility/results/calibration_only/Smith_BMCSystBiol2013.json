@@ -1,0 +1,9 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "k": 2,
+ "n_cal": 9,
+ "chi2_ours": 14976.894073807967,
+ "chi2_vacio": 16359.479468411428,
+ "ratio_vacio_vs_ours": 1.0923145605350422,
+ "segundos": 14.4
+}

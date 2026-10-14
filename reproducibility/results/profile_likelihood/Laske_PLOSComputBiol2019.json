@@ -1,0 +1,95 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 7,
+ "n_bio": 6,
+ "n_identificables": 0,
+ "n_no_identificables_practicos": 2,
+ "n_planos": 4,
+ "S_ours": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "S_perfil": [
+  "k_bind_M1",
+  "k_syn_R_M"
+ ],
+ "S_qr": [
+  "k_imp",
+  "k_rel"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 0.757740623887529,
+ "chi2_qr": 0.44525203079280107,
+ "chi2_perfil": 0.44483562196793053,
+ "ratio_perfil_vs_ours": 0.5870552639579176,
+ "coste_min_train": 2.006384099321305,
+ "dchi2_minimo_perfiles": 0.004820975606945055,
+ "puntos_fallidos": 0,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "k_bind_M1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.655187048344557,
+   "dchi2_max_der": 3.7890180757013607,
+   "dchi2_min_lado": 3.655187048344557,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.022254608441265145
+  },
+  {
+   "parametro": "k_syn_R_M",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 100.74905005836672,
+   "dchi2_max_der": 2.657300579495421,
+   "dchi2_min_lado": 2.657300579495421,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.043404833101415186
+  },
+  {
+   "parametro": "k_syn_R_C",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 8.334068826222738,
+   "dchi2_max_der": 2.2533638781877072,
+   "dchi2_min_lado": 2.2533638781877072,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.014086793174040935
+  },
+  {
+   "parametro": "k_imp",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.5309730556943015,
+   "dchi2_max_der": 3.6892595274510644,
+   "dchi2_min_lado": 1.5309730556943015,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.00896413450695066
+  },
+  {
+   "parametro": "k_rel",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.9696690688746368,
+   "dchi2_max_der": 1.1326512392945753,
+   "dchi2_min_lado": 1.1326512392945753,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.007919818538851153
+  },
+  {
+   "parametro": "k_syn_R_V",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.517762685328506,
+   "dchi2_max_der": 0.6590803367074005,
+   "dchi2_min_lado": 0.6590803367074005,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.004820975606945055
+  }
+ ],
+ "segundos_fase3": 0.5
+}

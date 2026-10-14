@@ -1,0 +1,18 @@
+{
+ "sistema": "Perelson_Science1996",
+ "k": 2,
+ "S_ours": [
+  "c",
+  "delta"
+ ],
+ "S_qr": [
+  "c",
+  "delta"
+ ],
+ "overlap": 2,
+ "chi2_ours": 3.963671546106699e-13,
+ "chi2_qr": 3.963671546106699e-13,
+ "ratio_qr_vs_ours": 1.0,
+ "tipo": "extrapolacion temporal (t >= 2.038)",
+ "segundos": 0.1
+}

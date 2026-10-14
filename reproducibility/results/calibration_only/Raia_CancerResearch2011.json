@@ -1,0 +1,9 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "k": 2,
+ "n_cal": 5,
+ "chi2_ours": 8.223759823396664,
+ "chi2_vacio": 0.43880869050377397,
+ "ratio_vacio_vs_ours": 0.05335864615785102,
+ "segundos": 0.2
+}

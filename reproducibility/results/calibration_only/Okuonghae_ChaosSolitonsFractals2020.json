@@ -1,0 +1,9 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "k": 2,
+ "chi2_ours": 46705.034547832045,
+ "chi2_vacio": 28748.49609361068,
+ "ratio_vacio_vs_ours": 0.6155331298206935,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "pu5",
+  "m22"
+ ],
+ "eajuste_med": 0.06881920479286681,
+ "erel_med": 0.7945409560445418,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Weber_BMC2015",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 14.7
+}

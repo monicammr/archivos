@@ -1,0 +1,14 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "semilla": 44,
+ "p_y": 18,
+ "B_chi2_test_theta0": 16.982427965316948,
+ "B_chi2_test_red": 29.102104631307192,
+ "B_epred_red": 1.3373731184922215,
+ "nfev_red": 18,
+ "seg_red": 1.3,
+ "B_chi2_test_full": 1002506.7222438845,
+ "B_epred_full": 261.1717563575186,
+ "nfev_full": 43,
+ "segundos": 7.0
+}

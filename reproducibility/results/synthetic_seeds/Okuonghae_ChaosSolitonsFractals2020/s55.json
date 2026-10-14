@@ -1,0 +1,14 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "semilla": 55,
+ "p_y": 14,
+ "B_chi2_test_theta0": 14867.10606883458,
+ "B_chi2_test_red": 44.78063160551855,
+ "B_epred_red": 0.055422952260292986,
+ "nfev_red": 5,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 53.897674719049164,
+ "B_epred_full": 0.06043181970227631,
+ "nfev_full": 38,
+ "segundos": 1.5
+}

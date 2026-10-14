@@ -1,0 +1,65 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 3,
+ "n_bio": 3,
+ "n_identificables": 1,
+ "n_no_identificables_practicos": 1,
+ "n_planos": 1,
+ "S_ours": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "S_perfil": [
+  "I0_CA",
+  "R0_CA"
+ ],
+ "S_qr": [
+  "R0_CA",
+  "I0_CA"
+ ],
+ "overlap_perfil_ours": 0,
+ "overlap_perfil_qr": 2,
+ "chi2_ours": null,
+ "chi2_qr": 1.0000119607849882,
+ "chi2_perfil": 1.0000119607849882,
+ "ratio_perfil_vs_ours": null,
+ "coste_min_train": 10.99876874571101,
+ "dchi2_minimo_perfiles": -8.593710640880659e-06,
+ "puntos_fallidos": 0,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "I0_CA",
+   "clase": "identificable",
+   "ancho_ic_log": 1.0578476449916239,
+   "dchi2_max_izq": 23.72409976475987,
+   "dchi2_max_der": 374.90005903987054,
+   "dchi2_min_lado": 23.72409976475987,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.12773240159030053
+  },
+  {
+   "parametro": "R0_CA",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 27.12126214912842,
+   "dchi2_max_der": 0.9530132324642153,
+   "dchi2_min_lado": 0.9530132324642153,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -8.593710640880659e-06
+  },
+  {
+   "parametro": "gamma_CA",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.00015171781658729344,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -7.134329049307553e-06
+  }
+ ],
+ "segundos_fase3": 0.0
+}

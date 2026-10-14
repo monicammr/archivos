@@ -1,0 +1,95 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 80)",
+ "p_libres": 6,
+ "n_bio": 6,
+ "n_identificables": 1,
+ "n_no_identificables_practicos": 3,
+ "n_planos": 2,
+ "S_ours": [
+  "k_imp_hetero",
+  "k_phos"
+ ],
+ "S_perfil": [
+  "k_phos",
+  "k_exp_homo"
+ ],
+ "S_qr": [
+  "k_phos",
+  "k_imp_homo"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 1,
+ "chi2_ours": 2.5674334260629963,
+ "chi2_qr": 0.3485668081852154,
+ "chi2_perfil": 0.4252997904016601,
+ "ratio_perfil_vs_ours": 0.16565173066778663,
+ "coste_min_train": 40.25125245823958,
+ "dchi2_minimo_perfiles": -0.0003734816664433538,
+ "puntos_fallidos": 0,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "k_phos",
+   "clase": "identificable",
+   "ancho_ic_log": 0.3709042556581822,
+   "dchi2_max_izq": 182.14069665752467,
+   "dchi2_max_der": 175.72347683247293,
+   "dchi2_min_lado": 175.72347683247293,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.8502313295734538
+  },
+  {
+   "parametro": "k_exp_homo",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 4.64416013304303,
+   "dchi2_max_der": 3.491249411049523,
+   "dchi2_min_lado": 3.491249411049523,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.01525878955646931
+  },
+  {
+   "parametro": "k_imp_hetero",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.7025442013786076,
+   "dchi2_max_der": 93.86532348199353,
+   "dchi2_min_lado": 1.7025442013786076,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.01297758773997515
+  },
+  {
+   "parametro": "Epo_degradation_BaF3",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.04692677196252504,
+   "dchi2_max_der": 9.306598832347255,
+   "dchi2_min_lado": 0.04692677196252504,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.00019498134581397153
+  },
+  {
+   "parametro": "k_exp_hetero",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.017257696209441065,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.0018054257578015154
+  },
+  {
+   "parametro": "k_imp_homo",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0003734816664433538
+  }
+ ],
+ "segundos_fase3": 0.0
+}

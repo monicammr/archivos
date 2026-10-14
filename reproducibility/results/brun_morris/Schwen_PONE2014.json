@@ -1,0 +1,62 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 13,
+ "S_ours": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "S_brun": [
+  "ini_R1",
+  "kon_unspec"
+ ],
+ "chi2_brun": 8.301673106815674,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 16.1,
+ "detalle_brun": {
+  "gamma": 1.2874255682209093,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "ini_R1": 1.8894550405536599,
+   "ini_R2fold": 1.578813934050906,
+   "kon_unspec": 1.0357393361217888,
+   "koff_unspec": 1.0321743040585847,
+   "ka1": 0.9714726525329741,
+   "kd1": 0.958564248930334,
+   "ka2fold": 0.8792327216860996,
+   "kd2fold": 0.8724060765795374,
+   "kin2": 0.5995224248929072,
+   "kout_frag": 0.3616837821217084,
+   "kin": 0.33697053041574615,
+   "kout2": 0.18296791955845265,
+   "kout": 0.14033600972076984
+  }
+ },
+ "S_morris": [
+  "ini_R2fold",
+  "ini_R1"
+ ],
+ "chi2_morris": 8.195942166857307,
+ "overlap_morris_ours": 2,
+ "segundos_morris": 9.3,
+ "detalle_morris": {
+  "mu_star_top": {
+   "ini_R2fold": 103.53052698763699,
+   "ini_R1": 91.1234111233007,
+   "kon_unspec": 67.39550794193096,
+   "koff_unspec": 65.91829730419877,
+   "ka2fold": 62.00716367659744,
+   "kd1": 55.160165123330465,
+   "ka1": 53.61220344111801,
+   "kd2fold": 47.5134493483247,
+   "kin2": 43.097669459567044,
+   "kout_frag": 30.69919605591727
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 8.195942168849825,
+ "chi2_qr": 8.431945724166948,
+ "chi2_perfil": 8.195942165482435,
+ "segundos": 28.4
+}

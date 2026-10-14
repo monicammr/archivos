@@ -1,0 +1,14 @@
+{
+ "S": [
+  "pJAK2_dephosphorylation",
+  "pSTAT5_dephosphorylation"
+ ],
+ "semilla": 49,
+ "B_chi2_test_theta0": 6.012635404981761,
+ "B_chi2_test_red": 6.056805003227167,
+ "B_epred_red": 1.0059314408300402,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 1.0
+}

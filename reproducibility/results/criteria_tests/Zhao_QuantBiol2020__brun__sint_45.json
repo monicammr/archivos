@@ -1,0 +1,15 @@
+{
+ "S": [
+  "R_Stage_I_China",
+  "gamma_1_Stage_I_Wuhan",
+  "R_Stage_II_Hubei"
+ ],
+ "semilla": 45,
+ "B_chi2_test_theta0": 4.994522423575495,
+ "B_chi2_test_red": 4.994522423575495,
+ "B_epred_red": 1.0,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.4
+}

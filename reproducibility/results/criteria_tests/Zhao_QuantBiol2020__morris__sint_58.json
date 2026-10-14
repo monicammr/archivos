@@ -1,0 +1,15 @@
+{
+ "S": [
+  "R_Stage_I_China",
+  "gamma_2_Stage_I_China",
+  "R_Stage_II_China"
+ ],
+ "semilla": 58,
+ "B_chi2_test_theta0": 4.512987169438589,
+ "B_chi2_test_red": 4.512987169438589,
+ "B_epred_red": 1.0,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.2
+}

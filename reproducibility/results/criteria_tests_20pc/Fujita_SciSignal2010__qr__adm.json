@@ -1,0 +1,15 @@
+{
+ "S": [
+  "reaction_1_k1",
+  "reaction_6_k1"
+ ],
+ "eajuste_med": 0.15376770014608163,
+ "erel_med": 0.7047595564959864,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 48.4
+}

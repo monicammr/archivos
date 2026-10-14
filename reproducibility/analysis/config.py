@@ -26,6 +26,17 @@ VALIDATION = RESULTS / "external_validation"
 ROBUSTNESS = RESULTS / "robustness"
 ROBUSTNESS_SCENARIOS = RESULTS / "robustness_scenarios"
 SINGLE = RESULTS / "single_parameter"
+# Comparison with other selection criteria and further validations (Results, "Comparison with
+# existing selection criteria"; Supplementary Notes on the comparison)
+NESTED = RESULTS / "nested_validation"
+SYNTHETIC_SEEDS = RESULTS / "synthetic_seeds"
+RANDOM_SUBSETS = RESULTS / "random_subsets"
+CALIBRATION_ONLY = RESULTS / "calibration_only"
+QR_SELECTION = RESULTS / "qr_selection"
+BRUN_MORRIS = RESULTS / "brun_morris"
+PROFILE = RESULTS / "profile_likelihood"
+CRITERIA_TESTS = RESULTS / "criteria_tests"          # admissibility (+-5 %) and synthetic, 5 criteria
+TIMING_COMPLETE = RESULTS / "timing_complete"        # run time of the complete method from scratch
 
 # Method settings used in the paper (Methods, "Settings")
 DELTA = 0.01                          # relative finite-difference step for J

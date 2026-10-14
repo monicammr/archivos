@@ -1,0 +1,11 @@
+{
+ "sistema": "Chen_MSB2009",
+ "semilla": 58,
+ "p_y": 155,
+ "B_chi2_test_theta0": 7.616755444133911,
+ "B_chi2_test_red": 1.1313219871951306,
+ "B_epred_red": 0.18760361472431178,
+ "nfev_red": 19,
+ "seg_red": 1349.6,
+ "segundos": 1349.6
+}

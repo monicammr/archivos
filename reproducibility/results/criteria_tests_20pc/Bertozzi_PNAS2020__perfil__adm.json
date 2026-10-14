@@ -1,0 +1,15 @@
+{
+ "S": [
+  "I0_CA",
+  "R0_CA"
+ ],
+ "eajuste_med": 0.9050164153590219,
+ "erel_med": 0.9261136384379531,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 1.0
+}

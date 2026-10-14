@@ -1,0 +1,64 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 410)",
+ "n_bio": 18,
+ "S_ours": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "S_brun": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "chi2_brun": 1.498382554105061,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 0.6,
+ "detalle_brun": {
+  "gamma": 1.685724664400972,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "n_Hill": 14.675555712460982,
+   "tau_mRNA": 11.591923830173497,
+   "tau_prot": 7.784681970669347,
+   "eff": 4.634711720584947,
+   "tau_prot_GFP": 4.602914802635418,
+   "KM": 4.499066175252743,
+   "tps_active": 2.961458459657675,
+   "eff_GFP": 2.4555133325148835,
+   "init_GFP_mRNA": 2.438564216526029,
+   "tps_repr": 1.9049758863703312,
+   "init_X_mRNA": 1.8583053747110008,
+   "init_Z_mRNA": 1.21970793392806,
+   "init_Y_mRNA": 0.9900454113632771,
+   "init_Z_protein": 0.9367247834315016,
+   "init_X_protein": 0.7564164706426876
+  }
+ },
+ "S_morris": [
+  "n_Hill",
+  "tau_prot_GFP"
+ ],
+ "chi2_morris": 1.4259934167931632,
+ "overlap_morris_ours": 1,
+ "segundos_morris": 2.2,
+ "detalle_morris": {
+  "mu_star_top": {
+   "n_Hill": 232.469416128481,
+   "tau_prot_GFP": 130.56848023248813,
+   "tau_prot": 81.38985156043574,
+   "tps_active": 74.89662259590196,
+   "init_GFP_mRNA": 47.5134868349729,
+   "tps_repr": 42.67087722329491,
+   "KM": 35.88703558511027,
+   "eff": 19.753533564234328,
+   "eff_GFP": 17.226644363850973,
+   "init_X_protein": 13.55341689972958
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 1.49838255411681,
+ "chi2_qr": 1.4070773581797524,
+ "chi2_perfil": 1.4259934213402174,
+ "segundos": 4.4
+}

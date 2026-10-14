@@ -1,0 +1,14 @@
+{
+ "S": [
+  "K_1",
+  "tau2"
+ ],
+ "semilla": 47,
+ "B_chi2_test_theta0": 2.4381782822608753,
+ "B_chi2_test_red": 9.14837713814337,
+ "B_epred_red": 2.7750435892329155,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.2
+}

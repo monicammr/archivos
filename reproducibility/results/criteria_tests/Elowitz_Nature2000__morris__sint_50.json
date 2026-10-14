@@ -1,0 +1,14 @@
+{
+ "S": [
+  "n_Hill",
+  "tau_prot_GFP"
+ ],
+ "semilla": 50,
+ "B_chi2_test_theta0": 7.932472250636012,
+ "B_chi2_test_red": 7.287364443934976,
+ "B_epred_red": 0.9765528404619495,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.2
+}

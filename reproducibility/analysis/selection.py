@@ -155,7 +155,10 @@ def select(name):
     act = np.nonzero(Sy.in_model)[0]
     CAL = [int(j) for j in act if Sy.calib[j]]
     act = np.array([j for j in act if not Sy.calib[j]], dtype=int)
-    # --- relative J by central differences in log(theta)
+    # --- relative J by central differences in log(theta), for the biological AND the calibration
+    # parameters: the first-order re-estimation uses J[:, S + CAL], so the calibration columns are
+    # needed (an earlier version computed only the biological columns; see README, "Corrections")
+    cols_J = [int(j) for j in act] + CAL
     if cached:
         CFG.CACHE.mkdir(parents=True, exist_ok=True)
         fJ, fm = CFG.CACHE / f"{name}_J.npy", CFG.CACHE / f"{name}_J_done.npy"
@@ -164,7 +167,7 @@ def select(name):
         else:
             J = np.lib.format.open_memmap(fJ, mode="w+", dtype=np.float32, shape=(y0.size, p))
             done = np.zeros(p, dtype=bool)
-        pend = [int(j) for j in act if not done[j]]
+        pend = [j for j in cols_J if not done[j]]
         print(f"  J: {int(done.sum())} columns already done, {len(pend)} to go", flush=True)
         with Pool(NPROC, initializer=_w_init, initargs=(name,)) as pool:
             for k, (j, col) in enumerate(pool.imap_unordered(_w_col, pend, chunksize=8)):
@@ -173,12 +176,12 @@ def select(name):
                 done[j] = True
                 if k % 10 == 0:
                     J.flush(); np.save(fm, done)
-                    print(f"  J: {int(done.sum())}/{len(act)} columns", flush=True)
+                    print(f"  J: {int(done.sum())}/{len(cols_J)} columns", flush=True)
         J.flush(); np.save(fm, done)
         J = np.asarray(J, dtype=float) if J.nbytes < 4e9 else J
     else:
         J = np.zeros((y0.size, p))
-        for j in act:
+        for j in cols_J:
             tp, tm = th0.copy(), th0.copy()
             tp[j] *= 1 + DELTA; tm[j] *= 1 - DELTA
             yp, ym = Sy.sim(tp), Sy.sim(tm)

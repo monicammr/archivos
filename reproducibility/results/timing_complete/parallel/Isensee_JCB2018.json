@@ -1,0 +1,52 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "p": 46,
+ "T": 50.0,
+ "S1": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2",
+  "ks_AC_cAMP",
+  "KD_cAMP",
+  "xi_AC_cAMP_Fsk",
+  "kf_RIIp_cAMP_C_2__RIIp_2",
+  "kf_RII_2__RII_C_2"
+ ],
+ "Rvar_S1_%": 90.529968510894,
+ "S1_cumple": true,
+ "cos_S1": NaN,
+ "erel_S1": NaN,
+ "motivo_stage2": "Stage 1 cumple R_var pero no es admisible",
+ "etapa": "Stage 2",
+ "S": [
+  "kf_RII_C_2__RIIp_C_2"
+ ],
+ "Rvar_%": 0.0,
+ "kappa": 1.0,
+ "VIF": 1.0,
+ "cos_med": 0.9468995465247163,
+ "erel_med": 0.4477483127349635,
+ "n_escenarios": 5,
+ "S_antes_poda": [
+  "kf_RII_C_2__RIIp_C_2"
+ ],
+ "podados": [],
+ "admisible": false,
+ "eajuste_med": 1.0,
+ "calibracion": [
+  "b_Calpha_global",
+  "b_pRII_global",
+  "rel_open",
+  "s_Calpha_global",
+  "s_pRII_JI09_150302_Drg345_343_CycNuc",
+  "s_pRII_JI09_150330_Drg350_348_CycNuc",
+  "s_pRII_JI09_150330_Drg353_351_CycNuc",
+  "s_pRII_JI09_151102_Drg421_418_Age",
+  "s_pRII_Western",
+  "s_pRII_global",
+  "xi_rel_open"
+ ],
+ "eajuste_metodo": "linealizado (primer orden, J relativa)",
+ "segundos": 741.3,
+ "etapa_paper": "Parcial",
+ "S_paper": []
+}

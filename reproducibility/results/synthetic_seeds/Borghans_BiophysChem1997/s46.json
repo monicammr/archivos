@@ -1,0 +1,14 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "semilla": 46,
+ "p_y": 22,
+ "B_chi2_test_theta0": 1.3239049824823845,
+ "B_chi2_test_red": 0.6885573394147659,
+ "B_epred_red": 0.26485889868691553,
+ "nfev_red": 19,
+ "seg_red": 1.1,
+ "B_chi2_test_full": 0.8836194985081944,
+ "B_epred_full": 0.38248271929432126,
+ "nfev_full": 23,
+ "segundos": 4.1
+}

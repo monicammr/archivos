@@ -1,0 +1,10 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "parametro": "infected_moderate_transmission_rate",
+ "lado": 1,
+ "despl": 2.3,
+ "log_theta": -3.61786828382777,
+ "dchi2": 0.9470757135189761,
+ "nfev": 28,
+ "segundos": 0.3
+}

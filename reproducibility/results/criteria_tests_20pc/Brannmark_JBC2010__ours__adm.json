@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "eajuste_med": 0.07976678899644055,
+ "erel_med": 0.6546593695416482,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 17.5
+}

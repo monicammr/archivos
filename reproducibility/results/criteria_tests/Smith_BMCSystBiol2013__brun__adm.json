@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k8",
+  "k30f"
+ ],
+ "eajuste_med": 0.07829151587232247,
+ "erel_med": 0.33361743080265976,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 1013.6
+}

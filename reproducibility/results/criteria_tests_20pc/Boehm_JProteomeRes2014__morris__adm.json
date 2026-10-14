@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "eajuste_med": 0.09502000143310864,
+ "erel_med": 0.6456188281363529,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 1.6
+}

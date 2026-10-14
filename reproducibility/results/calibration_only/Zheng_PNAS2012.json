@@ -1,0 +1,9 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "k": 2,
+ "chi2_ours": 1.5818297897976195,
+ "chi2_vacio": 1.5053826558373309,
+ "ratio_vacio_vs_ours": 0.9516717067453451,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.2
+}

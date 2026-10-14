@@ -1,0 +1,14 @@
+{
+ "S": [
+  "transmission_rate_effective",
+  "psi"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 39602.42455299481,
+ "B_chi2_test_red": 3403.910882699849,
+ "B_epred_red": 0.2939799496864079,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.3
+}

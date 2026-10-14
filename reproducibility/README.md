@@ -9,7 +9,7 @@ Mónica Miranda R., Carlos Salazar, César Martín, Adriana Aguirre
 This package contains everything needed to check the results of the paper:
 
 * the **Python programs** of the method and of every numerical analysis (`analysis/`);
-* the **results** of those analyses, one file per benchmark problem (`results/`, 3 MB);
+* the **results** of those analyses, one file per benchmark problem (`results/`, 16 MB);
 * the **programs that produce every figure, table and Supplementary Note** of the paper from those
   results (`figures_tables/`);
 * the **formal proofs** in Lean 4 with Mathlib: 31 modules with 289 theorems and lemmas, and the
@@ -56,6 +56,13 @@ analysis/               the method and the numerical analyses (Python)
   single_parameter.py   single-parameter subsets (minimum size 2)
   simulator_check.py    comparison with the reference simulations of the benchmark
   timing.py             time of one simulation (computational cost)
+  nested_validation.py  leakage-free nested validation (fixed parameters re-estimated on training data)
+  synthetic_seeds.py    synthetic prediction experiment with 20 seeds (reduced and full model)
+  baselines.py          random subsets and calibration-only re-estimation (baselines)
+  qr_selection.py       selection by column-pivoted QR (same k, same validation)
+  brun_morris.py        selection by Brun's collinearity index and by Morris screening
+  profile_likelihood.py profile likelihood of every biological parameter; selection by profile
+  criteria_tests.py     admissibility (+-5 %, +-20 %) and synthetic test of the subsets of all criteria
   crauste_blowup.py     why no local reduction exists for Crauste
   sct_model.py, sct_analysis.py   SCT example (needs the participant data)
 results/                stored results (see DATA_DICTIONARY.md)
@@ -64,9 +71,17 @@ results/                stored results (see DATA_DICTIONARY.md)
   external_validation/  held-out prediction, real and synthetic data
   robustness/           errors of the 15 scenarios at 7 perturbation sizes
   single_parameter/     single-parameter subsets
+  nested_validation/    leakage-free nested validation (29 problems)
+  synthetic_seeds/      synthetic experiment, 20 seeds (one file per problem and seed; RESUMEN.json)
+  random_subsets/, calibration_only/   baselines
+  qr_selection/, brun_morris/, profile_likelihood/   selections of the other criteria
+  criteria_tests/, criteria_tests_20pc/  admissibility and synthetic test of the five criteria
+  timing_complete/      run time of the complete method from scratch (parallel, single core,
+                        and the eight first-order problems with the corrected code)
   simulator_check/, cost/, sbml_to_lean/, sct/, crauste_blowup.json
 figures_tables/         produce the figures, tables and Supplementary Notes from results/
   build_all.py          runs all of them (level A)
+  comparison_*.py       figures, tables and statistics of the comparison with other criteria
 lean_proofs/            Lean 4 + Mathlib project (see lean_proofs/README.md)
 lean_translation/
   sbml_to_lean.py       translator SBML -> Lean (writes lean_proofs/Models/)
@@ -113,7 +128,12 @@ The output is written to `figures_tables/output/`:
 * `figure3/`: the consolidated table behind Fig. 3 and a summary of the counts quoted in the text;
 * `suppl_*.tex`: the Supplementary Notes that contain numbers (simulator, synthetic experiment,
   single parameter, settings, cost, robustness, system-by-system summary, verified models,
-  statements of the formal theorems).
+  statements of the formal theorems);
+* comparison with other criteria: `figures/fig3_validation_v2.pdf` (Fig. 3), `figures/fig4_comparison.pdf`
+  (Fig. 4), the supplementary figures `figS_perfiles.pdf`, `figS_admis_mapa.pdf`, `figS_synth_semillas.pdf`,
+  `figS_anidada.pdf`, the supplementary tables `tables/tableS_*.tex` (profile likelihood, selections,
+  real data, Wilcoxon, admissibility, McNemar, synthetic, nested validation, run times) and, in
+  `comparison/`, the statistics and the counts quoted in the text.
 
 Each script prints the counts that the paper quotes (for example the numbers of admissible problems
 for each setting), so that they can be compared with the text. The note on the SCT example and
@@ -185,6 +205,18 @@ python mutation_control.py           # a 1 % change of one number is detected (d
    | g | `python crauste_blowup.py` | Results (Crauste) | minutes |
    | h | `python timing.py --write Boehm_JProteomeRes2014 Chen_MSB2009 ...` | Suppl. Table S15 | minutes (times depend on the machine) |
    | i | `python sct_analysis.py` | Suppl. Note SCT, Table S16 | ~30 min (needs the data) |
+   | j | `python nested_validation.py` (Chen: `VAL_PMAX=200 JAC_NPROC=110 REPRO_RTOL=1e-6 REPRO_ATOL=1e-8 python nested_validation.py Chen_MSB2009`) | Suppl. Note nested validation | hours; Chen ~10 min on 110 cores |
+   | k | `SINT_SEEDS=42-61 python synthetic_seeds.py` | Fig. 3b, Suppl. Note synthetic experiment | ~1 h on 100 cores |
+   | l | `python baselines.py` | Table 2, Suppl. Note comparison on real data | ~1 h |
+   | m | `python qr_selection.py` | Table 2, Suppl. Note pivoted QR | minutes |
+   | n | `PL_PMAX=60 NPROC=120 python profile_likelihood.py` | Fig. 4, Table 2, Suppl. Note profile likelihood | ~4 h on 120 cores (Isensee most) |
+   | o | `python brun_morris.py` (after m and n) | Table 2, Suppl. Note Brun and Morris | minutes |
+   | p | `python criteria_tests.py`, then `SOLO_SINT=1 SINT_SEMILLAS=47,...,61 python criteria_tests.py` and `ADM_NIVEL=0.20 python criteria_tests.py` (after l-o) | Fig. 4a-b, Table 2, Suppl. Notes admissibility and synthetic comparison | ~1 h on 100 cores |
+   | q | `REPRO_RESULTS=$PWD/../results_timing NPROC=64 python selection.py` (and with `NPROC=1`) | Fig. 4d, Suppl. Note cost | the run time is the measurement |
+
+   Steps j, n and p distribute the work over many processes and use `fork` (Linux). The stored
+   results of steps j-q were computed on a 128-core server shared by several computations; their
+   run times (`segundos`) are therefore upper bounds.
 
 4. Compare each folder with the stored results:
 
@@ -207,7 +239,11 @@ the re-computed results agree with the stored ones to the last digits. Small dif
 one run and not in another (Chen: 8 to 13 of 15 scenarios per size); (ii) in the fits of the external
 validation, which use the result of the previous optimisation when a long fit is resumed from a
 checkpoint; and (iii) with other versions of libRoadRunner/SUNDIALS or of NumPy/SciPy. Running times
-(`segundos`, `t_sim`) depend on the machine.
+(`segundos`, `t_sim`) depend on the machine. The comparison with other criteria (steps j-q) was
+computed with libRoadRunner 2.10.0; criteria that choose between nearly tied candidates can change
+their choice with another simulator version (for example, pivoted QR in Boehm selects `k_exp_hetero`
+instead of `k_phos` with libRoadRunner 2.9.2), and single local fits (one random draw of the
+baselines) can end in slightly different optima.
 
 **Large problems.** For the eight problems in `config.FIRST_ORDER` (Alkan, Bachmann, Beer, Chen,
 Isensee, Lang, Lucarelli, Raimundez) the re-estimation error is computed to first order, as stated in
@@ -225,10 +261,13 @@ trajectories is used (cost note), and its model is verified in Lean.
 |---|---|---|---|
 | Fig. 1 (method) | — | — | `make_figures.py` (`fig1`) |
 | Fig. 2, Table 1, Suppl. Table S1; Results, numbers of selected parameters, levels of guarantee | `selection.py` | `selection/` | `make_figures.py` (`fig2`), `make_tables.py` |
-| Fig. 3, Suppl. Fig. S1; Results, held-out prediction | `external_validation.py` | `external_validation/` | `make_figure3.py` |
-| Synthetic experiment (Results; Suppl. Table S12) | `external_validation.py` (keys `B_*`) | `external_validation/` | `make_extra_notes.py` |
-| Fig. 4, Suppl. Tables S10–S11, Suppl. Fig. S2; patterns A–D, pass rates | `robustness.py` | `robustness/` | `make_figures.py` (`fig4`), `make_robustness_note.py` |
-| Fig. 5, Suppl. Table S14 (method settings) | `selection.py --variant` | `settings/` | `make_fig5_settings.py`, `make_extra_notes.py` |
+| Fig. 3a, Suppl. Fig. S1; Results, held-out prediction | `external_validation.py` | `external_validation/` | `make_figure3.py`, `comparison_figures.py` |
+| Fig. 3b; synthetic experiment with 20 seeds (Supplementary Note) | `synthetic_seeds.py` | `synthetic_seeds/` | `comparison_figures.py`, `comparison_tables.py` |
+| Leakage-free nested validation (Results; Supplementary Note) | `nested_validation.py` | `nested_validation/` | `comparison_tables.py`, `comparison_suppl_figures.py` |
+| Comparison with other criteria: Table 2, Fig. 4 and the Supplementary Notes on profile likelihood, Brun and Morris, real data, admissibility and synthetic comparison | `qr_selection.py`, `baselines.py`, `brun_morris.py`, `profile_likelihood.py`, `criteria_tests.py` | `qr_selection/`, `random_subsets/`, `calibration_only/`, `brun_morris/`, `profile_likelihood/`, `criteria_tests/`, `criteria_tests_20pc/` | `comparison_figures.py`, `comparison_tables.py`, `comparison_statistics.py`, `comparison_summary.py`, `comparison_suppl_figures.py` |
+| Run time of the complete method (Results; Fig. 4d; Supplementary Note cost) | `selection.py` run from scratch | `timing_complete/` | `comparison_tables.py` |
+| Fig. 5, Suppl. Tables S10–S11, Suppl. Fig. S2; patterns A–D, pass rates | `robustness.py` | `robustness/` | `make_figures.py` (`fig4`), `make_robustness_note.py` |
+| Supplementary Note on the method settings (figure and table) | `selection.py --variant` | `settings/` | `make_fig5_settings.py`, `make_extra_notes.py` |
 | Single-parameter subsets (Results; Suppl. Table S13) | `single_parameter.py` | `single_parameter/` | `make_extra_notes.py` |
 | Crauste (Results, non-admissible problems) | `crauste_blowup.py` | `crauste_blowup.json` | — |
 | Computational cost (Results; Suppl. Table S15) | `timing.py` | `cost/` | `make_extra_notes.py` |
@@ -258,6 +297,19 @@ Information and are not generated.
   `nota`); all other times were measured on the same four-core server.
 * **SCT data.** `analysis/sct_model.py` describes the expected file (columns `xi3`–`xi8`, `eta4`, one row
   per day).
+
+## Corrections in version 1.1
+
+* **First-order re-estimation (`analysis/selection.py`).** With biological-only selection, version
+  1.0 computed the columns of the sensitivity matrix only for the biological parameters, so the
+  first-order re-estimation used for the eight problems of `config.FIRST_ORDER` did not re-estimate
+  the calibration parameters. The stored results were not affected (they had been computed with a
+  cached matrix that contained those columns), but a run from scratch gave different subsets for
+  Bachmann, Chen, Isensee, Lang and Raimundez. The columns of the calibration parameters are now
+  computed as well; run from scratch, the program reproduces the stored subsets and `eajuste_med`
+  of all eight problems (`results/timing_complete/parallel_corrected_code/`).
+* **Attribution.** The pivoted-QR control was attributed to Brun et al. in version 1.0; it is now
+  `qr_selection.py`, and Brun's collinearity index is implemented in `brun_morris.py`.
 
 ## License and citation
 

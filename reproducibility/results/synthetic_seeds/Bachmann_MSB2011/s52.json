@@ -1,0 +1,14 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "semilla": 52,
+ "p_y": 101,
+ "B_chi2_test_theta0": 1.5625976550128122,
+ "B_chi2_test_red": 3.4596759431048336,
+ "B_epred_red": 2.0277829273839743,
+ "nfev_red": 10,
+ "seg_red": 35.6,
+ "B_chi2_test_full": 6.44311460485305,
+ "B_epred_full": 3.0525375099663394,
+ "nfev_full": 56,
+ "segundos": 218.3
+}

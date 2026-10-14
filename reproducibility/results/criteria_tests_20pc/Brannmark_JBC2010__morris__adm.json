@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k22",
+  "k3"
+ ],
+ "eajuste_med": 0.10959766792963047,
+ "erel_med": 0.6282051588789747,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 62.9
+}

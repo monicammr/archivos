@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kappa",
+  "rho"
+ ],
+ "eajuste_med": 0.27116560460898076,
+ "erel_med": 0.462493632396051,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 4.9
+}

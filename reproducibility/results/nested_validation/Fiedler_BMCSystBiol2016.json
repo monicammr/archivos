@@ -1,0 +1,17 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 52,
+ "n_test": 20,
+ "chi2_test_red_original": 11.207266309262952,
+ "chi2_test_full_train": 9.31537173158502,
+ "chi2_test_red_nested": 9.298938083298115,
+ "chi2_test_theta0": 1.2167179620864208,
+ "ratio_nested_vs_original": 0.829724022495336,
+ "segundos": 0.6
+}

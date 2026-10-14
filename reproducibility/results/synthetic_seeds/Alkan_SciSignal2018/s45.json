@@ -1,0 +1,14 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "semilla": 45,
+ "p_y": 44,
+ "B_chi2_test_theta0": 1.9287057999173276,
+ "B_chi2_test_red": 1.0657575813009037,
+ "B_epred_red": 0.14877618377677884,
+ "nfev_red": 5,
+ "seg_red": 14.2,
+ "B_chi2_test_full": 1.0926223441319778,
+ "B_epred_full": 0.21852442793529672,
+ "nfev_full": 39,
+ "segundos": 158.3
+}

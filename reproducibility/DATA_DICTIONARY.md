@@ -79,6 +79,98 @@ selection; `Técnico` = technical failure (the nominal simulation fails); `salid
 | `mejor_validacion` | external validation of {j*} (same fields as external_validation) |
 | `mejor_validacion_calibracion` | number of calibration parameters re-estimated with j* in that validation |
 
+## `nested_validation/` (analysis/nested_validation.py)
+
+| Field | Meaning |
+|---|---|
+| `S`, `|S|`, `division`, `n_train`, `n_test` | selected subset, its size, kind of split, number of training and test measurements |
+| `chi2_test_red_original` | test chi2/n of the reduced model with the non-selected parameters at theta0 |
+| `chi2_test_full_train` | test chi2/n of the full model re-estimated on the training data (theta_train) |
+| `chi2_test_red_nested` | test chi2/n of the reduced model with the non-selected parameters at theta_train |
+| `chi2_test_theta0` | test chi2/n of the published estimate theta0 |
+| `ratio_nested_vs_original` | `chi2_test_red_nested / chi2_test_red_original` (above 1: worse without the theta0 anchor) |
+
+## `synthetic_seeds/<problem>/s<seed>.json` (analysis/synthetic_seeds.py)
+
+One file per problem and seed (42-61). Fields as in `external_validation/` (keys `B_*`) for that
+seed: `semilla` = seed; `p_y` = free parameters; `B_chi2_test_theta0`, `B_chi2_test_red`,
+`B_chi2_test_full`; `B_epred_red`, `B_epred_full` (relative prediction error with respect to the
+truth; 1 = theta0); `nfev_red`, `nfev_full` = function evaluations of the fits; `seg_red` = seconds of
+the reduced fit; `B_error` = the simulation of the truth failed. `B_*_full` is absent for the four
+problems with more than 100 free parameters. `RESUMEN.json` and `RESUMEN.md` summarise all seeds
+(`por_semilla`: counts per seed; `por_sistema`: per problem, `con_senal` = seeds with signal,
+`red_ok_senal` = reduced e_pred <= tau_e among them, `red_le_full_senal` = reduced e_pred <= full).
+
+## `random_subsets/` and `calibration_only/` (analysis/baselines.py)
+
+| Field | Meaning |
+|---|---|
+| `k` | number of biological parameters of our subset (also used for the random subsets) |
+| `chi2_ours` | test chi2/n of our subset (theta0 anchor), from `nested_validation/` |
+| `chi2_rand_median`, `chi2_rand_q1`, `chi2_rand_q3` | median and quartiles of the test chi2/n over the random draws |
+| `chi2_por_semilla`, `n_seeds`, `n_validas` | test chi2/n of each draw (seeds 0-19), number of draws, valid draws |
+| `chi2_vacio` | test chi2/n with only the calibration parameters re-estimated (`n_cal` of them) |
+| `ratio_rand_vs_ours`, `ratio_vacio_vs_ours` | baseline over ours (below 1: the baseline predicts better) |
+| `nota` | `sin calibracion, th0 directo` = no calibration parameters: theta0 is evaluated directly |
+
+## `qr_selection/` (analysis/qr_selection.py) and `brun_morris/` (analysis/brun_morris.py)
+
+| Field | Meaning |
+|---|---|
+| `S_ours`, `S_qr`, `S_brun`, `S_morris` | biological parameters selected by each criterion (same `k`) |
+| `chi2_ours`, `chi2_qr`, `chi2_brun`, `chi2_morris`, `chi2_perfil` | test chi2/n of each subset (with the calibration parameters, theta0 anchor) |
+| `overlap`, `overlap_brun_ours`, `overlap_morris_ours` | parameters shared with our subset |
+| `ratio_qr_vs_ours` | `chi2_qr / chi2_ours` |
+| `detalle_brun` | `gamma` = collinearity index of the selected subset, `cumple_gamma` = gamma <= 10, `dmsqr_top` = importance of the 15 candidates |
+| `detalle_morris` | `mu_star_top` = mu* of the 10 most influential parameters, `fallos_simulacion` = failed elementary effects |
+| `segundos_brun`, `segundos_morris`, `tipo` | seconds of each criterion (selection and fit); kind of split |
+
+## `profile_likelihood/` (analysis/profile_likelihood.py)
+
+`<problem>.json`:
+
+| Field | Meaning |
+|---|---|
+| `p_libres`, `n_bio` | free parameters of the training fit; biological parameters profiled |
+| `n_identificables`, `n_no_identificables_practicos`, `n_planos` | parameters identifiable (profile above Delta chi2 = 3.84 on both sides), bounded on one side, flat |
+| `S_perfil` | the `k` parameters with the narrowest profile confidence interval |
+| `chi2_perfil`, `chi2_ours`, `chi2_qr`, `ratio_perfil_vs_ours` | test chi2/n of the profile subset, of ours and of pivoted QR |
+| `overlap_perfil_ours`, `overlap_perfil_qr` | parameters shared with our subset and with the QR subset |
+| `coste_min_train` | chi2 (sum of squares) of the full training fit used as the minimum |
+| `rondas_reajuste` | times the full model was re-estimated because a profile point improved the minimum |
+| `dchi2_minimo_perfiles` | smallest Delta chi2 among the profile points after the last re-estimation (below -1: residual improvement) |
+| `puntos_fallidos` | profile points whose fit failed (Delta chi2 > 1e4), excluded |
+| `perfiles` | per parameter: `clase` (`identificable`, `no identificable practico`, `plano`), `ancho_ic_log` (width of the 95 % interval in log units; infinite if open), `dchi2_max_izq`, `dchi2_max_der` (largest Delta chi2 on each side) |
+| `no_evaluable` | not profiled: more than 60 free parameters (`PL_PMAX`), or no training/test split |
+
+`<problem>/perfil_<parameter>_<side>_<i>.json`: one profile point (`lado` = side, `despl` =
+displacement of log|theta_j|, `dchi2`, `nfev`, `theta` = re-estimated parameter vector);
+`<problem>/full_train.npz`: minimum (`theta`, `coste`, `rondas`). `logs/`: summary lines of the runs
+(`terminado` = problem finished with `seg_total` seconds; `reajuste` = re-estimation of the minimum).
+
+## `criteria_tests/` and `criteria_tests_20pc/` (analysis/criteria_tests.py)
+
+File names `<problem>__<criterion>__adm.json` (admissibility) and `<problem>__<criterion>__sint_<seed>.json`
+(synthetic), with `<criterion>` = `ours`, `qr`, `brun`, `morris`, `perfil`. `criteria_tests/` uses
+perturbations of +-5 % (the level of the method); `criteria_tests_20pc/`, +-20 % (admissibility only).
+
+| Field | Meaning |
+|---|---|
+| `S` | biological parameters of the subset tested |
+| `eajuste_med`, `erel_med` | median e_fit and median e_rel over the scenarios |
+| `admisible` | min(`eajuste_med`, `erel_med`) <= 0.436 and at least 2 parameters (rule of the method) |
+| `n_escenarios`, `lineal` | valid scenarios; true if e_fit was computed to first order (problems of `config.FIRST_ORDER`) |
+| `B_chi2_test_theta0`, `B_chi2_test_red`, `B_epred_red`, `semilla` | synthetic experiment for that seed (as in `external_validation/`) |
+| `no_evaluable` | `sin subconjunto` = the criterion has no subset for the problem; `falla la simulación de la verdad` = the truth could not be simulated |
+
+## `timing_complete/` (analysis/selection.py run from scratch)
+
+`parallel/`, `single_core/`: the complete result of `selection.py` (fields as in `selection/`) run
+without cached results, with the sensitivity computations on 16-64 cores or on one core; the run
+time is `segundos`. `parallel_corrected_code/`: the eight problems of `config.FIRST_ORDER` with the
+corrected program (version 1.1); their subsets and `eajuste_med` are identical to `selection/`.
+The runs shared a 128-core server, so the times are upper bounds.
+
 ## Other files
 
 | File | Content |
