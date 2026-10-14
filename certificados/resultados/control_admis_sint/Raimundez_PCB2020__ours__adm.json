@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+ ],
+ "eajuste_med": 0.37236371726633855,
+ "erel_med": 1.0814624937043187,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 176.8
+}

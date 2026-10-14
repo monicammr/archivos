@@ -1,0 +1,10 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "parametro": "treated_moderate_improve_rate",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 0.16000848757767452,
+ "dchi2": -6.959985518993628e-07,
+ "nfev": 16,
+ "segundos": 0.1
+}

@@ -1,0 +1,14 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "semilla": 56,
+ "p_y": 72,
+ "B_chi2_test_theta0": 1.1927197543631856,
+ "B_chi2_test_red": 1.1657641230952263,
+ "B_epred_red": 0.9755675256023173,
+ "nfev_red": 16,
+ "seg_red": 7.9,
+ "B_chi2_test_full": 2.306731702818187,
+ "B_epred_full": 2.6528513639324505,
+ "nfev_full": 36,
+ "segundos": 119.8
+}

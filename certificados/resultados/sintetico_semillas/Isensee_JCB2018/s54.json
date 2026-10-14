@@ -1,0 +1,14 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "semilla": 54,
+ "p_y": 43,
+ "B_chi2_test_theta0": 12.806394006996351,
+ "B_chi2_test_red": 12.764345198389908,
+ "B_epred_red": 0.9982450113429777,
+ "nfev_red": 14,
+ "seg_red": 588.5,
+ "B_chi2_test_full": 12.797031988423392,
+ "B_epred_full": 0.9996085312332736,
+ "nfev_full": 10,
+ "segundos": 1440.6
+}

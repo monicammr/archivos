@@ -1,0 +1,18 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "k": 2,
+ "S_ours": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "S_qr": [
+  "infected_moderate_transmission_rate",
+  "treated_moderate_improve_rate"
+ ],
+ "overlap": 1,
+ "chi2_ours": 0.0019946462955132307,
+ "chi2_qr": 0.0015422362103681623,
+ "ratio_qr_vs_ours": 0.7731878147204734,
+ "tipo": "extrapolacion temporal (t >= 15)",
+ "segundos": 0.1
+}

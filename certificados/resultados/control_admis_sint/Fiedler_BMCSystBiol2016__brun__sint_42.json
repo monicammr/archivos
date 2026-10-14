@@ -1,0 +1,14 @@
+{
+ "S": [
+  "tau2",
+  "k5"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 1.6282200427318219,
+ "B_chi2_test_red": 0.5194505257406701,
+ "B_epred_red": 0.2237192675714649,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.4
+}

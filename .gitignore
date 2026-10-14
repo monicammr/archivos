@@ -23,3 +23,8 @@ certificados/resultados/patrones_escenarios/parcial/
 reproducibility.zip
 
 certificados/resultados/validacion_externa_bio/respaldo/
+
+# registros completos del servidor (14-oct-2026); en el repositorio sólo van los resúmenes
+certificados/resultados/_logs_completos_2026-10-14/
+paper/scirep/*.fdb_latexmk
+paper/scirep/*.fls

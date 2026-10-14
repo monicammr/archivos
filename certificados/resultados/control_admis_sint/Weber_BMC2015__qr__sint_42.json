@@ -1,0 +1,14 @@
+{
+ "S": [
+  "a22",
+  "pu5"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 118.16612761665424,
+ "B_chi2_test_red": 117.83687965514704,
+ "B_epred_red": 0.9986605681584901,
+ "sistema": "Weber_BMC2015",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.6
+}

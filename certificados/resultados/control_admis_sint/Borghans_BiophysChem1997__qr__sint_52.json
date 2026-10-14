@@ -1,0 +1,14 @@
+{
+ "S": [
+  "Kd",
+  "init_A_state"
+ ],
+ "semilla": 52,
+ "B_chi2_test_theta0": 1.4840501867663145,
+ "B_chi2_test_red": 0.8793712989462424,
+ "B_epred_red": 0.27341144877737394,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.6
+}

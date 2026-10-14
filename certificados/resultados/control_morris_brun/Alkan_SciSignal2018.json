@@ -1,0 +1,64 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 34,
+ "S_ours": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "S_brun": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "chi2_brun": 2.7381432916665376,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 33.7,
+ "detalle_brun": {
+  "gamma": 1.0214743848938872,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "kt": 8.900139915283363,
+   "p_atm_act_dsb": 0.7107182984174546,
+   "k_rep_nhej": 0.6346903518418849,
+   "k_damage_dox_dsb": 0.6111269661225746,
+   "k_damage_gem_ssb": 0.5741504569722993,
+   "p_chk1_act": 0.5570536018088852,
+   "p_p53_act_atm": 0.5284627327939627,
+   "p_p21_mrna_turn": 0.4804097441317972,
+   "p_chk1_dea_wip1": 0.47111857446133787,
+   "k_damage_sn38_ssb": 0.4162610831814355,
+   "p_atr_act_atm": 0.39788652995607826,
+   "p_dnapk_act": 0.3949401223703394,
+   "p_dnapk_dea_wip1": 0.3326592923569602,
+   "k_death_reox": 0.29708988530515335,
+   "p_chk2_act": 0.29633855137488446
+  }
+ },
+ "S_morris": [
+  "kt",
+  "k_damage_sn38_ssb"
+ ],
+ "chi2_morris": 2.8612725304290203,
+ "overlap_morris_ours": 1,
+ "segundos_morris": 76.4,
+ "detalle_morris": {
+  "mu_star_top": {
+   "kt": 7067.976854653343,
+   "k_damage_sn38_ssb": 1647.8790212092692,
+   "k_damage_dox_dsb": 1547.0130447533206,
+   "k_damage_gem_ssb": 1312.3560833880933,
+   "k_rep_nhej": 683.2075701186718,
+   "p_dnapk_act": 224.45397954073752,
+   "p_dnapk_dea_wip1": 186.83283875791346,
+   "k_ssb_to_dsb": 161.418883417418,
+   "p_atm_act_dsb": 150.89542662359761,
+   "p_atr_act_atm": 106.96642299763205
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 2.748324922924577,
+ "chi2_qr": 2.726972860677738,
+ "chi2_perfil": 2.739027706940994,
+ "segundos": 114.7
+}

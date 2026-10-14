@@ -1,0 +1,9 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "k": 2,
+ "chi2_ours": 101.82516518363968,
+ "chi2_vacio": 96.92829245059961,
+ "ratio_vacio_vs_ours": 0.9519090126275891,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 1.5
+}

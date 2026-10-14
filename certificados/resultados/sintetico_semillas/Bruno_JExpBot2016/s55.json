@@ -1,0 +1,14 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "semilla": 55,
+ "p_y": 13,
+ "B_chi2_test_theta0": 2.0707741094447685,
+ "B_chi2_test_red": 2.199269744682985,
+ "B_epred_red": 0.3998823967414188,
+ "nfev_red": 6,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 194.82501642797683,
+ "B_epred_full": 12.373208111714328,
+ "nfev_full": 19,
+ "segundos": 1.0
+}

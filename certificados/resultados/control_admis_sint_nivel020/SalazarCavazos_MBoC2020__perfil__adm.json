@@ -1,0 +1,15 @@
+{
+ "S": [
+  "ratio_kpkd_YN__FREE",
+  "kdephosYN__FREE"
+ ],
+ "eajuste_med": 0.39614875629039176,
+ "erel_med": 0.9701957364860387,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 18.7
+}

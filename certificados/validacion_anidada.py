@@ -82,6 +82,8 @@ def locales_de_prueba(S, train, test):
     return {S.idx[n] for n in rt - rr - compartidos if n in S.idx}
 
 
+CKPT_INTERVAL = 600  # save partial checkpoint every 10 minutes
+
 def ajusta(S, libres, th_ini, gidx, objetivo, filas, max_nfev, ckpt=None):
     th0 = th_ini  # bounds and signs relative to starting point, not global theta0
     sgn = np.where(th0[libres] < 0, -1.0, 1.0)
@@ -94,12 +96,14 @@ def ajusta(S, libres, th_ini, gidx, objetivo, filas, max_nfev, ckpt=None):
         if len(d["u"]) == len(libres) and bool(d["terminado"]):
             th = th_ini.copy(); th[libres] = sgn * np.exp(d["u"])
             return th, int(d["nfev"])
+        elif len(d["u"]) == len(libres):  # partial checkpoint: resume from best so far
+            x0 = np.clip(d["u"], lo + 1e-9, hi - 1e-9)
 
     def theta(u):
         t = th_ini.copy(); t[libres] = sgn * np.exp(u)
         return t
 
-    mejor = {"c": np.inf, "u": x0.copy(), "n": 0}
+    mejor = {"c": np.inf, "u": x0.copy(), "n": 0, "t": time.time()}
 
     def res(u):
         z = S.z(theta(u), gidx)
@@ -109,6 +113,12 @@ def ajusta(S, libres, th_ini, gidx, objetivo, filas, max_nfev, ckpt=None):
         c = float(r @ r)
         if c < mejor["c"]:
             mejor["c"], mejor["u"] = c, np.array(u, copy=True)
+        if ckpt is not None and time.time() - mejor["t"] > CKPT_INTERVAL:
+            try:
+                np.savez(ckpt, u=mejor["u"], terminado=False, nfev=mejor["n"])
+            except Exception:
+                pass
+            mejor["t"] = time.time()
         return r
 
     try:

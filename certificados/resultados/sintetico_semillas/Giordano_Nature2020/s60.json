@@ -1,0 +1,14 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "semilla": 60,
+ "p_y": 43,
+ "B_chi2_test_theta0": 0.9230118173454412,
+ "B_chi2_test_red": 0.9410757348025144,
+ "B_epred_red": 254.800584858047,
+ "nfev_red": 10,
+ "seg_red": 1.3,
+ "B_chi2_test_full": 0.9629748921719538,
+ "B_epred_full": 382.6587027302136,
+ "nfev_full": 114,
+ "segundos": 32.7
+}

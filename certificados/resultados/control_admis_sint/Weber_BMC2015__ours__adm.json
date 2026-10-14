@@ -1,0 +1,15 @@
+{
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "eajuste_med": 0.040700115456463605,
+ "erel_med": 0.9262960331471597,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Weber_BMC2015",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 17.3
+}

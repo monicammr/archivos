@@ -1,0 +1,15 @@
+{
+ "S": [
+  "behavioural_change_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "eajuste_med": 0.035097206163198585,
+ "erel_med": 0.7160057257894816,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 0.7
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k_phos",
+  "k_exp_homo"
+ ],
+ "eajuste_med": 0.5652953587716454,
+ "erel_med": 0.6881763806367501,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 4.9
+}

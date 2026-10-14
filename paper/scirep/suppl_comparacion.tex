@@ -1,0 +1,151 @@
+% Notas de la comparación con otros criterios de selección (14 de octubre de 2026).
+% Tablas: tables/tableS_*.tex (certificados/tablas_suplemento.py);
+% figuras: figures/figS_*.pdf (certificados/figuras_suplemento.py).
+
+\snote{profile}
+
+\subsection*{Purpose}
+Profile likelihood (Raue et al., 2009) is the standard method to assess which parameters the data determine, and profile-likelihood-based reduction (Maiwald et al., 2016) uses it to decide which parameters to fix. We computed the profile of every biological parameter of every problem in which it was feasible, for two purposes: as an independent estimate of how many parameters the data determine, and as one of the four criteria with which our selection is compared (main text, \emph{Comparison with existing selection criteria}).
+
+\subsection*{Design}
+\begin{enumerate}\itemsep0pt
+\item The full model (all free parameters) was re-estimated on the training data of the external validation, from $\theta_0$, giving $\hat\theta_{\mathrm{train}}$ and the minimum $\chi^2_{\min}$. The finite-difference Jacobian of this fit was evaluated in parallel.
+\item For each biological parameter $j$, $\log|\theta_j|$ was fixed at $\log|\hat\theta_{\mathrm{train},j}|\pm\{0.1,0.3,0.6,1.2,2.3\}$ (up to a factor of 10), within the same bounds $[|\theta_0|/10,10|\theta_0|]$ as all other fits, and all other free parameters were re-estimated from $\hat\theta_{\mathrm{train}}$; $\Delta\chi^2=\chi^2-\chi^2_{\min}$. All points of a problem were computed in parallel. Points whose fit failed (simulation failure, $\Delta\chi^2>10^4$) were excluded.
+\item If a profile point improved the minimum by more than one unit of $\chi^2$, the full model had not converged: it was re-estimated from that point and all profiles were recomputed (at most three times; ten for Raia, which converged after four).
+\item A parameter is \emph{identifiable} if its profile exceeds $\Delta\chi^2=3.84$ (95\%, one degree of freedom) on both sides, \emph{bounded on one side} if only on one side, and \emph{flat} otherwise. For the comparison, the $k=|S|$ parameters with the narrowest profile confidence interval were selected.
+\end{enumerate}
+The computation requires repeated re-estimation of the full model and was feasible for the 26 problems with at most 60 free parameters; Bachmann (90), Lucarelli (72), Raimundez (126), Chen (155) and Lang (277) were not evaluated, nor Blasi, which has no training/test split.
+
+\subsection*{Results}
+Supplementary Table~\ref{tab:perfil} gives the classification of every problem. The median number of identifiable biological parameters was 2 (17\% of the biological parameters); six problems had none and 14 of the 26 had two or fewer. This agrees with the size of the subsets selected by our method, obtained by a different principle. The selected parameters, however, rarely coincide (Supplementary Table~\ref{tab:selecciones}): a flat profile means that other free parameters can compensate for changes in the profiled parameter, whereas our method asks which parameters suffice when all others are fixed at $\theta_0$. Supplementary Figure~\ref{fig:perfiles} shows the profiles of three problems. Three problems needed re-estimations of the optimum (Borghans, Okuonghae, Raia), which shows that the full-model fit from $\theta_0$ on the training data had not converged; Isensee kept a residual improvement of 1.16 after its three re-estimations, slightly above the criterion of one unit.
+
+{\small
+\input{tables/tableS_perfil.tex}
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/figS_perfiles.pdf}
+\caption{\textbf{Profile likelihoods of three problems.} $\Delta\chi^2$ on the training data as a function of the displacement of $\log|\theta_j|$ from the optimum, for every biological parameter, coloured by class. Dashed line, 95\% threshold. Labels mark the parameters selected by profile likelihood (P) and by our method (O); in Raia they are omitted for legibility.}
+\label{fig:perfiles}
+\end{figure}
+
+\snote{morrisbrun}
+
+\subsection*{Purpose}
+The main text cites two further families of selection criteria: indices based on the collinearity of the sensitivity matrix, whose reference method is that of Brun \emph{et al.} (Brun et al., 2001), and global sensitivity screening, of which Morris's method (Morris, 1991) is the most widely used. We implemented both with the same protocol as the other criteria.
+
+\subsection*{Design}
+\emph{Brun.} Dimensionless sensitivities $s_{ij}=\theta_j\,\partial y_i/\partial\theta_j$ on the training outputs (forward differences with relative step $10^{-4}$), importance $\delta^{\mathrm{msqr}}_j=\|s_{:,j}\|/\sqrt n$, collinearity index $\gamma_K=1/\sqrt{\lambda_{\min}(\tilde S_K^\top\tilde S_K)}$ of the column-normalised subset and determinant measure $\rho_K=\det(S_K^\top S_K)^{1/(2k)}$. Among the 15 most important parameters, every $k$-subset was evaluated and the one with $\gamma_K\le10$ and the largest $\rho_K$ was selected (the one with the smallest $\gamma_K$ if none satisfies the bound). The importance $\delta^{\mathrm{msqr}}_j$ orders the parameters as the energy $E_j$ of our method; the difference lies in the selection rule and in the absence of a re-estimation test.
+
+\emph{Morris.} Ten trajectories (seed 42) on a four-level grid of $\log|\theta_j|$ within $[\theta_0/10,10\theta_0]$ for the biological parameters (calibration parameters at $\theta_0$), step $\Delta=2/3$ of the range; elementary effect $\mathrm{EE}_j=\|y(x+\Delta e_j)-y(x)\|/\Delta$ on the training outputs; the $k$ parameters with the largest $\mu^\ast_j=\mathrm{mean}|\mathrm{EE}_j|$ were selected.
+
+Chen and Lang were not included, because the sensitivity computations alone would take hours, as in the pivoted-QR comparison. Supplementary Table~\ref{tab:selecciones} lists the parameters selected by all five criteria.
+
+{\scriptsize
+\input{tables/tableS_selecciones.tex}
+}
+
+\snote{compreal}
+
+Supplementary Table~\ref{tab:realdata} gives the test $\chi^2/n$ on the held-out experiments of every criterion and baseline, together with the full model and the published estimate, and Supplementary Table~\ref{tab:wilcoxonreal} the paired comparison with our method over problems. When the non-selected parameters are kept at $\theta_0$, all selection criteria and the random and calibration-only baselines predict similarly: the median ratios to our method are between 0.98 and 1.00, and only pivoted QR (1\% lower $\chi^2$) and calibration-only re-estimation (2\% lower) differ significantly, in favour of the alternative. Oliveira is the only problem in which the specific selection matters strongly. As discussed in the main text, this test does not discriminate between criteria because the fixed parameters carry the information of $\theta_0$, which was estimated with all data.
+
+{\small
+\input{tables/tableS_realdata.tex}
+}
+
+{\small
+\input{tables/tableS_wilcoxon_real.tex}
+}
+
+Supplementary Table~\ref{tab:controls} reproduces the classification of the earlier version of the main text for our method, pivoted QR and the two baselines.
+
+\begin{table}[H]
+\caption{External validation against three baseline selectors (earlier version of the main text). Test $\chi^2/n$ of our method, of calibration-only re-estimation ($|S|=0$), of pivoted QR and of random biological subsets of the same size $k$ (median over 20 draws). Category: \textbf{S}, sloppy---all four values within 10\% of each other; \textbf{C}, calibration dominates (bold, lowest value); \textbf{O}, our method clearly best; \textbf{P}, all methods near zero ($<$0.01); \textbf{F}, all methods fail ($\chi^2/n\gg1$).}
+\label{tab:controls}
+\centering
+\small
+\begin{tabular}{@{}lrccccc@{}}
+\toprule
+Problem & $k$ & $\chi^2_{\mathrm{ours}}$ & $\chi^2_{\mathrm{vac}}$ & $\chi^2_{\mathrm{QR}}$ & $\chi^2_{\mathrm{rand}}$ & Cat. \\
+\midrule
+Alkan        & 2  & 2.748 & 2.720 & 2.727 & 2.722 & S \\
+Armistead    & 2  & 1.218 & 1.157 & 1.207 & 1.159 & S \\
+Bachmann     & 2  & 4.768 & 4.759 & 4.746 & 4.845 & S \\
+Boehm        & 2  & 2.567 & \textbf{0.341} & \textbf{0.349} & 1.095 & C \\
+Borghans     & 2  & 0.743 & 0.778 & 0.776 & 0.768 & S \\
+Brannmark    & 2  & 5.956 & \textbf{0.938} & \textbf{0.951} & 2.952 & C \\
+Bruno        & 5  & 0.909 & 0.909 & 0.911 & 0.911 & S \\
+Elowitz      & 2  & 1.498 & 1.391 & 1.407 & 1.439 & S \\
+Fiedler      & 2  & 11.21 & 11.73 & 10.95 & 11.22 & S \\
+Fujita       & 2  & 5.939 & 5.937 & 5.941 & 6.022 & S \\
+Giordano     & 2  & $<$0.01 & $<$0.01 & $<$0.01 & $<$0.01 & P \\
+Isensee      & 2  & 1.082 & 1.081 & 1.081 & 1.081 & S \\
+Laske        & 2  & 0.758 & \textbf{0.445} & \textbf{0.445} & \textbf{0.445} & C \\
+Liu          & 2  & 0.954 & 0.942 & 1.026 & 0.942 & S \\
+Lucarelli    & 10 & 1.659 & \textbf{1.015} & 1.073 & 1.059 & C \\
+Okuonghae    & 2  & $4.7\times10^4$ & $2.9\times10^4$ & $3.2\times10^4$ & $5.6\times10^4$ & F \\
+Oliveira     & 2  & \textbf{912} & $4.6\times10^5$ & $7.3\times10^4$ & $2.0\times10^4$ & O \\
+Perelson     & 2  & $<$0.01 & $<$0.01 & $<$0.01 & $<$0.01 & P \\
+Rahman       & 2  & $<$0.01 & $<$0.01 & $<$0.01 & $<$0.01 & P \\
+Raia         & 2  & 8.224 & \textbf{0.439} & 7.236 & 2.213 & C \\
+Raimundez    & 2  & 1.188 & 1.167 & 1.168 & 1.181 & S \\
+Salazar-C.   & 2  & 101.8 & 96.93 & 101.7 & 103.2 & F \\
+Schwen       & 2  & 8.196 & 8.063 & 8.432 & 8.353 & S \\
+Smith        & 2  & $1.5\times10^4$ & $1.6\times10^4$ & $1.5\times10^4$ & $1.6\times10^4$ & F \\
+Sneyd        & 2  & 2.222 & \textbf{1.373} & 1.480 & 1.890 & C \\
+Weber        & 2  & 1.001 & 0.997 & 0.997 & 1.014 & S \\
+Zhao         & 3  & 0.345 & 0.345 & 0.345 & 0.345 & P \\
+Zheng        & 2  & 1.582 & 1.505 & 1.553 & 1.521 & S \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\snote{admisother}
+
+\subsection*{Purpose}
+Our method returns a subset only if re-estimating it reproduces the full model under random parameter changes (admissibility). This note applies exactly the same test to the subsets of the other criteria, to determine whether they have this property without being selected for it.
+
+\subsection*{Design}
+The test replicates the code of the method: 15 scenarios $\theta^{(k)}=\theta_0\odot(1+\varepsilon u^{(k)})$ with the same seed (42), re-estimation of the subset together with the calibration parameters from two starting points, scenarios with non-finite outputs discarded, and the subset is admissible if the smaller of the median $e_{\mathrm{fit}}$ and the median $e_{\mathrm{rel}}$ is at most $\tau_e=0.436$ (with $|S|\ge2$). The eight problems that the method treats to first order were treated in the same way for every criterion. As a check, the test reproduces the published $e_{\mathrm{fit}}$ of our subsets (for example Armistead 0.117, Boehm 0.094, Fiedler 0.147). Because our subsets are selected by this test at $\varepsilon=0.05$, it was repeated at $\varepsilon=0.20$, a level used by none of the criteria.
+
+\subsection*{Results}
+Supplementary Table~\ref{tab:admis} and Supplementary Figure~\ref{fig:admismapa} give the result of every criterion in every problem, and Supplementary Table~\ref{tab:mcnemar} the paired comparison. At $\pm$5\% our subsets were admissible in all 29 problems, against 24 (Brun), 21 (Morris), 17 of 26 (profile likelihood) and 13 (pivoted QR); at $\pm$20\%, 28 of 29 against 23, 21, 17 of 26 and 14. There is no problem in which the subset of another criterion is admissible and ours is not. The only problem in which our subset loses admissibility at $\pm$20\% is Elowitz, one of the problems that are admissible with a small margin at $\pm$5\% (main text, \emph{Robustness}).
+
+{\scriptsize
+\input{tables/tableS_admis.tex}
+}
+
+{\small
+\input{tables/tableS_mcnemar.tex}
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/figS_admis_mapa.pdf}
+\caption{\textbf{Admissibility of the subsets of every criterion in every problem.} Cell value: smaller of the median $e_{\mathrm{fit}}$ and the median $e_{\mathrm{rel}}$ over 15 scenarios; blue, admissible ($\le\tau_e=0.436$). Left, $\pm$5\%; right, $\pm$20\%. --, criterion not computed.}
+\label{fig:admismapa}
+\end{figure}
+
+\snote{compsynth}
+
+\subsection*{Design}
+The synthetic prediction experiment (\sref{synth}) was repeated with the subsets of every criterion, with the same 20 seeds (42--61), so that the five criteria are evaluated on exactly the same truths and noise realisations. Each subset, with the calibration parameters, was re-estimated on the synthetic training data from $\theta_0$ and $e_{\mathrm{pred}}$ was computed on the test data. The comparison uses the cases common to the five criteria in which the parameter change exceeded the noise (280 cases in 23 problems). Because the 20 seeds of a problem are not independent, the main statistic resamples whole problems (Methods, \emph{Statistics}).
+
+\subsection*{Results}
+Supplementary Table~\ref{tab:synthmethods} gives the results per problem and Supplementary Table~\ref{tab:synthstats} the statistics. Our subsets reached $e_{\mathrm{pred}}\le\tau_e$ in 54\% of the cases, those of Brun in 55\%, Morris 48\%, profile likelihood 39\% and pivoted QR 34\%; the advantage of our method over pivoted QR (20 percentage points, 95\% confidence interval 7--33) and profile likelihood (15, 4--27) is significant, whereas the differences from Morris and Brun are not. The per-problem median prediction error did not differ significantly between criteria (Wilcoxon $p\ge0.08$). Supplementary Figure~\ref{fig:synthsemillas} shows that the ordering of the criteria is similar across seeds.
+
+{\small
+\input{tables/tableS_synth_methods.tex}
+}
+
+{\small
+\input{tables/tableS_synth_stats.tex}
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/figS_synth_semillas.pdf}
+\caption{\textbf{Synthetic experiment: fraction of cases with $e_{\mathrm{pred}}\le\tau_e$ for each criterion and seed.} Horizontal lines, mean over seeds. Cases common to the five criteria with signal.}
+\label{fig:synthsemillas}
+\end{figure}

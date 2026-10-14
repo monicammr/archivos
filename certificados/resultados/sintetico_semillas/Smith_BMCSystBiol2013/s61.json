@@ -1,0 +1,14 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "semilla": 61,
+ "p_y": 25,
+ "B_chi2_test_theta0": 7421.714343956057,
+ "B_chi2_test_red": 14.430045600361428,
+ "B_epred_red": 0.04255007135782818,
+ "nfev_red": 8,
+ "seg_red": 68.6,
+ "B_chi2_test_full": 198.4427153768318,
+ "B_epred_full": 0.16321094935710231,
+ "nfev_full": 55,
+ "segundos": 613.5
+}

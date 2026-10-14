@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kt",
+  "k_damage_sn38_ssb"
+ ],
+ "semilla": 44,
+ "B_chi2_test_theta0": 1.1042943533503171,
+ "B_chi2_test_red": 0.9808170530092005,
+ "B_epred_red": 0.43771732121892043,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 15.3
+}

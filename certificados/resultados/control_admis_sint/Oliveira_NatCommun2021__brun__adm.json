@@ -1,0 +1,15 @@
+{
+ "S": [
+  "beta_0",
+  "t_1"
+ ],
+ "eajuste_med": 0.0780612738373422,
+ "erel_med": 0.6116332251982242,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 4.1
+}

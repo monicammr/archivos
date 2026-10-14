@@ -1,0 +1,15 @@
+{
+ "S": [
+  "a22",
+  "pu5"
+ ],
+ "eajuste_med": 0.4824362669466485,
+ "erel_med": 0.9876573295217425,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Weber_BMC2015",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 18.0
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "delta_0",
+  "eta_0"
+ ],
+ "eajuste_med": 0.9086383103837667,
+ "erel_med": 1.0000537557312406,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 8.1
+}

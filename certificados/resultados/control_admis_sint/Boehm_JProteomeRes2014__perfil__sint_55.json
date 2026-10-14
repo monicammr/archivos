@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k_phos",
+  "k_exp_homo"
+ ],
+ "semilla": 55,
+ "B_chi2_test_theta0": 1.3104357858994322,
+ "B_chi2_test_red": 5.256465818831383,
+ "B_epred_red": 6.542163988700959,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.4
+}

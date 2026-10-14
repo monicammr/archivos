@@ -1,0 +1,15 @@
+{
+ "S": [
+  "sigma",
+  "nu"
+ ],
+ "eajuste_med": 0.042291428445212186,
+ "erel_med": 1.3726112933178487,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 2.8
+}

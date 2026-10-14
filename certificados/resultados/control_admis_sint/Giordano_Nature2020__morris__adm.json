@@ -1,0 +1,15 @@
+{
+ "S": [
+  "alpha_4",
+  "alpha_0"
+ ],
+ "eajuste_med": 0.06368220557008106,
+ "erel_med": 1.0077165491148363,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 8.7
+}

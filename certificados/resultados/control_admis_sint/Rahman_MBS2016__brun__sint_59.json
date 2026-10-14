@@ -1,0 +1,14 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate",
+  "behavioural_change_rate"
+ ],
+ "semilla": 59,
+ "B_chi2_test_theta0": 113.08200637764546,
+ "B_chi2_test_red": 1.6299398731744348,
+ "B_epred_red": 0.13352222026295962,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.2
+}

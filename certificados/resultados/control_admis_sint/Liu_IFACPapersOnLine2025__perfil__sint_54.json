@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kappa",
+  "rho"
+ ],
+ "semilla": 54,
+ "B_chi2_test_theta0": 0.980517316460584,
+ "B_chi2_test_red": 0.9826614353186598,
+ "B_epred_red": 0.8583021527116766,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.1
+}

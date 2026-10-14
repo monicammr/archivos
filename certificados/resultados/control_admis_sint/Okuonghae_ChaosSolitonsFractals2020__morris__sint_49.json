@@ -1,0 +1,14 @@
+{
+ "S": [
+  "sigma",
+  "nu"
+ ],
+ "semilla": 49,
+ "B_chi2_test_theta0": 1783.228352521436,
+ "B_chi2_test_red": 416.8007041589151,
+ "B_epred_red": 0.4878820072245951,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.5
+}

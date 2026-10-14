@@ -1,0 +1,10 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "parametro": "kin2",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 0.1094530819315943,
+ "dchi2": -0.10047631405944912,
+ "nfev": 127,
+ "segundos": 55.1
+}

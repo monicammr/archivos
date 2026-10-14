@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "eajuste_med": 0.0935348340647396,
+ "erel_med": 0.6000118599041862,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 2.5
+}

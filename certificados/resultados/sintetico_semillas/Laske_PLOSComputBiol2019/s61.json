@@ -1,0 +1,14 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "semilla": 61,
+ "p_y": 8,
+ "B_chi2_test_theta0": 0.74792842921667,
+ "B_chi2_test_red": 2.073837323999142,
+ "B_epred_red": 4.9685934599201875,
+ "nfev_red": 12,
+ "seg_red": 1.7,
+ "B_chi2_test_full": 4.704398776402065,
+ "B_epred_full": 9.41804284417646,
+ "nfev_full": 22,
+ "segundos": 4.3
+}

@@ -1,0 +1,9 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "k": 2,
+ "chi2_ours": 912.4437319197926,
+ "chi2_vacio": 460396.12570126157,
+ "ratio_vacio_vs_ours": 504.5748133230994,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

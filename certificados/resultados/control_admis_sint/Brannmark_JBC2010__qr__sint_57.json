@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k1a",
+  "k_IRSiP_DosR"
+ ],
+ "semilla": 57,
+ "B_chi2_test_theta0": 1.141841610920926,
+ "B_chi2_test_red": 1.1585793033688412,
+ "B_epred_red": 0.9896036275887758,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.6
+}

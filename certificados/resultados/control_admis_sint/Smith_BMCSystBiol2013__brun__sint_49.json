@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k8",
+  "k30f"
+ ],
+ "semilla": 49,
+ "B_chi2_test_theta0": 3511.0682125425014,
+ "B_chi2_test_red": 35.98414830170421,
+ "B_epred_red": 0.10381745659738525,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 65.4
+}

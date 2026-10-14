@@ -1,0 +1,11 @@
+{
+ "sistema": "Lang_PLOSComputBiol2024",
+ "semilla": 57,
+ "p_y": 277,
+ "B_chi2_test_theta0": 11.980052896361954,
+ "B_chi2_test_red": 1.2018481268322825,
+ "B_epred_red": 0.1411044176494027,
+ "nfev_red": 78,
+ "seg_red": 1398.2,
+ "segundos": 1398.2
+}

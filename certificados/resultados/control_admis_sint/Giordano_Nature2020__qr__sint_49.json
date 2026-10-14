@@ -1,0 +1,14 @@
+{
+ "S": [
+  "delta_0",
+  "eta_0"
+ ],
+ "semilla": 49,
+ "B_chi2_test_theta0": 1.1698043684904995,
+ "B_chi2_test_red": 1.1697933587763552,
+ "B_epred_red": 1.1084543923018224,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.8
+}

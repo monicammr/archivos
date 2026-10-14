@@ -1,0 +1,14 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "semilla": 58,
+ "p_y": 23,
+ "B_chi2_test_theta0": 1.176201761137148,
+ "B_chi2_test_red": 1.1546057629563586,
+ "B_epred_red": 0.7912362795390407,
+ "nfev_red": 19,
+ "seg_red": 1.5,
+ "B_chi2_test_full": 1.2061631193230429,
+ "B_epred_full": 1.3861463670537046,
+ "nfev_full": 46,
+ "segundos": 8.8
+}

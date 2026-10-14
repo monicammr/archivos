@@ -1,0 +1,14 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "semilla": 58,
+ "p_y": 45,
+ "B_chi2_test_theta0": 41.7005423931816,
+ "B_chi2_test_red": 3.5474558539526773,
+ "B_epred_red": 0.2426664272089047,
+ "nfev_red": 7,
+ "seg_red": 1.1,
+ "B_chi2_test_full": 4.816012137697441,
+ "B_epred_full": 0.290560741851817,
+ "nfev_full": 159,
+ "segundos": 68.4
+}

@@ -1,0 +1,9 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "k": 5,
+ "chi2_ours": 0.9093632518020328,
+ "chi2_vacio": 0.9093579432330835,
+ "ratio_vacio_vs_ours": 0.9999941623229894,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

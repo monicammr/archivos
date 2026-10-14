@@ -1,0 +1,15 @@
+{
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "eajuste_med": 0.14720530335263396,
+ "erel_med": 0.5843954665827433,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 9.3
+}

@@ -1,0 +1,9 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "k": 2,
+ "chi2_ours": 2.5674334260629963,
+ "chi2_vacio": 0.34129679919930317,
+ "ratio_vacio_vs_ours": 0.13293306682645367,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

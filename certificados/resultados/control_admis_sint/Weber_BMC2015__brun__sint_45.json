@@ -1,0 +1,14 @@
+{
+ "S": [
+  "a21",
+  "s12"
+ ],
+ "semilla": 45,
+ "B_chi2_test_theta0": 26.71421907085993,
+ "B_chi2_test_red": 1.932654680161692,
+ "B_epred_red": 0.1419778695553476,
+ "sistema": "Weber_BMC2015",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.8
+}

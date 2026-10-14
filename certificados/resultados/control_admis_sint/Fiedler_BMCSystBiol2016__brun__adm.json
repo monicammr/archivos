@@ -1,0 +1,15 @@
+{
+ "S": [
+  "tau2",
+  "k5"
+ ],
+ "eajuste_med": 0.13306417577716645,
+ "erel_med": 0.6364262562830423,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 12.0
+}

@@ -1,0 +1,144 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "k": 5,
+ "division": "condiciones nuevas",
+ "p_libres": 10,
+ "n_bio": 10,
+ "n_identificables": 9,
+ "n_no_identificables_practicos": 0,
+ "n_planos": 1,
+ "S_ours": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "S_perfil": [
+  "init_bcar1",
+  "kb1",
+  "init_bcry_1",
+  "init_b10_1",
+  "kc2"
+ ],
+ "S_qr": [
+  "init_b10_1",
+  "init_bcar1",
+  "kc4",
+  "kc1",
+  "kc2"
+ ],
+ "overlap_perfil_ours": 3,
+ "overlap_perfil_qr": 3,
+ "chi2_ours": 0.9093632518020328,
+ "chi2_qr": 0.9113919534123498,
+ "chi2_perfil": 0.9093632518020328,
+ "ratio_perfil_vs_ours": 1.0,
+ "coste_min_train": 39.560297793391484,
+ "dchi2_minimo_perfiles": -1.3342358329282433e-09,
+ "puntos_fallidos": 2,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "init_bcar1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.0746646158832952,
+   "dchi2_max_izq": 1109.9454990099377,
+   "dchi2_max_der": 2192.8516775951075,
+   "dchi2_min_lado": 1109.9454990099377,
+   "puntos_fallidos": 1,
+   "dchi2_negativo": 9.58798745786681
+  },
+  {
+   "parametro": "kb1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.07953882827202516,
+   "dchi2_max_izq": 830.1818629026358,
+   "dchi2_max_der": 1224.5625912782343,
+   "dchi2_min_lado": 830.1818629026358,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 9.277564945067681
+  },
+  {
+   "parametro": "init_bcry_1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.1048526063124971,
+   "dchi2_max_izq": 440.4249342943801,
+   "dchi2_max_der": 1310.0455146406414,
+   "dchi2_min_lado": 440.4249342943801,
+   "puntos_fallidos": 1,
+   "dchi2_negativo": 6.908334881203018
+  },
+  {
+   "parametro": "init_b10_1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.20436980288373072,
+   "dchi2_max_izq": 513.9144978743641,
+   "dchi2_max_der": 920.5968410607812,
+   "dchi2_min_lado": 513.9144978743641,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 3.3510350263673203
+  },
+  {
+   "parametro": "kc2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.23027231942457474,
+   "dchi2_max_izq": 143.56198947402686,
+   "dchi2_max_der": 739.2805563106492,
+   "dchi2_min_lado": 143.56198947402686,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 2.305336487298405
+  },
+  {
+   "parametro": "kc1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.25682862356600245,
+   "dchi2_max_izq": 202.43342384578932,
+   "dchi2_max_der": 330.0777247524121,
+   "dchi2_min_lado": 202.43342384578932,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 1.7457322906546793
+  },
+  {
+   "parametro": "kb2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.2985166813779775,
+   "dchi2_max_izq": 126.16889276891517,
+   "dchi2_max_der": 278.0713978233506,
+   "dchi2_min_lado": 126.16889276891517,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 1.2454651157364864
+  },
+  {
+   "parametro": "init_ohb10_1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.330327518388555,
+   "dchi2_max_izq": 87.68147834850558,
+   "dchi2_max_der": 1490.038938394658,
+   "dchi2_min_lado": 87.68147834850558,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 1.0223202303008279
+  },
+  {
+   "parametro": "kc4",
+   "clase": "identificable",
+   "ancho_ic_log": 0.7306559028113537,
+   "dchi2_max_izq": 16.44796911440651,
+   "dchi2_max_der": 205.68306242804425,
+   "dchi2_min_lado": 16.44796911440651,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.2727704772425952
+  },
+  {
+   "parametro": "k5",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -1.3342358329282433e-09
+  }
+ ],
+ "segundos_fase3": 0.0
+}

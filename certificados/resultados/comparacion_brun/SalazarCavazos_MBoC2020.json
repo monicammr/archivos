@@ -1,0 +1,18 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "k": 2,
+ "S_ours": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "S_qr": [
+  "GRB2_total__FREE",
+  "kdephosYN__FREE"
+ ],
+ "overlap": 0,
+ "chi2_ours": 101.82516518363968,
+ "chi2_qr": 101.73474834533779,
+ "ratio_qr_vs_ours": 0.999112038383254,
+ "tipo": "condiciones nuevas",
+ "segundos": 1.7
+}

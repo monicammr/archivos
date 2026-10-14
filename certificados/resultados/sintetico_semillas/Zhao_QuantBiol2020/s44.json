@@ -1,0 +1,14 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "semilla": 44,
+ "p_y": 21,
+ "B_chi2_test_theta0": 7.740588726746699,
+ "B_chi2_test_red": 7.740588726768566,
+ "B_epred_red": 1.0000000000015568,
+ "nfev_red": 6,
+ "seg_red": 0.8,
+ "B_chi2_test_full": 7.740588726771663,
+ "B_epred_full": 1.0000000000017764,
+ "nfev_full": 82,
+ "segundos": 7.4
+}

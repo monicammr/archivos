@@ -1,0 +1,15 @@
+{
+ "S": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "eajuste_med": 0.03166617396876036,
+ "erel_med": 0.29140403705853246,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 22.3
+}

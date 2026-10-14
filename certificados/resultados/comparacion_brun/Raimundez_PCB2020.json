@@ -1,0 +1,18 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "k": 2,
+ "S_ours": [
+  "kdeg_membran__MKN1",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+ ],
+ "S_qr": [
+  "d_MAPKtotal__MKN1_2_HS746T",
+  "d_MPI3Ktotal__fm_2_hm"
+ ],
+ "overlap": 0,
+ "chi2_ours": 1.1883008295297135,
+ "chi2_qr": 1.1683206636881533,
+ "ratio_qr_vs_ours": 0.9831859363007702,
+ "tipo": "condiciones nuevas",
+ "segundos": 15.6
+}

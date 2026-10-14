@@ -1,0 +1,14 @@
+{
+ "S": [
+  "l2",
+  "k4"
+ ],
+ "semilla": 47,
+ "B_chi2_test_theta0": 1.4374195791502458,
+ "B_chi2_test_red": 1.0087649768362916,
+ "B_epred_red": 0.4317610876756493,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.3
+}

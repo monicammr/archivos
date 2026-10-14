@@ -1,0 +1,14 @@
+{
+ "S": [
+  "alpha_4",
+  "alpha_0"
+ ],
+ "semilla": 48,
+ "B_chi2_test_theta0": 0.8345980028095416,
+ "B_chi2_test_red": 0.8343758635857126,
+ "B_epred_red": 2.9623221614556474,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.1
+}

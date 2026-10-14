@@ -2,57 +2,35 @@
 
 \subsection*{Motivation}
 
-In the external validation experiment the reduced model fixes the non-selected parameters at $\theta_0$, the nominal point estimated from \emph{all} experimental data (including the test set). A reviewer might argue that, because the fixed parameters are anchored at a value that has ``seen'' the test data, the reduced model enjoys an indirect informational advantage over the full model baseline (which is re-estimated using only training data). This supplementary note addresses that concern empirically.
+In the external validation the reduced model keeps the non-selected parameters at $\theta_0$, the published estimate, which was obtained from \emph{all} experimental data, including the test experiments. The reduced model may therefore inherit information about the test data through the parameters it keeps fixed. This note quantifies that effect.
 
 \subsection*{Design}
 
-For each admissible problem we ran a \emph{nested} (leakage-free) external validation:
-\begin{enumerate}
-  \item Fit the full model on \textbf{training data only} to obtain $\hat\theta_{\mathrm{train}}$ (the same quantity already computed as the full-model baseline in the main external validation).
-  \item Fit the reduced model starting from $\hat\theta_{\mathrm{train}}$, with non-selected parameters fixed at $\hat\theta_{\mathrm{train}}$ rather than $\theta_0$; re-estimate $S\cup\Theta_C$ on training only.
-  \item Evaluate $\chi^2/n$ on the held-out test set for the resulting nested reduced model.
+For each problem we ran a \emph{nested} validation in which no value used by the reduced model has seen the test data:
+\begin{enumerate}\itemsep0pt
+  \item the full model was re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$ (the full-model baseline of the external validation);
+  \item the reduced model was then re-estimated on the training data with the non-selected parameters fixed at $\hat\theta_{\mathrm{train}}$ instead of $\theta_0$, and with search bounds derived from $\hat\theta_{\mathrm{train}}$;
+  \item the test $\chi^2/n$ of this nested reduced model was compared with that of the full training fit and with that of the original, $\theta_0$-anchored reduced model.
 \end{enumerate}
-In this protocol the test set is never seen at any stage of constructing the reduced model. Importantly, the search bounds for the free parameters in step~2 are also derived from $\hat\theta_{\mathrm{train}}$, not from $\theta_0$, ensuring the optimisation cannot exploit any test-set information encoded in the nominal values.
+Twenty-nine problems were evaluated. Bertozzi (selected parameters active only in the test conditions), Blasi (single time point, no split) and Lang (277 free parameters, full re-estimation infeasible) were excluded. For Chen, whose full re-estimation with 155 free parameters did not finish in serial form, the columns of the finite-difference Jacobian were evaluated in parallel and the integrator tolerances were $10^{-6}/10^{-8}$; its $\theta_0$ and original values agree with those of the main analysis.
 
 \subsection*{Results}
 
-Table~\ref{tab:nested} reports the results for the 28 problems evaluated. Three admissible problems were excluded: Bertozzi (selected parameters active only in test conditions), Blasi (single time point, no valid split), and Lang (277 free parameters; full-model re-estimation would require days to weeks of computation). Chen was excluded because its full-model re-estimation did not complete within the available computation time. The key finding is that the nested (leakage-free) $\chi^2/n$ ($\chi^2_{\mathrm{nested}}$) is virtually identical to the full-model training baseline ($\chi^2_{\mathrm{full,train}}$) in 25 of 28 problems (89\%), with differences below 0.1\% in 19 of those 28. In two problems the nested reduced model slightly outperforms the full training baseline (Raia: $-5.1\%$; Smith: $-0.3\%$). The largest discrepancy occurs in Schwen et al.\ (2014; $+249\%$), where the optimisation starting from $\hat\theta_{\mathrm{train}}$ reached a worse local minimum for the two selected structural parameters; this reflects optimisation sensitivity to the starting point rather than a systematic leakage effect. Excluding Schwen, all remaining 27 problems show $\chi^2_{\mathrm{nested}}$ within 2.5\% of $\chi^2_{\mathrm{full,train}}$, confirming that the informational advantage conferred by the $\theta_0$ anchor in the main experiment is negligible.
+Supplementary Table~\ref{tab:nested} gives the results and Supplementary Figure~\ref{fig:anidada} compares them graphically.
+
+\emph{The nested reduced model coincides with the full training fit.} In 19 of the 29 problems the two test values agree to better than 0.1\% and in 25 to better than 1\%. This agreement is expected by construction and is not evidence about leakage: the re-estimation of the reduced model starts at $\hat\theta_{\mathrm{train}}$, which already minimises the training error, so the optimiser has nothing to improve and returns essentially the full training fit. The exceptions are Schwen ($+248\%$, a worse local minimum of the two re-estimated parameters), Raia ($-5.1\%$), Chen ($-3.7\%$) and Brannmark ($+2.4\%$).
+
+\emph{Removing the $\theta_0$ anchor removes the advantage of the reduced model.} Compared with the original reduced model, the nested reduced model predicted worse in 22 of the 29 problems and more than four times worse in eight (for example Brannmark 5.96 versus $6.4\times10^3$, Bruno 0.91 versus 208, Weber 1.00 versus 16.0, Zheng 1.58 versus 20.8). The better prediction of the reduced model on real data (main text, \emph{Prediction of held-out experiments}) therefore reflects the information in the published values at which the other parameters are fixed. This does not affect the admissibility of the subsets, which is a property of the model, not of the data, and it is why the comparison of prediction without leakage is made on synthetic data, where $\theta_0$ carries no information about the truth (\sref{synth}).
+
+An earlier version of this note interpreted the agreement between the nested reduced model and the full training fit as evidence that the anchor does not affect the conclusion; as explained above, that agreement holds by construction, and the comparison with the original reduced model shows the opposite.
 
 {\small
-\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.2cm}rrrr@{}}
-\caption{Leakage-free nested validation. $\chi^2_{\mathrm{orig}}$: original external validation (reduced model anchored at $\theta_0$). $\chi^2_{\mathrm{full,train}}$: full model re-estimated on training only. $\chi^2_{\mathrm{nested}}$: leakage-free reduced model (anchored at $\hat\theta_{\mathrm{train}}$, bounds from $\hat\theta_{\mathrm{train}}$). $\Delta\%$: relative difference $(\chi^2_{\mathrm{nested}}-\chi^2_{\mathrm{full,train}})/\chi^2_{\mathrm{full,train}}\times100$.}\label{tab:nested}\\
-\toprule
-Problem & $\chi^2_{\mathrm{orig}}$ & $\chi^2_{\mathrm{full,train}}$ & $\chi^2_{\mathrm{nested}}$ & $\Delta\%$ \\
-\midrule \endfirsthead
-\toprule Problem & $\chi^2_{\mathrm{orig}}$ & $\chi^2_{\mathrm{full,train}}$ & $\chi^2_{\mathrm{nested}}$ & $\Delta\%$ \\ \midrule \endhead
-Alkan & 2.75 & 3.37 & 3.37 & $<$0.1 \\
-Armistead & 1.22 & 1.37 & 1.37 & $<$0.1 \\
-Bachmann & 4.77 & 7.35 & 7.36 & $+0.1$ \\
-Boehm & 2.57 & 11.2 & 11.2 & $<$0.1 \\
-Borghans & 0.743 & 0.744 & 0.744 & $<$0.1 \\
-Brannmark & 5.96 & $6.3\times10^3$ & $6.4\times10^3$ & $+2.4$ \\
-Bruno & 0.91 & 208 & 208 & $<$0.1 \\
-Elowitz & 1.50 & 3.89 & 3.89 & $<$0.1 \\
-Fiedler & 11.2 & 9.32 & 9.30 & $-0.2$ \\
-Fujita & 5.94 & 8.03 & 8.04 & $<$0.1 \\
-Giordano & $1.0\times10^{-7}$ & $7.7\times10^{-3}$ & $7.7\times10^{-3}$ & $<$0.1 \\
-Isensee & 1.08 & 1.08 & 1.08 & $<$0.1 \\
-Laske & 0.758 & 1.875 & 1.875 & $<$0.1 \\
-Liu & 0.954 & 1.025 & 1.025 & $<$0.1 \\
-Lucarelli & 1.66 & 3.34 & 3.35 & $+0.1$ \\
-Okuonghae & $4.7\times10^4$ & $1.2\times10^5$ & $1.2\times10^5$ & $<$0.1 \\
-Oliveira & 912 & $8.1\times10^4$ & $8.1\times10^4$ & $<$0.1 \\
-Perelson & $4.0\times10^{-13}$ & $4.0\times10^{-13}$ & $4.0\times10^{-13}$ & $<$0.1 \\
-Rahman & $2.0\times10^{-3}$ & 0.026 & 0.026 & $<$0.1 \\
-Raia & 8.22 & 5.10 & 4.84 & $-5.1$ \\
-Raimundez & 1.19 & 1.45 & 1.46 & $+0.1$ \\
-Salazar-Cavazos & 102 & 124 & 124 & $<$0.1 \\
-Schwen$^*$ & 8.20 & 8.40 & 29.3 & $+249$ \\
-Smith & $1.5\times10^4$ & $1.5\times10^4$ & $1.5\times10^4$ & $-0.3$ \\
-Sneyd & 2.22 & 2.56 & 2.56 & $<$0.1 \\
-Weber & 1.00 & 16.0 & 16.0 & $+0.1$ \\
-Zhao & 0.345 & 0.345 & 0.345 & $<$0.1 \\
-Zheng & 1.58 & 20.8 & 20.8 & $<$0.1 \\
-\bottomrule
-\multicolumn{5}{@{}l@{}}{\footnotesize $^*$Optimisation reached a worse local minimum from $\hat\theta_{\mathrm{train}}$; see text.}
-\end{longtable}}
+\input{tables/tableS_nested.tex}
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/figS_anidada.pdf}
+\caption{\textbf{Leakage-free nested validation.} Test $\chi^2/n$ of the nested reduced model (non-selected parameters at $\hat\theta_{\mathrm{train}}$) against \textbf{a}, the full model re-estimated on the training data, with which it coincides by construction, and \textbf{b}, the original reduced model anchored at $\theta_0$; points above the diagonal predict worse without the anchor. Dashed line, $y=x$; problems that differ by more than a factor of 3 are labelled; Perelson ($\chi^2/n<10^{-12}$) lies outside the axes.}
+\label{fig:anidada}
+\end{figure}

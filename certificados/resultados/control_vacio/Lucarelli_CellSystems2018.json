@@ -1,0 +1,9 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "k": 10,
+ "chi2_ours": 1.6588292477170448,
+ "chi2_vacio": 1.0152828589583858,
+ "ratio_vacio_vs_ours": 0.6120478405813399,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.6
+}

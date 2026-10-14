@@ -1,0 +1,14 @@
+{
+ "S": [
+  "reaction_6_k1",
+  "reaction_8_k1"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 1.3770182252312342,
+ "B_chi2_test_red": 1.7876110561327174,
+ "B_epred_red": 1.0686259356084298,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 1.0
+}

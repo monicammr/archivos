@@ -1,0 +1,9 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "k": 2,
+ "n_cal": 10,
+ "chi2_ours": 2.748324922924577,
+ "chi2_vacio": 2.7201489875589653,
+ "ratio_vacio_vs_ours": 0.9897479606102655,
+ "segundos": 5.3
+}

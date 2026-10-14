@@ -1,0 +1,18 @@
+{
+ "S": [
+  "init_bcry_1",
+  "init_b10_1",
+  "init_bcar1",
+  "kb2",
+  "kc2"
+ ],
+ "eajuste_med": 0.8474850876826894,
+ "erel_med": 0.8826605591122815,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 2.5
+}

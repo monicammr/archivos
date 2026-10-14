@@ -1,0 +1,155 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 20,
+ "n_bio": 12,
+ "n_identificables": 0,
+ "n_no_identificables_practicos": 3,
+ "n_planos": 9,
+ "S_ours": [
+  "tau2",
+  "k6"
+ ],
+ "S_perfil": [
+  "K_2",
+  "k6"
+ ],
+ "S_qr": [
+  "k11",
+  "k5"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 11.207266309262952,
+ "chi2_qr": 10.945657432603436,
+ "chi2_perfil": 9.556297691377136,
+ "ratio_perfil_vs_ours": 0.8526876606366292,
+ "coste_min_train": 32.81997062904423,
+ "dchi2_minimo_perfiles": -0.003619518612666184,
+ "puntos_fallidos": 0,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "K_2",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.8292250482517005,
+   "dchi2_max_der": 9.532692974361389,
+   "dchi2_min_lado": 3.8292250482517005,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.045326071140834756
+  },
+  {
+   "parametro": "k6",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 16.06792106274819,
+   "dchi2_max_der": 2.630510588099419,
+   "dchi2_min_lado": 2.630510588099419,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.02193262131390128
+  },
+  {
+   "parametro": "k4",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.397818960364212,
+   "dchi2_max_der": 2.6851832470434545,
+   "dchi2_min_lado": 2.397818960364212,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.039472046473363775
+  },
+  {
+   "parametro": "k2",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 45.58147909470842,
+   "dchi2_max_der": 2.3891087259382644,
+   "dchi2_min_lado": 2.3891087259382644,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.07925670619241032
+  },
+  {
+   "parametro": "k5",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.008182489687591499,
+   "dchi2_max_der": 0.9391847841209042,
+   "dchi2_min_lado": 0.008182489687591499,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.002931404884947142
+  },
+  {
+   "parametro": "K_1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.01724888424168114,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.003619518612666184
+  },
+  {
+   "parametro": "K_3",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.000982832031702685
+  },
+  {
+   "parametro": "k10",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.002545565463577759
+  },
+  {
+   "parametro": "k11",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.00030653194865237765,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0017153316948466113
+  },
+  {
+   "parametro": "k3",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.002538224362666597
+  },
+  {
+   "parametro": "tau1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0030194186532526146
+  },
+  {
+   "parametro": "tau2",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.464799145687806,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0028252074942045624
+  }
+ ],
+ "segundos_fase3": 0.2
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k1a",
+  "k_IRSiP_DosR"
+ ],
+ "eajuste_med": 0.1160945217690544,
+ "erel_med": 0.6859578514643094,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 19.8
+}

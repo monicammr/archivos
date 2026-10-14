@@ -1,0 +1,14 @@
+{
+ "S": [
+  "alpha_4",
+  "alpha_22"
+ ],
+ "semilla": 54,
+ "B_chi2_test_theta0": 1.046154995862066,
+ "B_chi2_test_red": 1.0520278867940014,
+ "B_epred_red": 75.19587035091077,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.4
+}

@@ -187,6 +187,10 @@ def main_one(name, t_def):
         CAL = [int(j) for j in act if Sy.calib[j]]
         act = np.array([j for j in act if not Sy.calib[j]], dtype=int)
     # --- J relativa por diferencias centradas en log θ
+    # columnas de los parámetros biológicos Y de los de calibración: la reestimación linealizada
+    # (RECL_AJUSTE_LINEAL) usa J[:, S ∪ Θ_C]; sin las columnas de Θ_C la calibración no se
+    # reajustaría (antes sólo se calculaban las biológicas y las de Θ_C quedaban en cero)
+    cols_J = [int(j) for j in act] + [j for j in CAL if j not in set(int(k) for k in act)]
     if (p > 200 or PARALELO) and NPROC > 1:
         # sistemas grandes: J en disco (float32) con registro de columnas hechas, para poder
         # reanudar tras una interrupción
@@ -198,7 +202,7 @@ def main_one(name, t_def):
         else:
             J = np.lib.format.open_memmap(fJ, mode="w+", dtype=np.float32, shape=(y0.size, p))
             hechas = np.zeros(p, dtype=bool)
-        pend = [int(j) for j in act if not hechas[j]]
+        pend = [j for j in cols_J if not hechas[j]]
         print(f"  J: {int(hechas.sum())} columnas ya hechas, faltan {len(pend)}", flush=True)
         with Pool(NPROC, initializer=_w_init, initargs=(name, t_end)) as pool:
             for k, (j, col) in enumerate(pool.imap_unordered(_w_col, pend, chunksize=8)):
@@ -207,12 +211,12 @@ def main_one(name, t_def):
                 hechas[j] = True
                 if k % 10 == 0:
                     J.flush(); np.save(fm, hechas)
-                    print(f"  J: {int(hechas.sum())}/{len(act)} columnas", flush=True)
+                    print(f"  J: {int(hechas.sum())}/{len(cols_J)} columnas", flush=True)
         J.flush(); np.save(fm, hechas)
         J = np.asarray(J, dtype=float) if J.nbytes < 4e9 else J
     else:
         J = np.zeros((y0.size, p))
-        for j in act:
+        for j in cols_J:
             tp, tm = th0.copy(), th0.copy()
             tp[j] *= 1 + DELTA; tm[j] *= 1 - DELTA
             yp, ym = Sy.sim(tp), Sy.sim(tm)

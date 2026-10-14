@@ -1,0 +1,14 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "semilla": 57,
+ "p_y": 14,
+ "B_chi2_test_theta0": 0.6995136165416201,
+ "B_chi2_test_red": 0.5853279608129703,
+ "B_epred_red": 0.9257254601968765,
+ "nfev_red": 14,
+ "seg_red": 0.9,
+ "B_chi2_test_full": 0.548688929290962,
+ "B_epred_full": 0.3163584157448261,
+ "nfev_full": 20,
+ "segundos": 1.6
+}

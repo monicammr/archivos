@@ -1,0 +1,51 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 6,
+ "S_ours": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "S_brun": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "chi2_brun": 101.82516518363968,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 1.0,
+ "detalle_brun": {
+  "gamma": 3.632251899275308,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "ratio_kpkd_Y1068__FREE": 32.43614436255392,
+   "ratio_kpkd_YN__FREE": 19.907856692273278,
+   "SHC1_total__FREE": 14.110676466961552,
+   "kdephosYN__FREE": 7.938342697831511,
+   "GRB2_total__FREE": 4.12333080379245,
+   "kdephosY1068__FREE": 0.6141565964944913
+  }
+ },
+ "S_morris": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "chi2_morris": 101.82516518363968,
+ "overlap_morris_ours": 2,
+ "segundos_morris": 3.7,
+ "detalle_morris": {
+  "mu_star_top": {
+   "ratio_kpkd_Y1068__FREE": 540.6402437784675,
+   "ratio_kpkd_YN__FREE": 172.9827957336932,
+   "SHC1_total__FREE": 151.24912802649698,
+   "GRB2_total__FREE": 92.9562014718417,
+   "kdephosYN__FREE": 44.53434104561963,
+   "kdephosY1068__FREE": 30.513061307177384
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 101.82516518363968,
+ "chi2_qr": 101.73474834533779,
+ "chi2_perfil": 118.76312423033566,
+ "segundos": 11.6
+}

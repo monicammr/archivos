@@ -1,0 +1,14 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "semilla": 44,
+ "p_y": 9,
+ "B_chi2_test_theta0": 37.836600349556164,
+ "B_chi2_test_red": 0.9665729809961496,
+ "B_epred_red": 0.05487823681854553,
+ "nfev_red": 13,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 0.8077196992114627,
+ "B_epred_full": 0.013393579124723082,
+ "nfev_full": 150,
+ "segundos": 2.2
+}

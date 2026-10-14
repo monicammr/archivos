@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k_IRSiP_DosR",
+  "km2"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 5.545374220392146,
+ "B_chi2_test_red": 5.422257002087222,
+ "B_epred_red": 0.9871071395717208,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.6
+}

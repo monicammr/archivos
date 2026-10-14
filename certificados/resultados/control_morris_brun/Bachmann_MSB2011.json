@@ -1,0 +1,64 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 27,
+ "S_ours": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "S_brun": [
+  "STAT5Imp",
+  "JAK2ActEpo"
+ ],
+ "chi2_brun": 4.749927425925819,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 52.4,
+ "detalle_brun": {
+  "gamma": 1.0610063693785368,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "STAT5Imp": 1.210111381741307,
+   "JAK2ActEpo": 1.0386466726319359,
+   "STAT5Exp": 0.979703148982737,
+   "CISRNADelay": 0.8781128594750969,
+   "JAK2EpoRDeaSHP1": 0.8598423686923772,
+   "SHP1ActEpoR": 0.8563664663880032,
+   "CISTurn": 0.7083539181090904,
+   "EpoRActJAK2": 0.7064082879042534,
+   "STAT5ActJAK2": 0.6447730874899185,
+   "SOCS3EqcOE": 0.6296133909204551,
+   "STAT5ActEpoR": 0.4712398574342913,
+   "SOCS3RNATurn": 0.4245734798796991,
+   "SHP1Dea": 0.40687960872556006,
+   "SOCS3Inh": 0.3763990611280396,
+   "CISEqcOE": 0.3329765845888366
+  }
+ },
+ "S_morris": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "chi2_morris": 4.767654811703897,
+ "overlap_morris_ours": 2,
+ "segundos_morris": 53.5,
+ "detalle_morris": {
+  "mu_star_top": {
+   "CISRNADelay": 115.62119048628274,
+   "JAK2ActEpo": 91.45188424241508,
+   "STAT5Imp": 91.24403829918897,
+   "JAK2EpoRDeaSHP1": 72.31290374035476,
+   "STAT5ActJAK2": 68.22970408220161,
+   "SHP1ActEpoR": 66.06485435061978,
+   "STAT5Exp": 65.63113112082593,
+   "CISTurn": 51.88075805310268,
+   "SOCS3EqcOE": 49.984721734495,
+   "EpoRActJAK2": 48.003149843206565
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 4.767639179580845,
+ "chi2_qr": 4.746082339750425,
+ "chi2_perfil": null,
+ "segundos": 110.1
+}

@@ -1,0 +1,9 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "k": 2,
+ "chi2_ours": 2.221536953058167,
+ "chi2_vacio": 1.3730271023285476,
+ "ratio_vacio_vs_ours": 0.6180527856799496,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

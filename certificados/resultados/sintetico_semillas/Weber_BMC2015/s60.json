@@ -1,0 +1,14 @@
+{
+ "sistema": "Weber_BMC2015",
+ "semilla": 60,
+ "p_y": 31,
+ "B_chi2_test_theta0": 59.700214656151495,
+ "B_chi2_test_red": 10.206995333048981,
+ "B_epred_red": 0.3878713688401749,
+ "nfev_red": 15,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 53.96463099620318,
+ "B_epred_full": 0.9484354040031374,
+ "nfev_full": 465,
+ "segundos": 59.8
+}

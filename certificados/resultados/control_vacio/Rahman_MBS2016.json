@@ -1,0 +1,9 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "k": 2,
+ "chi2_ours": 0.0019946462955132307,
+ "chi2_vacio": 0.0014774578960137447,
+ "ratio_vacio_vs_ours": 0.7407117238465523,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}
