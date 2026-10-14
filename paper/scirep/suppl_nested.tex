@@ -12,6 +12,64 @@ For each problem we ran a \emph{nested} validation in which no value used by the
   \item the reduced model was then re-estimated on the training data with the non-selected parameters fixed at $\hat\theta_{\mathrm{train}}$ instead of $\theta_0$, and with search bounds derived from $\hat\theta_{\mathrm{train}}$;
   \item the test $\chi^2/n$ of this nested reduced model was compared with that of the full training fit and with that of the original, $\theta_0$-anchored reduced model.
 \end{enumerate}
+Supplementary Figure~\ref{fig:nested_protocol} illustrates both protocols.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance = 0.6cm,
+  box/.style     = {rectangle, rounded corners=4pt, draw, minimum width=4.2cm,
+                    minimum height=0.72cm, text width=4.0cm, align=center, font=\small},
+  dataL/.style   = {box, fill=red!10, draw=red!50},
+  dataR/.style   = {box, fill=teal!10, draw=teal!50},
+  fitbox/.style  = {box, fill=violet!8, draw=violet!45},
+  parambox/.style= {box, fill=orange!10, draw=orange!50},
+  resL/.style    = {box, fill=red!8,    draw=red!40},
+  resR/.style    = {box, fill=teal!15,  draw=teal!50},
+  sumbox/.style  = {rectangle, rounded corners=4pt, draw=gray!50, fill=gray!8,
+                    minimum width=9.6cm, text width=9.2cm, align=center, font=\small},
+  arr/.style     = {->, >=Stealth, semithick},
+  lbl/.style     = {font=\footnotesize, midway, right, xshift=2pt}
+]
+% ---- Column A: original ----
+\node[font=\small\bfseries] (titleA) {(a)~Original};
+\node[dataL,   below=0.5cm of titleA] (dataA) {All data\\[2pt]{\footnotesize train\,+\,test}};
+\node[fitbox,  below=0.6cm of dataA]  (fitA)    {Fit full model};
+\node[parambox,below=0.6cm of fitA]   (thetaA)  {$\theta_0$\\[2pt]{\footnotesize all-data estimate}};
+\node[fitbox,  below=1.1cm of thetaA] (fitredA) {Fit reduced model\\[2pt]{\footnotesize $S\cup\Theta_C$ on train}};
+\node[resL,    below=0.6cm of fitredA](chi2A)   {$\chi^2_{\mathrm{orig}}$ (test set)};
+% ---- Column B: leakage-free ----
+\node[dataR, right=2.4cm of dataA] (dataB) {Training data\\[2pt]{\footnotesize test set never used}};
+\node[font=\small\bfseries] at (dataB.north |- titleA) (titleB) {(b)~Leakage-free};
+\node[fitbox,   below=0.6cm of dataB]  (fitB)    {Fit full model};
+\node[parambox, below=0.6cm of fitB]   (thetaB)  {$\hat\theta_{\mathrm{train}}$\\[2pt]{\footnotesize training-only estimate}};
+\node[fitbox,   below=1.1cm of thetaB] (fitredB) {Fit reduced model\\[2pt]{\footnotesize $S\cup\Theta_C$ on train}};
+\node[resR,     below=0.6cm of fitredB](chi2B)   {$\chi^2_{\mathrm{nested}}$ (test set)};
+% ---- divider and arrows ----
+\draw[dashed, gray!60]
+    ($(dataA.north east)!0.5!(dataB.north west) + (0, 0.3)$)
+    -- ($(chi2A.south east)!0.5!(chi2B.south west) + (0,-0.3)$);
+\draw[arr] (dataA) -- (fitA);
+\draw[arr] (fitA)  -- (thetaA);
+\draw[arr] (thetaA) -- node[lbl]{fix $\Theta\setminus S$ at $\theta_0$} (fitredA);
+\draw[arr] (fitredA) -- (chi2A);
+\draw[arr] (dataB) -- (fitB);
+\draw[arr] (fitB)  -- (thetaB);
+\draw[arr] (thetaB) -- node[lbl]{fix $\Theta\setminus S$ at $\hat\theta_{\mathrm{train}}$} (fitredB);
+\draw[arr] (fitredB) -- (chi2B);
+% ---- result ----
+\coordinate (midbot) at ($(chi2A.south)!0.5!(chi2B.south)$);
+\node[sumbox, below=0.9cm of midbot] (result)
+    {$\chi^2_{\mathrm{nested}}\approx\chi^2_{\mathrm{full,train}}$ by construction (25 of 29 within 1\%);\\
+     $\chi^2_{\mathrm{nested}}>\chi^2_{\mathrm{orig}}$ in 22 of 29 problems\quad$\Rightarrow$\quad
+     the advantage on real data comes from the $\theta_0$ anchor};
+\draw[->, >=Stealth, semithick, gray!70] (chi2A.south) -- (chi2A.south |- result.north);
+\draw[->, >=Stealth, semithick, gray!70] (chi2B.south) -- (chi2B.south |- result.north);
+\end{tikzpicture}
+\caption{\textbf{The two external-validation protocols.} \textbf{(a)}~In the original protocol the non-selected parameters of the reduced model are fixed at $\theta_0$, the published estimate obtained from \emph{all} data including the test set. \textbf{(b)}~In the leakage-free protocol the full model is first re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$, which then serves both as the value of the fixed parameters and as the reference for the optimisation bounds; the test set is never used to construct the reduced model. The box states the outcome: the nested reduced model reproduces the full training fit, as it must because its re-estimation starts at the training optimum, and it predicts worse than the original reduced model in 22 of 29 problems. (An earlier version of this figure concluded that no leakage bias was detected; see the text.)}
+\label{fig:nested_protocol}
+\end{figure}
+
 Twenty-nine problems were evaluated. Bertozzi (selected parameters active only in the test conditions), Blasi (single time point, no split) and Lang (277 free parameters, full re-estimation infeasible) were excluded. For Chen, whose full re-estimation with 155 free parameters did not finish in serial form, the columns of the finite-difference Jacobian were evaluated in parallel and the integrator tolerances were $10^{-6}/10^{-8}$; its $\theta_0$ and original values agree with those of the main analysis.
 
 \subsection*{Results}
