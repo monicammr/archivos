@@ -66,7 +66,7 @@ Supplementary Figure~\ref{fig:nested_protocol} illustrates both protocols.
 \draw[->, >=Stealth, semithick, gray!70] (chi2A.south) -- (chi2A.south |- result.north);
 \draw[->, >=Stealth, semithick, gray!70] (chi2B.south) -- (chi2B.south |- result.north);
 \end{tikzpicture}
-\caption{\textbf{The two external-validation protocols.} \textbf{(a)}~In the original protocol the non-selected parameters of the reduced model are fixed at $\theta_0$, the published estimate obtained from \emph{all} data including the test set. \textbf{(b)}~In the leakage-free protocol the full model is first re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$, which then serves both as the value of the fixed parameters and as the reference for the optimisation bounds; the test set is never used to construct the reduced model. The box states the outcome: the nested reduced model reproduces the full training fit, as it must because its re-estimation starts at the training optimum, and it predicts worse than the original reduced model in 22 of 29 problems. (An earlier version of this figure concluded that no leakage bias was detected; see the text.)}
+\caption{\textbf{The two external-validation protocols.} \textbf{(a)}~In the original protocol the non-selected parameters of the reduced model are fixed at $\theta_0$, the published estimate obtained from \emph{all} data including the test set. \textbf{(b)}~In the leakage-free protocol the full model is first re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$, which then serves both as the value of the fixed parameters and as the reference for the optimisation bounds; the test set is never used to construct the reduced model. The box states the outcome: the nested reduced model reproduces the full training fit, as it must because its re-estimation starts at the training optimum, and it predicts worse than the original reduced model in 22 of 29 problems.}
 \label{fig:nested_protocol}
 \end{figure}
 
@@ -80,7 +80,6 @@ Supplementary Table~\ref{tab:nested} gives the results and Supplementary Figure~
 
 \emph{Removing the $\theta_0$ anchor removes the advantage of the reduced model.} Compared with the original reduced model, the nested reduced model predicted worse in 22 of the 29 problems and more than four times worse in eight (for example Brannmark 5.96 versus $6.4\times10^3$, Bruno 0.91 versus 208, Weber 1.00 versus 16.0, Zheng 1.58 versus 20.8). The better prediction of the reduced model on real data (main text, \emph{Prediction of held-out experiments}) therefore reflects the information in the published values at which the other parameters are fixed. This does not affect the admissibility of the subsets, which is a property of the model, not of the data, and it is why the comparison of prediction without leakage is made on synthetic data, where $\theta_0$ carries no information about the truth (\sref{synth}).
 
-An earlier version of this note interpreted the agreement between the nested reduced model and the full training fit as evidence that the anchor does not affect the conclusion; as explained above, that agreement holds by construction, and the comparison with the original reduced model shows the opposite.
 
 {\small
 \input{tables/tableS_nested.tex}

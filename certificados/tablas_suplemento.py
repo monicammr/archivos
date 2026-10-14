@@ -259,7 +259,7 @@ escribe("tableS_synth20.tex", longtable(
 filas = [[str(c["semilla"]), str(c["evaluables"]), str(c["senal"]), str(c["red_ok"]), str(c["comp"]), str(c["red_le_full"])] for c in res["por_semilla"]]
 escribe("tableS_synth20_seeds.tex", longtable(
     "@{}rrrrrr@{}",
-    "Synthetic prediction experiment, reduced and full model: counts per seed (seed 42 is the experiment of the earlier version of this study).",
+    "Synthetic prediction experiment, reduced and full model: counts per seed.",
     "tab:synth20seeds", ["Seed", "Problems", "With signal", "Reduced $\\le\\tau_e$", "Compared with full", "Reduced $\\le$ full"], filas))
 
 # ── 8. validación anidada (29 problemas) ─────────────────────────────────────────
@@ -299,5 +299,5 @@ for s in sorted(ref):
                   "infeasible" if pf.get(s, {}).get("no_evaluable", "").count("PL_PMAX") else ""])
 escribe("tableS_tiempos.tex", longtable(
     "@{}lrrrrrl@{}",
-    "Computation time (seconds of wall-clock time) of our complete method (selection, admissibility test and backward elimination, run from scratch without cached results) with the sensitivity computations in parallel and on a single core, and of profile likelihood with all profile points of a problem computed in parallel on 120 cores (first round, and including the re-estimations of the optimum). All runs shared a 128-core server with other computations, so the times are upper bounds. For the eight problems treated to first order the parallel time is that of the corrected code (Supplementary Note \\textit{Reproducibility package}).",
+    "Computation time (seconds of wall-clock time) of our complete method (selection, admissibility test and backward elimination, run from scratch without cached results) with the sensitivity computations in parallel and on a single core, and of profile likelihood with all profile points of a problem computed in parallel on 120 cores (first round, and including the re-estimations of the optimum). All runs shared a 128-core server with other computations, so the times are upper bounds. For the eight problems treated to first order the parallel time is that of the run that reproduces the reported results (Supplementary Note \\textit{Reproducibility package}).",
     "tab:tiempos", ["Problem", "$p$", "Ours, parallel", "Ours, 1 core", "Profile, 1st round", "Profile, total", ""], filas))
