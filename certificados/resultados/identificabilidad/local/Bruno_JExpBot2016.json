@@ -1,0 +1,39 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "evaluable": true,
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 77,
+ "kappa_S_std": 2.2580326528815435,
+ "VIF_S_std": 1.5663014175786354,
+ "kappa_SC_std": 2.2580326528815435,
+ "VIF_SC_std": 1.5663014175786354,
+ "kappa_SC_n": 1.642010205351354,
+ "VIF_SC_n_max": 1.2667725558561644,
+ "VIF_SC_n_S": {
+  "kb1": 1.2667725558561644,
+  "init_bcar2": 1.0839972380908511,
+  "init_zea_1": 1.0000000000000002,
+  "init_bcar1": 1.1827753177653129,
+  "init_bcry_1": 1.0
+ },
+ "param_VIF_max": "kb1",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.3798476560521792,
+  "a": "kb1",
+  "b": "init_bcar1"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.3,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

@@ -1,0 +1,43 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "evaluable": true,
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "n_calibracion": 9,
+ "calibracion_usada": [
+  "sc_PI3K",
+  "sc_GLUT_2B",
+  "sc_BINS",
+  "sc_PIRS",
+  "sc_PTP",
+  "sc_GLUT_3B_120",
+  "sc_GLUT_3B_240",
+  "sc_SOD2",
+  "sc_FOXO1"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 62,
+ "kappa_S_std": 3.199560735572667,
+ "VIF_S_std": 3.0837179916781756,
+ "kappa_SC_std": 13.428383883826788,
+ "VIF_SC_std": 35.56095470819354,
+ "kappa_SC_n": 14.023236409108828,
+ "VIF_SC_n_max": 39.68237453662107,
+ "VIF_SC_n_S": {
+  "k8": 29.30013892539589,
+  "kminus7b": 14.559277587386697
+ },
+ "param_VIF_max": "sc_PI3K",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9441908861612102,
+  "a": "k8",
+  "b": "sc_PI3K"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 25.2,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}

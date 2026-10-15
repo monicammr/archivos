@@ -12,7 +12,7 @@ For each problem we ran a \emph{nested} validation in which no value used by the
   \item the reduced model was then re-estimated on the training data with the non-selected parameters fixed at $\hat\theta_{\mathrm{train}}$ instead of $\theta_0$, and with search bounds derived from $\hat\theta_{\mathrm{train}}$;
   \item the test $\chi^2/n$ of this nested reduced model was compared with that of the full training fit and with that of the original, $\theta_0$-anchored reduced model.
 \end{enumerate}
-Supplementary Figure~\ref{fig:nested_protocol} illustrates both protocols.
+Supplementary Figure~\ref{fig:nested_protocol} illustrates both protocols. The protocol removes the leakage through the values of the fixed parameters; it does not repeat the whole procedure on the training data: the subset $S$ and the sensitivity matrix were not recomputed on the training data, and the full training fit starts from $\theta_0$. It is therefore an analysis of the effect of the $\theta_0$ anchor, not a fully leakage-free validation of the selection.
 
 \begin{figure}[H]
 \centering

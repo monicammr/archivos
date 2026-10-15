@@ -43,7 +43,7 @@ def tx(s):  # plain text (meanings) with Unicode math symbols mapped to LaTeX
            "𝓑": r"$\mathcal B$", "B̄": r"$\bar B$", "ρ₀": r"$\rho_0$", "ρ": r"$\rho$", "κ₀": r"$\kappa_0$",
            "κ": r"$\kappa$", "τ_e": r"$\tau_e$", "τ_κ": r"$\tau_\kappa$", "τ_VIF": r"$\tau_{\mathrm{VIF}}$", "τ": r"$\tau$",
            "σ_min": r"$\sigma_{\min}$", "σ_max": r"$\sigma_{\max}$", "σ": r"$\sigma$", "δ₀": r"$\delta_0$",
-           "δ": r"$\delta$", "ε_g": r"$\varepsilon_g$", "ε": r"$\varepsilon$", "η": r"$\eta$", "λ_min": r"$\lambda_{\min}$",
+           "δ": r"$\delta$", "γ": r"$\gamma$", "ε_g": r"$\varepsilon_g$", "ε": r"$\varepsilon$", "η": r"$\eta$", "λ_min": r"$\lambda_{\min}$",
            "λ": r"$\lambda$", "α*": r"$\alpha^*$", "α": r"$\alpha$", "β": r"$\beta$", "φ": r"$\varphi$", "ν": r"$\nu$",
            "M₁": r"$M_1$", "M₂": r"$M_2$", "K₀": r"$K_0$", "x⁰": r"$x^0$", "θ₀_j": r"$\theta_{0,j}$",
            "→": r"$\to$", "⇔": r"$\Leftrightarrow$", "×": r"$\times$", "−": "--", "–": "--", "…": r"\dots{}",
@@ -84,7 +84,7 @@ L += [r"\bottomrule", r"\end{longtable}", "}", ""]
 MOD = {m: (grp, desc, loc, ents) for m, grp, desc, loc, ents in fo.M}
 for part, title, mods in fo.PARTS:
     st = [fo.STEP[m] for m in mods]
-    L += [r"\subsection*{Steps " + f"{min(st)}--{max(st)}. " + title + "}", ""]
+    L += [r"\subsection*{" + (f"Step {min(st)}" if min(st) == max(st) else f"Steps {min(st)}--{max(st)}") + ". " + title + "}", ""]
     for m in mods:
         grp, desc, loc, ents = MOD[m]
         L += [r"\subsubsection*{Step " + str(fo.STEP[m]) + r". \texttt{" + m + "} (" + str(len(ents)) + ")}", tx(desc), ""]
@@ -123,7 +123,7 @@ for m in fo.ORDER:
     D.append(f"| {fo.STEP[m]} | `{m}` | {', '.join(str(fo.STEP[u]) for u in sorted(us, key=fo.STEP.get)) or '—'} |")
 for part, title, mods in fo.PARTS:
     st = [fo.STEP[m] for m in mods]
-    D += ["", f"## Steps {min(st)}-{max(st)}. {title}"]
+    D += ["", (f"## Step {min(st)}" if min(st) == max(st) else f"## Steps {min(st)}-{max(st)}") + f". {title}"]
     for m in mods:
         grp, desc, loc, ents = MOD[m]
         D += ["", f"### Step {fo.STEP[m]}. `{m}` ({len(ents)})", "", desc, ""]

@@ -10,6 +10,12 @@ from pathlib import Path
 import numpy as np
 from scipy import stats
 
+# Problemas fuera de la comparación de admisibilidad entre criterios (Bertozzi: nuestro método
+# seleccionó con todas las salidas, que incluyen las condiciones de prueba; los demás criterios con
+# las de entrenamiento).
+EXCLUIR_ADMIS = {"Bertozzi_PNAS2020"}
+
+
 HERE = Path(__file__).resolve().parent
 R = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "resultados"
 T = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE.parent / "paper" / "scirep" / "tables"
@@ -155,6 +161,8 @@ def adm(sub):
     A = collections.defaultdict(dict)
     for f in glob.glob(str(R / sub / "*__adm.json")):
         d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if d.get("sistema") in EXCLUIR_ADMIS:   # Bertozzi: los criterios no usaron la misma información
+            continue
         if "eajuste_med" in d:
             A[d["sistema"]][d["metodo"]] = d
     return A
@@ -165,7 +173,7 @@ for s in sorted(A5):
     for A in (A5, A20):
         for m in M:
             d = A.get(s, {}).get(m)
-            f.append("--" if not d else (f"{min(d['eajuste_med'], d['erel_med']):.2f}" + ("$^{\\checkmark}$" if d["admisible"] else "")))
+            f.append("--" if not d else (f"{min(d['eajuste_med'], d['erel_med']):.3f}" + ("$^{\\checkmark}$" if d["admisible"] else "")))
     filas.append(f)
 cuenta = []
 for A in (A5, A20):

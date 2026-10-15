@@ -1,0 +1,49 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "n_calibracion": 11,
+ "n_datos": 687,
+ "coste_min": 686.6105482361338,
+ "chi2_por_gl": 1.0187100122197832,
+ "umbral_robusto": 3.9118464469239673,
+ "rondas": 0,
+ "dchi2_minimo": 5.699952466317541,
+ "perfiles": [
+  {
+   "parametro": "kf_RIIp_C_2__RII_C_2",
+   "puntos_fallidos": 5,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 3614.415866877258,
+   "dchi2_max_der": 0.0,
+   "clase": "no identificable practico",
+   "ic_izq_log": 0.0673689828589191,
+   "ic_der_log": Infinity,
+   "clase_robusto": "no identificable practico",
+   "ic_izq_log_robusto": 0.06862945735144384,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "xi_kf_RII_C_2__RII_2",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [
+    -1,
+    1
+   ],
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 0,
+ "todos_identificables": false,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

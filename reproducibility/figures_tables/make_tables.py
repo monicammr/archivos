@@ -9,9 +9,9 @@ measurements come from results/simulator_check (one entry per row of measurement
 """
 import numpy as np
 
-from common import TAB as OUT, load, measurements
+from common import TAB as OUT, load, load_validation, measurements
 
-SEL, VAL, PAT = load("selection"), load("external_validation"), load("robustness")
+SEL, VAL, PAT = load("selection"), load_validation(), load("robustness")
 LIN = {"Alkan_SciSignal2018", "Bachmann_MSB2011", "Beer_MolBioSystems2014", "Chen_MSB2009",
        "Isensee_JCB2018", "Lang_PLOSComputBiol2024", "Lucarelli_CellSystems2018", "Raimundez_PCB2020"}
 meas = measurements()

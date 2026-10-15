@@ -1,0 +1,45 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "evaluable": true,
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "n_calibracion": 11,
+ "calibracion_usada": [
+  "b_Calpha_global",
+  "b_pRII_global",
+  "rel_open",
+  "s_Calpha_global",
+  "s_pRII_JI09_150302_Drg345_343_CycNuc",
+  "s_pRII_JI09_150330_Drg350_348_CycNuc",
+  "s_pRII_JI09_150330_Drg353_351_CycNuc",
+  "s_pRII_JI09_151102_Drg421_418_Age",
+  "s_pRII_Western",
+  "s_pRII_global",
+  "xi_rel_open"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 687,
+ "kappa_S_std": 1.018659337126297,
+ "VIF_S_std": 1.0003418224325962,
+ "kappa_SC_std": 78295571.4912545,
+ "VIF_SC_std": 1125000555390276.1,
+ "kappa_SC_n": 136186530.39662516,
+ "VIF_SC_n_max": 902667867332719.2,
+ "VIF_SC_n_S": {
+  "kf_RIIp_C_2__RII_C_2": 34.47728434461325,
+  "xi_kf_RII_C_2__RII_2": 41.590997498807134
+ },
+ "param_VIF_max": "s_pRII_global",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9014755183944656,
+  "a": "kf_RIIp_C_2__RII_C_2",
+  "b": "b_pRII_global"
+ },
+ "columnas_reutilizadas": 13,
+ "segundos": 47.7,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}

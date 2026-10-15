@@ -15,7 +15,7 @@ import numpy as np
 from scipy import stats
 
 HERE = Path(__file__).resolve().parent
-from common import RESULTS as R, FIG, TAB, OUT as _OUT
+from common import RESULTS as R, FIG, TAB, OUT as _OUT, EXCLUDE_ADMISSIBILITY
 OUT = _OUT / "comparison"
 OUT.mkdir(parents=True, exist_ok=True)
 TAU = math.sqrt(1 - 0.9 ** 2)
@@ -69,6 +69,8 @@ for carpeta in sorted(glob.glob(str(R / "criteria_tests*"))):
     adm = collections.defaultdict(dict)
     for f in glob.glob(carpeta + "/*__adm.json"):
         d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if d.get("sistema") in EXCLUDE_ADMISSIBILITY:
+            continue
         if "admisible" in d:
             adm[d["sistema"]][d["metodo"]] = bool(d["admisible"])
     if not adm:

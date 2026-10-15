@@ -10,9 +10,9 @@ taken from the overview table of the collection (stored in problem_sources.json)
 import json, re
 import numpy as np
 
-from common import HERE as SRC, OUT as HERE, RESULTS, load
+from common import HERE as SRC, OUT as HERE, RESULTS, load, load_validation
 
-SEL, VAL, PAT = load("selection"), load("external_validation"), load("robustness")
+SEL, VAL, PAT = load("selection"), load_validation(), load("robustness")
 
 # DOI (or PubMed id) of the source publication, from the overview table of the benchmark collection
 DOI = {k: tuple(v) for k, v in json.loads((SRC / "problem_sources.json").read_text()).items()}
@@ -215,12 +215,17 @@ def validation(s, d):
     elif r < f:
         ft = v.get("A_chi2_train_full")
         if f > 3 * r and ft is not None and ft < f / 3:
-            out += (f"The reduced model generalises better; the full model fits the training data closely "
-                    f"($\\chi^2/n$ {chi(ft)}) but predicts the test data poorly, a sign of overfitting.")
+            out += (f"The reduced model, anchored at $\\theta_0$, predicts the test data better than the refitted "
+                    f"full model, which fits the training data closely ($\\chi^2/n$ {chi(ft)}) but predicts the "
+                    f"test data poorly, a sign of overfitting.")
+        elif f > 3 * r:
+            out += ("The reduced model, anchored at $\\theta_0$, predicts the test data much better than the "
+                    "refitted full model.")
         else:
-            out += "The reduced model generalises better."
+            out += ("The reduced model, anchored at $\\theta_0$, predicts the test data better than the refitted "
+                    "full model.")
     else:
-        out += "Here the full model predicts better; this is the only problem in which it does."
+        out += "Here the refitted full model predicts the test data better than the reduced model."
     if t0 > 10:
         out += (" Even $\\theta_0$ has $\\chi^2/n\\gg1$, which indicates that the noise levels recorded in the benchmark "
                 "do not match the scatter of the data.")

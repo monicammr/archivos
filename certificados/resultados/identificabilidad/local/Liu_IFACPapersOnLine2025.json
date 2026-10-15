@@ -1,0 +1,33 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "evaluable": true,
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 100,
+ "kappa_S_std": 1.2940850278202445,
+ "VIF_S_std": 1.0679483998737394,
+ "kappa_SC_std": 1.2940850278202445,
+ "VIF_SC_std": 1.0679483998737394,
+ "kappa_SC_n": 1.7274914485219204,
+ "VIF_SC_n_max": 1.329830472454317,
+ "VIF_SC_n_S": {
+  "kappa": 1.329830472454317,
+  "phi": 1.329830472454317
+ },
+ "param_VIF_max": "kappa",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.49802053240783617,
+  "a": "kappa",
+  "b": "phi"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.8,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

@@ -1,0 +1,49 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "evaluable": true,
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "n_calibracion": 15,
+ "calibracion_usada": [
+  "fragments",
+  "km_nExpID1",
+  "km_nExpID2",
+  "km_nExpID3",
+  "km_nExpID4",
+  "offset",
+  "offset_nExpID1",
+  "offset_nExpID2",
+  "offset_nExpID3",
+  "offset_nExpID4",
+  "scale",
+  "scaleElisa_nExpID1",
+  "scaleElisa_nExpID2",
+  "scaleElisa_nExpID3",
+  "scaleElisa_nExpID4"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 286,
+ "kappa_S_std": 3.148043381282239,
+ "VIF_S_std": 3.002770875101424,
+ "kappa_SC_std": 5620615.893400357,
+ "VIF_SC_std": 2262630836635.8057,
+ "kappa_SC_n": 21.01384138463303,
+ "VIF_SC_n_max": 89.32625555771357,
+ "VIF_SC_n_S": {
+  "ini_R1": 39.122357744171026,
+  "ini_R2fold": 3.350059137312982
+ },
+ "param_VIF_max": "scale",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.8231652760282946,
+  "a": "ini_R1",
+  "b": "scale"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 2.1,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}

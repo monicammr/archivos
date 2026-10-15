@@ -1,0 +1,33 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "evaluable": true,
+ "S": [
+  "a_basal",
+  "a_k16_k12k16"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 252,
+ "kappa_S_std": 1.7637884290480013,
+ "VIF_S_std": 1.358098719788541,
+ "kappa_SC_std": 1.7637884290480013,
+ "VIF_SC_std": 1.358098719788541,
+ "kappa_SC_n": 2.6358776749116424,
+ "VIF_SC_n_max": 2.2729451277425174,
+ "VIF_SC_n_S": {
+  "a_basal": 2.272945127742517,
+  "a_k16_k12k16": 2.2729451277425174
+ },
+ "param_VIF_max": "a_k16_k12k16",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.7483596546370179,
+  "a": "a_basal",
+  "b": "a_k16_k12k16"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 4.6,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

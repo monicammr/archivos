@@ -1,0 +1,37 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "evaluable": true,
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "n_calibracion": 3,
+ "calibracion_usada": [
+  "scaling_pAkt_tot",
+  "scaling_pEGFR_tot",
+  "scaling_pS6_tot"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 144,
+ "kappa_S_std": 2.3393008563268,
+ "VIF_S_std": 1.9137665160694184,
+ "kappa_SC_std": 31453.710920081136,
+ "VIF_SC_std": 167523172.1926266,
+ "kappa_SC_n": 36621.633730207934,
+ "VIF_SC_n_max": 245148941.4030631,
+ "VIF_SC_n_S": {
+  "init_AKT": 245148941.4030631,
+  "reaction_6_k1": 107311.10003660647
+ },
+ "param_VIF_max": "init_AKT",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9999950099561403,
+  "a": "reaction_6_k1",
+  "b": "scaling_pS6_tot"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.5,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}

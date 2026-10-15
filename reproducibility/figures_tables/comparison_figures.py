@@ -18,7 +18,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 HERE = Path(__file__).resolve().parent
-from common import RESULTS as R, FIG, TAB, OUT as _OUT
+from common import RESULTS as R, FIG, TAB, OUT as _OUT, EXCLUDE_ADMISSIBILITY
 
 TAU = math.sqrt(1 - 0.81)
 # paleta categórica validada (orden fijo; un color por criterio en todas las figuras)
@@ -47,7 +47,8 @@ def letra(ax, c):
 
 
 # ── Figura 3 ──────────────────────────────────────────────────────────────────────
-ext = L("external_validation")
+from common import load_validation
+ext = load_validation()
 filas = []
 for s, d in ext.items():
     r, f, t0 = d.get("A_chi2_test_red"), d.get("A_chi2_test_full"), d.get("A_chi2_test_theta0")
@@ -98,6 +99,8 @@ def adm(sub):
     A = collections.defaultdict(dict)
     for f in glob.glob(str(R / sub / "*__adm.json")):
         d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if d.get("sistema") in EXCLUDE_ADMISSIBILITY:
+            continue
         if "admisible" in d:
             A[d["metodo"]][d["sistema"]] = bool(d["admisible"])
     return A

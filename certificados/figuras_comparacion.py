@@ -17,6 +17,12 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
+# Problemas fuera de la comparación de admisibilidad entre criterios (Bertozzi: nuestro método
+# seleccionó con todas las salidas, que incluyen las condiciones de prueba; los demás criterios con
+# las de entrenamiento).
+EXCLUIR_ADMIS = {"Bertozzi_PNAS2020"}
+
+
 HERE = Path(__file__).resolve().parent
 R = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "resultados"
 FIG = Path(sys.argv[2]) if len(sys.argv) > 2 else HERE.parent / "paper" / "scirep" / "figures"
@@ -98,6 +104,8 @@ def adm(sub):
     A = collections.defaultdict(dict)
     for f in glob.glob(str(R / sub / "*__adm.json")):
         d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if d.get("sistema") in EXCLUIR_ADMIS:   # Bertozzi: los criterios no usaron la misma información
+            continue
         if "admisible" in d:
             A[d["metodo"]][d["sistema"]] = bool(d["admisible"])
     return A

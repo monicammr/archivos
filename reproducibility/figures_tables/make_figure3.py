@@ -30,12 +30,13 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.patches import Patch
 
-from common import RESULTS, OUT as _OUT, FIG
+from common import RESULTS, OUT as _OUT, FIG, load_validation
 
 HERE = _OUT / "figure3"
 HERE.mkdir(parents=True, exist_ok=True)
 VALD = RESULTS / "external_validation"
 SELD = RESULTS / "selection"
+VALIDATION = load_validation()   # single run for all real-data numbers (common.load_validation)
 NOISE_FREE = 1e-2          # test chi2/n of theta0 below this: data reproduced to well below the recorded noise
 EQ = 0.05                  # equivalence band: ratio within [0.95, 1.05]
 HIGH = 10.0                # reduced chi2/n above this is flagged as a poor absolute fit
@@ -58,8 +59,7 @@ def build_rows():
     sel = {f.stem: json.loads(f.read_text()) for f in sorted(SELD.glob("*.json"))}
     rows = []
     for prob in sorted(sel, key=str.lower):
-        f = VALD / f"{prob}.json"
-        v = json.loads(f.read_text()) if f.exists() else None
+        v = VALIDATION.get(prob)
         r = dict(problem=prob, system=disp(prob), admissible=sel[prob]["admisible"])
         if v is None:
             r.update(reduced=None, full=None, theta0=None, n_test=None, split="",

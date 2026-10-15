@@ -29,10 +29,11 @@ G = [
         ("IdentifiabilityConditioning", r"$\kappa$ and VIF bounds imply unique and stable least-squares estimates", r"ls\_unique, ls\_param\_kappa\_stability, ls\_vif\_inverse\_stability"),
         ("SpectralConditioning", r"$\kappa$ and VIF exactly as computed numerically (spectral theorem, matrix inverse)", None),
         ("NumericalRobustness", r"Finite-difference error; $R_{\mathrm{var}}$, $\kappa$ and VIF certified from approximate values with margins", r"fd\_column\_error, rvar\_certified\_from\_approx"),
-        ("PatternMechanisms", r"Opposing effects imply rejection by $\kappa$ and non-identifiability; zero discarded energy implies exact first-order reduction", r"not\_okKappa\_of\_kernel, exact\_reduction\_of\_zero\_energy")]),
+        ("PatternMechanisms", r"Opposing effects imply rejection by $\kappa$ and non-identifiability; zero discarded energy implies exact first-order reduction", r"not\_okKappa\_of\_kernel, exact\_reduction\_of\_zero\_energy"),
+        ("ProfileIdentifiability", r"Practical identifiability of the reduced problem: if the guaranteed half-width $t^{\ast}$ from the profiled information is smaller than the distance to the bounds, the profile likelihood exceeds the threshold on both sides", r"practically\_identifiable\_grad, tstar\_linear, local\_injective")]),
     ("Re-estimation, minimality and measured outputs", [
         ("RefitMonotone", r"Re-estimating more parameters never increases the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$", r"fitErr\_anti, fitErr\_le\_erel, admissible\_mono"),
-        ("Poda", r"Theorem 2: backward elimination returns an inclusion-minimal admissible subset", r"prune\_spec, exists\_minimal\_admissible"),
+        ("Poda", r"Theorem 2: backward elimination returns an admissible subset from which no parameter can be removed; inclusion-minimal for a monotone criterion", r"prune\_spec, prune\_inclusion\_minimal"),
         ("OutputComposition", r"Error bounds transfer from states to measured outputs, including $\log$ and $\log_{10}$", r"output\_uniform\_bound, log10\_lipschitz"),
         ("LinearizedFit", r"The first-order $e_{\mathrm{fit}}$ differs from the exact one by a second-order term", r"lin\_le\_scaled, fit\_lower\_of\_lin")]),
     ("Model assumptions for kinetic models", [
@@ -71,7 +72,8 @@ L = [r"All formal proofs are collected in the folder \texttt{lean\_proofs/} of t
      r"\toprule", r"\# & Module & $n$ & Uses & Content & Main theorems \\", r"\midrule", r"\endhead"]
 for part, title, mods in fo.PARTS:
     st = [fo.STEP[m] for m in mods]
-    L.append(r"\multicolumn{6}{@{}l}{\textit{Steps " + f"{min(st)}--{max(st)}. " + title + r"}} \\")
+    steps = f"Step {min(st)}" if min(st) == max(st) else f"Steps {min(st)}--{max(st)}"
+    L.append(r"\multicolumn{6}{@{}l}{\textit{" + steps + ". " + title + r"}} \\")
     for m in mods:
         d, k = info[m]
         brk = lambda t: t.replace(r"\_", r"\_\allowbreak{}").replace(", ", r", \allowbreak{}")

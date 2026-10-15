@@ -19,6 +19,12 @@ from pathlib import Path
 import numpy as np
 from scipy import stats
 
+# Problemas fuera de la comparación de admisibilidad entre criterios (Bertozzi: nuestro método
+# seleccionó con todas las salidas, que incluyen las condiciones de prueba; los demás criterios con
+# las de entrenamiento).
+EXCLUIR_ADMIS = {"Bertozzi_PNAS2020"}
+
+
 HERE = Path(__file__).resolve().parent
 R = Path(sys.argv[1]) if len(sys.argv) > 1 else HERE / "resultados"
 OUT = R / "comparacion_metodos"
@@ -76,6 +82,8 @@ for carpeta in sorted(glob.glob(str(R / "control_admis_sint*"))):
     adm = collections.defaultdict(dict)
     for f in glob.glob(carpeta + "/*__adm.json"):
         d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if d.get("sistema") in EXCLUIR_ADMIS:   # Bertozzi: los criterios no usaron la misma información
+            continue
         if "admisible" in d:
             adm[d["sistema"]][d["metodo"]] = bool(d["admisible"])
     if not adm:

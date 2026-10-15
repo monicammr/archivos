@@ -29,6 +29,7 @@ STEPS = [
     ("Note: SCT model (Supplementary Table S16, Fig. S3; needs the participant data)", "make_sct_note.py"),
     ("Comparison with other criteria: Fig. 3 (revised) and Fig. 4", "comparison_figures.py"),
     ("Comparison with other criteria: supplementary figures", "comparison_suppl_figures.py"),
+    ("Pivoted QR against our method on real data (Supplementary Fig., fig_brun.pdf)", "figure_qr_scatter.py"),
     ("Comparison with other criteria and further validations: supplementary tables", "comparison_tables.py"),
     ("Comparison with other criteria: bootstrap and McNemar statistics", "comparison_statistics.py"),
     ("Comparison with other criteria: summary of the counts quoted in the text", "comparison_summary.py"),

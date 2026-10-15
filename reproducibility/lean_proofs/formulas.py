@@ -320,11 +320,34 @@ mod("RefitMonotone", G5,
      ])
 
 mod("Poda", G5,
-    "Theorem 2 of the paper: backward elimination (pruning) returns an inclusion-minimal admissible subset.",
+    "Theorem 2 of the paper: backward elimination (pruning) returns an admissible subset from which no parameter can be removed; with a monotone criterion, no proper subset of it is admissible.",
     [(r"Q(S)", "Q", "admissibility predicate"),
      (r"\operatorname{prune}(S)", "prune Q pick hpick S", "repeatedly remove an element whose removal keeps Q, until none exists")],
     [("prune_spec", r"Q(S)\Rightarrow Q(R)\ \wedge\ R\subseteq S\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\}),\quad R=\operatorname{prune}(S)", "Pruning keeps admissibility and stops at a set from which no single parameter can be removed."),
-     ("exists_minimal_admissible", r"Q(S)\Rightarrow\exists R\subseteq S:\ Q(R)\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\})", "Every admissible subset contains an inclusion-minimal admissible subset."),
+     ("exists_minimal_admissible", r"Q(S)\Rightarrow\exists R\subseteq S:\ Q(R)\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\})", "Every admissible subset contains an admissible subset from which no single parameter can be removed."),
+     ("no_proper_admissible_of_monotone", r"(U\subseteq T\wedge Q(U)\Rightarrow Q(T))\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\})\Rightarrow\forall U\subsetneq R:\ \neg Q(U)", "With a monotone criterion, no single removable parameter implies that no proper subset is admissible."),
+     ("prune_inclusion_minimal", r"Q\ \text{monotone},\ Q(S)\Rightarrow Q(R)\ \wedge\ R\subseteq S\ \wedge\ \forall U\subsetneq R:\ \neg Q(U)", "Pruning returns an inclusion-minimal admissible subset when the criterion is monotone (for e_fit: RefitMonotone.admissible_mono, with optimal re-estimation)."),
+     ])
+
+mod("ProfileIdentifiability", G4,
+    "Practical identifiability of the reduced problem by profile likelihood: lower bound of the cost increase, profiled information, guaranteed half-width t* of the confidence interval, local structural identifiability.",
+    [(r"\Delta\chi^2(\delta)=\|r(\hat\theta+\delta)\|^2-\|r_0\|^2", "dchi2 R δ", "increase of the cost from the optimum"),
+     (r"A", "A", "sensitivity of the noise-scaled residuals at the optimum"),
+     (r"I_j=1/[(A^{\top}A)^{-1}]_{jj}", "I", "profiled information of parameter j"),
+     (r"t^{\ast}", "tstar, tstarGrad", "guaranteed half-width of the confidence interval of log θ_j")],
+    [("dchi2_lower", r"\langle r_0,A\delta\rangle=0,\ \|r(\delta)-r_0-A\delta\|\le\varepsilon\le\|A\delta\|\Rightarrow\Delta\chi^2(\delta)\ge(\|A\delta\|-\varepsilon)^2-2\|r_0\|\varepsilon", "Lower bound of the cost increase at a stationary point with bounded nonlinear remainder."),
+     ("info_of_inverse", r"\langle Zw,Zu\rangle=u_j\ \forall u,\ w_j>0\Rightarrow u_j^2/w_j\le\|Zu\|^2\ \forall u", "Profiled information from the column w of the inverse Gram matrix."),
+     ("info_of_matrix", r"\det(M^{\top}M)\ne0,\ [(M^{\top}M)^{-1}]_{jj}>0\Rightarrow u_j^2/[(M^{\top}M)^{-1}]_{jj}\le\|Mu\|^2", "The same with the computed matrix inv(J.T @ J)."),
+     ("dchi2_ge_of_coord", r"I\varphi(\delta)^2\le\|A\delta\|^2,\ |\varphi(\delta)|\ge t^{\ast}=\frac{\varepsilon+\sqrt{c+2\|r_0\|\varepsilon}}{\sqrt I}\Rightarrow\Delta\chi^2(\delta)\ge c", "The profile exceeds the threshold c beyond t*."),
+     ("confidence_coord_lt", r"\delta\in F,\ \Delta\chi^2(\delta)<c\Rightarrow|\varphi(\delta)|<t^{\ast}", "The confidence region lies in the slab |δ_j| < t*."),
+     ("practically_identifiable", r"t^{\ast}<d_-,\ t^{\ast}<d_+\Rightarrow\mathrm{PracticallyIdentifiable}", "If t* is smaller than the distances to the bounds, θ_j is practically identifiable within the bounds."),
+     ("tstar_linear", r"t^{\ast}(1/w,0,c,r_0)=\sqrt{c\,w}", "With ε = 0, t* is the Wald half-width √(c [(AᵀA)⁻¹]_jj)."),
+     ("local_injective", r"\sigma\|\delta\|\le\|A\delta\|,\ \|G(\delta)-G(0)-A\delta\|\le M\|\delta\|^2,\ 0<\|\delta\|<\sigma/M\Rightarrow G(\delta)\ne G(0)", "Local structural identifiability: distinct parameters near the optimum give distinct outputs."),
+     ("dchi2_lower_grad", r"|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|\Rightarrow\Delta\chi^2(\delta)\ge(\|A\delta\|-\varepsilon)^2-2\gamma\|A\delta\|-2\|r_0\|\varepsilon", "Lower bound with a residual gradient γ (numerical optimum)."),
+     ("tstarGrad_zero", r"t^{\ast}_{\gamma=0}=t^{\ast}", "With γ = 0 the two half-widths coincide."),
+     ("dchi2_ge_of_coord_grad", r"|\varphi(\delta)|\ge\frac{\varepsilon+\gamma+\sqrt{\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon}}{\sqrt I}\Rightarrow\Delta\chi^2(\delta)\ge c", "The profile exceeds c beyond t* (numerical optimum)."),
+     ("practically_identifiable_grad", r"t^{\ast}_\gamma<d_-,\ t^{\ast}_\gamma<d_+\Rightarrow\mathrm{PracticallyIdentifiable}", "Main theorem with a numerical optimum."),
+     ("stat_of_projection", r"\langle r_0-p,A\delta\rangle=0\ \forall\delta,\ \|p\|\le\gamma\Rightarrow|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|", "γ is the norm of the projection of r_0 onto the range of A."),
      ])
 
 mod("OutputComposition", G5,
@@ -574,6 +597,8 @@ PARTS = [
     ("IV", "Hypotheses of the benchmark models (kinetic models and reaction networks)",
      ["KineticRegularity", "PositivityInvariance", "GlobalExistence", "StrictExistence", "KineticCheck",
       "KineticNetwork", "RiccatiNetwork", "StrictNetwork", "IntervalInit"]),
+    ("V", "Identifiability of the reduced problem",
+     ["ProfileIdentifiability"]),
 ]
 ORDER = [m for _, _, ms in PARTS for m in ms]
 STEP = {m: i + 1 for i, m in enumerate(ORDER)}

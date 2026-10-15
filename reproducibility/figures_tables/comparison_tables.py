@@ -12,7 +12,7 @@ import numpy as np
 from scipy import stats
 
 HERE = Path(__file__).resolve().parent
-from common import RESULTS as R, FIG, TAB, OUT as _OUT
+from common import RESULTS as R, FIG, TAB, OUT as _OUT, EXCLUDE_ADMISSIBILITY
 T = TAB
 TAU = math.sqrt(1 - 0.81)
 M = ["ours", "qr", "brun", "morris", "perfil"]
@@ -156,6 +156,8 @@ def adm(sub):
     A = collections.defaultdict(dict)
     for f in glob.glob(str(R / sub / "*__adm.json")):
         d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if d.get("sistema") in EXCLUDE_ADMISSIBILITY:
+            continue
         if "eajuste_med" in d:
             A[d["sistema"]][d["metodo"]] = d
     return A
@@ -166,7 +168,7 @@ for s in sorted(A5):
     for A in (A5, A20):
         for m in M:
             d = A.get(s, {}).get(m)
-            f.append("--" if not d else (f"{min(d['eajuste_med'], d['erel_med']):.2f}" + ("$^{\\checkmark}$" if d["admisible"] else "")))
+            f.append("--" if not d else (f"{min(d['eajuste_med'], d['erel_med']):.3f}" + ("$^{\\checkmark}$" if d["admisible"] else "")))
     filas.append(f)
 cuenta = []
 for A in (A5, A20):

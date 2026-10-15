@@ -2,7 +2,7 @@
 
 Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axiomas propios.
 
-**Módulos de teoría:** 31; **teoremas y lemas:** 289. **Modelos del benchmark verificados:** 28.
+**Módulos de teoría:** 32; **teoremas y lemas:** 304. **Modelos del benchmark verificados:** 28.
 
 ## Resumen por módulo
 
@@ -29,8 +29,9 @@ Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axi
 | `OutputComposition` | 4 | De los estados a las salidas medidas: y_i = h(g_i(x(t_i), θ)) / σ_i |
 | `ParamDiffODE` | 8 | Dependencia diferenciable de las soluciones de una EDO respecto a los parámetros |
 | `PatternMechanisms` | 4 | Mecanismos detrás de los patrones de robustez (sección 3.2) |
-| `Poda` | 2 | Poda (eliminación hacia atrás): el subconjunto final es mínimo por inclusión |
+| `Poda` | 4 | Poda (eliminación hacia atrás): el subconjunto final es mínimo por inclusión |
 | `PositivityInvariance` | 15 | Positividad: las concentraciones que empiezan `≥ 0` siguen `≥ 0` |
+| `ProfileIdentifiability` | 13 | Identificabilidad práctica del problema reducido (verosimilitud perfilada) |
 | `RefitMonotone` | 5 | Reajustar más parámetros nunca empeora el error (e_ajuste monótono) |
 | `RiccatiNetwork` | 9 | Existencia en un horizonte finito con crecimiento cuadrático (cota de Riccati) |
 | `ScaledError` | 5 | cos Δ = error mínimo tras reajustar el tamaño de la respuesta |
@@ -309,6 +310,8 @@ Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axi
 |---|---|---|
 | theorem | `Poda.prune_spec` | Corrección de la poda: admisible, contenido en S y mínimo por inclusión |
 | theorem | `Poda.exists_minimal_admissible` | Forma de uso: existe un subconjunto admisible de S, mínimo por inclusión, que se obtiene |
+| theorem | `Poda.no_proper_admissible_of_monotone` | De "ningún parámetro sobra" a mínimo por inclusión. Si el criterio es monótono |
+| theorem | `Poda.prune_inclusion_minimal` | La poda devuelve un subconjunto mínimo por inclusión cuando el criterio es monótono: |
 
 ### `PositivityInvariance`
 
@@ -329,6 +332,24 @@ Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axi
 | theorem | `PositivityInvariance.exampleModel_orth` | El modelo de ejemplo |
 | theorem | `PositivityInvariance.exampleModel_qp` |  |
 | theorem | `PositivityInvariance.exampleModel_nonneg` | En el ejemplo, toda solución con x(0) ≥ 0 es ≥ 0 y permanece en el dominio |
+
+### `ProfileIdentifiability`
+
+| Tipo | Nombre | Descripción |
+|---|---|---|
+| theorem | `ProfileIdentifiability.dchi2_lower` | Cota inferior de Δχ². En un punto estacionario, con resto no lineal ≤ ε: |
+| theorem | `ProfileIdentifiability.info_of_inverse` | Información perfilada a partir de la columna w de (ZᵀZ)⁻¹ (ZᵀZ w = e_j): si |
+| theorem | `ProfileIdentifiability.info_of_matrix` | Información perfilada con la matriz calculada (inv(J.T @ J)[j, j]): si MᵀM es |
+| theorem | `ProfileIdentifiability.dchi2_ge_of_coord` | El perfil supera el umbral. Si θ̂ es estacionario, el resto no lineal es ≤ ε en δ |
+| theorem | `ProfileIdentifiability.confidence_coord_lt` | Región de confianza acotada. Con las hipótesis de dchi2_ge_of_coord en todo el conjunto |
+| theorem | `ProfileIdentifiability.practically_identifiable` | Teorema principal. Si θ̂ es estacionario, el resto no lineal es ≤ ε en el conjunto |
+| theorem | `ProfileIdentifiability.tstar_linear` | Caso lineal: semiancho de Wald. Con ε = 0 e I = 1/w (w = ((AᵀA)⁻¹)_{jj} > 0), |
+| theorem | `ProfileIdentifiability.local_injective` | Identificabilidad local (estructural) del problema reducido. Si ‖A δ‖ ≥ σ‖δ‖ |
+| theorem | `ProfileIdentifiability.dchi2_lower_grad` | Cota inferior de Δχ² con gradiente residual |
+| theorem | `ProfileIdentifiability.tstarGrad_zero` | Con γ = 0, tstarGrad coincide con tstar |
+| theorem | `ProfileIdentifiability.dchi2_ge_of_coord_grad` | El perfil supera el umbral (mínimo numérico) |
+| theorem | `ProfileIdentifiability.practically_identifiable_grad` | Teorema principal con mínimo numérico. Igual que practically_identifiable, con la |
+| theorem | `ProfileIdentifiability.stat_of_projection` | γ mediante la proyección. Si p es la proyección de R 0 sobre la imagen de A |
 
 ### `RefitMonotone`
 

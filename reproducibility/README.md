@@ -12,7 +12,7 @@ This package contains everything needed to check the results of the paper:
 * the **results** of those analyses, one file per benchmark problem (`results/`, 16 MB);
 * the **programs that produce every figure, table and Supplementary Note** of the paper from those
   results (`figures_tables/`);
-* the **formal proofs** in Lean 4 with Mathlib: 31 modules with 289 theorems and lemmas, and the
+* the **formal proofs** in Lean 4 with Mathlib: 32 modules with 304 theorems and lemmas, and the
   hypotheses of 28 benchmark models (`lean_proofs/`);
 * the **translator** of the SBML models into Lean and an independent check of the translation
   (`lean_translation/`).
@@ -154,7 +154,7 @@ cd lean_proofs
 ```
 
 The script (i) checks that no file contains `sorry` or `axiom`, (ii) downloads the precompiled
-Mathlib, (iii) compiles the 31 theory modules and the 28 model files and (iv) prints the axioms used by
+Mathlib, (iii) compiles the 32 theory modules and the 28 model files and (iv) prints the axioms used by
 every theorem. Only Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`) must appear.
 The first compilation takes about 1–2 hours (mostly the largest models, Chen and Froehlich); the log of
 our build is `lean_proofs/BUILD_LOG.md`. `lean_proofs/README.md` relates each step of the method to

@@ -1,7 +1,7 @@
 \snote{stmts}
 \sloppy
 
-This note states, in mathematical notation, every theorem and lemma of the Lean formalisation (31 modules, 289 declarations) and explains what it means, so that the formal statements can be read alongside the code. The Lean name is given as it appears in the source (prefixed by the module namespace). Hypotheses are written before $\Rightarrow$; standing assumptions of each module are given in its description. Supplementary Table~\ref{tab:leannot} explains the symbols used throughout; symbols specific to a module are explained at the start of that module. Supplementary Table~\ref{tab:statements} gives the statements, in one block per module, in the order of Supplementary Table~\ref{tab:modules}; the blocks are grouped as in \sref{seq}. The same content, with the Lean identifiers, is in \texttt{lean\_proofs/FORMULAS.md}.
+This note states, in mathematical notation, every theorem and lemma of the Lean formalisation (32 modules, 304 declarations) and explains what it means, so that the formal statements can be read alongside the code. The Lean name is given as it appears in the source (prefixed by the module namespace). Hypotheses are written before $\Rightarrow$; standing assumptions of each module are given in its description. Supplementary Table~\ref{tab:leannot} explains the symbols used throughout; symbols specific to a module are explained at the start of that module. Supplementary Table~\ref{tab:statements} gives the statements, in one block per module, in the order of Supplementary Table~\ref{tab:modules}; the blocks are grouped as in \sref{seq}. The same content, with the Lean identifiers, is in \texttt{lean\_proofs/FORMULAS.md}.
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{7.2cm}@{}}
@@ -183,8 +183,8 @@ Lean name & Statement & Meaning \\
 \end{longtable}
 }
 
-\subsubsection*{Step 6. \texttt{Poda} (2)}
-Theorem 2 of the paper: backward elimination (pruning) returns an inclusion-minimal admissible subset.
+\subsubsection*{Step 6. \texttt{Poda} (4)}
+Theorem 2 of the paper: backward elimination (pruning) returns an admissible subset from which no parameter can be removed; with a monotone criterion, no proper subset of it is admissible.
 
 {\small\raggedright Notation: $Q(S)$ (\texttt{Q}): admissibility predicate; $\operatorname{prune}(S)$ (\texttt{prune Q pick hpick S}): repeatedly remove an element whose removal keeps Q, until none exists.}
 
@@ -197,7 +197,9 @@ Lean name & Statement & Meaning \\
 \midrule
 \endhead
 \texttt{prune\_\allowbreak{}spec} & $\displaystyle Q(S)\Rightarrow Q(R)\ \wedge\ R\subseteq S\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\}),\quad R=\operatorname{prune}(S)$ & Pruning keeps admissibility and stops at a set from which no single parameter can be removed. \\[3pt]
-\texttt{exists\_\allowbreak{}minimal\_\allowbreak{}admissible} & $\displaystyle Q(S)\Rightarrow\exists R\subseteq S:\ Q(R)\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\})$ & Every admissible subset contains an inclusion-minimal admissible subset. \\[3pt]
+\texttt{exists\_\allowbreak{}minimal\_\allowbreak{}admissible} & $\displaystyle Q(S)\Rightarrow\exists R\subseteq S:\ Q(R)\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\})$ & Every admissible subset contains an admissible subset from which no single parameter can be removed. \\[3pt]
+\texttt{no\_\allowbreak{}proper\_\allowbreak{}admissible\_\allowbreak{}of\_\allowbreak{}monotone} & $\displaystyle (U\subseteq T\wedge Q(U)\Rightarrow Q(T))\ \wedge\ \forall x\in R:\ \neg Q(R\setminus\{x\})\Rightarrow\forall U\subsetneq R:\ \neg Q(U)$ & With a monotone criterion, no single removable parameter implies that no proper subset is admissible. \\[3pt]
+\texttt{prune\_\allowbreak{}inclusion\_\allowbreak{}minimal} & $\displaystyle Q\ \text{monotone},\ Q(S)\Rightarrow Q(R)\ \wedge\ R\subseteq S\ \wedge\ \forall U\subsetneq R:\ \neg Q(U)$ & Pruning returns an inclusion-minimal admissible subset when the criterion is monotone (for e\_fit: RefitMonotone.admissible\_mono, with optimal re-estimation). \\[3pt]
 \bottomrule
 \end{longtable}
 }
@@ -870,6 +872,38 @@ Lean name & Statement & Meaning \\
 \texttt{ival\_\allowbreak{}sound} & $\displaystyle \mathrm{ival}(e)=[l,u]\Rightarrow\operatorname{ok}_e(y,\iota(\theta_q))\ \wedge\ l\le e(y,\iota(\theta_q))\le u$ & Interval evaluation is sound (real powers restricted to square roots). \\[3pt]
 \texttt{initI\_\allowbreak{}sound} & $\displaystyle \mathrm{checkInitI}(G)\Rightarrow(0,\iota(\theta_q))\in\mathcal D_G,\ G(\iota(\theta_q))\in P_\Sigma$ & The initial values are well defined and lie in the strict region. \\[3pt]
 \texttt{strict\_\allowbreak{}final\_\allowbreak{}initI} & $\displaystyle x(0;\theta)=G(\theta):\ x_0(t)\in P_\Sigma\cap\mathcal D,\ \exists x(\cdot;\theta),S:\ S(0)=\partial_\theta G(\theta_q),\ \partial_\theta x(t;\theta_q)=S(t)$ & End-to-end theorem with initial values checked by interval arithmetic. Used by the models Fiedler. \\[3pt]
+\bottomrule
+\end{longtable}
+}
+
+\subsection*{Step 32. Identifiability of the reduced problem}
+
+\subsubsection*{Step 32. \texttt{ProfileIdentifiability} (13)}
+Practical identifiability of the reduced problem by profile likelihood: lower bound of the cost increase, profiled information, guaranteed half-width t* of the confidence interval, local structural identifiability.
+
+{\small\raggedright Notation: $\Delta\chi^2(\delta)=\|r(\hat\theta+\delta)\|^2-\|r_0\|^2$ (\texttt{dchi2 R $\delta$}): increase of the cost from the optimum; $A$ (\texttt{A}): sensitivity of the noise-scaled residuals at the optimum; $I_j=1/[(A^{\top}A)^{-1}]_{jj}$ (\texttt{I}): profiled information of parameter j; $t^{\ast}$ (\texttt{tstar, tstarGrad}): guaranteed half-width of the confidence interval of log $\theta$\_j.}
+
+\addtocounter{table}{-1}
+{\small
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.6cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{5.6cm}@{}}
+\caption[]{(continued). Step~32: \texttt{ProfileIdentifiability}.}\\
+\toprule
+Lean name & Statement & Meaning \\
+\midrule
+\endhead
+\texttt{dchi2\_\allowbreak{}lower} & $\displaystyle \langle r_0,A\delta\rangle=0,\ \|r(\delta)-r_0-A\delta\|\le\varepsilon\le\|A\delta\|\Rightarrow\Delta\chi^2(\delta)\ge(\|A\delta\|-\varepsilon)^2-2\|r_0\|\varepsilon$ & Lower bound of the cost increase at a stationary point with bounded nonlinear remainder. \\[3pt]
+\texttt{info\_\allowbreak{}of\_\allowbreak{}inverse} & $\displaystyle \langle Zw,Zu\rangle=u_j\ \forall u,\ w_j>0\Rightarrow u_j^2/w_j\le\|Zu\|^2\ \forall u$ & Profiled information from the column w of the inverse Gram matrix. \\[3pt]
+\texttt{info\_\allowbreak{}of\_\allowbreak{}matrix} & $\displaystyle \det(M^{\top}M)\ne0,\ [(M^{\top}M)^{-1}]_{jj}>0\Rightarrow u_j^2/[(M^{\top}M)^{-1}]_{jj}\le\|Mu\|^2$ & The same with the computed matrix inv(J.T @ J). \\[3pt]
+\texttt{dchi2\_\allowbreak{}ge\_\allowbreak{}of\_\allowbreak{}coord} & $\displaystyle I\varphi(\delta)^2\le\|A\delta\|^2,\ |\varphi(\delta)|\ge t^{\ast}=\frac{\varepsilon+\sqrt{c+2\|r_0\|\varepsilon}}{\sqrt I}\Rightarrow\Delta\chi^2(\delta)\ge c$ & The profile exceeds the threshold c beyond t*. \\[3pt]
+\texttt{confidence\_\allowbreak{}coord\_\allowbreak{}lt} & $\displaystyle \delta\in F,\ \Delta\chi^2(\delta)<c\Rightarrow|\varphi(\delta)|<t^{\ast}$ & The confidence region lies in the slab |$\delta$\_j| $<$ t*. \\[3pt]
+\texttt{practically\_\allowbreak{}identifiable} & $\displaystyle t^{\ast}<d_-,\ t^{\ast}<d_+\Rightarrow\mathrm{PracticallyIdentifiable}$ & If t* is smaller than the distances to the bounds, $\theta$\_j is practically identifiable within the bounds. \\[3pt]
+\texttt{tstar\_\allowbreak{}linear} & $\displaystyle t^{\ast}(1/w,0,c,r_0)=\sqrt{c\,w}$ & With $\varepsilon$ = 0, t* is the Wald half-width $\surd$(c [(A$^\top$A)$^{-1}$]\_jj). \\[3pt]
+\texttt{local\_\allowbreak{}injective} & $\displaystyle \sigma\|\delta\|\le\|A\delta\|,\ \|G(\delta)-G(0)-A\delta\|\le M\|\delta\|^2,\ 0<\|\delta\|<\sigma/M\Rightarrow G(\delta)\ne G(0)$ & Local structural identifiability: distinct parameters near the optimum give distinct outputs. \\[3pt]
+\texttt{dchi2\_\allowbreak{}lower\_\allowbreak{}grad} & $\displaystyle |\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|\Rightarrow\Delta\chi^2(\delta)\ge(\|A\delta\|-\varepsilon)^2-2\gamma\|A\delta\|-2\|r_0\|\varepsilon$ & Lower bound with a residual gradient $\gamma$ (numerical optimum). \\[3pt]
+\texttt{tstarGrad\_\allowbreak{}zero} & $\displaystyle t^{\ast}_{\gamma=0}=t^{\ast}$ & With $\gamma$ = 0 the two half-widths coincide. \\[3pt]
+\texttt{dchi2\_\allowbreak{}ge\_\allowbreak{}of\_\allowbreak{}coord\_\allowbreak{}grad} & $\displaystyle |\varphi(\delta)|\ge\frac{\varepsilon+\gamma+\sqrt{\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon}}{\sqrt I}\Rightarrow\Delta\chi^2(\delta)\ge c$ & The profile exceeds c beyond t* (numerical optimum). \\[3pt]
+\texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}grad} & $\displaystyle t^{\ast}_\gamma<d_-,\ t^{\ast}_\gamma<d_+\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with a numerical optimum. \\[3pt]
+\texttt{stat\_\allowbreak{}of\_\allowbreak{}projection} & $\displaystyle \langle r_0-p,A\delta\rangle=0\ \forall\delta,\ \|p\|\le\gamma\Rightarrow|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|$ & $\gamma$ is the norm of the projection of r\_0 onto the range of A. \\[3pt]
 \bottomrule
 \end{longtable}
 }

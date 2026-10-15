@@ -1,0 +1,39 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "evaluable": true,
+ "S": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "n_calibracion": 5,
+ "calibracion_usada": [
+  "scaling_CD274mRNA",
+  "scaling_IL13_cell",
+  "scaling_SOCS3mRNA",
+  "scaling_pIL4Ra",
+  "scaling_pJAK2"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 205,
+ "kappa_S_std": 5.501461131530608,
+ "VIF_S_std": 8.07477871891553,
+ "kappa_SC_std": 366.942485007269,
+ "VIF_SC_std": 22952.401115635475,
+ "kappa_SC_n": 364.6403149051368,
+ "VIF_SC_n_max": 22926.83549970166,
+ "VIF_SC_n_S": {
+  "SOCS3mRNA_production": 22926.83549970166,
+  "init_Rec_i": 8.964092486911063
+ },
+ "param_VIF_max": "SOCS3mRNA_production",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9999779050680225,
+  "a": "SOCS3mRNA_production",
+  "b": "scaling_SOCS3mRNA"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.9,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}
