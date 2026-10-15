@@ -1,7 +1,14 @@
 \snote{seq}
 \sloppy
 
-This note explains, in mathematical terms, the chain of results that the Lean code proves, in the order in which they build on each other. The order is that of the import graph of \texttt{lean\_proofs/}: step $k$ only uses steps with a smaller number (Supplementary Table~\ref{tab:modules}, column `Uses'). Lean names of the main results are given in \texttt{typewriter} font; the statement and meaning of every theorem are in \sref{stmts}, and the notation in Supplementary Table~\ref{tab:leannot}. Figure~6 of the main text shows how the formal and the numerical parts of the work fit together, and Supplementary Table~\ref{tab:scope} states the scope of each formal guarantee.
+This note explains, in mathematical terms, the chain of results that the Lean code proves, in the order in which they build on each other. The order is that of the import graph of \texttt{lean\_proofs/}: step $k$ only uses steps with a smaller number (Supplementary Table~\ref{tab:modules}, column `Uses'). Lean names of the main results are given in \texttt{typewriter} font; the statement and meaning of every theorem are in \sref{stmts}, and the notation in Supplementary Table~\ref{tab:leannot}. Supplementary Fig.~\ref{fig:architecture} shows how the formal and the numerical parts of the work fit together, and Supplementary Table~\ref{tab:scope} states the scope of each formal guarantee.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[width=\textwidth]{figures/fig6_architecture.pdf}
+\caption{\textbf{Architecture of the formal and numerical verification.} Python (left) performs all computations on the PEtab problems: simulation, sensitivities, selection, admissibility, validation and robustness. Lean~4 with Mathlib (right) proves the general theorems behind each step of the method (Supplementary Table~\ref{tab:modules}) and, for 28 benchmark models translated from SBML, checks with the Lean kernel that the hypotheses on the dynamics hold. The translation of each model is compared independently with the SBML model (dashed arrow; \sref{models}). A formal conclusion applies to a result of the paper (main-text table on what the formal verification guarantees) when the hypotheses of the model are verified and the numerical quantities computed in Python satisfy the inequalities that the theorem requires (bottom); Supplementary Table~\ref{tab:scope} gives, for each guarantee, what it establishes and what it does not.}
+\label{fig:architecture}
+\end{figure}
 
 
 \subsection*{Modules of the formalisation}
@@ -10,15 +17,16 @@ This note explains, in mathematical terms, the chain of results that the Lean co
 
 \subsection*{Setting and goal}
 
-A model is an ODE $\dot x=f(x,\theta)$ on $[0,T]$ with $x(0)=x^0(\theta)$, $\theta\in\mathbb{R}^p$, sampled at times $t_1,\dots,t_N$; the sampled (noise-scaled) outputs form a vector $F(\theta)\in\mathbb{R}^m$. Fixing the parameters outside a subset $S$ at their nominal values means replacing a perturbation $\Delta\theta$ by $\Delta\theta_S$, whose components outside $S$ are zero. The proofs establish five guarantees:
+A model is an ODE $\dot x=f(x,\theta)$ on $[0,T]$ with $x(0)=x^0(\theta)$, $\theta\in\mathbb{R}^p$, sampled at times $t_1,\dots,t_N$; the sampled (noise-scaled) outputs form a vector $F(\theta)\in\mathbb{R}^m$. Fixing the parameters outside a subset $S$ at their nominal values means replacing a perturbation $\Delta\theta$ by $\Delta\theta_S$, whose components outside $S$ are zero. The proofs establish six guarantees:
 \begin{itemize}\itemsep0pt
 \item[(G1)] for small perturbations, the output error of the reduced model, $\|F(\theta_0+\Delta\theta)-F(\theta_0+\Delta\theta_S)\|$, is bounded by the sensitivity energy discarded, i.e.\ by $R_{\mathrm{var}}(S)$;
 \item[(G2)] the cosine $\cos\Delta$ between full and reduced output changes determines the best relative error obtainable by rescaling the reduced response, $\sqrt{1-\cos^2\Delta}$, and the linearised re-estimation of several parameters is at least as good;
 \item[(G3)] the conditioning tests ($\kappa$, VIF) imply that the \emph{linearised} least-squares problem for $\theta_S$ has a unique solution that is stable with respect to the data;
 \item[(G4)] the fitting error is monotone in the re-estimated set, and backward elimination returns a subset from which no single parameter can be removed;
-\item[(G5)] the hypotheses needed for (G1)--(G3) (smoothness, existence of solutions, positivity, differentiability) hold for the translated benchmark models.
+\item[(G5)] the hypotheses needed for (G1)--(G3) (smoothness, existence of solutions, positivity, differentiability) hold for the translated benchmark models;
+\item[(G6)] a parameter of the reduced problem is practically identifiable (its profile likelihood exceeds the 95\% threshold on both sides within the bounds) when a guaranteed half-width $t^{\ast}$, computed from the profiled information, the residual gradient and a bound on the nonlinear remainder, is smaller than the distance to the bounds.
 \end{itemize}
-Steps 1--22 prove (G1)--(G4) for any model satisfying explicit hypotheses; steps 23--31 prove that the 28 verified benchmark models satisfy them. Supplementary Table~\ref{tab:scope} states, for each guarantee, what is proved, what is not, and which numerical quantity connects it with the results of the paper.
+Steps 1--22 prove (G1)--(G4) for any model satisfying explicit hypotheses; steps 23--31 prove that the 28 verified benchmark models satisfy them (G5); step 32 proves (G6) for any reduced problem. Supplementary Table~\ref{tab:scope} states, for each guarantee, what is proved, what is not, and which numerical quantity connects it with the results of the paper.
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.7cm}@{}}
@@ -32,6 +40,7 @@ G2. Cosine and fitting error & $\min_\alpha\|a-\alpha b\|/\|a\|=\sqrt{1-\cos^2(a
 G3. Conditioning & Uniqueness and stability of the linear least-squares estimate with normalised sensitivity columns, with $\kappa=\sqrt{\lambda_{\max}/\lambda_{\min}}$ and $\mathrm{VIF}_j=[(Z^\top Z)^{-1}]_{jj}$ as computed (steps 7--9) & Global or structural identifiability of the nonlinear model; uniqueness of the nonlinear calibration & $\kappa\le6.6$ and $\mathrm{VIF}\le9.85$ for all 31 final subsets (thresholds $\tau_\kappa=\tau_{\mathrm{VIF}}=10$) \\
 G4. Re-estimation and pruning & $e_{\mathrm{fit}}$ never increases when parameters are added; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; pruning returns an admissible subset from which no parameter can be removed, and which is minimal with respect to inclusion when the criterion is monotone (steps 5--6) & That the result is the admissible subset of smallest size; that the numerical evaluation of admissibility is exact & Admissibility of each candidate subset is evaluated numerically (15 scenarios, median $e_{\mathrm{fit}}\le0.436$) \\
 G5. Benchmark models & For 28 translated models: smooth vector field, existence of the solution on the horizon (every $T$, or $T\le1$ for Crauste), non-negativity, solutions for $\theta$ near $\theta_0$ and their differentiability (steps 23--31) & That the SBML and PEtab files are correct; the accuracy of the numerical simulations; experimental conditions that override parameters or initial values (the translation uses the nominal values) & The translated vector fields, parameter values and initial values agree with the SBML models evaluated by libRoadRunner (\sref{models}) \\
+G6. Identifiability of the selected parameters & If $|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|$, $I_j\delta_j^2\le\|A\delta\|^2$ and the nonlinear remainder is at most $\varepsilon$ on the admissible set, every point outside $|\delta_j|<t^{\ast}$ has $\Delta\chi^2\ge3.84$, so $\theta_j$ is practically identifiable when $t^{\ast}$ is below the distance to both bounds (step 32) & Identifiability of the full model or global identifiability; a bound on the remainder over the whole admissible set, which is evaluated only at the computed profile points & The linear condition ($\gamma=\varepsilon=0$) agrees with the profiles for all 72 evaluable selected parameters; the full hypotheses hold for 24 parameters, never for a non-identifiable one, and for all selected parameters in 7 problems (\sref{identif}) \\
 \bottomrule
 \end{longtable}
 }
