@@ -44,6 +44,7 @@ NIVEL = float(os.environ.get("ADM_NIVEL", 0.05))
 OUTD = R / ("control_admis_sint" if NIVEL == 0.05 else f"control_admis_sint_nivel{round(NIVEL * 100):03d}")
 SEMILLAS = [int(x) for x in os.environ.get("SINT_SEMILLAS", "42,43,44,45,46").split(",")]
 SOLO_SINT = os.environ.get("SOLO_SINT") == "1"
+SOLO_ADM = os.environ.get("SOLO_ADM") == "1"           # sólo admisibilidad (sin experimento sintético)
 VE.CKDIR["dir"] = None
 FUENTES = {"qr": (R / "comparacion_brun", "S_qr"), "brun": (R / "control_morris_brun", "S_brun"),
            "morris": (R / "control_morris_brun", "S_morris"), "perfil": (R / "control_perfil", "S_perfil")}
@@ -205,11 +206,11 @@ def tarea(t):
 
 
 if __name__ == "__main__":
-    nombres = sorted(f.stem for f in SUBS.glob("*.json")
-                     if json.loads(f.read_text()).get("admisible") and f.stem not in OMITIR)
+    admisibles = sorted(f.stem for f in SUBS.glob("*.json") if json.loads(f.read_text()).get("admisible"))
+    nombres = [n for n in admisibles if n not in OMITIR]
     pedidos = [a for a in sys.argv[1:] if not a.startswith("--")]
-    if pedidos:                                   # sólo los problemas indicados
-        nombres = [n for n in nombres if n in pedidos]
+    if pedidos:                                   # sólo los problemas indicados (también los de OMITIR)
+        nombres = [n for n in admisibles if n in pedidos]
     LENTOS = ["Smith_BMCSystBiol2013", "Isensee_JCB2018", "Raimundez_PCB2020", "Bachmann_MSB2011",
               "Alkan_SciSignal2018", "Lucarelli_CellSystems2018", "Schwen_PONE2014", "Weber_BMC2015"]
     nombres.sort(key=lambda n: LENTOS.index(n) if n in LENTOS else len(LENTOS))
@@ -218,7 +219,7 @@ if __name__ == "__main__":
         for m in ("ours", "qr", "brun", "morris", "perfil"):
             if not SOLO_SINT:
                 tareas.append((n, m, "adm", None))
-            if m != "ours":                       # nuestro método ya tiene 20 semillas
+            if m != "ours" and not SOLO_ADM:      # nuestro método ya tiene 20 semillas
                 tareas += [(n, m, "sint", s) for s in SEMILLAS]
     print(f"Admisibilidad y sintético: {len(nombres)} problemas, {len(tareas)} tareas, NPROC={NPROC}", flush=True)
     with Pool(NPROC) as pool:
