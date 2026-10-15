@@ -48,6 +48,14 @@ def tstar_rel(I, eta, gam, c, r0):
     return (b + math.sqrt(b * b + q * c)) / q / math.sqrt(I)
 
 
+PAR = int(os.environ.get("CERT_PAR", 1))   # >1: simulaciones de un problema en paralelo (Linux)
+_RFUN = None
+
+
+def _r_hijo(t):
+    return _RFUN(t)
+
+
 def uno(name):
     try:
         d = P.prep(name)
@@ -56,10 +64,34 @@ def uno(name):
         fil = d["filas"]
         lib = d["libres"]
 
+        cache = {}
+
         def r(t):
+            key = np.asarray(t, dtype=float).tobytes()
+            if key in cache:
+                return cache[key]
             z = S.z(t)
             return None if z is None else np.where(np.isfinite(z[fil] - d["zd"][fil]),
                                                    z[fil] - d["zd"][fil], 1e3)
+        if PAR > 1:
+            # todas las simulaciones del problema en paralelo (servidor Linux, 'fork': los procesos
+            # hijos heredan el modelo ya cargado): θ̂, las columnas de A y los puntos de los perfiles
+            pts = [th]
+            for j in lib:
+                tp, tm = th.copy(), th.copy()
+                tp[j] *= math.exp(D); tm[j] *= math.exp(-D)
+                pts += [tp, tm]
+            for j in d["sel"]:
+                for f in (P.OUTD / name).glob(f"p_{S.names[j]}_*.json"):
+                    p = json.loads(f.read_text(encoding="utf-8"))
+                    if P.dentro(d, p) and p["dchi2"] <= P.FALLO:
+                        pts.append(np.array(p["theta"]))
+            global _RFUN
+            _RFUN = r
+            with Pool(min(PAR, len(pts))) as pool:
+                res = pool.map(_r_hijo, pts, chunksize=1)
+            for t, v in zip(pts, res):
+                cache[np.asarray(t, dtype=float).tobytes()] = v
         r0 = r(th)
         A = np.zeros((r0.size, len(lib)))
         for k, j in enumerate(lib):
@@ -151,8 +183,11 @@ def uno(name):
 if __name__ == "__main__":
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
     nombres = which or sorted(p.stem for p in P.OUTD.glob("*.json"))
-    with Pool(int(os.environ.get("NPROC", os.cpu_count() or 1))) as pool:
-        res = [f for fs in pool.map(uno, nombres, chunksize=1) for f in fs]
+    if PAR > 1:      # un problema cada vez, con sus simulaciones repartidas entre PAR procesos
+        res = [f for n in nombres for f in uno(n)]
+    else:
+        with Pool(int(os.environ.get("NPROC", os.cpu_count() or 1))) as pool:
+            res = [f for fs in pool.map(uno, nombres, chunksize=1) for f in fs]
     df = pd.DataFrame(res)
     out = P.OUTD.parent / os.environ.get("CERT_OUT", "certificado.csv")
     df.to_csv(out, index=False)

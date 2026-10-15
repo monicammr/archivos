@@ -1,0 +1,36 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "evaluable": true,
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "n_calibracion": 2,
+ "calibracion_usada": [
+  "background",
+  "scale"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 58,
+ "kappa_S_std": 2.8637430138792497,
+ "VIF_S_std": 2.580740010297246,
+ "kappa_SC_std": 1415404294.115032,
+ "VIF_SC_std": 2251799813844289.0,
+ "kappa_SC_n": 5.5481850072888195,
+ "VIF_SC_n_max": 6.033686213908363,
+ "VIF_SC_n_S": {
+  "n_Hill": 6.033686213908363,
+  "tau_mRNA": 2.8773053699132958
+ },
+ "param_VIF_max": "n_Hill",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.755810781234222,
+  "a": "n_Hill",
+  "b": "scale"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.5,
+ "pasa_std": false,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

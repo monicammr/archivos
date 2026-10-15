@@ -30,6 +30,7 @@ STEPS = [
     ("Comparison with other criteria: Fig. 3 (revised) and Fig. 4", "comparison_figures.py"),
     ("Comparison with other criteria: supplementary figures", "comparison_suppl_figures.py"),
     ("Pivoted QR against our method on real data (Supplementary Fig., fig_brun.pdf)", "figure_qr_scatter.py"),
+    ("Identifiability of the selected parameters (Supplementary Table, tableS_identif)", "identifiability_table.py"),
     ("Comparison with other criteria and further validations: supplementary tables", "comparison_tables.py"),
     ("Comparison with other criteria: bootstrap and McNemar statistics", "comparison_statistics.py"),
     ("Comparison with other criteria: summary of the counts quoted in the text", "comparison_summary.py"),

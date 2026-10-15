@@ -1,0 +1,37 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "evaluable": true,
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "n_calibracion": 3,
+ "calibracion_usada": [
+  "k_IRP_1Step",
+  "k_IRSiP_1Step",
+  "k_IRSiP_2Step"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 43,
+ "kappa_S_std": 1.8623618174602175,
+ "VIF_S_std": 1.439177405558193,
+ "kappa_SC_std": 25.676999130551426,
+ "VIF_SC_std": 144.48062953816006,
+ "kappa_SC_n": 25.433900012405395,
+ "VIF_SC_n_max": 146.55200177143576,
+ "VIF_SC_n_S": {
+  "k1f": 127.23291580559156,
+  "km2": 22.056988070125243
+ },
+ "param_VIF_max": "k_IRP_1Step",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.8757376103426059,
+  "a": "k1f",
+  "b": "k_IRP_1Step"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 3.1,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}

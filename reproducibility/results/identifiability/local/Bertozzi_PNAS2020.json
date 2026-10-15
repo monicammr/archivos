@@ -1,0 +1,33 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "evaluable": true,
+ "S": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 22,
+ "kappa_S_std": 3.9079961707672064,
+ "VIF_S_std": 4.334477879556751,
+ "kappa_SC_std": 3.9079961707672064,
+ "VIF_SC_std": 4.334477879556751,
+ "kappa_SC_n": 4.652662160353092,
+ "VIF_SC_n_max": 5.9233650975476175,
+ "VIF_SC_n_S": {
+  "R0_NY": 5.9233650975476175,
+  "I0_NY": 5.9233650975476175
+ },
+ "param_VIF_max": "R0_NY",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9116891163570093,
+  "a": "R0_NY",
+  "b": "I0_NY"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 4.3,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

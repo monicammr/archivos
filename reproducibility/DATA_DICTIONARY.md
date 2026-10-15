@@ -163,6 +163,33 @@ perturbations of +-5 % (the level of the method); `criteria_tests_20pc/`, +-20 %
 | `B_chi2_test_theta0`, `B_chi2_test_red`, `B_epred_red`, `semilla` | synthetic experiment for that seed (as in `external_validation/`) |
 | `no_evaluable` | `sin subconjunto` = the criterion has no subset for the problem; `falla la simulación de la verdad` = the truth could not be simulated |
 
+## `identifiability/` (analysis/identifiability_*.py)
+
+Profile likelihood of the selected parameters in the reduced problem (S and the calibration
+parameters free, the other parameters at theta0, all measurements).
+
+`profiles/<problem>/minimo.npz`: optimum of the reduced problem (`theta`, `coste` = chi2, `rondas` =
+re-fits after a profile point improved the optimum). `profiles/<problem>/p_<parameter>_<+|->_<i>.json`:
+one profile point (`despl` = displacement in log|theta_j|, `log_theta`, `dchi2`, `theta` = all
+parameters after the re-fit). `profiles/<problem>.json`:
+
+| Field | Meaning |
+|---|---|
+| `chi2_por_gl`, `umbral_robusto` | chi2 per degree of freedom at the optimum; threshold of the robust variant, 3.84 max(1, chi2/d.f.) |
+| `perfiles[].clase`, `clase_robusto` | `identificable` (profile above 3.84 on both sides within [theta0/10, 10 theta0]), `no identificable practico` (one side), `plano` (neither) |
+| `perfiles[].ic_izq_log`, `ic_der_log` | distance (log) at which the profile crosses the threshold on each side (inf = no crossing) |
+| `perfiles[].minimo_en_limite`, `puntos_fallidos` | sides without valid points (optimum at a bound); points whose simulation failed |
+
+`local/<problem>.json`: `kappa_SC_n`, `VIF_SC_n_S` (condition number and VIF of the unit-norm,
+uncentred columns of S and the calibration parameters at theta0), `par_mas_parecido_con_S` (most
+similar pair of columns and their cosine). `certificado*.csv`: one row per selected parameter with
+the quantities of the Lean theorem `ProfileIdentifiability.practically_identifiable_grad`: `I_j`
+(profiled information), `gamma` (norm of the projection of the residual onto the range of the
+sensitivity matrix), `eps_j` (largest nonlinear remainder at the profile points), `tstar`,
+`tstar_lineal` (Wald half-width), `d_menos`, `d_mas` (distances to the bounds), `certificado_lineal`,
+`certificado_local` (hypotheses satisfied with epsilon = 0, or with epsilon evaluated at the points up
+to the first crossing). `summary.md`: the counts quoted in the paper.
+
 ## `timing_complete/` (analysis/selection.py run from scratch)
 
 `parallel/`, `single_core/`: the complete result of `selection.py` (fields as in `selection/`) run

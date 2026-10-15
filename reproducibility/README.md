@@ -1,7 +1,7 @@
 # Reproducibility package
 
-**Few biological parameters suffice to reproduce measured dynamics in systems biology models:
-local sensitivity-based reduction with formally verified mathematical guarantees**
+**Few biological parameters suffice to reproduce measured dynamics: verified parameter subset
+selection for systems biology models**
 
 Mónica Miranda R., Carlos Salazar, César Martín, Adriana Aguirre
 (Escuela Superior Politécnica del Litoral, ESPOL). Submitted to *Scientific Reports*.
@@ -63,6 +63,10 @@ analysis/               the method and the numerical analyses (Python)
   brun_morris.py        selection by Brun's collinearity index and by Morris screening
   profile_likelihood.py profile likelihood of every biological parameter; selection by profile
   criteria_tests.py     admissibility (+-5 %, +-20 %) and synthetic test of the subsets of all criteria
+  identifiability_profiles.py    profile likelihood of the reduced problem (S and calibration free)
+  identifiability_local.py       kappa and VIF of the sensitivities of S and the calibration parameters
+  identifiability_conditions.py  quantities of the Lean theorem ProfileIdentifiability (I_j, gamma, remainder)
+  identifiability_server.py/.sh  the same profiles on a many-core Linux server (Jacobian in parallel)
   crauste_blowup.py     why no local reduction exists for Crauste
   sct_model.py, sct_analysis.py   SCT example (needs the participant data)
 results/                stored results (see DATA_DICTIONARY.md)
@@ -76,6 +80,8 @@ results/                stored results (see DATA_DICTIONARY.md)
   random_subsets/, calibration_only/   baselines
   qr_selection/, brun_morris/, profile_likelihood/   selections of the other criteria
   criteria_tests/, criteria_tests_20pc/  admissibility and synthetic test of the five criteria
+  identifiability/      profiles of the reduced problem (profiles/), local check (local/) and the
+                        conditions of the Lean theorem (certificado*.csv); summary.md
   timing_complete/      run time of the complete method from scratch (parallel, single core,
                         and the eight first-order problems with the corrected code)
   simulator_check/, cost/, sbml_to_lean/, sct/, crauste_blowup.json
@@ -213,6 +219,7 @@ python mutation_control.py           # a 1 % change of one number is detected (d
    | o | `python brun_morris.py` (after m and n) | Table 2, Suppl. Note Brun and Morris | minutes |
    | p | `python criteria_tests.py`, then `SOLO_SINT=1 SINT_SEMILLAS=47,...,61 python criteria_tests.py` and `ADM_NIVEL=0.20 python criteria_tests.py` (after l-o) | Fig. 4a-b, Table 2, Suppl. Notes admissibility and synthetic comparison | ~1 h on 100 cores |
    | q | `REPRO_RESULTS=$PWD/../results_timing NPROC=64 python selection.py` (and with `NPROC=1`) | Fig. 4d, Suppl. Note cost | the run time is the measurement |
+   | r | `python identifiability_local.py`, `NPROC=8 python identifiability_profiles.py` (Bachmann, Chen, Isensee, Lang, Raimundez and Smith: `bash identifiability_server.sh` on a server), then `python identifiability_conditions.py` (`CERT_PAR=256` to run the simulations of one problem in parallel) | Results (identifiability), Suppl. Note identifiability | ~10 min on 8 cores; ~3 h on 256 cores for the six large problems |
 
    Steps j, n and p distribute the work over many processes and use `fork` (Linux). The stored
    results of steps j-q were computed on a 128-core server shared by several computations; their
@@ -265,6 +272,7 @@ trajectories is used (cost note), and its model is verified in Lean.
 | Fig. 3b; synthetic experiment with 20 seeds (Supplementary Note) | `synthetic_seeds.py` | `synthetic_seeds/` | `comparison_figures.py`, `comparison_tables.py` |
 | Leakage-free nested validation (Results; Supplementary Note) | `nested_validation.py` | `nested_validation/` | `comparison_tables.py`, `comparison_suppl_figures.py` |
 | Comparison with other criteria: Table 2, Fig. 4 and the Supplementary Notes on profile likelihood, Brun and Morris, real data, admissibility and synthetic comparison | `qr_selection.py`, `baselines.py`, `brun_morris.py`, `profile_likelihood.py`, `criteria_tests.py` | `qr_selection/`, `random_subsets/`, `calibration_only/`, `brun_morris/`, `profile_likelihood/`, `criteria_tests/`, `criteria_tests_20pc/` | `comparison_figures.py`, `comparison_tables.py`, `comparison_statistics.py`, `comparison_summary.py`, `comparison_suppl_figures.py` |
+| Identifiability of the selected parameters (Results; Supplementary Note and Table) | `identifiability_local.py`, `identifiability_profiles.py`, `identifiability_server.py`, `identifiability_conditions.py` | `identifiability/` | `identifiability_table.py` |
 | Run time of the complete method (Results; Fig. 4d; Supplementary Note cost) | `selection.py` run from scratch | `timing_complete/` | `comparison_tables.py` |
 | Fig. 5, Suppl. Tables S10–S11, Suppl. Fig. S2; patterns A–D, pass rates | `robustness.py` | `robustness/` | `make_figures.py` (`fig4`), `make_robustness_note.py` |
 | Supplementary Note on the method settings (figure and table) | `selection.py --variant` | `settings/` | `make_fig5_settings.py`, `make_extra_notes.py` |
@@ -297,6 +305,21 @@ Information and are not generated.
   `nota`); all other times were measured on the same four-core server.
 * **SCT data.** `analysis/sct_model.py` describes the expected file (columns `xi3`–`xi8`, `eta4`, one row
   per day).
+
+## Changes in version 1.2
+
+* **Identifiability of the selected parameters.** New analyses `identifiability_*.py`, results
+  `results/identifiability/`, Lean module `lean_proofs/ProfileIdentifiability.lean` (13 theorems) and
+  two theorems in `Poda.lean` (inclusion-minimality for a monotone criterion); the formalisation has
+  32 modules and 304 declarations.
+* **One run for all real-data numbers.** `figures_tables/common.load_validation()` takes the test
+  chi2/n of the reduced model, the refitted full model and theta0 from `results/nested_validation`
+  (falling back to `external_validation` where that run has no value), for Table 1, Fig. 3 and the
+  system summaries, which previously used `external_validation`.
+* **Admissibility comparison.** Bertozzi is excluded (`common.EXCLUDE_ADMISSIBILITY`): our method
+  selected its parameters on all measured outputs, which include the test conditions, whereas the
+  other criteria selected on the training outputs.
+* `figure_qr_scatter.py` regenerates the pivoted-QR scatter plot (Supplementary Figure).
 
 ## Corrections in version 1.1
 

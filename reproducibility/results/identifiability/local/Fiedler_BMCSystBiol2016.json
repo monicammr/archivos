@@ -1,0 +1,42 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "evaluable": true,
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "n_calibracion": 8,
+ "calibracion_usada": [
+  "s_pErk_20140430_gel1",
+  "s_pErk_20140430_gel2",
+  "s_pErk_20140505_gel1",
+  "s_pErk_20140505_gel2",
+  "s_pMek_20140430_gel1",
+  "s_pMek_20140430_gel2",
+  "s_pMek_20140505_gel1",
+  "s_pMek_20140505_gel2"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 72,
+ "kappa_S_std": 1.51550723539504,
+ "VIF_S_std": 1.1830394290620085,
+ "kappa_SC_std": 13.637679949493352,
+ "VIF_SC_std": 44.81363943452098,
+ "kappa_SC_n": 14.47013564617072,
+ "VIF_SC_n_max": 47.18791553197185,
+ "VIF_SC_n_S": {
+  "tau2": 5.015047037608483,
+  "k6": 47.18791553197185
+ },
+ "param_VIF_max": "k6",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.5667796768077119,
+  "a": "k6",
+  "b": "s_pMek_20140505_gel2"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 1.1,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}

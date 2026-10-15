@@ -35,6 +35,7 @@ CALIBRATION_ONLY = RESULTS / "calibration_only"
 QR_SELECTION = RESULTS / "qr_selection"
 BRUN_MORRIS = RESULTS / "brun_morris"
 PROFILE = RESULTS / "profile_likelihood"
+IDENTIFIABILITY = RESULTS / "identifiability"     # profiles of the reduced problem, local check, Lean conditions
 CRITERIA_TESTS = RESULTS / "criteria_tests"          # admissibility (+-5 %) and synthetic, 5 criteria
 TIMING_COMPLETE = RESULTS / "timing_complete"        # run time of the complete method from scratch
 

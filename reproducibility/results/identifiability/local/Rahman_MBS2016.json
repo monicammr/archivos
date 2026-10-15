@@ -1,0 +1,33 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "evaluable": true,
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 23,
+ "kappa_S_std": 5.925107557867616,
+ "VIF_S_std": 9.283846000408548,
+ "kappa_SC_std": 5.925107557867616,
+ "VIF_SC_std": 9.283846000408548,
+ "kappa_SC_n": 12.41212907497738,
+ "VIF_SC_n_max": 39.01685977787262,
+ "VIF_SC_n_S": {
+  "infected_moderate_transmission_rate": 39.01685977787261,
+  "infected_normal_worsen_rate": 39.01685977787262
+ },
+ "param_VIF_max": "infected_normal_worsen_rate",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9871018459286279,
+  "a": "infected_moderate_transmission_rate",
+  "b": "infected_normal_worsen_rate"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.4,
+ "pasa_std": true,
+ "pasa_n": false,
+ "pasa_S_n": false
+}
