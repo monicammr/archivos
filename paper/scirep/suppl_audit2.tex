@@ -1,0 +1,59 @@
+% Written by hand (second audit, 15-10-2026). Values in \tbd{} are filled from the server run of
+% scripts/fase_a_audit2.sh.
+
+\section*{Supplementary Note: Correspondence between claims and Lean theorems}
+
+Supplementary Table~\ref{tab:claims} lists every claim of the main text that refers to the formal development, the Lean theorem that supports it (file and name in \texttt{lean\_proofs/}), the hypotheses of the theorem as stated in Lean, and the numerical quantities of this study that instantiate them. A claim holds for a result of the paper only when the hypotheses in the third column are satisfied by the values in the fourth; where they are checked numerically rather than proved, the table says so.
+
+\begingroup\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.4cm}@{}}
+\caption{\textbf{Claims of the main text and the Lean theorems that support them.}}\label{tab:claims}\\
+\toprule
+Claim (main text) & Lean theorem & Hypotheses (literal) & Instance in this study \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\emph{(continued)}}\\
+\toprule
+Claim (main text) & Lean theorem & Hypotheses (literal) & Instance in this study \\
+\midrule
+\endhead
+Theorem~1: rescaling leaves a relative error $\sqrt{1-\cos^2}$ & \texttt{ScaledError.min\_rel\_error\_eq} & $a\neq0$, $b\neq0$ in a real inner-product space & $a=\Delta y_{\mathrm{full}}$, $b=\Delta y_S$ of each scenario; $\tau_e=\sqrt{1-0.9^2}=0.436$ \\
+Level 2: median $\cos\Delta\ge c$ implies the threshold for a rescaling & \texttt{ScaledError.scaled\_error\_cos} & as above & median $\cos\Delta\ge0.9$ in 17 subsets (Table~1, Level) \\
+Theorem~2, first part: the result of backward elimination is admissible and no element can be removed & \texttt{Poda.prune\_spec} & any predicate $Q$ on finite sets; $Q(S)$ for the starting set & $Q$ = admissibility as implemented; holds for all 31 subsets without further conditions \\
+Theorem~2, second part: no proper subset is admissible & \texttt{Poda.prune\_inclusion\_minimal} & $Q$ monotone (every superset of an admissible set is admissible) & checked empirically: \tbd{0} violations among \tbd{N} nested pairs evaluated during the selections (Methods) \\
+More re-estimated parameters never increase the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ & \texttt{RefitMonotone.fitErr\_anti}, \texttt{fitErr\_le\_erel}, \texttt{admissible\_mono} & exact minimisation over the feasible set & holds for the exact optimum; the implementation uses a local optimiser from two starting points and includes the value without re-estimation, so $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ holds by construction in every scenario \\
+Greedy selection keeps $\kappa$ and VIF below the thresholds; a rejected candidate can be discarded permanently & \texttt{GreedySelection.greedy\_ok}, \texttt{greedy\_discard\_permanent}, \texttt{greedy\_kappa\_vif\_guarantee} & the filter is antitone (true for $\kappa$ and VIF of any fixed column normalisation) & the implementation uses centred and scaled columns; all 31 subsets $\kappa\le6.5$, VIF $\le9.8$ \\
+$\kappa$ and VIF bounds give a unique and stable linearised least-squares solution & \texttt{IdentifiabilityConditioning.ls\_kappa\_stability}, \texttt{ls\_vif\_coordinate\_stability} & bounds on $\kappa$ and VIF of the unit-length columns $Z$ & $\kappa(Z)\le6.6$, VIF$(Z)\le10$ in 30 subsets; not satisfied for Rahman ($\kappa=12.4$, VIF$=39$; Supplementary Table~\ref{tab:conditioning}) \\
+Floating-point $\kappa$ and VIF certify the exact values & \texttt{NumericalRobustness.kappa\_certified\_from\_approx}, \texttt{vif\_certified\_from\_approx} & a bound on $\|Z-\tilde Z\|$ & not instantiated: no bound on the rounding error of $J$ was computed \\
+Level 3: the first-order error is bounded by the discarded energy & \texttt{FirstOrderErrorBound.first\_order\_error\_from\_Rvar} & $R_{\mathrm{var}}(S)\ge\tau_R$; first-order model & Alkan and Perelson \\
+Bounds transfer to transformed outputs & \texttt{OutputComposition.output\_sq\_bound}, \texttt{log\_lipschitz}, \texttt{log10\_lipschitz} & outputs bounded below by $c>0$ for log transforms & all problems with log-transformed observables \\
+First-order $e_{\mathrm{fit}}$ differs from the exact one by a second-order term & \texttt{LinearizedFit.fit\_upper\_of\_lin}, \texttt{fit\_lower\_of\_lin} & a bound $M$ on the second-order remainder & not instantiated ($M$ not computed); the six first-order problems were re-estimated nonlinearly instead (Supplementary Note \textit{Nonlinear check of the first-order problems}) \\
+Model hypotheses: solution exists, stays non-negative and is differentiable on the horizon & final theorem of each file \texttt{Models/<problem>.lean} & checked by the Lean kernel (\texttt{decide +kernel}) & 28 models (27 of the 34 problems and Froehlich) \\
+Practical identifiability of a selected parameter & \texttt{ProfileIdentifiability.practically\_identifiable\_grad} & $\|R\delta-R0-A\delta\|\le\varepsilon$ for all $\delta$ in the admissible set $F$; $|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|$; $t^\ast<$ distance to both bounds & $\varepsilon$ estimated at the computed profile points (not bounded over $F$): hypotheses satisfied at all evaluated points for 24 parameters, all of $S$ in 7 problems; a numerical check, not a certificate \\
+Finite-perturbation certificates & \texttt{CertifiedFiniteODE.certified\_cos\_ode}, \texttt{ExactLinearCertificate.certified\_cos\_ode\_exact} & explicit Lipschitz and remainder constants & constants $10^2$--$10^{24}$: no scenario at $\pm$5\% is certified in any problem (Supplementary Table~\ref{tab:scope}) \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+\section*{Supplementary Note: Conditioning with unit-length columns}
+
+The selection tests $\kappa$ and VIF on columns of $J_S$ that are centred and scaled to unit variance (the correlation matrix of the sensitivity columns), whereas the Lean statements on the linearised least-squares problem use columns scaled to unit length without centring. Both are antitone in the sense required by the greedy selection, so the selection itself is not affected; the statements on the linearised problem, however, apply only when the unit-length values satisfy the bounds. Supplementary Table~\ref{tab:conditioning} gives both for every final subset (\texttt{analysis/conditioning\_check.py}; central differences with step 1\%, $2|S|+2|\Theta_C|$ simulations per problem). They agree closely except in Rahman, where the unit-length VIF is 39. With the calibration parameters included, the unit-length matrix is far worse conditioned in several problems (for example Fujita and Isensee), because scaling factors of different observables can have nearly proportional sensitivities; this does not affect the selection, which conditions only the biological parameters.
+
+\begin{table}[ht]
+\centering\scriptsize
+\caption{\textbf{Conditioning of the final subsets.} $\kappa$ and VIF of the selected columns, centred and scaled (as in the selection) and scaled to unit length without centring (as in the Lean statements); last column, $\kappa$ of the unit-length columns of the selected and calibration parameters together.}\label{tab:conditioning}
+\input{tables/tableS_conditioning.tex}
+\end{table}
+
+\section*{Supplementary Note: Nonlinear check of the first-order problems}
+
+In Alkan, Bachmann, Chen, Isensee, Lucarelli and Raimundez, admissibility was decided during the selection with the first-order $e_{\mathrm{fit,lin}}$. To check this decision, the final subset of each problem was re-estimated nonlinearly in the same 15 scenarios at $\pm$5\%, with exactly the settings used for the other problems: trust-region reflective least squares in $\log|\theta|$ within $[|\theta_0|/10,\,10|\theta_0|]$, two starting points ($\theta_0$ and the scenario value), at most $100(|S|+|\Theta_C|+1)$ function evaluations, and the value without re-estimation included (\texttt{analysis/efit\_nonlinear.py}; one process per scenario). \tbd{Results: table with median e\_fit first order and nonlinear, pass rate, computing time; Lucarelli.}
+
+\section*{Supplementary Note: Selection on the training outputs, null controls and standard pivoted QR}
+
+\emph{Purpose.} Three questions about the comparison of criteria in the main text were raised in review. (i) Our method selected its subsets on all measured outputs, whereas the other criteria selected on the training outputs; the comparison may therefore favour our method in the tests that use held-out conditions. (ii) Without null baselines in the admissibility test, the fraction of admissible subsets of each criterion cannot be judged. (iii) The pivoted QR baseline of the first version applied column-pivoted QR to the normalised sensitivity matrix itself, which is not the standard subset-selection algorithm.
+
+\emph{Design.} (i) The complete selection was repeated with the rows of the training set only (\texttt{selection.py} with \texttt{REPRO\_OUTPUTS=train}), with the fixed scenario set of the Methods; the resulting subsets were evaluated with the same admissibility test (on all outputs, $\pm$5\% and $\pm$20\%), the same real-data test and the same synthetic experiment (20 seeds) as the other criteria. (ii) The admissibility of re-estimating only the calibration parameters ($k=0$, without the rule $|S|\ge2$) and of 20 random $k$-subsets per problem (the subsets of the real-data random baseline, seeds 0--19) was evaluated at $\pm$5\% and $\pm$20\%. To keep the comparison consistent, the five criteria were re-evaluated with the same rule (fixed scenario set; first-order $e_{\mathrm{fit,lin}}=\min\{e_{\mathrm{rel}},\text{projection}\}$ per scenario). (iii) Standard pivoted QR (Golub, Klema and Stewart): SVD of the normalised training sensitivity matrix and column-pivoted QR of $V_k^{\top}$ (\texttt{qr\_selection.py} with \texttt{QR\_VARIANT=gks}). (iv) The synthetic comparison was repeated with log-uniform and sparse truths (Methods), ten seeds.
+
+\emph{Results.} \tbd{(i) number of problems whose subset changed (about 18 of 31), admissibility and synthetic success of the training subsets; Bertozzi without an admissible pair; Perelson not evaluable on the training outputs. (ii) k = 0 and random subsets. (iii) standard QR. (iv) other families.}

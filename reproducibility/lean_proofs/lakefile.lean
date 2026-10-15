@@ -11,7 +11,7 @@ require mathlib from git
 lean_lib «Theory» where
   roots := #[`All, `CertifiedFiniteODE, `CertifiedODEReduction, `CosineCertificate, `EventSystems, `ExactLinearCertificate, `FirstOrderErrorBound, `GlobalExistence, `GlobalLipschitzODE, `GreedySelection, `IdentifiabilityConditioning, `IntervalInit, `KineticCheck, `KineticNetwork, `KineticRegularity, `LinearizedFit, `LocalExistence, `NominalCertificate, `NumericalRobustness, `OutputComposition, `ParamDiffODE, `PatternMechanisms, `Poda, `PositivityInvariance, `RefitMonotone, `RiccatiNetwork, `ScaledError, `SensitivityLipschitz, `SpectralConditioning, `StrictExistence, `StrictNetwork, `TrajectoryErrorBound, `ProfileIdentifiability]
 
-/-- Los 22 modelos del benchmark traducidos de SBML (Chen y Froehlich, en partes). -/
+/-- Los 28 modelos del benchmark traducidos de SBML (Chen y Froehlich, en partes). -/
 @[default_target]
 lean_lib «Models» where
   globs := #[.submodules `Models]

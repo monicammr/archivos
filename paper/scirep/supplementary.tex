@@ -37,6 +37,8 @@
 \captionsetup[figure]{name=Supplementary Figure,labelsep=period,labelfont=bf}
 \makeatletter
 % DOI of the reproducibility package on Zenodo (replace after reserving it)
+\usepackage{xcolor}
+\newcommand{\tbd}[1]{\textcolor{red}{[#1]}}
 \newcommand{\zenododoi}{10.5281/zenodo.23338175}
 \newcommand{\nt}[1]{\csname snt@#1\endcsname}
 \def\snt@sel{Selected subsets of the benchmark problems}
@@ -166,6 +168,8 @@ $e_{\mathrm{pred}}$ & relative prediction error with respect to a known truth (s
 \input{suppl_sct}
 
 \input{suppl_systems}
+
+\input{suppl_audit2}
 
 \input{suppl_conclusion}
 
