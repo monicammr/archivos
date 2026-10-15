@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kminus7a",
+  "k43r"
+ ],
+ "eajuste_med": 0.08500347573035355,
+ "erel_med": 0.44125136652782565,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 1338.8
+}

@@ -1,5 +1,5 @@
 \begin{longtable}{@{}lrrrrllrrr@{}}
-\caption{Identifiability of the selected parameters in the reduced problem ($S\cup\Theta_C$ free, other parameters at $\theta_0$, all measurements). $|S|$, $|\Theta_C|$: selected biological and calibration parameters; $\chi^2/n$: at the optimum of the reduced problem; VIF: largest variance inflation factor of a selected parameter among the columns of $J_{S\cup\Theta_C}$ (unit-norm, uncentred) at $\theta_0$. Profile: class of each selected parameter by profile likelihood with $\Delta\chi^2=3.84$ within $[|\theta_0|/10,10|\theta_0|]$ (I, identifiable, the profile exceeds the threshold on both sides; N, practically non-identifiable, on one side; F, flat; --, the profile could not be simulated); robust: the same with the threshold scaled by $\max(1,\chi^2_{\min}/\mathrm{d.f.})$. Wald: parameters whose linear (Wald) interval $\sqrt{3.84\,[(J^{\top}J)^{-1}]_{jj}}$ fits within the bounds on both sides; Lean: parameters for which the hypotheses of \texttt{practically\_identifiable\_grad} hold at the computed profile points up to the first crossing. Time: computing time needed to determine the identifiability of the selected parameters, that is, the fit of the reduced problem plus the re-estimations at all profile points, summed over the fits (CPU time; the points were computed in parallel, so the wall-clock time is shorter); $^{\mathrm{S}}$, computed on a shared 256-core server, otherwise on an 8-core workstation. For Isensee, Lang and Smith the profile was repeated after a better optimum was found, and only the last round is counted; for Chen, two profile points (one of them outside the bounds) did not finish and are not counted.}\label{tab:identif}\\
+\caption{Identifiability of the selected parameters in the reduced problem ($S\cup\Theta_C$ free, other parameters at $\theta_0$, all measurements). $|S|$, $|\Theta_C|$: selected biological and calibration parameters; $\chi^2/n$: at the optimum of the reduced problem; VIF: largest variance inflation factor of a selected parameter among the columns of $J_{S\cup\Theta_C}$ (unit-norm, uncentred) at $\theta_0$. Profile: class of each selected parameter by profile likelihood with $\Delta\chi^2=3.84$ within $[|\theta_0|/10,10|\theta_0|]$ (I, identifiable, the profile exceeds the threshold on both sides; N, practically non-identifiable, on one side; F, flat; --, the profile could not be simulated); robust: the same with the threshold scaled by $\max(1,\chi^2_{\min}/\mathrm{d.f.})$. Wald: parameters whose linear (Wald) interval $\sqrt{3.84\,[(J^{\top}J)^{-1}]_{jj}}$ fits within the bounds on both sides; Lean: parameters for which the hypotheses of \texttt{practically\_identifiable\_grad} hold at the computed profile points up to the first crossing. Time: computing time needed to determine the identifiability of the selected parameters, that is, the fit of the reduced problem plus the re-estimations at all profile points, summed over the fits (CPU time; the points were computed in parallel, so the wall-clock time is shorter); $^{\mathrm{S}}$, computed on a shared server (128 or 256 cores), otherwise on an 8-core workstation. For Isensee and Smith the profile was repeated after a better optimum was found, and only the last round is counted; for Chen, two profile points (one of them outside the bounds) did not finish and are not counted.}\label{tab:identif}\\
 \toprule
 Problem & $|S|$ & $|\Theta_C|$ & $\chi^2/n$ & VIF & Profile & Robust & Wald & Lean & Time \\
 \midrule
@@ -9,7 +9,7 @@ Problem & $|S|$ & $|\Theta_C|$ & $\chi^2/n$ & VIF & Profile & Robust & Wald & Le
 \midrule
 \endhead
 Alkan & 2 & 10 & 1.96 & 1.1 & I I & I I & 2/2 & 1/2 & 21.6 min \\
-Armistead & 2 & 0 & 1.03 & 1.0 & I I & I I & 2/2 & 1/2 & 1 s \\
+Armistead & 2 & 0 & 1.04 & 1.1 & I I & I I & 2/2 & 2/2 & $<$1 s \\
 Bachmann & 2 & 74 & 1.16 & 6.1 & I I & I I & 2/2 & 0/2 & 35.2 min$^{\mathrm{S}}$ \\
 Bertozzi & 2 & 0 & 1.10 & 5.9 & I I & I I & 2/2 & 0/2 & 1 s \\
 Blasi & 2 & 0 & 6.46 & 2.3 & I I & I I & 2/2 & 2/2 & 5 s \\
@@ -23,16 +23,15 @@ Fiedler & 2 & 8 & 1.04 & 47.2 & I I & I I & 2/2 & 0/2 & 35 s \\
 Fujita & 2 & 3 & 5.48 & 2.5e+08 & F F & F F & 0/2 & 0/2 & 1.1 min \\
 Giordano & 2 & 0 & 0.00 & 4.1 & N F & N F & 0/2 & 0/2 & 6 s \\
 Isensee & 2 & 11 & 1.02 & 41.6 & I I & I I & 2/2 & 0/2 & 4.3 h$^{\mathrm{S}}$ \\
-Lang & 2 & 16 & 5.83 & 21.0 & I I & I I & 2/2 & 0/2 & 3.8 h$^{\mathrm{S}}$ \\
 Laske & 2 & 2 & 0.18 & 2.7 & I I & I I & 2/2 & 1/2 & 1.2 min \\
 Liu & 2 & 0 & 1.02 & 1.3 & I I & I I & 2/2 & 0/2 & 7 s \\
 Lucarelli & 10 & 0 & 1.22 & 9.9 & I I I I I I I I I I & I I I I I I I I I I & 10/10 & 4/10 & 54.9 min \\
 Okuonghae & 2 & 0 & 1,413 & 1.3 & -- I & -- N & 2/2 & 0/2 & 4 s \\
 Oliveira & 2 & 0 & 182 & 1.0 & -- I & -- I & 2/2 & 0/2 & 6 s \\
-Perelson & 2 & 0 & 0.00 & 1.2 & F F & F F & 0/2 & 0/2 & 0 s \\
+Perelson & 2 & 0 & 0.00 & 1.2 & F F & F F & 0/2 & 0/2 & $<$1 s \\
 Rahman & 2 & 0 & 0.00 & 39.0 & I I & I I & 2/2 & 2/2 & 1 s \\
 Raia & 2 & 5 & 1,791 & 2.3e+04 & I I & F F & 2/2 & 0/2 & 1.4 min \\
-Raimundez & 2 & 79 & 4.85 & 66.2 & I I & I I & 2/2 & 0/2 & 7.7 h$^{\mathrm{S}}$ \\
+Raimundez & 2 & 79 & 4.85 & 75.5 & I I & I I & 2/2 & 0/2 & 4.0 h$^{\mathrm{S}}$ \\
 Salazar-Cavazos & 2 & 0 & 44.96 & 5.7 & I I & I I & 2/2 & 0/2 & 40 s \\
 Schwen & 2 & 15 & 0.96 & 39.1 & I I & I I & 2/2 & 0/2 & 6.2 min \\
 Smith & 2 & 9 & 1,894 & 29.3 & N I & N F & 1/2 & 0/2 & 48.1 min$^{\mathrm{S}}$ \\

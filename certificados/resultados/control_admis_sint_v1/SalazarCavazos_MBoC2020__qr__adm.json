@@ -1,0 +1,15 @@
+{
+ "S": [
+  "GRB2_total__FREE",
+  "kdephosYN__FREE"
+ ],
+ "eajuste_med": 0.5201132842780738,
+ "erel_med": 0.9883640462730354,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 34.6
+}

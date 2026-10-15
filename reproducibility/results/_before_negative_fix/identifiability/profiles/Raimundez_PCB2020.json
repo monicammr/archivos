@@ -1,0 +1,46 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "S": [
+  "kdeg_membran__MKN1",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+ ],
+ "n_calibracion": 79,
+ "n_datos": 627,
+ "coste_min": 2647.557528427227,
+ "chi2_por_gl": 4.849006462320929,
+ "umbral_robusto": 18.620184815312367,
+ "rondas": 0,
+ "dchi2_minimo": 1.0620563217917152,
+ "perfiles": [
+  {
+   "parametro": "kdeg_membran__MKN1",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 7033.587471211209,
+   "dchi2_max_der": 4219.909556629493,
+   "clase": "identificable",
+   "ic_izq_log": 0.03741837973564219,
+   "ic_der_log": 0.03533643813709216,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.09523046789494781,
+   "ic_der_log_robusto": 0.08921050612670882
+  },
+  {
+   "parametro": "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T",
+   "puntos_fallidos": 3,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 515.1843420353803,
+   "dchi2_max_der": 181.3521556762962,
+   "clase": "identificable",
+   "ic_izq_log": 0.09482430346914544,
+   "ic_der_log": 0.09088542724582259,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.21357975218780464,
+   "ic_der_log_robusto": 0.2020321657373379
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

@@ -1,0 +1,19 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "semilla": 42,
+ "p_y": 14,
+ "amplitud": 0.5,
+ "senal_rms_train": 34.608500458961004,
+ "senal_rms_test": 514.8986276909164,
+ "senal_norma_test": 2912.7064901111557,
+ "ruido_norma_test": 5.656854249492381,
+ "B_chi2_test_theta0": 264854.7480203442,
+ "B_chi2_test_red": 26180.763253826175,
+ "B_epred_red": 0.31469350772543797,
+ "nfev_red": 7,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 196.32528620463054,
+ "B_epred_full": 0.02672142078005809,
+ "nfev_full": 186,
+ "segundos": 3.4
+}

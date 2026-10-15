@@ -1,0 +1,15 @@
+{
+ "S": [
+  "SOCS3mRNA_production",
+  "Rec_recycle"
+ ],
+ "eajuste_med": 0.03353441912733463,
+ "erel_med": 0.2900539319301975,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 29.8
+}

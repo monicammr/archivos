@@ -1,0 +1,10 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "parametro": "pSTAT5_dephosphorylation",
+ "lado": -1,
+ "despl": 0.6,
+ "log_theta": -8.115757041822993,
+ "dchi2": 1522.5652342505637,
+ "nfev": 36,
+ "segundos": 4.1
+}

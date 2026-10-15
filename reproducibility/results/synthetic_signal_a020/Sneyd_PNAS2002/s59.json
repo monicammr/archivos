@@ -1,0 +1,11 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "semilla": 59,
+ "p_y": 14,
+ "amplitud": 0.2,
+ "senal_rms_train": 0.79489774000249,
+ "senal_rms_test": 0.9543263489872801,
+ "senal_norma_test": 6.401815767164238,
+ "ruido_norma_test": 6.708203932499369,
+ "segundos": 0.8
+}

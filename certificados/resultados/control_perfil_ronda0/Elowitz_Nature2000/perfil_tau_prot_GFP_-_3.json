@@ -1,0 +1,10 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "parametro": "tau_prot_GFP",
+ "lado": -1,
+ "despl": 1.2,
+ "log_theta": 3.380432897169295,
+ "dchi2": 8.06151898970542,
+ "nfev": 36,
+ "segundos": 1.7
+}

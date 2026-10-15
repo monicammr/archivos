@@ -4,9 +4,9 @@
   "k00"
  ],
  "semilla": 43,
- "B_chi2_test_theta0": 3.930104057827483,
- "B_chi2_test_red": 0.9510935531394544,
- "B_epred_red": 0.1090336909267628,
+ "B_chi2_test_theta0": 3.930104057827596,
+ "B_chi2_test_red": 0.951093553139207,
+ "B_epred_red": 0.10903369092701429,
  "sistema": "Armistead_CellDeathDis2024",
  "metodo": "brun",
  "prueba": "sint",

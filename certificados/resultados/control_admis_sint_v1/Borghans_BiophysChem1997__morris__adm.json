@@ -1,0 +1,15 @@
+{
+ "S": [
+  "K_par",
+  "beta_par"
+ ],
+ "eajuste_med": 0.41414190934768236,
+ "erel_med": 0.8798464604192913,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 21.2
+}

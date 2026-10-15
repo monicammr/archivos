@@ -1,0 +1,10 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "parametro": "k20_10",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": -9.81643215304465,
+ "dchi2": -0.0007938300278642618,
+ "nfev": 76,
+ "segundos": 32.2
+}

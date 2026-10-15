@@ -9,7 +9,7 @@
  "n_planos": 9,
  "S_ours": [
   "k_d",
-  "alpha_cer"
+  "k00"
  ],
  "S_perfil": [
   "k_d",
@@ -21,10 +21,10 @@
  ],
  "overlap_perfil_ours": 1,
  "overlap_perfil_qr": 1,
- "chi2_ours": 1.2178192409491908,
+ "chi2_ours": 1.2180658482279045,
  "chi2_qr": 1.2072592244130071,
  "chi2_perfil": 1.3720842319055087,
- "ratio_perfil_vs_ours": 1.1266731430816292,
+ "ratio_perfil_vs_ours": 1.126445038994958,
  "coste_min_train": 22.22902814745831,
  "dchi2_minimo_perfiles": -8.390981420802746e-08,
  "puntos_fallidos": 0,

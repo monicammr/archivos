@@ -1,0 +1,195 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 23,
+ "n_bio": 18,
+ "n_identificables": 3,
+ "n_no_identificables_practicos": 14,
+ "n_planos": 1,
+ "S_ours": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "S_perfil": [
+  "pSTAT5_dephosphorylation",
+  "pJAK2_dephosphorylation"
+ ],
+ "S_qr": [
+  "Rec_recycle",
+  "DecoyR_binding"
+ ],
+ "overlap_perfil_ours": 0,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 8.223759823396664,
+ "chi2_qr": 7.235711468453537,
+ "chi2_perfil": 0.7993471913791936,
+ "ratio_perfil_vs_ours": 0.09719972476640724,
+ "coste_min_train": 330868.3519140357,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "pSTAT5_dephosphorylation",
+   "clase": "identificable",
+   "ancho_ic_log": 0.10491143693725144,
+   "dchi2_max_izq": 14055.78520195221,
+   "dchi2_max_der": 4069.0981288112816,
+   "dchi2_min_lado": 4069.0981288112816,
+   "dchi2_negativo": -7.332189680542797
+  },
+  {
+   "parametro": "pJAK2_dephosphorylation",
+   "clase": "identificable",
+   "ancho_ic_log": 0.21434027529644684,
+   "dchi2_max_izq": 13365.837490538426,
+   "dchi2_max_der": 727.5160093376762,
+   "dchi2_min_lado": 727.5160093376762,
+   "dchi2_negativo": -290.43846666958416
+  },
+  {
+   "parametro": "SOCS3_accumulation",
+   "clase": "identificable",
+   "ancho_ic_log": 0.3133618428730118,
+   "dchi2_max_izq": 468.36687272554263,
+   "dchi2_max_der": 513.474545597448,
+   "dchi2_min_lado": 468.36687272554263,
+   "dchi2_negativo": -317.6052933204337
+  },
+  {
+   "parametro": "CD274mRNA_production",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.2463706072885543,
+   "dchi2_max_der": 0.05594074068358168,
+   "dchi2_min_lado": 0.05594074068358168,
+   "dchi2_negativo": -324.08258926169947
+  },
+  {
+   "parametro": "DecoyR_binding",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 85.7990653788438,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -381.6917505369638
+  },
+  {
+   "parametro": "JAK2_p_inhibition",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1280.0687238317914,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -403.5748948866967
+  },
+  {
+   "parametro": "JAK2_phosphorylation",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 4737.6955318324035,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -31.134363014018163
+  },
+  {
+   "parametro": "Kon_IL13Rec",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 2135.2610057329875,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 65.53020345099503
+  },
+  {
+   "parametro": "Rec_intern",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 112.26167986082146,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -316.77889343036804
+  },
+  {
+   "parametro": "Rec_phosphorylation",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 54.50640342955012,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -129.8420156579814
+  },
+  {
+   "parametro": "Rec_recycle",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 131.01089703215985,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -225.45093490503496
+  },
+  {
+   "parametro": "SOCS3_degradation",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 867.2955960912514,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -86.92157853662502
+  },
+  {
+   "parametro": "SOCS3_translation",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 540.6103377943509,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -384.7481944836327
+  },
+  {
+   "parametro": "SOCS3mRNA_production",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1256.943947043328,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -354.4427062374307
+  },
+  {
+   "parametro": "STAT5_phosphorylation",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 616.2577507279348,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -343.9313327068812
+  },
+  {
+   "parametro": "init_Rec_i",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 9.819907829514705,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -245.4571513775736
+  },
+  {
+   "parametro": "pRec_degradation",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 51.6246324495296,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -234.0937267021509
+  },
+  {
+   "parametro": "pRec_intern",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 3568.4688129381393,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -151.4751974430983
+  }
+ ],
+ "segundos_fase3": 0.6
+}

@@ -27,7 +27,14 @@ import numpy as np
 import validacion_externa as VE
 import petab_outputs as PO
 
-OUTD = VE.HERE / "resultados" / "sintetico_semillas"
+# SINT_AMPLITUD: amplitud de la verdad θ* = θ₀(1 + a·u) (por defecto la del artículo, 0,20); con otra
+# amplitud los resultados van a sintetico_semillas_a<100·a>.  SINT_SOLO_SENAL=1: sólo la señal
+# y(θ*) − y(θ₀) en unidades de σ (sin ajustes), en sintetico_senal_a<100·a>.
+AMPL = float(os.environ.get("SINT_AMPLITUD", VE.NIVEL_VERDAD))
+SOLO_SENAL = os.environ.get("SINT_SOLO_SENAL") == "1"
+_suf = "" if AMPL == VE.NIVEL_VERDAD else f"_a{round(100 * AMPL):03d}"
+OUTD = VE.HERE / "resultados" / (f"sintetico_senal_a{round(100 * AMPL):03d}" if SOLO_SENAL
+                                  else "sintetico_semillas" + _suf)
 P_MAX = int(os.environ.get("SINT_PMAX", 100))
 a, b = os.environ.get("SINT_SEEDS", "42-61").split("-")
 SEEDS = list(range(int(a), int(b) + 1))
@@ -63,12 +70,20 @@ def uno(name, seed):
     rng = np.random.default_rng(seed)
     u = rng.uniform(-1, 1, size=len(th0))
     th_true = th0.copy()
-    th_true[libres_full] = th0[libres_full] * (1 + VE.NIVEL_VERDAD * u[libres_full])
+    th_true[libres_full] = th0[libres_full] * (1 + AMPL * u[libres_full])
     zt = S.z(th_true)
     if zt is None or z0 is None:
         return dict(res, B_error="la simulación de la verdad θ* falla")
     datos = zt + rng.standard_normal(len(zt))
     den = np.linalg.norm((zt - z0)[ftest])
+    # señal y(θ*) − y(θ₀) en unidades de σ (z está escalado por el ruido): RMS por dato y norma
+    res.update(amplitud=AMPL,
+               senal_rms_train=float(np.linalg.norm((zt - z0)[ftrain]) / np.sqrt(ftrain.sum())),
+               senal_rms_test=float(den / np.sqrt(ftest.sum())), senal_norma_test=float(den),
+               ruido_norma_test=float(np.sqrt(ftest.sum())))
+    if SOLO_SENAL:
+        res["segundos"] = round(time.time() - t0, 1)
+        return res
 
     def epred(z):
         return float(np.linalg.norm((z - zt)[ftest]) / den) if z is not None and den > 0 else float("nan")

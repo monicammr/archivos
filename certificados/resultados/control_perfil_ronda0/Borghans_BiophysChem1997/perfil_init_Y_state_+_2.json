@@ -1,0 +1,10 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "parametro": "init_Y_state",
+ "lado": 1,
+ "despl": 0.6,
+ "log_theta": 0.599352663771351,
+ "dchi2": 34.04817226053929,
+ "nfev": 18,
+ "segundos": 2.3
+}

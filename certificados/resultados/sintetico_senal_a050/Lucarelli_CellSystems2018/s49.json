@@ -1,0 +1,11 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "semilla": 49,
+ "p_y": 72,
+ "amplitud": 0.5,
+ "senal_rms_train": 1.4677202744914952,
+ "senal_rms_test": 1.0392096508708604,
+ "senal_norma_test": 25.41287283407673,
+ "ruido_norma_test": 24.454038521274967,
+ "segundos": 1.5
+}

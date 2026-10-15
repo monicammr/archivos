@@ -3,13 +3,13 @@
   "d_MAPKtotal__MKN1_2_HS746T",
   "d_MPI3Ktotal__fm_2_hm"
  ],
- "eajuste_med": 0.5287701078763999,
- "erel_med": 0.9991558418910482,
- "admisible": false,
+ "eajuste_med": 0.27878908199882946,
+ "erel_med": 0.7934863651916433,
+ "admisible": true,
  "n_escenarios": 15,
  "lineal": true,
  "sistema": "Raimundez_PCB2020",
  "metodo": "qr",
  "prueba": "adm",
- "segundos": 95.7
+ "segundos": 80.3
 }

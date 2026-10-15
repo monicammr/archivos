@@ -2,16 +2,16 @@
  "sistema": "Armistead_CellDeathDis2024",
  "S": [
   "k_d",
-  "alpha_cer"
+  "k00"
  ],
  "|S|": 2,
  "division": "condiciones nuevas",
  "n_train": 29,
  "n_test": 29,
- "chi2_test_red_original": 1.2178192409491908,
+ "chi2_test_red_original": 1.2180658482279045,
  "chi2_test_full_train": 1.3724779699801108,
- "chi2_test_red_nested": 1.3724530841227587,
+ "chi2_test_red_nested": 1.372464061299205,
  "chi2_test_theta0": 1.1569248524731874,
- "ratio_nested_vs_original": 1.1269760223635845,
- "segundos": 0.3
+ "ratio_nested_vs_original": 1.12675686892948,
+ "segundos": 0.5
 }

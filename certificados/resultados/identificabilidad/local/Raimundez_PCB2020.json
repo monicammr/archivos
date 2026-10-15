@@ -3,7 +3,7 @@
  "evaluable": true,
  "S": [
   "kdeg_membran__MKN1",
-  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+  "ka_MAPK__MKN1"
  ],
  "n_calibracion": 79,
  "calibracion_usada": [
@@ -89,24 +89,24 @@
  ],
  "columnas_nulas_excluidas": [],
  "n_filas": 627,
- "kappa_S_std": 1.130405073084643,
- "VIF_S_std": 1.0151002856146776,
- "kappa_SC_std": 17.574934782425895,
- "VIF_SC_std": 63.11998518359286,
- "kappa_SC_n": 17.872781489540014,
- "VIF_SC_n_max": 66.2425950198973,
+ "kappa_S_std": 1.3408433303201317,
+ "VIF_S_std": 1.0885193533131055,
+ "kappa_SC_std": 21.379182231121547,
+ "VIF_SC_std": 71.85474914666412,
+ "kappa_SC_n": 21.887152723187768,
+ "VIF_SC_n_max": 75.5365627332809,
  "VIF_SC_n_S": {
-  "kdeg_membran__MKN1": 66.2425950198973,
-  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T": 54.30482177888571
+  "kdeg_membran__MKN1": 75.5365627332809,
+  "ka_MAPK__MKN1": 46.52410384366565
  },
  "param_VIF_max": "kdeg_membran__MKN1",
  "par_mas_parecido_con_S": {
-  "coseno": 0.8897095738846599,
-  "a": "kdeg_membran__MKN1",
-  "b": "s_pEGFR_ID9b_MKN1_HM_1EGF"
+  "coseno": 0.9097165870278011,
+  "a": "ka_MAPK__MKN1",
+  "b": "s_pMAPK_ID9b_MKN1_HM_1EGF"
  },
  "columnas_reutilizadas": 81,
- "segundos": 8.2,
+ "segundos": 1.7,
  "pasa_std": false,
  "pasa_n": false,
  "pasa_S_n": false

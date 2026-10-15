@@ -5,10 +5,10 @@
  ],
  "semilla": 55,
  "B_chi2_test_theta0": 2.302276869724768,
- "B_chi2_test_red": 2.2091655638895933,
- "B_epred_red": 1.0352529812715399,
+ "B_chi2_test_red": 2.209174707868992,
+ "B_epred_red": 1.0352540404368507,
  "sistema": "Armistead_CellDeathDis2024",
  "metodo": "qr",
  "prueba": "sint",
- "segundos": 0.2
+ "segundos": 0.0
 }

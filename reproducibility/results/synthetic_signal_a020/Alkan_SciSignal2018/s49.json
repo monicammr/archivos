@@ -1,0 +1,11 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "semilla": 49,
+ "p_y": 44,
+ "amplitud": 0.2,
+ "senal_rms_train": 0.5920128560902134,
+ "senal_rms_test": 0.5938401523334031,
+ "senal_norma_test": 13.989946398055444,
+ "ruido_norma_test": 23.558437978779494,
+ "segundos": 2.4
+}

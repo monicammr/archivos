@@ -1,0 +1,10 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "parametro": "init_EGFR",
+ "lado": -1,
+ "despl": 0.3,
+ "log_theta": 17.227198273027405,
+ "dchi2": -0.07727272272302343,
+ "nfev": 31,
+ "segundos": 3.2
+}

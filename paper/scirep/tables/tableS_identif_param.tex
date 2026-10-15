@@ -1,4 +1,4 @@
-\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{2.6cm}clrrrrrrc@{}}
+\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{1.4cm}clrrrrrrc@{}}
 \caption{Identifiability of every selected parameter in the reduced problem. Class: profile-likelihood class with the threshold 3.84 / with the robust threshold (I, identifiable; N, practically non-identifiable; F, flat; --, the profile could not be simulated). CI: 95\% profile-likelihood interval of $\log_{10}\theta_j-\log_{10}\hat\theta_j$, interpolated between profile points ($\infty$, the profile does not cross the threshold on that side within the bounds). $I_j$: profiled information $1/[(A^{\top}A)^{-1}]_{jj}$ (computed by projection); Wald: half-width $\sqrt{3.84/I_j}$ in $\log_{10}$ units; $\gamma=\|Pr_0\|$; $\varepsilon$: largest nonlinear remainder at the profile points; $d_-$, $d_+$: distances from $\log_{10}\hat\theta_j$ to $\log_{10}(|\theta_0|/10)$ and $\log_{10}(10|\theta_0|)$; Lean: hypotheses of \texttt{practically\_identifiable\_grad} satisfied at the profile points up to the first crossing.}\label{tab:identifparam}\\
 \toprule
 Problem & Parameter & Class & CI ($\log_{10}$) & $I_j$ & Wald & $\gamma$ & $\varepsilon$ & $d_-$ & $d_+$ & Lean \\
@@ -10,8 +10,8 @@ Problem & Parameter & Class & CI ($\log_{10}$) & $I_j$ & Wald & $\gamma$ & $\var
 \endhead
 Alkan & \texttt{kt} & I/I & [$-$$2.8\times10^{-3}$, $2.5\times10^{-3}$] & $1.0\times10^{5}$ & $2.7\times10^{-3}$ & $4.7\times10^{-4}$ & 41.9 & 1.00 & 1.00 & \checkmark \\
  & \texttt{k\_\allowbreak{}rep\_\allowbreak{}nhej} & I/I & [$-$0.03, 0.03] & 903.6 & 0.03 & $4.7\times10^{-4}$ & 50.7 & 1.00 & 1.00 &  \\
-Armistead & \texttt{k\_\allowbreak{}d} & I/I & [$-$0.02, 0.02] & 1938.7 & 0.02 & $3.7\times10^{-4}$ & 68.0 & 1.00 & 1.00 & \checkmark \\
- & \texttt{alpha\_\allowbreak{}cer} & I/I & [$-$0.08, 0.07] & 129.3 & 0.07 & $3.7\times10^{-4}$ & 27.4 & 1.01 & 0.99 &  \\
+Armistead & \texttt{k\_\allowbreak{}d} & I/I & [$-$0.02, 0.02] & 1870.3 & 0.02 & $3.3\times10^{-6}$ & 46.5 & 1.00 & 1.00 & \checkmark \\
+ & \texttt{k00} & I/I & [$-$0.03, 0.03] & 1031.7 & 0.03 & $3.3\times10^{-6}$ & 46.3 & 1.00 & 1.00 & \checkmark \\
 Bachmann & \texttt{CISRNADelay} & I/I & [$-$0.04, 0.05] & 364.7 & 0.04 & 0.59 & 158.9 & 1.00 & 1.00 &  \\
  & \texttt{JAK2ActEpo} & I/I & [$-$0.06, 0.06] & 194.0 & 0.06 & 0.59 & 30.1 & 1.00 & 1.00 &  \\
 Bertozzi & \texttt{R0\_\allowbreak{}NY} & I/I & [$-$0.04, 0.04] & 442.3 & 0.04 & $1.5\times10^{-4}$ & 82.5 & 1.00 & 1.00 &  \\
@@ -41,8 +41,6 @@ Giordano & \texttt{alpha\_\allowbreak{}4} & N/N & [$-$$\infty$, 0.29] & $7.3\tim
  & \texttt{alpha\_\allowbreak{}28} & F/F & [$-$$\infty$, $\infty$] & $1.2\times10^{-5}$ & 250.77 & $3.3\times10^{-8}$ & 0.6 & 1.02 & 0.98 &  \\
 Isensee & \texttt{kf\_\allowbreak{}RIIp\_\allowbreak{}C\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RII\_\allowbreak{}C\_\allowbreak{}2} & I/I & [$-$0.04, 0.03] & 271.7 & 0.05 & $3.0\times10^{-3}$ & 110.0 & 1.01 & 0.99 &  \\
  & \texttt{xi\_\allowbreak{}kf\_\allowbreak{}RII\_\allowbreak{}C\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RII\_\allowbreak{}2} & I/I & [$-$0.05, 0.02] & 36.2 & 0.14 & $3.0\times10^{-3}$ & 21.3 & 0.97 & 1.03 &  \\
-Lang & \texttt{kDeE2f1} & I/I & [$-$$1.5\times10^{-3}$, $6.3\times10^{-4}$] & $8.3\times10^{6}$ & $2.9\times10^{-4}$ & 2.37 & 9123.0 & 1.03 & 0.97 &  \\
- & \texttt{kDeCe} & I/I & [$-$$2.6\times10^{-3}$, $7.6\times10^{-3}$] & $1.1\times10^{5}$ & $2.6\times10^{-3}$ & 2.37 & 986.5 & 1.27 & 0.73 &  \\
 Laske & \texttt{k\_\allowbreak{}imp} & I/I & [$-$0.13, 0.11] & 48.8 & 0.12 & $5.0\times10^{-4}$ & 65.6 & 0.99 & 1.01 &  \\
  & \texttt{k\_\allowbreak{}syn\_\allowbreak{}R\_\allowbreak{}M} & I/I & [$-$0.11, 0.11] & 57.3 & 0.11 & $5.0\times10^{-4}$ & 8.5 & 1.04 & 0.96 & \checkmark \\
 Liu & \texttt{kappa} & I/I & [$-$0.05, 0.05] & 307.1 & 0.05 & $3.3\times10^{-4}$ & 34.6 & 1.00 & 1.00 &  \\
@@ -67,8 +65,8 @@ Rahman & \texttt{infected\_\allowbreak{}moderate\_\allowbreak{}transmission\_\al
  & \texttt{infected\_\allowbreak{}normal\_\allowbreak{}worsen\_\allowbreak{}rate} & I/I & [$-$0.05, 0.06] & 235.8 & 0.06 & $6.0\times10^{-5}$ & 97.2 & 1.00 & 1.00 & \checkmark \\
 Raia & \texttt{SOCS3mRNA\_\allowbreak{}production} & I/F & [$-$0.04, 0.03] & 340.4 & 0.05 & 0.42 & 124.5 & 0.23 & 1.77 &  \\
  & \texttt{init\_\allowbreak{}Rec\_\allowbreak{}i} & I/F & [$-$0.02, 0.02] & 227.7 & 0.06 & 0.42 & 161.8 & 0.34 & 1.66 &  \\
-Raimundez & \texttt{kdeg\_\allowbreak{}membran\_\allowbreak{}\_\allowbreak{}MKN1} & I/I & [$-$0.02, 0.02] & 2068.9 & 0.02 & $4.3\times10^{-3}$ & 154.1 & 1.00 & 1.00 &  \\
- & \texttt{d\_\allowbreak{}kimp\_\allowbreak{}pEGFR\_\allowbreak{}EGF\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}MKN1\_\allowbreak{}2\_\allowbreak{}HS746T} & I/I & [$-$0.04, 0.04] & 433.2 & 0.04 & $4.3\times10^{-3}$ & 213.6 & 1.00 & 1.00 &  \\
+Raimundez & \texttt{kdeg\_\allowbreak{}membran\_\allowbreak{}\_\allowbreak{}MKN1} & I/I & [$-$0.02, 0.02] & 1813.6 & 0.02 & $5.6\times10^{-3}$ & 241.0 & 1.00 & 1.00 &  \\
+ & \texttt{ka\_\allowbreak{}MAPK\_\allowbreak{}\_\allowbreak{}MKN1} & I/I & [$-$0.03, 0.03] & 749.7 & 0.03 & $5.6\times10^{-3}$ & 215.2 & 1.00 & 1.00 &  \\
 Salazar-Cavazos & \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}Y1068\_\allowbreak{}\_\allowbreak{}FREE} & I/I & [$-$0.02, 0.02] & 2936.9 & 0.02 & $1.5\times10^{-4}$ & 181.1 & 1.00 & 1.00 &  \\
  & \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}YN\_\allowbreak{}\_\allowbreak{}FREE} & I/I & [$-$0.03, 0.03] & 1070.4 & 0.03 & $1.5\times10^{-4}$ & 133.4 & 1.00 & 1.00 &  \\
 Schwen & \texttt{ini\_\allowbreak{}R1} & I/I & [$-$0.23, 0.16] & 21.8 & 0.18 & 11.07 & 14.8 & 0.95 & 1.05 &  \\

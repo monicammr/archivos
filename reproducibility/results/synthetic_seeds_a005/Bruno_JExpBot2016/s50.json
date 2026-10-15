@@ -1,0 +1,19 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "semilla": 50,
+ "p_y": 13,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.30888808018181707,
+ "senal_rms_test": 0.12219164714862003,
+ "senal_norma_test": 0.6465774212892066,
+ "ruido_norma_test": 5.291502622129181,
+ "B_chi2_test_theta0": 1.3004063633747454,
+ "B_chi2_test_red": 1.3993596894295977,
+ "B_epred_red": 2.4697227634926913,
+ "nfev_red": 5,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 210.57603246657797,
+ "B_epred_full": 118.14950913166986,
+ "nfev_full": 9,
+ "segundos": 0.9
+}

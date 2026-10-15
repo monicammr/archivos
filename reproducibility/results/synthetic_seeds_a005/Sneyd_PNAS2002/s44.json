@@ -1,0 +1,19 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "semilla": 44,
+ "p_y": 14,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.14383185192240908,
+ "senal_rms_test": 0.1433294695168368,
+ "senal_norma_test": 0.9614833110558932,
+ "ruido_norma_test": 6.708203932499369,
+ "B_chi2_test_theta0": 1.1878408025717597,
+ "B_chi2_test_red": 1.1352306481313879,
+ "B_epred_red": 1.4234141212440319,
+ "nfev_red": 14,
+ "seg_red": 0.6,
+ "B_chi2_test_full": 1.113563687753313,
+ "B_epred_full": 1.859028517785149,
+ "nfev_full": 37,
+ "segundos": 2.0
+}

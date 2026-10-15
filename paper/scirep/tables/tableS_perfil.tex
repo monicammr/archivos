@@ -1,4 +1,4 @@
-\begin{longtable}{@{}lrrrrr>{\raggedright}p{4.0cm}rl@{}}
+\begin{longtable}{@{}lrrrrr>{\raggedright}p{2.5cm}r>{\raggedright\arraybackslash}p{2.3cm}@{}}
 \caption{Profile likelihood of the biological parameters (training data). Ident.: profile above $\Delta\chi^2=3.84$ on both sides; one side: only on one side; flat: on neither side. Selected: the $k$ parameters with the narrowest profile confidence interval. Common: parameters shared with the subset of our method. Re-fits: times the full model was re-estimated because a profile point improved the optimum; residual: remaining improvement (in units of $\chi^2$) after the last re-fit; a residual above one unit means that the optimum of the full model did not converge, so the classification of that problem is provisional. Failed pts: profile points excluded because the fit failed (simulation failure or $\Delta\chi^2>10^4$). A side is classified from its remaining points, so a failure can make a parameter look less identifiable than it is; this affects three parameters not classified as identifiable (Okuonghae gamma\_i and Weber m31, one side; Weber p31, flat), whose class is therefore an upper bound on non-identifiability.}\label{tab:perfil}\\
 \toprule
 Problem & $k$ & Bio & Ident. & One side & Flat & Selected by profile likelihood & Common & Note \\
@@ -24,7 +24,6 @@ Fiedler & 2 & 12 & 0 & 3 & 9 & K\_\allowbreak{}2, k6 & 1 & -- \\
 Fujita & 2 & 16 & 7 & 2 & 7 & reaction\_\allowbreak{}8\_\allowbreak{}k1, EGFR\_\allowbreak{}turnover & 0 & -- \\
 Giordano & 2 & 43 & 0 & 0 & 43 & nu\_\allowbreak{}0, rho\_\allowbreak{}22 & 0 & -- \\
 Isensee & 2 & 32 & 23 & 3 & 6 & kf\_\allowbreak{}RIIp\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RII\_\allowbreak{}2, kf\_\allowbreak{}RII\_\allowbreak{}C\_\allowbreak{}2\_\allowbreak{}\_\allowbreak{}RIIp\_\allowbreak{}C\_\allowbreak{}2 & 0 & 3 re-fits; res. 1.16, \textbf{not converged}; 6 failed pts \\
-Lang & \multicolumn{8}{l}{\emph{not evaluated: 277 free parameters $>$ PL\_\allowbreak{}PMAX=60}} \\
 Laske & 2 & 6 & 0 & 2 & 4 & k\_\allowbreak{}bind\_\allowbreak{}M1, k\_\allowbreak{}syn\_\allowbreak{}R\_\allowbreak{}M & 1 & -- \\
 Liu & 2 & 7 & 2 & 0 & 5 & kappa, rho & 1 & -- \\
 Lucarelli & \multicolumn{8}{l}{\emph{not evaluated: 72 free parameters $>$ PL\_\allowbreak{}PMAX=60}} \\

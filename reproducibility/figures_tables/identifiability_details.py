@@ -143,7 +143,7 @@ for s in problemas:
                       num(None if c is None else float(c["d_menos"]) / LN10),
                       num(None if c is None else float(c["d_mas"]) / LN10),
                       "\\checkmark" if c is not None and bool(c["certificado_local"]) else ""])
-L = [r"\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{2.6cm}clrrrrrrc@{}}",
+L = [r"\begin{longtable}{@{}l>{\raggedright\arraybackslash}p{1.4cm}clrrrrrrc@{}}",
      r"\caption{Identifiability of every selected parameter in the reduced problem. Class: profile-likelihood class with the threshold 3.84 / with the robust threshold (I, identifiable; N, practically non-identifiable; F, flat; --, the profile could not be simulated). CI: 95\% profile-likelihood interval of $\log_{10}\theta_j-\log_{10}\hat\theta_j$, interpolated between profile points ($\infty$, the profile does not cross the threshold on that side within the bounds). $I_j$: profiled information $1/[(A^{\top}A)^{-1}]_{jj}$ (computed by projection); Wald: half-width $\sqrt{3.84/I_j}$ in $\log_{10}$ units; $\gamma=\|Pr_0\|$; $\varepsilon$: largest nonlinear remainder at the profile points; $d_-$, $d_+$: distances from $\log_{10}\hat\theta_j$ to $\log_{10}(|\theta_0|/10)$ and $\log_{10}(10|\theta_0|)$; Lean: hypotheses of \texttt{practically\_identifiable\_grad} satisfied at the profile points up to the first crossing.}\label{tab:identifparam}\\",
      r"\toprule",
      r"Problem & Parameter & Class & CI ($\log_{10}$) & $I_j$ & Wald & $\gamma$ & $\varepsilon$ & $d_-$ & $d_+$ & Lean \\",

@@ -1,0 +1,11 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "semilla": 46,
+ "p_y": 25,
+ "amplitud": 0.2,
+ "senal_rms_train": 54.03892377030298,
+ "senal_rms_test": 85.32538427190646,
+ "senal_norma_test": 330.463792293842,
+ "ruido_norma_test": 3.872983346207417,
+ "segundos": 4.3
+}

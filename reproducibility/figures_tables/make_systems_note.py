@@ -41,7 +41,7 @@ TXT = {
         r"\texttt{k\_rep\_nhej} is the rate of repair by non-homologous end joining, which returns damaged S and G2 cells to the cycle."),
     "Armistead_CellDeathDis2024": (
         "Ceramide and sphingolipid metabolism (4 species).",
-        r"\texttt{k\_d} is the degradation rate of ceramide; \texttt{alpha\_cer} is the factor of the ceramide feedback on the de novo production of sphinganine."),
+        r"\texttt{k\_d} is the degradation rate of ceramide; \texttt{k00} is the basal rate of de novo production of sphinganine."),
     "Bachmann_MSB2011": (
         "JAK2/STAT5 signalling induced by erythropoietin (Epo) with negative feedback by CIS and SOCS3 (25 species).",
         r"\texttt{JAK2ActEpo} is the rate of Epo-induced activation of JAK2 at the receptor (EpoR:JAK2 $\to$ EpoR:pJAK2); "
@@ -136,7 +136,7 @@ TXT = {
     "Raimundez_PCB2020": (
         "EGFR and MET signalling in two gastric cancer cell lines (MKN1 and HS746T) treated with EGF, HGF and cetuximab.",
         r"\texttt{kdeg\_membran\_\_MKN1} is the degradation rate of membrane receptors (EGFR, EGFR:EGF, EGFR:cetuximab) in MKN1 cells; "
-        r"\texttt{d\_kimp\_pEGFR\_EGF\_2\_\_MKN1\_2\_HS746T} is the difference between the two cell lines in the internalisation rate of phosphorylated receptor dimers (pEGFR:EGF and pMET)."),
+        r"\texttt{ka\_MAPK\_\_MKN1} is the rate constant of MAPK (ERK) phosphorylation in MKN1 cells; its published value lies at the upper bound of the benchmark range ($10^3$)."),
     "SalazarCavazos_MBoC2020": (
         "Multisite phosphorylation of the epidermal growth factor receptor (EGFR).",
         r"\texttt{ratio\_kpkd\_Y1068\_\_FREE} and \texttt{ratio\_kpkd\_YN\_\_FREE} are the ratios of phosphorylation to dephosphorylation rate of tyrosine Y1068 and of the other tyrosines in receptors that are not bound to adaptor proteins."),
@@ -260,6 +260,14 @@ def paragraph(s):
                  r"for every integrator tolerance tested (relative tolerances from $10^{-10}$ to $10^{-5}$), "
                  r"so the sensitivity matrix and the admissibility test are not defined and no local reduction method is applicable. "
                  r"Consistently, the existence of solutions could only be proved in Lean on a short horizon ($T\le1$, \sref{models}).")
+        return L
+    if s == "Lang_PLOSComputBiol2024" and not d.get("admisible"):
+        nl = ", ".join(rf"\texttt{{{tex(x)}}}" for x in S[:-1]) + rf" and \texttt{{{tex(S[-1])}}}"
+        L.append(head + rf" \textbf{{Not admissible.}} Ranking by finite-perturbation effects (stage~2), the selection stopped at {len(S)} parameters ({nl}), "
+                 rf"because any further parameter violated the conditioning test ($\kappa={d['kappa']:.1f}$, VIF ${d['VIF']:.2f}$, just below the limit of 10). "
+                 rf"Re-estimating these {len(S)} parameters gave a median first-order $e_{{\mathrm{{fit}}}}$ of {100*d['eajuste_med']:.0f}\%, above the threshold of 43.6\%: "
+                 r"the model, an oscillating cell cycle simulated to $t=136{,}472$, responds to the perturbations through many rate constants and initial conditions, and no small subset compensates for all of them. "
+                 r"Our simulation of this model also differs from the reference simulation of the benchmark more than in any other problem (22\% of the measurements by more than one noise unit; Supplementary Note \emph{Verification of the simulator}), so this result should be read with that caveat.")
         return L
     if s == "Beer_MolBioSystems2014":
         L.append(head + rf" \textbf{{Not admissible.}} The selection stopped at {len(S)} parameters (synthesis, dimerisation and degradation rates of particular strains, growth rates $\beta$ of particular experiments and the initial amount of bacteria), "

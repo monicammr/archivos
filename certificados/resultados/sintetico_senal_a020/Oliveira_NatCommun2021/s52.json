@@ -1,0 +1,11 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "semilla": 52,
+ "p_y": 12,
+ "amplitud": 0.2,
+ "senal_rms_train": 192.75213436694568,
+ "senal_rms_test": 1939.5010676909499,
+ "senal_norma_test": 12266.481796463622,
+ "ruido_norma_test": 6.324555320336759,
+ "segundos": 0.7
+}

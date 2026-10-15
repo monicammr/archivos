@@ -3,13 +3,13 @@
   "k_d",
   "k00"
  ],
- "eajuste_med": 0.6597561028509873,
- "erel_med": 0.9083567426746654,
- "admisible": false,
+ "eajuste_med": 0.38477721525990144,
+ "erel_med": 0.6328572274447014,
+ "admisible": true,
  "n_escenarios": 15,
  "lineal": false,
  "sistema": "Armistead_CellDeathDis2024",
  "metodo": "brun",
  "prueba": "adm",
- "segundos": 1.4
+ "segundos": 1.9
 }

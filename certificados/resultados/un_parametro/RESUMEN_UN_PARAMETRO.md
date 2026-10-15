@@ -4,7 +4,7 @@ Mejor parámetro solo {j} frente al subconjunto seleccionado S. e_ajuste a ±10 
 
 | Sistema | j | S | e_ajuste ±10 %: j / S | χ²/n prueba (real): j / S | e_pred (sintético): j / S |
 |---|---|---|---|---|---|
-| Armistead_CellDeathDis2024 | alpha_cer | k_d, k00, k2, alpha_cer | 32.9 % / 21.3 % | 1.16 / 1.37 | 1.00 / 0.17 |
+| Armistead_CellDeathDis2024 | alpha_cer | k_d, k00, k2, alpha_cer | 92.8 % / 1.3 % | 1.16 / 1.37 | 1.00 / 0.17 |
 | Borghans_BiophysChem1997 | Kz | Kz, K_par | 56.1 % / 34.1 % | 0.74 / 0.74 | 1.00 / 1.00 |
 | Giordano_Nature2020 | gamma_4 | alpha_4, alpha_28 | 11.4 % / 5.4 % | 0.00 / 0.00 | 1.78 / 1027.14 |
 | Laske_PLOSComputBiol2019 | Int_nuc_off | Int_nuc_off, k_imp | 27.8 % / 16.2 % | no evaluable / 0.44 | no evaluable / 3.19 |
@@ -16,5 +16,5 @@ Mejor parámetro solo {j} frente al subconjunto seleccionado S. e_ajuste a ±10 
 | Weber_BMC2015 | p31 | s12, a21 | 42.1 % / 33.6 % | 0.99 / 0.99 | 0.27 / 0.77 |
 
 * Sintético (predicción de experimentos nuevos): S predice mejor en 6, un parámetro igual o mejor en 3.
-* ±10 %: un parámetro sigue siendo admisible en 9 de 10; S en 10 de 10.
+* ±10 %: un parámetro sigue siendo admisible en 8 de 10; S en 10 de 10.
 * «no evaluable»: el parámetro sólo actúa en las condiciones de prueba (no se puede estimar con las de entrenamiento).

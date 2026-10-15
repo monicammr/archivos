@@ -1,0 +1,10 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "parametro": "k10",
+ "lado": -1,
+ "despl": 0.3,
+ "log_theta": -5.6901328617323905,
+ "dchi2": -0.0007661867597690275,
+ "nfev": 15,
+ "segundos": 0.6
+}

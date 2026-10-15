@@ -1,0 +1,19 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "semilla": 47,
+ "p_y": 10,
+ "amplitud": 0.5,
+ "senal_rms_train": 1.1173418303381877,
+ "senal_rms_test": 1.3463535311211365,
+ "senal_norma_test": 7.250335653754814,
+ "ruido_norma_test": 5.385164807134504,
+ "B_chi2_test_theta0": 3.100138134016686,
+ "B_chi2_test_red": 2.820845668917544,
+ "B_epred_red": 0.9552496950447285,
+ "nfev_red": 4,
+ "seg_red": 0.9,
+ "B_chi2_test_full": 1.5280968731904037,
+ "B_epred_full": 0.4165390289034656,
+ "nfev_full": 22,
+ "segundos": 1.2
+}

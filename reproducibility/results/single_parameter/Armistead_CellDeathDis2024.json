@@ -2,82 +2,72 @@
  "sistema": "Armistead_CellDeathDis2024",
  "S": [
   "k_d",
-  "alpha_cer"
+  "k00"
  ],
  "calibracion": [],
+ "candidatos": 10,
  "un_parametro": [
   {
    "parametro": "k_d",
-   "e_rel": 1.0107359261045394,
-   "e_fit": 0.9935944486803859,
+   "e_rel": 0.7927095498551318,
+   "e_fit": 0.7466084699518162,
    "admisible": false
   },
   {
    "parametro": "k00",
-   "e_rel": 1.033682798142014,
-   "e_fit": 0.736589048868836,
+   "e_rel": 0.9409368640199454,
+   "e_fit": 0.8771924476039966,
    "admisible": false
   },
   {
    "parametro": "k0",
-   "e_rel": 0.9981401554860762,
-   "e_fit": 0.7468159095624424,
+   "e_rel": 0.9263572094098868,
+   "e_fit": 0.8261923675460534,
    "admisible": false
   },
   {
    "parametro": "k2",
-   "e_rel": 0.9988688911439209,
-   "e_fit": 0.9960364649514422,
+   "e_rel": 1.0123405350329262,
+   "e_fit": 0.9625264706057757,
    "admisible": false
   },
   {
    "parametro": "k1",
-   "e_rel": 0.9991096590931818,
-   "e_fit": 0.9960603965240403,
+   "e_rel": 1.000396062245154,
+   "e_fit": 0.9624256095782127,
    "admisible": false
   },
   {
    "parametro": "k4",
-   "e_rel": 0.9995797527931883,
-   "e_fit": 0.9908485339147131,
+   "e_rel": 0.9792196106561112,
+   "e_fit": 0.9034395632089547,
    "admisible": false
   },
   {
    "parametro": "alpha_cer",
-   "e_rel": 0.16046481957500935,
-   "e_fit": 0.16046481957500935,
-   "admisible": true
+   "e_rel": 0.9969525996811943,
+   "e_fit": 0.9321266071641254,
+   "admisible": false
   },
   {
    "parametro": "k5",
-   "e_rel": 1.000000067831733,
-   "e_fit": 0.999839364352684,
+   "e_rel": 0.9999837074991877,
+   "e_fit": 0.9835132123370478,
    "admisible": false
   },
   {
    "parametro": "k3",
-   "e_rel": 0.9999999999829358,
-   "e_fit": 0.999998981907712,
+   "e_rel": 0.9999999361020312,
+   "e_fit": 0.999993619654326,
    "admisible": false
   },
   {
    "parametro": "alpha_hai1a",
-   "e_rel": 0.9999999994914504,
-   "e_fit": 0.9999999053425181,
+   "e_rel": 0.9999999945081659,
+   "e_fit": 0.999998200336615,
    "admisible": false
   }
  ],
- "algun_parametro_solo_basta": true,
- "mejor": "alpha_cer",
- "mejor_efit_10": 0.30013634452128723,
- "S_efit_10": 0.20041039887566373,
- "mejor_validacion": {
-  "A_chi2_test_red": 1.1569248524731874,
-  "B_chi2_test_theta0": 1.1956666866112415,
-  "B_epred_red": 1.0,
-  "no_evaluable": null,
-  "B_error": null
- },
- "mejor_validacion_calibracion": 0,
- "segundos": 6.9
+ "algun_parametro_solo_basta": false,
+ "segundos": 4.2
 }

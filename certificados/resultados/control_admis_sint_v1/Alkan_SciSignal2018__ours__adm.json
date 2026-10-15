@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "eajuste_med": 0.1212591662142224,
+ "erel_med": 0.19916572871277483,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 19.3
+}

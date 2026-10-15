@@ -28,24 +28,21 @@
  "etapa": "Stage 2",
  "S": [
   "kdeg_membran__MKN1",
-  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+  "ka_MAPK__MKN1"
  ],
- "Rvar_%": 39.263671059443645,
- "kappa": 1.1304050730846433,
- "VIF": 1.0151002856146776,
- "cos_med": -0.29978574399866414,
- "erel_med": 1.0814624937043187,
+ "Rvar_%": 42.05599584158664,
+ "kappa": 1.3408433303201317,
+ "VIF": 1.0885193533131055,
+ "cos_med": 0.7858910846074038,
+ "erel_med": 0.6447731810168055,
  "n_escenarios": 15,
  "S_antes_poda": [
   "kdeg_membran__MKN1",
-  "ka_MAPK__MKN1",
-  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
- ],
- "podados": [
   "ka_MAPK__MKN1"
  ],
+ "podados": [],
  "admisible": true,
- "eajuste_med": 0.3723637218637477,
+ "eajuste_med": 0.1870936917165585,
  "calibracion": [
   "s_EGFR_ID10_HS746T_FM_EGF",
   "s_EGFR_ID10_HS746T_FM_EGF_CET",
@@ -128,7 +125,7 @@
   "s_pMAPK_ID9b_MKN1_HM_5EGF"
  ],
  "eajuste_metodo": "linealizado (primer orden, J relativa)",
- "segundos": 40.5,
+ "segundos": 28.7,
  "etapa_paper": "Stage 1",
  "S_paper": [
   "d_ksyn_EGFR__fm_2_hm"

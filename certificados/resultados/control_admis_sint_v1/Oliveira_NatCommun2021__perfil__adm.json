@@ -1,0 +1,15 @@
+{
+ "S": [
+  "t_1",
+  "beta_1"
+ ],
+ "eajuste_med": 0.048180956356174115,
+ "erel_med": 0.8455360326530522,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 2.9
+}

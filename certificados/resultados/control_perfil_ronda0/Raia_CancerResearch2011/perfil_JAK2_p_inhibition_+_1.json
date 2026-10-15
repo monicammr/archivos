@@ -1,0 +1,10 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "parametro": "JAK2_p_inhibition",
+ "lado": 1,
+ "despl": 0.3,
+ "log_theta": -1.793461888294744,
+ "dchi2": -42.49896637425991,
+ "nfev": 30,
+ "segundos": 3.5
+}

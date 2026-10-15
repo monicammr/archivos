@@ -1,0 +1,19 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "semilla": 50,
+ "p_y": 6,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.377602164589069,
+ "senal_rms_test": 0.15779339623272554,
+ "senal_norma_test": 0.2733061793739281,
+ "ruido_norma_test": 1.7320508075688772,
+ "B_chi2_test_theta0": 3.630064086914292,
+ "B_chi2_test_red": 3.380063415502472,
+ "B_epred_red": 0.7405341650945563,
+ "nfev_red": 4,
+ "seg_red": 4.9,
+ "B_chi2_test_full": 2.124077249196984,
+ "B_epred_full": 3.3485958915182836,
+ "nfev_full": 26,
+ "segundos": 11.0
+}

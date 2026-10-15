@@ -1,0 +1,19 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "semilla": 49,
+ "p_y": 20,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.3109256424669836,
+ "senal_rms_test": 0.4419387896362629,
+ "senal_norma_test": 1.9764103510413267,
+ "ruido_norma_test": 4.47213595499958,
+ "B_chi2_test_theta0": 0.8916561464962761,
+ "B_chi2_test_red": 1.0324828893996856,
+ "B_epred_red": 0.6010001079692533,
+ "nfev_red": 7,
+ "seg_red": 0.8,
+ "B_chi2_test_full": 2.0970981154351,
+ "B_epred_full": 3.1304211553477588,
+ "nfev_full": 55,
+ "segundos": 4.4
+}

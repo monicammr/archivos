@@ -1,0 +1,11 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "semilla": 50,
+ "p_y": 6,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.06201338656868267,
+ "senal_rms_test": 0.39382544368575423,
+ "senal_norma_test": 1.6708598510039856,
+ "ruido_norma_test": 4.242640687119285,
+ "segundos": 0.7
+}

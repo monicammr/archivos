@@ -1,0 +1,11 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "semilla": 44,
+ "p_y": 19,
+ "amplitud": 0.5,
+ "senal_rms_train": 6.357412895896768,
+ "senal_rms_test": 5.4079603805661165,
+ "senal_norma_test": 37.46744857784014,
+ "ruido_norma_test": 6.928203230275509,
+ "segundos": 0.5
+}

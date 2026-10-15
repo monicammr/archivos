@@ -1,0 +1,10 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "parametro": "k2",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 9.329893467852674,
+ "dchi2": -0.0027571351438666625,
+ "nfev": 16,
+ "segundos": 0.6
+}

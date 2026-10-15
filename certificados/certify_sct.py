@@ -38,7 +38,7 @@ for label, S in {"4_params_script": ["beta43", "beta54", "beta34", "beta14"],
     E = (J ** 2).sum(0); Er = (Jrel ** 2).sum(0)
     R, Rr = E[rem].sum(), Er[rem].sum()
     rng = np.random.default_rng(42)
-    scen = [np.maximum(th0 * (1 + 0.05 * rng.uniform(-1, 1, p)), 1e-12) for _ in range(sct.N_ESCEN)]
+    scen = [th0 * (1 + 0.05 * rng.uniform(-1, 1, p)) for _ in range(sct.N_ESCEN)]
     # puntos para M1, M2, μ: trayectoria nominal y 5 perturbadas
     def states(th): return F(th).reshape(3, N, 6).transpose(1, 0, 2).reshape(N, 18)
     X0 = states(th0); D0 = [Df(X0[i], th0) for i in range(N)]

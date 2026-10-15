@@ -2,16 +2,16 @@
  "sistema": "Raimundez_PCB2020",
  "S": [
   "kdeg_membran__MKN1",
-  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+  "ka_MAPK__MKN1"
  ],
  "|S|": 2,
  "division": "condiciones nuevas",
  "n_train": 419,
  "n_test": 208,
- "chi2_test_red_original": 1.1883008295297135,
- "chi2_test_full_train": 1.4533187280017827,
- "chi2_test_red_nested": 1.4550446100089676,
+ "chi2_test_red_original": 1.1673048698000734,
+ "chi2_test_full_train": 1.4322045094836315,
+ "chi2_test_red_nested": 1.433246216777883,
  "chi2_test_theta0": 0.9804303032688384,
- "ratio_nested_vs_original": 1.2244749594131157,
- "segundos": 929.3
+ "ratio_nested_vs_original": 1.2278250985309072,
+ "segundos": 73.4
 }

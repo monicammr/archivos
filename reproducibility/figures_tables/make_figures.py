@@ -13,6 +13,7 @@ Each figure is also exported as EPS and as TIFF at 300 dpi (individual files for
 
 Usage: python make_figures.py
 """
+import os
 import shutil
 import subprocess
 import sys
@@ -271,6 +272,8 @@ def fig6():
 
 def export():
     """Individual files for submission: EPS (vector) and TIFF at 300 dpi."""
+    if os.environ.get("NO_EXPORT") == "1":   # sin las copias EPS/TIFF (p. ej. sin poppler completo)
+        return
     for f in sorted(OUT.glob("fig*.pdf")):
         subprocess.run(["pdftops", "-eps", str(f), str(f.with_suffix(".eps"))], check=True)
         subprocess.run(["pdftoppm", "-tiff", "-tiffcompression", "lzw", "-r", "300", "-singlefile",

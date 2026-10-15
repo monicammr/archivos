@@ -1,0 +1,19 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "semilla": 46,
+ "p_y": 44,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.08526821750570247,
+ "senal_rms_test": 0.1016448073981852,
+ "senal_norma_test": 2.394592890955133,
+ "ruido_norma_test": 23.558437978779494,
+ "B_chi2_test_theta0": 0.9600332271047608,
+ "B_chi2_test_red": 0.9553174101388843,
+ "B_epred_red": 1.5792919577622715,
+ "nfev_red": 4,
+ "seg_red": 12.7,
+ "B_chi2_test_full": 1.0061405146159954,
+ "B_epred_full": 2.7660384681386985,
+ "nfev_full": 34,
+ "segundos": 165.6
+}

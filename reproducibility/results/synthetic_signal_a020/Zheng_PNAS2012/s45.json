@@ -1,0 +1,11 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "semilla": 45,
+ "p_y": 45,
+ "amplitud": 0.2,
+ "senal_rms_train": 3.7180118948690724,
+ "senal_rms_test": 3.1966242851921387,
+ "senal_norma_test": 17.508632288685618,
+ "ruido_norma_test": 5.477225575051661,
+ "segundos": 0.9
+}

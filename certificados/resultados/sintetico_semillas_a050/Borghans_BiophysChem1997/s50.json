@@ -1,0 +1,19 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "semilla": 50,
+ "p_y": 22,
+ "amplitud": 0.5,
+ "senal_rms_train": 2.808958627266618,
+ "senal_rms_test": 2.5097499521556483,
+ "senal_norma_test": 15.266212969390127,
+ "ruido_norma_test": 6.082762530298219,
+ "B_chi2_test_theta0": 7.321887515769904,
+ "B_chi2_test_red": 3.110956420407874,
+ "B_epred_red": 0.5233672536669361,
+ "nfev_red": 21,
+ "seg_red": 1.1,
+ "B_chi2_test_full": 3.3109654687096883,
+ "B_epred_full": 0.5455018673213007,
+ "nfev_full": 21,
+ "segundos": 3.2
+}

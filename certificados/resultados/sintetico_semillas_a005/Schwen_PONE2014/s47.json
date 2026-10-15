@@ -1,0 +1,19 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "semilla": 47,
+ "p_y": 28,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.11958914534501067,
+ "senal_rms_test": 0.0643787761204456,
+ "senal_norma_test": 0.2806205792178519,
+ "ruido_norma_test": 4.358898943540674,
+ "B_chi2_test_theta0": 0.5235779341371218,
+ "B_chi2_test_red": 6.833919749480539,
+ "B_epred_red": 37.570243190638735,
+ "nfev_red": 7,
+ "seg_red": 4.2,
+ "B_chi2_test_full": 6.847620168701954,
+ "B_epred_full": 37.61371342540234,
+ "nfev_full": 44,
+ "segundos": 30.3
+}

@@ -100,7 +100,7 @@ for s, r in sorted(pf.items()):
                   ", ".join(esc(x) for x in r["S_perfil"]), str(r["overlap_perfil_ours"]),
                   "; ".join(nota) or "--"])
 escribe("tableS_perfil.tex", longtable(
-    "@{}lrrrrr>{\\raggedright}p{4.0cm}rl@{}",
+    "@{}lrrrrr>{\\raggedright}p{2.5cm}r>{\\raggedright\\arraybackslash}p{2.3cm}@{}",
     "Profile likelihood of the biological parameters (training data). Ident.: profile above $\\Delta\\chi^2=3.84$ on both sides; one side: only on one side; flat: on neither side. Selected: the $k$ parameters with the narrowest profile confidence interval. Common: parameters shared with the subset of our method. Re-fits: times the full model was re-estimated because a profile point improved the optimum; residual: remaining improvement (in units of $\\chi^2$) after the last re-fit; a residual above one unit means that the optimum of the full model did not converge, so the classification of that problem is provisional. Failed pts: profile points excluded because the fit failed (simulation failure or $\\Delta\\chi^2>10^4$). A side is classified from its remaining points, so a failure can make a parameter look less identifiable than it is; this affects three parameters not classified as identifiable (Okuonghae gamma\\_i and Weber m31, one side; Weber p31, flat), whose class is therefore an upper bound on non-identifiability.",
     "tab:perfil", ["Problem", "$k$", "Bio", "Ident.", "One side", "Flat", "Selected by profile likelihood", "Common", "Note"], filas))
 

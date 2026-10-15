@@ -1,7 +1,14 @@
 {
- "no_evaluable": "sin subconjunto",
+ "S": [
+  "d_AKTtotal__fm_2_hm",
+  "ki_AKT__MKN1"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 5.502556176262643,
+ "B_chi2_test_red": 2.9886626817825865,
+ "B_epred_red": 0.6205354012534362,
  "sistema": "Raimundez_PCB2020",
  "metodo": "morris",
  "prueba": "sint",
- "segundos": 3.0
+ "segundos": 208.2
 }

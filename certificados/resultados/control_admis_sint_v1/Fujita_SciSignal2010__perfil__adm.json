@@ -1,0 +1,15 @@
+{
+ "S": [
+  "reaction_8_k1",
+  "EGFR_turnover"
+ ],
+ "eajuste_med": 0.2170551971852996,
+ "erel_med": 0.9052638967951216,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 13.1
+}

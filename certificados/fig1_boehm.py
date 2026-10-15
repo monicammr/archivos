@@ -54,7 +54,7 @@ for j in sorted(bio, key=lambda j: -s[j]):
 
 # 4. escenarios a +-5 % y error con / sin reestimacion
 rng = np.random.default_rng(SEED)
-esc = [np.maximum(th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)), 1e-12) for _ in range(N_ESC)]
+esc = [th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)) for _ in range(N_ESC)]
 full = [S.sim(t).ravel() - y0 for t in esc]
 
 

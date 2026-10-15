@@ -14,7 +14,7 @@ that is, $\Delta y_S$ is the output change when only the retained parameters tak
 \[ e^{(k)}_{\mathrm{rel}}=\frac{\|\Delta y^{(k)}_{\mathrm{full}}-\Delta y^{(k)}_{S}\|}{\|\Delta y^{(k)}_{\mathrm{full}}\|},\qquad \cos\Delta^{(k)}=\frac{\langle\Delta y^{(k)}_{\mathrm{full}},\Delta y^{(k)}_{S}\rangle}{\|\Delta y^{(k)}_{\mathrm{full}}\|\,\|\Delta y^{(k)}_{S}\|}. \]
 The error after re-estimation is the smallest relative distance between the reduced model and the output of the full model in the scenario, when the retained parameters are free and all others are fixed at $\theta_0$:
 \[ e^{(k)}_{\mathrm{fit}}=\min\Bigl\{e^{(k)}_{\mathrm{rel}},\ \min_{v\in B}\frac{\|y(\theta_0[S\leftarrow v])-y(\theta^{(k)})\|}{\|\Delta y^{(k)}_{\mathrm{full}}\|}\Bigr\},\qquad B=\prod_{j\in S}\Bigl[\tfrac{|\theta_{0,j}|}{10},\,10\,|\theta_{0,j}|\Bigr], \]
-where $\theta_0[S\leftarrow v]$ is $\theta_0$ with the components in $S$ replaced by $v$. The inner minimisation is a bounded nonlinear least-squares problem in $\log|v|$ (trust-region reflective method, at most $100(|S|+1)$ function evaluations, finite-difference step $10^{-3}$), started from the scenario values (clipped to $B$) and from $\theta_0$; the smaller result is kept. Since $v=\theta^{(k)}_S$ is admissible when it lies in $B$, $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ always holds (this is also proved in Lean, step~5). For the problems whose simulations are too slow for repeated nonlinear fits (Alkan, Bachmann, Chen, Isensee, Lang, Lucarelli, Raimundez), the first-order version is used,
+where $\theta_0[S\leftarrow v]$ is $\theta_0$ with the components in $S$ replaced by $v$. The inner minimisation is a bounded nonlinear least-squares problem in $\log|v|$ (trust-region reflective method, at most $100(|S|+1)$ function evaluations, finite-difference step $10^{-3}$), started from the scenario values (clipped to $B$) and from $\theta_0$; the smaller result is kept. Since $v=\theta^{(k)}_S$ is admissible when it lies in $B$, $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$ always holds (this is also proved in Lean, step~5). For the problems whose simulations are too slow for repeated nonlinear fits (Alkan, Bachmann, Chen, Isensee, Lucarelli, Raimundez), the first-order version is used,
 \[ e^{(k)}_{\mathrm{fit,lin}}=\min\Bigl\{e^{(k)}_{\mathrm{rel}},\ \min_{c\in\mathbb R^{|S|}}\frac{\|\Delta y^{(k)}_{\mathrm{full}}-J_S\,c\|}{\|\Delta y^{(k)}_{\mathrm{full}}\|}\Bigr\}, \]
 with $J_S$ the columns of the relative sensitivity matrix for $S$ (central differences, step 1\%); it differs from the exact value by a second-order term (Lean, step~12).
 A scenario is discarded when the simulation fails or when the full-model change is negligible, $\|\Delta y^{(k)}_{\mathrm{full}}\|<\max(10^{-10}\|y(\theta_0)\|,10^{-6})$, because the relative errors are then undefined; the number $n\le15$ of valid scenarios is reported for every problem and size. For Chen some simulations fail in a run-dependent way, so the set of valid scenarios (7 to 13 of 15) differs slightly between runs; the medians of this rerun differ from those of the main text by at most 1.2 percentage points and the pattern is unchanged. At $\pm5\%$ the scenarios are those of the selection, and the median $e_{\mathrm{fit}}$ agrees with Table~1 of the main text to within $10^{-5}$ in every problem except Isensee (9.8\% here, 7.6\% in Table~1). Isensee is, with Chen, the problem in which most simulations fail (only 1 to 6 of the 15 scenarios per level can be simulated), so the median is taken over very few scenarios and depends on which of them succeed; both values are far below $\tau_e$.
@@ -30,7 +30,7 @@ For each problem and size $\varepsilon$, with $e^{(1)},\dots,e^{(n)}$ the values
 Admissibility at $\pm5\%$ and the robustness patterns of the main text use the median: pattern A, $\tilde e_{\mathrm{fit}}\le\tau_e$ at every size; B, admissible up to at least $\pm10\%$, first failing at $\pm20\%$ or more and not recovering; C, irregular (fails and is admissible again at a larger size); D, not admissible at $\pm10\%$ or less. The median requires that at least half of the scenarios are reproduced; the pass rate and the maximum show how many, and how badly the others fail.
 
 \subsection*{Results}
-At $\pm5\%$, the size used for selection, all 32 admissible problems reproduce the full model in at least half of the scenarios by construction, and 15 of them in all scenarios. Supplementary Fig.~\ref{fig:robscen} shows, for every problem, the median, the interquartile range, the 5--95\% range and the worst scenario at each size; Supplementary Table~\ref{tab:passrate} gives the pass rate and Supplementary Table~\ref{tab:robstats} the full summary at $\pm5\%$ and $\pm50\%$.
+At $\pm5\%$, the size used for selection, all 31 admissible problems reproduce the full model in at least half of the scenarios by construction, and 13 of them in all scenarios. Supplementary Fig.~\ref{fig:robscen} shows, for every problem, the median, the interquartile range, the 5--95\% range and the worst scenario at each size; Supplementary Table~\ref{tab:passrate} gives the pass rate and Supplementary Table~\ref{tab:robstats} the full summary at $\pm5\%$ and $\pm50\%$.
 
 \begin{figure}[H]\centering
 \includegraphics[width=\textwidth]{figures/figS_robustness_scenarios.pdf}
@@ -52,7 +52,6 @@ Fiedler & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
 Fujita & 80 & 67 & 67 & 73 & 73 & 73 & 73 & A \\
 Giordano & 93 & 93 & 93 & 93 & 93 & 93 & 87 & A \\
 Isensee & 100 (1) & 100 (4) & 100 (6) & 100 (6) & 100 (3) & 100 (5) & 100 (2) & A \\
-Lang & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
 Laske & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
 Liu & 80 & 80 & 80 & 80 & 80 & 73 & 80 & A \\
 Okuonghae & 93 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
@@ -60,7 +59,7 @@ Oliveira & 87 & 87 & 100 & 93 & 93 & 100 & 100 & A \\
 Perelson & -- & 100 (2) & 100 (11) & 100 & 100 & 100 & 100 & A \\
 Rahman & 100 & 100 & 100 & 100 & 93 & 87 & 87 & A \\
 Raia & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
-Raimundez & 100 & 100 & 100 & 93 & 93 & 93 & 87 & A \\
+Raimundez & 100 & 100 & 100 & 100 & 100 & 93 & 93 & A \\
 Salazar-Cavazos & 87 & 87 & 87 & 87 & 87 & 87 & 87 & A \\
 Schwen & 93 & 93 & 93 & 93 & 93 & 93 & 93 & A \\
 Smith & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
@@ -68,7 +67,7 @@ Sneyd & 67 & 60 & 60 & 60 & 60 & 73 & 73 & A \\
 Weber & 100 & 100 & 100 & 100 & 100 & 100 & 100 & A \\
 Zhao & 60 & 73 & 73 & 73 & 67 & 67 & 60 & A \\
 Zheng & 73 & 73 & 73 & 73 & 73 & 67 & 67 & A \\
-Armistead & 100 & 100 & 93 & 67 & 27 & 20 & 13 & B \\
+Armistead & 60 & 60 & 60 & 53 & 53 & 47 & 47 & B \\
 Bertozzi & 60 & 60 & 60 & 53 & 47 & 47 & 40 & B \\
 Blasi & 53 & 53 & 53 & 53 & 47 & 47 & 47 & B \\
 Elowitz & 60 & 60 & 60 & 47 & 47 & 40 & 33 & B \\
@@ -90,7 +89,6 @@ Fiedler & 15 & [10, 17] & [6, 25] & 29 & 100 & 10 & [9, 15] & [5, 29] & 31 & 100
 Fujita & 29 & [24, 44] & [12, 63] & 63 & 67 & 25 & [14, 43] & [10, 78] & 87 & 73 \\
 Giordano & 6 & [4, 18] & [4, 38] & 49 & 93 & 9 & [6, 24] & [3, 48] & 52 & 87 \\
 Isensee & 10 & [8, 11] & [6, 13] & 13 & 100 & 6 & [6, 7] & [6, 7] & 7 & 100 \\
-Lang & 16 & [16, 16] & [15, 17] & 17 & 100 & 5 & [4, 5] & [3, 6] & 6 & 100 \\
 Laske & 10 & [6, 18] & [4, 24] & 26 & 100 & 12 & [7, 21] & [3, 23] & 23 & 100 \\
 Liu & 26 & [16, 31] & [8, 81] & 83 & 80 & 22 & [15, 41] & [9, 65] & 93 & 80 \\
 Okuonghae & 4 & [3, 7] & [0, 29] & 37 & 100 & 5 & [3, 7] & [1, 17] & 22 & 100 \\
@@ -98,7 +96,7 @@ Oliveira & 13 & [7, 24] & [5, 48] & 50 & 87 & 17 & [6, 24] & [1, 36] & 42 & 100 
 Perelson & 0 & [0, 0] & [0, 0] & 0 & 100 & 0 & [0, 0] & [0, 0] & 0 & 100 \\
 Rahman & 4 & [2, 11] & [1, 27] & 28 & 100 & 5 & [2, 9] & [0, 54] & 63 & 87 \\
 Raia & 3 & [1, 7] & [1, 19] & 26 & 100 & 4 & [2, 9] & [1, 18] & 29 & 100 \\
-Raimundez & 37 & [37, 38] & [37, 39] & 39 & 100 & 34 & [30, 40] & [28, 47] & 54 & 87 \\
+Raimundez & 19 & [12, 26] & [10, 34] & 35 & 100 & 17 & [15, 31] & [8, 39] & 49 & 93 \\
 Salazar-Cavazos & 19 & [8, 24] & [4, 50] & 51 & 87 & 17 & [7, 23] & [3, 61] & 91 & 87 \\
 Schwen & 17 & [10, 22] & [6, 39] & 56 & 93 & 17 & [7, 21] & [4, 45] & 52 & 93 \\
 Smith & 8 & [5, 9] & [2, 22] & 22 & 100 & 6 & [5, 11] & [2, 26] & 29 & 100 \\
@@ -106,9 +104,12 @@ Sneyd & 38 & [22, 51] & [18, 77] & 91 & 60 & 33 & [22, 43] & [12, 81] & 96 & 73 
 Weber & 4 & [3, 5] & [2, 10] & 11 & 100 & 4 & [2, 7] & [2, 12] & 20 & 100 \\
 Zhao & 30 & [19, 49] & [16, 74] & 77 & 73 & 16 & [5, 61] & [2, 84] & 95 & 60 \\
 Zheng & 30 & [24, 41] & [12, 66] & 79 & 73 & 33 & [26, 55] & [10, 84] & 99 & 67 \\
-Armistead & 12 & [9, 15] & [6, 19] & 22 & 100 & 63 & [52, 68] & [27, 91] & 92 & 13 \\
+Armistead & 33 & [27, 54] & [14, 76] & 86 & 60 & 52 & [27, 62] & [13, 78] & 98 & 47 \\
 Bertozzi & 33 & [18, 71] & [12, 83] & 85 & 60 & 55 & [27, 65] & [11, 91] & 93 & 40 \\
 Blasi & 40 & [26, 61] & [22, 76] & 87 & 53 & 44 & [24, 76] & [20, 84] & 93 & 47 \\
 Elowitz & 36 & [25, 57] & [10, 86] & 90 & 60 & 48 & [32, 67] & [12, 82] & 86 & 33 \\
 Lucarelli & 44 & [34, 51] & [29, 64] & 75 & 53 & 47 & [36, 53] & [24, 63] & 75 & 47 \\
 \bottomrule \end{longtable}}
+
+\subsection*{Independent directions at each size}
+The design above reuses the same fifteen directions at every size, so that differences between sizes are due to the size of the change only; but it means that the sizes above $\pm5\%$ are not tested with new random draws. To assess this, the whole evaluation was repeated with independent directions at each size (seed 42 at $\pm5\%$, which reproduces the scenarios of the selection, and seeds $42+1000\,i$ for the $i$-th other size; \texttt{certificados/patrones.py} with \texttt{PATRONES\_INDEP=1}, results in \texttt{results/robustness\_independent/}). For the 31 admissible problems, the paired design gives 26 problems of pattern A, 4 of pattern B and 1 of pattern C, and the independent design gives 24, 1 and 6. Twenty-two problems are of pattern A in both designs. Four problems of pattern A in the paired design (Bruno, Sneyd, Zhao and Zheng) become irregular (C) with independent directions, two of pattern B become A (Armistead and Elowitz) and two become C (Bertozzi and Blasi), and Lucarelli changes from C to B. The problems that change are those whose median $e_{\mathrm{fit}}$ lies close to the threshold at large sizes: the median at a given size differed between the two designs by up to 27 percentage points (Borghans), so with fifteen scenarios the classification of these problems at large perturbations depends on the particular directions drawn. The robustness of most subsets up to $\pm50\%$ is therefore confirmed with independent directions, whereas the pattern of the nine problems that change should be read as ``close to the threshold'' rather than as a definite pattern.

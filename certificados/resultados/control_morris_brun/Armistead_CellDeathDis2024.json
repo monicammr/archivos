@@ -5,15 +5,15 @@
  "n_bio": 10,
  "S_ours": [
   "k_d",
-  "alpha_cer"
+  "k00"
  ],
  "S_brun": [
   "k_d",
   "k00"
  ],
  "chi2_brun": 1.2180658482279045,
- "overlap_brun_ours": 1,
- "segundos_brun": 0.1,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 0.0,
  "detalle_brun": {
   "gamma": 1.1713627515258271,
   "cumple_gamma": true,
@@ -33,8 +33,8 @@
   "k_d"
  ],
  "chi2_morris": 1.2180658486409734,
- "overlap_morris_ours": 1,
- "segundos_morris": 0.4,
+ "overlap_morris_ours": 2,
+ "segundos_morris": 0.1,
  "detalle_morris": {
   "mu_star_top": {
    "k00": 2708.012721932635,
@@ -50,8 +50,8 @@
   },
   "fallos_simulacion": 0
  },
- "chi2_ours": 1.2178192409491908,
+ "chi2_ours": 1.2180658482279045,
  "chi2_qr": 1.2072592244130071,
- "chi2_perfil": 1.3720842319055087,
- "segundos": 1.9
+ "chi2_perfil": null,
+ "segundos": 0.4
 }

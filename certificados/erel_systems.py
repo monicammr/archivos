@@ -43,7 +43,7 @@ def analyze(name, sel, t_def, group):
             d = rng.uniform(-1, 1, size=p)
             if nivel not in NIVELES_INFORME:
                 continue
-            th_f = np.maximum(S.theta0 * (1 + nivel * d), 1e-12)
+            th_f = S.theta0 * (1 + nivel * d)
             th_s = S.theta0.copy(); th_s[sel_idx] = th_f[sel_idx]
             yf, ys = S.sim(th_f), S.sim(th_s)
             if yf is None or ys is None:

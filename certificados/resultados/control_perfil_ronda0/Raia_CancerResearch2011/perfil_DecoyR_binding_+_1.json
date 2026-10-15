@@ -1,0 +1,10 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "parametro": "DecoyR_binding",
+ "lado": 1,
+ "despl": 0.3,
+ "log_theta": -5.111765917022007,
+ "dchi2": -0.8591954855946824,
+ "nfev": 16,
+ "segundos": 1.3
+}

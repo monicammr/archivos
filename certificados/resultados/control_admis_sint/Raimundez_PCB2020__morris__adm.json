@@ -3,13 +3,13 @@
   "d_AKTtotal__fm_2_hm",
   "ki_AKT__MKN1"
  ],
- "eajuste_med": 0.5337846744909339,
- "erel_med": 1.0022882449758872,
- "admisible": false,
+ "eajuste_med": 0.27739329890493714,
+ "erel_med": 0.7893162022348268,
+ "admisible": true,
  "n_escenarios": 15,
  "lineal": true,
  "sistema": "Raimundez_PCB2020",
  "metodo": "morris",
  "prueba": "adm",
- "segundos": 192.4
+ "segundos": 84.6
 }

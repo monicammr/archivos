@@ -5,15 +5,15 @@
  "n_bio": 57,
  "S_ours": [
   "kdeg_membran__MKN1",
-  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+  "ka_MAPK__MKN1"
  ],
  "S_brun": [
   "kdeg_membran__MKN1",
   "ka_MAPK__MKN1"
  ],
- "chi2_brun": 1.1673048011865226,
- "overlap_brun_ours": 1,
- "segundos_brun": 247.1,
+ "chi2_brun": 1.1672675798560666,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 98.1,
  "detalle_brun": {
   "gamma": 1.234099965806866,
   "cumple_gamma": true,
@@ -39,9 +39,9 @@
   "d_AKTtotal__fm_2_hm",
   "ki_AKT__MKN1"
  ],
- "chi2_morris": 1.1689669894792898,
+ "chi2_morris": 1.170971562715341,
  "overlap_morris_ours": 0,
- "segundos_morris": 575.9,
+ "segundos_morris": 352.1,
  "detalle_morris": {
   "mu_star_top": {
    "d_AKTtotal__fm_2_hm": 65410.03296042945,
@@ -57,8 +57,8 @@
   },
   "fallos_simulacion": 2
  },
- "chi2_ours": 1.1883008295297135,
- "chi2_qr": 1.1683206636881533,
+ "chi2_ours": 1.1673048698000734,
+ "chi2_qr": 1.1679705106510196,
  "chi2_perfil": null,
- "segundos": 829.7
+ "segundos": 451.4
 }

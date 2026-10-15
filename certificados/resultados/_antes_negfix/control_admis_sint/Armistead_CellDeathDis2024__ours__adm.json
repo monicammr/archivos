@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k_d",
+  "alpha_cer"
+ ],
+ "eajuste_med": 0.11711543648944837,
+ "erel_med": 0.13353382930375518,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Armistead_CellDeathDis2024",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 2.9
+}

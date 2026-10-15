@@ -1,0 +1,10 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "parametro": "inflowp",
+ "lado": 1,
+ "despl": 0.3,
+ "log_theta": -3.6211709373536194,
+ "dchi2": 0.6526006989235811,
+ "nfev": 105,
+ "segundos": 44.8
+}

@@ -2,10 +2,15 @@
  "sistema": "Raimundez_PCB2020",
  "semilla": 51,
  "p_y": 136,
+ "amplitud": 0.2,
+ "senal_rms_train": 6.2828287022045055,
+ "senal_rms_test": 2.333850812550293,
+ "senal_norma_test": 33.659275095733506,
+ "ruido_norma_test": 14.422205101855956,
  "B_chi2_test_theta0": 6.943594758421849,
- "B_chi2_test_red": 13.18696984720348,
- "B_epred_red": 1.4482066268819511,
- "nfev_red": 17,
- "seg_red": 343.6,
- "segundos": 343.6
+ "B_chi2_test_red": 2.0641263867978186,
+ "B_epred_red": 0.40394695271632913,
+ "nfev_red": 15,
+ "seg_red": 187.6,
+ "segundos": 187.6
 }

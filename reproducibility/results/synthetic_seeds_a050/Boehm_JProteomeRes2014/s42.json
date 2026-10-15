@@ -1,0 +1,19 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "semilla": 42,
+ "p_y": 6,
+ "amplitud": 0.5,
+ "senal_rms_train": 0.6265875188314518,
+ "senal_rms_test": 1.7360322462698015,
+ "senal_norma_test": 7.365361042175346,
+ "ruido_norma_test": 4.242640687119285,
+ "B_chi2_test_theta0": 3.575617403104588,
+ "B_chi2_test_red": 0.4889579224075806,
+ "B_epred_red": 0.17156084024487744,
+ "nfev_red": 12,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 30.111839577031176,
+ "B_epred_full": 3.1189068683104533,
+ "nfev_full": 32,
+ "segundos": 1.0
+}

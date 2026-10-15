@@ -15,13 +15,14 @@
  "S": [
   "k_d",
   "k00",
+  "k2",
   "alpha_cer"
  ],
- "Rvar_%": 60.71497814246736,
- "kappa": 2.1906853134003494,
- "VIF": 1.7518516306379976,
- "cos_med": 0.9956446523572686,
- "erel_med": 0.11361975345666951,
+ "Rvar_%": 69.39073141373183,
+ "kappa": 2.202613183341841,
+ "VIF": 1.7565045523901983,
+ "cos_med": 0.8972520501118181,
+ "erel_med": 0.46936507535662014,
  "n_escenarios": 15,
  "S_antes_poda": [
   "k_d",
@@ -29,13 +30,11 @@
   "k2",
   "alpha_cer"
  ],
- "podados": [
-  "k2"
- ],
+ "podados": [],
  "admisible": true,
- "eajuste_med": 0.08381715086521285,
+ "eajuste_med": 0.013841189061341401,
  "calibracion": [],
- "segundos": 6.1,
+ "segundos": 7.4,
  "etapa_paper": "Stage 1",
  "S_paper": [
   "alpha_cer",

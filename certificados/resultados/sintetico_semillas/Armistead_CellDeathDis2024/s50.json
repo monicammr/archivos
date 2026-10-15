@@ -3,12 +3,12 @@
  "semilla": 50,
  "p_y": 10,
  "B_chi2_test_theta0": 3.541878144949645,
- "B_chi2_test_red": 2.685114662728093,
- "B_epred_red": 0.7807011244614495,
- "nfev_red": 21,
- "seg_red": 0.7,
- "B_chi2_test_full": 1.2923686386586446,
- "B_epred_full": 0.2319487475307876,
+ "B_chi2_test_red": 2.679065559604749,
+ "B_epred_red": 0.8039495525633801,
+ "nfev_red": 4,
+ "seg_red": 2.3,
+ "B_chi2_test_full": 1.292368638754258,
+ "B_epred_full": 0.23194874758808107,
  "nfev_full": 23,
- "segundos": 1.0
+ "segundos": 2.8
 }

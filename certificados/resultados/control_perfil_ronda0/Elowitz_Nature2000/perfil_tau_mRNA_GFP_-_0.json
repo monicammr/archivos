@@ -1,0 +1,10 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "parametro": "tau_mRNA_GFP",
+ "lado": -1,
+ "despl": 0.1,
+ "log_theta": -8.511941523406998,
+ "dchi2": -0.026415513249343547,
+ "nfev": 37,
+ "segundos": 2.4
+}

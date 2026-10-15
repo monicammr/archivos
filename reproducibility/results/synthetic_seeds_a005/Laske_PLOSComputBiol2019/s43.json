@@ -1,0 +1,19 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "semilla": 43,
+ "p_y": 8,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.0761679996471128,
+ "senal_rms_test": 0.05620428448339398,
+ "senal_norma_test": 0.16861285345018193,
+ "ruido_norma_test": 3.0,
+ "B_chi2_test_theta0": 0.23779074385379056,
+ "B_chi2_test_red": 0.23870537548672704,
+ "B_epred_red": 1.532599335149138,
+ "nfev_red": 15,
+ "seg_red": 1.8,
+ "B_chi2_test_full": 8.439575342324126,
+ "B_epred_full": 49.884883928374705,
+ "nfev_full": 22,
+ "segundos": 4.5
+}

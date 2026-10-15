@@ -1,0 +1,19 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "semilla": 46,
+ "p_y": 45,
+ "amplitud": 0.05,
+ "senal_rms_train": 2.0228276399539937,
+ "senal_rms_test": 1.4480565920760822,
+ "senal_norma_test": 7.931332600241268,
+ "ruido_norma_test": 5.477225575051661,
+ "B_chi2_test_theta0": 2.825873436057931,
+ "B_chi2_test_red": 1.557253782101189,
+ "B_epred_red": 0.3943997769497987,
+ "nfev_red": 4,
+ "seg_red": 1.0,
+ "B_chi2_test_full": 27.677091595093398,
+ "B_epred_full": 3.586096056735102,
+ "nfev_full": 286,
+ "segundos": 95.4
+}

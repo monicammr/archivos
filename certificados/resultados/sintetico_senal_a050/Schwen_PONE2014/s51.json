@@ -1,0 +1,11 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "semilla": 51,
+ "p_y": 28,
+ "amplitud": 0.5,
+ "senal_rms_train": 3.0733696107956856,
+ "senal_rms_test": 5.569416734101652,
+ "senal_norma_test": 24.27652471841344,
+ "ruido_norma_test": 4.358898943540674,
+ "segundos": 0.9
+}

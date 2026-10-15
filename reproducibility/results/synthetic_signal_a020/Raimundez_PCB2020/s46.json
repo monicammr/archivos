@@ -1,0 +1,11 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "semilla": 46,
+ "p_y": 136,
+ "amplitud": 0.2,
+ "senal_rms_train": 1.477892812912808,
+ "senal_rms_test": 0.8774541428815862,
+ "senal_norma_test": 12.654823616111457,
+ "ruido_norma_test": 14.422205101855956,
+ "segundos": 4.3
+}

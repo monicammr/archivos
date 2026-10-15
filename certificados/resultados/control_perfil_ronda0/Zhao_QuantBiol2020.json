@@ -1,0 +1,225 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "k": 3,
+ "division": "condiciones nuevas",
+ "p_libres": 21,
+ "n_bio": 21,
+ "n_identificables": 3,
+ "n_no_identificables_practicos": 5,
+ "n_planos": 13,
+ "S_ours": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "S_perfil": [
+  "R_Stage_II_Hubei",
+  "R_Stage_II_China",
+  "gamma_2_Stage_III_Wuhan"
+ ],
+ "S_qr": [
+  "R_Stage_I_Wuhan",
+  "R_Stage_III_Wuhan",
+  "R_Stage_II_Hubei"
+ ],
+ "overlap_perfil_ours": 0,
+ "overlap_perfil_qr": 1,
+ "chi2_ours": 0.3454096102986209,
+ "chi2_qr": 0.3454096103031155,
+ "chi2_perfil": 0.3454096103031155,
+ "ratio_perfil_vs_ours": 1.0000000000130125,
+ "coste_min_train": 2.0323737437793707,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "R_Stage_II_Hubei",
+   "clase": "identificable",
+   "ancho_ic_log": 0.8589162655695106,
+   "dchi2_max_izq": 49.775838427781835,
+   "dchi2_max_der": 102.63101928788599,
+   "dchi2_min_lado": 49.775838427781835,
+   "dchi2_negativo": 0.14480049456322552
+  },
+  {
+   "parametro": "R_Stage_II_China",
+   "clase": "identificable",
+   "ancho_ic_log": 1.1463329848073753,
+   "dchi2_max_izq": 34.44929151660454,
+   "dchi2_max_der": 6.510131773529201,
+   "dchi2_min_lado": 6.510131773529201,
+   "dchi2_negativo": 0.084530652721857
+  },
+  {
+   "parametro": "gamma_2_Stage_III_Wuhan",
+   "clase": "identificable",
+   "ancho_ic_log": 2.517001012718824,
+   "dchi2_max_izq": 11.655839920643311,
+   "dchi2_max_der": 5.1920229410637315,
+   "dchi2_min_lado": 5.1920229410637315,
+   "dchi2_negativo": 0.00823518013519342
+  },
+  {
+   "parametro": "R_Stage_I_China",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.699982228287381,
+   "dchi2_max_der": 23.276908739095497,
+   "dchi2_min_lado": 3.699982228287381,
+   "dchi2_negativo": 0.06222582632035145
+  },
+  {
+   "parametro": "gamma_2_Stage_II_China",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 9.085753019260208,
+   "dchi2_max_der": 2.158667344178769,
+   "dchi2_min_lado": 2.158667344178769,
+   "dchi2_negativo": 0.003925342063505255
+  },
+  {
+   "parametro": "gamma_2_Stage_II_Hubei",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 6.9995169434220355,
+   "dchi2_max_der": 1.8392817810656124,
+   "dchi2_min_lado": 1.8392817810656124,
+   "dchi2_negativo": 0.004322611662853859
+  },
+  {
+   "parametro": "gamma_1_Stage_II_Hubei",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.961439719222389,
+   "dchi2_max_der": 0.602326020753027,
+   "dchi2_min_lado": 0.602326020753027,
+   "dchi2_negativo": 0.002854280253084429
+  },
+  {
+   "parametro": "R_Stage_III_Wuhan",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.1300910196799427,
+   "dchi2_max_der": 0.3820131749308069,
+   "dchi2_min_lado": 0.3820131749308069,
+   "dchi2_negativo": 0.005723718797558064
+  },
+  {
+   "parametro": "gamma_1_Stage_III_Wuhan",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 6.484637212200688,
+   "dchi2_max_der": 0.06954504163614272,
+   "dchi2_min_lado": 0.06954504163614272,
+   "dchi2_negativo": 0.001252392053027851
+  },
+  {
+   "parametro": "gamma_1_Stage_II_China",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 13.973152883281287,
+   "dchi2_max_der": 0.021680396081712683,
+   "dchi2_min_lado": 0.021680396081712683,
+   "dchi2_negativo": 0.0017682214117917816
+  },
+  {
+   "parametro": "gamma_1_Stage_I_Wuhan",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0015389511542553969,
+   "dchi2_max_der": 0.24541406834369894,
+   "dchi2_min_lado": 0.0015389511542553969,
+   "dchi2_negativo": 0.0002629196059320549
+  },
+  {
+   "parametro": "R_Stage_I_Wuhan",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.28593070939096465,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.0014365523894959153
+  },
+  {
+   "parametro": "gamma_2_Stage_I_Wuhan",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.03852791680126,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.00035332862480208505
+  },
+  {
+   "parametro": "R_Stage_II_Wuhan",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.2660846238077283e-07
+  },
+  {
+   "parametro": "gamma_1_Stage_II_Wuhan",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.2660846238077283e-07
+  },
+  {
+   "parametro": "gamma_2_Stage_II_Wuhan",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.2660846238077283e-07
+  },
+  {
+   "parametro": "R_Stage_I_Hubei",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.2660846238077283e-07
+  },
+  {
+   "parametro": "gamma_1_Stage_I_Hubei",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.2660846238077283e-07
+  },
+  {
+   "parametro": "gamma_2_Stage_I_Hubei",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.2660846238077283e-07
+  },
+  {
+   "parametro": "gamma_1_Stage_I_China",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 2.4476649242656756,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.06623903049899083
+  },
+  {
+   "parametro": "gamma_2_Stage_I_China",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 2.1302487723652033,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.0647247882159232
+  }
+ ],
+ "segundos_fase3": 0.1
+}

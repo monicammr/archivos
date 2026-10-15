@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k11",
+  "k5"
+ ],
+ "eajuste_med": 0.13309479445634445,
+ "erel_med": 0.7659856641721542,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 13.9
+}

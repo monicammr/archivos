@@ -1,0 +1,11 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "semilla": 45,
+ "p_y": 20,
+ "amplitud": 0.5,
+ "senal_rms_train": 0.7574673995951993,
+ "senal_rms_test": 1.6351771830000066,
+ "senal_norma_test": 7.312734672889257,
+ "ruido_norma_test": 4.47213595499958,
+ "segundos": 0.7
+}

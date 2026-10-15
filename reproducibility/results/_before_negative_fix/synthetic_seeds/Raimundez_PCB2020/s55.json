@@ -1,0 +1,11 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "semilla": 55,
+ "p_y": 136,
+ "B_chi2_test_theta0": 4.896453465516563,
+ "B_chi2_test_red": 39.718780015791296,
+ "B_epred_red": 3.183860971009559,
+ "nfev_red": 23,
+ "seg_red": 522.3,
+ "segundos": 522.3
+}

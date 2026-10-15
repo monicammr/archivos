@@ -1,0 +1,11 @@
+{
+ "sistema": "Chen_MSB2009",
+ "semilla": 45,
+ "p_y": 155,
+ "amplitud": 0.5,
+ "senal_rms_train": 14.36732493780244,
+ "senal_rms_test": 7.394799138802719,
+ "senal_norma_test": 40.50298296542025,
+ "ruido_norma_test": 5.477225575051661,
+ "segundos": 68.0
+}

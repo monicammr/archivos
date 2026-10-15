@@ -1,0 +1,10 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "parametro": "k1e",
+ "lado": -1,
+ "despl": 0.3,
+ "log_theta": -13.254235044737724,
+ "dchi2": 1.6993417091271112e-06,
+ "nfev": 16,
+ "segundos": 0.7
+}

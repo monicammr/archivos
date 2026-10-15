@@ -1,7 +1,14 @@
 {
- "no_evaluable": "sin subconjunto",
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "semilla": 45,
+ "B_chi2_test_theta0": 11.229505543379371,
+ "B_chi2_test_red": 6.792510984277678,
+ "B_epred_red": 0.719027527277108,
  "sistema": "Raimundez_PCB2020",
  "metodo": "brun",
  "prueba": "sint",
- "segundos": 5.6
+ "segundos": 182.9
 }

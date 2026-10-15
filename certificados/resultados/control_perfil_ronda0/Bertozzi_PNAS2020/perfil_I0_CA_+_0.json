@@ -1,0 +1,10 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "parametro": "I0_CA",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 5.550654576726601,
+ "dchi2": 0.14361144853513785,
+ "nfev": 16,
+ "segundos": 0.0
+}

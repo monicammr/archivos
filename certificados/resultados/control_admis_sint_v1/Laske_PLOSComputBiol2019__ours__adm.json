@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "eajuste_med": 0.10099826696757751,
+ "erel_med": 0.1377147563359455,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 25.7
+}
