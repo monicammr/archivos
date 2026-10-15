@@ -100,6 +100,7 @@ figures_tables/         produce the figures, tables and Supplementary Notes from
   comparison_*.py       figures, tables and statistics of the comparison with other criteria
   make_review_notes.py  tables and figures of the additional analyses (B5, C3, C1, settings of Lang and Raimundez)
   cifras_texto.py       recomputes the counts quoted in the main text from results/
+  make_timing_notes.py  computing time of every analysis for every problem (Suppl. Note on computing time)
 lean_proofs/            Lean 4 + Mathlib project (see lean_proofs/README.md)
 lean_translation/
   sbml_to_lean.py       translator SBML -> Lean (writes lean_proofs/Models/)
@@ -297,6 +298,7 @@ trajectories is used (cost note), and its model is verified in Lean.
 | Signal and amplitudes of the synthetic experiment (Results; Supplementary Note on the synthetic experiment, table and figure) | `synthetic_seeds.py` with `SINT_SOLO_SENAL=1` and `SINT_AMPLITUD=0.05`/`0.50` | `synthetic_signal_a005/`, `_a020/`, `_a050/`, `synthetic_seeds_a005/`, `_a050/` | `make_review_notes.py` |
 | Error in units of the noise (Results, settings; Supplementary Note on the method settings) | `absolute_error.py` | `absolute_error/` | `make_review_notes.py` |
 | Random scenarios, large problems and the greedy search in Lang (Supplementary Note *Random scenarios and large problems*, settings of Lang and Raimundez) | `selection.py --variant` | `settings_extra/` | `make_review_notes.py` |
+| Computing time of every analysis (Results, cost; Supplementary Note *Computing time of the analyses*) | all programs (field `segundos`) | all of the above | `make_timing_notes.py` |
 | Counts quoted in the main text | — | all of the above | `cifras_texto.py` |
 | Crauste (Results, non-admissible problems) | `crauste_blowup.py` | `crauste_blowup.json` | — |
 | Computational cost (Results; Suppl. Table S15) | `timing.py` | `cost/` | `make_extra_notes.py` |
@@ -326,6 +328,17 @@ Information and are not generated.
   `nota`); all other times were measured on the same four-core server.
 * **SCT data.** `analysis/sct_model.py` describes the expected file (columns `xi3`–`xi8`, `eta4`, one row
   per day).
+
+## Changes in version 1.4
+
+* **Computing time.** `figures_tables/make_timing_notes.py` (run by `build_all.py`) collects the
+  elapsed time recorded by every analysis for every problem (field `segundos` of the result files) and
+  writes the four tables of the Supplementary Note *Computing time of the analyses*: the method, the
+  validation and identifiability analyses, the comparison with the other criteria and profile likelihood,
+  and a summary per analysis. Its purpose is to show that selecting and verifying a subset is
+  affordable: less than ten minutes of selection in 32 of the 34 problems and a median of 34 s for the
+  identifiability of the selected parameters, against a full-model profile likelihood that could not be
+  completed for the large problems.
 
 ## Changes in version 1.3
 

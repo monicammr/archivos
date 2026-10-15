@@ -15,7 +15,7 @@ Es una carpeta autocontenida con todo lo que respalda el paper:
 | `analysis/` | los programas del método y de cada análisis (Python) | lo que "calcula" |
 | `results/` | los resultados de esos cálculos, un archivo por problema (3 MB) | los números del paper |
 | `figures_tables/` | los programas que hacen cada figura, tabla y nota del suplemento | lo que "dibuja" |
-| `lean_proofs/` | las demostraciones en Lean 4 (31 módulos, 289 teoremas, 28 modelos) | lo que "demuestra" |
+| `lean_proofs/` | las demostraciones en Lean 4 (32 módulos, 304 teoremas y lemas, 28 modelos) | lo que "demuestra" |
 | `lean_translation/` | el traductor SBML → Lean y la comprobación de la traducción | el puente entre modelos y Lean |
 | `scripts/` | descarga del benchmark y comparación de resultados | utilidades |
 
@@ -51,7 +51,11 @@ participante del modelo SCT (se entregan "a pedido razonable", como dice el pape
 
 `figures_tables/build_all.py` ejecuta todos los generadores de figuras, tablas y notas; entre ellos
 `make_review_notes.py`, que produce las tablas y figuras de los análisis adicionales (direcciones
-independientes, señal y amplitudes, error en σ y variantes de ajustes de Lang y Raimundez).
+independientes, señal y amplitudes, error en σ y variantes de ajustes de Lang y Raimundez), y `make_timing_notes.py`, que reúne el tiempo
+de cómputo de cada análisis en cada problema (campo `segundos` de los resultados) y produce las tablas
+de la nota "Computing time of the analyses" del suplemento; su objetivo es mostrar que seleccionar y
+verificar un subconjunto es asequible (minutos en casi todos los problemas, mucho menos que la
+verosimilitud perfilada del modelo completo, que no fue viable en los problemas grandes).
 `figures_tables/cifras_texto.py` recalcula las cifras que cita el texto principal (admisibles,
 identificabilidad, validación, comparación de criterios, robustez) para comprobarlas tras cualquier cambio.
 

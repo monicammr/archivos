@@ -1,0 +1,46 @@
+\begin{longtable}{@{}lrrrrrrr@{}}
+\caption{Computing time of the validation and identifiability analyses, for every problem: external and nested validation on real data, synthetic experiment (20 seeds at $\pm$20\%, 10 seeds at $\pm$5\% and $\pm$50\%), true signal $y(\theta^\ast)-y(\theta_0)$ at the three amplitudes, and the identifiability of the selected parameters (fit of the reduced problem and all profile points). Times recorded by each program for each problem: elapsed time of the computation of that problem with the parallelism described in the text; where an analysis consists of independent single-core tasks (seeds, scenarios, profile points) the time is their sum, i.e.\ processor time. --, not computed (problem not admissible, not applicable or infeasible). Large problems were computed on shared servers with 128 or 256 cores, the others on an 8-core workstation; times on shared servers are upper bounds.}\label{tab:timevalidation}\\
+\toprule
+Problem & \rotatebox{70}{External validation} & \rotatebox{70}{Nested validation} & \rotatebox{70}{Synthetic, $\pm$20\%, 20 seeds} & \rotatebox{70}{Synthetic, $\pm$5\%, 10 seeds} & \rotatebox{70}{Synthetic, $\pm$50\%, 10 seeds} & \rotatebox{70}{True signal, 3 amplitudes} & \rotatebox{70}{Identifiability of $S$} \\
+\midrule
+\endfirsthead
+\toprule
+Problem & \rotatebox{70}{External validation} & \rotatebox{70}{Nested validation} & \rotatebox{70}{Synthetic, $\pm$20\%, 20 seeds} & \rotatebox{70}{Synthetic, $\pm$5\%, 10 seeds} & \rotatebox{70}{Synthetic, $\pm$50\%, 10 seeds} & \rotatebox{70}{True signal, 3 amplitudes} & \rotatebox{70}{Identifiability of $S$} \\
+\midrule
+\endhead
+Alkan & 5.3 min & 6 s & 59.2 min & 23.6 min & 33.7 min & 1.5 min & 21.6 min \\
+Armistead & $<$1 s & $<$1 s & 58 s & 10 s & 11 s & 26 s & $<$1 s \\
+Bachmann & 4.8 min & 1.6 min & 1.6 h & 34.3 min & 53.5 min & 58 s & 35.2 min \\
+Beer & -- & -- & -- & -- & -- & -- & -- \\
+Bertozzi & -- & -- & -- & -- & -- & -- & 1 s \\
+Blasi & -- & -- & -- & -- & -- & -- & 5 s \\
+Boehm & $<$1 s & $<$1 s & 24 s & 12 s & 10 s & 27 s & 4 s \\
+Borghans & 6 s & $<$1 s & 1.4 min & 1.1 min & 2.6 min & 26 s & 34 s \\
+Brannmark & 8 s & $<$1 s & 2.8 min & 1.6 min & 1.6 min & 29 s & 58 s \\
+Bruno & $<$1 s & $<$1 s & 18 s & 8 s & 9 s & 25 s & 19 s \\
+Chen & 31.3 min & 11.0 min & 7.3 h & 2.8 h & 4.1 h & 54.8 min & 14.8 h \\
+Crauste & -- & -- & -- & -- & -- & -- & -- \\
+Elowitz & 6 s & $<$1 s & 1.4 min & 39 s & 42 s & 26 s & 22 s \\
+Fiedler & 5 s & $<$1 s & 2.7 min & 1.1 min & 1.3 min & 43 s & 35 s \\
+Fujita & 7 s & $<$1 s & 1.9 min & 1.0 min & 1.5 min & 30 s & 1.1 min \\
+Giordano & 28 s & $<$1 s & 8.4 min & 5.0 min & 3.7 min & 43 s & 6 s \\
+Isensee & 27.4 min & 10.6 min & 5.0 h & 1.7 h & 2.9 h & 13.2 min & 4.3 h \\
+Lang & -- & -- & -- & -- & -- & -- & -- \\
+Laske & 3 s & $<$1 s & 1.4 min & 42 s & 41 s & 43 s & 1.2 min \\
+Liu & $<$1 s & $<$1 s & 27 s & 12 s & 10 s & 27 s & 7 s \\
+Lucarelli & 3.2 min & 49 s & 51.7 min & 23.6 min & 29.2 min & 1.2 min & 54.9 min \\
+Okuonghae & 7 s & $<$1 s & 1.8 min & 54 s & 49 s & 25 s & 4 s \\
+Oliveira & 2 s & $<$1 s & 46 s & 20 s & 20 s & 28 s & 6 s \\
+Perelson & $<$1 s & $<$1 s & 12 s & 6 s & 5 s & 22 s & $<$1 s \\
+Rahman & $<$1 s & $<$1 s & 30 s & 10 s & 12 s & 25 s & 1 s \\
+Raia & 18 s & $<$1 s & 3.2 min & 1.6 min & 2.6 min & 31 s & 1.4 min \\
+Raimundez & 3 s & 1.2 min & 57.9 min & 37.0 min & 1.3 h & 2.7 min & 4.0 h \\
+Salazar-Cavazos & 21 s & 2 s & 4.7 min & 2.1 min & 3.0 min & 2.5 min & 40 s \\
+Schwen & 39 s & 2 s & 12.5 min & 7.4 min & 9.7 min & 34 s & 6.2 min \\
+Smith & 34.0 min & 19 s & 4.0 h & 1.3 h & 1.7 h & 3.8 min & 48.1 min \\
+Sneyd & 2 s & $<$1 s & 43 s & 19 s & 34 s & 29 s & 20 s \\
+Weber & 1.1 min & $<$1 s & 13.4 min & 5.9 min & 9.2 min & 31 s & 37 s \\
+Zhao & 22 s & $<$1 s & 5.7 min & 3.1 min & 4.0 min & 27 s & 9 s \\
+Zheng & 1.3 min & $<$1 s & 27.4 min & 10.7 min & 21.3 min & 33 s & 9 s \\
+\bottomrule
+\end{longtable}

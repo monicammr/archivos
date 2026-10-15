@@ -1,0 +1,31 @@
+% Tiempos de cómputo de todos los análisis (tablas: reproducibility/figures_tables/make_timing_notes.py).
+
+\snote{time}
+
+This note reports the computing time of every analysis of the paper, problem by problem, with the purpose of showing what it costs to select and verify a subset with the method, how that cost compares with the standard identifiability analysis, profile likelihood of the full model, and where the computing time of the whole study was spent.
+
+\subsection*{How the times were measured}
+Each program records, for every problem, the elapsed time of its computation (field \texttt{segundos} of the result files of the reproducibility package). Several analyses use parallelism within a problem: the selection distributes the columns of $J$ and the stage-2 ordering over 16 to 64 processes; the nested validation distributes the finite-difference Jacobian of each fit of the full model; profile likelihood of the full model computes all points of a problem in parallel on up to 120 cores. Other analyses consist of many independent single-core tasks (the seeds of the synthetic experiment, the scenarios and seeds of the admissibility test of the other criteria, the points of the identifiability profiles); for them the tables give the sum over the tasks, which is processor time and is larger than the elapsed time. The problems with expensive simulations were computed on shared servers with 128 and 256 cores and the others on an 8-core workstation; the times on shared servers are upper bounds, because other computations ran at the same time. The complete method was timed in a run from scratch, without cached sensitivities (Supplementary Table~\ref{tab:tiempos} compares it with profile likelihood).
+
+\subsection*{What the times show}
+\emph{Selecting a subset is affordable.} The complete method took a median of 19~s per problem and less than ten minutes in 32 of the 34 problems; the slowest were Chen (33~min, 35~s per simulation), Smith (19~min) and Isensee (10~min). On one core the same computation took at most about three times longer (Supplementary Table~\ref{tab:timemethod}).
+
+\emph{Verifying it is affordable too.} Determining the identifiability of the selected parameters (one fit of the reduced problem and the re-estimations at the profile points) took a median of 34~s per problem, and it was feasible in all 31 admissible problems, including those in which profile likelihood of the full model could not be computed (Supplementary Table~\ref{tab:timevalidation}). Profile likelihood of the full model, the standard identifiability analysis, took a median of 14~s in the 26 problems in which it was feasible (Supplementary Table~\ref{tab:timecomparison}), so on small problems it is as fast as our method; it could not be completed for the problems with more than 60 free parameters, in which the method and the identifiability check of the reduced problem still ran in minutes to hours.
+
+\emph{Where the computing time went.} All analyses of the study together took about 168 hours of computing time (Supplementary Table~\ref{tab:timesummary}). Most of it was spent in analyses that re-estimate models many times and that are not part of the method: the variants of the method settings (50~h, because each variant reruns the complete method), the synthetic experiments (44~h over the three amplitudes), the identifiability profiles (26~h) and the tests of the subsets of the other criteria (25~h). Five problems with slow simulations or many calibration parameters, Isensee, Raimundez, Chen, Smith and Lang, account for 87\% of the total, whereas the median over the problems of the time of all analyses together is 21 minutes.
+
+{\scriptsize\setlength{\tabcolsep}{3pt}
+\input{tables/tableS_time_summary.tex}
+}
+
+{\scriptsize\setlength{\tabcolsep}{3pt}
+\input{tables/tableS_time_method.tex}
+}
+
+{\scriptsize\setlength{\tabcolsep}{3pt}
+\input{tables/tableS_time_validation.tex}
+}
+
+{\scriptsize\setlength{\tabcolsep}{3pt}
+\input{tables/tableS_time_comparison.tex}
+}
