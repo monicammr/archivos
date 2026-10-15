@@ -192,9 +192,8 @@ escribe("4_wilcoxon_datos_reales.md", lin)
 tp, ts = L("timing_complete/parallel"), L("timing_complete/single_core")
 fx = L("timing_complete/parallel_corrected_code")
 t_pf = {}
-logp = R / "profile_likelihood" / "logs" / "round0.log"
-if logp.exists():
-    for line in logp.read_text(encoding="utf-8", errors="ignore").splitlines():
+if True:
+    for line in [l for n in ("round0.log", "large_problems.log") if (R / "profile_likelihood" / "logs" / n).exists() for l in (R / "profile_likelihood" / "logs" / n).read_text(encoding="utf-8", errors="ignore").splitlines()]:
         if '"terminado": true' in line:
             d = json.loads(line); t_pf[d["sistema"]] = d["seg_total"]
 lin = ["# Tiempo de cómputo (segundos de reloj)", "",

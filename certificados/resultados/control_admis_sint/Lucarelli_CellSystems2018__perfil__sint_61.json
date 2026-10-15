@@ -1,7 +1,22 @@
 {
- "no_evaluable": "sin subconjunto",
+ "S": [
+  "init_Rec",
+  "Rec_act",
+  "geneL_turn",
+  "S4tot",
+  "geneK_turn",
+  "geneJ_turn",
+  "S_phos",
+  "geneC_turn",
+  "geneA_turn",
+  "geneB_turn"
+ ],
+ "semilla": 61,
+ "B_chi2_test_theta0": 1.1517041302498305,
+ "B_chi2_test_red": 1.1085499040333613,
+ "B_epred_red": 0.8112090298226485,
  "sistema": "Lucarelli_CellSystems2018",
  "metodo": "perfil",
  "prueba": "sint",
- "segundos": 0.0
+ "segundos": 3.9
 }

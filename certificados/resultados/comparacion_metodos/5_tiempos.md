@@ -7,7 +7,7 @@ Los 8 sistemas linealizados se repitieron con el código corregido (columnas de 
 | Sistema | p | Nuestro método, paralelo | Nuestro método, 1 núcleo | Verosimilitud perfilada (1.ª ronda, 120 núcleos) | ¿Misma selección que el artículo? (código anterior) | Código corregido |
 |---|---|---|---|---|---|---|
 | Alkan | 44 | 24 | 46 | 1.65e+03 | sí | sí (25.4 s) |
-| Armistead | 14 | 6.8 | 5.9 | 2.7 | sí | – |
+| Armistead | 14 | 6.8 | 5.9 | 2.7 | **no** | – |
 | Bachmann | 113 | 23.1 | 27.2 | – | **no** | sí (9.7 s) |
 | Beer | 72 | 211 | 309 | – | sí | sí (197 s) |
 | Bertozzi | 8 | 3.2 | 4.3 | 0.5 | sí | – |
@@ -23,7 +23,7 @@ Los 8 sistemas linealizados se repitieron con el código corregido (columnas de 
 | Fujita | 19 | 77.8 | 78.8 | 25.9 | sí | – |
 | Giordano | 50 | 12.5 | 16.9 | 123 | sí | – |
 | Isensee | 46 | 741 | 1.41e+03 | 4.45e+03 | **no** | sí (584 s) |
-| Lang | 294 | 411 | – | – | **no** | sí (199 s) |
+| Lang | 294 | 411 | – | – | sí | **no** (199 s) |
 | Laske | 13 | 26.9 | 28.1 | 5.3 | sí | – |
 | Liu | 9 | 4.2 | 6.3 | 1.1 | sí | – |
 | Lucarelli | 84 | 61.9 | 75.1 | – | sí | sí (34.7 s) |
@@ -32,7 +32,7 @@ Los 8 sistemas linealizados se repitieron con el código corregido (columnas de 
 | Perelson | 3 | 2.1 | 2.7 | 0.4 | sí | – |
 | Rahman | 9 | 2.9 | 4.2 | 2.1 | sí | – |
 | Raia | 39 | 30.5 | 49.2 | 14.1 | sí | – |
-| Raimundez | 136 | 173 | 306 | – | **no** | sí (120 s) |
+| Raimundez | 136 | 173 | 306 | – | **no** | **no** (120 s) |
 | SalazarCavazos | 6 | 67.5 | 37.6 | 13.9 | sí | – |
 | Schwen | 30 | 92.9 | 147 | 110 | sí | – |
 | Smith | 25 | 1.14e+03 | 1.7e+03 | 854 | sí | – |

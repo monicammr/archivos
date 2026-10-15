@@ -113,9 +113,8 @@ T["cal"] = {s: seg(r) for s, r in load("calibration_only").items()}
 T["crit5"] = summed("criteria_tests")
 T["crit20"] = summed("criteria_tests_20pc")
 t1, tc = {}, collections.defaultdict(float)
-lg0 = RES / "profile_likelihood" / "logs" / "round0.log"
-if lg0.exists():
-    for line in lg0.read_text(encoding="utf-8", errors="ignore").splitlines():
+if True:
+    for line in [l for n in ("round0.log", "large_problems.log") if (RES / "profile_likelihood" / "logs" / n).exists() for l in (RES / "profile_likelihood" / "logs" / n).read_text(encoding="utf-8", errors="ignore").splitlines()]:
         if '"terminado": true' in line:
             d = json.loads(line); t1[d["sistema"]] = d["seg_total"]
 seen = set()
@@ -150,7 +149,7 @@ def table(keys, name, caption, label):
 
 
 COMMON = (r" Times recorded by each program for each problem: elapsed time of the computation of that problem with the parallelism described in the text; where an analysis consists of independent single-core tasks (seeds, scenarios, profile points) the time is their sum, i.e.\ processor time. "
-          r"--, not computed (problem not admissible, not applicable or infeasible). Large problems were computed on shared servers with 128 or 256 cores, the others on an 8-core workstation; times on shared servers are upper bounds.")
+          r"--, not computed (problem not admissible, not applicable or not run). Large problems were computed on shared servers with 128 or 256 cores, the others on an 8-core workstation; times on shared servers are upper bounds.")
 table(["sel_par", "sel_1", "settings", "rob", "rob_ind", "single"], "tableS_time_method.tex",
       r"Computing time of the method and of the analyses of its behaviour, for every problem. Selection: complete method (sensitivities, stages 1 and 2, admissibility test and backward elimination) run from scratch, with the sensitivities in parallel or on one core; Settings: the 15 variants of Supplementary Note \emph{Sensitivity to the method settings} together; Robustness: seven perturbation sizes with paired or independent directions; Single parameter: Supplementary Note \emph{Single-parameter subsets}." + COMMON,
       "tab:timemethod")

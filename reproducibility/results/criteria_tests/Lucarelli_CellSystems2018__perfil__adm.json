@@ -1,7 +1,23 @@
 {
- "no_evaluable": "sin subconjunto",
+ "S": [
+  "init_Rec",
+  "Rec_act",
+  "geneL_turn",
+  "S4tot",
+  "geneK_turn",
+  "geneJ_turn",
+  "S_phos",
+  "geneC_turn",
+  "geneA_turn",
+  "geneB_turn"
+ ],
+ "eajuste_med": 0.7402054725091215,
+ "erel_med": 0.8428015510139074,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": true,
  "sistema": "Lucarelli_CellSystems2018",
  "metodo": "perfil",
  "prueba": "adm",
- "segundos": 1.5
+ "segundos": 3.0
 }

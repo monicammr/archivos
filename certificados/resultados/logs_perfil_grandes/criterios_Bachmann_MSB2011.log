@@ -1,0 +1,48 @@
+Admisibilidad y sintético: 1 problemas, 25 tareas, NPROC=60
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.2945575251747446, "admisible": true, "segundos": 6.5}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 44, "B_epred_red": 1.4209162523127075, "segundos": 21.6}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 42, "B_epred_red": 3.3622291686422288, "segundos": 23.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 46, "B_epred_red": 3.2464800339371074, "segundos": 34.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 43, "B_epred_red": 2.9422548826857216, "segundos": 36.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 45, "B_epred_red": 3.410865345555799, "segundos": 45.6}
+Done.
+Admisibilidad y sintético: 1 problemas, 60 tareas, NPROC=60
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 56, "B_epred_red": 3.12807598010063, "segundos": 13.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 47, "B_epred_red": 2.8112546915825294, "segundos": 13.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 52, "B_epred_red": 2.001868435353534, "segundos": 15.6}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 54, "B_epred_red": 2.128700848283604, "segundos": 16.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 60, "B_epred_red": 2.511201159691725, "segundos": 21.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 50, "B_epred_red": 1.4781966003571696, "segundos": 21.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 53, "B_epred_red": 3.545936203429238, "segundos": 24.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 57, "B_epred_red": 4.083135525785148, "segundos": 31.5}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 58, "B_epred_red": 1.9969181207499402, "segundos": 35.6}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 49, "B_epred_red": 3.9733457853171883, "segundos": 37.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 55, "B_epred_red": 2.586491520338706, "segundos": 41.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 61, "B_epred_red": 3.364552570244839, "segundos": 42.5}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 51, "B_epred_red": 2.029047184243198, "segundos": 50.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 59, "B_epred_red": 3.403752165782011, "segundos": 56.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 48, "B_epred_red": 2.7884632694084353, "segundos": 79.1}
+Done.
+Admisibilidad y sintético: 1 problemas, 25 tareas, NPROC=60
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.30263517178387644, "admisible": true, "segundos": 7.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "brun", "prueba": "sint", "semilla": 42, "B_epred_red": 2.8046512148367237, "segundos": 19.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "morris", "prueba": "sint", "semilla": 44, "B_epred_red": 1.23258358655257, "segundos": 20.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "brun", "prueba": "sint", "semilla": 44, "B_epred_red": 1.5285020094839543, "segundos": 22.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 44, "B_epred_red": 1.4209162523127075, "segundos": 25.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr", "prueba": "sint", "semilla": 44, "B_epred_red": 1.6882151089725392, "segundos": 26.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "morris", "prueba": "sint", "semilla": 42, "B_epred_red": 3.098786946768835, "segundos": 26.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 42, "B_epred_red": 3.3622291686422288, "segundos": 26.5}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr", "prueba": "sint", "semilla": 42, "B_epred_red": 3.1027050336416733, "segundos": 26.9}
+{"sistema": "Bachmann_MSB2011", "metodo": "morris", "prueba": "sint", "semilla": 46, "B_epred_red": 3.2290430612467396, "segundos": 34.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr", "prueba": "sint", "semilla": 43, "B_epred_red": 3.0307694892720063, "segundos": 35.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "brun", "prueba": "sint", "semilla": 43, "B_epred_red": 2.9593234057546747, "segundos": 37.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 46, "B_epred_red": 3.2464800339371074, "segundos": 38.5}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 43, "B_epred_red": 2.9422548826857216, "segundos": 40.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "brun", "prueba": "sint", "semilla": 45, "B_epred_red": 3.5013024746302306, "segundos": 42.9}
+{"sistema": "Bachmann_MSB2011", "metodo": "morris", "prueba": "sint", "semilla": 43, "B_epred_red": 3.1328022071496924, "segundos": 43.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "morris", "prueba": "sint", "semilla": 45, "B_epred_red": 3.3969880946416446, "segundos": 45.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr", "prueba": "sint", "semilla": 45, "B_epred_red": 3.47501774328522, "segundos": 45.6}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr", "prueba": "sint", "semilla": 46, "B_epred_red": 3.193826390620703, "segundos": 48.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "sint", "semilla": 45, "B_epred_red": 3.410865345555799, "segundos": 49.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "brun", "prueba": "sint", "semilla": 46, "B_epred_red": 3.263455914169479, "segundos": 50.0}
+Done.

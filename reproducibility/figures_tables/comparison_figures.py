@@ -175,7 +175,7 @@ otros = [("brun", "Brun", {s: d.get("chi2_brun") for s, d in mb.items()}),
 # tiempos
 tp = L("timing_complete/parallel"); tp.update(L("timing_complete/parallel_corrected_code"))
 tpf, nopf = {}, []
-for line in (R / "profile_likelihood" / "logs" / "round0.log").read_text(encoding="utf-8", errors="ignore").splitlines():
+for line in [l for n in ("round0.log", "large_problems.log") if (R / "profile_likelihood" / "logs" / n).exists() for l in (R / "profile_likelihood" / "logs" / n).read_text(encoding="utf-8", errors="ignore").splitlines()]:
     if '"terminado": true' in line:
         d = json.loads(line); tpf[d["sistema"]] = d["seg_total"]
 for s, d in pf.items():
@@ -238,11 +238,11 @@ techo = 3e4
 ax.plot([0.1, techo], [0.1, techo], color=INK2, lw=0.8, ls="--")
 ax.scatter(xs, ys, s=16, color=COL["perfil"], edgecolor="white", linewidth=0.6, zorder=3, label="Profile likelihood")
 for x, yv, n in zip(xs, ys, nombres):
-    if n in ("Alkan", "Isensee", "Zheng", "Smith"):
+    if n in ("Alkan", "Isensee", "Zheng", "Smith", "Bachmann", "Lucarelli"):
         ax.text(x * 1.18, yv, n, fontsize=5.5, color=INK2, va="center")
 xi = [tp[s]["segundos"] for s in nopf if s in tp]
 ax.scatter(xi, [techo] * len(xi), s=22, marker="^", color=INK2, zorder=3)
-ax.text(1.1, techo * 22, "▲ infeasible for profile likelihood (> 60 free parameters):\n   " +
+ax.text(1.1, techo * 22, "▲ profile likelihood not run (> 60 free parameters):\n   " +
         ", ".join(corto(s) for s in sorted(nopf, key=lambda s: tp.get(s, {}).get("segundos", 0))),
         fontsize=5.5, color=INK2, va="top", fontfamily="DejaVu Sans")
 ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(1, 5e3); ax.set_ylim(0.1, techo * 30)

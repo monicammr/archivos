@@ -1,7 +1,15 @@
 {
- "no_evaluable": "sin subconjunto",
+ "S": [
+  "STAT5Imp",
+  "CISRNADelay"
+ ],
+ "eajuste_med": 0.2945575251747446,
+ "erel_med": 0.5319168105053333,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
  "sistema": "Bachmann_MSB2011",
  "metodo": "perfil",
  "prueba": "adm",
- "segundos": 3.0
+ "segundos": 6.5
 }

@@ -1,5 +1,5 @@
 \begin{longtable}{@{}lrrrrrrr@{}}
-\caption{Computing time of the comparison with other criteria, for every problem: selection and validation by pivoted QR, Brun and Morris, the random and calibration-only baselines, the admissibility and synthetic tests of the subsets of all criteria ($\pm$5\%, including the synthetic seeds, and $\pm$20\%), and profile likelihood of every biological parameter of the full model (all rounds). Times recorded by each program for each problem: elapsed time of the computation of that problem with the parallelism described in the text; where an analysis consists of independent single-core tasks (seeds, scenarios, profile points) the time is their sum, i.e.\ processor time. --, not computed (problem not admissible, not applicable or infeasible). Large problems were computed on shared servers with 128 or 256 cores, the others on an 8-core workstation; times on shared servers are upper bounds.}\label{tab:timecomparison}\\
+\caption{Computing time of the comparison with other criteria, for every problem: selection and validation by pivoted QR, Brun and Morris, the random and calibration-only baselines, the admissibility and synthetic tests of the subsets of all criteria ($\pm$5\%, including the synthetic seeds, and $\pm$20\%), and profile likelihood of every biological parameter of the full model (all rounds). Times recorded by each program for each problem: elapsed time of the computation of that problem with the parallelism described in the text; where an analysis consists of independent single-core tasks (seeds, scenarios, profile points) the time is their sum, i.e.\ processor time. --, not computed (problem not admissible, not applicable or not run). Large problems were computed on shared servers with 128 or 256 cores, the others on an 8-core workstation; times on shared servers are upper bounds.}\label{tab:timecomparison}\\
 \toprule
 Problem & \rotatebox{70}{Pivoted QR} & \rotatebox{70}{Brun and Morris} & \rotatebox{70}{Random subsets (20)} & \rotatebox{70}{Calibration only} & \rotatebox{70}{Criteria test, $\pm$5\%} & \rotatebox{70}{Criteria test, $\pm$20\%} & \rotatebox{70}{Profile likelihood, full model} \\
 \midrule
@@ -10,7 +10,7 @@ Problem & \rotatebox{70}{Pivoted QR} & \rotatebox{70}{Brun and Morris} & \rotate
 \endhead
 Alkan & 4 s & 1.9 min & 2.4 min & 5 s & 28.6 min & 50 s & 27.4 min \\
 Armistead & $<$1 s & $<$1 s & $<$1 s & $<$1 s & 28 s & 14 s & 3 s \\
-Bachmann & 1 s & 1.8 min & 10.1 min & 19 s & 1.4 h & 39 s & -- \\
+Bachmann & 1 s & 1.8 min & 10.1 min & 19 s & 1.5 h & 3.8 min & 1.2 h \\
 Beer & -- & -- & -- & -- & -- & -- & -- \\
 Bertozzi & $<$1 s & 2 s & $<$1 s & $<$1 s & 16 s & 6 s & $<$1 s \\
 Blasi & -- & -- & -- & -- & -- & -- & -- \\
@@ -28,7 +28,7 @@ Isensee & 1.9 min & 29.6 min & 1.2 h & 4.6 min & 13.8 h & 25.5 min & 5.2 h \\
 Lang & -- & -- & -- & -- & -- & -- & -- \\
 Laske & $<$1 s & 11 s & 6 s & $<$1 s & 3.7 min & 1.2 min & 5 s \\
 Liu & $<$1 s & 3 s & $<$1 s & $<$1 s & 35 s & 11 s & 1 s \\
-Lucarelli & 3 s & 1.4 min & 52 s & $<$1 s & 10.0 min & 14 s & -- \\
+Lucarelli & 3 s & 1.4 min & 52 s & $<$1 s & 11.1 min & 33 s & 10.9 min \\
 Okuonghae & $<$1 s & 10 s & $<$1 s & $<$1 s & 34 s & 9 s & 23 s \\
 Oliveira & $<$1 s & 2 s & 1 s & $<$1 s & 40 s & 12 s & 5 s \\
 Perelson & $<$1 s & 2 s & $<$1 s & $<$1 s & 6 s & 1 s & $<$1 s \\

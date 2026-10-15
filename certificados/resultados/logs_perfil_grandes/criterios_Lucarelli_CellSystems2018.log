@@ -1,0 +1,48 @@
+Admisibilidad y sintético: 1 problemas, 25 tareas, NPROC=60
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0949256328747687, "segundos": 2.8}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 43, "B_epred_red": 0.825827432923567, "segundos": 2.8}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 45, "B_epred_red": 0.827515965648555, "segundos": 3.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.7402054725091215, "admisible": false, "segundos": 3.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 46, "B_epred_red": 0.91710676309506, "segundos": 3.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9073387635495241, "segundos": 3.3}
+Done.
+Admisibilidad y sintético: 1 problemas, 60 tareas, NPROC=60
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 51, "B_epred_red": 0.9563657797477488, "segundos": 2.8}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 60, "B_epred_red": 0.8143657260411067, "segundos": 2.9}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 55, "B_epred_red": 1.06249883699688, "segundos": 2.9}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 48, "B_epred_red": 0.8673279548192997, "segundos": 3.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 59, "B_epred_red": 0.8933878163864832, "segundos": 3.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 54, "B_epred_red": 0.9348952736754719, "segundos": 3.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 47, "B_epred_red": 0.8415313180881302, "segundos": 3.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 58, "B_epred_red": 0.7181081723308852, "segundos": 3.8}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 61, "B_epred_red": 0.8112090298226485, "segundos": 3.9}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 49, "B_epred_red": 0.7794203744552877, "segundos": 3.9}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 57, "B_epred_red": 0.9550165833813967, "segundos": 4.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 56, "B_epred_red": 0.9271804272011647, "segundos": 4.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 50, "B_epred_red": 0.7378352497674954, "segundos": 4.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 53, "B_epred_red": 0.7812194756558941, "segundos": 4.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 52, "B_epred_red": 0.5228159700593603, "segundos": 6.6}
+Done.
+Admisibilidad y sintético: 1 problemas, 25 tareas, NPROC=60
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0949256328747687, "segundos": 2.9}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 43, "B_epred_red": 0.825827432923567, "segundos": 3.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr", "prueba": "sint", "semilla": 46, "B_epred_red": 0.9989157221654251, "segundos": 3.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.745971028567346, "admisible": false, "segundos": 3.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "brun", "prueba": "sint", "semilla": 42, "B_epred_red": 1.3676230235944709, "segundos": 3.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 45, "B_epred_red": 0.827515965648555, "segundos": 3.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr", "prueba": "sint", "semilla": 43, "B_epred_red": 1.021886517118916, "segundos": 3.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 46, "B_epred_red": 0.91710676309506, "segundos": 3.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "brun", "prueba": "sint", "semilla": 44, "B_epred_red": 0.6034052495335281, "segundos": 3.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9073387635495241, "segundos": 3.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr", "prueba": "sint", "semilla": 42, "B_epred_red": 1.2413539596462515, "segundos": 4.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "brun", "prueba": "sint", "semilla": 46, "B_epred_red": 0.4447164768441707, "segundos": 4.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9781211193827756, "segundos": 4.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "brun", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9370378728005576, "segundos": 4.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr", "prueba": "sint", "semilla": 45, "B_epred_red": 0.9418858486420266, "segundos": 4.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "brun", "prueba": "sint", "semilla": 45, "B_epred_red": 0.7113484159036583, "segundos": 4.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "morris", "prueba": "sint", "semilla": 46, "B_epred_red": 0.6370600270400135, "segundos": 5.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "morris", "prueba": "sint", "semilla": 43, "B_epred_red": 0.8200279024298391, "segundos": 6.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "morris", "prueba": "sint", "semilla": 42, "B_epred_red": 4.244528167786682, "segundos": 7.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "morris", "prueba": "sint", "semilla": 45, "B_epred_red": 0.840576932642647, "segundos": 7.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "morris", "prueba": "sint", "semilla": 44, "B_epred_red": 2.0515720860114848, "segundos": 8.4}
+Done.

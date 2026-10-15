@@ -1,0 +1,14 @@
+[2026-10-15 17:42:57] inicio: Lucarelli_CellSystems2018 Bachmann_MSB2011, NPROC=120 (Lucarelli 60, Bachmann 60), TOPE=24h, 256 núcleos, 503 GB
+[2026-10-15 17:42:57] Bachmann_MSB2011 perfilada (PL_PMAX=200, 60 núcleos)
+[2026-10-15 17:42:57] Lucarelli_CellSystems2018 perfilada (PL_PMAX=200, 60 núcleos)
+[2026-10-15 17:53:50] Lucarelli_CellSystems2018 perfilada: código 0, 653 s de reloj
+[2026-10-15 17:53:50] Lucarelli_CellSystems2018 criterios: admisibilidad ±5 % y sintético 42-46
+[2026-10-15 17:53:55] Lucarelli_CellSystems2018 criterios: sintético 47-61
+[2026-10-15 17:54:03] Lucarelli_CellSystems2018 criterios: admisibilidad ±20 %
+[2026-10-15 17:54:12] Lucarelli_CellSystems2018 terminado
+[2026-10-15 18:53:24] Bachmann_MSB2011 perfilada: código 0, 4227 s de reloj
+[2026-10-15 18:53:24] Bachmann_MSB2011 criterios: admisibilidad ±5 % y sintético 42-46
+[2026-10-15 18:54:10] Bachmann_MSB2011 criterios: sintético 47-61
+[2026-10-15 18:55:31] Bachmann_MSB2011 criterios: admisibilidad ±20 %
+[2026-10-15 18:56:22] Bachmann_MSB2011 terminado
+[2026-10-15 18:56:22] TODO TERMINADO

@@ -1,7 +1,14 @@
 {
- "no_evaluable": "sin subconjunto",
+ "S": [
+  "STAT5Imp",
+  "CISRNADelay"
+ ],
+ "semilla": 51,
+ "B_chi2_test_theta0": 2.0921651061084647,
+ "B_chi2_test_red": 3.9240346777695194,
+ "B_epred_red": 2.029047184243198,
  "sistema": "Bachmann_MSB2011",
  "metodo": "perfil",
  "prueba": "sint",
- "segundos": 0.0
+ "segundos": 50.7
 }

@@ -2,45 +2,45 @@
 
 ## Sintético: diferencia de la tasa de acierto (bootstrap por sistemas)
 
-280 casos comunes con señal en 23 sistemas; se remuestrean sistemas completos (B = 10000). Diferencia > 0: nuestro método acierta más.
+282 casos comunes con señal en 24 sistemas; se remuestrean sistemas completos (B = 10000). Diferencia > 0: nuestro método acierta más.
 
 | Nuestro método contra | Tasa nuestra | Tasa del otro | Diferencia | IC 95 % | p (bootstrap) |
 |---|---|---|---|---|---|
-| QR pivotado | 54% | 34% | +19.6% | +6.5% a +32.5% | 0.003 |
-| Brun | 54% | 55% | -1.1% | -7.6% a +3.5% | 0.82 |
-| Morris | 54% | 48% | +6.1% | -3.2% a +15.4% | 0.21 |
-| Verosimilitud perfilada | 54% | 39% | +15.0% | +4.3% a +26.5% | 0.0058 |
+| QR pivotado | 56% | 34% | +22.0% | +10.2% a +33.8% | 0.0001 |
+| Brun | 56% | 55% | +1.4% | -1.0% a +4.1% | 0.33 |
+| Morris | 56% | 48% | +8.5% | +2.3% a +16.4% | 0.0038 |
+| Verosimilitud perfilada | 56% | 39% | +17.4% | +7.6% a +27.9% | 0.0008 |
 
 ## Admisibilidad a ±5 % (McNemar exacto por sistema)
 
 | Método | Admisibles |
 |---|---|
-| Nuestro método | 29 de 29 |
-| QR pivotado | 13 de 29 |
-| Brun | 24 de 29 |
-| Morris | 21 de 29 |
-| Verosimilitud perfilada | 17 de 26 |
+| Nuestro método | 28 de 28 |
+| QR pivotado | 14 de 28 |
+| Brun | 26 de 28 |
+| Morris | 23 de 28 |
+| Verosimilitud perfilada | 18 de 27 |
 
 | Nuestro método contra | Sistemas comparados | Sólo el nuestro admisible | Sólo el otro | p |
 |---|---|---|---|---|
-| QR pivotado | 29 | 16 | 0 | 3.1e-05 |
-| Brun | 29 | 5 | 0 | 0.062 |
-| Morris | 29 | 8 | 0 | 0.0078 |
-| Verosimilitud perfilada | 26 | 9 | 0 | 0.0039 |
+| QR pivotado | 28 | 14 | 0 | 0.00012 |
+| Brun | 28 | 2 | 0 | 0.5 |
+| Morris | 28 | 5 | 0 | 0.062 |
+| Verosimilitud perfilada | 27 | 9 | 0 | 0.0039 |
 
 ## Admisibilidad a ±20 % (McNemar exacto por sistema)
 
 | Método | Admisibles |
 |---|---|
-| Nuestro método | 28 de 29 |
-| QR pivotado | 14 de 29 |
-| Brun | 23 de 29 |
-| Morris | 21 de 29 |
-| Verosimilitud perfilada | 17 de 26 |
+| Nuestro método | 27 de 28 |
+| QR pivotado | 15 de 28 |
+| Brun | 25 de 28 |
+| Morris | 23 de 28 |
+| Verosimilitud perfilada | 18 de 27 |
 
 | Nuestro método contra | Sistemas comparados | Sólo el nuestro admisible | Sólo el otro | p |
 |---|---|---|---|---|
-| QR pivotado | 29 | 14 | 0 | 0.00012 |
-| Brun | 29 | 5 | 0 | 0.062 |
-| Morris | 29 | 7 | 0 | 0.016 |
-| Verosimilitud perfilada | 26 | 8 | 0 | 0.0078 |
+| QR pivotado | 28 | 12 | 0 | 0.00049 |
+| Brun | 28 | 2 | 0 | 0.5 |
+| Morris | 28 | 4 | 0 | 0.12 |
+| Verosimilitud perfilada | 27 | 8 | 0 | 0.0078 |

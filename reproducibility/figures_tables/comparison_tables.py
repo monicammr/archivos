@@ -282,7 +282,7 @@ escribe("tableS_nested.tex", longtable(
 # ── 9. tiempos ────────────────────────────────────────────────────────────────────
 tp, ts, fx = L("timing_complete/parallel"), L("timing_complete/single_core"), L("timing_complete/parallel_corrected_code")
 t1, tc = {}, collections.defaultdict(float)
-for line in (R / "profile_likelihood" / "logs" / "round0.log").read_text(encoding="utf-8", errors="ignore").splitlines():
+for line in [l for n in ("round0.log", "large_problems.log") if (R / "profile_likelihood" / "logs" / n).exists() for l in (R / "profile_likelihood" / "logs" / n).read_text(encoding="utf-8", errors="ignore").splitlines()]:
     if '"terminado": true' in line:
         d = json.loads(line); t1[d["sistema"]] = d["seg_total"]
 vistos = set()
@@ -301,9 +301,14 @@ for s in sorted(ref):
     par = (fx.get(s) or tp.get(s) or {}).get("segundos")
     filas.append([corto(s), str(ref[s].get("p", "--")), seg(par), seg(ts.get(s, {}).get("segundos")),
                   seg(t1.get(s)), seg(t1[s] + tc[s]) if s in t1 and tc.get(s) else ("--" if s not in t1 else seg(t1[s])),
-                  ("infeasible" if "PL_PMAX" in pf[s].get("no_evaluable", "") else
+                  ("not run" if "PL_PMAX" in pf[s].get("no_evaluable", "") else
                    "no split" if "no_evaluable" in pf[s] else "") if s in pf else "not admissible"])
+both_t = [(par_s, t1[s_]) for s_, par_s in ((s_, (fx.get(s_) or tp.get(s_) or {}).get("segundos")) for s_ in ref)
+          if ok(par_s) and s_ in t1]
+n_fast, n_both = sum(o < q for o, q in both_t), len(both_t)
 escribe("tableS_tiempos.tex", longtable(
     "@{}lrrrrrl@{}",
-    "Computation time (seconds of wall-clock time) of our complete method (selection, admissibility test and backward elimination, run from scratch without cached results) with the sensitivity computations in parallel and on a single core, and of profile likelihood with all profile points of a problem computed in parallel on 120 cores (first round, and including the re-estimations of the optimum). Profile likelihood was not run for three reasons, given in the last column: infeasible, more than 60 free parameters; no split, no training/test split on which to select (Blasi); not admissible, our method found no admissible subset, so there was nothing to compare. Our method was faster in 11 of the 26 problems with both times. All runs shared a 128-core server with other computations, so the times are upper bounds. For the eight problems treated to first order the parallel time is that of the run that reproduces the reported results (Supplementary Note \\textit{Reproducibility package}).",
+    "Computation time (seconds of wall-clock time) of our complete method (selection, admissibility test and backward elimination, run from scratch without cached results) with the sensitivity computations in parallel and on a single core, and of profile likelihood with all profile points of a problem computed in parallel (120 cores; 60 cores for Bachmann and Lucarelli, whose more than 60 free parameters were profiled in a separate run) (first round, and including the re-estimations of the optimum). Profile likelihood was not run for three reasons, given in the last column: not run, more than 60 free parameters and the most expensive simulations (Chen, Raimundez); no split, no training/test split on which to select (Blasi); not admissible, our method found no admissible subset, so there was nothing to compare. "
+    f"Our method was faster in {n_fast} of the {n_both} problems with both times. "
+    "All runs shared a 128-core server with other computations, so the times are upper bounds. For the eight problems treated to first order the parallel time is that of the run that reproduces the reported results (Supplementary Note \\textit{Reproducibility package}).",
     "tab:tiempos", ["Problem", "$p$", "Ours, parallel", "Ours, 1 core", "Profile, 1st round", "Profile, total", ""], filas))

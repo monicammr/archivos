@@ -5,8 +5,8 @@ Mediana de e_fit en 15 escenarios a ±5 % (semilla 42); admisible si ≤ 0.436 (
 | Sistema | Nuestro método | QR pivotado | Brun | Morris | Verosimilitud perfilada | e_fit del artículo (nuestro) |
 |---|---|---|---|---|---|---|
 | Alkan | 0.121 ✓ | 0.945 | 0.126 ✓ | 0.116 ✓ | 0.131 ✓ | 0.121 |
-| Armistead | 0.117 ✓ | 0.735 | 0.725 | 0.725 | 0.990 | 0.117 |
-| Bachmann | 0.337 ✓ | 0.503 | 0.307 ✓ | 0.337 ✓ | – | 0.337 |
+| Armistead | 0.330 ✓ | 0.741 | 0.330 ✓ | 0.330 ✓ | 0.567 | 0.33 |
+| Bachmann | 0.337 ✓ | 0.503 | 0.307 ✓ | 0.337 ✓ | 0.295 ✓ | 0.337 |
 | Bertozzi | 0.329 ✓ | 0.944 | 0.944 | 0.945 | 0.944 | 0.329 |
 | Boehm | 0.094 ✓ | 0.670 | 0.094 ✓ | 0.094 ✓ | 0.565 | 0.0935 |
 | Borghans | 0.043 ✓ | 0.533 | 0.166 ✓ | 0.355 ✓ | 0.097 ✓ | 0.0434 |
@@ -19,13 +19,13 @@ Mediana de e_fit en 15 escenarios a ±5 % (semilla 42); admisible si ≤ 0.436 (
 | Isensee | 0.076 ✓ | 0.102 ✓ | 0.098 ✓ | 0.103 ✓ | 0.103 ✓ | 0.0759 |
 | Laske | 0.101 ✓ | 0.125 ✓ | 0.149 ✓ | 0.149 ✓ | 0.149 ✓ | 0.101 |
 | Liu | 0.261 ✓ | 0.271 ✓ | 0.271 ✓ | 0.271 ✓ | 0.271 ✓ | 0.261 |
-| Lucarelli | 0.435 ✓ | 0.911 | 0.413 ✓ | 0.549 | – | 0.435 |
+| Lucarelli | 0.435 ✓ | 0.911 | 0.413 ✓ | 0.549 | 0.740 | 0.435 |
 | Okuonghae | 0.041 ✓ | 0.112 ✓ | 0.041 ✓ | 0.042 ✓ | 0.042 ✓ | 0.0411 |
 | Oliveira | 0.129 ✓ | 0.039 ✓ | 0.078 ✓ | 0.078 ✓ | 0.048 ✓ | 0.129 |
 | Perelson | 0.000 ✓ | 0.000 ✓ | 0.000 ✓ | 0.000 ✓ | 0.000 ✓ | 0 |
 | Rahman | 0.037 ✓ | 0.112 ✓ | 0.035 ✓ | 0.085 ✓ | 0.035 ✓ | 0.0371 |
 | Raia | 0.033 ✓ | 0.042 ✓ | 0.033 ✓ | 0.034 ✓ | 0.048 ✓ | 0.033 |
-| Raimundez | 0.372 ✓ | 0.534 | 0.515 | 0.534 | – | 0.372 |
+| Raimundez | 0.187 ✓ | 0.282 ✓ | 0.187 ✓ | 0.277 ✓ | – | 0.187 |
 | SalazarCavazos | 0.187 ✓ | 0.520 | 0.187 ✓ | 0.187 ✓ | 0.398 ✓ | 0.187 |
 | Schwen | 0.171 ✓ | 0.189 ✓ | 0.193 ✓ | 0.171 ✓ | 0.171 ✓ | 0.171 |
 | Smith | 0.078 ✓ | 0.085 ✓ | 0.078 ✓ | 0.077 ✓ | 0.060 ✓ | 0.0777 |
@@ -37,7 +37,7 @@ Mediana de e_fit en 15 escenarios a ±5 % (semilla 42); admisible si ≤ 0.436 (
 | Método | Admisibles |
 |---|---|
 | Nuestro método | 29 de 29 |
-| QR pivotado | 13 de 29 |
-| Brun | 24 de 29 |
-| Morris | 21 de 29 |
-| Verosimilitud perfilada | 17 de 26 |
+| QR pivotado | 14 de 29 |
+| Brun | 26 de 29 |
+| Morris | 23 de 29 |
+| Verosimilitud perfilada | 18 de 28 |
