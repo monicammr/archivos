@@ -38,10 +38,19 @@ import petab_problem as PP
 import external_validation as VE
 
 import config as CFG
-SUBS = CFG.SELECTION
-OUTD = CFG.IDENTIFIABILITY / "profiles"
+# Segunda auditoría: ID_SUBSETS=<carpeta de results/> perfila otros subconjuntos (p. ej. los
+# seleccionados con las salidas de entrenamiento, selection_train_fixedscen); ID_DENSE=1 usa 20
+# desplazamientos por lado (0,02-4,6, espaciado geométrico) en lugar de 10. Cada variante escribe en
+# su propia carpeta: identifiability/profiles[_<carpeta>][_dense].
+SUBF = os.environ.get("ID_SUBSETS", "selection")
+DENSE = os.environ.get("ID_DENSE") == "1"
+SUBS = CFG.RESULTS / SUBF
+OUTD = CFG.IDENTIFIABILITY / ("profiles" + ("" if SUBF == "selection" else "_" + SUBF)
+                              + ("_dense" if DENSE else ""))
 NPROC = int(os.environ.get("NPROC", os.cpu_count() or 1))
 DESPL = [0.05, 0.1, 0.2, 0.4, 0.7, 1.1, 1.6, 2.3, 3.2, 4.6]   # en log|θ_j|; 4,6 = factor 100
+if DENSE:
+    DESPL = [round(float(x), 4) for x in np.geomspace(0.02, 4.6, 20)]
 UMBRAL = 3.84
 FALLO = 1e4
 MEJORA_MIN = 1.0
@@ -211,6 +220,10 @@ if __name__ == "__main__":
     which = [a for a in sys.argv[1:] if not a.startswith("--")]
     omit = set(filter(None, os.environ.get("PERFIL_OMITIR", "").split(",")))
     todos = sorted(f.stem for f in SUBS.glob("*.json") if json.loads(f.read_text()).get("admisible"))
+    if SUBF != "selection" and os.environ.get("ID_SOLO_CAMBIADOS") == "1":
+        # sólo los problemas cuyo subconjunto difiere del de la selección principal
+        todos = [n for n in todos if set(json.loads((SUBS / f"{n}.json").read_text())["S"])
+                 != set(json.loads((CFG.SELECTION / f"{n}.json").read_text()).get("S", []))]
     lista = [n for n in todos if (not which or n in which) and n not in omit]
     lista = [n for n in lista if n not in LENTOS] + [n for n in LENTOS if n in lista]
     for n in lista:
