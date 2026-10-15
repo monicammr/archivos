@@ -9,7 +9,10 @@ measurements come from results/simulator_check (one entry per row of measurement
 """
 import numpy as np
 
-from common import TAB as OUT, load, load_validation, measurements
+import json
+import pandas as pd
+
+from common import RESULTS, TAB as OUT, load, load_validation, measurements
 
 SEL, VAL, PAT = load("selection"), load_validation(), load("robustness")
 LIN = {"Alkan_SciSignal2018", "Bachmann_MSB2011", "Beer_MolBioSystems2014", "Chen_MSB2009",
@@ -29,10 +32,29 @@ def chi(x):
     return f"{x:.2f}" if x < 100 else f"{x:.3g}" if x < 1e4 else f"{x:.2e}".replace("e+0", "e").replace("e+", "e")
 
 
+def identif():
+    """Per problem: (identifiable by the profiles, Lean hypotheses hold, selected parameters), from
+    results/identifiability (the same sources as identifiability_table.py)."""
+    R = RESULTS / "identifiability"
+    cert = pd.concat([pd.read_csv(f) for f in sorted(R.glob("certificado*.csv"))], ignore_index=True)
+    cert = cert[cert["error"].isna()] if "error" in cert else cert
+    cert = cert.drop_duplicates(["sistema", "parametro"], keep="last").set_index(["sistema", "parametro"])
+    out = {}
+    for f in sorted((R / "profiles").glob("*.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        s = d["sistema"]
+        ni = sum(p["clase"] == "identificable" for p in d["perfiles"])
+        lc = sum(bool(cert.loc[(s, p["parametro"])].get("certificado_local", False))
+                 for p in d["perfiles"] if (s, p["parametro"]) in cert.index)
+        out[s] = (ni, lc, len(d["perfiles"]))
+    return out
+
+
 def table1():
-    L = [r"\begin{tabular}{@{}lrrrrcrrcc@{}}", r"\toprule",
-         r"System & $p$ & $m$ & $|\Theta_C|$ & $|S|$ & Stage & $e_{\mathrm{rel}}$ & $e_{\mathrm{fit}}$ & Pattern & Test $\chi^2/n$ \\",
-         r" & & & & & & (\%) & (\%) & & reduced / full \\",
+    IDF = identif()
+    L = [r"\begin{tabular}{@{}lrrrrcrrcccc@{}}", r"\toprule",
+         r"System & $p$ & $m$ & $|\Theta_C|$ & $|S|$ & Stage & $e_{\mathrm{rel}}$ & $e_{\mathrm{fit}}$ & Level & Pattern & Ident. & Test $\chi^2/n$ \\",
+         r" & & & & & & (\%) & (\%) & & & (Lean) & red. / full \\",
          r"\midrule"]
     for name, d in sorted(SEL.items(), key=lambda kv: kv[0].lower()):
         short = name.split("_")[0]
@@ -50,7 +72,10 @@ def table1():
         v = VAL.get(name, {})
         r, f = v.get("A_chi2_test_red"), v.get("A_chi2_test_full")
         vs = "--" if r is None else f"{chi(r)} / {chi(f)}"
-        L.append(f"{tex(short)} & {d['p']} & {m} & {c} & {k} & {st} & {'--' if not np.isfinite(er) else f'{100 * er:.0f}'} & {efs} & {pt} & {vs} \\\\")
+        lv = nivel(d)
+        idf = IDF.get(name)
+        ids = "--" if idf is None or not d["admisible"] else f"{idf[0]}/{idf[2]} ({idf[1]})"
+        L.append(f"{tex(short)} & {d['p']} & {m} & {c} & {k} & {st} & {'--' if not np.isfinite(er) else f'{100 * er:.0f}'} & {efs} & {lv or '--'} & {pt} & {ids} & {vs} \\\\")
     L += [r"\botrule", r"\end{tabular}"]
     (OUT / "table1.tex").write_text("\n".join(L) + "\n")
 

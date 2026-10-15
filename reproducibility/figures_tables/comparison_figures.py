@@ -64,7 +64,18 @@ for f in glob.glob(str(R / "synthetic_seeds" / "*" / "s*.json")):
 sint = sorted(((corto(s), np.mean(list(v.values())), len(v), sum(v.values())) for s, v in S.items() if len(v) >= 3),
               key=lambda x: x[1])
 
-fig, (a1, a2) = plt.subplots(1, 2, figsize=(7.2, 4.6), gridspec_kw={"wspace": 0.55})
+# c) leakage through theta0: theta0 alone and the nested reduced model, relative to the reduced model
+#    (same 5 % criterion as Supplementary Table tab:wilcoxonreal)
+nest = {Path(f).stem: json.loads(Path(f).read_text(encoding="utf-8"))
+        for f in glob.glob(str(R / "nested_validation" / "*.json"))}
+rc = [("$\\theta_0$ alone / reduced", "chi2_test_theta0"), ("Nested reduced / reduced", "chi2_test_red_nested")]
+lc = {k: [d[k] / d["chi2_test_red_original"] for d in nest.values()
+          if ok(d.get(k)) and ok(d.get("chi2_test_red_original")) and d[k] > 0 and d["chi2_test_red_original"] > 0]
+      for _, k in rc}
+
+fig = plt.figure(figsize=(7.2, 6.0))
+gs = fig.add_gridspec(2, 2, height_ratios=[4.6, 1.15], wspace=0.55, hspace=0.62)
+a1, a2, a3 = fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1]), fig.add_subplot(gs[1, :])
 y = np.arange(len(filas))
 for i, (n, q, alto) in enumerate(filas):
     c = COL["ours"] if q < 0.95 else ("#8a8984" if q <= 1.05 else "#e34948")
@@ -90,6 +101,23 @@ a2.set_xlabel("Fraction of seeds with reduced $e_{\\mathrm{pred}}\\leq$ full $e_
 a2.set_title("Synthetic data, 20 seeds (truth unknown to $\\theta_0$)", loc="left", color=INK, pad=12)
 a2.text(1.03, len(sint) - 0.2, "won/seeds", fontsize=6, color=INK2)
 letra(a2, "b")
+e5 = 1.05
+for i, (lab, k) in enumerate(rc):
+    v = np.array(lc[k]); yy = len(rc) - 1 - i
+    jit = (np.arange(len(v)) % 3 - 1) * 0.12
+    cc = np.where(v < 1 / e5, COL["ours"], np.where(v > e5, "#e34948", "#8a8984"))
+    a3.scatter(np.clip(v, 0.1, 1e3), yy + jit, s=14, color=cc, edgecolor="white", linewidth=0.5, zorder=3)
+    md = float(np.median(v))
+    a3.plot([md, md], [yy - 0.32, yy + 0.32], color=INK, lw=1.4, zorder=4)
+    a3.text(1.2e3, yy, f"lower in {int((v < 1 / e5).sum())}, higher in {int((v > e5).sum())} of {len(v)}; median {md:.2f}",
+            va="center", fontsize=6, color=INK2)
+a3.axvspan(1 / e5, e5, color="#efeeea", zorder=0)
+a3.axvline(1, color=INK2, lw=0.8)
+a3.set_xscale("log"); a3.set_xlim(0.1, 1e3); a3.set_ylim(-0.6, len(rc) - 0.4)
+a3.set_yticks(range(len(rc))); a3.set_yticklabels([lab for lab, _ in rc][::-1])
+a3.set_xlabel("Test $\\chi^2/n$ relative to the reduced model anchored at $\\theta_0$ (values beyond the axis at its edge)")
+a3.set_title("Real data: information inherited from $\\theta_0$", loc="left", color=INK, pad=6)
+letra(a3, "c")
 fig.savefig(FIG / "fig3_validation_v2.pdf", bbox_inches="tight")
 fig.savefig(FIG / "fig3_validation_v2.png", dpi=200, bbox_inches="tight")
 plt.close(fig)
