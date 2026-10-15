@@ -29,6 +29,17 @@ For each problem, on the noise-scaled measured outputs y (petab_problem.py):
    E_j) while the subset remains admissible, until no parameter can be removed; the result is
    minimal with respect to inclusion (Lean: Poda.prune_minimal).
 
+Options added after the second audit (environment variables; each writes to its own folder):
+  REPRO_OUTPUTS=train   select on the TRAINING outputs only (the rows of the training set of
+                        external_validation.split), so that the selection uses the same data as the
+                        other criteria of the comparison -> results/selection_train*/
+  REPRO_FIXED_SCEN=1    the set of scenarios does not depend on S: a scenario in which the
+                        simulation with S at its scenario values fails counts as e_rel = inf
+                        (instead of being discarded), and the first-order e_fit of a scenario is
+                        min(e_rel, projection), as in the Supplementary Note -> results/*_fixedscen/
+In every run, the subsets evaluated during the search and the number of nested pairs S < T with S
+admissible and T not admissible (violations of monotonicity) are stored ("monotonia").
+
 Usage
     python selection.py [Problem ...]                 # baseline -> results/selection/
     python selection.py --variant tauE_0.10 [Problem ...]   # one setting changed (Fig. 5)
@@ -64,7 +75,34 @@ EPSILON = float(os.environ.get("REPRO_EPSILON", CFG.EPSILON))
 TAU_E = float(os.environ.get("REPRO_TAU_E", CFG.TAU_E))
 N_SCEN, SEED = CFG.N_SCENARIOS, CFG.SEED
 NPROC = int(os.environ.get("NPROC", os.cpu_count() or 1))
+TRAIN_ONLY = os.environ.get("REPRO_OUTPUTS", "all") == "train"
+FIXED_SCEN = os.environ.get("REPRO_FIXED_SCEN") == "1"
+_suffix = ("_train" if TRAIN_ONLY else "") + ("_fixedscen" if FIXED_SCEN else "")
 OUT = CFG.SETTINGS / VARIANT if VARIANT else CFG.SELECTION
+if _suffix:
+    OUT = OUT.parent / (OUT.name + _suffix)
+    CFG.CACHE = CFG.CACHE.parent / (CFG.CACHE.name + _suffix)
+
+
+def _restrict_to_training(Sy):
+    """REPRO_OUTPUTS=train: y keeps only the rows of the training set (external_validation.split).
+    Problems without a training/test split (a single condition and a single time) keep all rows."""
+    Sy.train_rows = None
+    if not TRAIN_ONLY:
+        return Sy
+    import external_validation as EV
+    _, _, ftest, _ = EV.split(Sy)
+    rows = ~np.asarray(ftest, bool)
+    if rows.all() or not rows.any():
+        return Sy
+    sim_all = Sy.sim
+
+    def sim(theta):
+        y = sim_all(theta)
+        return None if y is None else y[rows]
+    Sy.sim = sim
+    Sy.train_rows = rows
+    return Sy
 
 
 # --- kappa and VIF of the standardised columns ---------------------------------------------------
@@ -118,7 +156,7 @@ _Y0 = None
 
 def _w_init(name):
     global _SY, _Y0
-    _SY = PetabProblem(name)
+    _SY = _restrict_to_training(PetabProblem(name))
     _Y0 = _SY.sim(_SY.theta0)
 
 
@@ -143,7 +181,7 @@ def _w_scan(j):
 def select(name):
     t0 = time.time()
     first_order = name in CFG.FIRST_ORDER
-    Sy = PetabProblem(name)
+    Sy = _restrict_to_training(PetabProblem(name))
     names, th0 = Sy.names, Sy.theta0
     p = len(names)
     # problems with p > 200 or with slow simulations: J and s on disk (float32), resumable
@@ -204,8 +242,11 @@ def select(name):
         full.append(None if yf is None else (yf - y0).ravel())
     floor = max(1e-10 * np.linalg.norm(y0), 1e-6)   # scenarios with a smaller change are discarded
 
+    erel_scen = {}       # e_rel per valid scenario (REPRO_FIXED_SCEN: used by the first-order e_fit)
+
     def validate(S):
         """Median cos(Delta) and e_rel over the scenarios (S set to the scenario values)."""
+        key = tuple(S)
         S = list(S) + CAL          # calibration parameters always accompany S
         cs, es = [], []
         for th, df_ in zip(scen, full):
@@ -214,6 +255,8 @@ def select(name):
             ts = th0.copy(); ts[S] = th[S]
             ys = Sy.sim(ts)
             if ys is None:
+                if FIXED_SCEN:      # the scenario is kept: the subset does not reproduce it
+                    cs.append(0.0); es.append(float("inf"))
                 continue
             ds_ = (ys - y0).ravel()
             nf, ns = np.linalg.norm(df_), np.linalg.norm(ds_)
@@ -221,6 +264,7 @@ def select(name):
                 cs.append(0.0); es.append(1.0); continue
             cs.append(float(df_ @ ds_ / (nf * ns)))
             es.append(float(np.linalg.norm(df_ - ds_) / nf))
+        erel_scen[key] = es
         if not cs:
             return float("nan"), float("nan"), 0
         return float(np.median(cs)), float(np.median(es)), len(cs)
@@ -231,6 +275,7 @@ def select(name):
         """Median e_fit (re-estimation of S and of the calibration parameters).
         First order for the problems in config.FIRST_ORDER: min_c ||Dy_full - J_S c|| / ||Dy_full||
         with the J already computed (no additional simulations)."""
+        key = tuple(S)
         S = list(S) + CAL          # calibration parameters are always re-estimated
         if first_order:
             Js = np.asarray(J[:, S], dtype=float)
@@ -240,6 +285,13 @@ def select(name):
                     continue
                 c_, *_ = np.linalg.lstsq(Js, df_, rcond=None)
                 es.append(float(np.linalg.norm(df_ - Js @ c_) / np.linalg.norm(df_)))
+            if FIXED_SCEN:
+                # e_fit,lin = min(e_rel, projection) in each scenario (same scenarios as validate)
+                if key not in erel_scen:
+                    validate(list(key))
+                er = erel_scen[key]
+                if len(er) == len(es):
+                    es = [min(a, b) for a, b in zip(es, er)]
             return float(np.median(es)) if es else float("nan")
         sgn = np.where(th0[S] < 0, -1.0, 1.0)
         mag0 = np.maximum(np.abs(th0[S]), 1e-12)
@@ -297,7 +349,19 @@ def select(name):
             memo_fit[key] = efit(S); _save()
         return bool(np.isfinite(memo_fit[key]) and memo_fit[key] <= TAU_E)
 
-    res = {"sistema": name, "p": p}
+    def _adm_value(key):
+        """Admissibility of an evaluated subset by the rule of admissible(), without new runs."""
+        if len(key) < CFG.K_MIN or key not in memo_val:
+            return None
+        e = memo_val[key][1]
+        if np.isfinite(e) and e <= TAU_E:
+            return True
+        if key in memo_fit:
+            return bool(np.isfinite(memo_fit[key]) and memo_fit[key] <= TAU_E)
+        return None
+
+    res = {"sistema": name, "p": p, "outputs": "train" if Sy.train_rows is not None else "all",
+           "fixed_scenarios": FIXED_SCEN, "n_rows": int(y0.size)}
     # --- stage 1
     order1 = [int(j) for j in act[np.argsort(-E[act])] if E[j] > 0]
     S1, ok1 = greedy(J, order1, lambda S: rvar(S) >= TAU_R and len(S) >= CFG.K_MIN)
@@ -378,6 +442,17 @@ def select(name):
     res["admisible"] = bool(len(Sf) >= CFG.K_MIN and np.isfinite(e_fit) and
                             min(e_fit, res["erel_med"]) <= TAU_E)
     res["calibracion"] = [names[j] for j in CAL]
+    # --- monotonicity log: nested pairs S < T among the subsets evaluated during the search
+    ev = {k: _adm_value(k) for k in set(memo_val) | set(memo_fit)}
+    ev = {k: v for k, v in ev.items() if v is not None}
+    pairs = viol = 0
+    for a_, va in ev.items():
+        for b_, vb in ev.items():
+            if set(a_) < set(b_):
+                pairs += 1
+                viol += int(va and not vb)
+    res["monotonia"] = {"subsets_evaluated": len(ev), "nested_pairs": pairs, "violations": viol,
+                        "subsets": [[names[j] for j in k] + [bool(v)] for k, v in ev.items()]}
     if first_order:
         res["eajuste_metodo"] = "linealizado (primer orden, J relativa)"
     res["segundos"] = round(time.time() - t0, 1)

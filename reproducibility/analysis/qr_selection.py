@@ -8,6 +8,11 @@ calibration parameters, is re-estimated on the training data and evaluated on th
 (An earlier version of the paper attributed this criterion to Brun et al.; Brun's collinearity index
 is implemented in brun_morris.py.)
 
+QR_VARIANT=gks selects instead with the standard subset selection of Golub, Klema and Stewart
+(Golub & Van Loan, Algorithm 12.2.1), the one used by Velez-Reyes and Verghese: the SVD of the same
+normalised matrix, J = U Sigma V^T, and the first k pivots of the column-pivoted QR decomposition of
+V_k^T (the k dominant right singular vectors). Output: results/qr_selection_gks/.
+
 Usage:  python qr_selection.py [Problem ...]        (default: admissible problems except Chen, Lang)
 Output: results/qr_selection/<problem>.json
 """
@@ -28,6 +33,8 @@ import petab_problem as PP  # noqa: E402
 
 SKIP = {"Chen_MSB2009", "Lang_PLOSComputBiol2024"}
 EV.CKDIR["dir"] = None
+GKS = os.environ.get("QR_VARIANT") == "gks"
+OUTD = CFG.RESULTS / "qr_selection_gks" if GKS else CFG.QR_SELECTION
 
 
 def qr_select(S, bio, k, gidx, ftrain):
@@ -47,7 +54,13 @@ def qr_select(S, bio, k, gidx, ftrain):
     if valid.sum() < k:
         sel = list(np.array(bio)[valid]) + [j for j in np.array(bio)[~valid]]
         return [int(j) for j in sel[:k]]
-    _, _, piv = scipy_qr(J[:, valid] / nrm[valid], pivoting=True)
+    Z = J[:, valid] / nrm[valid]
+    if GKS:
+        # Golub-Klema-Stewart: pivoted QR of V_k^T, the k dominant right singular vectors
+        _, _, Vt = np.linalg.svd(Z, full_matrices=False)
+        _, _, piv = scipy_qr(Vt[:k, :], pivoting=True)
+    else:
+        _, _, piv = scipy_qr(Z, pivoting=True)
     vi = np.where(valid)[0]
     return [int(bio[vi[piv[i]]]) for i in range(k)]
 
@@ -88,8 +101,9 @@ def _safe(name):
         r = run(name)
     except Exception as e:
         r = {"sistema": name, "error": repr(e)}
-    CFG.QR_SELECTION.mkdir(parents=True, exist_ok=True)
-    (CFG.QR_SELECTION / f"{name}.json").write_text(json.dumps(r, indent=1, default=str), encoding="utf-8")
+    r["variant"] = "gks" if GKS else "pivoted_qr_of_J"
+    OUTD.mkdir(parents=True, exist_ok=True)
+    (OUTD / f"{name}.json").write_text(json.dumps(r, indent=1, default=str), encoding="utf-8")
     print(json.dumps({k: r.get(k) for k in ("sistema", "S_qr", "chi2_qr")}, default=str), flush=True)
 
 

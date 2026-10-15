@@ -2,6 +2,7 @@
 data/
 # intermediate files of long runs
 results/cache/
+results/cache_*/
 results/external_validation/checkpoints/
 results/robustness/partial/
 results_rerun/
