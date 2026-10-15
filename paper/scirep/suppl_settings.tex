@@ -48,3 +48,10 @@ Admissible & 25 & 25 & 25 & 25 & 24 & 25 & 25 & 25 & 25 & 25 & 25 & 22 & 24 & 25
 Same $S$ & 26 & 26 & 26 & 26 & 25 & 25 & 26 & 26 & 26 & 23 & 22 & 12 & 17 & 20 & 24 \\
 \bottomrule \end{longtable}}
 
+
+\subsection*{Reproduction error in units of the noise}
+The admissibility threshold $\tau_e=0.436$ bounds an error relative to the change of the model response, $\|\Delta y_{\mathrm{full}}\|$, and says nothing by itself about how large that error is compared with the precision of the data. Because the outputs are scaled by the recorded noise ($y_i=h(g_i)/\sigma_i$), the same quantity can be expressed in units of $\sigma$: for each scenario at $\pm5\%$, $e_{\mathrm{fit}}\|\Delta y_{\mathrm{full}}\|/\sqrt n$ is the root mean square of the remaining error per measurement (\texttt{certificados/error\_absoluto.py}). Supplementary Table~\ref{tab:abs} gives it for every admissible problem. Its median over the scenarios is below $0.1\sigma$ in 17 of the 30 problems and below $\sigma$ in 28, and its maximum is below $\sigma$ in 26; it exceeds the noise only in Okuonghae and Oliveira, in which a $\pm5\%$ perturbation changes the outputs by about 30 and 120 noise units, so that a small relative error is still larger than the noise. In Giordano and Perelson the perturbations change the outputs by far less than the noise, so their relative errors, although computed, have no practical consequence.
+
+{\small
+\input{tables/tableS_abs.tex}
+}

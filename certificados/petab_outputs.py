@@ -456,6 +456,13 @@ def check(name):
             rel = np.abs(y[ok] - r[ok]) / np.maximum(np.abs(r[ok]), 1e-6 * np.max(np.abs(r[ok])) + 1e-12)
             info["err_rel_max_vs_simulations"] = float(np.max(rel))
             info["err_rel_mediana"] = float(np.median(rel))
+            # misma diferencia en unidades del ruido registrado: |h(ŷ) − h(y_ref)| / σ
+            with np.errstate(all="ignore"):
+                ds = np.abs(S._h(y) - S._h(np.where(ok, r, np.nan))) / S.sigma
+            ds = ds[np.isfinite(ds)]
+            if ds.size:
+                info.update(dif_sigma_mediana=float(np.median(ds)), dif_sigma_max=float(np.max(ds)),
+                            frac_dif_sigma_mayor_1=float(np.mean(ds > 1)))
         else:
             info["nota"] = f"simulations.tsv tiene {len(ref)} filas"
     return info

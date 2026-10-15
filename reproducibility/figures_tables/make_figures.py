@@ -238,12 +238,12 @@ def fig4():
         for j in range(M.shape[1]):
             v = M[i, j]
             if np.isfinite(v) and v < 100:
-                b.text(j, i, f"{v:.0f}", ha="center", va="center", fontsize=5.2, color=INK if v > 40 else "#5a1d00")
+                b.text(j, i, f"{v:.0f}", ha="center", va="center", fontsize=6.5, color=INK if v > 40 else "#5a1d00")
             elif not np.isfinite(v):
-                b.text(j, i, "--", ha="center", va="center", fontsize=5.2, color=MUTED)
+                b.text(j, i, "--", ha="center", va="center", fontsize=6.5, color=MUTED)
     b.set_xticks(range(len(lv))); b.set_xticklabels([str(l) for l in lv], fontsize=6.8)
     b.set_yticks(range(len(order)))
-    b.set_yticklabels([f"{short(k)}  {PS[k]['patron']}" for k in order], fontsize=6.2)
+    b.set_yticklabels([f"{short(k)}  {PS[k]['patron']}" for k in order], fontsize=7)
     for t, k in zip(b.get_yticklabels(), order):
         t.set_color(col[PS[k]["patron"]] if PS[k]["patron"] != "A" else INK)
     b.set_xlabel("Perturbation size ($\\pm$%)", fontsize=7.5)

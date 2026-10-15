@@ -5,7 +5,7 @@ de los resultados. Escribe un archivo .tex por tabla en paper/scirep/tables/.
 
 Uso: python tablas_suplemento.py [carpeta_resultados] [carpeta_tablas]
 """
-import sys, json, glob, math, collections
+import sys, os, json, glob, math, collections
 from pathlib import Path
 import numpy as np
 from scipy import stats
@@ -57,6 +57,10 @@ def num(x, d=3):
 
 
 def escribe(nombre, texto):
+    # TABLAS_SOLO="a.tex,b.tex": escribir sólo esas tablas (las demás quedan como están)
+    solo = [x for x in os.environ.get("TABLAS_SOLO", "").split(",") if x]
+    if solo and nombre not in solo:
+        return
     (T / nombre).write_text(texto, encoding="utf-8")
     print("escrita", nombre)
 
@@ -88,14 +92,16 @@ for s, r in sorted(pf.items()):
     if r.get("rondas_reajuste"):
         nota.append(f"{r['rondas_reajuste']} re-fits")
     if (r.get("dchi2_minimo_perfiles") or 0) < -1:
-        nota.append(f"res. {-r['dchi2_minimo_perfiles']:.2f}")
+        nota.append(f"res. {-r['dchi2_minimo_perfiles']:.2f}, \\textbf{{not converged}}")
+    if r.get("puntos_fallidos"):
+        nota.append(f"{r['puntos_fallidos']} failed pt{'s' if r['puntos_fallidos'] > 1 else ''}")
     filas.append([corto(s), str(r["k"]), str(r["n_bio"]), str(r["n_identificables"]),
                   str(r["n_no_identificables_practicos"]), str(r["n_planos"]),
                   ", ".join(esc(x) for x in r["S_perfil"]), str(r["overlap_perfil_ours"]),
                   "; ".join(nota) or "--"])
 escribe("tableS_perfil.tex", longtable(
     "@{}lrrrrr>{\\raggedright}p{4.0cm}rl@{}",
-    "Profile likelihood of the biological parameters (training data). Ident.: profile above $\\Delta\\chi^2=3.84$ on both sides; one side: only on one side; flat: on neither side. Selected: the $k$ parameters with the narrowest profile confidence interval. Common: parameters shared with the subset of our method. Re-fits: times the full model was re-estimated because a profile point improved the optimum; residual: remaining improvement (in units of $\\chi^2$) after the last re-fit.",
+    "Profile likelihood of the biological parameters (training data). Ident.: profile above $\\Delta\\chi^2=3.84$ on both sides; one side: only on one side; flat: on neither side. Selected: the $k$ parameters with the narrowest profile confidence interval. Common: parameters shared with the subset of our method. Re-fits: times the full model was re-estimated because a profile point improved the optimum; residual: remaining improvement (in units of $\\chi^2$) after the last re-fit; a residual above one unit means that the optimum of the full model did not converge, so the classification of that problem is provisional. Failed pts: profile points excluded because the fit failed (simulation failure or $\\Delta\\chi^2>10^4$). A side is classified from its remaining points, so a failure can make a parameter look less identifiable than it is; this affects three parameters not classified as identifiable (Okuonghae gamma\\_i and Weber m31, one side; Weber p31, flat), whose class is therefore an upper bound on non-identifiability.",
     "tab:perfil", ["Problem", "$k$", "Bio", "Ident.", "One side", "Flat", "Selected by profile likelihood", "Common", "Note"], filas))
 
 # ── 2. selecciones de los cinco criterios ─────────────────────────────────────────

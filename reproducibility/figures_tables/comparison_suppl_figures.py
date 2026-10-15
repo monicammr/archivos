@@ -126,10 +126,14 @@ for k in sem:
     for m in M:
         tasa[m].append(c[m][0] / c[m][1] if c[m][1] else np.nan)
 fig, ax = plt.subplots(figsize=(7.2, 2.8))
+# marcador y tipo de línea propios por criterio, para no distinguir las series sólo por el color
+MARC = ["o", "s", "^", "D", "v"]
+LINEA = ["-", "--", ":", "-.", (0, (5, 1, 1, 1))]
 for j, m in enumerate(M):
     x = np.arange(len(sem)) + (j - 2) * 0.13
-    ax.scatter(x, tasa[m], s=14, color=COL[m], edgecolor="white", linewidth=0.5, label=NOM[m], zorder=3)
-    ax.plot([-0.5, len(sem) - 0.5], [np.nanmean(tasa[m])] * 2, color=COL[m], lw=0.8, alpha=0.6)
+    ax.scatter(x, tasa[m], s=16, marker=MARC[j], color=COL[m], edgecolor="white", linewidth=0.5,
+               label=NOM[m], zorder=3)
+    ax.plot([-0.5, len(sem) - 0.5], [np.nanmean(tasa[m])] * 2, color=COL[m], lw=0.9, ls=LINEA[j], alpha=0.8)
 ax.set_xticks(range(len(sem))); ax.set_xticklabels(sem, fontsize=6); ax.set_xlabel("Seed")
 ax.set_ylabel("Fraction of cases with $e_{\\mathrm{pred}}\\leq\\tau_e$")
 ax.set_ylim(0, 1); ax.grid(axis="y", color=GRID, lw=0.5)
