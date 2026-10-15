@@ -265,8 +265,9 @@ def paragraph(s):
         nl = ", ".join(rf"\texttt{{{tex(x)}}}" for x in S[:-1]) + rf" and \texttt{{{tex(S[-1])}}}"
         L.append(head + rf" \textbf{{Not admissible.}} Ranking by finite-perturbation effects (stage~2), the selection stopped at {len(S)} parameters ({nl}), "
                  rf"because any further parameter violated the conditioning test ($\kappa={d['kappa']:.1f}$, VIF ${d['VIF']:.2f}$, just below the limit of 10). "
-                 rf"Re-estimating these {len(S)} parameters gave a median first-order $e_{{\mathrm{{fit}}}}$ of {100*d['eajuste_med']:.0f}\%, above the threshold of 43.6\%: "
-                 r"the model, an oscillating cell cycle simulated to $t=136{,}472$, responds to the perturbations through many rate constants and initial conditions, and no small subset compensates for all of them. "
+                 rf"Re-estimating these {len(S)} parameters gave a median first-order $e_{{\mathrm{{fit}}}}$ of {100*d['eajuste_med']:.0f}\%, above the threshold of 43.6\%. "
+                 r"Admissible pairs nevertheless exist: on the same scenarios, the search with conditioning thresholds of 5 or 30 instead of 10 (variants computed for this problem in the same way as in Supplementary Note \emph{Sensitivity to the method settings}, results in 	exttt{reproducibility/results/settings\_extra/}) adds a different second parameter and finds \{	exttt{kDeE2f1}, 	exttt{kSySkp2}\} ($e_{\mathrm{fit}}=13\%$) and \{	exttt{kDeE2f1}, 	exttt{kSyCb1}\} ($e_{\mathrm{fit}}=16\%$). "
+                 r"With the default threshold the second parameter is 	exttt{kDeCe}, whose pair is not admissible, and the greedy search then grows until the conditioning limit without becoming admissible; the failure is therefore a limitation of the greedy search in this oscillating cell-cycle model (simulated to $t=136{,}472$), not evidence that no small subset exists. "
                  r"Our simulation of this model also differs from the reference simulation of the benchmark more than in any other problem (22\% of the measurements by more than one noise unit; Supplementary Note \emph{Verification of the simulator}), so this result should be read with that caveat.")
         return L
     if s == "Beer_MolBioSystems2014":
