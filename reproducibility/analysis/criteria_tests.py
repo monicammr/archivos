@@ -89,7 +89,7 @@ def admisibilidad(name, metodo):
         return {"no_evaluable": "falla la simulación nominal"}
     y0 = y0.ravel()
     rng = np.random.default_rng(SEED)
-    escen = [np.maximum(th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)), 1e-12) for _ in range(N_ESC)]
+    escen = [th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)) for _ in range(N_ESC)]
     full = []
     for th in escen:
         yf = S.sim(th)

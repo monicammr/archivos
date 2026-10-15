@@ -1,0 +1,10 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "parametro": "EGFR_turnover",
+ "lado": -1,
+ "despl": 0.1,
+ "log_theta": -6.652184286786875,
+ "dchi2": 0.22784799821380375,
+ "nfev": 24,
+ "segundos": 2.7
+}

@@ -1,0 +1,24 @@
+{
+ "sistema": "Lang_PLOSComputBiol2024",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 86391.6)",
+ "n_condiciones": 1,
+ "n_train": 6400,
+ "n_test": 3200,
+ "S": [
+  "kDeE2f1",
+  "kDeCe"
+ ],
+ "|S|": 2,
+ "n_calibracion": 16,
+ "p_y": 277,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 7.329429881657136,
+ "A_chi2_train_red": 6.188214841741146,
+ "A_chi2_test_red": 8.981703455301362,
+ "B_chi2_test_theta0": 11.807964617666883,
+ "B_chi2_test_red": 1.3240943511694052,
+ "B_epred_red": 0.17263356928641868,
+ "B_epred_theta0": 1.0,
+ "segundos": 433.6
+}

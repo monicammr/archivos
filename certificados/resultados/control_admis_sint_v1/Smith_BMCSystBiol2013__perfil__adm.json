@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kminus7b",
+  "k30r"
+ ],
+ "eajuste_med": 0.060203163037730774,
+ "erel_med": 0.43278415893864197,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 1181.6
+}

@@ -50,7 +50,7 @@ class Evaluator:
         self.y0 = self.S.sim(th0).ravel()
         p = len(th0)
         rng = np.random.default_rng(SEED)
-        self.scen = [np.maximum(th0 * (1 + level * rng.uniform(-1, 1, size=p)), 1e-12)
+        self.scen = [th0 * (1 + level * rng.uniform(-1, 1, size=p))
                      for _ in range(N_SCEN)]
         floor = max(1e-10 * np.linalg.norm(self.y0), 1e-6)
         self.full = []

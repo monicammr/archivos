@@ -1,0 +1,10 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "parametro": "infected_weak_treatment_rate",
+ "lado": -1,
+ "despl": 0.6,
+ "log_theta": -8.730577316451006,
+ "dchi2": -3.929339930514031e-06,
+ "nfev": 15,
+ "segundos": 0.2
+}

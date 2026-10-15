@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k1f",
+  "k1a"
+ ],
+ "eajuste_med": 0.09781565558403865,
+ "erel_med": 0.6923119548862009,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 23.3
+}

@@ -1,0 +1,54 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "calibracion": [],
+ "un_parametro": [
+  {
+   "parametro": "kappa",
+   "e_rel": 0.6313916094663184,
+   "e_fit": 0.5666679811618629,
+   "admisible": false
+  },
+  {
+   "parametro": "phi",
+   "e_rel": 0.8189645916612054,
+   "e_fit": 0.7026069783164121,
+   "admisible": false
+  },
+  {
+   "parametro": "rho",
+   "e_rel": 0.8614173086846185,
+   "e_fit": 0.5267655349535724,
+   "admisible": false
+  },
+  {
+   "parametro": "psi",
+   "e_rel": 0.9956288611431001,
+   "e_fit": 0.7493034207930263,
+   "admisible": false
+  },
+  {
+   "parametro": "alpha",
+   "e_rel": 1.036419012141453,
+   "e_fit": 0.707070918542252,
+   "admisible": false
+  },
+  {
+   "parametro": "delta",
+   "e_rel": 1.0041620459427858,
+   "e_fit": 0.818251620244468,
+   "admisible": false
+  },
+  {
+   "parametro": "beta",
+   "e_rel": 0.9999999911171549,
+   "e_fit": 0.9999975950792662,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 12.4
+}

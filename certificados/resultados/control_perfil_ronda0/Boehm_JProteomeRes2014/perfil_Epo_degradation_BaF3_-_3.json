@@ -1,0 +1,10 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "parametro": "Epo_degradation_BaF3",
+ "lado": -1,
+ "despl": 1.2,
+ "log_theta": -5.876862947542497,
+ "dchi2": 0.04692677196252504,
+ "nfev": 21,
+ "segundos": 0.2
+}

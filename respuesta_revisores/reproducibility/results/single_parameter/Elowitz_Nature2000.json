@@ -1,0 +1,75 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "calibracion": [
+  "background",
+  "scale"
+ ],
+ "un_parametro": [
+  {
+   "parametro": "n_Hill",
+   "e_rel": 0.9805005892836192,
+   "e_fit": 0.6622118844461302,
+   "admisible": false
+  },
+  {
+   "parametro": "tau_mRNA",
+   "e_rel": 0.7514218957725112,
+   "e_fit": 0.4632348024548648,
+   "admisible": false
+  },
+  {
+   "parametro": "tau_prot",
+   "e_rel": 0.8726820373266679,
+   "e_fit": 0.5448111561010112,
+   "admisible": false
+  },
+  {
+   "parametro": "tau_prot_GFP",
+   "e_rel": 0.982362881526798,
+   "e_fit": 0.7468862476828855,
+   "admisible": false
+  },
+  {
+   "parametro": "eff",
+   "e_rel": 0.9856007579777698,
+   "e_fit": 0.6965930382691154,
+   "admisible": false
+  },
+  {
+   "parametro": "KM",
+   "e_rel": 0.9587503161979763,
+   "e_fit": 0.7333760787872782,
+   "admisible": false
+  },
+  {
+   "parametro": "tps_active",
+   "e_rel": 0.9572567154913844,
+   "e_fit": 0.7328479482138415,
+   "admisible": false
+  },
+  {
+   "parametro": "tps_repr",
+   "e_rel": 0.9245422919122478,
+   "e_fit": 0.6581233016526022,
+   "admisible": false
+  },
+  {
+   "parametro": "init_GFP_mRNA",
+   "e_rel": 0.958317389202826,
+   "e_fit": 0.7351521998022751,
+   "admisible": false
+  },
+  {
+   "parametro": "eff_GFP",
+   "e_rel": 0.953710125029346,
+   "e_fit": 0.7351228523132253,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 32.2
+}

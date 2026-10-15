@@ -1,0 +1,28 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "division": "condiciones nuevas",
+ "n_condiciones": 3,
+ "n_train": 52,
+ "n_test": 20,
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "|S|": 2,
+ "n_calibracion": 8,
+ "p_y": 20,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 1.2167179620864208,
+ "A_chi2_train_red": 0.7153846998131173,
+ "A_chi2_test_red": 11.207266308925231,
+ "A_chi2_train_full": 0.6311303949416364,
+ "A_chi2_test_full": 14.109092544209428,
+ "B_chi2_test_theta0": 1.6282200427318219,
+ "B_chi2_test_red": 0.5302127789678498,
+ "B_epred_red": 0.23371765803647138,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 10.169101715689427,
+ "B_epred_full": 3.1169965907636437,
+ "segundos": 5.1
+}

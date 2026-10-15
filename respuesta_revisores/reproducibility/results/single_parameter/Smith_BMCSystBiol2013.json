@@ -1,0 +1,92 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "calibracion": [
+  "sc_PI3K",
+  "sc_GLUT_2B",
+  "sc_BINS",
+  "sc_PIRS",
+  "sc_PTP",
+  "sc_GLUT_3B_120",
+  "sc_GLUT_3B_240",
+  "sc_SOD2",
+  "sc_FOXO1"
+ ],
+ "un_parametro": [
+  {
+   "parametro": "k8",
+   "e_rel": 0.35138358325525143,
+   "e_fit": 0.35138358325525143,
+   "admisible": true
+  },
+  {
+   "parametro": "kminus8",
+   "e_rel": 0.33478923115871156,
+   "e_fit": 0.33478923115871156,
+   "admisible": true
+  },
+  {
+   "parametro": "kminus7b",
+   "e_rel": 0.3723408534978899,
+   "e_fit": 0.3723408534978899,
+   "admisible": true
+  },
+  {
+   "parametro": "kminus7a",
+   "e_rel": 0.4413238868018991,
+   "e_fit": 0.09201083899189623,
+   "admisible": true
+  },
+  {
+   "parametro": "k7",
+   "e_rel": 0.482149306970224,
+   "e_fit": 0.09259526188770736,
+   "admisible": true
+  },
+  {
+   "parametro": "k30f",
+   "e_rel": 0.44320011345161264,
+   "e_fit": 0.0841122290944361,
+   "admisible": true
+  },
+  {
+   "parametro": "k30r",
+   "e_rel": 0.49823395539576126,
+   "e_fit": 0.0839534229221519,
+   "admisible": true
+  },
+  {
+   "parametro": "k1",
+   "e_rel": 0.4828819345123733,
+   "e_fit": 0.08782098206796486,
+   "admisible": true
+  },
+  {
+   "parametro": "kminus1",
+   "e_rel": 0.43096799328279034,
+   "e_fit": 0.43096799328279034,
+   "admisible": true
+  },
+  {
+   "parametro": "k35f",
+   "e_rel": 0.4248660024816658,
+   "e_fit": 0.4248660024816658,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "k30r",
+ "mejor_efit_10": 0.08139438444969357,
+ "S_efit_10": 0.07544574014731087,
+ "mejor_validacion": {
+  "A_chi2_test_red": 71055.61211895841,
+  "B_chi2_test_theta0": 4578.3536487582705,
+  "B_epred_red": 0.9953735602283598,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 5721.3
+}

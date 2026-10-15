@@ -1,0 +1,73 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "calibracion": [],
+ "un_parametro": [
+  {
+   "parametro": "R_Stage_I_China",
+   "e_rel": 0.8564643176146297,
+   "e_fit": 0.6119223295292809,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_1_Stage_I_China",
+   "e_rel": 1.0872280787062722,
+   "e_fit": 0.6134126222231172,
+   "admisible": false
+  },
+  {
+   "parametro": "R_Stage_II_Wuhan",
+   "e_rel": 0.9965073326503204,
+   "e_fit": 0.9633396408570375,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_2_Stage_II_Wuhan",
+   "e_rel": 0.9797456601231048,
+   "e_fit": 0.9614527103920149,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_1_Stage_I_Hubei",
+   "e_rel": 0.994860977287859,
+   "e_fit": 0.9928676681890816,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_1_Stage_II_Wuhan",
+   "e_rel": 1.0249291704450918,
+   "e_fit": 0.9617472087973873,
+   "admisible": false
+  },
+  {
+   "parametro": "R_Stage_I_Hubei",
+   "e_rel": 0.9957570131286444,
+   "e_fit": 0.9928081567590085,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_1_Stage_I_Wuhan",
+   "e_rel": 1.0022675546650714,
+   "e_fit": 0.9912524864382974,
+   "admisible": false
+  },
+  {
+   "parametro": "R_Stage_I_Wuhan",
+   "e_rel": 0.9980712840272501,
+   "e_fit": 0.9912505033349402,
+   "admisible": false
+  },
+  {
+   "parametro": "R_Stage_II_Hubei",
+   "e_rel": 0.9879041098515419,
+   "e_fit": 0.9833946501943597,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 11.7
+}

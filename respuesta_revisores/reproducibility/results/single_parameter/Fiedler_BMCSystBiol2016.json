@@ -1,0 +1,92 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "calibracion": [
+  "s_pErk_20140430_gel1",
+  "s_pErk_20140430_gel2",
+  "s_pErk_20140505_gel1",
+  "s_pErk_20140505_gel2",
+  "s_pMek_20140430_gel1",
+  "s_pMek_20140430_gel2",
+  "s_pMek_20140505_gel1",
+  "s_pMek_20140505_gel2"
+ ],
+ "un_parametro": [
+  {
+   "parametro": "tau2",
+   "e_rel": 0.6534162286382268,
+   "e_fit": 0.1523181493612555,
+   "admisible": true
+  },
+  {
+   "parametro": "k11",
+   "e_rel": 0.8033817493330125,
+   "e_fit": 0.15409554627991717,
+   "admisible": true
+  },
+  {
+   "parametro": "tau1",
+   "e_rel": 0.7924781801500882,
+   "e_fit": 0.1538670185419965,
+   "admisible": true
+  },
+  {
+   "parametro": "k6",
+   "e_rel": 0.9242992502118695,
+   "e_fit": 0.3586003025444053,
+   "admisible": true
+  },
+  {
+   "parametro": "k3",
+   "e_rel": 0.8811914685307765,
+   "e_fit": 0.4164782019381484,
+   "admisible": true
+  },
+  {
+   "parametro": "K_1",
+   "e_rel": 0.8924596502347383,
+   "e_fit": 0.4165380657636686,
+   "admisible": true
+  },
+  {
+   "parametro": "k5",
+   "e_rel": 0.8990592582922504,
+   "e_fit": 0.4174661439975543,
+   "admisible": true
+  },
+  {
+   "parametro": "k4",
+   "e_rel": 0.7945611039016768,
+   "e_fit": 0.408589865779656,
+   "admisible": true
+  },
+  {
+   "parametro": "k2",
+   "e_rel": 0.8545343164435384,
+   "e_fit": 0.33484948024912964,
+   "admisible": true
+  },
+  {
+   "parametro": "k10",
+   "e_rel": 0.9443093185443879,
+   "e_fit": 0.14694778446357906,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "k10",
+ "mejor_efit_10": 0.14680510936027882,
+ "S_efit_10": 0.1426848382497345,
+ "mejor_validacion": {
+  "A_chi2_test_red": 11.684594297719633,
+  "B_chi2_test_theta0": 1.6282200427318851,
+  "B_epred_red": 0.15590164717032287,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "mejor_validacion_calibracion": 8,
+ "segundos": 68.4
+}

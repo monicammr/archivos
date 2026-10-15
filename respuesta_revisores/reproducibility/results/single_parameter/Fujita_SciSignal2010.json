@@ -1,0 +1,87 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "calibracion": [
+  "scaling_pAkt_tot",
+  "scaling_pEGFR_tot",
+  "scaling_pS6_tot"
+ ],
+ "un_parametro": [
+  {
+   "parametro": "init_AKT",
+   "e_rel": 0.6938159316756415,
+   "e_fit": 0.2956425272455692,
+   "admisible": true
+  },
+  {
+   "parametro": "reaction_6_k1",
+   "e_rel": 0.7815812197262783,
+   "e_fit": 0.2941097264114002,
+   "admisible": true
+  },
+  {
+   "parametro": "init_S6",
+   "e_rel": 0.7543565405572155,
+   "e_fit": 0.2783400099692697,
+   "admisible": true
+  },
+  {
+   "parametro": "reaction_5_k1",
+   "e_rel": 0.7952288078722052,
+   "e_fit": 0.27833994763542086,
+   "admisible": true
+  },
+  {
+   "parametro": "reaction_4_k1",
+   "e_rel": 0.7574112593995624,
+   "e_fit": 0.21685904317624793,
+   "admisible": true
+  },
+  {
+   "parametro": "reaction_7_k1",
+   "e_rel": 0.774922606035694,
+   "e_fit": 0.2325907368517721,
+   "admisible": true
+  },
+  {
+   "parametro": "reaction_3_k1",
+   "e_rel": 0.7258613698446253,
+   "e_fit": 0.2018177105765305,
+   "admisible": true
+  },
+  {
+   "parametro": "init_EGFR",
+   "e_rel": 0.8411208045719507,
+   "e_fit": 0.20553767508326096,
+   "admisible": true
+  },
+  {
+   "parametro": "reaction_2_k1",
+   "e_rel": 0.8871992728525457,
+   "e_fit": 0.2001553412312315,
+   "admisible": true
+  },
+  {
+   "parametro": "reaction_2_k2",
+   "e_rel": 0.8734416487617512,
+   "e_fit": 0.20015543505779448,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "reaction_2_k1",
+ "mejor_efit_10": 0.21551799899254054,
+ "S_efit_10": 0.28066777694435013,
+ "mejor_validacion": {
+  "A_chi2_test_red": 5.959693376415816,
+  "B_chi2_test_theta0": 1.3770182252312342,
+  "B_epred_red": 0.5324066188272896,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "mejor_validacion_calibracion": 3,
+ "segundos": 182.1
+}

@@ -207,7 +207,7 @@ def analyze(name, sel, t_def, group, max_points=None):
     for nivel in niveles:
         for _ in range(N_ESCEN):
             d = rng.uniform(-1, 1, size=p)
-            th_f = np.maximum(S.theta0 * (1 + nivel * d), 1e-12)
+            th_f = S.theta0 * (1 + nivel * d)
             scen.append((nivel, th_f))
     # --- J relativo (coordenadas u, θ = θ₀(1+u)): J_rel = J · diag(θ₀)
     Jrel = J * S.theta0.reshape(1, -1)

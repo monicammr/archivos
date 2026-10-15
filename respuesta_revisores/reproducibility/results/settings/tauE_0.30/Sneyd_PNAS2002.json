@@ -1,0 +1,42 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "p": 15,
+ "T": 5.0,
+ "S1": [
+  "l4",
+  "l2",
+  "k4",
+  "k_1",
+  "k_3",
+  "k2"
+ ],
+ "Rvar_S1_%": 63.52308659867328,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "l4",
+  "l2",
+  "k4"
+ ],
+ "Rvar_%": 57.40563599221412,
+ "kappa": 1.1392752742235215,
+ "VIF": 1.015148148950872,
+ "cos_med": 0.8940957694004376,
+ "erel_med": 0.5646721897769795,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "l4",
+  "l2",
+  "k4"
+ ],
+ "podados": [],
+ "admisible": true,
+ "eajuste_med": 0.11918151516461524,
+ "calibracion": [],
+ "segundos": 15.2,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "k1",
+  "k2"
+ ]
+}

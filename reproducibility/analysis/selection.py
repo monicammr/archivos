@@ -196,7 +196,7 @@ def select(name):
     rvar = lambda S: float(E[S].sum() / tot) if tot > 0 else float("nan")  # noqa: E731
     # --- admissibility scenarios
     rng = np.random.default_rng(SEED)
-    scen = [np.maximum(th0 * (1 + EPSILON * rng.uniform(-1, 1, size=p)), 1e-12)
+    scen = [th0 * (1 + EPSILON * rng.uniform(-1, 1, size=p))
             for _ in range(N_SCEN)]
     full = []
     for th in scen:

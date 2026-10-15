@@ -77,7 +77,7 @@ def main():
                 f1 += P.sim(th) is None
         rng = np.random.default_rng(CFG.SEED); f5 = 0
         for _ in range(CFG.N_SCENARIOS):
-            th = np.maximum(th0 * (1 + 0.05 * rng.uniform(-1, 1, size=p)), 1e-12)
+            th = th0 * (1 + 0.05 * rng.uniform(-1, 1, size=p))
             f5 += P.sim(th) is None
         res["tolerancias"].append({"rtol": rtol, "atol": rtol * 1e-3,
                                    "fallos_un_parametro_1%": f"{f1}/{2 * p}",

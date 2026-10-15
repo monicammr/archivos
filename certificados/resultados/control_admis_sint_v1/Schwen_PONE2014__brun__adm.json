@@ -1,0 +1,15 @@
+{
+ "S": [
+  "ini_R1",
+  "kon_unspec"
+ ],
+ "eajuste_med": 0.19327318503261298,
+ "erel_med": 0.39976826521633796,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 143.7
+}

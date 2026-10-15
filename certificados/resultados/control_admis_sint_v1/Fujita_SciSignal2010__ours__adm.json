@@ -1,0 +1,15 @@
+{
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "eajuste_med": 0.2941049981014514,
+ "erel_med": 0.8071290267149046,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 69.9
+}

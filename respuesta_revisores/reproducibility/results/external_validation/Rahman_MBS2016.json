@@ -1,0 +1,28 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 15)",
+ "n_condiciones": 1,
+ "n_train": 15,
+ "n_test": 8,
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "|S|": 2,
+ "n_calibracion": 0,
+ "p_y": 9,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 0.0014774578960137447,
+ "A_chi2_train_red": 0.0015442163802674663,
+ "A_chi2_test_red": 0.0019946462955132307,
+ "A_chi2_train_full": 0.0014457686149206889,
+ "A_chi2_test_full": 0.025724935514994638,
+ "B_chi2_test_theta0": 125.78272230881798,
+ "B_chi2_test_red": 1.9499990386773705,
+ "B_epred_red": 0.06822897094285225,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 2.8196024299501583,
+ "B_epred_full": 0.09677946749276234,
+ "segundos": 0.6
+}

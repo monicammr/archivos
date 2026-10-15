@@ -1,0 +1,295 @@
+{
+ "sistema": "Weber_BMC2015",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 30,
+ "n_bio": 26,
+ "n_identificables": 1,
+ "n_no_identificables_practicos": 11,
+ "n_planos": 14,
+ "S_ours": [
+  "s12",
+  "a21"
+ ],
+ "S_perfil": [
+  "pu5",
+  "m22"
+ ],
+ "S_qr": [
+  "a22",
+  "pu5"
+ ],
+ "overlap_perfil_ours": 0,
+ "overlap_perfil_qr": 1,
+ "chi2_ours": 1.000852849606915,
+ "chi2_qr": 0.9972374791293043,
+ "chi2_perfil": 0.9972438845382064,
+ "ratio_perfil_vs_ours": 0.996394110212979,
+ "coste_min_train": 59.202426394706876,
+ "dchi2_minimo_perfiles": -0.04525984848873321,
+ "puntos_fallidos": 2,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "pu5",
+   "clase": "identificable",
+   "ancho_ic_log": 1.4096944252248844,
+   "dchi2_max_izq": 23.72256745401566,
+   "dchi2_max_der": 29.707289906357204,
+   "dchi2_min_lado": 23.72256745401566,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.006128451977588156
+  },
+  {
+   "parametro": "m22",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 4.343348682945567,
+   "dchi2_max_der": 3.6578109007998734,
+   "dchi2_min_lado": 3.6578109007998734,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.03094676426900378
+  },
+  {
+   "parametro": "p21",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.802470025333193,
+   "dchi2_max_der": 10.710659367517565,
+   "dchi2_min_lado": 2.802470025333193,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.011130760572712006
+  },
+  {
+   "parametro": "m31",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 4.48395130634141,
+   "dchi2_max_der": 2.200886877569374,
+   "dchi2_min_lado": 2.200886877569374,
+   "puntos_fallidos": 1,
+   "dchi2_negativo": 0.012649985110115836
+  },
+  {
+   "parametro": "p31",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.8562543224043893,
+   "dchi2_max_der": 3.4955987051156825,
+   "dchi2_min_lado": 1.8562543224043893,
+   "puntos_fallidos": 1,
+   "dchi2_negativo": 0.059116261123186575
+  },
+  {
+   "parametro": "s12",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.361176882862935,
+   "dchi2_max_der": 1.3282079628008177,
+   "dchi2_min_lado": 1.3282079628008177,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.04525984848873321
+  },
+  {
+   "parametro": "p12",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.256159859778684,
+   "dchi2_max_der": 45.19480519272051,
+   "dchi2_min_lado": 1.256159859778684,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.030977864039613223
+  },
+  {
+   "parametro": "a11",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.101478090601411,
+   "dchi2_max_der": 6.584850249765751,
+   "dchi2_min_lado": 1.101478090601411,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.011685215194944476
+  },
+  {
+   "parametro": "m11",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.7346163871193028,
+   "dchi2_max_der": 18.033069522770916,
+   "dchi2_min_lado": 0.7346163871193028,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.03202696262461302
+  },
+  {
+   "parametro": "m33",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.3722929777106714,
+   "dchi2_max_der": 0.6814480590779866,
+   "dchi2_min_lado": 0.6814480590779866,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.013777915612230629
+  },
+  {
+   "parametro": "p33",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.6614936244685481,
+   "dchi2_max_der": 1.1795691517376383,
+   "dchi2_min_lado": 0.6614936244685481,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.02990266091839544
+  },
+  {
+   "parametro": "pu3",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 24.470888944158602,
+   "dchi2_max_der": 0.43148645486878934,
+   "dchi2_min_lado": 0.43148645486878934,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.06920523841208137
+  },
+  {
+   "parametro": "p22",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 5.907084131028512,
+   "dchi2_max_der": 0.21858185726033952,
+   "dchi2_min_lado": 0.21858185726033952,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.019435242436252054
+  },
+  {
+   "parametro": "a31",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.13193533795267598,
+   "dchi2_max_der": 10.644225634239945,
+   "dchi2_min_lado": 0.13193533795267598,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.01509089703251476
+  },
+  {
+   "parametro": "p11",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 17.211617476118363,
+   "dchi2_max_der": 0.01133369472498913,
+   "dchi2_min_lado": 0.01133369472498913,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.021795568612738236
+  },
+  {
+   "parametro": "a12",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 4.144559127513197,
+   "dchi2_max_der": 0.005155950260878228,
+   "dchi2_min_lado": 0.005155950260878228,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.021593314835115507
+  },
+  {
+   "parametro": "a21",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.8032775505346947,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.02285867323789148
+  },
+  {
+   "parametro": "a22",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.02160811814789554
+  },
+  {
+   "parametro": "a32",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.022181810798073798
+  },
+  {
+   "parametro": "a33",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 4.284617003946778e-05,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.017774447820556816
+  },
+  {
+   "parametro": "p13",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.021207662492713553
+  },
+  {
+   "parametro": "p32",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.518891697789286,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.02951013370378064
+  },
+  {
+   "parametro": "pu4",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.005320047205955802
+  },
+  {
+   "parametro": "pu6",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.00761406899334105
+  },
+  {
+   "parametro": "s21",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.1886771693622009,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.01275747900272961
+  },
+  {
+   "parametro": "s31",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.37200952407300036,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.026705809478407616
+  }
+ ],
+ "segundos_fase3": 0.1
+}

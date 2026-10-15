@@ -1,0 +1,37 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "p": 8,
+ "T": 50.0,
+ "S1": [
+  "R0_NY",
+  "I0_NY",
+  "R0_CA"
+ ],
+ "Rvar_S1_%": 85.53154087011889,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "R0_NY",
+  "R0_CA"
+ ],
+ "Rvar_%": 65.71483654820854,
+ "kappa": 1.5331629033874787,
+ "VIF": 1.1940034669884936,
+ "cos_med": 0.9468851580342794,
+ "erel_med": 0.5548422540353399,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "R0_NY",
+  "I0_NY",
+  "R0_CA"
+ ],
+ "podados": [
+  "I0_NY"
+ ],
+ "admisible": true,
+ "eajuste_med": 0.19231328045905155,
+ "calibracion": [],
+ "segundos": 1.1,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

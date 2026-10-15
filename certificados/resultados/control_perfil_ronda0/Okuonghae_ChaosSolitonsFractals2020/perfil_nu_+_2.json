@@ -1,0 +1,10 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "parametro": "nu",
+ "lado": 1,
+ "despl": 0.6,
+ "log_theta": -1.0172825329003636,
+ "dchi2": -1.0925070332768883,
+ "nfev": 225,
+ "segundos": 4.7
+}

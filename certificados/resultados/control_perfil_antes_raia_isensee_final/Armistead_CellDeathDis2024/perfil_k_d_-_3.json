@@ -1,0 +1,10 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "parametro": "k_d",
+ "lado": -1,
+ "despl": 1.2,
+ "log_theta": -1.3477046516697486,
+ "dchi2": 448.905361222141,
+ "nfev": 21,
+ "segundos": 0.2
+}

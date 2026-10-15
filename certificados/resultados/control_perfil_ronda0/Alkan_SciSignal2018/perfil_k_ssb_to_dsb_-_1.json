@@ -1,0 +1,10 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "parametro": "k_ssb_to_dsb",
+ "lado": -1,
+ "despl": 0.3,
+ "log_theta": -4.033458499225645,
+ "dchi2": 0.742309388541571,
+ "nfev": 32,
+ "segundos": 190.8
+}

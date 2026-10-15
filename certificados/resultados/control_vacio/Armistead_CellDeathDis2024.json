@@ -1,9 +1,9 @@
 {
  "sistema": "Armistead_CellDeathDis2024",
  "k": 2,
- "chi2_ours": 1.2178192409491908,
+ "chi2_ours": 1.2180658504067863,
  "chi2_vacio": 1.1569248524731874,
- "ratio_vacio_vs_ours": 0.949997186422723,
+ "ratio_vacio_vs_ours": 0.9498048501128407,
  "nota": "sin calibracion, th0 directo",
- "segundos": 0.3
+ "segundos": 1.5
 }

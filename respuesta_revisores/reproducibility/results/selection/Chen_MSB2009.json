@@ -1,0 +1,56 @@
+{
+ "sistema": "Chen_MSB2009",
+ "p": 155,
+ "T": 50.0,
+ "S1": [
+  "k106",
+  "k44",
+  "k2b",
+  "kd57",
+  "k73",
+  "k6",
+  "k110",
+  "k114",
+  "kd53",
+  "k50",
+  "k60",
+  "k94",
+  "kd5b",
+  "k60b",
+  "kd95",
+  "kd37",
+  "kd97"
+ ],
+ "Rvar_S1_%": 25.867855359165592,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k106",
+  "k44"
+ ],
+ "Rvar_%": 24.700155594689658,
+ "kappa": 1.008472047195582,
+ "VIF": 1.000071173872392,
+ "cos_med": 0.8990962709827535,
+ "erel_med": 0.5255207079077564,
+ "n_escenarios": 8,
+ "S_antes_poda": [
+  "k106",
+  "k44"
+ ],
+ "podados": [],
+ "admisible": true,
+ "eajuste_med": 0.08201008441763927,
+ "calibracion": [
+  "AKT_t",
+  "EGFR_t",
+  "ERK_t"
+ ],
+ "eajuste_metodo": "linealizado (primer orden, J relativa)",
+ "segundos": 1379.2,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "k35",
+  "k103"
+ ]
+}

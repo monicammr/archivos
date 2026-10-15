@@ -1,0 +1,55 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "p": 9,
+ "T": 50.0,
+ "S1": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12",
+  "a_k8k12k16_4ac"
+ ],
+ "Rvar_S1_%": 92.89834680898389,
+ "S1_cumple": true,
+ "cos_S1": 0.9788826098651361,
+ "erel_S1": 0.2107102196976061,
+ "motivo_stage2": "Stage 1 cumple R_var pero no es admisible",
+ "etapa": "Stage 2",
+ "S": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12",
+  "a_k8k12k16_4ac",
+  "a_k5_k5k12",
+  "a_k8"
+ ],
+ "Rvar_%": 97.93173434615422,
+ "kappa": 2.183891049957341,
+ "VIF": 1.646143353314837,
+ "cos_med": 0.9974390409851676,
+ "erel_med": 0.07888991961545917,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12",
+  "a_k8k12k16_4ac",
+  "a_k5_k5k12",
+  "a_k12_k5k12",
+  "a_k8"
+ ],
+ "podados": [
+  "a_k12_k5k12"
+ ],
+ "admisible": true,
+ "eajuste_med": 0.058388957778165544,
+ "calibracion": [],
+ "segundos": 30.1,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "a_k8",
+  "a_basal"
+ ]
+}

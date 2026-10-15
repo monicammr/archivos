@@ -1,0 +1,15 @@
+{
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "eajuste_med": 0.35845729511567725,
+ "erel_med": 0.6479298030496355,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 6.8
+}

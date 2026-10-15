@@ -1,0 +1,10 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "parametro": "R_Stage_III_Wuhan",
+ "lado": 1,
+ "despl": 1.2,
+ "log_theta": 0.5633195302353082,
+ "dchi2": 0.3820131749308069,
+ "nfev": 180,
+ "segundos": 10.0
+}

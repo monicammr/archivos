@@ -81,7 +81,7 @@ def refit_one(name, S_names, n_esc, max_nfev):
     if y0 is None or not S:
         return {"sistema": name, "error": "sin simulación nominal o sin subconjunto"}, []
     rng = np.random.default_rng(SEED)
-    escen = [np.maximum(th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)), 1e-12)
+    escen = [th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p))
              for _ in range(n_esc)]
     umbral = max(1e-10 * np.linalg.norm(y0), 1e-6)
     # escala log de la magnitud, conservando el signo (hay parámetros negativos, p. ej. Raimundez)

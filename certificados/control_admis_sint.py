@@ -88,7 +88,7 @@ def admisibilidad(name, metodo):
         return {"no_evaluable": "falla la simulación nominal"}
     y0 = y0.ravel()
     rng = np.random.default_rng(SEED)
-    escen = [np.maximum(th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)), 1e-12) for _ in range(N_ESC)]
+    escen = [th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)) for _ in range(N_ESC)]
     full = []
     for th in escen:
         yf = S.sim(th)
@@ -207,6 +207,9 @@ def tarea(t):
 if __name__ == "__main__":
     nombres = sorted(f.stem for f in SUBS.glob("*.json")
                      if json.loads(f.read_text()).get("admisible") and f.stem not in OMITIR)
+    pedidos = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if pedidos:                                   # sólo los problemas indicados
+        nombres = [n for n in nombres if n in pedidos]
     LENTOS = ["Smith_BMCSystBiol2013", "Isensee_JCB2018", "Raimundez_PCB2020", "Bachmann_MSB2011",
               "Alkan_SciSignal2018", "Lucarelli_CellSystems2018", "Schwen_PONE2014", "Weber_BMC2015"]
     nombres.sort(key=lambda n: LENTOS.index(n) if n in LENTOS else len(LENTOS))

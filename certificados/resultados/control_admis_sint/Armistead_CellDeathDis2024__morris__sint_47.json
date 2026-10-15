@@ -6,7 +6,7 @@
  "semilla": 47,
  "B_chi2_test_theta0": 1.6091507465206563,
  "B_chi2_test_red": 1.3739196805972052,
- "B_epred_red": 1.0059800335638203,
+ "B_epred_red": 1.0059800335638205,
  "sistema": "Armistead_CellDeathDis2024",
  "metodo": "morris",
  "prueba": "sint",

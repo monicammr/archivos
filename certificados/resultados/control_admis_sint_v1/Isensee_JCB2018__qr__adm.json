@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kf_Fsk",
+  "KD_H89"
+ ],
+ "eajuste_med": 0.10198709277874748,
+ "erel_med": Infinity,
+ "admisible": true,
+ "n_escenarios": 6,
+ "lineal": true,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 433.0
+}

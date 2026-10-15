@@ -1,0 +1,10 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "parametro": "Vm2",
+ "lado": -1,
+ "despl": 0.3,
+ "log_theta": 1.7091496101528636,
+ "dchi2": 61.992876385345255,
+ "nfev": 70,
+ "segundos": 5.9
+}

@@ -1,0 +1,32 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "division": "condiciones nuevas",
+ "n_condiciones": 7,
+ "n_train": 57,
+ "n_test": 25,
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "|S|": 3,
+ "n_calibracion": 0,
+ "p_y": 21,
+ "locales_prueba": [
+  "sd_confirmed_infected_Wuhan_Stage_II",
+  "sd_confirmed_infected_Hubei_Stage_I"
+ ],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 0.3454096103031155,
+ "A_chi2_train_red": 0.32929867344402974,
+ "A_chi2_test_red": 0.3454096102986209,
+ "A_chi2_train_full": 0.03571991184750414,
+ "A_chi2_test_full": 0.3454096102979932,
+ "B_chi2_test_theta0": 0.866772444824052,
+ "B_chi2_test_red": 0.8667724448226258,
+ "B_epred_red": 0.9999999999975744,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 0.8667724448224859,
+ "B_epred_full": 0.9999999999972775,
+ "segundos": 22.1
+}

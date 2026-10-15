@@ -5,7 +5,7 @@ Mediana de e_ajuste (S biológico + calibración, reajustados) frente al tamaño
 | Sistema | k | ±1% | ±5% | ±10% | ±20% | ±30% | ±40% | ±50% | Patrón |
 |---|---|---|---|---|---|---|---|---|---|
 | Alkan_SciSignal2018 | 2 | 12% ✓ | 12% ✓ | 13% ✓ | 13% ✓ | 14% ✓ | 14% ✓ | 15% ✓ | **A** |
-| Armistead_CellDeathDis2024 | 2 | 3% ✓ | 12% ✓ | 20% ✓ | 40% ✓ | 54% | 60% | 63% | **B** |
+| Armistead_CellDeathDis2024 | 2 | 32% ✓ | 33% ✓ | 34% ✓ | 38% ✓ | 43% ✓ | 48% | 52% | **B** |
 | Bachmann_MSB2011 | 2 | 34% ✓ | 34% ✓ | 33% ✓ | 32% ✓ | 32% ✓ | 32% ✓ | 34% ✓ | **A** |
 | Bertozzi_PNAS2020 | 2 | 31% ✓ | 33% ✓ | 36% ✓ | 43% ✓ | 45% | 51% | 55% | **B** |
 | Blasi_CellSystems2016 | 2 | 41% ✓ | 40% ✓ | 40% ✓ | 43% ✓ | 45% | 44% | 44% | **B** |

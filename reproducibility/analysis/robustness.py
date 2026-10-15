@@ -84,7 +84,7 @@ def evaluate(name):
         for k in range(N_SCEN):
             u_k = rng.uniform(-1, 1, size=p)
             assert np.array_equal(u_k, U[k])   # same directions at every size (paired design)
-            th = np.maximum(th0 * (1 + level * u_k), 1e-12)
+            th = th0 * (1 + level * u_k)
             yf = Sy.sim(th)
             if yf is None:
                 continue

@@ -1,0 +1,10 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "parametro": "k_imp_homo",
+ "lado": 1,
+ "despl": 0.6,
+ "log_theta": 10.076188717786607,
+ "dchi2": -0.0002548032509039899,
+ "nfev": 16,
+ "segundos": 0.1
+}

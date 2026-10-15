@@ -6,9 +6,9 @@
  "semilla": 52,
  "B_chi2_test_theta0": 1.3363254815207113,
  "B_chi2_test_red": 1.3393063700772152,
- "B_epred_red": 1.2213655250023407,
+ "B_epred_red": 1.221365525002341,
  "sistema": "Armistead_CellDeathDis2024",
  "metodo": "brun",
  "prueba": "sint",
- "segundos": 0.2
+ "segundos": 0.0
 }

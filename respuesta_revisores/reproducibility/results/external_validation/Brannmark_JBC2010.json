@@ -1,0 +1,36 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "division": "condiciones nuevas",
+ "n_condiciones": 8,
+ "n_train": 17,
+ "n_test": 26,
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "|S|": 2,
+ "n_calibracion": 3,
+ "p_y": 18,
+ "locales_prueba": [
+  "k_IRP_1Step",
+  "k_IRSiP_1Step",
+  "sigmaY1TimR",
+  "sigmaY2TimR"
+ ],
+ "S_locales_prueba": [
+  "k_IRP_1Step",
+  "k_IRSiP_1Step"
+ ],
+ "A_chi2_test_theta0": 0.9384720295100861,
+ "A_chi2_train_red": 1.0732236386544156,
+ "A_chi2_test_red": 5.78541359523535,
+ "A_chi2_train_full": 0.36321540536121355,
+ "A_chi2_test_full": 2145.465102434989,
+ "B_chi2_test_theta0": 5.545374220392146,
+ "B_chi2_test_red": 6.144696889311735,
+ "B_epred_red": 0.9185834311809871,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 87.78892391192079,
+ "B_epred_full": 3.9729900065575046,
+ "segundos": 8.2
+}

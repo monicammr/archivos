@@ -58,6 +58,9 @@ KAPPA_MAX = VIF_MAX = float(_os.environ.get("RECL_KV", KAPPA_MAX))
 N_ESC, SEED = 15, 42
 NIVEL = float(_os.environ.get("RECL_NIVEL", 0.05))   # perturbación de los escenarios (±5 %)
 TAG = _os.environ.get("RECL_TAG", "")
+# las cachés en disco (J, barrido y e_ajuste de los sistemas grandes) dependen de δ, del nivel y de
+# las tolerancias: cada variante (RECL_TAG) usa las suyas, para no reutilizar las de otros ajustes
+CTAG = f"_{TAG}" if TAG else ""
 EREL_MAX = float(np.sqrt(1 - COS_MIN ** 2))   # 0,436: e_rel ≤ esto ⇒ cos Δ ≥ 0,90 (Lean)
 EREL_MAX = float(_os.environ.get("RECL_EMAX", EREL_MAX))
 V3 = "--v3" in sys.argv          # criterio por reestimación (e_ajuste); implica las reglas de v2
@@ -195,7 +198,7 @@ def main_one(name, t_def):
         # sistemas grandes: J en disco (float32) con registro de columnas hechas, para poder
         # reanudar tras una interrupción
         cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
-        suf = "_salidas" if SALIDAS else ""   # el caché de salidas no se mezcla con el de estados
+        suf = ("_salidas" if SALIDAS else "") + CTAG   # el caché de salidas no se mezcla con el de estados
         fJ, fm = cdir / f"{name}{suf}_J.npy", cdir / f"{name}{suf}_J_hechas.npy"
         if fJ.exists() and fm.exists():
             J = np.load(fJ, mmap_mode="r+"); hechas = np.load(fm)
@@ -232,7 +235,7 @@ def main_one(name, t_def):
     rvar = lambda S: float(E[S].sum() / tot) if tot > 0 else float("nan")
     # --- escenarios de validación (±5 %)
     rng = np.random.default_rng(SEED)
-    escen = [np.maximum(th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)), 1e-12)
+    escen = [th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p))
              for _ in range(N_ESC)]
     full = []
     for th in escen:
@@ -307,7 +310,7 @@ def main_one(name, t_def):
 
     memo_aj, memo_va = {}, {}
     # sistemas lentos: e_rel y e_ajuste ya calculados se guardan en disco para poder reanudar
-    f_aj = (OUT / "cache" / f"{name}{'_salidas' if SALIDAS else ''}{'_bio' if BIOL else ''}_ajustes.json"
+    f_aj = (OUT / "cache" / f"{name}{'_salidas' if SALIDAS else ''}{'_bio' if BIOL else ''}{CTAG}_ajustes.json"
             if (p > 200 or PARALELO) else None)
     if f_aj is not None and f_aj.exists():
         _d = json.loads(f_aj.read_text())
@@ -357,7 +360,7 @@ def main_one(name, t_def):
         s = np.zeros(p)
         if (p > 200 or PARALELO) and NPROC > 1:
             cdir = OUT / "cache"; cdir.mkdir(exist_ok=True)
-            suf = "_salidas" if SALIDAS else ""
+            suf = ("_salidas" if SALIDAS else "") + CTAG
             fs, fsm = cdir / f"{name}{suf}_s.npy", cdir / f"{name}{suf}_s_hechas.npy"
             hs = np.zeros(p, dtype=bool)
             if fs.exists() and fsm.exists():

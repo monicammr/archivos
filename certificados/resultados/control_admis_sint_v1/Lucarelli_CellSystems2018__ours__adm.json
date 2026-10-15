@@ -1,0 +1,23 @@
+{
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "eajuste_med": 0.4354529673002491,
+ "erel_med": 0.5961991398667025,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 7.1
+}

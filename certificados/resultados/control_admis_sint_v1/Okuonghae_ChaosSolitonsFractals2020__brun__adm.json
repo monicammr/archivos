@@ -1,0 +1,15 @@
+{
+ "S": [
+  "transmission_rate_effective",
+  "psi"
+ ],
+ "eajuste_med": 0.04126027543330779,
+ "erel_med": 0.783753637069337,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 1.5
+}

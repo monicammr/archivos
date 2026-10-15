@@ -1,0 +1,87 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 6,
+ "n_bio": 6,
+ "n_identificables": 4,
+ "n_no_identificables_practicos": 0,
+ "n_planos": 2,
+ "S_ours": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "S_perfil": [
+  "ratio_kpkd_YN__FREE",
+  "kdephosYN__FREE"
+ ],
+ "S_qr": [
+  "GRB2_total__FREE",
+  "kdephosYN__FREE"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 1,
+ "chi2_ours": 101.82516518363968,
+ "chi2_qr": 101.73474834533779,
+ "chi2_perfil": 118.76312423033566,
+ "ratio_perfil_vs_ours": 1.1663435459804923,
+ "coste_min_train": 388.8096257972845,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "ratio_kpkd_YN__FREE",
+   "clase": "identificable",
+   "ancho_ic_log": 0.095142233429282,
+   "dchi2_max_izq": 796.6258902262941,
+   "dchi2_max_der": 479.98644570288127,
+   "dchi2_min_lado": 479.98644570288127,
+   "dchi2_negativo": 7.563649025930317
+  },
+  {
+   "parametro": "kdephosYN__FREE",
+   "clase": "identificable",
+   "ancho_ic_log": 0.29077406163483777,
+   "dchi2_max_izq": 97.51558848823862,
+   "dchi2_max_der": 59.91242183306764,
+   "dchi2_min_lado": 59.91242183306764,
+   "dchi2_negativo": 1.3798205740094431
+  },
+  {
+   "parametro": "ratio_kpkd_Y1068__FREE",
+   "clase": "identificable",
+   "ancho_ic_log": 1.3191765561092066,
+   "dchi2_max_izq": 151.75828033981622,
+   "dchi2_max_der": 523.3334314222199,
+   "dchi2_min_lado": 151.75828033981622,
+   "dchi2_negativo": 0.03595115656816006
+  },
+  {
+   "parametro": "SHC1_total__FREE",
+   "clase": "identificable",
+   "ancho_ic_log": 1.6408294182870946,
+   "dchi2_max_izq": 10.874647653484885,
+   "dchi2_max_der": 112.39475718838582,
+   "dchi2_min_lado": 10.874647653484885,
+   "dchi2_negativo": 0.033018496249383134
+  },
+  {
+   "parametro": "kdephosY1068__FREE",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.0728112787119812,
+   "dchi2_max_der": 2.7285303499073734,
+   "dchi2_min_lado": 1.0728112787119812,
+   "dchi2_negativo": -0.01037576105932203
+  },
+  {
+   "parametro": "GRB2_total__FREE",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.7103897777247425,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.0291402143887467
+  }
+ ],
+ "segundos_fase3": 0.6
+}

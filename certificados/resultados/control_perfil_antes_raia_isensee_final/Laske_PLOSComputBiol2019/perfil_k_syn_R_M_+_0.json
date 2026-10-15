@@ -1,0 +1,10 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "parametro": "k_syn_R_M",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 10.443500877866237,
+ "dchi2": 0.045398422597565435,
+ "nfev": 15,
+ "segundos": 0.9
+}
