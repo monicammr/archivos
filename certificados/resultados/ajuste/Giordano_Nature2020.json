@@ -1,0 +1,26 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "|S|": 11,
+ "S": [
+  "alpha_4",
+  "alpha_28",
+  "epsilon_38",
+  "eta_22",
+  "rho_38",
+  "rho_22",
+  "eta_38",
+  "nu_22",
+  "eta_0",
+  "rho_0",
+  "tau"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9635982598810446,
+ "erel_med": 1.275674713188167,
+ "eajuste_med": 0.09408319642828052,
+ "eajuste_p90": 0.2386896942971598,
+ "eajuste<=0.10": "8/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 3.8,
+ "admisible_v2": false
+}

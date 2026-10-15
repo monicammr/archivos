@@ -1,0 +1,55 @@
+{
+ "sistema": "Perelson_Science1996",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 2.038)",
+ "p_libres": 2,
+ "n_bio": 2,
+ "n_identificables": 0,
+ "n_no_identificables_practicos": 0,
+ "n_planos": 2,
+ "S_ours": [
+  "c",
+  "delta"
+ ],
+ "S_perfil": [
+  "c",
+  "delta"
+ ],
+ "S_qr": [
+  "c",
+  "delta"
+ ],
+ "overlap_perfil_ours": 2,
+ "overlap_perfil_qr": 2,
+ "chi2_ours": 3.963671546106699e-13,
+ "chi2_qr": 3.963671546106699e-13,
+ "chi2_perfil": 3.963671546106699e-13,
+ "ratio_perfil_vs_ours": 1.0,
+ "coste_min_train": 2.5789408266678493e-11,
+ "dchi2_minimo_perfiles": -3.4006710153075706e-12,
+ "puntos_fallidos": 0,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "c",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.3504433615060436e-10,
+   "dchi2_max_der": 1.1285315321163242e-09,
+   "dchi2_min_lado": 1.3504433615060436e-10,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -2.9227999034439168e-12
+  },
+  {
+   "parametro": "delta",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.687344722736046e-10,
+   "dchi2_max_der": 9.000387021074976e-11,
+   "dchi2_min_lado": 9.000387021074976e-11,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -3.4006710153075706e-12
+  }
+ ],
+ "segundos_fase3": 0.0
+}

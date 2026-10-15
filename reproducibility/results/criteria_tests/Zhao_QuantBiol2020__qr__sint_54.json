@@ -1,0 +1,15 @@
+{
+ "S": [
+  "R_Stage_I_Wuhan",
+  "R_Stage_III_Wuhan",
+  "R_Stage_II_Hubei"
+ ],
+ "semilla": 54,
+ "B_chi2_test_theta0": 3.267895554509623,
+ "B_chi2_test_red": 3.267895554509623,
+ "B_epred_red": 1.0,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.3
+}

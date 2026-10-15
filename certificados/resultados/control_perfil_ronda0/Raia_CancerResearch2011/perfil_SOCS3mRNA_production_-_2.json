@@ -1,0 +1,10 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "parametro": "SOCS3mRNA_production",
+ "lado": -1,
+ "despl": 0.6,
+ "log_theta": -0.7196164658561272,
+ "dchi2": -53.025775769434404,
+ "nfev": 40,
+ "segundos": 5.1
+}

@@ -1,0 +1,35 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "p": 113,
+ "T": 50.0,
+ "S1": [
+  "JAK2EpoRDeaSHP1",
+  "STAT5Imp",
+  "STAT5Exp",
+  "CISRNADelay",
+  "CISRNATurn",
+  "CISEqc",
+  "SOCS3RNADelay"
+ ],
+ "Rvar_S1_%": 20.860801305048867,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "init_SHP1",
+  "STAT5Imp"
+ ],
+ "Rvar_%": 19.37386699963878,
+ "kappa": 1.9307423631926752,
+ "VIF": 1.499005812287639,
+ "cos_med": 0.8799158375581768,
+ "erel_med": 0.7383787784502782,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.22006956411036363,
+ "segundos": 0.7,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "SHP1ActEpoR",
+  "STAT5Imp"
+ ]
+}

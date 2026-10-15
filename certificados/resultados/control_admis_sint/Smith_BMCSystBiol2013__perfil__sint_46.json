@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kminus7b",
+  "k30r"
+ ],
+ "semilla": 46,
+ "B_chi2_test_theta0": 7348.845178859037,
+ "B_chi2_test_red": 42.02791374166782,
+ "B_epred_red": 0.07201135788862491,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 106.8
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k_2",
+  "k_3"
+ ],
+ "eajuste_med": 0.7356011108645956,
+ "erel_med": 0.995517434150892,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 8.6
+}

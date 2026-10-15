@@ -1,0 +1,14 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "semilla": 53,
+ "p_y": 20,
+ "B_chi2_test_theta0": 1.449669957567104,
+ "B_chi2_test_red": 4.592356385618683,
+ "B_epred_red": 2.4467967611057766,
+ "nfev_red": 14,
+ "seg_red": 1.1,
+ "B_chi2_test_full": 4.885581746284593,
+ "B_epred_full": 2.3090587923409718,
+ "nfev_full": 186,
+ "segundos": 7.4
+}

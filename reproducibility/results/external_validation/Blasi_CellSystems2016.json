@@ -1,0 +1,6 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "division": "extrapolaci\u00f3n temporal (t \u2265 inf)",
+ "n_condiciones": 1,
+ "no_evaluable": "una sola condici\u00f3n y un solo tiempo de medici\u00f3n (no se puede separar entrenamiento y prueba)"
+}

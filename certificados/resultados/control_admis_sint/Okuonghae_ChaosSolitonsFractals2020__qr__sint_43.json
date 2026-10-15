@@ -1,0 +1,14 @@
+{
+ "S": [
+  "asymptomatic_start",
+  "d_D"
+ ],
+ "semilla": 43,
+ "B_chi2_test_theta0": 65874.7765332963,
+ "B_chi2_test_red": 25218.448576123174,
+ "B_epred_red": 0.6185972738769693,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.3
+}

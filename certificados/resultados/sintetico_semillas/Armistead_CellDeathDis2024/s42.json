@@ -1,0 +1,14 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "semilla": 42,
+ "p_y": 10,
+ "B_chi2_test_theta0": 1.1956666866112415,
+ "B_chi2_test_red": 0.7339187574592724,
+ "B_epred_red": 0.4942783779786805,
+ "nfev_red": 10,
+ "seg_red": 3.1,
+ "B_chi2_test_full": 0.5819329039916197,
+ "B_epred_full": 0.17722933126456847,
+ "nfev_full": 26,
+ "segundos": 3.6
+}

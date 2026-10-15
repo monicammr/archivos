@@ -1,0 +1,45 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 3,
+ "S_ours": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "S_brun": [
+  "R0_CA",
+  "I0_CA"
+ ],
+ "chi2_brun": 1.0000119607849882,
+ "overlap_brun_ours": 0,
+ "segundos_brun": 0.0,
+ "detalle_brun": {
+  "gamma": 4.519382398553218,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "R0_CA": 5.57502283373432,
+   "gamma_CA": 4.443447608206,
+   "I0_CA": 3.6255697878155813
+  }
+ },
+ "S_morris": [
+  "gamma_CA",
+  "R0_CA"
+ ],
+ "chi2_morris": 1.0000119607849882,
+ "overlap_morris_ours": 0,
+ "segundos_morris": 0.2,
+ "detalle_morris": {
+  "mu_star_top": {
+   "gamma_CA": 283387.3114705542,
+   "R0_CA": 145303.44820965244,
+   "I0_CA": 46530.31770466642
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": null,
+ "chi2_qr": 1.0000119607849882,
+ "chi2_perfil": 1.0000119607849882,
+ "segundos": 1.5
+}

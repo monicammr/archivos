@@ -1,0 +1,14 @@
+{
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "semilla": 46,
+ "B_chi2_test_theta0": 8.86356821031113,
+ "B_chi2_test_red": 1.2635710142390608,
+ "B_epred_red": 0.153147135196867,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 1.2
+}

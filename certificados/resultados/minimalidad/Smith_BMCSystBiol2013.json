@@ -1,0 +1,94 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "sc_GLUT_3B_240",
+  "sc_GLUT_3B_120",
+  "sc_PI3K"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "sc_GLUT_3B_240",
+   "admisible": false,
+   "e_rel": 0.7909566527057119,
+   "e_ajuste": 0.6572562434815922
+  },
+  {
+   "sin": "sc_GLUT_3B_120",
+   "admisible": false,
+   "e_rel": 0.6837171205935302,
+   "e_ajuste": 0.48784842145316
+  },
+  {
+   "sin": "sc_PI3K",
+   "admisible": false,
+   "e_rel": 0.7961913958249793,
+   "e_ajuste": 0.7764868175654078
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "sc_GLUT_3B_240",
+   "admisible": false,
+   "e_rel": 0.8649047370517869,
+   "e_ajuste": 0.8532403253255803
+  },
+  {
+   "parametro": "sc_GLUT_3B_120",
+   "admisible": false,
+   "e_rel": 0.9773834377725432,
+   "e_ajuste": 0.9769873974957636
+  },
+  {
+   "parametro": "sc_PI3K",
+   "admisible": false,
+   "e_rel": 0.8949243981085222,
+   "e_ajuste": 0.7811222620911072
+  },
+  {
+   "parametro": "k8",
+   "admisible": false,
+   "e_rel": 0.9066197321431064,
+   "e_ajuste": 0.8306973373922963
+  },
+  {
+   "parametro": "kminus8",
+   "admisible": false,
+   "e_rel": 0.9723133722959919,
+   "e_ajuste": 0.8180301005842797
+  },
+  {
+   "parametro": "kminus7b",
+   "admisible": false,
+   "e_rel": 0.9536820148550886,
+   "e_ajuste": 0.8517806052870945
+  },
+  {
+   "parametro": "sc_GLUT_2B",
+   "admisible": false,
+   "e_rel": 0.9856454742860326,
+   "e_ajuste": 0.9851871344915235
+  },
+  {
+   "parametro": "sc_PIRS",
+   "admisible": false,
+   "e_rel": 0.9912295282690265,
+   "e_ajuste": 0.9882471981564906
+  },
+  {
+   "parametro": "kminus7a",
+   "admisible": false,
+   "e_rel": 0.9744051467482747,
+   "e_ajuste": 0.817325613465644
+  },
+  {
+   "parametro": "k7",
+   "admisible": false,
+   "e_rel": 0.982287708863848,
+   "e_ajuste": 0.8182904938473958
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 1605.9
+}

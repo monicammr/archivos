@@ -1,0 +1,10 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "parametro": "reaction_4_k1",
+ "lado": -1,
+ "despl": 0.1,
+ "log_theta": -3.631305394440572,
+ "dchi2": -0.3261201695337377,
+ "nfev": 60,
+ "segundos": 6.0
+}

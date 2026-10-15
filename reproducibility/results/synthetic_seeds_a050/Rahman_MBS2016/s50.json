@@ -1,0 +1,19 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "semilla": 50,
+ "p_y": 9,
+ "amplitud": 0.5,
+ "senal_rms_train": 27.48102228127849,
+ "senal_rms_test": 27.102453512694414,
+ "senal_norma_test": 76.65731466247755,
+ "ruido_norma_test": 2.8284271247461903,
+ "B_chi2_test_theta0": 729.7077079332362,
+ "B_chi2_test_red": 0.9277226596748891,
+ "B_epred_red": 0.028666479286455868,
+ "nfev_red": 10,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 15.494704217438272,
+ "B_epred_full": 0.1437822386824319,
+ "nfev_full": 24,
+ "segundos": 0.9
+}

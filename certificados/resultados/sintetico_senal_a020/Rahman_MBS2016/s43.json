@@ -1,0 +1,11 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "semilla": 43,
+ "p_y": 9,
+ "amplitud": 0.2,
+ "senal_rms_train": 5.626337373922904,
+ "senal_rms_test": 6.893874241695992,
+ "senal_norma_test": 19.49882089980202,
+ "ruido_norma_test": 2.8284271247461903,
+ "segundos": 0.7
+}

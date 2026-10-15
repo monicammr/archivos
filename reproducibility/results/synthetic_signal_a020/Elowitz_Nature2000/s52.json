@@ -1,0 +1,11 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "semilla": 52,
+ "p_y": 20,
+ "amplitud": 0.2,
+ "senal_rms_train": 2.9828304078332235,
+ "senal_rms_test": 1.5028276693789533,
+ "senal_norma_test": 6.7208496543978375,
+ "ruido_norma_test": 4.47213595499958,
+ "segundos": 0.5
+}

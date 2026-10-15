@@ -1,0 +1,28 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "|S|": 13,
+ "S": [
+  "p_atm_act_dsb",
+  "p_p53_act_atm",
+  "kt",
+  "p_chk2_act",
+  "p_atr_act_ssb",
+  "p_p53_act_chk2",
+  "p_chk1_act",
+  "p_p21_mrna_turn",
+  "p_h2ax_act_atr",
+  "p_atr_act_atm",
+  "k_damage_gem_ssb",
+  "p_p21_turn",
+  "p_wip1_turn"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.8676803649685131,
+ "erel_med": 0.5870419324075788,
+ "eajuste_med": 0.12372064275549263,
+ "eajuste_p90": 0.25544068506881173,
+ "eajuste<=0.10": "2/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 5.5,
+ "admisible_v2": false
+}

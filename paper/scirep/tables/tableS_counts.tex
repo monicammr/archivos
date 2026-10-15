@@ -1,0 +1,46 @@
+\begin{longtable}{@{}lrrrrcc@{}}
+\caption{Parameter counts of every problem. $p$: parameters estimated in the PEtab problem (Table~1 of the main text), split into biological parameters (of the SBML model or of the condition table; candidates for selection), calibration parameters $\Theta_C$ (scalings and offsets of the observables, always re-estimated) and noise parameters (they enter only the standard deviation $\sigma_i$, which is evaluated at $\theta_0$ and kept fixed). Full-model profile: biological / free parameters in the profile likelihood of the full model on the training data, which excludes the parameters that act only in test conditions (so the numbers can be smaller than those of the PEtab problem); n.e., not evaluated (more than 60 free parameters or no training/test split). Reduced problem: free parameters in the reduced problem, $|S|+|\Theta_C|$.}\label{tab:counts}\\
+\toprule
+Problem & $p$ & Biological & Calibration & Noise & Full-model profile & Reduced problem \\
+\midrule
+\endfirsthead
+\toprule
+Problem & $p$ & Biological & Calibration & Noise & Full-model profile & Reduced problem \\
+\midrule
+\endhead
+Alkan & 44 & 34 & 10 & 0 & 34 / 44 & 2 + 10 \\
+Armistead & 14 & 10 & 0 & 4 & 10 / 10 & 2 + 0 \\
+Bachmann & 113 & 27 & 74 & 12 & n.e. & 2 + 74 \\
+Beer & 72 & 70 & 0 & 2 & -- & -- \\
+Bertozzi & 8 & 6 & 0 & 2 & 3 / 3 & 2 + 0 \\
+Blasi & 9 & 8 & 0 & 1 & n.e. & 2 + 0 \\
+Boehm & 9 & 6 & 0 & 3 & 6 / 6 & 2 + 0 \\
+Borghans & 23 & 20 & 2 & 1 & 20 / 22 & 2 + 2 \\
+Brannmark & 22 & 15 & 3 & 4 & 15 / 16 & 2 + 3 \\
+Bruno & 13 & 13 & 0 & 0 & 10 / 10 & 5 + 0 \\
+Chen & 155 & 152 & 3 & 0 & n.e. & 2 + 3 \\
+Crauste & 12 & 12 & 0 & 0 & -- & -- \\
+Elowitz & 21 & 18 & 2 & 1 & 18 / 20 & 2 + 2 \\
+Fiedler & 22 & 12 & 8 & 2 & 12 / 20 & 2 + 8 \\
+Fujita & 19 & 16 & 3 & 0 & 16 / 19 & 2 + 3 \\
+Giordano & 50 & 43 & 0 & 7 & 43 / 43 & 2 + 0 \\
+Isensee & 46 & 32 & 11 & 3 & 32 / 43 & 2 + 11 \\
+Lang & 294 & 261 & 16 & 17 & -- & -- \\
+Laske & 13 & 6 & 2 & 5 & 6 / 7 & 2 + 2 \\
+Liu & 9 & 7 & 0 & 2 & 7 / 7 & 2 + 0 \\
+Lucarelli & 84 & 72 & 0 & 12 & n.e. & 10 + 0 \\
+Okuonghae & 16 & 14 & 0 & 2 & 14 / 14 & 2 + 0 \\
+Oliveira & 12 & 12 & 0 & 0 & 12 / 12 & 2 + 0 \\
+Perelson & 3 & 2 & 0 & 1 & 2 / 2 & 2 + 0 \\
+Rahman & 9 & 9 & 0 & 0 & 9 / 9 & 2 + 0 \\
+Raia & 39 & 18 & 5 & 16 & 18 / 23 & 2 + 5 \\
+Raimundez & 136 & 57 & 79 & 0 & n.e. & 2 + 79 \\
+Salazar-Cavazos & 6 & 6 & 0 & 0 & 6 / 6 & 2 + 0 \\
+Schwen & 30 & 13 & 15 & 2 & 13 / 28 & 2 + 15 \\
+Smith & 25 & 16 & 9 & 0 & 16 / 25 & 2 + 9 \\
+Sneyd & 15 & 14 & 0 & 1 & 14 / 14 & 2 + 0 \\
+Weber & 36 & 26 & 5 & 5 & 26 / 30 & 2 + 5 \\
+Zhao & 28 & 21 & 0 & 7 & 21 / 21 & 3 + 0 \\
+Zheng & 46 & 45 & 0 & 1 & 45 / 45 & 2 + 0 \\
+\bottomrule
+\end{longtable}

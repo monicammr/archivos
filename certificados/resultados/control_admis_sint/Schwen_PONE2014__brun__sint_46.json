@@ -1,0 +1,14 @@
+{
+ "S": [
+  "ini_R1",
+  "kon_unspec"
+ ],
+ "semilla": 46,
+ "B_chi2_test_theta0": 1.0563572014379041,
+ "B_chi2_test_red": 2.8812549674789674,
+ "B_epred_red": 6.400824607312381,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 5.1
+}

@@ -1,0 +1,61 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "S": [
+  "a_basal",
+  "a_k16_k12k16"
+ ],
+ "calibracion": [],
+ "candidatos": 8,
+ "un_parametro": [
+  {
+   "parametro": "a_basal",
+   "e_rel": 0.5695578479460115,
+   "e_fit": 0.5032068014594078,
+   "admisible": false
+  },
+  {
+   "parametro": "a_k16_k12k16",
+   "e_rel": 0.9567250308274116,
+   "e_fit": 0.7172775057791011,
+   "admisible": false
+  },
+  {
+   "parametro": "a_k12k16_k8k12k16",
+   "e_rel": 0.9752602580496342,
+   "e_fit": 0.8736361962054893,
+   "admisible": false
+  },
+  {
+   "parametro": "a_k5k12_k5k8k12",
+   "e_rel": 1.0242198981813384,
+   "e_fit": 0.9575669621892805,
+   "admisible": false
+  },
+  {
+   "parametro": "a_k8k12k16_4ac",
+   "e_rel": 0.989809204511645,
+   "e_fit": 0.9680649431671269,
+   "admisible": false
+  },
+  {
+   "parametro": "a_k5_k5k12",
+   "e_rel": 0.9820565642079319,
+   "e_fit": 0.9377635080678054,
+   "admisible": false
+  },
+  {
+   "parametro": "a_k12_k5k12",
+   "e_rel": 0.9895831616966556,
+   "e_fit": 0.9271144224501116,
+   "admisible": false
+  },
+  {
+   "parametro": "a_k8",
+   "e_rel": 0.9949942709509415,
+   "e_fit": 0.9882850069118276,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 7.7
+}

@@ -1,0 +1,9 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "k": 2,
+ "n_cal": 1,
+ "chi2_ours": 0.757740623887529,
+ "chi2_vacio": 0.44483562200248133,
+ "ratio_vacio_vs_ours": 0.5870552640035147,
+ "segundos": 0.4
+}

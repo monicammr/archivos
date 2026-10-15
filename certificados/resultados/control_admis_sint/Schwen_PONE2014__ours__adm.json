@@ -1,0 +1,15 @@
+{
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "eajuste_med": 0.17065260610005112,
+ "erel_med": 0.4160507806042604,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 131.9
+}

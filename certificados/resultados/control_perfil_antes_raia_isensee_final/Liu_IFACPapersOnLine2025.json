@@ -1,0 +1,105 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 7,
+ "n_bio": 7,
+ "n_identificables": 2,
+ "n_no_identificables_practicos": 0,
+ "n_planos": 5,
+ "S_ours": [
+  "kappa",
+  "phi"
+ ],
+ "S_perfil": [
+  "kappa",
+  "rho"
+ ],
+ "S_qr": [
+  "kappa",
+  "rho"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 2,
+ "chi2_ours": 0.9537288471177436,
+ "chi2_qr": 1.0255809384323564,
+ "chi2_perfil": 1.0255809384138141,
+ "ratio_perfil_vs_ours": 1.0753380706824736,
+ "coste_min_train": 52.28521162485083,
+ "dchi2_minimo_perfiles": -5.162964384908264e-07,
+ "puntos_fallidos": 0,
+ "rondas_reajuste": 0,
+ "perfiles": [
+  {
+   "parametro": "kappa",
+   "clase": "identificable",
+   "ancho_ic_log": 0.4375493730339798,
+   "dchi2_max_izq": 179.355873062552,
+   "dchi2_max_der": 10.476044754440444,
+   "dchi2_min_lado": 10.476044754440444,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.8195995494729189
+  },
+  {
+   "parametro": "rho",
+   "clase": "identificable",
+   "ancho_ic_log": 1.4461852981541852,
+   "dchi2_max_izq": 9.645265036234953,
+   "dchi2_max_der": 8.175824336894273,
+   "dchi2_min_lado": 8.175824336894273,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.08430591846666857
+  },
+  {
+   "parametro": "psi",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -5.162964384908264e-07
+  },
+  {
+   "parametro": "phi",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -5.162964384908264e-07
+  },
+  {
+   "parametro": "beta",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -5.162964384908264e-07
+  },
+  {
+   "parametro": "alpha",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -5.162964384908264e-07
+  },
+  {
+   "parametro": "delta",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -5.162964384908264e-07
+  }
+ ],
+ "segundos_fase3": 0.0
+}

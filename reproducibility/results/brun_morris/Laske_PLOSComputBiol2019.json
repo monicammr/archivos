@@ -1,0 +1,51 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 6,
+ "S_ours": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "S_brun": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "chi2_brun": 0.44483562196793053,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 2.5,
+ "detalle_brun": {
+  "gamma": 1.8648005088232764,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "k_syn_R_M": 1.3794552354823064,
+   "k_bind_M1": 0.8413050687791807,
+   "k_imp": 0.5837940624452719,
+   "k_syn_R_C": 0.46539599713452945,
+   "k_rel": 0.2987026151802822,
+   "k_syn_R_V": 0.2912150872325447
+  }
+ },
+ "S_morris": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "chi2_morris": 0.44483562196793053,
+ "overlap_morris_ours": 1,
+ "segundos_morris": 5.8,
+ "detalle_morris": {
+  "mu_star_top": {
+   "k_syn_R_M": 37.006324391390955,
+   "k_bind_M1": 19.544056183533883,
+   "k_syn_R_V": 15.034475878602777,
+   "k_imp": 14.502366909298289,
+   "k_syn_R_C": 14.225131182641388,
+   "k_rel": 7.83917208279521
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 0.757740623887529,
+ "chi2_qr": 0.44525203079280107,
+ "chi2_perfil": 0.44483562196793053,
+ "segundos": 10.8
+}

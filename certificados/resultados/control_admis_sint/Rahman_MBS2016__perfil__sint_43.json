@@ -1,0 +1,14 @@
+{
+ "S": [
+  "behavioural_change_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "semilla": 43,
+ "B_chi2_test_theta0": 52.20995336270413,
+ "B_chi2_test_red": 4.963645645974981,
+ "B_epred_red": 0.26864064049048114,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.1
+}

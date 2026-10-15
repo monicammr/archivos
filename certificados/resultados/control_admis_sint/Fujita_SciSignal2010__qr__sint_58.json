@@ -1,0 +1,14 @@
+{
+ "S": [
+  "reaction_1_k1",
+  "reaction_6_k1"
+ ],
+ "semilla": 58,
+ "B_chi2_test_theta0": 9.524259207499686,
+ "B_chi2_test_red": 1.0921154743893575,
+ "B_epred_red": 0.20205124784717304,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2.9
+}

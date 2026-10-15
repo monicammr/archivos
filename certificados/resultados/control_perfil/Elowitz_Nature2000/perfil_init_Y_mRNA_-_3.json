@@ -1,0 +1,10 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "parametro": "init_Y_mRNA",
+ "lado": -1,
+ "despl": 1.2,
+ "log_theta": 6.663600226479999,
+ "dchi2": -0.02410311015326272,
+ "nfev": 25,
+ "segundos": 1.7
+}

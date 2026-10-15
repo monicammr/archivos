@@ -1,0 +1,14 @@
+{
+ "S": [
+  "infected_normal_transmission_rate_relative",
+  "infected_moderate_transmission_rate"
+ ],
+ "semilla": 46,
+ "B_chi2_test_theta0": 41.997547361795284,
+ "B_chi2_test_red": 2.067982509790201,
+ "B_epred_red": 0.17016421472912358,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.1
+}

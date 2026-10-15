@@ -1,0 +1,19 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "semilla": 44,
+ "p_y": 23,
+ "amplitud": 0.5,
+ "senal_rms_train": 47.28966439832146,
+ "senal_rms_test": 0.6362426444809978,
+ "senal_norma_test": 5.398697860710902,
+ "ruido_norma_test": 8.48528137423857,
+ "B_chi2_test_theta0": 1.770883147742908,
+ "B_chi2_test_red": 1.4918306267023087,
+ "B_epred_red": 0.7273866012673119,
+ "nfev_red": 26,
+ "seg_red": 2.1,
+ "B_chi2_test_full": 1.2357941389157476,
+ "B_epred_full": 0.7093947143994667,
+ "nfev_full": 55,
+ "segundos": 11.5
+}

@@ -1,0 +1,87 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "scaling_SOCS3mRNA",
+  "init_Rec_i"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "scaling_SOCS3mRNA",
+   "admisible": true,
+   "e_rel": 0.9636843917847655,
+   "e_ajuste": 0.34785513636435345
+  },
+  {
+   "sin": "init_Rec_i",
+   "admisible": true,
+   "e_rel": 0.6563392062184465,
+   "e_ajuste": 0.07802423815016558
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "scaling_SOCS3mRNA",
+   "admisible": true,
+   "e_rel": 0.6563392062184465,
+   "e_ajuste": 0.07802423815016558
+  },
+  {
+   "parametro": "SOCS3mRNA_production",
+   "admisible": true,
+   "e_rel": 0.9257970116132923,
+   "e_ajuste": 0.07686861443205348
+  },
+  {
+   "parametro": "STAT5_phosphorylation",
+   "admisible": true,
+   "e_rel": 0.7382067078818041,
+   "e_ajuste": 0.10309985085339098
+  },
+  {
+   "parametro": "pSTAT5_dephosphorylation",
+   "admisible": true,
+   "e_rel": 1.07274094209252,
+   "e_ajuste": 0.1611130491978345
+  },
+  {
+   "parametro": "JAK2_phosphorylation",
+   "admisible": true,
+   "e_rel": 0.9755724452685303,
+   "e_ajuste": 0.17355339942061118
+  },
+  {
+   "parametro": "init_Rec_i",
+   "admisible": true,
+   "e_rel": 0.9636843917847655,
+   "e_ajuste": 0.34785513636435345
+  },
+  {
+   "parametro": "pRec_intern",
+   "admisible": true,
+   "e_rel": 1.041530344218545,
+   "e_ajuste": 0.16094447005128107
+  },
+  {
+   "parametro": "Rec_recycle",
+   "admisible": true,
+   "e_rel": 0.9655333417981414,
+   "e_ajuste": 0.3413180659079734
+  },
+  {
+   "parametro": "pJAK2_dephosphorylation",
+   "admisible": true,
+   "e_rel": 0.9929537200723492,
+   "e_ajuste": 0.22883078474648644
+  },
+  {
+   "parametro": "Kon_IL13Rec",
+   "admisible": true,
+   "e_rel": 1.0033583573398006,
+   "e_ajuste": 0.2141329516349578
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 33.6
+}

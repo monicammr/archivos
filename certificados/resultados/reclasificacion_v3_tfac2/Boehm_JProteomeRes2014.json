@@ -1,0 +1,37 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "p": 9,
+ "T": 50.0,
+ "S1": [
+  "k_imp_hetero",
+  "k_exp_homo",
+  "k_phos",
+  "Epo_degradation_BaF3"
+ ],
+ "Rvar_S1_%": 99.99997951419122,
+ "S1_cumple": true,
+ "cos_S1": 0.9999999475551747,
+ "erel_S1": 0.0003368715270407431,
+ "etapa": "Stage 1",
+ "S": [
+  "k_imp_hetero",
+  "k_exp_homo",
+  "k_phos",
+  "Epo_degradation_BaF3"
+ ],
+ "Rvar_%": 99.99997951419122,
+ "kappa": 4.967120193102421,
+ "VIF": 5.707502038477757,
+ "cos_med": 0.9999999475551747,
+ "erel_med": 0.0003368715270407431,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.0001242294362550238,
+ "segundos": 0.5,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "k_exp_homo",
+  "k_imp_hetero",
+  "k_phos"
+ ]
+}

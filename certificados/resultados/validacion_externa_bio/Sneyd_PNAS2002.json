@@ -1,0 +1,28 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "division": "condiciones nuevas",
+ "n_condiciones": 9,
+ "n_train": 90,
+ "n_test": 45,
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "|S|": 2,
+ "n_calibracion": 0,
+ "p_y": 14,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 1.3730271023285476,
+ "A_chi2_train_red": 0.6524298943978655,
+ "A_chi2_test_red": 2.21977731255365,
+ "A_chi2_train_full": 0.5892221336627549,
+ "A_chi2_test_full": 2.5529751585388,
+ "B_chi2_test_theta0": 1.6779277098186423,
+ "B_chi2_test_red": 0.895443231798195,
+ "B_epred_red": 0.28616271998811904,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 0.9423096728412317,
+ "B_epred_full": 0.22703764867194715,
+ "segundos": 1.5
+}

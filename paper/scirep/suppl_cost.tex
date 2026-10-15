@@ -1,0 +1,38 @@
+\snote{cost}
+
+The dominant cost of the selection is the number of model simulations: the relative sensitivity matrix $J$ by central differences needs $2p$ simulations and the stage-2 ordering by finite effects $p$ more, $3p$ in total; all of them are independent and can run in parallel. The greedy selection, the conditioning tests, backward elimination and the first-order $e_{\mathrm{fit}}$ use only $J$ (linear algebra, negligible in comparison). The admissibility test adds, for each candidate subset, 15 scenario simulations and the re-estimations, whose cost depends on the number of retained parameters rather than on $p$. Supplementary Table~\ref{tab:cost} gives the measured time of one simulation of all measured outputs (all experimental conditions) at $\theta_0$ and the resulting time for the $3p$ simulations, in series and on four cores, for the problems timed.
+
+{\small
+\begin{longtable}{@{}lrlrrrr@{}}
+\caption{Computational cost of the sensitivity computations: estimated parameters $p$, outputs used, time of one simulation, number of simulations for $J$ and the stage-2 ordering ($3p$), and total time in series and on four cores.}\label{tab:cost}\\
+\toprule Problem & $p$ & Outputs & $t_{\mathrm{sim}}$ (s) & $3p$ & Series & 4 cores \\ \midrule \endfirsthead
+\toprule Problem & $p$ & Outputs & $t_{\mathrm{sim}}$ (s) & $3p$ & Series & 4 cores \\ \midrule \endhead
+Boehm & 9 & measured & 0.00168 & 27 & 0 s & 0 s \\
+Elowitz & 21 & measured & 0.00243 & 63 & 0 s & 0 s \\
+Fiedler & 22 & measured & 0.00257 & 66 & 0 s & 0 s \\
+Smith & 25 & measured & 0.346 & 75 & 26 s & 6 s \\
+Weber & 36 & measured & 0.00374 & 108 & 0 s & 0 s \\
+Raia & 39 & measured & 0.0106 & 117 & 1 s & 0 s \\
+Alkan & 44 & measured & 0.13 & 132 & 17 s & 4 s \\
+Zheng & 46 & measured & 0.00449 & 138 & 1 s & 0 s \\
+Isensee & 46 & measured & 0.64 & 138 & 88 s & 22 s \\
+Giordano & 50 & measured & 0.00613 & 150 & 1 s & 0 s \\
+Beer & 72 & measured & 0.173 & 216 & 37 s & 9 s \\
+Lucarelli & 84 & measured & 0.04 & 252 & 10 s & 3 s \\
+Bachmann & 113 & measured & 0.04 & 339 & 14 s & 3 s \\
+Raimundez & 136 & measured & 0.37 & 408 & 3 min & 38 s \\
+Chen & 155 & measured & 35 & 465 & 4.5 h & 68 min \\
+Lang & 294 & measured & 0.65 & 882 & 10 min & 2 min \\
+Froehlich & 4,231 & states & 2.93 & 12,693 & 10.3 h & 2.6 h \\
+\bottomrule \end{longtable}}
+
+The time of Smith was measured later on a different machine and scaled by the ratio of the times of Boehm and Weber measured on both machines (factor 1.55). For Froehlich (4,231 parameters, 1,228 species) the analysis was carried out on the state trajectories; on its measured outputs each evaluation requires about 9,000 simulations (one per experimental condition), which was infeasible with the resources available.
+
+
+\subsection*{Time of the complete method and comparison with profile likelihood}
+
+The table above covers only the sensitivity computations. To measure the cost of the complete method, including the admissibility test (15 scenarios with re-estimation for every candidate subset) and backward elimination, we ran it from scratch, without any cached result, for all 34 problems, once with the sensitivity computations distributed over 16--64 cores and once on a single core per problem (Supplementary Table~\ref{tab:tiempos}). The complete method took between 2~s and 33~min per problem (median 19~s) in parallel. Its cost is not proportional to $p$: it depends mostly on the simulation time and on the number of parameters re-estimated in the admissibility test, so that Smith (25 parameters, slow simulations, nine calibration parameters) took 19~min and Lang (294 parameters) about 3~min. Profile likelihood, with all the profile points of a problem computed simultaneously on 120 cores, was much slower whenever simulations are expensive (Alkan 27~min against 25~s; Isensee more than 1~h for the first round, and about 5~h including the re-estimations of the optimum, against 10~min; Zheng 5~min against 14~s), was infeasible for the four admissible problems with more than 60 free parameters (Bachmann, Lucarelli, Raimundez and Chen), and was faster than our method on small problems; over the 26 problems with both times our method was faster in 11, for which the fixed cost of the admissibility test dominates. All runs shared a 128-core server with other computations, so the times are upper bounds; main-text Fig.~4d plots the two times against each other.
+
+{\small
+\input{tables/tableS_tiempos.tex}
+}

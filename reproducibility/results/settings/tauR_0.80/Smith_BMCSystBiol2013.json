@@ -1,0 +1,49 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "p": 25,
+ "T": 50.0,
+ "S1": [
+  "k8",
+  "kminus7b",
+  "kminus7a",
+  "k30f",
+  "k1"
+ ],
+ "Rvar_S1_%": 56.06078043397478,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "Rvar_%": 40.63403768856803,
+ "kappa": 3.1995607355713447,
+ "VIF": 3.083717991676082,
+ "cos_med": 0.9597145667063036,
+ "erel_med": 0.32032758697875363,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "k8",
+  "kminus7b"
+ ],
+ "podados": [],
+ "admisible": true,
+ "eajuste_med": 0.0777229333041467,
+ "calibracion": [
+  "sc_PI3K",
+  "sc_GLUT_2B",
+  "sc_BINS",
+  "sc_PIRS",
+  "sc_PTP",
+  "sc_GLUT_3B_120",
+  "sc_GLUT_3B_240",
+  "sc_SOD2",
+  "sc_FOXO1"
+ ],
+ "segundos": 887.1,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "k30f",
+  "kminus7b"
+ ]
+}

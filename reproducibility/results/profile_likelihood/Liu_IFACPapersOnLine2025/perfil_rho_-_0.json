@@ -1,0 +1,10 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "parametro": "rho",
+ "lado": -1,
+ "despl": 0.1,
+ "log_theta": 0.0051774407916766185,
+ "dchi2": 0.08430591846666857,
+ "nfev": 4,
+ "segundos": 0.1
+}

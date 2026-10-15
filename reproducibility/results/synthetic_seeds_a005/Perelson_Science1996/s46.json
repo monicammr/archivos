@@ -1,0 +1,19 @@
+{
+ "sistema": "Perelson_Science1996",
+ "semilla": 46,
+ "p_y": 2,
+ "amplitud": 0.05,
+ "senal_rms_train": 2.2767920547571526e-07,
+ "senal_rms_test": 1.772306065227628e-07,
+ "senal_norma_test": 4.3412455278474884e-07,
+ "ruido_norma_test": 2.449489742783178,
+ "B_chi2_test_theta0": 0.9281182658586187,
+ "B_chi2_test_red": 0.9281168454540317,
+ "B_epred_red": 75.63742411293036,
+ "nfev_red": 4,
+ "seg_red": 0.6,
+ "B_chi2_test_full": 0.9281168454540317,
+ "B_epred_full": 75.63742411293036,
+ "nfev_full": 4,
+ "segundos": 0.6
+}

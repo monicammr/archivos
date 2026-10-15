@@ -1,0 +1,16 @@
+{
+ "sistema": "Chen_MSB2009",
+ "semilla": 43,
+ "p_y": 155,
+ "amplitud": 0.5,
+ "senal_rms_train": 26.108906469271055,
+ "senal_rms_test": 5.042524914536384,
+ "senal_norma_test": 27.619046424733874,
+ "ruido_norma_test": 5.477225575051661,
+ "B_chi2_test_theta0": 24.116283860432986,
+ "B_chi2_test_red": NaN,
+ "B_epred_red": NaN,
+ "nfev_red": 13,
+ "seg_red": 931.0,
+ "segundos": 931.0
+}

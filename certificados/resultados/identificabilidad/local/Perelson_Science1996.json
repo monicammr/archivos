@@ -1,0 +1,33 @@
+{
+ "sistema": "Perelson_Science1996",
+ "evaluable": true,
+ "S": [
+  "c",
+  "delta"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 16,
+ "kappa_S_std": 1.904013969020122,
+ "VIF_S_std": 1.4752776947655044,
+ "kappa_SC_std": 1.904013969020122,
+ "VIF_SC_std": 1.4752776947655044,
+ "kappa_SC_n": 1.495894755689597,
+ "VIF_SC_n_max": 1.1711470813657734,
+ "VIF_SC_n_S": {
+  "c": 1.1711470813657734,
+  "delta": 1.1711470813657734
+ },
+ "param_VIF_max": "c",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.38227775640438016,
+  "a": "c",
+  "b": "delta"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.2,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

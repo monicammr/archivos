@@ -1,0 +1,23 @@
+{
+ "S": [
+  "init_Rec",
+  "S3tot",
+  "S2tot",
+  "pRec_degind",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "geneF_act1",
+  "Rec_act",
+  "geneF_inh1"
+ ],
+ "eajuste_med": 0.5487410338722888,
+ "erel_med": 0.5631426195425476,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 6.1
+}

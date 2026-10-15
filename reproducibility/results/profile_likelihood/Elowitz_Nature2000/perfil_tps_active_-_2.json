@@ -1,0 +1,10 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "parametro": "tps_active",
+ "lado": -1,
+ "despl": 0.6,
+ "log_theta": -1.0041949483624117,
+ "dchi2": -0.02404514479901465,
+ "nfev": 30,
+ "segundos": 1.9
+}

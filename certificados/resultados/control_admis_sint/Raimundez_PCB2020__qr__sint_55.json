@@ -1,0 +1,14 @@
+{
+ "S": [
+  "d_MAPKtotal__MKN1_2_HS746T",
+  "d_MPI3Ktotal__fm_2_hm"
+ ],
+ "semilla": 55,
+ "B_chi2_test_theta0": 4.896453465516563,
+ "B_chi2_test_red": 2.617484742677669,
+ "B_epred_red": 0.6037022815108447,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 192.1
+}

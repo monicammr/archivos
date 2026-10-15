@@ -1,0 +1,63 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "calibracion": [
+  "vRNA_offset",
+  "Int_nuc_off"
+ ],
+ "candidatos": 6,
+ "un_parametro": [
+  {
+   "parametro": "k_imp",
+   "e_rel": 0.15909983192802868,
+   "e_fit": 0.15909983192802868,
+   "admisible": true
+  },
+  {
+   "parametro": "k_syn_R_M",
+   "e_rel": 0.25042251409895844,
+   "e_fit": 0.25042251409895844,
+   "admisible": true
+  },
+  {
+   "parametro": "k_bind_M1",
+   "e_rel": 0.23651653348814777,
+   "e_fit": 0.23651653348814777,
+   "admisible": true
+  },
+  {
+   "parametro": "k_syn_R_C",
+   "e_rel": 0.25853436252677875,
+   "e_fit": 0.25853436252677875,
+   "admisible": true
+  },
+  {
+   "parametro": "k_rel",
+   "e_rel": 0.26901932037146103,
+   "e_fit": 0.26901932037146103,
+   "admisible": true
+  },
+  {
+   "parametro": "k_syn_R_V",
+   "e_rel": 0.2793396566330422,
+   "e_fit": 0.2793396566330422,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "k_imp",
+ "mejor_efit_10": 0.15823139986019816,
+ "S_efit_10": 0.10261283416926342,
+ "mejor_validacion": {
+  "A_chi2_test_red": 0.445306962230938,
+  "B_chi2_test_theta0": 0.48990308973427826,
+  "B_epred_red": 3.272614173401782,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 29.6,
+ "mejor_validacion_calibracion": 2
+}

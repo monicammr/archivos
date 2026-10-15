@@ -1,0 +1,36 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "evaluable": true,
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "n_calibracion": 2,
+ "calibracion_usada": [
+  "offset",
+  "scale"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 111,
+ "kappa_S_std": 2.738342947887907,
+ "VIF_S_std": 2.40797042813313,
+ "kappa_SC_std": 117705.96324961091,
+ "VIF_SC_std": 3458972696.122604,
+ "kappa_SC_n": 4.153718827987381,
+ "VIF_SC_n_max": 4.162211435690706,
+ "VIF_SC_n_S": {
+  "Kz": 2.4993305559220182,
+  "K_par": 2.5501473885987855
+ },
+ "param_VIF_max": "offset",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.7727448721659769,
+  "a": "Kz",
+  "b": "K_par"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.6,
+ "pasa_std": false,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

@@ -1,0 +1,11 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "semilla": 45,
+ "p_y": 21,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.33705917887460796,
+ "senal_rms_test": 0.45889330443856674,
+ "senal_norma_test": 2.2944665221928338,
+ "ruido_norma_test": 5.0,
+ "segundos": 0.7
+}

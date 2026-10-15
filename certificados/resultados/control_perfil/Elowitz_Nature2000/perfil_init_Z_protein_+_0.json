@@ -1,0 +1,10 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "parametro": "init_Z_protein",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 7.346914556386598,
+ "dchi2": -0.008201824838018013,
+ "nfev": 24,
+ "segundos": 1.6
+}

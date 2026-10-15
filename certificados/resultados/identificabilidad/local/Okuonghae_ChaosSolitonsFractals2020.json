@@ -1,0 +1,33 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "evaluable": true,
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 92,
+ "kappa_S_std": 1.34469884594819,
+ "VIF_S_std": 1.090311642838649,
+ "kappa_SC_std": 1.34469884594819,
+ "VIF_SC_std": 1.090311642838649,
+ "kappa_SC_n": 1.7236346972047387,
+ "VIF_SC_n_max": 1.3268782573336653,
+ "VIF_SC_n_S": {
+  "transmission_rate_effective": 1.3268782573336653,
+  "gamma_i": 1.3268782573336644
+ },
+ "param_VIF_max": "transmission_rate_effective",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.49633794489463856,
+  "a": "transmission_rate_effective",
+  "b": "gamma_i"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.5,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

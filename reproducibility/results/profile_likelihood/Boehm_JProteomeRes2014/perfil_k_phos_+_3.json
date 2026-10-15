@@ -1,0 +1,10 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "parametro": "k_phos",
+ "lado": 1,
+ "despl": 1.2,
+ "log_theta": 10.761686807878252,
+ "dchi2": 81.2483595304622,
+ "nfev": 23,
+ "segundos": 0.2
+}

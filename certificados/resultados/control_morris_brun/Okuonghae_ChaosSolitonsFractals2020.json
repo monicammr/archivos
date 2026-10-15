@@ -1,0 +1,63 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 32)",
+ "n_bio": 14,
+ "S_ours": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "S_brun": [
+  "transmission_rate_effective",
+  "psi"
+ ],
+ "chi2_brun": 80342.42480763752,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 0.2,
+ "detalle_brun": {
+  "gamma": 5.389408365927394,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "transmission_rate_effective": 219.4151124048032,
+   "nu": 147.34403570207098,
+   "gamma_0": 122.5302178976804,
+   "sigma": 107.4046293421433,
+   "psi": 96.70259755591034,
+   "alpha": 76.47773436361747,
+   "exposed_start": 46.11370696357729,
+   "symptomatic_start": 44.58370706276988,
+   "gamma_a": 37.73836772883688,
+   "gamma_i": 20.742330425679654,
+   "asymptomatic_start": 17.677125373351203,
+   "d_0": 13.149041739128183,
+   "d_D": 4.65474945682593,
+   "theta": 1.7331375594743448e-08
+  }
+ },
+ "S_morris": [
+  "sigma",
+  "nu"
+ ],
+ "chi2_morris": 50561.74692919069,
+ "overlap_morris_ours": 0,
+ "segundos_morris": 7.7,
+ "detalle_morris": {
+  "mu_star_top": {
+   "sigma": 11322900.82314476,
+   "nu": 3634177.5071576894,
+   "transmission_rate_effective": 3288806.450474876,
+   "d_0": 1589406.2906273007,
+   "alpha": 671612.6353572009,
+   "psi": 115497.73552638173,
+   "symptomatic_start": 74158.05271270353,
+   "gamma_i": 54039.349238223695,
+   "d_D": 21108.197746460493,
+   "asymptomatic_start": 13446.333597641558
+  },
+  "fallos_simulacion": 8
+ },
+ "chi2_ours": 46705.034547832045,
+ "chi2_qr": 32079.258174864663,
+ "chi2_perfil": 50561.74692919069,
+ "segundos": 9.5
+}

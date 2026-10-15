@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k01_11",
+  "k12_13"
+ ],
+ "eajuste_med": 0.2963816378431855,
+ "erel_med": 0.7057548982112868,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 2.9
+}

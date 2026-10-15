@@ -1,0 +1,11 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "semilla": 53,
+ "p_y": 101,
+ "amplitud": 0.2,
+ "senal_rms_train": 0.5365559785163678,
+ "senal_rms_test": 0.44208748289540883,
+ "senal_norma_test": 6.283243683928331,
+ "ruido_norma_test": 14.212670403551895,
+ "segundos": 1.3
+}

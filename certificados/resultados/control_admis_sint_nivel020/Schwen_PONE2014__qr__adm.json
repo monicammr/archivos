@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kd2fold",
+  "kout"
+ ],
+ "eajuste_med": 0.17285749960585495,
+ "erel_med": 0.5547375791929902,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 75.0
+}

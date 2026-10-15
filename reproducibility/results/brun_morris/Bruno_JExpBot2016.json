@@ -1,0 +1,67 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "k": 5,
+ "division": "condiciones nuevas",
+ "n_bio": 10,
+ "S_ours": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "S_brun": [
+  "init_bcar1",
+  "kb1",
+  "init_bcry_1",
+  "init_b10_1",
+  "kc2"
+ ],
+ "chi2_brun": 0.9093632518020328,
+ "overlap_brun_ours": 3,
+ "segundos_brun": 0.2,
+ "detalle_brun": {
+  "gamma": 1.4228765611106646,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "init_bcar1": 5.726740066378616,
+   "kb1": 5.410260430847069,
+   "init_bcry_1": 4.832946423089217,
+   "init_b10_1": 3.654682548262983,
+   "kc2": 2.7112776877573976,
+   "kb2": 2.3906873799160455,
+   "init_ohb10_1": 2.2296626344525183,
+   "kc1": 2.1503987400926334,
+   "kc4": 1.3026143228680849
+  }
+ },
+ "S_morris": [
+  "init_bcry_1",
+  "init_b10_1",
+  "init_bcar1",
+  "kb2",
+  "kc2"
+ ],
+ "chi2_morris": 0.9106605989940066,
+ "overlap_morris_ours": 2,
+ "segundos_morris": 0.9,
+ "detalle_morris": {
+  "mu_star_top": {
+   "init_bcry_1": 448.5733811198108,
+   "init_b10_1": 367.82758371007435,
+   "init_bcar1": 322.8563089305991,
+   "kb2": 312.78592054872456,
+   "kc2": 244.00924357943086,
+   "kc1": 180.11936219893576,
+   "kb1": 178.54791781826953,
+   "init_ohb10_1": 122.70383349579876,
+   "kc4": 103.14113301295143,
+   "k5": 0.0
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 0.9093632518020328,
+ "chi2_qr": 0.9113919534123498,
+ "chi2_perfil": 0.9093632518020328,
+ "segundos": 2.6
+}

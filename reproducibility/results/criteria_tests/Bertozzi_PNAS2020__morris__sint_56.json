@@ -1,0 +1,14 @@
+{
+ "S": [
+  "gamma_CA",
+  "R0_CA"
+ ],
+ "semilla": 56,
+ "B_chi2_test_theta0": 0.8556047599557661,
+ "B_chi2_test_red": 0.8556047599557661,
+ "B_epred_red": NaN,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.0
+}

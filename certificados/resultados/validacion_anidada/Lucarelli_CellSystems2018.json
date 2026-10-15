@@ -1,0 +1,25 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "|S|": 10,
+ "division": "condiciones nuevas",
+ "n_train": 1157,
+ "n_test": 598,
+ "chi2_test_red_original": 1.6588292477170448,
+ "chi2_test_full_train": 3.3435080992706983,
+ "chi2_test_red_nested": 3.3477102530551104,
+ "chi2_test_theta0": 1.0152828589583858,
+ "ratio_nested_vs_original": 2.0181162453353045,
+ "segundos": 48.9
+}

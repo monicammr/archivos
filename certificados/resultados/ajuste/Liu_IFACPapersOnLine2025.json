@@ -1,0 +1,17 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "|S|": 2,
+ "S": [
+  "delta",
+  "kappa"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9999999999674197,
+ "erel_med": 8.083505516089535e-06,
+ "eajuste_med": 8.017283545020669e-06,
+ "eajuste_p90": 2.3687797683557888e-05,
+ "eajuste<=0.10": "15/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.3,
+ "admisible_v2": true
+}

@@ -1,0 +1,18 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "k": 2,
+ "S_ours": [
+  "Kz",
+  "K_par"
+ ],
+ "S_qr": [
+  "Kd",
+  "init_A_state"
+ ],
+ "overlap": 0,
+ "chi2_ours": 0.7430659894685557,
+ "chi2_qr": 0.7763596767316191,
+ "ratio_qr_vs_ours": 1.0448058284660224,
+ "tipo": "extrapolacion temporal (t >= 6.48875)",
+ "segundos": 0.2
+}

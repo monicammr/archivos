@@ -1,0 +1,19 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "semilla": 51,
+ "p_y": 72,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.11404439287983115,
+ "senal_rms_test": 0.08823883719989198,
+ "senal_norma_test": 2.157795923958669,
+ "ruido_norma_test": 24.454038521274967,
+ "B_chi2_test_theta0": 0.984196719949883,
+ "B_chi2_test_red": 1.4755992725003944,
+ "B_epred_red": 8.580391176707973,
+ "nfev_red": 10,
+ "seg_red": 5.1,
+ "B_chi2_test_full": 2.3958716715548247,
+ "B_epred_full": 14.022845282229474,
+ "nfev_full": 31,
+ "segundos": 67.1
+}

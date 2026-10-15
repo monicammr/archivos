@@ -1,0 +1,22 @@
+{
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S_dephosphos",
+  "S_phos",
+  "Rec_act",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "geneH_turn",
+  "geneG_turn"
+ ],
+ "semilla": 56,
+ "B_chi2_test_theta0": 1.1927197543631856,
+ "B_chi2_test_red": 1.1223812480165982,
+ "B_epred_red": 0.5754594573178681,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 4.0
+}

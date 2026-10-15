@@ -1,0 +1,195 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 410)",
+ "p_libres": 20,
+ "n_bio": 18,
+ "n_identificables": 3,
+ "n_no_identificables_practicos": 1,
+ "n_planos": 14,
+ "S_ours": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "S_perfil": [
+  "n_Hill",
+  "tau_prot_GFP"
+ ],
+ "S_qr": [
+  "eff_GFP",
+  "tau_prot_GFP"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 1,
+ "chi2_ours": 1.49838255411681,
+ "chi2_qr": 1.4070773581797524,
+ "chi2_perfil": 1.4259934213402174,
+ "ratio_perfil_vs_ours": 0.9516884839738001,
+ "coste_min_train": 27.56098511447496,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "n_Hill",
+   "clase": "identificable",
+   "ancho_ic_log": 0.6152399137456703,
+   "dchi2_max_izq": 231.09772712521718,
+   "dchi2_max_der": 139.25149231374462,
+   "dchi2_min_lado": 139.25149231374462,
+   "dchi2_negativo": -0.003295516507279217
+  },
+  {
+   "parametro": "tau_prot_GFP",
+   "clase": "identificable",
+   "ancho_ic_log": 0.9257628113427168,
+   "dchi2_max_izq": 10.607078866587209,
+   "dchi2_max_der": 33.238336100304416,
+   "dchi2_min_lado": 10.607078866587209,
+   "dchi2_negativo": 0.24298528217825321
+  },
+  {
+   "parametro": "tau_mRNA",
+   "clase": "identificable",
+   "ancho_ic_log": 1.2219104666310066,
+   "dchi2_max_izq": 115.53610920180847,
+   "dchi2_max_der": 130.31959425194424,
+   "dchi2_min_lado": 115.53610920180847,
+   "dchi2_negativo": -0.0011370727362773891
+  },
+  {
+   "parametro": "tau_prot",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.15636002098209545,
+   "dchi2_max_der": 223.99823550557048,
+   "dchi2_min_lado": 0.15636002098209545,
+   "dchi2_negativo": -0.023918881687805538
+  },
+  {
+   "parametro": "init_X_mRNA",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0763757343303979,
+   "dchi2_max_der": 0.38111596530870884,
+   "dchi2_min_lado": 0.0763757343303979,
+   "dchi2_negativo": -0.0872670876803383
+  },
+  {
+   "parametro": "eff",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0008933879765748998,
+   "dchi2_max_der": 0.004428774407617908,
+   "dchi2_min_lado": 0.0008933879765748998,
+   "dchi2_negativo": -0.030697357680022463
+  },
+  {
+   "parametro": "init_Y_protein",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.314802843945586e-05,
+   "dchi2_max_der": 1.0046876571578878e-05,
+   "dchi2_min_lado": 1.0046876571578878e-05,
+   "dchi2_negativo": -0.05404348028213235
+  },
+  {
+   "parametro": "KM",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0224894313527102,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.042545929622388456
+  },
+  {
+   "parametro": "eff_GFP",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.08135086714560913,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.023472805859505286
+  },
+  {
+   "parametro": "init_GFP",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.295073079494614e-05,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.03710202204360158
+  },
+  {
+   "parametro": "init_GFP_mRNA",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.046415014664958676,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.026530267561835075
+  },
+  {
+   "parametro": "init_X_protein",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.08650235608081402,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.03426273215178455
+  },
+  {
+   "parametro": "init_Y_mRNA",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.0357684427851801
+  },
+  {
+   "parametro": "init_Z_mRNA",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.04193210321857421,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.040641837288909244
+  },
+  {
+   "parametro": "init_Z_protein",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.005631349230057481,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.048683322347979896
+  },
+  {
+   "parametro": "tau_mRNA_GFP",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 4.879641988253525e-05,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.057391614600653895
+  },
+  {
+   "parametro": "tps_active",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.043803709897144216,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.04338119312974342
+  },
+  {
+   "parametro": "tps_repr",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.45545302079127126,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.022778148735909554
+  }
+ ],
+ "segundos_fase3": 0.1
+}

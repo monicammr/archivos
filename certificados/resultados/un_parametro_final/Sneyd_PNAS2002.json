@@ -1,0 +1,79 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "calibracion": [],
+ "candidatos": 11,
+ "un_parametro": [
+  {
+   "parametro": "l4",
+   "e_rel": 0.8140825342206779,
+   "e_fit": 0.8007759347314471,
+   "admisible": false
+  },
+  {
+   "parametro": "l2",
+   "e_rel": 0.9203160470746214,
+   "e_fit": 0.7509287661937957,
+   "admisible": false
+  },
+  {
+   "parametro": "k4",
+   "e_rel": 0.9783113507387405,
+   "e_fit": 0.8972090615560984,
+   "admisible": false
+  },
+  {
+   "parametro": "k_4",
+   "e_rel": 1.0205270766293668,
+   "e_fit": 0.8976087548755756,
+   "admisible": false
+  },
+  {
+   "parametro": "l_2",
+   "e_rel": 0.9578790214777971,
+   "e_fit": 0.7785763102724153,
+   "admisible": false
+  },
+  {
+   "parametro": "k3",
+   "e_rel": 0.9843110509177078,
+   "e_fit": 0.9017602668136517,
+   "admisible": false
+  },
+  {
+   "parametro": "k_1",
+   "e_rel": 0.9326145526448921,
+   "e_fit": 0.7354401188539126,
+   "admisible": false
+  },
+  {
+   "parametro": "k1",
+   "e_rel": 1.0224046769214707,
+   "e_fit": 0.7980901860133056,
+   "admisible": false
+  },
+  {
+   "parametro": "k_3",
+   "e_rel": 1.0012987135682194,
+   "e_fit": 0.9677496098224084,
+   "admisible": false
+  },
+  {
+   "parametro": "l_4",
+   "e_rel": 1.002220121210491,
+   "e_fit": 0.8875712557237634,
+   "admisible": false
+  },
+  {
+   "parametro": "k_2",
+   "e_rel": 0.9989967646660556,
+   "e_fit": 0.8874961770919664,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 36.0
+}

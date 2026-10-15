@@ -1,0 +1,19 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "semilla": 47,
+ "p_y": 19,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.3075836655566286,
+ "senal_rms_test": 0.31041405655700366,
+ "senal_norma_test": 2.150611669361157,
+ "ruido_norma_test": 6.928203230275509,
+ "B_chi2_test_theta0": 0.6374824684205432,
+ "B_chi2_test_red": 0.7025645897049007,
+ "B_epred_red": 0.7891323893536217,
+ "nfev_red": 41,
+ "seg_red": 2.1,
+ "B_chi2_test_full": 0.980355632157004,
+ "B_epred_full": 1.437375450196722,
+ "nfev_full": 45,
+ "segundos": 6.3
+}

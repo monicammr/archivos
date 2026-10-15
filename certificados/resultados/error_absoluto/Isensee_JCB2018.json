@@ -1,0 +1,39 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "n": 687,
+ "n_escenarios": 4,
+ "e_fit_med": 0.09797083669619117,
+ "cambio_rms_sigma_med": 0.43378194857598235,
+ "error_rms_sigma_med": 0.04841607235767479,
+ "error_rms_sigma_max": 0.05858289271487888,
+ "escenarios": [
+  {
+   "k": 7,
+   "e_fit": 0.10393415827421701,
+   "cambio_rms_sigma": 0.41253348618423336,
+   "error_rms_sigma": 0.042876320646486624
+  },
+  {
+   "k": 9,
+   "e_fit": 0.09200751511816532,
+   "cambio_rms_sigma": 0.5864284455412957,
+   "error_rms_sigma": 0.053955824068862956
+  },
+  {
+   "k": 10,
+   "e_fit": 0.060207089729458624,
+   "cambio_rms_sigma": 0.37713596945282596,
+   "error_rms_sigma": 0.02270625915305266
+  },
+  {
+   "k": 13,
+   "e_fit": 0.12874500539488845,
+   "cambio_rms_sigma": 0.45503041096773134,
+   "error_rms_sigma": 0.05858289271487888
+  }
+ ]
+}

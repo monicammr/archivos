@@ -1,0 +1,87 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "S": [
+  "k01_02",
+  "k13_12"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "k01_02",
+   "admisible": false,
+   "e_rel": 0.9973048566618193,
+   "e_ajuste": 0.7247587105346879
+  },
+  {
+   "sin": "k13_12",
+   "admisible": false,
+   "e_rel": 1.0619334231481887,
+   "e_ajuste": 0.6712480852821396
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "k13_12",
+   "admisible": false,
+   "e_rel": 0.9973048566618193,
+   "e_ajuste": 0.7247587105346879
+  },
+  {
+   "parametro": "k01_11",
+   "admisible": false,
+   "e_rel": 0.9670712590479023,
+   "e_ajuste": 0.6969536689458137
+  },
+  {
+   "parametro": "k01_02",
+   "admisible": false,
+   "e_rel": 1.0619334231481887,
+   "e_ajuste": 0.6712480852821396
+  },
+  {
+   "parametro": "k12_13",
+   "admisible": false,
+   "e_rel": 0.9508441626315677,
+   "e_ajuste": 0.719126622360022
+  },
+  {
+   "parametro": "k02_01",
+   "admisible": false,
+   "e_rel": 0.926925622581617,
+   "e_ajuste": 0.7026951267470756
+  },
+  {
+   "parametro": "inflowp",
+   "admisible": false,
+   "e_rel": 1.0400870536330642,
+   "e_ajuste": 0.6944130174436988
+  },
+  {
+   "parametro": "k12_22",
+   "admisible": false,
+   "e_rel": 0.8814108716447451,
+   "e_ajuste": 0.7982058730449477
+  },
+  {
+   "parametro": "k03_13",
+   "admisible": false,
+   "e_rel": 1.0003431734419492,
+   "e_ajuste": 0.8567921590597244
+  },
+  {
+   "parametro": "k13_03",
+   "admisible": false,
+   "e_rel": 1.0034965960126918,
+   "e_ajuste": 0.8567912016270421
+  },
+  {
+   "parametro": "k22_23",
+   "admisible": false,
+   "e_rel": 1.0018267696211873,
+   "e_ajuste": 0.9548509163179683
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 18.4
+}

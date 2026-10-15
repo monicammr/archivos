@@ -1,0 +1,9 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "k": 2,
+ "chi2_ours": null,
+ "chi2_vacio": 1.0000119607849882,
+ "ratio_vacio_vs_ours": null,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.0
+}

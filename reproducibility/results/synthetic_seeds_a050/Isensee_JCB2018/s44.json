@@ -1,0 +1,19 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "semilla": 44,
+ "p_y": 43,
+ "amplitud": 0.5,
+ "senal_rms_train": 4.223022090448024,
+ "senal_rms_test": 4.510882746630926,
+ "senal_norma_test": 66.7549685843212,
+ "ruido_norma_test": 14.798648586948742,
+ "B_chi2_test_theta0": 19.837406923132054,
+ "B_chi2_test_red": 1.4655493113213256,
+ "B_epred_red": 0.14370496758389223,
+ "nfev_red": 27,
+ "seg_red": 938.2,
+ "B_chi2_test_full": 2.7523147359772757,
+ "B_epred_full": 0.3300631340464348,
+ "nfev_full": 16,
+ "segundos": 2304.8
+}

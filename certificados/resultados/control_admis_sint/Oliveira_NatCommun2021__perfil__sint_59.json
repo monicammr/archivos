@@ -1,0 +1,14 @@
+{
+ "S": [
+  "t_1",
+  "beta_1"
+ ],
+ "semilla": 59,
+ "B_chi2_test_theta0": 161186.34632047717,
+ "B_chi2_test_red": 90842.16635413143,
+ "B_epred_red": 0.7507959644090225,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.1
+}

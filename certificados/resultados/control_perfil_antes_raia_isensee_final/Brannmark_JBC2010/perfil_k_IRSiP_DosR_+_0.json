@@ -1,0 +1,10 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "parametro": "k_IRSiP_DosR",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 2.428153775623534,
+ "dchi2": 0.3353329333210384,
+ "nfev": 23,
+ "segundos": 2.1
+}

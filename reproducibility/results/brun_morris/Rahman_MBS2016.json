@@ -1,0 +1,57 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 15)",
+ "n_bio": 9,
+ "S_ours": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "S_brun": [
+  "infected_moderate_transmission_rate",
+  "behavioural_change_rate"
+ ],
+ "chi2_brun": 0.0024669590218221486,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 0.1,
+ "detalle_brun": {
+  "gamma": 3.4741471209285897,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "infected_moderate_transmission_rate": 33.79080357443764,
+   "infected_normal_transmission_rate_relative": 30.678815731473318,
+   "infected_normal_worsen_rate": 18.16418437753215,
+   "behavioural_change_rate": 6.932815517747726,
+   "infected_weak_transmission_rate_relative": 3.0778141310876403,
+   "infected_moderate_worsen_rate": 1.1623908283890962,
+   "infected_weak_treatment_rate": 0.0004157987266480479,
+   "treated_weak_improve_rate": 7.469279761918876e-06,
+   "treated_moderate_improve_rate": 2.886648787152645e-06
+  }
+ },
+ "S_morris": [
+  "infected_normal_transmission_rate_relative",
+  "infected_moderate_transmission_rate"
+ ],
+ "chi2_morris": 0.001628808509828668,
+ "overlap_morris_ours": 1,
+ "segundos_morris": 0.5,
+ "detalle_morris": {
+  "mu_star_top": {
+   "infected_normal_transmission_rate_relative": 270.10856930883085,
+   "infected_moderate_transmission_rate": 236.56814561587936,
+   "behavioural_change_rate": 179.7172130815937,
+   "infected_normal_worsen_rate": 115.06261916058938,
+   "infected_moderate_worsen_rate": 53.600738982547945,
+   "infected_weak_transmission_rate_relative": 16.136462812214646,
+   "infected_weak_treatment_rate": 0.01050872723359087,
+   "treated_weak_improve_rate": 0.0048183786888812705,
+   "treated_moderate_improve_rate": 5.001516637513698e-05
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 0.0019946462955132307,
+ "chi2_qr": 0.0015422362103681623,
+ "chi2_perfil": 0.0027201524287273904,
+ "segundos": 3.0
+}

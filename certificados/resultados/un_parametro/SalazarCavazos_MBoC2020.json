@@ -1,0 +1,22 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "uno": "ratio_kpkd_Y1068__FREE",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "uno_10_admisible": true,
+ "uno_10_eajuste": 0.2940360887764951,
+ "uno_division": "condiciones nuevas",
+ "uno_A_chi2_test_red": 99.99873831915528,
+ "uno_B_epred_red": 0.7881938883026166,
+ "uno_A_chi2_test_full": 124.1862309045589,
+ "uno_B_epred_full": 0.11425665943494238,
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.4060269010506357,
+ "S_division": "condiciones nuevas",
+ "S_A_chi2_test_red": 101.82516518364058,
+ "S_B_epred_red": 0.16765753826318863,
+ "S_A_chi2_test_full": 124.1862309045589,
+ "S_B_epred_full": 0.11425665943494238
+}

@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kf_Fsk",
+  "KD_H89"
+ ],
+ "semilla": 54,
+ "B_chi2_test_theta0": 12.806394006996351,
+ "B_chi2_test_red": 3.3110024419301793,
+ "B_epred_red": 0.4627010735645793,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 865.2
+}

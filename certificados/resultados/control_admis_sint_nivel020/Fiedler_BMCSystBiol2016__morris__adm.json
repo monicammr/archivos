@@ -1,0 +1,15 @@
+{
+ "S": [
+  "K_1",
+  "tau2"
+ ],
+ "eajuste_med": 0.11802133430117573,
+ "erel_med": 0.6304594617797508,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 6.6
+}

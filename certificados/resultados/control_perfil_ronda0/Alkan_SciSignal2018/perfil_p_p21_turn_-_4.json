@@ -1,0 +1,10 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "parametro": "p_p21_turn",
+ "lado": -1,
+ "despl": 2.3,
+ "log_theta": 0.0025850929939665868,
+ "dchi2": 1.2848685723020026,
+ "nfev": 18,
+ "segundos": 107.2
+}

@@ -1,0 +1,19 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "|S|": 4,
+ "S": [
+  "kf_RII_C_2__RIIp_C_2",
+  "kf_RII_C_2__RII_2",
+  "xi_kf_RII_C_2__RII_2",
+  "ks_AC_cAMP"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.8424807481959715,
+ "erel_med": 0.9357610897915825,
+ "eajuste_med": 0.02363589488185934,
+ "eajuste_p90": 0.045039658424738185,
+ "eajuste<=0.10": "15/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.7,
+ "admisible_v2": false
+}

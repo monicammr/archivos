@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k01_11",
+  "k10_00"
+ ],
+ "semilla": 60,
+ "B_chi2_test_theta0": 14.586464854501617,
+ "B_chi2_test_red": 10.207093198291734,
+ "B_epred_red": 0.8325327106474929,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.6
+}

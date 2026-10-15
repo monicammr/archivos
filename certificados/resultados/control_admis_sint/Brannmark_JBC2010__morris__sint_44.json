@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k22",
+  "k3"
+ ],
+ "semilla": 44,
+ "B_chi2_test_theta0": 16.982427965316948,
+ "B_chi2_test_red": 250.4598382335633,
+ "B_epred_red": 4.068466919132489,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 1.1
+}

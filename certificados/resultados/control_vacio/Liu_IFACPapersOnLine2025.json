@@ -1,0 +1,9 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "k": 2,
+ "chi2_ours": 0.9537288471177436,
+ "chi2_vacio": 0.9424537224192622,
+ "ratio_vacio_vs_ours": 0.9881778508298706,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

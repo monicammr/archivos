@@ -1,0 +1,17 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 50,
+ "n_test": 50,
+ "chi2_test_red_original": 0.9537288471177436,
+ "chi2_test_full_train": 1.0248875579089678,
+ "chi2_test_red_nested": 1.0248781309580126,
+ "chi2_test_theta0": 0.9424537224192622,
+ "ratio_nested_vs_original": 1.0746011657876227,
+ "segundos": 0.4
+}

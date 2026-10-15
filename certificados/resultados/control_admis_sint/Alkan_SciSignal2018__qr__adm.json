@@ -1,0 +1,15 @@
+{
+ "S": [
+  "p_chk1_dea_wip1",
+  "k_death_reox"
+ ],
+ "eajuste_med": 0.9453904850445013,
+ "erel_med": 0.9500468734407279,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 18.4
+}

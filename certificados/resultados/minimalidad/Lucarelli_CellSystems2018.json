@@ -1,0 +1,143 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "init_Rec",
+   "admisible": false,
+   "e_rel": 0.7608970074976077,
+   "e_ajuste": 0.5863974782238971
+  },
+  {
+   "sin": "S2tot",
+   "admisible": false,
+   "e_rel": 0.694867841095228,
+   "e_ajuste": 0.47402358244858744
+  },
+  {
+   "sin": "S3tot",
+   "admisible": false,
+   "e_rel": 0.6536688191876093,
+   "e_ajuste": 0.45258375166233983
+  },
+  {
+   "sin": "S_dephosphos",
+   "admisible": false,
+   "e_rel": 0.6771130393527584,
+   "e_ajuste": 0.4387294983512827
+  },
+  {
+   "sin": "S_phos",
+   "admisible": false,
+   "e_rel": 0.7130839587330134,
+   "e_ajuste": 0.4713042851341833
+  },
+  {
+   "sin": "geneF_turn",
+   "admisible": false,
+   "e_rel": 0.6389707295284579,
+   "e_ajuste": 0.562254964275102
+  },
+  {
+   "sin": "k_234",
+   "admisible": false,
+   "e_rel": 0.6234170792677811,
+   "e_ajuste": 0.47596581426401524
+  },
+  {
+   "sin": "geneK_turn",
+   "admisible": false,
+   "e_rel": 0.6386854906885033,
+   "e_ajuste": 0.46130800541485467
+  },
+  {
+   "sin": "S4tot",
+   "admisible": false,
+   "e_rel": 0.5968430194293901,
+   "e_ajuste": 0.43902343933731075
+  },
+  {
+   "sin": "geneH_turn",
+   "admisible": false,
+   "e_rel": 0.6086516667750363,
+   "e_ajuste": 0.46702849593501483
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "init_Rec",
+   "admisible": false,
+   "e_rel": 0.9750184123959151,
+   "e_ajuste": 0.9473923192651842
+  },
+  {
+   "parametro": "S2tot",
+   "admisible": false,
+   "e_rel": 0.9358568161215383,
+   "e_ajuste": 0.9042916517240237
+  },
+  {
+   "parametro": "S_dephosphos",
+   "admisible": false,
+   "e_rel": 1.0121484118814688,
+   "e_ajuste": 0.9842765900034606
+  },
+  {
+   "parametro": "S3tot",
+   "admisible": false,
+   "e_rel": 0.9696007687599539,
+   "e_ajuste": 0.9308034465057744
+  },
+  {
+   "parametro": "S_phos",
+   "admisible": false,
+   "e_rel": 1.0030688034979671,
+   "e_ajuste": 0.9832763814249881
+  },
+  {
+   "parametro": "pRec_degind",
+   "admisible": false,
+   "e_rel": 1.006769640191317,
+   "e_ajuste": 0.9818788678133562
+  },
+  {
+   "parametro": "geneF_turn",
+   "admisible": false,
+   "e_rel": 0.9904219361676425,
+   "e_ajuste": 0.9707743347052625
+  },
+  {
+   "parametro": "Rec_act",
+   "admisible": false,
+   "e_rel": 0.9985646378143473,
+   "e_ajuste": 0.9804843756176969
+  },
+  {
+   "parametro": "geneF_act1",
+   "admisible": false,
+   "e_rel": 0.9989338390518955,
+   "e_ajuste": 0.9700109615566371
+  },
+  {
+   "parametro": "k_234",
+   "admisible": false,
+   "e_rel": 0.9987439746478107,
+   "e_ajuste": 0.9767659376910732
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 1112.2
+}

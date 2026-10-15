@@ -1,0 +1,15 @@
+{
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "eajuste_med": 0.32353828556984837,
+ "erel_med": 0.5246195356763013,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 9.5
+}

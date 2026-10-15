@@ -1,0 +1,30 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "p": 22,
+ "T": 50.0,
+ "S1": [
+  "tau2",
+  "k4"
+ ],
+ "Rvar_S1_%": 28.21572994190113,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "tau2",
+  "k4"
+ ],
+ "Rvar_%": 28.21572994190113,
+ "kappa": 2.367767978296558,
+ "VIF": 1.9461737896947142,
+ "cos_med": 0.9259343297582893,
+ "erel_med": 0.5173093187485976,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.14978860516605397,
+ "segundos": 0.8,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "K_1",
+  "tau2"
+ ]
+}

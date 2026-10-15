@@ -1,0 +1,14 @@
+{
+ "S": [
+  "d_AKTtotal__fm_2_hm",
+  "ki_AKT__MKN1"
+ ],
+ "semilla": 53,
+ "B_chi2_test_theta0": 5.352537004446091,
+ "B_chi2_test_red": 2.2078958586687127,
+ "B_epred_red": 0.5447598552553418,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 170.8
+}

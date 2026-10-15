@@ -1,0 +1,17 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "|S|": 2,
+ "S": [
+  "Kz",
+  "Vm2"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9516300818270064,
+ "erel_med": 0.30949872964020897,
+ "eajuste_med": 0.0438939126095082,
+ "eajuste_p90": 0.08458399578399889,
+ "eajuste<=0.10": "14/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 1.6,
+ "admisible_v2": true
+}

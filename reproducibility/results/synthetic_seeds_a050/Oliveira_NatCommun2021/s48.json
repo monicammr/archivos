@@ -1,0 +1,19 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "semilla": 48,
+ "p_y": 12,
+ "amplitud": 0.5,
+ "senal_rms_train": 108.78509197862874,
+ "senal_rms_test": 3654.9132880005554,
+ "senal_norma_test": 23115.70128099343,
+ "ruido_norma_test": 6.324555320336759,
+ "B_chi2_test_theta0": 13360151.567082707,
+ "B_chi2_test_red": 8987563.85593867,
+ "B_epred_red": 0.820180869709802,
+ "nfev_red": 23,
+ "seg_red": 0.5,
+ "B_chi2_test_full": 6930.27775437329,
+ "B_epred_full": 0.022839366961694314,
+ "nfev_full": 47,
+ "segundos": 1.2
+}

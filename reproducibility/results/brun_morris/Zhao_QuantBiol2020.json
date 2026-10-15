@@ -1,0 +1,67 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "k": 3,
+ "division": "condiciones nuevas",
+ "n_bio": 21,
+ "S_ours": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "S_brun": [
+  "R_Stage_I_China",
+  "gamma_1_Stage_I_Wuhan",
+  "R_Stage_II_Hubei"
+ ],
+ "chi2_brun": 0.3454096103031155,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 0.6,
+ "detalle_brun": {
+  "gamma": 1.0000000000000002,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "R_Stage_I_China": 17.319176889144995,
+   "gamma_1_Stage_I_China": 8.605221452197464,
+   "gamma_1_Stage_I_Wuhan": 3.183713235918486,
+   "R_Stage_I_Wuhan": 3.1555365154652204,
+   "R_Stage_II_Hubei": 2.9495827761513684,
+   "gamma_2_Stage_I_China": 1.8477998932877173,
+   "gamma_2_Stage_II_Hubei": 1.7353880117033431,
+   "gamma_1_Stage_II_Hubei": 1.5369166370308665,
+   "R_Stage_II_China": 1.4243411348632131,
+   "gamma_2_Stage_III_Wuhan": 0.9938805307192244,
+   "gamma_2_Stage_II_China": 0.9592215747173425,
+   "gamma_1_Stage_II_China": 0.7040184528358245,
+   "gamma_2_Stage_I_Wuhan": 0.5840697076051928,
+   "gamma_1_Stage_III_Wuhan": 0.49600255687232186,
+   "R_Stage_III_Wuhan": 0.3832022628596041
+  }
+ },
+ "S_morris": [
+  "R_Stage_I_China",
+  "gamma_2_Stage_I_China",
+  "R_Stage_II_China"
+ ],
+ "chi2_morris": 0.3454096103031155,
+ "overlap_morris_ours": 1,
+ "segundos_morris": 2.7,
+ "detalle_morris": {
+  "mu_star_top": {
+   "R_Stage_I_China": 2696223.4077354763,
+   "gamma_2_Stage_I_China": 2264513.571570929,
+   "R_Stage_II_China": 1965370.192645435,
+   "gamma_1_Stage_II_China": 1418506.4933327157,
+   "gamma_1_Stage_I_China": 837485.5586250301,
+   "gamma_2_Stage_II_China": 106963.02720334637,
+   "gamma_2_Stage_II_Hubei": 75610.2041465478,
+   "gamma_1_Stage_II_Hubei": 61786.019029263734,
+   "R_Stage_II_Hubei": 22451.25754393089,
+   "gamma_2_Stage_I_Wuhan": 10125.367217652947
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 0.3454096102986209,
+ "chi2_qr": 0.3454096103031155,
+ "chi2_perfil": 0.3454096103031155,
+ "segundos": 5.0
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "nu_0",
+  "rho_22"
+ ],
+ "eajuste_med": 0.8932347256753952,
+ "erel_med": 0.9989038075266432,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 4.1
+}

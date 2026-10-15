@@ -1,0 +1,19 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "|S|": 4,
+ "S": [
+  "k1a",
+  "k1c",
+  "k21",
+  "k1e"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.7402348914468998,
+ "erel_med": 0.7017746641691047,
+ "eajuste_med": 0.10381415343904153,
+ "eajuste_p90": 0.16104383386337234,
+ "eajuste<=0.10": "7/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 1.0,
+ "admisible_v2": false
+}

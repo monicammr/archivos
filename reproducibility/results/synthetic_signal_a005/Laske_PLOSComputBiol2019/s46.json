@@ -1,0 +1,11 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "semilla": 46,
+ "p_y": 8,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.0889279706922735,
+ "senal_rms_test": 0.14912107483451617,
+ "senal_norma_test": 0.4473632245035485,
+ "ruido_norma_test": 3.0,
+ "segundos": 0.8
+}

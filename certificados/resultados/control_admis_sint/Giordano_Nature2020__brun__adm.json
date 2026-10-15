@@ -1,0 +1,15 @@
+{
+ "S": [
+  "alpha_4",
+  "alpha_22"
+ ],
+ "eajuste_med": 0.05373764370483675,
+ "erel_med": 0.6133146838233174,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 5.5
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "parametro": "asymptomatic_init_concentration",
+ "lado": 1,
+ "despl": 0.3,
+ "log_theta": -13.719628341374387,
+ "dchi2": -0.2851988035620252,
+ "nfev": 85,
+ "segundos": 1.5
+}

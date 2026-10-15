@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kf_RII_C_2__RIIp_C_2",
+  "kf_RIIp_2__RII_2"
+ ],
+ "semilla": 48,
+ "B_chi2_test_theta0": 11.727700551917264,
+ "B_chi2_test_red": 11.681343825394732,
+ "B_epred_red": 0.9979120497096773,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 867.5
+}

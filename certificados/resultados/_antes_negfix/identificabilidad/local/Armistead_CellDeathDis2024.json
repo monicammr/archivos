@@ -1,0 +1,33 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "evaluable": true,
+ "S": [
+  "k_d",
+  "alpha_cer"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 58,
+ "kappa_S_std": 1.0057726614100126,
+ "VIF_S_std": 1.0000331326323093,
+ "kappa_SC_std": 1.0057726614100126,
+ "VIF_SC_std": 1.0000331326323093,
+ "kappa_SC_n": 1.1847104928849483,
+ "VIF_SC_n_max": 1.0290059078011038,
+ "VIF_SC_n_S": {
+  "k_d": 1.0290059078011038,
+  "alpha_cer": 1.0290059078011033
+ },
+ "param_VIF_max": "k_d",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.16789366014809934,
+  "a": "k_d",
+  "b": "alpha_cer"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 4.3,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

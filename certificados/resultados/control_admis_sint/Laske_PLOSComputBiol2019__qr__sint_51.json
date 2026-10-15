@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k_imp",
+  "k_rel"
+ ],
+ "semilla": 51,
+ "B_chi2_test_theta0": 1.6023559433809123,
+ "B_chi2_test_red": 2.3019986495222473,
+ "B_epred_red": 1.5565730160948559,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 1.7
+}

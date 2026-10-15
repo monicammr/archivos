@@ -1,0 +1,9 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "k": 2,
+ "n_cal": 2,
+ "chi2_ours": 1.49838255411681,
+ "chi2_vacio": 1.3913601639197195,
+ "ratio_vacio_vs_ours": 0.9285747221875706,
+ "segundos": 0.1
+}

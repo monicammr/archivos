@@ -1,0 +1,122 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "szea",
+  "init_bcry_1",
+  "init_b10_1"
+ ],
+ "etapa": "Stage 1",
+ "quitar_uno": [
+  {
+   "sin": "kb1",
+   "admisible": false,
+   "e_rel": 0.5839613369954287,
+   "e_ajuste": 0.4469601315725505
+  },
+  {
+   "sin": "init_bcar2",
+   "admisible": false,
+   "e_rel": 0.48402283362009807,
+   "e_ajuste": 0.4390042212223138
+  },
+  {
+   "sin": "init_zea_1",
+   "admisible": false,
+   "e_rel": 0.6115120787117393,
+   "e_ajuste": 0.5779789192304287
+  },
+  {
+   "sin": "init_bcar1",
+   "admisible": true,
+   "e_rel": 0.41203086798999755,
+   "e_ajuste": null
+  },
+  {
+   "sin": "szea",
+   "admisible": true,
+   "e_rel": 0.4227187364983143,
+   "e_ajuste": null
+  },
+  {
+   "sin": "init_bcry_1",
+   "admisible": true,
+   "e_rel": 0.3906840056626931,
+   "e_ajuste": null
+  },
+  {
+   "sin": "init_b10_1",
+   "admisible": true,
+   "e_rel": 0.33528345420130856,
+   "e_ajuste": null
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "kb1",
+   "admisible": false,
+   "e_rel": 0.911091642499815,
+   "e_ajuste": 0.8589180820361588
+  },
+  {
+   "parametro": "init_bcar2",
+   "admisible": false,
+   "e_rel": 0.929891006920972,
+   "e_ajuste": 0.9043177942087711
+  },
+  {
+   "parametro": "init_zea_1",
+   "admisible": false,
+   "e_rel": 0.8781251515775765,
+   "e_ajuste": 0.8781196359860236
+  },
+  {
+   "parametro": "init_bcar1",
+   "admisible": false,
+   "e_rel": 0.9834840228838901,
+   "e_ajuste": 0.9571044655114309
+  },
+  {
+   "parametro": "szea",
+   "admisible": false,
+   "e_rel": 0.9590092255478626,
+   "e_ajuste": 0.8972147270988073
+  },
+  {
+   "parametro": "init_bcry_1",
+   "admisible": false,
+   "e_rel": 0.9762247114606071,
+   "e_ajuste": 0.9757999374281013
+  },
+  {
+   "parametro": "init_b10_1",
+   "admisible": false,
+   "e_rel": 0.9899519534164524,
+   "e_ajuste": 0.9849365809351193
+  },
+  {
+   "parametro": "kc2",
+   "admisible": false,
+   "e_rel": 0.9895390711388925,
+   "e_ajuste": 0.9830182625533984
+  },
+  {
+   "parametro": "kb2",
+   "admisible": false,
+   "e_rel": 0.9843239104317366,
+   "e_ajuste": 0.977634658005635
+  },
+  {
+   "parametro": "init_ohb10_1",
+   "admisible": false,
+   "e_rel": 0.993228752255213,
+   "e_ajuste": 0.9932179915638023
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 11.3
+}

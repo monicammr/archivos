@@ -1,0 +1,15 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "eajuste_med": 0.03710102189562673,
+ "erel_med": 0.702077334501909,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 1.2
+}

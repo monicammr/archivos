@@ -1,0 +1,18 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "|S|": 3,
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_moderate_worsen_rate",
+  "treated_moderate_improve_rate"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9515280157543214,
+ "erel_med": 0.6074201504642337,
+ "eajuste_med": 0.06119219719684929,
+ "eajuste_p90": 0.20967268964165545,
+ "eajuste<=0.10": "9/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.5,
+ "admisible_v2": false
+}

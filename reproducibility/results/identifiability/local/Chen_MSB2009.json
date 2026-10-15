@@ -1,0 +1,37 @@
+{
+ "sistema": "Chen_MSB2009",
+ "evaluable": true,
+ "S": [
+  "k106",
+  "k44"
+ ],
+ "n_calibracion": 3,
+ "calibracion_usada": [
+  "AKT_t",
+  "EGFR_t",
+  "ERK_t"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 120,
+ "kappa_S_std": 1.008472047195582,
+ "VIF_S_std": 1.000071173872392,
+ "kappa_SC_std": 1.4802888844963504,
+ "VIF_SC_std": 1.1498597847725534,
+ "kappa_SC_n": 1.4487493827281663,
+ "VIF_SC_n_max": 1.1377790357220041,
+ "VIF_SC_n_S": {
+  "k106": 1.1377790357220041,
+  "k44": 1.0941941858371405
+ },
+ "param_VIF_max": "k106",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.34562033722213775,
+  "a": "k106",
+  "b": "AKT_t"
+ },
+ "columnas_reutilizadas": 5,
+ "segundos": 124.5,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

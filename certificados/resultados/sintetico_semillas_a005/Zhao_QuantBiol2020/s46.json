@@ -1,0 +1,19 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "semilla": 46,
+ "p_y": 21,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.08498999782737778,
+ "senal_rms_test": 0.3902425928229013,
+ "senal_norma_test": 1.9512129641145064,
+ "ruido_norma_test": 5.0,
+ "B_chi2_test_theta0": 1.0888387073891608,
+ "B_chi2_test_red": 1.088838707389638,
+ "B_epred_red": 1.0000000000127247,
+ "nfev_red": 4,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 1.0888387073897272,
+ "B_epred_full": 1.0000000000144909,
+ "nfev_full": 216,
+ "segundos": 13.9
+}

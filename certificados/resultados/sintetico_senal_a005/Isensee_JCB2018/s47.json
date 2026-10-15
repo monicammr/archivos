@@ -1,0 +1,11 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "semilla": 47,
+ "p_y": 43,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.5496131764514756,
+ "senal_rms_test": 0.5768960716310071,
+ "senal_norma_test": 8.537282235258484,
+ "ruido_norma_test": 14.798648586948742,
+ "segundos": 35.4
+}

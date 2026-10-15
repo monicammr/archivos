@@ -1,0 +1,18 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "k": 2,
+ "S_ours": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "S_qr": [
+  "kf_Fsk",
+  "KD_H89"
+ ],
+ "overlap": 0,
+ "chi2_ours": 1.082488285497682,
+ "chi2_qr": 1.0807630699567543,
+ "ratio_qr_vs_ours": 0.9984062501515806,
+ "tipo": "condiciones nuevas",
+ "segundos": 114.2
+}

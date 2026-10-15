@@ -1,0 +1,15 @@
+{
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "eajuste_med": 0.04679925205291761,
+ "erel_med": 0.8538432042536837,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 0.9
+}

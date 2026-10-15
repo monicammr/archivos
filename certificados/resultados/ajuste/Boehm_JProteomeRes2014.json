@@ -1,0 +1,18 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "|S|": 3,
+ "S": [
+  "k_phos",
+  "k_imp_hetero",
+  "k_exp_homo"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9860194115826884,
+ "erel_med": 0.19315145185593643,
+ "eajuste_med": 0.06964065941165877,
+ "eajuste_p90": 0.15814845079828363,
+ "eajuste<=0.10": "9/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.3,
+ "admisible_v2": true
+}

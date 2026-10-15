@@ -1,0 +1,22 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "uno": "Kz",
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "uno_10_admisible": false,
+ "uno_10_eajuste": 0.5606387314193015,
+ "uno_division": "extrapolaci\u00f3n temporal (t \u2265 6.48875)",
+ "uno_A_chi2_test_red": 0.7431302004788408,
+ "uno_B_epred_red": 1.0004168071432495,
+ "uno_A_chi2_test_full": 0.7443261279469323,
+ "uno_B_epred_full": 0.31098252373547147,
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.34148824789584076,
+ "S_division": "extrapolaci\u00f3n temporal (t \u2265 6.48875)",
+ "S_A_chi2_test_red": 0.7430427070239745,
+ "S_B_epred_red": 1.0016171072428992,
+ "S_A_chi2_test_full": 0.7443261279469323,
+ "S_B_epred_full": 0.31098252373547147
+}

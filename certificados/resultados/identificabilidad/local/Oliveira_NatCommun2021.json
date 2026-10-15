@@ -1,0 +1,33 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "evaluable": true,
+ "S": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 120,
+ "kappa_S_std": 1.2268878751433,
+ "VIF_S_std": 1.0423984067227519,
+ "kappa_SC_std": 1.2268878751433,
+ "VIF_SC_std": 1.0423984067227519,
+ "kappa_SC_n": 1.0231252077105308,
+ "VIF_SC_n_max": 1.0005227562645986,
+ "VIF_SC_n_S": {
+  "beta_0": 1.0005227562645986,
+  "h_hosp_rate": 1.0005227562645986
+ },
+ "param_VIF_max": "beta_0",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.022857889956589435,
+  "a": "beta_0",
+  "b": "h_hosp_rate"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.6,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

@@ -1,0 +1,69 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "kappa",
+   "admisible": false,
+   "e_rel": 0.8189645916612054,
+   "e_ajuste": 0.7026069783164121
+  },
+  {
+   "sin": "phi",
+   "admisible": false,
+   "e_rel": 0.6313916094663184,
+   "e_ajuste": 0.5666679811618629
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "kappa",
+   "admisible": false,
+   "e_rel": 0.6313916094663184,
+   "e_ajuste": 0.5666679811618629
+  },
+  {
+   "parametro": "phi",
+   "admisible": false,
+   "e_rel": 0.8189645916612054,
+   "e_ajuste": 0.7026069783164121
+  },
+  {
+   "parametro": "rho",
+   "admisible": false,
+   "e_rel": 0.8614173086846185,
+   "e_ajuste": 0.5267655349535724
+  },
+  {
+   "parametro": "psi",
+   "admisible": false,
+   "e_rel": 0.9956288611431001,
+   "e_ajuste": 0.7493034207930263
+  },
+  {
+   "parametro": "alpha",
+   "admisible": false,
+   "e_rel": 1.036419012141453,
+   "e_ajuste": 0.707070918542252
+  },
+  {
+   "parametro": "delta",
+   "admisible": false,
+   "e_rel": 1.0041620459427858,
+   "e_ajuste": 0.818251620244468
+  },
+  {
+   "parametro": "beta",
+   "admisible": false,
+   "e_rel": 0.9999999911171549,
+   "e_ajuste": 0.9999975950792662
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 11.7
+}

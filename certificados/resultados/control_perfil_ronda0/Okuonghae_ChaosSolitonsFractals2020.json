@@ -1,0 +1,159 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 32)",
+ "p_libres": 14,
+ "n_bio": 14,
+ "n_identificables": 0,
+ "n_no_identificables_practicos": 5,
+ "n_planos": 9,
+ "S_ours": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "S_perfil": [
+  "alpha",
+  "d_0"
+ ],
+ "S_qr": [
+  "asymptomatic_start",
+  "d_D"
+ ],
+ "overlap_perfil_ours": 0,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 46705.034547832045,
+ "chi2_qr": 32079.258174864663,
+ "chi2_perfil": 50273.5816280614,
+ "ratio_perfil_vs_ours": 1.0764060473303942,
+ "coste_min_train": 2485.572950632318,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "alpha",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.1445050224328952
+  },
+  {
+   "parametro": "d_0",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.7778417651225027
+  },
+  {
+   "parametro": "d_D",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 7704.727798019743,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.1983541638951465
+  },
+  {
+   "parametro": "gamma_0",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.35414759283230524,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -10.941109947470522
+  },
+  {
+   "parametro": "gamma_a",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -122.33935725217589
+  },
+  {
+   "parametro": "gamma_i",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 103827.97328267296,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.7354950374015061
+  },
+  {
+   "parametro": "nu",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 53587.5683252517,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.0925070332768883
+  },
+  {
+   "parametro": "psi",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 22.190331715579305,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -4.831631078607643
+  },
+  {
+   "parametro": "sigma",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.5294171694708893,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -11.116444387904266
+  },
+  {
+   "parametro": "theta",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.8119520673394618
+  },
+  {
+   "parametro": "asymptomatic_start",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.2729360726689265
+  },
+  {
+   "parametro": "symptomatic_start",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -7.518587116281196
+  },
+  {
+   "parametro": "exposed_start",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.11150268990559198,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -9.961495602575724
+  },
+  {
+   "parametro": "transmission_rate_effective",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 3.9117433117776272,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -264.31288345952544
+  }
+ ],
+ "segundos_fase3": 0.1
+}

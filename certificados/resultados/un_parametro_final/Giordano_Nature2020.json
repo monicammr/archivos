@@ -1,0 +1,84 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "calibracion": [],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "alpha_4",
+   "e_rel": 1.2083005845757737,
+   "e_fit": 0.11331605644841022,
+   "admisible": true
+  },
+  {
+   "parametro": "alpha_0",
+   "e_rel": 1.0621743263137282,
+   "e_fit": 0.1606647798955298,
+   "admisible": true
+  },
+  {
+   "parametro": "epsilon_0",
+   "e_rel": 1.0498272733057812,
+   "e_fit": 0.14309991473967643,
+   "admisible": true
+  },
+  {
+   "parametro": "epsilon_12",
+   "e_rel": 0.9249763309351755,
+   "e_fit": 0.29750068529794804,
+   "admisible": true
+  },
+  {
+   "parametro": "alpha_22",
+   "e_rel": 0.80119283563189,
+   "e_fit": 0.19905847875881347,
+   "admisible": true
+  },
+  {
+   "parametro": "zeta_0",
+   "e_rel": 1.1755092042293647,
+   "e_fit": 0.13180730377861688,
+   "admisible": true
+  },
+  {
+   "parametro": "gamma_4",
+   "e_rel": 1.0224895000783523,
+   "e_fit": 0.11310110545119935,
+   "admisible": true
+  },
+  {
+   "parametro": "alpha_28",
+   "e_rel": 1.0421235447400417,
+   "e_fit": 0.5109270444964945,
+   "admisible": false
+  },
+  {
+   "parametro": "theta",
+   "e_rel": 0.9122905149274046,
+   "e_fit": 0.13244163933546788,
+   "admisible": true
+  },
+  {
+   "parametro": "lam_0",
+   "e_rel": 0.961023803770554,
+   "e_fit": 0.12216171291758936,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "gamma_4",
+ "mejor_efit_10": 0.11426195506352967,
+ "S_efit_10": 0.054316201263353465,
+ "mejor_validacion": {
+  "A_chi2_test_red": 1.0940053459559538e-08,
+  "B_chi2_test_theta0": 0.8611975345046654,
+  "B_epred_red": 1.7828823787932138,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 43.9,
+ "mejor_validacion_calibracion": 0
+}

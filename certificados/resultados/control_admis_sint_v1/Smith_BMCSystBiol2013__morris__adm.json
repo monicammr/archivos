@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kminus8",
+  "kminus7b"
+ ],
+ "eajuste_med": 0.07737369636423383,
+ "erel_med": 0.27560744890845956,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 1124.2
+}

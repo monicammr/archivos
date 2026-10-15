@@ -1,0 +1,36 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "p": 14,
+ "T": 50.0,
+ "S1": [
+  "k_d",
+  "k00"
+ ],
+ "Rvar_S1_%": 90.09107854640524,
+ "S1_cumple": true,
+ "cos_S1": -0.5006376581423687,
+ "erel_S1": 1.0327230997039465,
+ "motivo_stage2": "Stage 1 cumple R_var pero no es admisible",
+ "etapa": "Stage 2",
+ "S": [
+  "k_d",
+  "k00",
+  "k4",
+  "k0",
+  "k2",
+  "k1"
+ ],
+ "Rvar_%": 93.76748779384423,
+ "kappa": 6.785922563879769,
+ "VIF": 8.850717218112859,
+ "cos_med": -0.48680795082969813,
+ "erel_med": 1.033771235341306,
+ "n_escenarios": 15,
+ "admisible": false,
+ "segundos": 0.1,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "alpha_cer",
+  "k_d"
+ ]
+}

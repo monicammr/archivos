@@ -1,0 +1,33 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "evaluable": true,
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 18,
+ "kappa_S_std": 5.427274422121799,
+ "VIF_S_std": 7.8723143479451005,
+ "kappa_SC_std": 5.427274422121799,
+ "VIF_SC_std": 7.8723143479451005,
+ "kappa_SC_n": 4.542421800496061,
+ "VIF_SC_n_max": 5.6705151159133536,
+ "VIF_SC_n_S": {
+  "ratio_kpkd_Y1068__FREE": 5.6705151159133536,
+  "ratio_kpkd_YN__FREE": 5.6705151159133536
+ },
+ "param_VIF_max": "ratio_kpkd_Y1068__FREE",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9075511987359646,
+  "a": "ratio_kpkd_Y1068__FREE",
+  "b": "ratio_kpkd_YN__FREE"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 5.0,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

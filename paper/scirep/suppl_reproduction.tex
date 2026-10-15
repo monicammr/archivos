@@ -1,0 +1,44 @@
+\snote{repro}
+
+All programs, results and formal proofs of this work are collected in a reproducibility package (folder \texttt{reproducibility/} of the repository \url{https://github.com/monicammr/archivos}, archived on Zenodo, DOI \href{https://doi.org/\zenododoi}{\nolinkurl{\zenododoi}}). Its file \texttt{README.md} is a step-by-step manual; this note summarises what can be checked and how.
+
+\subsection*{Contents of the package}
+\begin{itemize}\itemsep0pt
+\item \texttt{analysis/}: the method and every numerical analysis of the paper in Python (simulation of the measured outputs of a PEtab problem, selection, external and nested validation, synthetic experiment, robustness, single-parameter subsets, settings, cost, simulator check, comparison with other criteria, identifiability, SCT example), including the additional analyses described in the Supplementary Notes on robustness (independent directions), on the synthetic experiment (true signal and other amplitudes), on the method settings (error in units of the noise) and on random scenarios and large problems; all settings and seeds are in \texttt{analysis/config.py}.
+\item \texttt{results/}: the results of these analyses, one file per benchmark problem, with a data dictionary (\texttt{DATA\_DICTIONARY.md}).
+\item \texttt{figures\_tables/}: the programs that produce every figure, table and Supplementary Note that contains numbers from those results.
+\item \texttt{lean\_proofs/}: the Lean~4 development (32 modules, 304 theorems and lemmas, 28 benchmark models).
+\item \texttt{lean\_translation/}: the translator of the SBML models into Lean and the independent check of the translation.
+\end{itemize}
+The PEtab problems are downloaded from the benchmark collection at commit \texttt{fcbddf1} by \texttt{scripts/get\_benchmark.sh}; the step-count data of the SCT example are available from the authors on reasonable request.
+
+\subsection*{Three levels of checking}
+\begin{enumerate}\itemsep0pt
+\item \emph{From the stored results to the paper} (less than a minute): \texttt{python figures\_tables/build\_all.py} regenerates the figures, Table~1 and the Supplementary Tables and Notes with numbers, and prints the counts quoted in the text. The README relates every figure and table to the program and the result files it comes from.
+\item \emph{The formal proofs} (1--2 hours): see below.
+\item \emph{From the PEtab problems to the results} (minutes per problem, about one to two days in total on four cores): the programs of \texttt{analysis/} are run in the order given in the README, writing to a separate folder, and \texttt{scripts/compare\_results.py} compares the new results with the stored ones. With the fixed seeds the results are deterministic; small differences can arise only where a simulation fails to integrate in one run and not in another (some scenarios of Chen and Isensee) and from different versions of the numerical libraries; for example, the selection of Lang and Raimundez gave the same subsets with libRoadRunner 2.9.2 and 2.10.0, with $e_{\mathrm{fit}}$ agreeing to within $10^{-8}$ (\sref{scen}). The analyses of the largest problems need a many-core machine: on a 128-core server the complete set of analyses of one large problem (validation, synthetic experiment, comparison with the other criteria and identifiability) takes one to a few hours.
+\end{enumerate}
+
+\subsection*{What each check of the formal verification establishes}
+\begin{itemize}\itemsep0pt
+\item \emph{Compilation} establishes that every proof is accepted by the Lean kernel, i.e.\ that each theorem follows from its hypotheses.
+\item \emph{Axiom inspection} (\texttt{\#print axioms}) establishes that no proof relies on an unproved assumption: the only axioms are \texttt{propext}, \texttt{Classical.choice} and \texttt{Quot.sound}, which are part of Lean's standard logic.
+\item \emph{The fidelity check} of \sref{models} establishes that the data on which the model checks run (rate laws, stoichiometry, parameter values and initial values) are those of the benchmark models.
+\end{itemize}
+The statements themselves should be compared with the mathematics they are meant to encode; \sref{stmts} gives each statement in mathematical notation for this purpose.
+
+\subsection*{Versions}
+Lean~4.23.0 (file \texttt{lean\_proofs/lean-toolchain}) and Mathlib at tag \texttt{v4.23.0} (file \texttt{lean\_proofs/lakefile.lean}). The Python programs use Python~3.11 with libRoadRunner~2.10, libSBML~5.21, NumPy, SciPy, pandas, SymPy and Matplotlib at the versions listed in \texttt{requirements.txt}.
+
+\subsection*{Steps for the formal verification}
+\begin{enumerate}\itemsep0pt
+\item Install the Lean version manager \texttt{elan} (\url{https://github.com/leanprover/elan}); it reads the Lean version from \texttt{lean-toolchain}.
+\item In the folder \texttt{lean\_proofs/}, run \texttt{./verify.sh}. The script (i) checks that no file contains \texttt{sorry} or an \texttt{axiom} declaration, (ii) downloads the precompiled Mathlib (\texttt{lake exe cache get}), (iii) compiles the 31 theory modules and the 28 models (\texttt{lake build}) and (iv) prints the axioms of every theorem (\texttt{CheckAxioms.lean}) and of the final theorem of every model (\texttt{CheckModelAxioms.lean}). The theory compiles in a few minutes; the models take longer, the largest (Chen and Froehlich) about 30 minutes each. A large stack is needed (\texttt{ulimit -s unlimited}; the build passes \texttt{--tstack=4000000} to the model files).
+\item To inspect one model only: \texttt{lake env lean Models/<model>.lean}. The last line of each model file prints the axioms of its final theorem.
+\item To locate a theorem: Supplementary Table~\ref{tab:modules} gives the module of every main result, and \texttt{lean\_proofs/FORMULAS.md} lists every declaration with its module and statement; the module \texttt{X} is the file \texttt{lean\_proofs/X.lean}.
+\item To check the translation of the models (needs the benchmark): in the folder \texttt{lean\_translation/}, \texttt{python sbml\_to\_lean.py} regenerates the model files from the SBML models (the files are identical to those of \texttt{lean\_proofs/Models/}), \texttt{python verify\_translation.py} compares every model file with its SBML model and writes \texttt{results/sbml\_to\_lean/translation\_fidelity.json}, and \texttt{python mutation\_control.py} shows that a 1\% change of one number of a model file is detected.
+\end{enumerate}
+Our complete build log, with the compilation time of every module, is \texttt{lean\_proofs/BUILD\_LOG.md}.
+
+\subsection*{First-order re-estimation}
+For the eight problems treated to first order, the first-order re-estimation uses the columns of the sensitivity matrix of the selected and of the calibration parameters, $J_{S\cup\Theta_C}$; the program computes the columns of both kinds of parameters. Run from scratch, without any cached result, it reproduces exactly the subsets and $e_{\mathrm{fit}}$ reported for all eight problems (for example Bachmann: CISRNADelay and JAK2ActEpo, $e_{\mathrm{fit}}=0.337$; Chen: k106 and k44, $0.082$).

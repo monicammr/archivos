@@ -1,0 +1,15 @@
+{
+ "S": [
+  "K_par",
+  "Vm2"
+ ],
+ "eajuste_med": 0.19833217641948298,
+ "erel_med": 0.621344266600163,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 10.2
+}

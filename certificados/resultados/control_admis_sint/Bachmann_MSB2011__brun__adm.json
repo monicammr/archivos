@@ -1,0 +1,15 @@
+{
+ "S": [
+  "STAT5Imp",
+  "JAK2ActEpo"
+ ],
+ "eajuste_med": 0.30687547012053074,
+ "erel_med": 0.6671433080883878,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 19.0
+}

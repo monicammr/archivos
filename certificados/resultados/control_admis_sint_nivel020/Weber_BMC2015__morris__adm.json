@@ -1,0 +1,15 @@
+{
+ "S": [
+  "pu3",
+  "a21"
+ ],
+ "eajuste_med": 0.04368874739460957,
+ "erel_med": 0.7980297982008758,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Weber_BMC2015",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 12.2
+}

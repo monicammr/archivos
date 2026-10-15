@@ -1,0 +1,17 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "|S|": 2,
+ "division": "extrapolacion temporal (t >= 30)",
+ "n_train": 201,
+ "n_test": 112,
+ "chi2_test_red_original": 1.0236762094202532e-07,
+ "chi2_test_full_train": 0.007733088549482617,
+ "chi2_test_red_nested": 0.007733088549482617,
+ "chi2_test_theta0": 7.445929474475888e-09,
+ "ratio_nested_vs_original": 75542.32948191851,
+ "segundos": 0.6
+}

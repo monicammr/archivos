@@ -1,0 +1,14 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "semilla": 45,
+ "p_y": 12,
+ "B_chi2_test_theta0": 10475361.462711621,
+ "B_chi2_test_red": 1342937.807123848,
+ "B_epred_red": 0.3580964989543757,
+ "nfev_red": 23,
+ "seg_red": 0.8,
+ "B_chi2_test_full": 711.7583566930641,
+ "B_epred_full": 0.008159582991657319,
+ "nfev_full": 48,
+ "segundos": 1.8
+}

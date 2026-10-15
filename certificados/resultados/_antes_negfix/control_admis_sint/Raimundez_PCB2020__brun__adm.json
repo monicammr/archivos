@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "eajuste_med": 0.5151215265462861,
+ "erel_med": 1.0069215505790348,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 183.6
+}

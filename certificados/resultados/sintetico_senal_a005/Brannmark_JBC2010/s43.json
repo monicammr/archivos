@@ -1,0 +1,11 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "semilla": 43,
+ "p_y": 18,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.18376717677762877,
+ "senal_rms_test": 0.43852797969000495,
+ "senal_norma_test": 2.2360627256957555,
+ "ruido_norma_test": 5.0990195135927845,
+ "segundos": 0.7
+}

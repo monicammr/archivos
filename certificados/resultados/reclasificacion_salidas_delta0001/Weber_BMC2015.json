@@ -1,0 +1,38 @@
+{
+ "sistema": "Weber_BMC2015",
+ "p": 36,
+ "T": 50.0,
+ "S1": [
+  "a21",
+  "s12",
+  "p12",
+  "scale_yPI4K3BpRN24",
+  "scale_yPKDpN24",
+  "scale_yPKDpN0",
+  "a22",
+  "a32"
+ ],
+ "Rvar_S1_%": 25.35827747902914,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "Rvar_%": 24.20469189841467,
+ "kappa": 3.744435352707505,
+ "VIF": 4.023029684201048,
+ "cos_med": 0.49327511751099057,
+ "erel_med": 1.0207324433959086,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.34276198571464317,
+ "segundos": 3.1,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "s31",
+  "a31",
+  "p31",
+  "p22"
+ ]
+}

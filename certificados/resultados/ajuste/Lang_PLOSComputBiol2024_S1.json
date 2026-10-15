@@ -1,0 +1,23 @@
+{
+ "sistema": "Lang_PLOSComputBiol2024",
+ "|S|": 7,
+ "S": [
+  "kDpCdc25",
+  "kDeFox2",
+  "kImImMASTL_Thr198u__1",
+  "kImImCDC25_pSitesu__1",
+  "kImImENSA_ARPP19_PPP2R2B_Ser62_Ser67u__1",
+  "kImImCDC25_pSitesp__1",
+  "kImImWEE1_Ser123u__1"
+ ],
+ "n_escenarios": 15,
+ "cos_med": -0.0009174683618084328,
+ "erel_med": 1.0003063404527799,
+ "eajuste_med": 0.8232871746608611,
+ "eajuste_p90": 0.8250309431364057,
+ "eajuste<=0.10": "0/15",
+ "eajuste<=0.436": "0/15",
+ "segundos": 112.1,
+ "admisible_v2": false,
+ "subconjunto": "S1"
+}

@@ -1,0 +1,11 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "semilla": 56,
+ "p_y": 22,
+ "amplitud": 0.2,
+ "senal_rms_train": 1.0914160422022392,
+ "senal_rms_test": 0.8894879945346529,
+ "senal_norma_test": 5.410544244305494,
+ "ruido_norma_test": 6.082762530298219,
+ "segundos": 0.7
+}

@@ -1,0 +1,18 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "k": 2,
+ "S_ours": [
+  "l4",
+  "l2"
+ ],
+ "S_qr": [
+  "k_2",
+  "k_3"
+ ],
+ "overlap": 0,
+ "chi2_ours": 2.221536953058167,
+ "chi2_qr": 1.4795179394980482,
+ "ratio_qr_vs_ours": 0.6659884443791693,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.1
+}

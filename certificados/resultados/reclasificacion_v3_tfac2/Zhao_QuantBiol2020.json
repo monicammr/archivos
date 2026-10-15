@@ -1,0 +1,29 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "p": 28,
+ "T": 1.0,
+ "S1": [
+  "R_Stage_I_Wuhan",
+  "gamma_2_Stage_I_Wuhan"
+ ],
+ "Rvar_S1_%": 55.71356732503634,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "R_Stage_I_Wuhan",
+  "gamma_2_Stage_I_Wuhan"
+ ],
+ "Rvar_%": 55.71356732503634,
+ "kappa": 1.0226673217587103,
+ "VIF": 1.0005024820891768,
+ "cos_med": 0.9931641559737071,
+ "erel_med": 0.7756163771419201,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.10475827265912377,
+ "segundos": 0.4,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "R_Stage_I_Wuhan"
+ ]
+}

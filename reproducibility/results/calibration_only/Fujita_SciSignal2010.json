@@ -1,0 +1,9 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "k": 2,
+ "n_cal": 3,
+ "chi2_ours": 5.939147165229708,
+ "chi2_vacio": 5.937096958365409,
+ "ratio_vacio_vs_ours": 0.9996547977668743,
+ "segundos": 0.2
+}

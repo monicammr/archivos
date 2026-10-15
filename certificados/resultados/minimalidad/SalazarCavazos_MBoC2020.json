@@ -1,0 +1,63 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "ratio_kpkd_Y1068__FREE",
+   "admisible": true,
+   "e_rel": 0.8785654944743381,
+   "e_ajuste": 0.4196416330707377
+  },
+  {
+   "sin": "ratio_kpkd_YN__FREE",
+   "admisible": true,
+   "e_rel": 0.47998653248434714,
+   "e_ajuste": 0.2972634216589741
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "ratio_kpkd_Y1068__FREE",
+   "admisible": true,
+   "e_rel": 0.47998653248434714,
+   "e_ajuste": 0.2972634216589741
+  },
+  {
+   "parametro": "ratio_kpkd_YN__FREE",
+   "admisible": true,
+   "e_rel": 0.8785654944743381,
+   "e_ajuste": 0.4196416330707377
+  },
+  {
+   "parametro": "SHC1_total__FREE",
+   "admisible": true,
+   "e_rel": 0.9070363962318443,
+   "e_ajuste": 0.40032953455321
+  },
+  {
+   "parametro": "kdephosYN__FREE",
+   "admisible": false,
+   "e_rel": 0.9872166199627705,
+   "e_ajuste": 0.6086823995013618
+  },
+  {
+   "parametro": "GRB2_total__FREE",
+   "admisible": false,
+   "e_rel": 1.0546162517304538,
+   "e_ajuste": 0.6077850622994336
+  },
+  {
+   "parametro": "kdephosY1068__FREE",
+   "admisible": true,
+   "e_rel": 1.0017364053718962,
+   "e_ajuste": 0.43405817042436384
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 74.0
+}

@@ -1,0 +1,2 @@
+sistema,n_calibracion,n_datos,coste_min,chi2_por_gl,umbral_robusto,rondas,dchi2_minimo,n_identificables,todos_identificables,n_identificables_robusto,todos_identificables_robusto
+Armistead_CellDeathDis2024,0,58,57.980890293386295,1.0353730409533266,3.975832477260774,0,2.4545229480780435,2,True,2,True

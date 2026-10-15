@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "eajuste_med": 0.05763299215714259,
+ "erel_med": 0.20676980416091573,
+ "admisible": true,
+ "n_escenarios": 9,
+ "lineal": true,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 317.1
+}

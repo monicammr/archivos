@@ -1,0 +1,15 @@
+{
+ "S": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "eajuste_med": 0.42537664304938827,
+ "erel_med": 0.4925879909627711,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 1.0
+}

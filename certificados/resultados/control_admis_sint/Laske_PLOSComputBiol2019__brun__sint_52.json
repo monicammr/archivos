@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "semilla": 52,
+ "B_chi2_test_theta0": 1.9530788068432274,
+ "B_chi2_test_red": 1.953078806995106,
+ "B_epred_red": 0.9999999956321342,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 1.3
+}

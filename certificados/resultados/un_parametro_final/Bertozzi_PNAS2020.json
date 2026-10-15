@@ -1,0 +1,49 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "S": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "calibracion": [],
+ "candidatos": 6,
+ "un_parametro": [
+  {
+   "parametro": "R0_NY",
+   "e_rel": 0.751247309595848,
+   "e_fit": 0.46255210611602815,
+   "admisible": false
+  },
+  {
+   "parametro": "I0_NY",
+   "e_rel": 0.8556193255620765,
+   "e_fit": 0.4854079245767098,
+   "admisible": false
+  },
+  {
+   "parametro": "R0_CA",
+   "e_rel": 0.9451271794065331,
+   "e_fit": 0.9449719005813559,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_NY",
+   "e_rel": 1.0006511078808265,
+   "e_fit": 0.46244598337252163,
+   "admisible": false
+  },
+  {
+   "parametro": "gamma_CA",
+   "e_rel": 0.9849825054456193,
+   "e_fit": 0.9449719054923964,
+   "admisible": false
+  },
+  {
+   "parametro": "I0_CA",
+   "e_rel": 0.9966011159423833,
+   "e_fit": 0.9541231142410661,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 2.0
+}

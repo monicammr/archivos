@@ -1,0 +1,260 @@
+{
+ "sistema": "Crauste_CellSystems2017",
+ "nominal": {
+  "existe_en_[0,28]": true,
+  "t_final": 28.000000000000004,
+  "efectores_max": 962152.982075267,
+  "t_max": 9.700000000000001,
+  "efectores_t_final": 5976.348331777642
+ },
+ "un_parametro_1%": [
+  {
+   "parametro": "delta_EL",
+   "factor": 1.01,
+   "existe_en_[0,28]": false,
+   "t_final": 9.500000000000002,
+   "efectores_max": 2780361.9469994577,
+   "t_max": 9.500000000000002,
+   "efectores_t_final": 2780361.9469994577
+  },
+  {
+   "parametro": "delta_EL",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 786373.5519555877,
+   "t_max": 9.250000000000002,
+   "efectores_t_final": 5749.731224696566
+  },
+  {
+   "parametro": "delta_LM",
+   "factor": 1.01,
+   "existe_en_[0,28]": false,
+   "t_final": 9.850000000000001,
+   "efectores_max": 3058861.962005825,
+   "t_max": 9.850000000000001,
+   "efectores_t_final": 3058861.962005825
+  },
+  {
+   "parametro": "delta_LM",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 888093.1764584294,
+   "t_max": 9.450000000000001,
+   "efectores_t_final": 5858.852261429612
+  },
+  {
+   "parametro": "delta_NE",
+   "factor": 1.01,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 686089.070054706,
+   "t_max": 9.05,
+   "efectores_t_final": 5653.553111278287
+  },
+  {
+   "parametro": "delta_NE",
+   "factor": 0.99,
+   "existe_en_[0,28]": false,
+   "t_final": 9.3,
+   "efectores_max": 5266328.939140285,
+   "t_max": 9.3,
+   "efectores_t_final": 5266328.939140285
+  },
+  {
+   "parametro": "mu_EE",
+   "factor": 1.01,
+   "existe_en_[0,28]": false,
+   "t_final": 9.200000000000001,
+   "efectores_max": 2779646.4008396943,
+   "t_max": 9.200000000000001,
+   "efectores_t_final": 2779646.4008396943
+  },
+  {
+   "parametro": "mu_EE",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 651487.7625558757,
+   "t_max": 9.000000000000002,
+   "efectores_t_final": 5620.402948718389
+  },
+  {
+   "parametro": "mu_LE",
+   "factor": 1.01,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 962244.2083968644,
+   "t_max": 9.700000000000001,
+   "efectores_t_final": 5976.57326528073
+  },
+  {
+   "parametro": "mu_LE",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 962061.7814646555,
+   "t_max": 9.700000000000001,
+   "efectores_t_final": 5976.124238902009
+  },
+  {
+   "parametro": "mu_LL",
+   "factor": 1.01,
+   "existe_en_[0,28]": false,
+   "t_final": 9.500000000000002,
+   "efectores_max": 2572760.162699771,
+   "t_max": 9.500000000000002,
+   "efectores_t_final": 2572760.162699771
+  },
+  {
+   "parametro": "mu_LL",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 784602.2072284914,
+   "t_max": 9.200000000000001,
+   "efectores_t_final": 5777.0267425537595
+  },
+  {
+   "parametro": "mu_N",
+   "factor": 1.01,
+   "existe_en_[0,28]": false,
+   "t_final": 9.3,
+   "efectores_max": 2967947.036949966,
+   "t_max": 9.3,
+   "efectores_t_final": 2967947.036949966
+  },
+  {
+   "parametro": "mu_N",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 692805.4535306271,
+   "t_max": 9.05,
+   "efectores_t_final": 5658.4270599694455
+  },
+  {
+   "parametro": "mu_P",
+   "factor": 1.01,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 961290.054662405,
+   "t_max": 9.700000000000001,
+   "efectores_t_final": 5974.269912802214
+  },
+  {
+   "parametro": "mu_P",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 963022.1183403766,
+   "t_max": 9.700000000000001,
+   "efectores_t_final": 5978.512228718533
+  },
+  {
+   "parametro": "mu_PE",
+   "factor": 1.01,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 961846.9125611396,
+   "t_max": 9.700000000000001,
+   "efectores_t_final": 5975.602269478216
+  },
+  {
+   "parametro": "mu_PE",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 962459.3382631128,
+   "t_max": 9.700000000000001,
+   "efectores_t_final": 5977.103955984233
+  },
+  {
+   "parametro": "mu_PL",
+   "factor": 1.01,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 592726.2017295621,
+   "t_max": 8.9,
+   "efectores_t_final": 5581.096362844691
+  },
+  {
+   "parametro": "mu_PL",
+   "factor": 0.99,
+   "existe_en_[0,28]": false,
+   "t_final": 9.100000000000001,
+   "efectores_max": 3371665.012000728,
+   "t_max": 9.100000000000001,
+   "efectores_t_final": 3371665.012000728
+  },
+  {
+   "parametro": "rho_E",
+   "factor": 1.01,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 467713.34679534286,
+   "t_max": 8.750000000000002,
+   "efectores_t_final": 5514.813880626574
+  },
+  {
+   "parametro": "rho_E",
+   "factor": 0.99,
+   "existe_en_[0,28]": false,
+   "t_final": 8.850000000000001,
+   "efectores_max": 2685261.196951087,
+   "t_max": 8.850000000000001,
+   "efectores_t_final": 2685261.196951087
+  },
+  {
+   "parametro": "rho_P",
+   "factor": 1.01,
+   "existe_en_[0,28]": false,
+   "t_final": 8.750000000000002,
+   "efectores_max": 2719429.065168405,
+   "t_max": 8.750000000000002,
+   "efectores_t_final": 2719429.065168405
+  },
+  {
+   "parametro": "rho_P",
+   "factor": 0.99,
+   "existe_en_[0,28]": true,
+   "t_final": 28.000000000000004,
+   "efectores_max": 455864.1386123086,
+   "t_max": 8.850000000000001,
+   "efectores_t_final": 5540.691967508413
+  }
+ ],
+ "tolerancias": [
+  {
+   "rtol": 1e-10,
+   "atol": 1e-13,
+   "fallos_un_parametro_1%": "9/24",
+   "fallos_escenarios_5%": "7/15"
+  },
+  {
+   "rtol": 1e-08,
+   "atol": 1.0000000000000001e-11,
+   "fallos_un_parametro_1%": "9/24",
+   "fallos_escenarios_5%": "7/15"
+  },
+  {
+   "rtol": 1e-07,
+   "atol": 1e-10,
+   "fallos_un_parametro_1%": "9/24",
+   "fallos_escenarios_5%": "7/15"
+  },
+  {
+   "rtol": 1e-06,
+   "atol": 1e-09,
+   "fallos_un_parametro_1%": "9/24",
+   "fallos_escenarios_5%": "7/15"
+  },
+  {
+   "rtol": 1e-05,
+   "atol": 1e-08,
+   "fallos_un_parametro_1%": "9/24",
+   "fallos_escenarios_5%": "7/15"
+  }
+ ]
+}

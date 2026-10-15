@@ -1,0 +1,11 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "semilla": 43,
+ "p_y": 7,
+ "amplitud": 0.2,
+ "senal_rms_train": 0.4013985467496682,
+ "senal_rms_test": 0.28168180704566187,
+ "senal_norma_test": 1.9917911589886812,
+ "ruido_norma_test": 7.0710678118654755,
+ "segundos": 0.7
+}

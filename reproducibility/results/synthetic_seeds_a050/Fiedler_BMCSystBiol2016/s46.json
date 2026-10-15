@@ -1,0 +1,19 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "semilla": 46,
+ "p_y": 20,
+ "amplitud": 0.5,
+ "senal_rms_train": 4.860506563137841,
+ "senal_rms_test": 8.657551257621291,
+ "senal_norma_test": 38.71774626146001,
+ "ruido_norma_test": 4.47213595499958,
+ "B_chi2_test_theta0": 78.1262615538852,
+ "B_chi2_test_red": 9.893955201424996,
+ "B_epred_red": 0.32361541619126283,
+ "nfev_red": 15,
+ "seg_red": 1.3,
+ "B_chi2_test_full": 38.04268791750637,
+ "B_epred_full": 0.680243299671527,
+ "nfev_full": 105,
+ "segundos": 6.4
+}

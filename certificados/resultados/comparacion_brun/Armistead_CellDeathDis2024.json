@@ -1,0 +1,18 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "k": 2,
+ "S_ours": [
+  "k_d",
+  "k00"
+ ],
+ "S_qr": [
+  "k00",
+  "k2"
+ ],
+ "overlap": 1,
+ "chi2_ours": 1.2180658482279045,
+ "chi2_qr": 1.2072592244130071,
+ "ratio_qr_vs_ours": 0.9911280462951824,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.3
+}

@@ -1,0 +1,19 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "semilla": 44,
+ "p_y": 7,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.06969091180975404,
+ "senal_rms_test": 0.1760843987312633,
+ "senal_norma_test": 1.245104724040322,
+ "ruido_norma_test": 7.0710678118654755,
+ "B_chi2_test_theta0": 0.7113493946912317,
+ "B_chi2_test_red": 0.71064941588847,
+ "B_epred_red": 0.48976233651885764,
+ "nfev_red": 5,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 0.9503275316096123,
+ "B_epred_full": 2.752144515395365,
+ "nfev_full": 25,
+ "segundos": 1.2
+}

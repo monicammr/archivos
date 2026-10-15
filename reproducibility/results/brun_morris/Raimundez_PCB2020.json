@@ -1,0 +1,64 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 57,
+ "S_ours": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "S_brun": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "chi2_brun": 1.1672675798560666,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 98.1,
+ "detalle_brun": {
+  "gamma": 1.234099965806866,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "kdeg_membran__MKN1": 17.922390060613175,
+   "ka_MAPK__MKN1": 8.895914158475495,
+   "ki_MAPK": 8.706319667733164,
+   "ki_RAS__MKN1": 7.93815282288777,
+   "d_MAPKtotal__fm_2_hm": 6.736097125214493,
+   "ka_RAS__pEGFR_EGF_2__MKN1": 6.355282247605019,
+   "d_ksyn_EGFR__MKN1_2_HS746T": 6.076474791054573,
+   "kimp_pEGFR_EGF_2__MKN1": 5.985734395924569,
+   "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T": 5.824059583504871,
+   "kdeg_pEGFR_EGF_2_i__MKN1": 4.9516962786759136,
+   "d_RAStotal__fm_2_hm": 4.679038220842122,
+   "ka_RAS__basal__MKN1": 3.638995913445518,
+   "xi_kimp_pMMET_pEGFR": 3.2032611558410933,
+   "kpho_EGFR_EGF": 2.9734810921495094,
+   "KD_EGFR_EGF": 2.9721001038662895
+  }
+ },
+ "S_morris": [
+  "d_AKTtotal__fm_2_hm",
+  "ki_AKT__MKN1"
+ ],
+ "chi2_morris": 1.170971562715341,
+ "overlap_morris_ours": 0,
+ "segundos_morris": 352.1,
+ "detalle_morris": {
+  "mu_star_top": {
+   "d_AKTtotal__fm_2_hm": 65410.03296042945,
+   "ki_AKT__MKN1": 55343.32165555301,
+   "ksyn_MMET__HS746T_fm": 44599.09312098962,
+   "ki_PI3K__MKN1": 42089.219438557644,
+   "ka_PI3K__pEGFR_EGF_2": 39953.06383846207,
+   "d_PI3Ktotal__fm_2_hm": 27877.614981641662,
+   "ka_AKT__MKN1": 25179.158679336895,
+   "xi_ka_PI3K_pMMET_pEGFR": 21289.863877497188,
+   "kdeg_membran__MKN1": 20027.889277911556,
+   "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T": 19367.931755132573
+  },
+  "fallos_simulacion": 2
+ },
+ "chi2_ours": 1.1673048698000734,
+ "chi2_qr": 1.1679705106510196,
+ "chi2_perfil": null,
+ "segundos": 451.4
+}

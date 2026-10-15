@@ -1,0 +1,20 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "|S|": 5,
+ "S": [
+  "beta_0",
+  "beta_1",
+  "h_hosp_rate",
+  "gamma_h",
+  "gamma_u"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.986792971605687,
+ "erel_med": 0.7935329222593007,
+ "eajuste_med": 0.04014355741129692,
+ "eajuste_p90": 0.171198774373772,
+ "eajuste<=0.10": "10/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.9,
+ "admisible_v2": false
+}

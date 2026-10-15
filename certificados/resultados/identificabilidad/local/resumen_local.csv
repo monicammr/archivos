@@ -1,0 +1,2 @@
+sistema,evaluable,n_calibracion,n_filas,kappa_S_std,VIF_S_std,kappa_SC_std,VIF_SC_std,kappa_SC_n,VIF_SC_n_max,param_VIF_max,columnas_reutilizadas,segundos,pasa_std,pasa_n,pasa_S_n
+Raimundez_PCB2020,True,79,627,1.3408433303201317,1.0885193533131055,21.379182231121547,71.85474914666412,21.887152723187768,75.5365627332809,kdeg_membran__MKN1,81,1.7,False,False,False

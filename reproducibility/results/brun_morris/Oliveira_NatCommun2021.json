@@ -1,0 +1,59 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 40)",
+ "n_bio": 12,
+ "S_ours": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "S_brun": [
+  "beta_0",
+  "t_1"
+ ],
+ "chi2_brun": 552.8700127783804,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 0.2,
+ "detalle_brun": {
+  "gamma": 4.722071690456086,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "beta_0": 1121.9116199126279,
+   "delta_": 804.0937459436038,
+   "t_1": 305.86050313748024,
+   "symptomatic_init_concentration": 97.99707949808716,
+   "beta_1": 85.32653491919746,
+   "asymptomatic_init_concentration": 79.79927320964336,
+   "exposed_init_concentration": 16.577688139781504,
+   "gamma_u": 12.109066285888158,
+   "gamma_h": 9.560946622024353,
+   "h_hosp_rate": 6.667165290065962
+  }
+ },
+ "S_morris": [
+  "beta_0",
+  "t_1"
+ ],
+ "chi2_morris": 552.8700127783804,
+ "overlap_morris_ours": 1,
+ "segundos_morris": 0.5,
+ "detalle_morris": {
+  "mu_star_top": {
+   "beta_0": 11165852.284762092,
+   "t_1": 3756194.8741856925,
+   "delta_": 3070670.4426046996,
+   "beta_1": 2849779.000304622,
+   "asymptomatic_init_concentration": 449195.3845737976,
+   "gamma_u": 130569.81615359706,
+   "symptomatic_init_concentration": 98744.1022035531,
+   "h_hosp_rate": 80911.46645551511,
+   "exposed_init_concentration": 10092.72368296556,
+   "gamma_h": 323.66682178682714
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 912.4437319197926,
+ "chi2_qr": 73200.29397045507,
+ "chi2_perfil": 295613.68435409816,
+ "segundos": 1.9
+}

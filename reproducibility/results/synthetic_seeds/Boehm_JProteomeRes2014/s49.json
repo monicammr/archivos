@@ -1,0 +1,14 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "semilla": 49,
+ "p_y": 6,
+ "B_chi2_test_theta0": 0.6516860102177028,
+ "B_chi2_test_red": 1.549641525309294,
+ "B_epred_red": 1.6538705937526377,
+ "nfev_red": 9,
+ "seg_red": 0.8,
+ "B_chi2_test_full": 1.8056672198764865,
+ "B_epred_full": 3.8583134132453596,
+ "nfev_full": 30,
+ "segundos": 1.1
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "R_Stage_I_China",
+  "gamma_2_Stage_I_China",
+  "R_Stage_II_China"
+ ],
+ "eajuste_med": 0.6077825464665473,
+ "erel_med": 0.7886208306542529,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 4.2
+}

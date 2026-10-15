@@ -1,0 +1,17 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "|S|": 2,
+ "S": [
+  "tau_prot",
+  "tau_mRNA"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.999868505234926,
+ "erel_med": 0.01621752967290395,
+ "eajuste_med": 0.016203694283129344,
+ "eajuste_p90": 0.057037167579876896,
+ "eajuste<=0.10": "14/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.3,
+ "admisible_v2": true
+}

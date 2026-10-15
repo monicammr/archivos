@@ -1,0 +1,11 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "semilla": 54,
+ "p_y": 14,
+ "amplitud": 0.2,
+ "senal_rms_train": 38.94774107862877,
+ "senal_rms_test": 246.75965182240387,
+ "senal_norma_test": 1395.8833850148255,
+ "ruido_norma_test": 5.656854249492381,
+ "segundos": 0.7
+}

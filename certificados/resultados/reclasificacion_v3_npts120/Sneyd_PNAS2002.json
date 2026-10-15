@@ -1,0 +1,30 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "p": 15,
+ "T": 5.0,
+ "S1": [
+  "k2",
+  "l_2"
+ ],
+ "Rvar_S1_%": 17.273754499815848,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k_2",
+  "l_2"
+ ],
+ "Rvar_%": 17.270356976185102,
+ "kappa": 2.236137327469838,
+ "VIF": 1.8000744355453193,
+ "cos_med": 0.9653665311543571,
+ "erel_med": 0.9561519004333636,
+ "n_escenarios": 14,
+ "admisible": true,
+ "eajuste_med": 6.856586461260006e-10,
+ "segundos": 0.6,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "k1",
+  "k2"
+ ]
+}

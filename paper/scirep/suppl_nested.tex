@@ -1,0 +1,93 @@
+\snote{nested}
+
+\subsection*{Motivation}
+
+In the external validation the reduced model keeps the non-selected parameters at $\theta_0$, the published estimate, which was obtained from \emph{all} experimental data, including the test experiments. The reduced model may therefore inherit information about the test data through the parameters it keeps fixed. This note quantifies that effect.
+
+\subsection*{Design}
+
+For each problem we ran a \emph{nested} validation in which no value used by the reduced model has seen the test data:
+\begin{enumerate}\itemsep0pt
+  \item the full model was re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$ (the full-model baseline of the external validation);
+  \item the reduced model was then re-estimated on the training data with the non-selected parameters fixed at $\hat\theta_{\mathrm{train}}$ instead of $\theta_0$, and with search bounds derived from $\hat\theta_{\mathrm{train}}$;
+  \item the test $\chi^2/n$ of this nested reduced model was compared with that of the full training fit and with that of the original, $\theta_0$-anchored reduced model.
+\end{enumerate}
+Supplementary Figure~\ref{fig:nested_protocol} illustrates both protocols. The protocol removes the leakage through the values of the fixed parameters; it does not repeat the whole procedure on the training data: the subset $S$ and the sensitivity matrix were not recomputed on the training data, and the full training fit starts from $\theta_0$. It is therefore an analysis of the effect of the $\theta_0$ anchor, not a fully leakage-free validation of the selection.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  node distance = 0.6cm,
+  box/.style     = {rectangle, rounded corners=4pt, draw, minimum width=4.2cm,
+                    minimum height=0.72cm, text width=4.0cm, align=center, font=\small},
+  dataL/.style   = {box, fill=red!10, draw=red!50},
+  dataR/.style   = {box, fill=teal!10, draw=teal!50},
+  fitbox/.style  = {box, fill=violet!8, draw=violet!45},
+  parambox/.style= {box, fill=orange!10, draw=orange!50},
+  resL/.style    = {box, fill=red!8,    draw=red!40},
+  resR/.style    = {box, fill=teal!15,  draw=teal!50},
+  sumbox/.style  = {rectangle, rounded corners=4pt, draw=gray!50, fill=gray!8,
+                    minimum width=9.6cm, text width=9.2cm, align=center, font=\small},
+  arr/.style     = {->, >=Stealth, semithick},
+  lbl/.style     = {font=\footnotesize, midway, right, xshift=2pt}
+]
+% ---- Column A: original ----
+\node[font=\small\bfseries] (titleA) {(a)~Original};
+\node[dataL,   below=0.5cm of titleA] (dataA) {All data\\[2pt]{\footnotesize train\,+\,test}};
+\node[fitbox,  below=0.6cm of dataA]  (fitA)    {Fit full model};
+\node[parambox,below=0.6cm of fitA]   (thetaA)  {$\theta_0$\\[2pt]{\footnotesize all-data estimate}};
+\node[fitbox,  below=1.1cm of thetaA] (fitredA) {Fit reduced model\\[2pt]{\footnotesize $S\cup\Theta_C$ on train}};
+\node[resL,    below=0.6cm of fitredA](chi2A)   {$\chi^2_{\mathrm{orig}}$ (test set)};
+% ---- Column B: leakage-free ----
+\node[dataR, right=2.4cm of dataA] (dataB) {Training data\\[2pt]{\footnotesize test set never used}};
+\node[font=\small\bfseries] at (dataB.north |- titleA) (titleB) {(b)~Leakage-free};
+\node[fitbox,   below=0.6cm of dataB]  (fitB)    {Fit full model};
+\node[parambox, below=0.6cm of fitB]   (thetaB)  {$\hat\theta_{\mathrm{train}}$\\[2pt]{\footnotesize training-only estimate}};
+\node[fitbox,   below=1.1cm of thetaB] (fitredB) {Fit reduced model\\[2pt]{\footnotesize $S\cup\Theta_C$ on train}};
+\node[resR,     below=0.6cm of fitredB](chi2B)   {$\chi^2_{\mathrm{nested}}$ (test set)};
+% ---- divider and arrows ----
+\draw[dashed, gray!60]
+    ($(dataA.north east)!0.5!(dataB.north west) + (0, 0.3)$)
+    -- ($(chi2A.south east)!0.5!(chi2B.south west) + (0,-0.3)$);
+\draw[arr] (dataA) -- (fitA);
+\draw[arr] (fitA)  -- (thetaA);
+\draw[arr] (thetaA) -- node[lbl]{fix $\Theta\setminus S$ at $\theta_0$} (fitredA);
+\draw[arr] (fitredA) -- (chi2A);
+\draw[arr] (dataB) -- (fitB);
+\draw[arr] (fitB)  -- (thetaB);
+\draw[arr] (thetaB) -- node[lbl]{fix $\Theta\setminus S$ at $\hat\theta_{\mathrm{train}}$} (fitredB);
+\draw[arr] (fitredB) -- (chi2B);
+% ---- result ----
+\coordinate (midbot) at ($(chi2A.south)!0.5!(chi2B.south)$);
+\node[sumbox, below=0.9cm of midbot] (result)
+    {$\chi^2_{\mathrm{nested}}\approx\chi^2_{\mathrm{full,train}}$ by construction (25 of 29 within 1\%);\\
+     $\chi^2_{\mathrm{nested}}>\chi^2_{\mathrm{orig}}$ in 22 of 29 problems\quad$\Rightarrow$\quad
+     the advantage on real data comes from the $\theta_0$ anchor};
+\draw[->, >=Stealth, semithick, gray!70] (chi2A.south) -- (chi2A.south |- result.north);
+\draw[->, >=Stealth, semithick, gray!70] (chi2B.south) -- (chi2B.south |- result.north);
+\end{tikzpicture}
+\caption{\textbf{The two external-validation protocols.} \textbf{(a)}~In the original protocol the non-selected parameters of the reduced model are fixed at $\theta_0$, the published estimate obtained from \emph{all} data including the test set. \textbf{(b)}~In the leakage-free protocol the full model is first re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$, which then serves both as the value of the fixed parameters and as the reference for the optimisation bounds; the test set is never used to construct the reduced model. The box states the outcome: the nested reduced model reproduces the full training fit, as it must because its re-estimation starts at the training optimum, and it predicts worse than the original reduced model in 22 of 29 problems.}
+\label{fig:nested_protocol}
+\end{figure}
+
+Twenty-nine problems were evaluated. Bertozzi (selected parameters active only in the test conditions) and Blasi (single time point, no split) were excluded. For Chen, whose full re-estimation with 155 free parameters did not finish in serial form, the columns of the finite-difference Jacobian were evaluated in parallel and the integrator tolerances were $10^{-6}/10^{-8}$; its $\theta_0$ and original values agree with those of the main analysis.
+
+\subsection*{Results}
+
+Supplementary Table~\ref{tab:nested} gives the results and Supplementary Figure~\ref{fig:anidada} compares them graphically.
+
+\emph{The nested reduced model coincides with the full training fit.} In 19 of the 29 problems the two test values agree to better than 0.1\% and in 25 to better than 1\%. This agreement is expected by construction and is not evidence about leakage: the re-estimation of the reduced model starts at $\hat\theta_{\mathrm{train}}$, which already minimises the training error, so the optimiser has nothing to improve and returns essentially the full training fit. The exceptions are Schwen ($+248\%$, a worse local minimum of the two re-estimated parameters), Raia ($-5.1\%$), Chen ($-3.7\%$) and Brannmark ($+2.4\%$).
+
+\emph{Removing the $\theta_0$ anchor removes the advantage of the reduced model.} Compared with the original reduced model, the nested reduced model predicted worse in 22 of the 29 problems and more than four times worse in eight (for example Brannmark 5.96 versus $6.4\times10^3$, Bruno 0.91 versus 208, Weber 1.00 versus 16.0, Zheng 1.58 versus 20.8). The better prediction of the reduced model on real data (main text, \emph{Prediction of held-out experiments}) therefore reflects the information in the published values at which the other parameters are fixed. This does not affect the admissibility of the subsets, which is a property of the model, not of the data, and it is why the comparison of prediction without leakage is made on synthetic data, where $\theta_0$ carries no information about the truth (\sref{synth}).
+
+
+{\small
+\input{tables/tableS_nested.tex}
+}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/figS_anidada.pdf}
+\caption{\textbf{Leakage-free nested validation.} Test $\chi^2/n$ of the nested reduced model (non-selected parameters at $\hat\theta_{\mathrm{train}}$) against \textbf{a}, the full model re-estimated on the training data, with which it coincides by construction, and \textbf{b}, the original reduced model anchored at $\theta_0$; points above the diagonal predict worse without the anchor. Dashed line, $y=x$; problems that differ by more than a factor of 3 are labelled; Perelson ($\chi^2/n<10^{-12}$) lies outside the axes.}
+\label{fig:anidada}
+\end{figure}

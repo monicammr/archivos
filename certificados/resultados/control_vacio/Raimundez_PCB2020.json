@@ -1,0 +1,9 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "k": 2,
+ "n_cal": 69,
+ "chi2_ours": 1.1673048698000734,
+ "chi2_vacio": 1.167221537271452,
+ "ratio_vacio_vs_ours": 0.9999286111702458,
+ "segundos": 1.6
+}

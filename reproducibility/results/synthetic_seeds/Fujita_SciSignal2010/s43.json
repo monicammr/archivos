@@ -1,0 +1,14 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "semilla": 43,
+ "p_y": 19,
+ "B_chi2_test_theta0": 6.3753210612037,
+ "B_chi2_test_red": 1.9881104984307043,
+ "B_epred_red": 0.32748599447925136,
+ "nfev_red": 11,
+ "seg_red": 1.2,
+ "B_chi2_test_full": 1.633824449307463,
+ "B_epred_full": 0.12255355462639082,
+ "nfev_full": 26,
+ "segundos": 3.9
+}

@@ -1,0 +1,90 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "calibracion": [],
+ "candidatos": 11,
+ "un_parametro": [
+  {
+   "parametro": "transmission_rate_effective",
+   "e_rel": 0.7512243281484429,
+   "e_fit": 0.06484145566005563,
+   "admisible": true
+  },
+  {
+   "parametro": "nu",
+   "e_rel": 1.0713129837779891,
+   "e_fit": 0.07464121399573712,
+   "admisible": true
+  },
+  {
+   "parametro": "gamma_0",
+   "e_rel": 0.8829461593840683,
+   "e_fit": 0.0492045545600442,
+   "admisible": true
+  },
+  {
+   "parametro": "sigma",
+   "e_rel": 1.1210825472051063,
+   "e_fit": 0.05682690181322971,
+   "admisible": true
+  },
+  {
+   "parametro": "alpha",
+   "e_rel": 0.9283155201175485,
+   "e_fit": 0.06842129121373146,
+   "admisible": true
+  },
+  {
+   "parametro": "psi",
+   "e_rel": 0.9016314992082912,
+   "e_fit": 0.20413700318003813,
+   "admisible": true
+  },
+  {
+   "parametro": "gamma_a",
+   "e_rel": 0.9564035927665102,
+   "e_fit": 0.091518689664166,
+   "admisible": true
+  },
+  {
+   "parametro": "exposed_start",
+   "e_rel": 0.9297350229190532,
+   "e_fit": 0.16275653453887517,
+   "admisible": true
+  },
+  {
+   "parametro": "symptomatic_start",
+   "e_rel": 0.9682878757626762,
+   "e_fit": 0.1981018900736937,
+   "admisible": true
+  },
+  {
+   "parametro": "gamma_i",
+   "e_rel": 0.9991580775573143,
+   "e_fit": 0.8700773902127881,
+   "admisible": false
+  },
+  {
+   "parametro": "d_0",
+   "e_rel": 0.991004127417981,
+   "e_fit": 0.08169818730337902,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "gamma_0",
+ "mejor_efit_10": 0.047974016050883646,
+ "S_efit_10": 0.042305969413952614,
+ "mejor_validacion": {
+  "A_chi2_test_red": 40760.94087267986,
+  "B_chi2_test_theta0": 39602.42455299481,
+  "B_epred_red": 0.29948781479004905,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 15.2,
+ "mejor_validacion_calibracion": 0
+}

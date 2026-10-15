@@ -1,0 +1,50 @@
+{
+ "sistema": "Lang_PLOSComputBiol2024",
+ "evaluable": true,
+ "S": [
+  "kDeE2f1",
+  "kDeCe"
+ ],
+ "n_calibracion": 16,
+ "calibracion_usada": [
+  "oCCNA",
+  "oCCNB",
+  "oCCNE",
+  "oE2F",
+  "oRB1_pSer807Ser811",
+  "oSKP2",
+  "oCDKN1A",
+  "oCDKN1B",
+  "sCCNA",
+  "sCCNB",
+  "sCCNE",
+  "sE2F",
+  "sRB1_pSer807Ser811",
+  "sSKP2",
+  "sCDKN1A",
+  "sCDKN1B"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 9600,
+ "kappa_S_std": 5.527539051981659,
+ "VIF_S_std": 8.146604311088439,
+ "kappa_SC_std": 18.17313015604556,
+ "VIF_SC_std": 68.09885153967127,
+ "kappa_SC_n": 13.2853943621317,
+ "VIF_SC_n_max": 36.459825038674445,
+ "VIF_SC_n_S": {
+  "kDeE2f1": 20.8985101160514,
+  "kDeCe": 21.039362732061083
+ },
+ "param_VIF_max": "sE2F",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9394350961681468,
+  "a": "kDeE2f1",
+  "b": "kDeCe"
+ },
+ "columnas_reutilizadas": 18,
+ "segundos": 16.7,
+ "pasa_std": false,
+ "pasa_n": false,
+ "pasa_S_n": false
+}

@@ -1,0 +1,17 @@
+\begin{longtable}{@{}lrrrrrr@{}}
+\caption{Synthetic experiment, statistics over problems. Left: difference in the fraction of cases with $e_{\mathrm{pred}}\le\tau_e$ (ours minus criterion, percentage points) with a 95\% confidence interval and $p$-value from resampling whole problems with all their seeds (10,000 replicates). Right: per-problem median over seeds of the ratio $e_{\mathrm{pred}}$(criterion)/$e_{\mathrm{pred}}$(ours) (problems with at least 10 seeds), its median and the two-sided Wilcoxon $p$-value.}\label{tab:synthstats}\\
+\toprule
+Criterion & Difference & 95\% CI & $p$ & Problems & Median ratio & $p$ \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\emph{(continued)}}\\
+\toprule
+Criterion & Difference & 95\% CI & $p$ & Problems & Median ratio & $p$ \\
+\midrule
+\endhead
+Pivoted QR & +22.1 & +10.6 to +34.1 & 0.0001 & 28 & 1.03 & 0.075 \\
+Brun & +1.4 & -1.0 to +4.1 & 0.33 & 28 & 1.00 & 0.37 \\
+Morris & +8.6 & +2.3 to +16.7 & 0.0034 & 28 & 1.00 & 0.29 \\
+Profile likelihood & +17.5 & +7.8 to +28.2 & 0.0001 & 25 & 1.11 & 0.24 \\
+\bottomrule
+\end{longtable}

@@ -1,0 +1,46 @@
+{
+ "sistema": "Perelson_Science1996",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 16,
+ "coste_min": 2.816761119434251e-11,
+ "chi2_por_gl": 2.0119722281673223e-12,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": -3.811708251863234e-12,
+ "perfiles": [
+  {
+   "parametro": "c",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1.4287190166052524e-09,
+   "dchi2_max_der": 2.099006911838795e-09,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "delta",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 3.5876943854381375e-10,
+   "dchi2_max_der": 2.270652687160296e-09,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 0,
+ "todos_identificables": false,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k1f",
+  "k1a"
+ ],
+ "semilla": 46,
+ "B_chi2_test_theta0": 9.499672926172682,
+ "B_chi2_test_red": 59.002443922109705,
+ "B_epred_red": 2.671305555178465,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.7
+}

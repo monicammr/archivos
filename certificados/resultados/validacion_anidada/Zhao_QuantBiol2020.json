@@ -1,0 +1,18 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "|S|": 3,
+ "division": "condiciones nuevas",
+ "n_train": 57,
+ "n_test": 25,
+ "chi2_test_red_original": 0.3454096102986209,
+ "chi2_test_full_train": 0.3454096102979932,
+ "chi2_test_red_nested": 0.3454096102979932,
+ "chi2_test_theta0": 0.3454096103031155,
+ "ratio_nested_vs_original": 0.9999999999981828,
+ "segundos": 0.4
+}

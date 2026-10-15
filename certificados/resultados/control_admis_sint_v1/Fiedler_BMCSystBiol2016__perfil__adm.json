@@ -1,0 +1,15 @@
+{
+ "S": [
+  "K_2",
+  "k6"
+ ],
+ "eajuste_med": 0.34705861124086756,
+ "erel_med": 0.9187495153336115,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 9.4
+}

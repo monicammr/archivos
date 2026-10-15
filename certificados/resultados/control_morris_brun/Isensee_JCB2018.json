@@ -1,0 +1,64 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "n_bio": 32,
+ "S_ours": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "S_brun": [
+  "kf_RII_C_2__RIIp_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "chi2_brun": 1.0798679785266683,
+ "overlap_brun_ours": 1,
+ "segundos_brun": 534.6,
+ "detalle_brun": {
+  "gamma": 1.4154779746282713,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "kf_RII_C_2__RIIp_C_2": 7.984624126369139,
+   "xi_kf_RII_C_2__RII_2": 1.6284531232298396,
+   "KD_cAMP": 1.1725409865456744,
+   "xi_AC_cAMP_Fsk": 1.006338227419823,
+   "kf_RIIp_cAMP_C_2__RIIp_2": 0.7083776550658446,
+   "KD_Fsk": 0.7057319641245065,
+   "kf_cAMP": 0.5549965043757594,
+   "xi_KD_Rp_cAMPS": 0.5000547144125996,
+   "KD_IBMX": 0.44512779902399296,
+   "xi_b_Rp8_pCPT_cAMPS": 0.27150439269983795,
+   "xi_kf_RII_2__RII_C_2": 0.262371451544611,
+   "ki_Rp_cAMPS_pAB": 0.24839444707274122,
+   "xi_KD_Sp8_Br_cAMPS": 0.22260409724223526,
+   "ki_Sp8_Br_cAMPS_AM": 0.19992757115650486,
+   "kf_H89": 0.1263194424292056
+  }
+ },
+ "S_morris": [
+  "kf_RII_C_2__RIIp_C_2",
+  "kf_RIIp_2__RII_2"
+ ],
+ "chi2_morris": 1.0780582830403094,
+ "overlap_morris_ours": 0,
+ "segundos_morris": 1197.2,
+ "detalle_morris": {
+  "mu_star_top": {
+   "kf_RII_C_2__RIIp_C_2": 681.9292206894669,
+   "kf_RIIp_2__RII_2": 305.9695258161117,
+   "kf_RIIp_C_2__RII_C_2": 148.92488523041982,
+   "kdeg_cAMP_free": 120.61554407284949,
+   "kf_RII_C_2__RII_2": 94.16883073293849,
+   "ks_AC_cAMP": 86.07675242023844,
+   "xi_AC_cAMP_Fsk": 81.38021349317897,
+   "kf_RII_2__RII_C_2": 69.30736439947746,
+   "kf_RIIp_cAMP_C_2__RIIp_2": 52.73784248177084,
+   "kf_cAMP": 51.12331232013432
+  },
+  "fallos_simulacion": 214
+ },
+ "chi2_ours": 1.082488285497682,
+ "chi2_qr": 1.0807630699567543,
+ "chi2_perfil": 1.078128549422672,
+ "segundos": 1775.3
+}

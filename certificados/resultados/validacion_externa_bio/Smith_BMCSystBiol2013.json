@@ -1,0 +1,28 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "division": "condiciones nuevas",
+ "n_condiciones": 35,
+ "n_train": 47,
+ "n_test": 15,
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "|S|": 2,
+ "n_calibracion": 9,
+ "p_y": 25,
+ "locales_prueba": [],
+ "S_locales_prueba": [],
+ "A_chi2_test_theta0": 82920.70750484259,
+ "A_chi2_train_red": 918.5380723920363,
+ "A_chi2_test_red": 14976.894066753017,
+ "A_chi2_train_full": 315.9234705380668,
+ "A_chi2_test_full": 14977.664731678864,
+ "B_chi2_test_theta0": 4578.351828172889,
+ "B_chi2_test_red": 20.08373242278515,
+ "B_epred_red": 0.06689302691077958,
+ "B_epred_theta0": 1.0,
+ "B_chi2_test_full": 22.72707789337353,
+ "B_epred_full": 0.06856951902194407,
+ "segundos": 2039.0
+}

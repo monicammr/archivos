@@ -1,0 +1,84 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "S": [
+  "k_d",
+  "alpha_cer"
+ ],
+ "calibracion": [],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "k_d",
+   "e_rel": 1.0107359261045394,
+   "e_fit": 0.9935944486803859,
+   "admisible": false
+  },
+  {
+   "parametro": "k00",
+   "e_rel": 1.033682798142014,
+   "e_fit": 0.736589048868836,
+   "admisible": false
+  },
+  {
+   "parametro": "k0",
+   "e_rel": 0.9981401554860762,
+   "e_fit": 0.7468159095624424,
+   "admisible": false
+  },
+  {
+   "parametro": "k2",
+   "e_rel": 0.9988688911439209,
+   "e_fit": 0.9960364649514422,
+   "admisible": false
+  },
+  {
+   "parametro": "k1",
+   "e_rel": 0.9991096590931818,
+   "e_fit": 0.9960603965240403,
+   "admisible": false
+  },
+  {
+   "parametro": "k4",
+   "e_rel": 0.9995797527931883,
+   "e_fit": 0.9908485339147131,
+   "admisible": false
+  },
+  {
+   "parametro": "alpha_cer",
+   "e_rel": 0.16046481957500935,
+   "e_fit": 0.16046481957500935,
+   "admisible": true
+  },
+  {
+   "parametro": "k5",
+   "e_rel": 1.000000067831733,
+   "e_fit": 0.999839364352684,
+   "admisible": false
+  },
+  {
+   "parametro": "k3",
+   "e_rel": 0.9999999999829358,
+   "e_fit": 0.999998981907712,
+   "admisible": false
+  },
+  {
+   "parametro": "alpha_hai1a",
+   "e_rel": 0.9999999994914504,
+   "e_fit": 0.9999999053425181,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "alpha_cer",
+ "mejor_efit_10": 0.30013634452128723,
+ "S_efit_10": 0.20041039887566373,
+ "mejor_validacion": {
+  "A_chi2_test_red": 1.1569248524731874,
+  "B_chi2_test_theta0": 1.1956666866112415,
+  "B_epred_red": 1.0,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 6.9,
+ "mejor_validacion_calibracion": 0
+}

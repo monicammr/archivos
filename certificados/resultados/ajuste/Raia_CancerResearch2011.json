@@ -1,0 +1,16 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "|S|": 1,
+ "S": [
+  "Rec_recycle"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.999942847495722,
+ "erel_med": 0.9702861593983481,
+ "eajuste_med": 0.009699173192004253,
+ "eajuste_p90": 0.05505514662207727,
+ "eajuste<=0.10": "15/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.2,
+ "admisible_v2": false
+}

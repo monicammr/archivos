@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k01_02",
+  "k12_13"
+ ],
+ "eajuste_med": 0.29153213840954767,
+ "erel_med": 0.8272092327501255,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 4.8
+}

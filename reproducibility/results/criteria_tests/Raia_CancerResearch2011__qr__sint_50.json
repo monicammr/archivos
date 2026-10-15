@@ -1,0 +1,14 @@
+{
+ "S": [
+  "Rec_recycle",
+  "DecoyR_binding"
+ ],
+ "semilla": 50,
+ "B_chi2_test_theta0": 1.444958886522683,
+ "B_chi2_test_red": 1.0396287387302712,
+ "B_epred_red": 0.26549820463238183,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.8
+}

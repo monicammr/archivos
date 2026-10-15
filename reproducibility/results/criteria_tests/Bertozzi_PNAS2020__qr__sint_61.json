@@ -1,0 +1,14 @@
+{
+ "S": [
+  "R0_CA",
+  "I0_CA"
+ ],
+ "semilla": 61,
+ "B_chi2_test_theta0": 0.9648151461216105,
+ "B_chi2_test_red": 0.9648151461216105,
+ "B_epred_red": NaN,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.1
+}

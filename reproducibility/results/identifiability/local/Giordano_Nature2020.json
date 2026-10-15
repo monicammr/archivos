@@ -1,0 +1,33 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "evaluable": true,
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 313,
+ "kappa_S_std": 3.6678200135281247,
+ "VIF_S_std": 3.881809261640148,
+ "kappa_SC_std": 3.6678200135281247,
+ "VIF_SC_std": 3.881809261640148,
+ "kappa_SC_n": 3.809874874607306,
+ "VIF_SC_n_max": 4.146010027966422,
+ "VIF_SC_n_S": {
+  "alpha_4": 4.146010027966422,
+  "alpha_28": 4.146010027966422
+ },
+ "param_VIF_max": "alpha_4",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.871093708831916,
+  "a": "alpha_4",
+  "b": "alpha_28"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 1.5,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

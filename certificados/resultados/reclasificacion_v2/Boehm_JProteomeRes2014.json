@@ -1,0 +1,34 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "p": 9,
+ "T": 50.0,
+ "S1": [
+  "k_phos",
+  "k_imp_hetero",
+  "k_exp_homo"
+ ],
+ "Rvar_S1_%": 96.18038331379934,
+ "S1_cumple": true,
+ "cos_S1": 0.9860194115826884,
+ "erel_S1": 0.19315145185593643,
+ "etapa": "Stage 1",
+ "S": [
+  "k_phos",
+  "k_imp_hetero",
+  "k_exp_homo"
+ ],
+ "Rvar_%": 96.18038331379934,
+ "kappa": 1.789604572578263,
+ "VIF": 1.369991351874651,
+ "cos_med": 0.9860194115826884,
+ "erel_med": 0.19315145185593643,
+ "n_escenarios": 15,
+ "admisible": true,
+ "segundos": 0.1,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "k_exp_homo",
+  "k_imp_hetero",
+  "k_phos"
+ ]
+}

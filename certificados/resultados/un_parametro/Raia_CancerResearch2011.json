@@ -1,0 +1,22 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "uno": "SOCS3mRNA_production",
+ "S": [
+  "scaling_SOCS3mRNA",
+  "init_Rec_i"
+ ],
+ "uno_10_admisible": true,
+ "uno_10_eajuste": 0.07601543224838363,
+ "uno_division": "condiciones nuevas",
+ "uno_A_chi2_test_red": 0.40630064732444343,
+ "uno_B_epred_red": 1.0972541190618461,
+ "uno_A_chi2_test_full": 5.104564004226595,
+ "uno_B_epred_full": 1.0774951302826872,
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.04493853612297143,
+ "S_division": "condiciones nuevas",
+ "S_A_chi2_test_red": 6.919476930119157,
+ "S_B_epred_red": 0.47045972824728083,
+ "S_A_chi2_test_full": 5.104564004226595,
+ "S_B_epred_full": 1.0774951302826872
+}

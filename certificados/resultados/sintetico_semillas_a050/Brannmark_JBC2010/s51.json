@@ -1,0 +1,19 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "semilla": 51,
+ "p_y": 18,
+ "amplitud": 0.5,
+ "senal_rms_train": 1.539726872179609,
+ "senal_rms_test": 7.238636529982333,
+ "senal_norma_test": 36.90994891818548,
+ "ruido_norma_test": 5.0990195135927845,
+ "B_chi2_test_theta0": 56.58985330987024,
+ "B_chi2_test_red": 559.4714135102705,
+ "B_epred_red": 3.235080310791942,
+ "nfev_red": 19,
+ "seg_red": 1.2,
+ "B_chi2_test_full": 8782.660542636828,
+ "B_epred_full": 12.920659447787207,
+ "nfev_full": 53,
+ "segundos": 12.5
+}

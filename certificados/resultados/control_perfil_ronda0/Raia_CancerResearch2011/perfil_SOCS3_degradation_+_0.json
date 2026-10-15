@@ -1,0 +1,10 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "parametro": "SOCS3_degradation",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": -5.303272558074906,
+ "dchi2": 8.865025799546856,
+ "nfev": 16,
+ "segundos": 1.1
+}

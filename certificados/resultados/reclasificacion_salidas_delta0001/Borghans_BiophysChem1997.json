@@ -1,0 +1,37 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "p": 23,
+ "T": 5.0,
+ "S1": [
+  "K_par",
+  "Kz",
+  "v1",
+  "offset"
+ ],
+ "Rvar_S1_%": 56.75701851838796,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "Rvar_%": 52.854456761703105,
+ "kappa": 4.543689717461124,
+ "VIF": 5.673388463559709,
+ "cos_med": 0.8629009281460229,
+ "erel_med": 0.5060501205407636,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.1627423546553349,
+ "segundos": 3.5,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "Kz",
+  "Vm2",
+  "Vm3",
+  "beta_par",
+  "v1",
+  "v0",
+  "K_par"
+ ]
+}

@@ -1,0 +1,105 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "n": 92,
+ "n_escenarios": 15,
+ "e_fit_med": 0.04108488716445427,
+ "cambio_rms_sigma_med": 31.561738772395813,
+ "error_rms_sigma_med": 1.1847064354424068,
+ "error_rms_sigma_max": 3.682316199300085,
+ "escenarios": [
+  {
+   "k": 0,
+   "e_fit": 0.01284867538983536,
+   "cambio_rms_sigma": 27.25124981169486,
+   "error_rms_sigma": 0.3501424627977792
+  },
+  {
+   "k": 1,
+   "e_fit": 0.37489471714962264,
+   "cambio_rms_sigma": 3.539199366622321,
+   "error_rms_sigma": 1.3268271454859986
+  },
+  {
+   "k": 2,
+   "e_fit": 0.04108488716445427,
+   "cambio_rms_sigma": 83.94546066220386,
+   "error_rms_sigma": 3.44888977927478
+  },
+  {
+   "k": 3,
+   "e_fit": 0.06333579251318365,
+   "cambio_rms_sigma": 15.695540112438504,
+   "error_rms_sigma": 0.9940894719437563
+  },
+  {
+   "k": 4,
+   "e_fit": 0.0035105964968215604,
+   "cambio_rms_sigma": 75.75671944923707,
+   "error_rms_sigma": 0.26595127390918544
+  },
+  {
+   "k": 5,
+   "e_fit": 0.2470179368109644,
+   "cambio_rms_sigma": 6.491468484150646,
+   "error_rms_sigma": 1.6035091518282911
+  },
+  {
+   "k": 6,
+   "e_fit": 0.0568046543662875,
+   "cambio_rms_sigma": 39.69538004418644,
+   "error_rms_sigma": 2.254882343348437
+  },
+  {
+   "k": 7,
+   "e_fit": 0.031415460302776255,
+   "cambio_rms_sigma": 31.260315482335294,
+   "error_rms_sigma": 0.9820572000875664
+  },
+  {
+   "k": 8,
+   "e_fit": 0.0813363634190645,
+   "cambio_rms_sigma": 40.73650471145217,
+   "error_rms_sigma": 3.313359151633107
+  },
+  {
+   "k": 9,
+   "e_fit": 0.07784080178128484,
+   "cambio_rms_sigma": 9.063882390755394,
+   "error_rms_sigma": 0.7055398725476688
+  },
+  {
+   "k": 10,
+   "e_fit": 0.0048077645269265995,
+   "cambio_rms_sigma": 31.561738772395813,
+   "error_rms_sigma": 0.15174140807804848
+  },
+  {
+   "k": 11,
+   "e_fit": 0.02520972862434046,
+   "cambio_rms_sigma": 47.81965043857276,
+   "error_rms_sigma": 1.2055204104672423
+  },
+  {
+   "k": 12,
+   "e_fit": 0.028587146325165624,
+   "cambio_rms_sigma": 18.390587666001053,
+   "error_rms_sigma": 0.5257344206137583
+  },
+  {
+   "k": 13,
+   "e_fit": 0.031787716646152715,
+   "cambio_rms_sigma": 37.26931533428629,
+   "error_rms_sigma": 1.1847064354424068
+  },
+  {
+   "k": 14,
+   "e_fit": 0.05325908235596158,
+   "cambio_rms_sigma": 69.13968540969245,
+   "error_rms_sigma": 3.682316199300085
+  }
+ ]
+}

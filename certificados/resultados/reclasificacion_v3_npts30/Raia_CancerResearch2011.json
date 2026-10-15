@@ -1,0 +1,27 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "p": 39,
+ "T": 50.0,
+ "S1": [
+  "Rec_recycle"
+ ],
+ "Rvar_S1_%": 50.20787649181805,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "Rec_recycle"
+ ],
+ "Rvar_%": 50.20787649181805,
+ "kappa": 1.0,
+ "VIF": 1.0,
+ "cos_med": 0.9999436953486438,
+ "erel_med": 0.9702870424799235,
+ "n_escenarios": 15,
+ "admisible": false,
+ "eajuste_med": 0.00962292245933946,
+ "segundos": 0.3,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "Rec_recycle"
+ ]
+}

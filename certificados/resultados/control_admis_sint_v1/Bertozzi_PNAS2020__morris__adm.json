@@ -1,0 +1,15 @@
+{
+ "S": [
+  "gamma_CA",
+  "R0_CA"
+ ],
+ "eajuste_med": 0.9449719005105137,
+ "erel_med": 0.9520860929793634,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 2.0
+}

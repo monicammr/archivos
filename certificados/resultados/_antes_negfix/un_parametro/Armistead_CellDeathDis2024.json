@@ -1,0 +1,24 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "uno": "alpha_cer",
+ "S": [
+  "k_d",
+  "k00",
+  "k2",
+  "alpha_cer"
+ ],
+ "uno_10_admisible": true,
+ "uno_10_eajuste": 0.32892074309586017,
+ "uno_division": "condiciones nuevas",
+ "uno_A_chi2_test_red": 1.1569248524731874,
+ "uno_B_epred_red": 1.0,
+ "uno_A_chi2_test_full": 1.3724797279204053,
+ "uno_B_epred_full": 0.17708886733076304,
+ "S_10_admisible": true,
+ "S_10_eajuste": 0.21278940625951123,
+ "S_division": "condiciones nuevas",
+ "S_A_chi2_test_red": 1.3722920143521593,
+ "S_B_epred_red": 0.17255460540806317,
+ "S_A_chi2_test_full": 1.3724797279204053,
+ "S_B_epred_full": 0.17708886733076304
+}

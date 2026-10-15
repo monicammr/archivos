@@ -1,0 +1,51 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "p": 13,
+ "T": 50.0,
+ "S1": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "szea",
+  "init_bcry_1",
+  "init_b10_1"
+ ],
+ "Rvar_S1_%": 89.02301695103338,
+ "S1_cumple": true,
+ "cos_S1": 0.9537463860075474,
+ "erel_S1": 0.3045597379055639,
+ "etapa": "Stage 1",
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1"
+ ],
+ "Rvar_%": 65.85080425876654,
+ "kappa": 1.777501825543308,
+ "VIF": 1.2981618651342848,
+ "cos_med": 0.8443089958335505,
+ "erel_med": 0.5385381618765428,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "szea",
+  "init_bcry_1",
+  "init_b10_1"
+ ],
+ "podados": [
+  "szea",
+  "init_bcry_1",
+  "init_b10_1"
+ ],
+ "admisible": true,
+ "eajuste_med": 0.4882961804885466,
+ "calibracion": [],
+ "segundos": 6.4,
+ "etapa_paper": "No admisible",
+ "S_paper": []
+}

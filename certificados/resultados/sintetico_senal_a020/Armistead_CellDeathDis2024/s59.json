@@ -1,0 +1,11 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "semilla": 59,
+ "p_y": 10,
+ "amplitud": 0.2,
+ "senal_rms_train": 1.8121841681103286,
+ "senal_rms_test": 1.8345095755343332,
+ "senal_norma_test": 9.879136404518748,
+ "ruido_norma_test": 5.385164807134504,
+ "segundos": 0.6
+}

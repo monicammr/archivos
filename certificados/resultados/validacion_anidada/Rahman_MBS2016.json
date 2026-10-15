@@ -1,0 +1,17 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "|S|": 2,
+ "division": "extrapolacion temporal (t >= 15)",
+ "n_train": 15,
+ "n_test": 8,
+ "chi2_test_red_original": 0.0019946462955132307,
+ "chi2_test_full_train": 0.025724847048521553,
+ "chi2_test_red_nested": 0.025724847048521553,
+ "chi2_test_theta0": 0.0014774578960137447,
+ "ratio_nested_vs_original": 12.896946745088178,
+ "segundos": 0.3
+}

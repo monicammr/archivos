@@ -1,0 +1,18 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "k": 2,
+ "S_ours": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "S_qr": [
+  "delta_0",
+  "eta_0"
+ ],
+ "overlap": 0,
+ "chi2_ours": 1.0236762094202532e-07,
+ "chi2_qr": 7.164035954623968e-09,
+ "ratio_qr_vs_ours": 0.06998341749762099,
+ "tipo": "extrapolacion temporal (t >= 30)",
+ "segundos": 0.4
+}

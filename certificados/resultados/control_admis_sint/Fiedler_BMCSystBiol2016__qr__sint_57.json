@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k11",
+  "k5"
+ ],
+ "semilla": 57,
+ "B_chi2_test_theta0": 1.4952465581108143,
+ "B_chi2_test_red": 4.760191403540498,
+ "B_epred_red": 2.80002071012046,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 1.0
+}

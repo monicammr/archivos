@@ -1,0 +1,69 @@
+{
+ "sistema": "Lang_PLOSComputBiol2024",
+ "p": 294,
+ "T": 50.0,
+ "S1": [
+  "kDeE2f1",
+  "kDeCe",
+  "kDeCa2",
+  "kDpCdh",
+  "kPhCAEB",
+  "kImImSKP2_1",
+  "kImImCDKN1A_CCNE_A_B_Ser130p__1",
+  "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_",
+  "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_",
+  "ic_wt_Nuc__SKP2",
+  "ic_wt_Cyt__CCNE_CDKN1A_B_",
+  "ic_wt_Cyt__SKP2",
+  "ic_wt_Cyt__CCNE_CDKN1A_B_1__CDKN1A_CCNE_A_B_1_Ser130u_",
+  "kPhCeE"
+ ],
+ "Rvar_S1_%": 16.934601553038416,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "kDeE2f1",
+  "kDeCe"
+ ],
+ "Rvar_%": 16.76155990843626,
+ "kappa": 5.527597685604607,
+ "VIF": 8.14676618818242,
+ "cos_med": 0.6944187749311957,
+ "erel_med": 0.7332579519207337,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "kDeE2f1",
+  "kDeCe"
+ ],
+ "podados": [],
+ "admisible": true,
+ "eajuste_med": 0.13184142137601765,
+ "calibracion": [
+  "oCCNA",
+  "oCCNB",
+  "oCCNE",
+  "oE2F",
+  "oRB1_pSer807Ser811",
+  "oSKP2",
+  "oCDKN1A",
+  "oCDKN1B",
+  "sCCNA",
+  "sCCNB",
+  "sCCNE",
+  "sE2F",
+  "sRB1_pSer807Ser811",
+  "sSKP2",
+  "sCDKN1A",
+  "sCDKN1B"
+ ],
+ "segundos": 11800.6,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "kCdc25_1",
+  "kPhEnsa",
+  "kPhRbD",
+  "kDeCb2",
+  "kDeCDKN1A_2",
+  "kPhCDKN1AByCe"
+ ]
+}

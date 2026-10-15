@@ -1,0 +1,11 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "semilla": 54,
+ "p_y": 13,
+ "amplitud": 0.2,
+ "senal_rms_train": 1.2841043791384166,
+ "senal_rms_test": 1.0603373949117965,
+ "senal_norma_test": 5.610778105517396,
+ "ruido_norma_test": 5.291502622129181,
+ "segundos": 0.5
+}

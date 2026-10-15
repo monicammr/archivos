@@ -1,0 +1,18 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "k": 2,
+ "S_ours": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "S_qr": [
+  "k_imp",
+  "k_rel"
+ ],
+ "overlap": 1,
+ "chi2_ours": 0.757740623887529,
+ "chi2_qr": 0.44525203079280107,
+ "ratio_qr_vs_ours": 0.587604804013899,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.3
+}

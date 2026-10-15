@@ -1,0 +1,15 @@
+{
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "eajuste_med": 0.04624339673303033,
+ "erel_med": 0.5105002625269818,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 19.8
+}

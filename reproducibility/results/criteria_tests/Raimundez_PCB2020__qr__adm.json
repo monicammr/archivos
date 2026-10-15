@@ -1,0 +1,15 @@
+{
+ "S": [
+  "d_MAPKtotal__MKN1_2_HS746T",
+  "d_MPI3Ktotal__fm_2_hm"
+ ],
+ "eajuste_med": 0.2822421159452362,
+ "erel_med": 0.7898633968915768,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 80.3
+}

@@ -1,0 +1,88 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "k": 10,
+ "division": "condiciones nuevas",
+ "n_bio": 72,
+ "S_ours": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "S_brun": [
+  "init_Rec",
+  "S2tot",
+  "S_dephosphos",
+  "S_phos",
+  "Rec_act",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "geneH_turn",
+  "geneG_turn"
+ ],
+ "chi2_brun": 1.0176152450074332,
+ "overlap_brun_ours": 8,
+ "segundos_brun": 19.2,
+ "detalle_brun": {
+  "gamma": 4.680535764232953,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "init_Rec": 2.1440612492884146,
+   "S2tot": 1.391108452995067,
+   "S3tot": 1.3852592563776596,
+   "S_dephosphos": 1.2954232889136588,
+   "S_phos": 1.2290098115093648,
+   "pRec_degind": 1.1701357193854285,
+   "Rec_act": 1.0415615771439632,
+   "geneF_turn": 1.0269717490615058,
+   "geneF_act1": 1.006476618592075,
+   "k_234": 0.7928786591305278,
+   "geneF_inh1": 0.7902277768728508,
+   "geneK_turn": 0.710827431912088,
+   "geneH_turn": 0.5574012202138657,
+   "geneG_turn": 0.5049400555807533,
+   "k_244": 0.43825577705055413
+  }
+ },
+ "S_morris": [
+  "init_Rec",
+  "S3tot",
+  "S2tot",
+  "pRec_degind",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "geneF_act1",
+  "Rec_act",
+  "geneF_inh1"
+ ],
+ "chi2_morris": 1.0264776057519576,
+ "overlap_morris_ours": 6,
+ "segundos_morris": 59.7,
+ "detalle_morris": {
+  "mu_star_top": {
+   "init_Rec": 424.6930983906735,
+   "S3tot": 253.5552371757995,
+   "S2tot": 252.83447844501626,
+   "pRec_degind": 175.8442925091782,
+   "S_dephosphos": 153.1433580960559,
+   "S_phos": 134.29371440067348,
+   "geneF_turn": 111.96749113758244,
+   "geneF_act1": 93.8603884904031,
+   "Rec_act": 81.79971369190996,
+   "geneF_inh1": 80.24814509652927
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 1.6588292477170448,
+ "chi2_qr": 1.073092021151677,
+ "chi2_perfil": null,
+ "segundos": 83.3
+}

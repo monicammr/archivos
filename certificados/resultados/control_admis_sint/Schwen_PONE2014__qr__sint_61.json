@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kd2fold",
+  "kout"
+ ],
+ "semilla": 61,
+ "B_chi2_test_theta0": 5.5210416114389655,
+ "B_chi2_test_red": 3.0474629431615554,
+ "B_epred_red": 0.7160949988614467,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 4.0
+}

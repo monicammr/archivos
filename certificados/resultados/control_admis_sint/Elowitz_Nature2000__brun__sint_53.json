@@ -1,0 +1,14 @@
+{
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "semilla": 53,
+ "B_chi2_test_theta0": 8.834007636484838,
+ "B_chi2_test_red": 1.3923905192349957,
+ "B_epred_red": 0.2986320561025323,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.5
+}

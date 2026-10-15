@@ -1,0 +1,14 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "semilla": 61,
+ "p_y": 28,
+ "B_chi2_test_theta0": 5.5210416114389655,
+ "B_chi2_test_red": 4.025538500003845,
+ "B_epred_red": 0.8312094955325798,
+ "nfev_red": 8,
+ "seg_red": 4.5,
+ "B_chi2_test_full": 4.117356381384304,
+ "B_epred_full": 0.8619044874737197,
+ "nfev_full": 48,
+ "segundos": 34.3
+}

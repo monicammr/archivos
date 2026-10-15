@@ -1,0 +1,87 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "alpha_4",
+   "admisible": false,
+   "e_rel": 1.0421235447400417,
+   "e_ajuste": 0.5109270444964945
+  },
+  {
+   "sin": "alpha_28",
+   "admisible": true,
+   "e_rel": 1.2083005845757737,
+   "e_ajuste": 0.11331605644841022
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "alpha_4",
+   "admisible": true,
+   "e_rel": 1.2083005845757737,
+   "e_ajuste": 0.11331605644841022
+  },
+  {
+   "parametro": "alpha_0",
+   "admisible": true,
+   "e_rel": 1.0621743263137282,
+   "e_ajuste": 0.1606647798955298
+  },
+  {
+   "parametro": "epsilon_0",
+   "admisible": true,
+   "e_rel": 1.0498272733057812,
+   "e_ajuste": 0.14309991473967643
+  },
+  {
+   "parametro": "epsilon_12",
+   "admisible": true,
+   "e_rel": 0.9249763309351755,
+   "e_ajuste": 0.29750068529794804
+  },
+  {
+   "parametro": "alpha_22",
+   "admisible": true,
+   "e_rel": 0.80119283563189,
+   "e_ajuste": 0.19905847875881347
+  },
+  {
+   "parametro": "zeta_0",
+   "admisible": true,
+   "e_rel": 1.1755092042293647,
+   "e_ajuste": 0.13180730377861688
+  },
+  {
+   "parametro": "gamma_4",
+   "admisible": true,
+   "e_rel": 1.0224895000783523,
+   "e_ajuste": 0.11310110545119935
+  },
+  {
+   "parametro": "alpha_28",
+   "admisible": false,
+   "e_rel": 1.0421235447400417,
+   "e_ajuste": 0.5109270444964945
+  },
+  {
+   "parametro": "theta",
+   "admisible": true,
+   "e_rel": 0.9122905149274046,
+   "e_ajuste": 0.13244163933546788
+  },
+  {
+   "parametro": "lam_0",
+   "admisible": true,
+   "e_rel": 0.961023803770554,
+   "e_ajuste": 0.12216171291758936
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 21.1
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "parametro": "kminus8",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": -0.616022240363178,
+ "dchi2": 9.331992998808346,
+ "nfev": 32,
+ "segundos": 287.2
+}

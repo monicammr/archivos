@@ -1,0 +1,11 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "semilla": 50,
+ "p_y": 43,
+ "amplitud": 0.05,
+ "senal_rms_train": 5.892171713737255e-06,
+ "senal_rms_test": 6.0323736214124066e-05,
+ "senal_norma_test": 0.0006384064167073331,
+ "ruido_norma_test": 10.583005244258363,
+ "segundos": 1.1
+}

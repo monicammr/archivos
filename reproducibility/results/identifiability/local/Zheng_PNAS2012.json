@@ -1,0 +1,33 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "evaluable": true,
+ "S": [
+  "k01_02",
+  "k13_12"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 60,
+ "kappa_S_std": 1.4008808841850589,
+ "VIF_S_std": 1.1180074737242547,
+ "kappa_SC_std": 1.4008808841850589,
+ "VIF_SC_std": 1.1180074737242547,
+ "kappa_SC_n": 1.4008808841850589,
+ "VIF_SC_n_max": 1.1180074737242547,
+ "VIF_SC_n_S": {
+  "k01_02": 1.1180074737242547,
+  "k13_12": 1.1180074737242547
+ },
+ "param_VIF_max": "k01_02",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.32488705187572625,
+  "a": "k01_02",
+  "b": "k13_12"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 0.7,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

@@ -1,0 +1,30 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "p": 136,
+ "T": 50.0,
+ "S1": [
+  "d_ksyn_EGFR__MKN1_2_HS746T",
+  "ksyn_MMET__HS746T_fm"
+ ],
+ "Rvar_S1_%": 97.86651348931038,
+ "S1_cumple": true,
+ "cos_S1": 0.9998583956930479,
+ "erel_S1": 0.07109391707324426,
+ "etapa": "Stage 1",
+ "S": [
+  "d_ksyn_EGFR__MKN1_2_HS746T",
+  "ksyn_MMET__HS746T_fm"
+ ],
+ "Rvar_%": 97.86651348931038,
+ "kappa": 1.056241051571744,
+ "VIF": 1.0029968764480837,
+ "cos_med": 0.9998583956930479,
+ "erel_med": 0.07109391707324426,
+ "n_escenarios": 15,
+ "admisible": true,
+ "segundos": 0.3,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "d_ksyn_EGFR__fm_2_hm"
+ ]
+}

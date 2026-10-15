@@ -1,0 +1,24 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "division": "condiciones nuevas",
+ "n_condiciones": 2,
+ "n_train": 11,
+ "n_test": 11,
+ "S": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "|S|": 2,
+ "n_calibracion": 0,
+ "p_y": 6,
+ "locales_prueba": [
+  "R0_NY",
+  "gamma_NY",
+  "I0_NY"
+ ],
+ "S_locales_prueba": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "no_evaluable": "todos los par\u00e1metros de S son exclusivos de las condiciones de prueba"
+}

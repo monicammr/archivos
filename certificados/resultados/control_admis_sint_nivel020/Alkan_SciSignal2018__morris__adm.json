@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kt",
+  "k_damage_sn38_ssb"
+ ],
+ "eajuste_med": 0.12156255380310023,
+ "erel_med": 0.2182827057451203,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 10.1
+}

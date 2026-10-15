@@ -1,0 +1,14 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "semilla": 60,
+ "p_y": 6,
+ "B_chi2_test_theta0": 1.8342390963025768,
+ "B_chi2_test_red": 5.623247945056941,
+ "B_epred_red": 1.178606973491838,
+ "nfev_red": 6,
+ "seg_red": 5.6,
+ "B_chi2_test_full": 3.092779178144841,
+ "B_epred_full": 0.6947713206472573,
+ "nfev_full": 69,
+ "segundos": 23.0
+}

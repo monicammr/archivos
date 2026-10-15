@@ -1,0 +1,17 @@
+% Generada a partir de resultados/comparacion_metodos (analisis_comparacion_metodos.py y
+% bootstrap_comparacion.py), 14 de octubre de 2026.
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{2.3cm}ccccc@{}}
+\toprule
+ & & \multicolumn{2}{c}{Admissible} & \multicolumn{2}{c}{Synthetic: $e_{\mathrm{pred}}\le\tau_e$} & Real data \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-7}
+Criterion & Basis & $\pm$5\% & $\pm$20\% & Rate & \begin{tabular}[b]{@{}c@{}}Ours $-$ criterion\\(95\% CI)\end{tabular} & \begin{tabular}[b]{@{}c@{}}$\chi^2$ ratio\\($p$)\end{tabular} \\
+\midrule
+Our method & Sensitivity, $\kappa$/VIF, re-estimation test, backward elimination & \textbf{28/28} & \textbf{27/28} & 56\% & -- & -- \\
+Brun & Sensitivity and collinearity index & 26/28 & 25/28 & 55\% & $+1$ ($-1$ to $+4$) & 1.00 (0.27) \\
+Morris & Global elementary effects & 23/28 & 23/28 & 48\% & $+9$ ($+2$ to $+17$) & 1.00 (0.46) \\
+Profile likelihood & Repeated re-estimation of the full model & 17/25 & 17/25 & 39\% & $+18$ ($+8$ to $+28$) & 1.00 (0.62) \\
+Pivoted QR & Linear independence of sensitivities & 14/28 & 15/28 & 34\% & $+22$ ($+11$ to $+34$) & 0.99 (0.03) \\
+Random & $k$ parameters at random (median of 20) & -- & -- & -- & -- & 1.00 (0.27) \\
+Calibration only & No biological parameter ($k=0$) & -- & -- & -- & -- & 0.99 (0.003) \\
+\botrule
+\end{tabular}

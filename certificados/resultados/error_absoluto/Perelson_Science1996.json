@@ -1,0 +1,27 @@
+{
+ "sistema": "Perelson_Science1996",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "n": 16,
+ "n_escenarios": 2,
+ "e_fit_med": 0.0,
+ "cambio_rms_sigma_med": 2.8530414928418195e-07,
+ "error_rms_sigma_med": 0.0,
+ "error_rms_sigma_max": 0.0,
+ "escenarios": [
+  {
+   "k": 9,
+   "e_fit": 0.0,
+   "cambio_rms_sigma": 3.145584297949214e-07,
+   "error_rms_sigma": 0.0
+  },
+  {
+   "k": 10,
+   "e_fit": 0.0,
+   "cambio_rms_sigma": 2.5604986877344253e-07,
+   "error_rms_sigma": 0.0
+  }
+ ]
+}

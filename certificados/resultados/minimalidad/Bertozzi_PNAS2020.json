@@ -1,0 +1,63 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "S": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "R0_NY",
+   "admisible": false,
+   "e_rel": 0.8556193255620765,
+   "e_ajuste": 0.4854079245767098
+  },
+  {
+   "sin": "I0_NY",
+   "admisible": false,
+   "e_rel": 0.751247309595848,
+   "e_ajuste": 0.46255210611602815
+  }
+ ],
+ "minimo_por_inclusion": true,
+ "un_parametro": [
+  {
+   "parametro": "R0_NY",
+   "admisible": false,
+   "e_rel": 0.751247309595848,
+   "e_ajuste": 0.46255210611602815
+  },
+  {
+   "parametro": "I0_NY",
+   "admisible": false,
+   "e_rel": 0.8556193255620765,
+   "e_ajuste": 0.4854079245767098
+  },
+  {
+   "parametro": "R0_CA",
+   "admisible": false,
+   "e_rel": 0.9451271794065331,
+   "e_ajuste": 0.9449719005813559
+  },
+  {
+   "parametro": "gamma_NY",
+   "admisible": false,
+   "e_rel": 1.0006511078808265,
+   "e_ajuste": 0.46244598337252163
+  },
+  {
+   "parametro": "gamma_CA",
+   "admisible": false,
+   "e_rel": 0.9849825054456193,
+   "e_ajuste": 0.9449719054923964
+  },
+  {
+   "parametro": "I0_CA",
+   "admisible": false,
+   "e_rel": 0.9966011159423833,
+   "e_ajuste": 0.9541231142410661
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 2.7
+}

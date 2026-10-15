@@ -1,0 +1,34 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "k": 10,
+ "S_ours": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "S_qr": [
+  "S4tot",
+  "geneK_turn",
+  "geneJ_turn",
+  "geneB_act2",
+  "geneG_act1",
+  "geneH_turn",
+  "geneL_turn",
+  "geneE_act2",
+  "geneI_act1",
+  "geneC_act1"
+ ],
+ "overlap": 3,
+ "chi2_ours": 1.6588292477170448,
+ "chi2_qr": 1.073092021151677,
+ "ratio_qr_vs_ours": 0.6468972153876081,
+ "tipo": "condiciones nuevas",
+ "segundos": 2.6
+}

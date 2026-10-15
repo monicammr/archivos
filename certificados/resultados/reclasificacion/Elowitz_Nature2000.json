@@ -1,0 +1,29 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "p": 21,
+ "T": 5.0,
+ "S1": [
+  "tau_prot",
+  "tau_mRNA"
+ ],
+ "Rvar_S1_%": 99.96536657506797,
+ "S1_cumple": true,
+ "etapa": "Stage 1",
+ "S": [
+  "tau_prot",
+  "tau_mRNA"
+ ],
+ "Rvar_%": 99.96536657506797,
+ "kappa": 1.1216569084469832,
+ "VIF": 1.0132386530631992,
+ "cos_med": 0.999868505234926,
+ "erel_med": 0.01621752967290395,
+ "n_escenarios": 15,
+ "admisible": true,
+ "segundos": 0.1,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "tps_active",
+  "tau_prot"
+ ]
+}

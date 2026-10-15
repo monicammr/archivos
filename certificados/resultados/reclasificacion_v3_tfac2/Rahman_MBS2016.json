@@ -1,0 +1,31 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "p": 9,
+ "T": 50.0,
+ "S1": [
+  "infected_moderate_transmission_rate",
+  "infected_weak_treatment_rate"
+ ],
+ "Rvar_S1_%": 42.89076565905926,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_weak_treatment_rate"
+ ],
+ "Rvar_%": 42.89076565905926,
+ "kappa": 5.928410761772942,
+ "VIF": 9.293626714114591,
+ "cos_med": 0.9955760982759537,
+ "erel_med": 0.6564087994367933,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.09323993414672012,
+ "segundos": 0.5,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "infected_moderate_transmission_rate",
+  "infected_moderate_worsen_rate",
+  "treated_moderate_improve_rate"
+ ]
+}

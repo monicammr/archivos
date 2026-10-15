@@ -1,0 +1,14 @@
+{
+ "S": [
+  "ratio_kpkd_YN__FREE",
+  "kdephosYN__FREE"
+ ],
+ "semilla": 56,
+ "B_chi2_test_theta0": 6.29609821984625,
+ "B_chi2_test_red": 5.139848643800807,
+ "B_epred_red": 0.7572357199709399,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.9
+}

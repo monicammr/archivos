@@ -1,0 +1,44 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "evaluable": true,
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "n_calibracion": 10,
+ "calibracion_usada": [
+  "scale_p21_mRNA_fold",
+  "scale_patm_au",
+  "scale_pchk1_au",
+  "scale_pchk2_au",
+  "scale_pdnapk_au",
+  "scale_pp53_au",
+  "scale_tp21_au",
+  "scale_tp53_au",
+  "scale_wip1_mRNA_fold",
+  "scale_yh2ax_au"
+ ],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 1733,
+ "kappa_S_std": 1.3267416508753678,
+ "VIF_S_std": 1.0820866644039628,
+ "kappa_SC_std": 1.448783916426559,
+ "VIF_SC_std": 1.1366623992354765,
+ "kappa_SC_n": 1.4362330189861316,
+ "VIF_SC_n_max": 1.1368444109836842,
+ "VIF_SC_n_S": {
+  "kt": 1.081847922228427,
+  "k_rep_nhej": 1.1368444109836842
+ },
+ "param_VIF_max": "k_rep_nhej",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.2661467372493748,
+  "a": "kt",
+  "b": "k_rep_nhej"
+ },
+ "columnas_reutilizadas": 12,
+ "segundos": 6.9,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

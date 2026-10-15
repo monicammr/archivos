@@ -1,0 +1,17 @@
+{
+ "S": [
+  "init_b10_1",
+  "init_bcar1",
+  "kc4",
+  "kc1",
+  "kc2"
+ ],
+ "semilla": 51,
+ "B_chi2_test_theta0": 1.6374282777962892,
+ "B_chi2_test_red": 1.6084726552908308,
+ "B_epred_red": 1.0395330772516171,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.3
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Weber_BMC2015",
+ "parametro": "s21",
+ "lado": -1,
+ "despl": 1.2,
+ "log_theta": 16.00364992375621,
+ "dchi2": 0.07764041204379168,
+ "nfev": 235,
+ "segundos": 26.6
+}

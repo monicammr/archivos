@@ -1,0 +1,355 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 43,
+ "n_bio": 32,
+ "n_identificables": 23,
+ "n_no_identificables_practicos": 3,
+ "n_planos": 6,
+ "S_ours": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "S_perfil": [
+  "kf_RIIp_2__RII_2",
+  "kf_RII_C_2__RIIp_C_2"
+ ],
+ "S_qr": [
+  "kf_Fsk",
+  "KD_H89"
+ ],
+ "overlap_perfil_ours": 0,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 1.082488285497682,
+ "chi2_qr": 1.0807630699567543,
+ "chi2_perfil": 1.078128549422672,
+ "ratio_perfil_vs_ours": 0.9959724866001616,
+ "coste_min_train": 451.2325196216882,
+ "dchi2_minimo_perfiles": -1.1561890430519952,
+ "puntos_fallidos": 6,
+ "rondas_reajuste": 3,
+ "perfiles": [
+  {
+   "parametro": "kf_RIIp_2__RII_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.033734821381534746,
+   "dchi2_max_izq": 8164.975433560583,
+   "dchi2_max_der": 9008.831811451328,
+   "dchi2_min_lado": 8164.975433560583,
+   "puntos_fallidos": 1,
+   "dchi2_negativo": 16.67128218713981
+  },
+  {
+   "parametro": "kf_RII_C_2__RIIp_C_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.05311515315619165,
+   "dchi2_max_izq": 8536.27767869011,
+   "dchi2_max_der": 5525.540707008341,
+   "dchi2_min_lado": 5525.540707008341,
+   "puntos_fallidos": 2,
+   "dchi2_negativo": 8.345677895925576
+  },
+  {
+   "parametro": "kf_RIIp_C_2__RII_C_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.08120077771036358,
+   "dchi2_max_izq": 4444.768540065301,
+   "dchi2_max_der": 2378.36235149794,
+   "dchi2_min_lado": 2378.36235149794,
+   "puntos_fallidos": 2,
+   "dchi2_negativo": 5.141761978835177
+  },
+  {
+   "parametro": "xi_kf_RII_C_2__RII_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.10193126151204054,
+   "dchi2_max_izq": 695.3334739546765,
+   "dchi2_max_der": 2945.2140716855847,
+   "dchi2_min_lado": 695.3334739546765,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 3.824599616145804
+  },
+  {
+   "parametro": "kf_RII_C_2__RII_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.10410386010135883,
+   "dchi2_max_izq": 614.5501972589873,
+   "dchi2_max_der": 4738.398682560045,
+   "dchi2_min_lado": 614.5501972589873,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 7.2444801955887215
+  },
+  {
+   "parametro": "ks_AC_cAMP",
+   "clase": "identificable",
+   "ancho_ic_log": 0.22757471229498566,
+   "dchi2_max_izq": 103.53308487954496,
+   "dchi2_max_der": 3114.698682544854,
+   "dchi2_min_lado": 103.53308487954496,
+   "puntos_fallidos": 1,
+   "dchi2_negativo": 1.3332918249904537
+  },
+  {
+   "parametro": "kf_RIIp_cAMP_C_2__RIIp_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.28470758599171897,
+   "dchi2_max_izq": 118.0833706608986,
+   "dchi2_max_der": 223.71161157607708,
+   "dchi2_min_lado": 118.0833706608986,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 1.3874514000766567
+  },
+  {
+   "parametro": "xi_AC_cAMP_Fsk",
+   "clase": "identificable",
+   "ancho_ic_log": 0.2865323731989115,
+   "dchi2_max_izq": 5089.54558996952,
+   "dchi2_max_der": 22.5093564196834,
+   "dchi2_min_lado": 22.5093564196834,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 1.0531571530849533
+  },
+  {
+   "parametro": "KD_cAMP",
+   "clase": "identificable",
+   "ancho_ic_log": 0.30171971452081603,
+   "dchi2_max_izq": 8.20871643552016,
+   "dchi2_max_der": 5411.400567760928,
+   "dchi2_min_lado": 8.20871643552016,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.013879525443826424
+  },
+  {
+   "parametro": "kf_cAMP",
+   "clase": "identificable",
+   "ancho_ic_log": 0.34811111256703986,
+   "dchi2_max_izq": 179.77369661824343,
+   "dchi2_max_der": 231.19540844431447,
+   "dchi2_min_lado": 179.77369661824343,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.9479093405674348
+  },
+  {
+   "parametro": "xi_KD_Rp_cAMPS",
+   "clase": "identificable",
+   "ancho_ic_log": 0.38808836871106867,
+   "dchi2_max_izq": 187.5134190100714,
+   "dchi2_max_der": 79.13567699546843,
+   "dchi2_min_lado": 79.13567699546843,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.8148630668499095
+  },
+  {
+   "parametro": "KD_Fsk",
+   "clase": "identificable",
+   "ancho_ic_log": 0.4480691457259664,
+   "dchi2_max_izq": 15.20637311512536,
+   "dchi2_max_der": 661.7804933493244,
+   "dchi2_min_lado": 15.20637311512536,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.6182439278388756
+  },
+  {
+   "parametro": "KD_IBMX",
+   "clase": "identificable",
+   "ancho_ic_log": 0.46218096808284215,
+   "dchi2_max_izq": 24.673629359560152,
+   "dchi2_max_der": 110.41199428355765,
+   "dchi2_min_lado": 24.673629359560152,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.627333261842864
+  },
+  {
+   "parametro": "xi_b_Rp8_Br_cAMPS",
+   "clase": "identificable",
+   "ancho_ic_log": 0.559061607247858,
+   "dchi2_max_izq": 210.32972324295838,
+   "dchi2_max_der": 55.948139656367175,
+   "dchi2_min_lado": 55.948139656367175,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.3754177875235314
+  },
+  {
+   "parametro": "xi_kf_RII_2__RII_C_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.5864039809907438,
+   "dchi2_max_izq": 9.851487087964756,
+   "dchi2_max_der": 125.28613510650905,
+   "dchi2_min_lado": 9.851487087964756,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -1.1561890430519952
+  },
+  {
+   "parametro": "kdeg_cAMP_free",
+   "clase": "identificable",
+   "ancho_ic_log": 0.6547716031674897,
+   "dchi2_max_izq": 699.4317029653457,
+   "dchi2_max_der": 276.92638020456263,
+   "dchi2_min_lado": 276.92638020456263,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.8742717431388769
+  },
+  {
+   "parametro": "xi_b_Rp8_pCPT_cAMPS",
+   "clase": "identificable",
+   "ancho_ic_log": 0.7687400102044517,
+   "dchi2_max_izq": 135.5306984163559,
+   "dchi2_max_der": 27.93541438822581,
+   "dchi2_min_lado": 27.93541438822581,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.1330120859315116
+  },
+  {
+   "parametro": "xi_KD_Sp8_Br_cAMPS",
+   "clase": "identificable",
+   "ancho_ic_log": 0.8220604734390744,
+   "dchi2_max_izq": 29.13583730594587,
+   "dchi2_max_der": 47.51095729903551,
+   "dchi2_min_lado": 29.13583730594587,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.16341865146699774
+  },
+  {
+   "parametro": "ki_Rp_cAMPS_pAB",
+   "clase": "identificable",
+   "ancho_ic_log": 0.8487323441327483,
+   "dchi2_max_izq": 24.554498789406807,
+   "dchi2_max_der": 74.48017773506376,
+   "dchi2_min_lado": 24.554498789406807,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.15443096712760962
+  },
+  {
+   "parametro": "xi_b_Rp_cAMPS",
+   "clase": "identificable",
+   "ancho_ic_log": 0.8829096810537568,
+   "dchi2_max_izq": 17.692810099627593,
+   "dchi2_max_der": 40.529966461521326,
+   "dchi2_min_lado": 17.692810099627593,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.15116299420503765
+  },
+  {
+   "parametro": "ki_Sp8_Br_cAMPS_AM",
+   "clase": "identificable",
+   "ancho_ic_log": 0.9105318270024358,
+   "dchi2_max_izq": 38.83527700230917,
+   "dchi2_max_der": 24.763667936891295,
+   "dchi2_min_lado": 24.763667936891295,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.11595347752984253
+  },
+  {
+   "parametro": "kf_RII_2__RII_C_2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.9390443297782431,
+   "dchi2_max_izq": 259.5166850548686,
+   "dchi2_max_der": 94.97923443238915,
+   "dchi2_min_lado": 94.97923443238915,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.0019145174759955808
+  },
+  {
+   "parametro": "xi_KD_Rp8_pCPT_cAMPS",
+   "clase": "identificable",
+   "ancho_ic_log": 1.4574267273741601,
+   "dchi2_max_izq": 9.056811990027256,
+   "dchi2_max_der": 26.843021456056533,
+   "dchi2_min_lado": 9.056811990027256,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": 0.0419296777853333
+  },
+  {
+   "parametro": "xi_KD_Rp8_Br_cAMPS",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.112423713471401,
+   "dchi2_max_der": 6.138463946527622,
+   "dchi2_min_lado": 2.112423713471401,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.04380475179613086
+  },
+  {
+   "parametro": "kf_H89",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.2761901008994982,
+   "dchi2_max_der": 109.78370200774486,
+   "dchi2_min_lado": 1.2761901008994982,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.06902822533226072
+  },
+  {
+   "parametro": "ki_Rp8_pCPT_cAMPS_pAB",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.019430171134047214,
+   "dchi2_max_der": 0.7400934973673543,
+   "dchi2_min_lado": 0.019430171134047214,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0050662441995541485
+  },
+  {
+   "parametro": "kdeg_cAMP",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0002744017471627558,
+   "dchi2_max_der": 0.0011846759041418409,
+   "dchi2_min_lado": 0.0002744017471627558,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -9.292436061514309e-05
+  },
+  {
+   "parametro": "kf_Fsk",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0001229384138810019,
+   "dchi2_max_der": 0.0011423195118709373,
+   "dchi2_min_lado": 0.0001229384138810019,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0024355946450214105
+  },
+  {
+   "parametro": "KD_H89",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0035033773917803046,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.0013605030497387816
+  },
+  {
+   "parametro": "ki_IBMX",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.001136724421485269
+  },
+  {
+   "parametro": "ki_Rp8_Br_cAMPS_pAB",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.715358080533406,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.2148662391367111
+  },
+  {
+   "parametro": "xi_b_Sp8_Br_cAMPS",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 13.628535683921655,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "puntos_fallidos": 0,
+   "dchi2_negativo": -0.04272347321148118
+  }
+ ],
+ "segundos_fase3": 176.8
+}

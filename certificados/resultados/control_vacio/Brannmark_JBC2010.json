@@ -1,0 +1,9 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "k": 2,
+ "n_cal": 1,
+ "chi2_ours": 5.955850686824016,
+ "chi2_vacio": 0.9384720295100861,
+ "ratio_vacio_vs_ours": 0.15757145013494797,
+ "segundos": 0.1
+}

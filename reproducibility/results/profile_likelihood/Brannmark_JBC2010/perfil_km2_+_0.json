@@ -1,0 +1,10 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "parametro": "km2",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": 0.43820516215180383,
+ "dchi2": 0.012476779675845151,
+ "nfev": 20,
+ "segundos": 1.7
+}

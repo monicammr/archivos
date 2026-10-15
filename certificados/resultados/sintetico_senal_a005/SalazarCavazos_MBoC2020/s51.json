@@ -1,0 +1,11 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "semilla": 51,
+ "p_y": 6,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.33808202029399387,
+ "senal_rms_test": 0.3955668916907127,
+ "senal_norma_test": 0.6851419542004095,
+ "ruido_norma_test": 1.7320508075688772,
+ "segundos": 2.9
+}

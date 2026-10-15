@@ -1,0 +1,9 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "k": 3,
+ "chi2_ours": 0.3454096102986209,
+ "chi2_vacio": 0.3454096103031155,
+ "ratio_vacio_vs_ours": 1.0000000000130125,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

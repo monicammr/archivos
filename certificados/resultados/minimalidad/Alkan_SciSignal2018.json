@@ -1,0 +1,94 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt",
+  "scale_patm_au",
+  "scale_pchk1_au"
+ ],
+ "etapa": "Stage 1",
+ "quitar_uno": [
+  {
+   "sin": "kt",
+   "admisible": false,
+   "e_rel": 0.96979676656349,
+   "e_ajuste": 0.9570309170632544
+  },
+  {
+   "sin": "scale_patm_au",
+   "admisible": true,
+   "e_rel": 0.3182458680394353,
+   "e_ajuste": null
+  },
+  {
+   "sin": "scale_pchk1_au",
+   "admisible": true,
+   "e_rel": 0.2826365055191886,
+   "e_ajuste": null
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "kt",
+   "admisible": true,
+   "e_rel": 0.3479818544900652,
+   "e_ajuste": null
+  },
+  {
+   "parametro": "scale_patm_au",
+   "admisible": false,
+   "e_rel": 0.9820153034510499,
+   "e_ajuste": 0.9769880665163982
+  },
+  {
+   "parametro": "scale_pchk1_au",
+   "admisible": false,
+   "e_rel": 0.9885998551609305,
+   "e_ajuste": 0.9870651355028087
+  },
+  {
+   "parametro": "scale_tp53_au",
+   "admisible": false,
+   "e_rel": 0.9984636405251995,
+   "e_ajuste": 0.9959595175676332
+  },
+  {
+   "parametro": "k_rep_nhej",
+   "admisible": false,
+   "e_rel": 0.9973600664834069,
+   "e_ajuste": 0.9636983459816881
+  },
+  {
+   "parametro": "scale_tp21_au",
+   "admisible": false,
+   "e_rel": 0.9952055043719061,
+   "e_ajuste": 0.9945368153870552
+  },
+  {
+   "parametro": "p_atm_act_dsb",
+   "admisible": false,
+   "e_rel": 1.000282109626191,
+   "e_ajuste": 0.9956575955025354
+  },
+  {
+   "parametro": "k_damage_dox_dsb",
+   "admisible": false,
+   "e_rel": 0.9996903696545694,
+   "e_ajuste": 0.9807970782059872
+  },
+  {
+   "parametro": "scale_pchk2_au",
+   "admisible": false,
+   "e_rel": 0.9992808017368163,
+   "e_ajuste": 0.9983175669385812
+  },
+  {
+   "parametro": "scale_pp53_au",
+   "admisible": false,
+   "e_rel": 0.9995417939348532,
+   "e_ajuste": 0.9985873321604042
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 401.0
+}

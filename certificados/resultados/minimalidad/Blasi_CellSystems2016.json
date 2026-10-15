@@ -1,0 +1,96 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "S": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12",
+  "a_k8k12k16_4ac"
+ ],
+ "etapa": "Stage 1",
+ "quitar_uno": [
+  {
+   "sin": "a_basal",
+   "admisible": false,
+   "e_rel": 0.8681285949338414,
+   "e_ajuste": 0.582755620344843
+  },
+  {
+   "sin": "a_k16_k12k16",
+   "admisible": true,
+   "e_rel": 0.39145530781886595,
+   "e_ajuste": null
+  },
+  {
+   "sin": "a_k12k16_k8k12k16",
+   "admisible": true,
+   "e_rel": 0.244247570007529,
+   "e_ajuste": null
+  },
+  {
+   "sin": "a_k5k12_k5k8k12",
+   "admisible": true,
+   "e_rel": 0.37063107221216,
+   "e_ajuste": null
+  },
+  {
+   "sin": "a_k8k12k16_4ac",
+   "admisible": true,
+   "e_rel": 0.33203502123966333,
+   "e_ajuste": null
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "a_basal",
+   "admisible": false,
+   "e_rel": 0.5695578479460115,
+   "e_ajuste": 0.5032068014594078
+  },
+  {
+   "parametro": "a_k16_k12k16",
+   "admisible": false,
+   "e_rel": 0.9567250308274116,
+   "e_ajuste": 0.7172775057791011
+  },
+  {
+   "parametro": "a_k12k16_k8k12k16",
+   "admisible": false,
+   "e_rel": 0.9752602580496342,
+   "e_ajuste": 0.8736361962054893
+  },
+  {
+   "parametro": "a_k5k12_k5k8k12",
+   "admisible": false,
+   "e_rel": 1.0242198981813384,
+   "e_ajuste": 0.9575669621892805
+  },
+  {
+   "parametro": "a_k8k12k16_4ac",
+   "admisible": false,
+   "e_rel": 0.989809204511645,
+   "e_ajuste": 0.9680649431671269
+  },
+  {
+   "parametro": "a_k5_k5k12",
+   "admisible": false,
+   "e_rel": 0.9820565642079319,
+   "e_ajuste": 0.9377635080678054
+  },
+  {
+   "parametro": "a_k12_k5k12",
+   "admisible": false,
+   "e_rel": 0.9895831616966556,
+   "e_ajuste": 0.9271144224501116
+  },
+  {
+   "parametro": "a_k8",
+   "admisible": false,
+   "e_rel": 0.9949942709509415,
+   "e_ajuste": 0.9882850069118276
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 8.7
+}

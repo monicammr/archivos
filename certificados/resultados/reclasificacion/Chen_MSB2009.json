@@ -1,0 +1,33 @@
+{
+ "sistema": "Chen_MSB2009",
+ "p": 155,
+ "T": 50.0,
+ "S1": [
+  "kd35",
+  "k103",
+  "kd19",
+  "kd24",
+  "k41",
+  "k18",
+  "k34"
+ ],
+ "Rvar_S1_%": 50.9950695943028,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "kd35"
+ ],
+ "Rvar_%": 50.992318410603666,
+ "kappa": 1.0,
+ "VIF": 1.0,
+ "cos_med": 0.9100457070604948,
+ "erel_med": 1.049539395032794,
+ "n_escenarios": 15,
+ "admisible": true,
+ "segundos": 38.6,
+ "etapa_paper": "Stage 1",
+ "S_paper": [
+  "k35",
+  "k103"
+ ]
+}

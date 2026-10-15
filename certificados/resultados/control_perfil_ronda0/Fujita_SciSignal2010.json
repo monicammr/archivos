@@ -1,0 +1,177 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 19,
+ "n_bio": 16,
+ "n_identificables": 7,
+ "n_no_identificables_practicos": 2,
+ "n_planos": 7,
+ "S_ours": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "S_perfil": [
+  "reaction_8_k1",
+  "EGFR_turnover"
+ ],
+ "S_qr": [
+  "reaction_1_k1",
+  "reaction_6_k1"
+ ],
+ "overlap_perfil_ours": 0,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 5.939147165229708,
+ "chi2_qr": 5.941166634540576,
+ "chi2_perfil": 5.980569889341763,
+ "ratio_perfil_vs_ours": 1.0069745239442054,
+ "coste_min_train": 459.9642139216634,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "reaction_8_k1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.37566575833982996,
+   "dchi2_max_izq": 75.03606559036541,
+   "dchi2_max_der": 472.82272260961065,
+   "dchi2_min_lado": 75.03606559036541,
+   "dchi2_negativo": 0.5486268131870702
+  },
+  {
+   "parametro": "EGFR_turnover",
+   "clase": "identificable",
+   "ancho_ic_log": 0.6127552799727525,
+   "dchi2_max_izq": 36.32112481443335,
+   "dchi2_max_der": 372.7383083692588,
+   "dchi2_min_lado": 36.32112481443335,
+   "dchi2_negativo": 0.1353477117777402
+  },
+  {
+   "parametro": "reaction_5_k2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.7609167049496399,
+   "dchi2_max_izq": 29.382088786344923,
+   "dchi2_max_der": 273.5057324978832,
+   "dchi2_min_lado": 29.382088786344923,
+   "dchi2_negativo": -0.0949465658603117
+  },
+  {
+   "parametro": "reaction_1_k1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.796258552694121,
+   "dchi2_max_izq": 438.53451683509934,
+   "dchi2_max_der": 27.103599670698713,
+   "dchi2_min_lado": 27.103599670698713,
+   "dchi2_negativo": -0.14376306902880742
+  },
+  {
+   "parametro": "reaction_4_k1",
+   "clase": "identificable",
+   "ancho_ic_log": 1.1152621292806741,
+   "dchi2_max_izq": 14.799108892090317,
+   "dchi2_max_der": 32.49828912872033,
+   "dchi2_min_lado": 14.799108892090317,
+   "dchi2_negativo": -0.3261201695337377
+  },
+  {
+   "parametro": "reaction_7_k1",
+   "clase": "identificable",
+   "ancho_ic_log": 1.1249172268496204,
+   "dchi2_max_izq": 392.15073243997665,
+   "dchi2_max_der": 17.384359254894207,
+   "dchi2_min_lado": 17.384359254894207,
+   "dchi2_negativo": -0.4096423607328461
+  },
+  {
+   "parametro": "reaction_9_k1",
+   "clase": "identificable",
+   "ancho_ic_log": 1.1696855721291541,
+   "dchi2_max_izq": 38.0047796794189,
+   "dchi2_max_der": 25.225905096042993,
+   "dchi2_min_lado": 25.225905096042993,
+   "dchi2_negativo": -0.16958689171246988
+  },
+  {
+   "parametro": "reaction_1_k2",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.6951555275568353,
+   "dchi2_max_der": 4.002133162124267,
+   "dchi2_min_lado": 2.6951555275568353,
+   "dchi2_negativo": -0.7426499148718904
+  },
+  {
+   "parametro": "init_AKT",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.299692593800046,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.4447049673383958
+  },
+  {
+   "parametro": "init_EGFR",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.547122579799975,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.6674079145909104
+  },
+  {
+   "parametro": "init_S6",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.3940029467053705
+  },
+  {
+   "parametro": "reaction_2_k1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.17336034993678595,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.4257436363348006
+  },
+  {
+   "parametro": "reaction_2_k2",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.47850592869940556,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.32116029454846284
+  },
+  {
+   "parametro": "reaction_3_k1",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 6.158316230627861,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.411889095130789
+  },
+  {
+   "parametro": "reaction_5_k1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.40360332730404025
+  },
+  {
+   "parametro": "reaction_6_k1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.3930371558049046
+  }
+ ],
+ "segundos_fase3": 0.1
+}

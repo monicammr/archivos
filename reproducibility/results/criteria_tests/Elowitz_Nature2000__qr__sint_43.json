@@ -1,0 +1,14 @@
+{
+ "S": [
+  "eff_GFP",
+  "tau_prot_GFP"
+ ],
+ "semilla": 43,
+ "B_chi2_test_theta0": 8.996566461344012,
+ "B_chi2_test_red": 4.517036926766096,
+ "B_epred_red": 0.7046305285006016,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.4
+}

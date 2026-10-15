@@ -1,0 +1,19 @@
+{
+ "sistema": "Weber_BMC2015",
+ "semilla": 48,
+ "p_y": 31,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.4864824745656111,
+ "senal_rms_test": 0.6574955070391796,
+ "senal_norma_test": 5.0503188181367085,
+ "ruido_norma_test": 7.681145747868608,
+ "B_chi2_test_theta0": 1.7083609306197989,
+ "B_chi2_test_red": 2.517035670660947,
+ "B_epred_red": 1.8338310531935724,
+ "nfev_red": 8,
+ "seg_red": 0.9,
+ "B_chi2_test_full": 12180.187761174459,
+ "B_epred_full": 167.59403970638078,
+ "nfev_full": 294,
+ "segundos": 40.1
+}

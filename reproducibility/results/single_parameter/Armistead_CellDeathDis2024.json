@@ -1,0 +1,73 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "S": [
+  "k_d",
+  "k00"
+ ],
+ "calibracion": [],
+ "candidatos": 10,
+ "un_parametro": [
+  {
+   "parametro": "k_d",
+   "e_rel": 0.7927095498551318,
+   "e_fit": 0.7466084699518162,
+   "admisible": false
+  },
+  {
+   "parametro": "k00",
+   "e_rel": 0.9409368640199454,
+   "e_fit": 0.8771924476039966,
+   "admisible": false
+  },
+  {
+   "parametro": "k0",
+   "e_rel": 0.9263572094098868,
+   "e_fit": 0.8261923675460534,
+   "admisible": false
+  },
+  {
+   "parametro": "k2",
+   "e_rel": 1.0123405350329262,
+   "e_fit": 0.9625264706057757,
+   "admisible": false
+  },
+  {
+   "parametro": "k1",
+   "e_rel": 1.000396062245154,
+   "e_fit": 0.9624256095782127,
+   "admisible": false
+  },
+  {
+   "parametro": "k4",
+   "e_rel": 0.9792196106561112,
+   "e_fit": 0.9034395632089547,
+   "admisible": false
+  },
+  {
+   "parametro": "alpha_cer",
+   "e_rel": 0.9969525996811943,
+   "e_fit": 0.9321266071641254,
+   "admisible": false
+  },
+  {
+   "parametro": "k5",
+   "e_rel": 0.9999837074991877,
+   "e_fit": 0.9835132123370478,
+   "admisible": false
+  },
+  {
+   "parametro": "k3",
+   "e_rel": 0.9999999361020312,
+   "e_fit": 0.999993619654326,
+   "admisible": false
+  },
+  {
+   "parametro": "alpha_hai1a",
+   "e_rel": 0.9999999945081659,
+   "e_fit": 0.999998200336615,
+   "admisible": false
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 4.2
+}

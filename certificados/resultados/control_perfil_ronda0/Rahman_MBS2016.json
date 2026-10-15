@@ -1,0 +1,114 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 15)",
+ "p_libres": 9,
+ "n_bio": 9,
+ "n_identificables": 0,
+ "n_no_identificables_practicos": 1,
+ "n_planos": 8,
+ "S_ours": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "S_perfil": [
+  "behavioural_change_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "S_qr": [
+  "infected_moderate_transmission_rate",
+  "treated_moderate_improve_rate"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 0.0019946462955132307,
+ "chi2_qr": 0.0015422362103681623,
+ "chi2_perfil": 0.0027201524287273904,
+ "ratio_perfil_vs_ours": 1.363726709264754,
+ "coste_min_train": 0.02168650716825574,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "behavioural_change_rate",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.20022296061308334,
+   "dchi2_max_der": 6.755418775606235,
+   "dchi2_min_lado": 0.20022296061308334,
+   "dchi2_negativo": -0.0006549738824169239
+  },
+  {
+   "parametro": "infected_normal_worsen_rate",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.008815420922897388,
+   "dchi2_max_der": 0.7724720536839387,
+   "dchi2_min_lado": 0.008815420922897388,
+   "dchi2_negativo": -0.0006546282375338476
+  },
+  {
+   "parametro": "infected_moderate_worsen_rate",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0004959233735629641,
+   "dchi2_max_der": 0.060346599311788846,
+   "dchi2_min_lado": 0.0004959233735629641,
+   "dchi2_negativo": -0.0006664309113377405
+  },
+  {
+   "parametro": "infected_normal_transmission_rate_relative",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.787697208910064,
+   "dchi2_max_der": 0.00011159606972704558,
+   "dchi2_min_lado": 0.00011159606972704558,
+   "dchi2_negativo": -0.0006687587858785933
+  },
+  {
+   "parametro": "infected_moderate_transmission_rate",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.9470757135189761,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.0006563821811049926
+  },
+  {
+   "parametro": "infected_weak_transmission_rate_relative",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.05691967592630408,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.000661815951656524
+  },
+  {
+   "parametro": "infected_weak_treatment_rate",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.3670294978600922e-05
+  },
+  {
+   "parametro": "treated_moderate_improve_rate",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -7.588459180855878e-07
+  },
+  {
+   "parametro": "treated_weak_improve_rate",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -1.138749827243185e-06
+  }
+ ],
+ "segundos_fase3": 0.0
+}

@@ -1,0 +1,14 @@
+{
+ "S": [
+  "GRB2_total__FREE",
+  "kdephosYN__FREE"
+ ],
+ "semilla": 59,
+ "B_chi2_test_theta0": 4.554325942793775,
+ "B_chi2_test_red": 1.8991346437957999,
+ "B_epred_red": 0.6939785094180064,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 6.1
+}

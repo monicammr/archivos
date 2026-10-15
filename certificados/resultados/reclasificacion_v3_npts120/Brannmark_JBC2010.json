@@ -1,0 +1,37 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "p": 22,
+ "T": 50.0,
+ "S1": [
+  "k1a",
+  "k1c",
+  "k1f",
+  "k1e"
+ ],
+ "Rvar_S1_%": 57.44384857233853,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k1a",
+  "k1c",
+  "k21"
+ ],
+ "Rvar_%": 57.4431037045133,
+ "kappa": 2.1880846316935196,
+ "VIF": 1.7221400555046014,
+ "cos_med": 0.7401501410905827,
+ "erel_med": 0.700855975752808,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.10324428699292577,
+ "segundos": 1.3,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "k3",
+  "k1aBasic",
+  "k1c",
+  "k1d",
+  "k21",
+  "k22"
+ ]
+}

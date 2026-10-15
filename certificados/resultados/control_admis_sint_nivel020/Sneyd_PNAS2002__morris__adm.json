@@ -1,0 +1,15 @@
+{
+ "S": [
+  "l2",
+  "k4"
+ ],
+ "eajuste_med": 0.5121127353855598,
+ "erel_med": 0.7670341912696582,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 5.0
+}

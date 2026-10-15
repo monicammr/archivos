@@ -1,0 +1,17 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "|S|": 2,
+ "S": [
+  "R_Stage_I_Wuhan",
+  "gamma_2_Stage_I_Wuhan"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9909611503722611,
+ "erel_med": 0.7772948109255202,
+ "eajuste_med": 0.11615614922364893,
+ "eajuste_p90": 0.31820220601382526,
+ "eajuste<=0.10": "7/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 0.4,
+ "admisible_v2": false
+}

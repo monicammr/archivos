@@ -1,0 +1,101 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "S": [
+  "scale",
+  "ini_R1",
+  "ini_R2fold",
+  "kon_unspec"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "scale",
+   "admisible": false,
+   "e_rel": 1.081342046946517,
+   "e_ajuste": 0.5078646026395873
+  },
+  {
+   "sin": "ini_R1",
+   "admisible": true,
+   "e_rel": 0.6854917956715679,
+   "e_ajuste": 0.42678786543915176
+  },
+  {
+   "sin": "ini_R2fold",
+   "admisible": true,
+   "e_rel": 0.6903860782559018,
+   "e_ajuste": 0.40926185711094654
+  },
+  {
+   "sin": "kon_unspec",
+   "admisible": false,
+   "e_rel": 0.705094996085283,
+   "e_ajuste": 0.47483454827099614
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "scale",
+   "admisible": false,
+   "e_rel": 0.7601320273229001,
+   "e_ajuste": 0.7282889007779699
+  },
+  {
+   "parametro": "ini_R1",
+   "admisible": false,
+   "e_rel": 0.9773628908006382,
+   "e_ajuste": 0.7486940262410795
+  },
+  {
+   "parametro": "offset",
+   "admisible": false,
+   "e_rel": 1.0585939038114658,
+   "e_ajuste": 0.9264027984453338
+  },
+  {
+   "parametro": "ini_R2fold",
+   "admisible": false,
+   "e_rel": 0.9656037098697506,
+   "e_ajuste": 0.8838076577271662
+  },
+  {
+   "parametro": "ka1",
+   "admisible": false,
+   "e_rel": 0.998395280716736,
+   "e_ajuste": 0.7867206771991235
+  },
+  {
+   "parametro": "kd1",
+   "admisible": false,
+   "e_rel": 1.0377889836873133,
+   "e_ajuste": 0.7871250016353323
+  },
+  {
+   "parametro": "kon_unspec",
+   "admisible": false,
+   "e_rel": 1.0855633566180245,
+   "e_ajuste": 0.9358915437059928
+  },
+  {
+   "parametro": "koff_unspec",
+   "admisible": false,
+   "e_rel": 1.0106846349415501,
+   "e_ajuste": 0.9376837478341901
+  },
+  {
+   "parametro": "ka2fold",
+   "admisible": false,
+   "e_rel": 0.9987924355839184,
+   "e_ajuste": 0.850682774257372
+  },
+  {
+   "parametro": "kd2fold",
+   "admisible": false,
+   "e_rel": 1.0291094255723863,
+   "e_ajuste": 0.8504662991911918
+  }
+ ],
+ "algun_parametro_solo_basta": false,
+ "segundos": 85.1
+}

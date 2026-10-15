@@ -1,0 +1,17 @@
+{
+ "S": [
+  "init_bcry_1",
+  "init_b10_1",
+  "init_bcar1",
+  "kb2",
+  "kc2"
+ ],
+ "semilla": 44,
+ "B_chi2_test_theta0": 1.1462000943702946,
+ "B_chi2_test_red": 1.1442192721200564,
+ "B_epred_red": 0.9960859504371943,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.1
+}

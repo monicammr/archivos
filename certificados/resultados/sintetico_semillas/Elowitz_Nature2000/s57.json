@@ -1,0 +1,14 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "semilla": 57,
+ "p_y": 20,
+ "B_chi2_test_theta0": 5.474147392496221,
+ "B_chi2_test_red": 0.996024960032182,
+ "B_epred_red": 0.4585031644957732,
+ "nfev_red": 14,
+ "seg_red": 0.9,
+ "B_chi2_test_full": 4.8178620867752375,
+ "B_epred_full": 0.9164117861649458,
+ "nfev_full": 53,
+ "segundos": 4.7
+}

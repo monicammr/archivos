@@ -1,0 +1,19 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "semilla": 51,
+ "p_y": 101,
+ "amplitud": 0.05,
+ "senal_rms_train": 0.1403517996543191,
+ "senal_rms_test": 0.20882557309310695,
+ "senal_norma_test": 2.9679690422051643,
+ "ruido_norma_test": 14.212670403551895,
+ "B_chi2_test_theta0": 1.4414314691822838,
+ "B_chi2_test_red": 2.1410551744821333,
+ "B_epred_red": 3.997710038099712,
+ "nfev_red": 23,
+ "seg_red": 32.4,
+ "B_chi2_test_full": 8.746769399108706,
+ "B_epred_full": 12.908574957822625,
+ "nfev_full": 51,
+ "segundos": 225.9
+}

@@ -1,0 +1,16 @@
+{
+ "sistema": "SCT_Bandura",
+ "|S|": 2,
+ "S": [
+  "gamma33",
+  "beta43"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9841919247217021,
+ "erel_med": 0.20201900512286736,
+ "eajuste_med": 0.1766412033643121,
+ "eajuste_p90": 0.5222297676304285,
+ "eajuste<=0.10": "2/15",
+ "eajuste<=0.436": "12/15",
+ "admisible_v2": true
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "eajuste_med": 0.12919945274698397,
+ "erel_med": 1.3356989300505397,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 3.7
+}

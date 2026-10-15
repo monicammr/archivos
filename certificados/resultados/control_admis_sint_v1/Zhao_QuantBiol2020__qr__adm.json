@@ -1,0 +1,16 @@
+{
+ "S": [
+  "R_Stage_I_Wuhan",
+  "R_Stage_III_Wuhan",
+  "R_Stage_II_Hubei"
+ ],
+ "eajuste_med": 0.9695193583828515,
+ "erel_med": 0.9819957841092378,
+ "admisible": false,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 4.4
+}

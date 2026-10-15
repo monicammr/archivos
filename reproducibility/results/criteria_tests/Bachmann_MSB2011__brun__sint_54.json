@@ -1,0 +1,14 @@
+{
+ "S": [
+  "STAT5Imp",
+  "JAK2ActEpo"
+ ],
+ "semilla": 54,
+ "B_chi2_test_theta0": 1.4187560674568793,
+ "B_chi2_test_red": 3.2560509714869417,
+ "B_epred_red": 2.0435436173542993,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 45.8
+}

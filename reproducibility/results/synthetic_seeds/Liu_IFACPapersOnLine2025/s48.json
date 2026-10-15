@@ -1,0 +1,14 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "semilla": 48,
+ "p_y": 7,
+ "B_chi2_test_theta0": 0.7813304829156036,
+ "B_chi2_test_red": 0.7793567057155556,
+ "B_epred_red": 1.740840597382411,
+ "nfev_red": 9,
+ "seg_red": 0.7,
+ "B_chi2_test_full": 0.7922059182118759,
+ "B_epred_full": 0.7119107323675486,
+ "nfev_full": 12,
+ "segundos": 0.9
+}

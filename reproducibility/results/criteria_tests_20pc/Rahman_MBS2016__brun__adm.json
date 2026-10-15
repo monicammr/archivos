@@ -1,0 +1,15 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate",
+  "behavioural_change_rate"
+ ],
+ "eajuste_med": 0.04707583057200512,
+ "erel_med": 0.7258214097837717,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 0.7
+}

@@ -1,0 +1,87 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "etapa": "Stage 2",
+ "quitar_uno": [
+  {
+   "sin": "beta_0",
+   "admisible": false,
+   "e_rel": 0.9999937329485284,
+   "e_ajuste": 0.9998053722982881
+  },
+  {
+   "sin": "h_hosp_rate",
+   "admisible": true,
+   "e_rel": 1.3356572338749724,
+   "e_ajuste": 0.12930013336020457
+  }
+ ],
+ "minimo_por_inclusion": false,
+ "un_parametro": [
+  {
+   "parametro": "beta_0",
+   "admisible": true,
+   "e_rel": 1.3356572338749724,
+   "e_ajuste": 0.12930013336020457
+  },
+  {
+   "parametro": "delta_",
+   "admisible": true,
+   "e_rel": 0.8895626629614708,
+   "e_ajuste": 0.11245676544007252
+  },
+  {
+   "parametro": "t_1",
+   "admisible": true,
+   "e_rel": 0.9882511220928984,
+   "e_ajuste": 0.12872912179318988
+  },
+  {
+   "parametro": "beta_1",
+   "admisible": true,
+   "e_rel": 0.8904477840412708,
+   "e_ajuste": 0.24404998080344653
+  },
+  {
+   "parametro": "asymptomatic_init_concentration",
+   "admisible": true,
+   "e_rel": 0.9793621758799993,
+   "e_ajuste": 0.14336042401635338
+  },
+  {
+   "parametro": "symptomatic_init_concentration",
+   "admisible": true,
+   "e_rel": 1.0223981030290599,
+   "e_ajuste": 0.14635820825981308
+  },
+  {
+   "parametro": "exposed_init_concentration",
+   "admisible": false,
+   "e_rel": 1.0006865139277106,
+   "e_ajuste": 0.4722488330187323
+  },
+  {
+   "parametro": "h_hosp_rate",
+   "admisible": false,
+   "e_rel": 0.9999937329485284,
+   "e_ajuste": 0.9998053722982881
+  },
+  {
+   "parametro": "gamma_u",
+   "admisible": false,
+   "e_rel": 0.9999904548038252,
+   "e_ajuste": 0.9998603073260423
+  },
+  {
+   "parametro": "gamma_h",
+   "admisible": false,
+   "e_rel": 1.0000045603576153,
+   "e_ajuste": 0.9998631196364851
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "segundos": 12.6
+}

@@ -1,0 +1,9 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "k": 2,
+ "n_cal": 8,
+ "chi2_ours": 11.207266309262952,
+ "chi2_vacio": 11.730829489715704,
+ "ratio_vacio_vs_ours": 1.0467164039833712,
+ "segundos": 0.4
+}

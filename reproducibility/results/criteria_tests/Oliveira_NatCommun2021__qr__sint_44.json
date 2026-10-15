@@ -1,0 +1,14 @@
+{
+ "S": [
+  "beta_1",
+  "symptomatic_init_concentration"
+ ],
+ "semilla": 44,
+ "B_chi2_test_theta0": 901.8113520353534,
+ "B_chi2_test_red": 553587.7263051427,
+ "B_epred_red": 24.795768475516613,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.4
+}

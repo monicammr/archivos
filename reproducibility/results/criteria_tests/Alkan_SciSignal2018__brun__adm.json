@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "eajuste_med": 0.12628885016640026,
+ "erel_med": 0.2097271690247176,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 28.0
+}

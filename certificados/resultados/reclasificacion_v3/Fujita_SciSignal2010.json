@@ -1,0 +1,25 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "p": 19,
+ "T": 50.0,
+ "S1": [
+  "EGFR_turnover"
+ ],
+ "Rvar_S1_%": 100.0,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "EGFR_turnover"
+ ],
+ "Rvar_%": 100.0,
+ "kappa": 1.0,
+ "VIF": 1.0,
+ "cos_med": 1.0,
+ "erel_med": 0.0,
+ "n_escenarios": 15,
+ "admisible": false,
+ "eajuste_med": 4.087024719461973e-13,
+ "segundos": 0.2,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

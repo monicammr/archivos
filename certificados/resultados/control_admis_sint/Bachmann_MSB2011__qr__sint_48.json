@@ -1,0 +1,14 @@
+{
+ "S": [
+  "SOCS3Inh",
+  "CISEqcOE"
+ ],
+ "semilla": 48,
+ "B_chi2_test_theta0": 1.5184593029964109,
+ "B_chi2_test_red": 4.10610673565369,
+ "B_epred_red": 2.6079486569801817,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 85.7
+}

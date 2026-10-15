@@ -1,0 +1,10 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "parametro": "JAK2_phosphorylation",
+ "lado": 1,
+ "despl": 2.3,
+ "log_theta": 0.01477187029796534,
+ "dchi2": 4737.6955318324035,
+ "nfev": 22,
+ "segundos": 2.5
+}

@@ -1,0 +1,14 @@
+{
+ "S": [
+  "SOCS3mRNA_production",
+  "Rec_recycle"
+ ],
+ "semilla": 56,
+ "B_chi2_test_theta0": 1.3471729277472113,
+ "B_chi2_test_red": 1.3675162811028345,
+ "B_epred_red": 0.8234580607586578,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 1.1
+}

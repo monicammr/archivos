@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "semilla": 56,
+ "B_chi2_test_theta0": 2.5475907823045443,
+ "B_chi2_test_red": 1.833351374927898,
+ "B_epred_red": 0.7325336805002297,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 172.8
+}

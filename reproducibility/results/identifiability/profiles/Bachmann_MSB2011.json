@@ -1,0 +1,46 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "n_calibracion": 74,
+ "n_datos": 541,
+ "coste_min": 540.9894190016607,
+ "chi2_por_gl": 1.1634181053799155,
+ "umbral_robusto": 4.467525524658876,
+ "rondas": 0,
+ "dchi2_minimo": 0.4763930750259533,
+ "perfiles": [
+  {
+   "parametro": "CISRNADelay",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 6008.736207126447,
+   "dchi2_max_der": 894.8414280031081,
+   "clase": "identificable",
+   "ic_izq_log": 0.09847273182551153,
+   "ic_der_log": 0.10426194779770816,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.10416112484345866,
+   "ic_der_log_robusto": 0.1108290560350292
+  },
+  {
+   "parametro": "JAK2ActEpo",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 3140.6656895707656,
+   "dchi2_max_der": 410.8040027678144,
+   "clase": "identificable",
+   "ic_izq_log": 0.12708308891057893,
+   "ic_der_log": 0.13773392957767744,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.13659094819956838,
+   "ic_der_log_robusto": 0.14968479208810825
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

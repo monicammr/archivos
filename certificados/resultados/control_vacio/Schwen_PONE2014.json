@@ -1,0 +1,9 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "k": 2,
+ "n_cal": 15,
+ "chi2_ours": 8.195942168849825,
+ "chi2_vacio": 8.062976667887586,
+ "ratio_vacio_vs_ours": 0.9837766667671718,
+ "segundos": 1.5
+}

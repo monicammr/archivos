@@ -1,0 +1,10 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "parametro": "sigma_22",
+ "lado": 1,
+ "despl": 0.1,
+ "log_theta": -5.0273541722357935,
+ "dchi2": 5.913156531836468e-13,
+ "nfev": 1,
+ "segundos": 0.4
+}

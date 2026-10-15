@@ -1,0 +1,30 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "p": 25,
+ "T": 50.0,
+ "S1": [
+  "k30f",
+  "kminus7b"
+ ],
+ "Rvar_S1_%": 51.463285054125805,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k30f",
+  "kminus7b"
+ ],
+ "Rvar_%": 51.463285054125805,
+ "kappa": 1.0000013157887575,
+ "VIF": 1.0000000000017313,
+ "cos_med": 0.9313266451963848,
+ "erel_med": 1.2251872890875397,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.14413949213086924,
+ "segundos": 17.1,
+ "etapa_paper": "Stage 2",
+ "S_paper": [
+  "k30f",
+  "kminus7b"
+ ]
+}

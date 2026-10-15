@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite the paper and this package."
+title: "Reproducibility package: Few biological parameters suffice to reproduce measured dynamics: verified parameter subset selection for systems biology models"
+version: 1.4.0
+date-released: 2026-10-15
+license: MIT
+authors:
+  - family-names: "Miranda R."
+    given-names: "Mónica"
+    affiliation: "Escuela Superior Politécnica del Litoral (ESPOL)"
+  - family-names: "Salazar"
+    given-names: "Carlos"
+    affiliation: "Escuela Superior Politécnica del Litoral (ESPOL)"
+  - family-names: "Martín"
+    given-names: "César"
+    affiliation: "Escuela Superior Politécnica del Litoral (ESPOL)"
+  - family-names: "Aguirre"
+    given-names: "Adriana"
+    affiliation: "Escuela Superior Politécnica del Litoral (ESPOL)"
+repository-code: "https://github.com/monicammr/archivos"
+keywords:
+  - parameter reduction
+  - sensitivity analysis
+  - ordinary differential equations
+  - systems biology
+  - PEtab
+  - Lean 4
+  - formal verification
+preferred-citation:
+  type: article
+  title: "Few biological parameters suffice to reproduce measured dynamics in systems biology models: local sensitivity-based reduction with formally verified mathematical guarantees"
+  authors:
+    - family-names: "Miranda R."
+      given-names: "Mónica"
+    - family-names: "Salazar"
+      given-names: "Carlos"
+    - family-names: "Martín"
+      given-names: "César"
+    - family-names: "Aguirre"
+      given-names: "Adriana"
+  journal: "Scientific Reports"
+  status: submitted

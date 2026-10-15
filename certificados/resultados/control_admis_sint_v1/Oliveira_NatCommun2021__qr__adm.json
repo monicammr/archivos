@@ -1,0 +1,15 @@
+{
+ "S": [
+  "beta_1",
+  "symptomatic_init_concentration"
+ ],
+ "eajuste_med": 0.03876099277685174,
+ "erel_med": 0.9413775392833765,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 3.1
+}

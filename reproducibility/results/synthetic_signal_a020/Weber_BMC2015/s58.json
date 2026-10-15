@@ -1,0 +1,11 @@
+{
+ "sistema": "Weber_BMC2015",
+ "semilla": 58,
+ "p_y": 31,
+ "amplitud": 0.2,
+ "senal_rms_train": 1.6651141837097565,
+ "senal_rms_test": 3.410572039780762,
+ "senal_norma_test": 26.197100921161564,
+ "ruido_norma_test": 7.681145747868608,
+ "segundos": 0.8
+}

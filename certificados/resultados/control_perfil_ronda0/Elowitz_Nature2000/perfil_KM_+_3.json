@@ -1,0 +1,10 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "parametro": "KM",
+ "lado": 1,
+ "despl": 1.2,
+ "log_theta": -10.101911051988875,
+ "dchi2": -0.03759722448321767,
+ "nfev": 51,
+ "segundos": 3.2
+}

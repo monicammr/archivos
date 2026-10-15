@@ -1,0 +1,14 @@
+{
+ "S": [
+  "kt",
+  "k_death_reox"
+ ],
+ "semilla": 55,
+ "B_chi2_test_theta0": 1.112349385493507,
+ "B_chi2_test_red": 1.001092599553634,
+ "B_epred_red": 0.5969416129859523,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 14.4
+}

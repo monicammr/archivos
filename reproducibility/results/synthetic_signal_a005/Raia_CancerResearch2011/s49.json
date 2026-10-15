@@ -1,0 +1,11 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "semilla": 49,
+ "p_y": 23,
+ "amplitud": 0.05,
+ "senal_rms_train": 8.243169368877687,
+ "senal_rms_test": 0.47732690026753266,
+ "senal_norma_test": 4.050253056263126,
+ "ruido_norma_test": 8.48528137423857,
+ "segundos": 0.5
+}

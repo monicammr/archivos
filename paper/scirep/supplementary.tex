@@ -1,0 +1,172 @@
+\documentclass[11pt]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\theoremstyle{definition}
+\newtheorem{sdefinition}{Definition}
+\newtheorem{shypothesis}{Hypothesis}
+\theoremstyle{plain}
+\newtheorem{slemma}{Lemma}
+\newtheorem{stheorem}{Theorem}
+\newtheorem{scorollary}{Corollary}
+\newtheorem{sproposition}{Proposition}
+\theoremstyle{remark}
+\newtheorem*{sremark}{Remark}
+\usepackage{booktabs,longtable,array}
+\usepackage{url}
+\usepackage[hidelinks,bookmarksopen,bookmarksdepth=3,pdftitle={Supplementary Information},pdfauthor={Monica Miranda R., Carlos Salazar, Cesar Martin, Adriana Aguirre}]{hyperref}
+\usepackage{bookmark}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows.meta}
+% Unnumbered headings that still appear in the table of contents and in the PDF bookmarks
+\makeatletter
+\let\oldsection\section \let\oldsubsection\subsection \let\oldsubsubsection\subsubsection
+\renewcommand{\section}{\@ifstar{\tocstar{section}{\oldsection}}{\oldsection}}
+\renewcommand{\subsection}{\@ifstar{\tocstar{subsection}{\oldsubsection}}{\oldsubsection}}
+\renewcommand{\subsubsection}{\@ifstar{\tocstar{subsubsection}{\oldsubsubsection}}{\oldsubsubsection}}
+\newcommand{\tocstar}[3]{#2*{#3}\phantomsection\addcontentsline{toc}{#1}{#3}}
+\makeatother
+\setcounter{tocdepth}{2}
+% Scientific Reports: Supplementary Notes are not numbered (they have titles); Supplementary Tables and
+% Figures are numbered S1, S2, ... in order of appearance, separately from the main article.
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\captionsetup[table]{name=Supplementary Table,labelsep=period,labelfont=bf,justification=raggedright,singlelinecheck=false}
+\captionsetup[figure]{name=Supplementary Figure,labelsep=period,labelfont=bf}
+\makeatletter
+% DOI of the reproducibility package on Zenodo (replace after reserving it)
+\newcommand{\zenododoi}{10.5281/zenodo.23338175}
+\newcommand{\nt}[1]{\csname snt@#1\endcsname}
+\def\snt@sel{Selected subsets of the benchmark problems}
+\def\snt@notation{Notation of the method}
+\def\snt@sim{Verification of the simulator}
+\def\snt@val{Prediction of held-out experiments}
+\def\snt@robust{Robustness to the size of parameter changes}
+\def\snt@scen{Random scenarios and large problems}
+\def\snt@synth{Synthetic prediction experiment}
+\def\snt@single{Single-parameter subsets}
+\def\snt@nested{Leakage-free nested validation}
+\def\snt@identif{Identifiability of the selected parameters}
+\def\snt@brun{Pivoted QR selection}
+\def\snt@settings{Sensitivity to the method settings}
+\def\snt@cost{Computational cost}
+\def\snt@time{Computing time of the analyses}
+\def\snt@profile{Profile likelihood}
+\def\snt@morrisbrun{Brun and Morris selections}
+\def\snt@compreal{Comparison on real data}
+\def\snt@admisother{Admissibility of the subsets of other criteria}
+\def\snt@compsynth{Comparison of selection criteria on synthetic data}
+\def\snt@seq{Logical sequence of the formal proofs}
+\def\snt@stmts{Statements of the formal theorems}
+\def\snt@models{Verified benchmark models}
+\def\snt@repro{Reproducibility package}
+\def\snt@sct{The social cognitive theory model}
+\def\snt@systems{System-by-system summary}
+\def\snt@concl{Concluding remarks}
+\makeatother
+% heading of a Supplementary Note, and a reference to it
+\newcommand{\snote}[1]{\section*{Supplementary Note: \nt{#1}}\label{note:#1}}
+\newcommand{\sref}[1]{Supplementary Note \hyperref[note:#1]{\emph{\nt{#1}}}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Supplementary Information}\\[4pt]
+{\large Few biological parameters suffice to reproduce measured dynamics in systems biology models: local sensitivity-based reduction with formal verification of the mathematical foundations}\\[6pt]
+M\'onica Miranda R., Carlos Salazar, C\'esar Mart\'in, Adriana Aguirre
+\end{center}
+
+{\small
+\renewcommand{\contentsname}{Contents}
+{\let\section\oldsection\tableofcontents}
+}
+\clearpage
+
+\snote{sel}
+
+Supplementary Table~\ref{tab:selected} gives the final subset $S$ for each problem (after backward elimination), the parameters removed by backward elimination, and the quantities that characterise the subset at $\pm5\%$: condition number $\kappa$ and largest VIF of the selected sensitivity columns (no collinearity: both $\le10$), fraction of sensitivity energy kept $R_{\mathrm{var}}$, median $\cos\Delta$ over the 15 scenarios, and median $e_{\mathrm{fit}}$ (admissibility: $\le43.6\%$). The last column gives the level of guarantee of each admissible subset: level~1, $e_{\mathrm{fit}}\le\tau_e$ (the subset reproduces the full model after re-estimation, checked numerically); level~2, in addition $\cos\Delta\ge0.9$ (by Theorem~1 a single rescaling of the reduced response already achieves the threshold); level~3, in addition $R_{\mathrm{var}}\ge0.89$ (the first-order error bound G1 of \sref{seq} also applies). Levels~2 and~3 are stronger guarantees, not requirements of the method; 14, 16 and 2 problems reach levels 1, 2 and~3. Calibration parameters, which are always re-estimated, are not listed. Crauste and Beer have no admissible subset; the subset at which the method stopped is shown. For Crauste it is not meaningful: about half of the perturbed simulations have no solution on the measured horizon (finite-time growth without bound), so the sensitivity matrix is incomplete.
+
+{\small
+\input{tables/tableS1.tex}
+}
+
+\snote{notation}
+
+Supplementary Table~\ref{tab:notation} defines the symbols of the method used in the main text and in this Supplementary Information, with the values used in the analyses. Supplementary Table~\ref{tab:counts}, at the end of this note, gives the number of parameters of every problem in each category and the number of free parameters in each analysis, so that the counts reported in different tables (for example $p=9$ for Boehm in Table~1 of the main text and six biological parameters in its profile likelihood) can be reconciled.
+
+\begin{longtable}{@{}p{5.2cm}p{7.6cm}p{3.2cm}@{}}
+\caption{Notation of the method.}\label{tab:notation}\\
+\toprule
+Symbol & Meaning & Value used \\
+\midrule
+\endhead
+$x(t;\theta)\in\mathbb{R}^n$ & state trajectory of the model $\dot x=f(x,\theta)$ & -- \\
+$\theta\in\mathbb{R}^p$, $\theta_0$ & parameter vector; nominal (published) value & PEtab nominal values \\
+$\Theta_B$, $\Theta_C$ & biological parameters (in the SBML model) and calibration parameters (observation scalings and offsets) & from the PEtab tables \\
+$y_i(\theta)=h(g_i(x(t_i),\theta))/\sigma_i$ & $i$-th scaled output: observable $g_i$, transformation $h$ (lin, log, log$_{10}$), noise s.d.\ $\sigma_i$, at the condition and time of measurement $i$ & PEtab measurement table \\
+$J=\partial y/\partial\log\theta\in\mathbb{R}^{m\times p}$ & relative sensitivity matrix (central differences, step $\delta$) & $\delta=0.01$ \\
+$E_j=\|J_{:,j}\|^2$ & sensitivity energy of parameter $j$ & -- \\
+$R_{\mathrm{var}}(S)$ & fraction of the energy of biological parameters captured by $S$ & $\tau_R=0.89$ \\
+$s_j$ & finite-perturbation effect of parameter $j$ (stage-2 ordering) & $\eta=0.1$ \\
+$\kappa(S)$, $\mathrm{VIF}(S)$ & condition number and largest variance inflation factor of the normalised columns of $J_S$ & $\tau_\kappa=\tau_{\mathrm{VIF}}=10$ \\
+$\Delta y_{\mathrm{full}}$, $\Delta y_S$ & output change when all parameters, or only those in $S\cup\Theta_C$, take their scenario values & $N=15$, $\varepsilon=0.05$ \\
+$\cos\Delta$ & cosine similarity between $\Delta y_{\mathrm{full}}$ and $\Delta y_S$ & -- \\
+$e_{\mathrm{rel}}$ & relative error without re-estimation & -- \\
+$e_{\mathrm{fit}}$ & relative error after re-estimating $\theta_S$ and $\theta_C$ & -- \\
+$\tau_e=\sqrt{1-c^2}$ & admissibility threshold on the median $e_{\mathrm{fit}}$ & $c=0.9$, $\tau_e=0.436$ \\
+$k_{\min}$ & minimum subset size & 2 \\
+$\chi^2/n$ & mean squared noise-scaled residual on test data & -- \\
+$e_{\mathrm{pred}}$ & relative prediction error with respect to a known truth (synthetic experiment) & -- \\
+\bottomrule
+\end{longtable}
+
+{\small
+\input{tables/tableS_counts.tex}
+}
+
+
+\input{suppl_validation}
+
+\input{note_sequence}
+
+\input{suppl_formulas}
+
+\input{suppl_models}
+
+\input{suppl_reproduction}
+
+\input{suppl_simulator}
+
+\input{suppl_robustness}
+
+\input{suppl_scenarios}
+
+\input{suppl_synthetic}
+
+\input{suppl_single}
+
+\input{suppl_identif}
+
+\input{suppl_nested}
+
+\input{suppl_brun}
+
+\input{suppl_comparacion}
+
+\input{suppl_settings}
+
+\input{suppl_cost}
+
+\input{suppl_times}
+
+\input{suppl_sct}
+
+\input{suppl_systems}
+
+\input{suppl_conclusion}
+
+\end{document}

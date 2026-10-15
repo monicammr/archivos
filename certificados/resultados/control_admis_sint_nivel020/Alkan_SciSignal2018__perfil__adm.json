@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kt",
+  "k_death_reox"
+ ],
+ "eajuste_med": 0.1360020292332516,
+ "erel_med": 0.22636024492723414,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 10.1
+}

@@ -1,0 +1,9 @@
+{
+ "sistema": "Perelson_Science1996",
+ "k": 2,
+ "chi2_ours": 3.963671546106699e-13,
+ "chi2_vacio": 3.963671546106699e-13,
+ "ratio_vacio_vs_ours": 1.0,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.1
+}

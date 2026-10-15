@@ -1,0 +1,29 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "p": 46,
+ "T": 50.0,
+ "S1": [
+  "kf_RII_C_2__RIIp_C_2",
+  "kf_RII_C_2__RII_2",
+  "xi_kf_RII_C_2__RII_2",
+  "kdeg_cAMP_free"
+ ],
+ "Rvar_S1_%": 66.48121706803309,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "kf_RII_C_2__RIIp_C_2",
+  "kf_RII_C_2__RII_2"
+ ],
+ "Rvar_%": 54.40522892411587,
+ "kappa": 1.1993585972911271,
+ "VIF": 1.0334121123011182,
+ "cos_med": 0.6949795601111998,
+ "erel_med": 0.9210708251232751,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.4209244730810983,
+ "segundos": 1.3,
+ "etapa_paper": "Parcial",
+ "S_paper": []
+}

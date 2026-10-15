@@ -1,0 +1,19 @@
+Verosimilitud perfilada: 14 problemas, 0 omitidos, NPROC=32, PL_PMAX=60
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "reajuste": 2, "mejora": -264.31288345952544, "coste": 2220.6755147814038}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "terminado": true, "puntos": 102, "seg_total": 16.2}
+{"sistema": "Raia_CancerResearch2011", "reajuste": 2, "mejora": -403.5748948866967, "coste": 330447.1789787527}
+{"sistema": "Raia_CancerResearch2011", "reajuste": 3, "mejora": -41.12359041417949, "coste": 330406.0432231104}
+{"sistema": "Raia_CancerResearch2011", "terminado": true, "puntos": 128, "seg_total": 55.8}
+{"sistema": "Laske_PLOSComputBiol2019", "terminado": true, "puntos": 0, "seg_total": 0.8}
+{"sistema": "Liu_IFACPapersOnLine2025", "terminado": true, "puntos": 0, "seg_total": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "terminado": true, "puntos": 0, "seg_total": 0.3}
+{"sistema": "Perelson_Science1996", "terminado": true, "puntos": 0, "seg_total": 0.1}
+{"sistema": "Rahman_MBS2016", "terminado": true, "puntos": 0, "seg_total": 0.1}
+{"sistema": "SalazarCavazos_MBoC2020", "terminado": true, "puntos": 0, "seg_total": 2.5}
+{"sistema": "Schwen_PONE2014", "terminado": true, "puntos": 0, "seg_total": 2.5}
+{"sistema": "Smith_BMCSystBiol2013", "terminado": true, "puntos": 0, "seg_total": 30.7}
+{"sistema": "Sneyd_PNAS2002", "terminado": true, "puntos": 0, "seg_total": 0.3}
+{"sistema": "Weber_BMC2015", "terminado": true, "puntos": 0, "seg_total": 0.2}
+{"sistema": "Zhao_QuantBiol2020", "terminado": true, "puntos": 0, "seg_total": 0.2}
+{"sistema": "Zheng_PNAS2012", "terminado": true, "puntos": 0, "seg_total": 0.4}
+Done.

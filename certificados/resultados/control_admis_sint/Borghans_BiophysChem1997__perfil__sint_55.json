@@ -1,0 +1,14 @@
+{
+ "S": [
+  "Kz",
+  "v0"
+ ],
+ "semilla": 55,
+ "B_chi2_test_theta0": 1.782310297542856,
+ "B_chi2_test_red": 2.5675131704981116,
+ "B_epred_red": 1.2541891617359957,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.3
+}

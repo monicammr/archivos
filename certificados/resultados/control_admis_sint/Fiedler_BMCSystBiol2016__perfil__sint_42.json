@@ -1,0 +1,14 @@
+{
+ "S": [
+  "K_2",
+  "k6"
+ ],
+ "semilla": 42,
+ "B_chi2_test_theta0": 1.6282200427318219,
+ "B_chi2_test_red": 1.5099133665283415,
+ "B_epred_red": 0.8734766099529644,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.5
+}

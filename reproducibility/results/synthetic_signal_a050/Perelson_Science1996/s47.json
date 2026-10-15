@@ -1,0 +1,11 @@
+{
+ "sistema": "Perelson_Science1996",
+ "semilla": 47,
+ "p_y": 2,
+ "amplitud": 0.5,
+ "senal_rms_train": 5.032497324864383e-07,
+ "senal_rms_test": 2.937951781657932e-06,
+ "senal_norma_test": 7.1964827539626666e-06,
+ "ruido_norma_test": 2.449489742783178,
+ "segundos": 0.4
+}

@@ -1,0 +1,14 @@
+{
+ "S": [
+  "k00",
+  "k2"
+ ],
+ "semilla": 46,
+ "B_chi2_test_theta0": 3.3244831434380866,
+ "B_chi2_test_red": 1.1657590781620464,
+ "B_epred_red": 0.363635711442166,
+ "sistema": "Armistead_CellDeathDis2024",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.0
+}

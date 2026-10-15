@@ -1,0 +1,150 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 28,
+ "n_bio": 13,
+ "n_identificables": 1,
+ "n_no_identificables_practicos": 4,
+ "n_planos": 8,
+ "S_ours": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "S_perfil": [
+  "ini_R2fold",
+  "ini_R1"
+ ],
+ "S_qr": [
+  "kd2fold",
+  "kout"
+ ],
+ "overlap_perfil_ours": 2,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 8.195942168849825,
+ "chi2_qr": 8.431945724166948,
+ "chi2_perfil": 8.195942165482435,
+ "ratio_perfil_vs_ours": 0.9999999995891393,
+ "coste_min_train": 231.7245096137045,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "ini_R2fold",
+   "clase": "identificable",
+   "ancho_ic_log": 0.48932434541079883,
+   "dchi2_max_izq": 43.838326397953466,
+   "dchi2_max_der": 64.51503282876823,
+   "dchi2_min_lado": 43.838326397953466,
+   "dchi2_negativo": 0.46874236166766536
+  },
+  {
+   "parametro": "ini_R1",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.9256521212248288,
+   "dchi2_max_der": 45.48417613114489,
+   "dchi2_min_lado": 2.9256521212248288,
+   "dchi2_negativo": -0.025811869051835856
+  },
+  {
+   "parametro": "kout2",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.627983356672587,
+   "dchi2_max_der": 6.4347453710395826,
+   "dchi2_min_lado": 1.627983356672587,
+   "dchi2_negativo": -0.04548584652584964
+  },
+  {
+   "parametro": "kon_unspec",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.5860684384358876,
+   "dchi2_max_der": 1.6081200169377041,
+   "dchi2_min_lado": 1.6081200169377041,
+   "dchi2_negativo": -0.09775677595771981
+  },
+  {
+   "parametro": "koff_unspec",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.1311995471673981,
+   "dchi2_max_der": 2.3098910800006536,
+   "dchi2_min_lado": 1.1311995471673981,
+   "dchi2_negativo": -0.09845803546070897
+  },
+  {
+   "parametro": "kin2",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 17.58021773887515,
+   "dchi2_max_der": 1.0894201402462045,
+   "dchi2_min_lado": 1.0894201402462045,
+   "dchi2_negativo": -0.10047631405944912
+  },
+  {
+   "parametro": "kout",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.0699823892946654,
+   "dchi2_max_der": 2.672432458527055,
+   "dchi2_min_lado": 1.0699823892946654,
+   "dchi2_negativo": -0.09648770412206886
+  },
+  {
+   "parametro": "kin",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 4.987589703762865,
+   "dchi2_max_der": 0.44764146589005804,
+   "dchi2_min_lado": 0.44764146589005804,
+   "dchi2_negativo": -0.025831541660494395
+  },
+  {
+   "parametro": "kd1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.5649967853792077,
+   "dchi2_max_der": 0.424425720084713,
+   "dchi2_min_lado": 0.424425720084713,
+   "dchi2_negativo": -0.09217686372460321
+  },
+  {
+   "parametro": "ka1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 2.197378434252954,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.09052528101986468
+  },
+  {
+   "parametro": "ka2fold",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.5879497726876082,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.05583193562256383
+  },
+  {
+   "parametro": "kd2fold",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.506703441971581,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.09939336698843704
+  },
+  {
+   "parametro": "kout_frag",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.3456735284042054,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.08927036411017752
+  }
+ ],
+ "segundos_fase3": 2.2
+}

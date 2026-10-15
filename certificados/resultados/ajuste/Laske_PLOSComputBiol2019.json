@@ -1,0 +1,17 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "|S|": 2,
+ "S": [
+  "k_bind_M1",
+  "k_syn_R_V"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9982211847000738,
+ "erel_med": 0.06419467561777598,
+ "eajuste_med": 0.024195630150227423,
+ "eajuste_p90": 0.10415461704115979,
+ "eajuste<=0.10": "12/15",
+ "eajuste<=0.436": "15/15",
+ "segundos": 3.6,
+ "admisible_v2": true
+}

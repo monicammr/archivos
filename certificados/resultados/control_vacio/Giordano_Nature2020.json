@@ -1,0 +1,9 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "k": 2,
+ "chi2_ours": 1.0236762094202532e-07,
+ "chi2_vacio": 7.445929474475888e-09,
+ "ratio_vacio_vs_ours": 0.07273715463889506,
+ "nota": "sin calibracion, th0 directo",
+ "segundos": 0.3
+}

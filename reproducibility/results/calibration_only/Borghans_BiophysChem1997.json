@@ -1,0 +1,9 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "k": 2,
+ "n_cal": 2,
+ "chi2_ours": 0.7430659894685557,
+ "chi2_vacio": 0.7782196879259763,
+ "ratio_vacio_vs_ours": 1.047308985952328,
+ "segundos": 0.1
+}

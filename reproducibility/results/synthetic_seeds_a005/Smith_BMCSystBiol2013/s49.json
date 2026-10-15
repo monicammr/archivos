@@ -1,0 +1,19 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "semilla": 49,
+ "p_y": 25,
+ "amplitud": 0.05,
+ "senal_rms_train": 11.007399974857002,
+ "senal_rms_test": 14.106839032697623,
+ "senal_norma_test": 54.63555264126664,
+ "ruido_norma_test": 3.872983346207417,
+ "B_chi2_test_theta0": 202.72560605438764,
+ "B_chi2_test_red": 3.3238483330732604,
+ "B_epred_red": 0.12102027347397624,
+ "nfev_red": 6,
+ "seg_red": 40.7,
+ "B_chi2_test_full": 88.81681682385455,
+ "B_epred_full": 0.6531781475410646,
+ "nfev_full": 39,
+ "segundos": 308.7
+}

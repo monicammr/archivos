@@ -1,0 +1,33 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "evaluable": true,
+ "S": [
+  "k_imp_hetero",
+  "k_phos"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 48,
+ "kappa_S_std": 1.01975976171141,
+ "VIF_S_std": 1.0003829191653748,
+ "kappa_SC_std": 1.01975976171141,
+ "VIF_SC_std": 1.0003829191653748,
+ "kappa_SC_n": 1.874413965197612,
+ "VIF_SC_n_max": 1.4495125120170222,
+ "VIF_SC_n_S": {
+  "k_imp_hetero": 1.4495125120170222,
+  "k_phos": 1.4495125120170216
+ },
+ "param_VIF_max": "k_imp_hetero",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.5568778039202024,
+  "a": "k_imp_hetero",
+  "b": "k_phos"
+ },
+ "columnas_reutilizadas": 0,
+ "segundos": 3.0,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}

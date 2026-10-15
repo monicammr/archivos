@@ -1,0 +1,17 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "|S|": 2,
+ "division": "extrapolacion temporal (t >= 32)",
+ "n_train": 60,
+ "n_test": 32,
+ "chi2_test_red_original": 46705.034547832045,
+ "chi2_test_full_train": 122443.01648442709,
+ "chi2_test_red_nested": 122441.7289271547,
+ "chi2_test_theta0": 28748.49609361068,
+ "ratio_nested_vs_original": 2.621595939550337,
+ "segundos": 0.4
+}

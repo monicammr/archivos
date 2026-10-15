@@ -1,0 +1,18 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "k": 2,
+ "S_ours": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "S_qr": [
+  "asymptomatic_start",
+  "d_D"
+ ],
+ "overlap": 0,
+ "chi2_ours": 46705.034547832045,
+ "chi2_qr": 32079.258174864663,
+ "ratio_qr_vs_ours": 0.6868479701478717,
+ "tipo": "extrapolacion temporal (t >= 32)",
+ "segundos": 0.1
+}

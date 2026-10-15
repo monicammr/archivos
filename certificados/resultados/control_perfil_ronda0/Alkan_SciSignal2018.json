@@ -1,0 +1,339 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "k": 2,
+ "division": "condiciones nuevas",
+ "p_libres": 44,
+ "n_bio": 34,
+ "n_identificables": 14,
+ "n_no_identificables_practicos": 9,
+ "n_planos": 11,
+ "S_ours": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "S_perfil": [
+  "kt",
+  "k_death_reox"
+ ],
+ "S_qr": [
+  "p_chk1_dea_wip1",
+  "k_death_reox"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 1,
+ "chi2_ours": 2.748324922924577,
+ "chi2_qr": 2.726972860677738,
+ "chi2_perfil": 2.739027706940994,
+ "ratio_perfil_vs_ours": 0.9966171336198161,
+ "coste_min_train": 1670.3337919960788,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "kt",
+   "clase": "identificable",
+   "ancho_ic_log": 0.0010722871546951526,
+   "dchi2_max_izq": 27420.948658107514,
+   "dchi2_max_der": 6886562.717772485,
+   "dchi2_min_lado": 27420.948658107514,
+   "dchi2_negativo": 601.4312922389861
+  },
+  {
+   "parametro": "k_death_reox",
+   "clase": "identificable",
+   "ancho_ic_log": 0.3582410799524376,
+   "dchi2_max_izq": 138.0367777746808,
+   "dchi2_max_der": 77.55158998029287,
+   "dchi2_min_lado": 77.55158998029287,
+   "dchi2_negativo": 0.887168627381925
+  },
+  {
+   "parametro": "k_damage_gem_ssb",
+   "clase": "identificable",
+   "ancho_ic_log": 0.4008477755875694,
+   "dchi2_max_izq": 301.28228447977995,
+   "dchi2_max_der": 286.67564573362074,
+   "dchi2_min_lado": 286.67564573362074,
+   "dchi2_negativo": 0.7771357220940445
+  },
+  {
+   "parametro": "p_atm_act_dsb",
+   "clase": "identificable",
+   "ancho_ic_log": 0.5702127253929381,
+   "dchi2_max_izq": 349.55796118297576,
+   "dchi2_max_der": 72.60708823857453,
+   "dchi2_min_lado": 72.60708823857453,
+   "dchi2_negativo": 0.47985502998153606
+  },
+  {
+   "parametro": "k_dox_apo",
+   "clase": "identificable",
+   "ancho_ic_log": 0.6091658539787304,
+   "dchi2_max_izq": 168.98302487815545,
+   "dchi2_max_der": 28.1218797365932,
+   "dchi2_min_lado": 28.1218797365932,
+   "dchi2_negativo": 0.37752105317758833
+  },
+  {
+   "parametro": "p_chk1_dea_wip1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.8989583228971435,
+   "dchi2_max_izq": 64.0474874863321,
+   "dchi2_max_der": 23.109006918481327,
+   "dchi2_min_lado": 23.109006918481327,
+   "dchi2_negativo": 0.1748914611150667
+  },
+  {
+   "parametro": "k_damage_sn38_ssb",
+   "clase": "identificable",
+   "ancho_ic_log": 1.0489001430416476,
+   "dchi2_max_izq": 22.875031588592492,
+   "dchi2_max_der": 39.610352285911404,
+   "dchi2_min_lado": 22.875031588592492,
+   "dchi2_negativo": 0.10054868014572094
+  },
+  {
+   "parametro": "p_chk2_act",
+   "clase": "identificable",
+   "ancho_ic_log": 1.1016437156144339,
+   "dchi2_max_izq": 4.061953320055409,
+   "dchi2_max_der": 84.94805882829041,
+   "dchi2_min_lado": 4.061953320055409,
+   "dchi2_negativo": 0.0842015776631797
+  },
+  {
+   "parametro": "k_damage_dox_dsb",
+   "clase": "identificable",
+   "ancho_ic_log": 1.1390171427157152,
+   "dchi2_max_izq": 19.206938964305436,
+   "dchi2_max_der": 36.913231191693285,
+   "dchi2_min_lado": 19.206938964305436,
+   "dchi2_negativo": 0.08766009801638575
+  },
+  {
+   "parametro": "k_ssb_to_dsb",
+   "clase": "identificable",
+   "ancho_ic_log": 1.3840523276258927,
+   "dchi2_max_izq": 11.526462313817547,
+   "dchi2_max_der": 29.073276132170804,
+   "dchi2_min_lado": 11.526462313817547,
+   "dchi2_negativo": 0.0661445061205086
+  },
+  {
+   "parametro": "p_dnapk_dea_wip1",
+   "clase": "identificable",
+   "ancho_ic_log": 1.6940366132530311,
+   "dchi2_max_izq": 46.383756465160786,
+   "dchi2_max_der": 4.233800085145958,
+   "dchi2_min_lado": 4.233800085145958,
+   "dchi2_negativo": 0.017315995433818898
+  },
+  {
+   "parametro": "p_atr_act_ssb",
+   "clase": "identificable",
+   "ancho_ic_log": 1.9482850689840063,
+   "dchi2_max_izq": 8.741308599662261,
+   "dchi2_max_der": 8.899102689049187,
+   "dchi2_min_lado": 8.741308599662261,
+   "dchi2_negativo": 0.012503874561616612
+  },
+  {
+   "parametro": "p_p21_mrna_turn",
+   "clase": "identificable",
+   "ancho_ic_log": 2.100868041855244,
+   "dchi2_max_izq": 4.314257821313049,
+   "dchi2_max_der": 7.740136995215153,
+   "dchi2_min_lado": 4.314257821313049,
+   "dchi2_negativo": 0.06079464811159596
+  },
+  {
+   "parametro": "p_chk1_act",
+   "clase": "identificable",
+   "ancho_ic_log": 2.2403660302357373,
+   "dchi2_max_izq": 7.0556444517415,
+   "dchi2_max_der": 6.293477640090032,
+   "dchi2_min_lado": 6.293477640090032,
+   "dchi2_negativo": 0.02881559465254213
+  },
+  {
+   "parametro": "p_atr_act_atm",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.574488018936563,
+   "dchi2_max_der": 58.57996438591363,
+   "dchi2_min_lado": 3.574488018936563,
+   "dchi2_negativo": 0.019601401432737475
+  },
+  {
+   "parametro": "p_p53_act_chk2",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 93.260121063106,
+   "dchi2_max_der": 3.4723829204697267,
+   "dchi2_min_lado": 3.4723829204697267,
+   "dchi2_negativo": 0.08209389876151363
+  },
+  {
+   "parametro": "k_rep_nhej",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 17.021210551440163,
+   "dchi2_max_der": 1.7629064774696417,
+   "dchi2_min_lado": 1.7629064774696417,
+   "dchi2_negativo": -0.03410077969556369
+  },
+  {
+   "parametro": "p_wip1_mrna_turn",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 12.21942217049991,
+   "dchi2_max_der": 0.8816114056353399,
+   "dchi2_min_lado": 0.8816114056353399,
+   "dchi2_negativo": 0.00405167105077453
+  },
+  {
+   "parametro": "k_rep_nhej_sat",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.13985233816924847,
+   "dchi2_max_der": 7.529633153614213,
+   "dchi2_min_lado": 0.13985233816924847,
+   "dchi2_negativo": -0.017448967444579466
+  },
+  {
+   "parametro": "k_rep_hr",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0003340114699312835,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.00021952955785309314
+  },
+  {
+   "parametro": "k_rep_s",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0012406480916524742,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.00029926035472271906
+  },
+  {
+   "parametro": "k_ssb_to_dsb_sn38",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.6472755959257483,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.06840378791571311
+  },
+  {
+   "parametro": "p_chk2_dea_wip1",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 112.23230164716097,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 2.300940669782449
+  },
+  {
+   "parametro": "p_dnapk_act",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 4.334572100328842,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.015020293915313232
+  },
+  {
+   "parametro": "p_h2ax_act_atm",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 3.193588608656455,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.11594064127734782
+  },
+  {
+   "parametro": "p_h2ax_act_atr",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 3.36075072802214,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.1949276558393649
+  },
+  {
+   "parametro": "p_h2ax_act_dnapk",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 3.460464141487364,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.3329651624771941
+  },
+  {
+   "parametro": "p_h2ax_dea",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 1.772065775185183e-05,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.00040213785428022675
+  },
+  {
+   "parametro": "p_mrna_exp_inh_dox",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 118.87673045494921,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 0.5191674440131919
+  },
+  {
+   "parametro": "p_p21_turn",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 1.2848685723020026,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.006886326498261042
+  },
+  {
+   "parametro": "p_p53_act_atm",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 133.63651129202412,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 4.736969251291612
+  },
+  {
+   "parametro": "p_p53_act_atr",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.019384542671332383,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": 2.2568788153876085e-05
+  },
+  {
+   "parametro": "p_p53_act_chk1",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.004250267307043032,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.015102954085932652
+  },
+  {
+   "parametro": "p_wip1_turn",
+   "clase": "plano",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.9414516223055216,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -0.00041493593812447216
+  }
+ ],
+ "segundos_fase3": 6.1
+}

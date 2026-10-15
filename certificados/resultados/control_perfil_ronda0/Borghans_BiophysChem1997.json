@@ -1,0 +1,213 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 6.48875)",
+ "p_libres": 22,
+ "n_bio": 20,
+ "n_identificables": 18,
+ "n_no_identificables_practicos": 2,
+ "n_planos": 0,
+ "S_ours": [
+  "Kz",
+  "K_par"
+ ],
+ "S_perfil": [
+  "Kz",
+  "beta_par"
+ ],
+ "S_qr": [
+  "Kd",
+  "init_A_state"
+ ],
+ "overlap_perfil_ours": 1,
+ "overlap_perfil_qr": 0,
+ "chi2_ours": 0.7430659894685557,
+ "chi2_qr": 0.7763596767316191,
+ "chi2_perfil": 0.7431695277189969,
+ "ratio_perfil_vs_ours": 1.0001393392402675,
+ "coste_min_train": 76.78402912940405,
+ "aviso_minimo_mejorado": true,
+ "perfiles": [
+  {
+   "parametro": "Kz",
+   "clase": "identificable",
+   "ancho_ic_log": 0.016535921811077797,
+   "dchi2_max_izq": 47.47254320519707,
+   "dchi2_max_der": 56.408119058168154,
+   "dchi2_min_lado": 47.47254320519707,
+   "dchi2_negativo": 0.006333202788695758
+  },
+  {
+   "parametro": "beta_par",
+   "clase": "identificable",
+   "ancho_ic_log": 0.018068051172378904,
+   "dchi2_max_izq": 61.066387965496574,
+   "dchi2_max_der": 62.79002900235065,
+   "dchi2_min_lado": 61.066387965496574,
+   "dchi2_negativo": 15.614825069644596
+  },
+  {
+   "parametro": "K_par",
+   "clase": "identificable",
+   "ancho_ic_log": 0.019110327330214057,
+   "dchi2_max_izq": 60.43000254683534,
+   "dchi2_max_der": 66.22572804398371,
+   "dchi2_min_lado": 60.43000254683534,
+   "dchi2_negativo": -9.55094141586757
+  },
+  {
+   "parametro": "v0",
+   "clase": "identificable",
+   "ancho_ic_log": 0.020206298684313687,
+   "dchi2_max_izq": 67.68771869221067,
+   "dchi2_max_der": 71.12245322112747,
+   "dchi2_min_lado": 67.68771869221067,
+   "dchi2_negativo": 28.729740740651906
+  },
+  {
+   "parametro": "Ky",
+   "clase": "identificable",
+   "ancho_ic_log": 0.021379089024538153,
+   "dchi2_max_izq": 31.82896007103008,
+   "dchi2_max_der": 71.22782831591437,
+   "dchi2_min_lado": 31.82896007103008,
+   "dchi2_negativo": -30.921914549375153
+  },
+  {
+   "parametro": "v1",
+   "clase": "identificable",
+   "ancho_ic_log": 0.021807821987999444,
+   "dchi2_max_izq": 52.605064203067116,
+   "dchi2_max_der": 36.93340759913019,
+   "dchi2_min_lado": 36.93340759913019,
+   "dchi2_negativo": -7.946680255667928
+  },
+  {
+   "parametro": "Ka",
+   "clase": "identificable",
+   "ancho_ic_log": 0.02255401653587511,
+   "dchi2_max_izq": 56.310165829623145,
+   "dchi2_max_der": 47.97482034336247,
+   "dchi2_min_lado": 47.97482034336247,
+   "dchi2_negativo": -11.142084414487272
+  },
+  {
+   "parametro": "Vm2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.025254141196322043,
+   "dchi2_max_izq": 62.78877375590437,
+   "dchi2_max_der": 66.22870830604634,
+   "dchi2_min_lado": 62.78877375590437,
+   "dchi2_negativo": 20.907935901372184
+  },
+  {
+   "parametro": "Vd",
+   "clase": "identificable",
+   "ancho_ic_log": 0.029652883524944232,
+   "dchi2_max_izq": 84.61885123731307,
+   "dchi2_max_der": 51.76876026176552,
+   "dchi2_min_lado": 51.76876026176552,
+   "dchi2_negativo": -1.9835671030618869
+  },
+  {
+   "parametro": "Vp",
+   "clase": "identificable",
+   "ancho_ic_log": 0.04886859342944157,
+   "dchi2_max_izq": 42.532173374616534,
+   "dchi2_max_der": 111.31197267949668,
+   "dchi2_min_lado": 42.532173374616534,
+   "dchi2_negativo": 7.852870025906796
+  },
+  {
+   "parametro": "Kp",
+   "clase": "identificable",
+   "ancho_ic_log": 0.06074833557291418,
+   "dchi2_max_izq": 60.57649332646582,
+   "dchi2_max_der": 53.30747726201105,
+   "dchi2_min_lado": 53.30747726201105,
+   "dchi2_negativo": 5.074566065578736
+  },
+  {
+   "parametro": "Kf",
+   "clase": "identificable",
+   "ancho_ic_log": 0.1163566351658242,
+   "dchi2_max_izq": 88.8971643450611,
+   "dchi2_max_der": 61.491938182683185,
+   "dchi2_min_lado": 61.491938182683185,
+   "dchi2_negativo": -8.90131312325667
+  },
+  {
+   "parametro": "Vm3",
+   "clase": "identificable",
+   "ancho_ic_log": 0.12367210612771753,
+   "dchi2_max_izq": 62.091170773306885,
+   "dchi2_max_der": 71.1150649157473,
+   "dchi2_min_lado": 62.091170773306885,
+   "dchi2_negativo": -22.1814332418436
+  },
+  {
+   "parametro": "K2",
+   "clase": "identificable",
+   "ancho_ic_log": 0.13108726811183025,
+   "dchi2_max_izq": 55.53839739546987,
+   "dchi2_max_der": 61.83034273982523,
+   "dchi2_min_lado": 55.53839739546987,
+   "dchi2_negativo": -27.189340093132515
+  },
+  {
+   "parametro": "n_par",
+   "clase": "identificable",
+   "ancho_ic_log": 0.13428656169910494,
+   "dchi2_max_izq": 83.80776384699541,
+   "dchi2_max_der": 38.46377248556925,
+   "dchi2_min_lado": 38.46377248556925,
+   "dchi2_negativo": -15.023762492225515
+  },
+  {
+   "parametro": "Kd",
+   "clase": "identificable",
+   "ancho_ic_log": 0.1537257706089555,
+   "dchi2_max_izq": 50.38979039581966,
+   "dchi2_max_der": 47.304149020118274,
+   "dchi2_min_lado": 47.304149020118274,
+   "dchi2_negativo": -5.642185565477263
+  },
+  {
+   "parametro": "init_Y_state",
+   "clase": "identificable",
+   "ancho_ic_log": 0.3055636208674701,
+   "dchi2_max_izq": 39.388439654029426,
+   "dchi2_max_der": 51.73454476229867,
+   "dchi2_min_lado": 39.388439654029426,
+   "dchi2_negativo": -9.282285811968649
+  },
+  {
+   "parametro": "init_Z_state",
+   "clase": "identificable",
+   "ancho_ic_log": 1.59783952002439,
+   "dchi2_max_izq": 4.641448724957158,
+   "dchi2_max_der": 64.82353404588565,
+   "dchi2_min_lado": 4.641448724957158,
+   "dchi2_negativo": -0.3015669532458105
+  },
+  {
+   "parametro": "epsilon_par",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 18.55365240120466,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -29.96697960633781
+  },
+  {
+   "parametro": "init_A_state",
+   "clase": "no identificable practico",
+   "ancho_ic_log": Infinity,
+   "dchi2_max_izq": 6.642440308038189,
+   "dchi2_max_der": 0.0,
+   "dchi2_min_lado": 0.0,
+   "dchi2_negativo": -17.455927106066895
+  }
+ ],
+ "segundos_fase3": 0.2
+}

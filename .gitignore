@@ -1,0 +1,30 @@
+certificados/resultados/cache/*
+!certificados/resultados/cache/*_salidas_*
+certificados/resultados/reclasificacion_salidas_*_log.txt
+certificados/resultados/validacion_externa_log.txt
+certificados/resultados/sens_*.log
+certificados/resultados/minimalidad_log.txt
+certificados/resultados/un_parametro_log.txt
+certificados/resultados/poda_log.txt
+certificados/resultados/poda_gr_log.txt
+certificados/resultados/validacion_gr_log.txt
+certificados/resultados/minimalidad_gr_log.txt
+certificados/resultados/bio_*_log.txt
+certificados/resultados/bio_chen_log.txt
+certificados/resultados/valbio_log.txt
+certificados/datos_sct/
+certificados/resultados/*/checkpoints/
+paper/scirep/*.toc
+__pycache__/
+*.pyc
+certificados/resultados/patrones_escenarios/parcial/
+
+# Generated files not for version control
+reproducibility.zip
+
+certificados/resultados/validacion_externa_bio/respaldo/
+
+# registros completos del servidor (14-oct-2026); en el repositorio sólo van los resúmenes
+certificados/resultados/_logs_completos_2026-10-14/
+paper/scirep/*.fdb_latexmk
+paper/scirep/*.fls

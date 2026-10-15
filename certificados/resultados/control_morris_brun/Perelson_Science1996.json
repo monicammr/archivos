@@ -1,0 +1,43 @@
+{
+ "sistema": "Perelson_Science1996",
+ "k": 2,
+ "division": "extrapolaci\u00f3n temporal (t \u2265 2.038)",
+ "n_bio": 2,
+ "S_ours": [
+  "c",
+  "delta"
+ ],
+ "S_brun": [
+  "c",
+  "delta"
+ ],
+ "chi2_brun": 3.963671546106699e-13,
+ "overlap_brun_ours": 2,
+ "segundos_brun": 0.0,
+ "detalle_brun": {
+  "gamma": 3.8808544212811817,
+  "cumple_gamma": true,
+  "dmsqr_top": {
+   "c": 3.7121204030438013e-06,
+   "delta": 1.8916043101648555e-06
+  }
+ },
+ "S_morris": [
+  "c",
+  "delta"
+ ],
+ "chi2_morris": 3.963671546106699e-13,
+ "overlap_morris_ours": 2,
+ "segundos_morris": 0.1,
+ "detalle_morris": {
+  "mu_star_top": {
+   "c": 7.102220141158393e-05,
+   "delta": 2.422219109206736e-05
+  },
+  "fallos_simulacion": 0
+ },
+ "chi2_ours": 3.963671546106699e-13,
+ "chi2_qr": 3.963671546106699e-13,
+ "chi2_perfil": 3.963671546106699e-13,
+ "segundos": 1.9
+}

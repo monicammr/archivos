@@ -1,0 +1,10 @@
+{
+ "sistema": "Beer_MolBioSystems2014",
+ "p": 72,
+ "T": 50.0,
+ "etapa": "T\u00e9cnico",
+ "motivo": "Jacobiano nulo (ning\u00fan par\u00e1metro din\u00e1mico afecta a los estados)",
+ "admisible": false,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

@@ -1,0 +1,15 @@
+{
+ "S": [
+  "Rec_recycle",
+  "DecoyR_binding"
+ ],
+ "eajuste_med": 0.04154117005314766,
+ "erel_med": 0.673232977781848,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 22.0
+}

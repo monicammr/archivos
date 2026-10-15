@@ -1,0 +1,14 @@
+{
+ "S": [
+  "ini_R2fold",
+  "ini_R1"
+ ],
+ "semilla": 59,
+ "B_chi2_test_theta0": 0.7225676328637324,
+ "B_chi2_test_red": 7.021134316156069,
+ "B_epred_red": 9.487251082376169,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 3.5
+}

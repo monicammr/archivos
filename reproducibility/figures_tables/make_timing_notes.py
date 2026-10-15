@@ -1,0 +1,203 @@
+#!/usr/bin/env python3
+"""
+Computing time of every analysis of the paper (Supplementary Note "Computing time of the analyses"):
+
+  tables/tableS_time_method.tex      selection, settings, robustness, single parameter (per problem)
+  tables/tableS_time_validation.tex  validation, synthetic experiment, identifiability (per problem)
+  tables/tableS_time_comparison.tex  other criteria, baselines, profile likelihood of the full model
+  tables/tableS_time_summary.tex     summary per analysis (median, maximum, total)
+
+Times are those recorded by each program for each problem (field "segundos" of the result files):
+elapsed seconds of the computation of that problem, with the internal parallelism described in the
+note; where an analysis consists of independent single-core tasks (seeds of the synthetic experiment,
+scenarios and seeds of the admissibility test of the criteria, profile points), the time is their sum,
+i.e. CPU time. Usage: python make_timing_notes.py   (prints the numbers quoted in the main text)
+"""
+import collections
+import json
+import math
+import statistics
+
+import numpy as np
+
+from common import RESULTS as RES, TAB, load
+
+SEL = load("selection")
+NAMES = sorted(SEL)
+ADM = [s for s in NAMES if SEL[s].get("admisible")]
+ok = lambda x: isinstance(x, (int, float)) and not isinstance(x, bool) and math.isfinite(x) and x >= 0
+short = lambda s: s.split("_")[0].replace("SalazarCavazos", "Salazar-Cavazos")
+
+
+def fmt(t):
+    if not ok(t):
+        return "--"
+    if t < 1:
+        return "$<$1 s"
+    if t < 60:
+        return f"{t:.0f} s"
+    if t < 3600:
+        return f"{t / 60:.1f} min"
+    return f"{t / 3600:.1f} h"
+
+
+def seg(d, key="segundos"):
+    return d.get(key) if isinstance(d, dict) and ok(d.get(key)) else None
+
+
+def summed(sub, prefix=None):
+    """{problem: sum of 'segundos' over the files of RES/sub/<problem>/ or RES/sub/<problem>__*.json}."""
+    out = collections.defaultdict(float)
+    d = RES / sub
+    if not d.exists():
+        return {}
+    for f in d.rglob("*.json"):
+        rel = f.relative_to(d).parts
+        s = rel[0] if len(rel) > 1 else f.stem.split("__")[0]
+        try:
+            r = json.loads(f.read_text())
+        except Exception:
+            continue
+        for k in ("segundos",):
+            if isinstance(r, dict) and ok(r.get(k)):
+                out[s] += r[k]
+    return dict(out)
+
+
+T = {}
+# method
+fx, tp, ts = load("timing_complete/parallel_corrected_code"), load("timing_complete/parallel"), load("timing_complete/single_core")
+T["sel_par"] = {s: seg(fx.get(s)) or seg(tp.get(s)) for s in NAMES}
+T["sel_1"] = {s: seg(ts.get(s)) for s in NAMES}
+sets = collections.defaultdict(float)
+for d in (RES / "settings").iterdir() if (RES / "settings").exists() else []:
+    for f in d.glob("*.json"):
+        r = json.loads(f.read_text())
+        if ok(r.get("segundos")):
+            sets[f.stem] += r["segundos"]
+for d in (RES / "settings_extra").iterdir() if (RES / "settings_extra").exists() else []:
+    if d.is_dir():
+        for f in d.glob("*.json"):
+            r = json.loads(f.read_text())
+            if ok(r.get("segundos")):
+                sets[f.stem] += r["segundos"]
+T["settings"] = dict(sets)
+T["rob"] = {s: seg(r) for s, r in load("robustness").items()}
+T["rob_ind"] = {s: seg(r) for s, r in load("robustness_independent").items()}
+T["single"] = {s: seg(r) for s, r in load("single_parameter").items()}
+# validation and identifiability
+T["ext"] = {s: seg(r) for s, r in load("external_validation").items()}
+T["nest"] = {s: seg(r) for s, r in load("nested_validation").items()}
+T["syn20"] = summed("synthetic_seeds")
+T["syn5"] = summed("synthetic_seeds_a005")
+T["syn50"] = summed("synthetic_seeds_a050")
+sig = collections.defaultdict(float)
+for a in ("a005", "a020", "a050"):
+    for s, v in summed(f"synthetic_signal_{a}").items():
+        sig[s] += v
+T["signal"] = dict(sig)
+idt = {}
+for s in ADM:
+    d = RES / "identifiability" / "profiles" / s
+    if (d / "minimo.npz").exists():
+        m = np.load(d / "minimo.npz")
+        t = float(m["segundos"]) if "segundos" in m.files else 0.0
+        t += sum(json.loads(f.read_text()).get("segundos", 0.0) for f in d.glob("p_*.json"))
+        idt[s] = t
+T["ident"] = idt
+# comparison
+T["qr"] = {s: seg(r) for s, r in load("qr_selection").items()}
+T["bm"] = {s: (seg(r) or 0) for s, r in load("brun_morris").items() if seg(r) is not None}
+T["rand"] = {s: seg(r) for s, r in load("random_subsets").items()}
+T["cal"] = {s: seg(r) for s, r in load("calibration_only").items()}
+T["crit5"] = summed("criteria_tests")
+T["crit20"] = summed("criteria_tests_20pc")
+t1, tc = {}, collections.defaultdict(float)
+lg0 = RES / "profile_likelihood" / "logs" / "round0.log"
+if lg0.exists():
+    for line in lg0.read_text(encoding="utf-8", errors="ignore").splitlines():
+        if '"terminado": true' in line:
+            d = json.loads(line); t1[d["sistema"]] = d["seg_total"]
+seen = set()
+for name in ("refits.log", "refits_remaining.log", "refits_final.log", "raia_10_rounds.log"):
+    lg = RES / "profile_likelihood" / "logs" / name
+    if lg.exists():
+        for line in lg.read_text(encoding="utf-8", errors="ignore").splitlines():
+            if '"terminado": true' in line:
+                d = json.loads(line)
+                if d["puntos"] > 0 and (d["sistema"], d["seg_total"]) not in seen:
+                    seen.add((d["sistema"], d["seg_total"])); tc[d["sistema"]] += d["seg_total"]
+T["pl"] = {s: t1[s] + tc.get(s, 0.0) for s in t1}
+
+LAB = {"sel_par": "Selection, parallel", "sel_1": "Selection, 1 core", "settings": "Settings (15 variants)",
+       "rob": "Robustness, paired", "rob_ind": "Robustness, independent", "single": "Single parameter",
+       "ext": "External validation", "nest": "Nested validation", "syn20": r"Synthetic, $\pm$20\%, 20 seeds",
+       "syn5": r"Synthetic, $\pm$5\%, 10 seeds", "syn50": r"Synthetic, $\pm$50\%, 10 seeds", "signal": "True signal, 3 amplitudes",
+       "ident": "Identifiability of $S$", "qr": "Pivoted QR", "bm": "Brun and Morris", "rand": "Random subsets (20)",
+       "cal": "Calibration only", "crit5": r"Criteria test, $\pm$5\%", "crit20": r"Criteria test, $\pm$20\%",
+       "pl": "Profile likelihood, full model"}
+
+
+def table(keys, name, caption, label):
+    head = ["Problem"] + [LAB[k] for k in keys]
+    rows = [[short(s)] + [fmt(T[k].get(s)) for k in keys] for s in NAMES]
+    spec = "@{}l" + "r" * len(keys) + "@{}"
+    h = " & ".join(rf"\rotatebox{{70}}{{{x}}}" if i else x for i, x in enumerate(head)) + r" \\"
+    s = [rf"\begin{{longtable}}{{{spec}}}", rf"\caption{{{caption}}}\label{{{label}}}\\", r"\toprule", h, r"\midrule",
+         r"\endfirsthead", r"\toprule", h, r"\midrule", r"\endhead"]
+    s += [" & ".join(r) + r" \\" for r in rows] + [r"\bottomrule", r"\end{longtable}"]
+    (TAB / name).write_text("\n".join(s) + "\n", encoding="utf-8"); print("written", name)
+
+
+COMMON = (r" Times recorded by each program for each problem: elapsed time of the computation of that problem with the parallelism described in the text; where an analysis consists of independent single-core tasks (seeds, scenarios, profile points) the time is their sum, i.e.\ processor time. "
+          r"--, not computed (problem not admissible, not applicable or infeasible). Large problems were computed on shared servers with 128 or 256 cores, the others on an 8-core workstation; times on shared servers are upper bounds.")
+table(["sel_par", "sel_1", "settings", "rob", "rob_ind", "single"], "tableS_time_method.tex",
+      r"Computing time of the method and of the analyses of its behaviour, for every problem. Selection: complete method (sensitivities, stages 1 and 2, admissibility test and backward elimination) run from scratch, with the sensitivities in parallel or on one core; Settings: the 15 variants of Supplementary Note \emph{Sensitivity to the method settings} together; Robustness: seven perturbation sizes with paired or independent directions; Single parameter: Supplementary Note \emph{Single-parameter subsets}." + COMMON,
+      "tab:timemethod")
+table(["ext", "nest", "syn20", "syn5", "syn50", "signal", "ident"], "tableS_time_validation.tex",
+      r"Computing time of the validation and identifiability analyses, for every problem: external and nested validation on real data, synthetic experiment (20 seeds at $\pm$20\%, 10 seeds at $\pm$5\% and $\pm$50\%), true signal $y(\theta^\ast)-y(\theta_0)$ at the three amplitudes, and the identifiability of the selected parameters (fit of the reduced problem and all profile points)." + COMMON,
+      "tab:timevalidation")
+table(["qr", "bm", "rand", "cal", "crit5", "crit20", "pl"], "tableS_time_comparison.tex",
+      r"Computing time of the comparison with other criteria, for every problem: selection and validation by pivoted QR, Brun and Morris, the random and calibration-only baselines, the admissibility and synthetic tests of the subsets of all criteria ($\pm$5\%, including the synthetic seeds, and $\pm$20\%), and profile likelihood of every biological parameter of the full model (all rounds)." + COMMON,
+      "tab:timecomparison")
+
+# summary per analysis
+rows, tot_all = [], 0.0
+for k, lab in LAB.items():
+    v = {s: t for s, t in T[k].items() if ok(t) and t > 0}
+    if not v:
+        continue
+    vals = list(v.values()); smax = max(v, key=v.get)
+    tot_all += sum(vals) if k not in ("sel_1",) else 0
+    rows.append([lab, str(len(v)), fmt(statistics.median(vals)), f"{fmt(v[smax])} ({short(smax)})", f"{sum(vals) / 3600:.1f}"])
+head = ["Analysis", "Problems", "Median", "Maximum (problem)", "Total (h)"]
+s = [r"\begin{longtable}{@{}lrrlr@{}}",
+     r"\caption{Summary of the computing time per analysis over the problems of Supplementary Tables~\ref{tab:timemethod}--\ref{tab:timecomparison}: number of problems, median and maximum time per problem and total time.}\label{tab:timesummary}\\",
+     r"\toprule", " & ".join(head) + r" \\", r"\midrule", r"\endfirsthead", r"\toprule", " & ".join(head) + r" \\", r"\midrule", r"\endhead"]
+s += [" & ".join(r) + r" \\" for r in rows] + [r"\midrule", rf"All analyses (selection on one core excluded) & & & & {tot_all / 3600:.0f} \\", r"\bottomrule", r"\end{longtable}"]
+(TAB / "tableS_time_summary.tex").write_text("\n".join(s) + "\n", encoding="utf-8"); print("written tableS_time_summary.tex")
+
+# numbers for the main text
+med = lambda k, ss=None: statistics.median([t for s, t in T[k].items() if ok(t) and t > 0 and (ss is None or s in ss)])
+sel = {s: t for s, t in T["sel_par"].items() if ok(t)}
+pl = {s: t for s, t in T["pl"].items() if ok(t) and t > 0}
+both = [s for s in pl if s in sel]
+print(f"selection (parallel): median {fmt(med('sel_par'))}, under 10 min in {sum(t < 600 for t in sel.values())} of {len(sel)}, max {fmt(max(sel.values()))} ({short(max(sel, key=sel.get))})")
+print(f"identifiability: median {fmt(med('ident'))} over {len(T['ident'])}")
+print(f"profile likelihood full model: {len(pl)} problems, median {fmt(statistics.median(pl.values()))}; "
+      f"ours faster in {sum(sel[s] < pl[s] for s in both)} of {len(both)}; median ratio PL/ours {statistics.median([pl[s] / sel[s] for s in both]):.0f}")
+print(f"total of all analyses: {tot_all / 3600:.0f} h")
+for k in LAB:
+    v = [t for t in T[k].values() if ok(t) and t > 0]
+    if v:
+        print(f"  {k}: total {sum(v) / 3600:.1f} h over {len(v)}")
+per = collections.defaultdict(float)
+for k in LAB:
+    if k == "sel_1":
+        continue
+    for s, t in T[k].items():
+        if ok(t):
+            per[s] += t
+top = sorted(per.items(), key=lambda x: -x[1])[:5]
+print("per problem (top 5):", [(short(s), round(t / 3600, 1)) for s, t in top],
+      f"share {100 * sum(t for _, t in top) / sum(per.values()):.0f}%; median per problem {fmt(statistics.median(per.values()))}")

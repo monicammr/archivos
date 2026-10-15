@@ -1,0 +1,15 @@
+{
+ "S": [
+  "Kd",
+  "init_A_state"
+ ],
+ "eajuste_med": 0.3448851293336775,
+ "erel_med": 1.0684294801897378,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 15.6
+}

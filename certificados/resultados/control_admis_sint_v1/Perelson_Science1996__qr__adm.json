@@ -1,0 +1,15 @@
+{
+ "S": [
+  "c",
+  "delta"
+ ],
+ "eajuste_med": 0.0,
+ "erel_med": 0.0,
+ "admisible": true,
+ "n_escenarios": 2,
+ "lineal": false,
+ "sistema": "Perelson_Science1996",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 0.2
+}

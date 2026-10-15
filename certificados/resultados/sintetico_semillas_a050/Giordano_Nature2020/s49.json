@@ -1,0 +1,19 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "semilla": 49,
+ "p_y": 43,
+ "amplitud": 0.5,
+ "senal_rms_train": 0.00016137432723024048,
+ "senal_rms_test": 0.0007940598648404887,
+ "senal_norma_test": 0.008403539713861978,
+ "ruido_norma_test": 10.583005244258363,
+ "B_chi2_test_theta0": 1.1697649541125001,
+ "B_chi2_test_red": 1.194584762303552,
+ "B_epred_red": 396.72192292780295,
+ "nfev_red": 11,
+ "seg_red": 1.3,
+ "B_chi2_test_full": 1.2987766727525811,
+ "B_epred_full": 681.9116096863269,
+ "nfev_full": 112,
+ "segundos": 37.9
+}

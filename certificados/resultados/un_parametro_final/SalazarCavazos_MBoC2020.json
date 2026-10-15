@@ -1,0 +1,60 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "calibracion": [],
+ "candidatos": 6,
+ "un_parametro": [
+  {
+   "parametro": "ratio_kpkd_Y1068__FREE",
+   "e_rel": 0.47998653248434714,
+   "e_fit": 0.2972634216589741,
+   "admisible": true
+  },
+  {
+   "parametro": "ratio_kpkd_YN__FREE",
+   "e_rel": 0.8785654944743381,
+   "e_fit": 0.4196416330707377,
+   "admisible": true
+  },
+  {
+   "parametro": "SHC1_total__FREE",
+   "e_rel": 0.9070363962318443,
+   "e_fit": 0.40032953455321,
+   "admisible": true
+  },
+  {
+   "parametro": "kdephosYN__FREE",
+   "e_rel": 0.9872166199627705,
+   "e_fit": 0.6086823995013618,
+   "admisible": false
+  },
+  {
+   "parametro": "GRB2_total__FREE",
+   "e_rel": 1.0546162517304538,
+   "e_fit": 0.6077850622994336,
+   "admisible": false
+  },
+  {
+   "parametro": "kdephosY1068__FREE",
+   "e_rel": 1.0017364053718962,
+   "e_fit": 0.43405817042436384,
+   "admisible": true
+  }
+ ],
+ "algun_parametro_solo_basta": true,
+ "mejor": "ratio_kpkd_Y1068__FREE",
+ "mejor_efit_10": 0.2940360887764951,
+ "S_efit_10": 0.1873263239956304,
+ "mejor_validacion": {
+  "A_chi2_test_red": 99.99873831923482,
+  "B_chi2_test_theta0": 6.138738959097054,
+  "B_epred_red": 0.7881938883026166,
+  "no_evaluable": null,
+  "B_error": null
+ },
+ "segundos": 105.9,
+ "mejor_validacion_calibracion": 0
+}

@@ -1,0 +1,18 @@
+{
+ "sistema": "Weber_BMC2015",
+ "k": 2,
+ "S_ours": [
+  "s12",
+  "a21"
+ ],
+ "S_qr": [
+  "a22",
+  "pu5"
+ ],
+ "overlap": 0,
+ "chi2_ours": 1.000852849606915,
+ "chi2_qr": 0.9972374791293043,
+ "ratio_qr_vs_ours": 0.9963877102622722,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.2
+}

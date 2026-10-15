@@ -1,0 +1,39 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "p": 30,
+ "T": 50.0,
+ "S1": [
+  "scale",
+  "ini_R1",
+  "ini_R2fold",
+  "ka1",
+  "kon_unspec",
+  "scaleElisa_nExpID2",
+  "scaleElisa_nExpID1",
+  "scaleElisa_nExpID4",
+  "kin",
+  "kout2",
+  "km_nExpID1",
+  "km_nExpID2"
+ ],
+ "Rvar_S1_%": 70.35026103910874,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "scale",
+  "ini_R1",
+  "ini_R2fold",
+  "kon_unspec"
+ ],
+ "Rvar_%": 59.12949629354165,
+ "kappa": 5.41559814260442,
+ "VIF": 6.430522451540116,
+ "cos_med": 0.776417673983366,
+ "erel_med": 0.6930984509723013,
+ "n_escenarios": 15,
+ "admisible": true,
+ "eajuste_med": 0.33181574613961184,
+ "segundos": 32.0,
+ "etapa_paper": "T\u00e9cnico",
+ "S_paper": []
+}

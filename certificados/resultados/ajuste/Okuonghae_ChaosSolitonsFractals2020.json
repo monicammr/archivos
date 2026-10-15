@@ -1,0 +1,18 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "|S|": 3,
+ "S": [
+  "transmission_rate_effective",
+  "gamma_0",
+  "gamma_a"
+ ],
+ "n_escenarios": 15,
+ "cos_med": 0.9563321268712516,
+ "erel_med": 0.38758773221474163,
+ "eajuste_med": 0.2217785094512702,
+ "eajuste_p90": 0.3710610724910858,
+ "eajuste<=0.10": "2/15",
+ "eajuste<=0.436": "14/15",
+ "segundos": 0.4,
+ "admisible_v2": true
+}

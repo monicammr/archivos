@@ -1,0 +1,15 @@
+{
+ "S": [
+  "asymptomatic_start",
+  "d_D"
+ ],
+ "eajuste_med": 0.16862672552469507,
+ "erel_med": 1.0008440579403564,
+ "admisible": true,
+ "n_escenarios": 15,
+ "lineal": false,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 1.1
+}

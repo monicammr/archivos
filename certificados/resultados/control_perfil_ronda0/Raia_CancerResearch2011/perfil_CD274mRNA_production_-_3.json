@@ -1,0 +1,10 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "parametro": "CD274mRNA_production",
+ "lado": -1,
+ "despl": 1.2,
+ "log_theta": -5.0614542288825,
+ "dchi2": -324.08258926169947,
+ "nfev": 42,
+ "segundos": 5.6
+}

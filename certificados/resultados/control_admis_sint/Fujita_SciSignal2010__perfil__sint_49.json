@@ -1,0 +1,14 @@
+{
+ "S": [
+  "reaction_8_k1",
+  "EGFR_turnover"
+ ],
+ "semilla": 49,
+ "B_chi2_test_theta0": 6.536472060721408,
+ "B_chi2_test_red": 0.8523855872614439,
+ "B_epred_red": 0.190355322157891,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.4
+}

@@ -1,0 +1,17 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "|S|": 2,
+ "division": "condiciones nuevas",
+ "n_train": 33,
+ "n_test": 9,
+ "chi2_test_red_original": 0.757740623887529,
+ "chi2_test_full_train": 1.8749824780458206,
+ "chi2_test_red_nested": 1.8749824780458206,
+ "chi2_test_theta0": 0.44483562200248133,
+ "ratio_nested_vs_original": 2.474438375002741,
+ "segundos": 0.7
+}

@@ -1,0 +1,49 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "evaluable": true,
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "n_calibracion": 0,
+ "calibracion_usada": [],
+ "columnas_nulas_excluidas": [],
+ "n_filas": 1755,
+ "kappa_S_std": 6.535310100253626,
+ "VIF_S_std": 9.846532545697954,
+ "kappa_SC_std": 6.535310100253626,
+ "VIF_SC_std": 9.846532545697954,
+ "kappa_SC_n": 6.577697981517112,
+ "VIF_SC_n_max": 9.9479811884591,
+ "VIF_SC_n_S": {
+  "init_Rec": 1.2016010297927278,
+  "S2tot": 2.348206811953732,
+  "S3tot": 2.3458336882718807,
+  "S_dephosphos": 9.9479811884591,
+  "S_phos": 8.585362702204167,
+  "geneF_turn": 1.1082371417613586,
+  "k_234": 1.8257599292662414,
+  "geneK_turn": 1.1435807953301516,
+  "S4tot": 1.0111650011253175,
+  "geneH_turn": 1.2281385763093473
+ },
+ "param_VIF_max": "S_dephosphos",
+ "par_mas_parecido_con_S": {
+  "coseno": 0.9287387975087229,
+  "a": "S_dephosphos",
+  "b": "S_phos"
+ },
+ "columnas_reutilizadas": 10,
+ "segundos": 1.9,
+ "pasa_std": true,
+ "pasa_n": true,
+ "pasa_S_n": true
+}
