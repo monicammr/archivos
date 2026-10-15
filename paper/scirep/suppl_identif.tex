@@ -11,15 +11,10 @@ The method selects a subset $S$ that is \emph{sufficient}: re-estimating $S$ tog
 \end{enumerate}
 Six problems with expensive simulations (Bachmann, Chen, Isensee, Lang, Raimundez, Smith) were computed on a 256-core server and the others on a workstation.
 
-\subsection*{Formal result}
-The Lean module \texttt{ProfileIdentifiability} (Supplementary Table~\ref{tab:statements}) proves, for any residual function $r$, linear map $A$ and constants, the following statement. Let $\Delta\chi^2(\delta)=\|r(\hat\theta+\delta)\|^2-\|r_0\|^2$. If $|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|$ for all $\delta$ (approximate stationarity of $\hat\theta$), $I_j\,\delta_j^2\le\|A\delta\|^2$ for all $\delta$ (which holds with $I_j=1/[(A^{\top}A)^{-1}]_{jj}$), and the nonlinear remainder is at most $\varepsilon$ on the admissible set, then every admissible $\delta$ with
-\[ |\delta_j|\ \ge\ t^{\ast}=\frac{\varepsilon+\gamma+\sqrt{\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon}}{\sqrt{I_j}} \]
-has $\Delta\chi^2(\delta)\ge c$. Hence, if $t^{\ast}$ is smaller than the distance from $\log|\hat\theta_j|$ to the bounds on both sides, $\theta_j$ is practically identifiable within the bounds (\texttt{practically\_identifiable\_grad}). For a linear model ($\varepsilon=0$) and an exact minimum ($\gamma=0$), $t^{\ast}=\sqrt{c\,[(A^{\top}A)^{-1}]_{jj}}$ is the half-width of the Wald interval (\texttt{tstar\_linear}). The module also proves local structural identifiability: if $\|A\delta\|\ge\sigma\|\delta\|$ and the remainder is at most $M\|\delta\|^2$, distinct parameters with $\|\delta\|<\sigma/M$ give distinct outputs (\texttt{local\_injective}).
-
-The theorem is general; its hypotheses are numerical properties of each problem. The stationarity constant $\gamma$ and the information $I_j$ are computed directly. The remainder $\varepsilon$, however, can only be evaluated at points, not bounded over a region, for the same reason that the finite-perturbation certificates of steps~4 and~20 could not be applied (\sref{seq}): far from $\hat\theta$ the response of an ODE model saturates and the linearisation overestimates it. We therefore report two numerical checks of the hypotheses: the linear condition (Wald interval within the bounds, $\varepsilon=0$) and the condition with $\varepsilon$ evaluated at the computed profile points up to the first point at which $|\delta_j|\ge t^{\ast}$.
+\input{suppl_identif_math}
 
 \subsection*{Results}
-Supplementary Table~\ref{tab:identif} gives the results for the 32 problems with an admissible subset.
+Supplementary Table~\ref{tab:identif} summarises the results for the 32 problems with an admissible subset, Supplementary Figure~\ref{fig:identifperfiles} shows the profile of every selected parameter in every problem, and Supplementary Table~\ref{tab:identifparam} gives, for every parameter, its confidence interval and the quantities of the formal condition ($I_j$, the Wald half-width, $\gamma$, $\varepsilon$ and the distances to the bounds).
 
 \emph{Profile likelihood.} In 26 of the 32 problems all selected parameters were practically identifiable, and 67 of the 76 selected parameters were identifiable (74 of them could be evaluated). The exceptions are of three kinds. In Fujita a selected parameter is confounded with a measurement scaling factor: the columns of \texttt{reaction\_6\_k1} and \texttt{scaling\_pS6\_tot} have cosine 1.00, and neither selected parameter is identifiable. In Giordano and Perelson the recorded noise levels are far larger than the residuals ($\chi^2/n<10^{-2}$), so no parameter change raises $\chi^2$ by 3.84; in Okuonghae and Oliveira one parameter is identifiable and the profile of the other could not be simulated. In Smith, the optimum of \texttt{k8} lies at the lower bound of the study. With the robust threshold, 24 of the 32 problems keep all their parameters identifiable (62 of the 76 parameters): Raia ($\chi^2/\mathrm{d.f.}=1{,}791$) and Chen (168) lose one or both, and so does the second parameter of Smith (1{,}894), because their recorded noise levels are too small for the scatter of the data.
 
@@ -32,4 +27,15 @@ The result is practical identifiability of the reduced problem: local, within th
 
 {\small
 \input{tables/tableS_identif.tex}
+}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.88\textheight,keepaspectratio]{figures/figS_identif_perfiles.pdf}
+\caption{\textbf{Profile likelihood of the selected parameters in the reduced problem, for the 32 problems with an admissible subset.} Each line is one selected parameter: $\Delta\chi^2$ (symmetric logarithmic scale) against the displacement of $\log_{10}\theta_j$ from the optimum of the reduced problem, with $S\cup\Theta_C$ re-estimated at each point and the other parameters at $\theta_0$. Only points within the bounds $[|\theta_0|/10,10|\theta_0|]$ and whose simulation succeeded are drawn. Blue, identifiable (the profile exceeds the threshold on both sides); orange, practically non-identifiable (one side); grey, flat. Dashed line, $\Delta\chi^2=3.84$. In Okuonghae and Oliveira the profile of one parameter could not be simulated and is not shown.}
+\label{fig:identifperfiles}
+\end{figure}
+
+{\scriptsize\setlength{\tabcolsep}{2.5pt}
+\input{tables/tableS_identif_param.tex}
 }

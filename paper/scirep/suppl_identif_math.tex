@@ -1,0 +1,114 @@
+\subsection*{Mathematical derivation of the identifiability condition}
+
+This subsection states the result that is verified in Lean (module \texttt{ProfileIdentifiability}, step~32 of Supplementary Table~\ref{tab:modules}) and gives the complete argument, with the reasoning behind each step. All statements are deterministic inequalities in a real inner-product space: no probabilistic assumption is used in the proofs, and the statistical meaning enters only through the threshold $c$.
+
+\subsubsection*{Setting}
+
+Let $k$ be the number of free parameters of the reduced problem, the selected biological parameters $S$ and the calibration parameters $\Theta_C$, all other parameters being fixed at $\theta_0$. We work with the displacement $\delta\in\mathbb{R}^k$ of their logarithms, $\log|\theta|=\log|\hat\theta|+\delta$, from the optimum $\hat\theta$ of the reduced fit. Let
+\[ r(\delta)=\Bigl(\frac{y_i(\hat\theta+\delta)-\tilde y_i}{\sigma_i}\Bigr)_{i=1,\dots,m}\in\mathbb{R}^m \]
+be the vector of noise-scaled residuals over all measurements ($y_i$ the model output, $\tilde y_i$ the measurement and $\sigma_i$ its recorded noise level, all after the transformation of the observable), so that the weighted least-squares cost is $\chi^2(\delta)=\|r(\delta)\|^2$. Write $r_0=r(0)$ and
+\[ \Delta\chi^2(\delta)=\|r(\delta)\|^2-\|r_0\|^2 , \]
+the increase of the cost when the parameters move by $\delta$ from the optimum. Let $A=\partial r/\partial\delta\,(0)\in\mathbb{R}^{m\times k}$ be the sensitivity matrix of the residuals at the optimum and
+\[ \rho(\delta)=r(\delta)-r_0-A\delta \]
+the nonlinear remainder of the first-order expansion. Fix a selected parameter $j$ and denote by $\delta_j$ the $j$-th coordinate of $\delta$. $F\subseteq\mathbb{R}^k$ is the admissible set (the bounds $[|\theta_0|/10,10|\theta_0|]$ of every free parameter), and $d_-$, $d_+>0$ are the distances from $\log|\hat\theta_j|$ to the lower and upper bound of $\theta_j$.
+
+The profile likelihood of $\theta_j$ is $\mathrm{PL}_j(t)=\min\{\Delta\chi^2(\delta):\delta\in F,\ \delta_j=t\}$. By Wilks' theorem, $\{t:\mathrm{PL}_j(t)<c\}$ with $c=\chi^2_{1;0.95}=3.84$ is the 95\% profile-likelihood confidence interval of $\log|\theta_j|-\log|\hat\theta_j|$ (Raue et al., 2009); this is the only place where a statistical argument enters.
+
+\begin{sdefinition}[Practical identifiability within the bounds]
+$\theta_j$ is \emph{practically identifiable} if there are $0<t_-<d_-$ and $0<t_+<d_+$ such that $\Delta\chi^2(\delta)\ge c$ for every $\delta\in F$ with $\delta_j\le -t_-$ or $\delta_j\ge t_+$.
+\end{sdefinition}
+Equivalently, $\mathrm{PL}_j(t)\ge c$ for $t\le-t_-$ and for $t\ge t_+$: the profile exceeds the threshold on both sides before reaching the bounds, so the confidence interval is contained in $(-t_-,t_+)$ and is finite. This is the definition applied numerically to the computed profiles, and it is the predicate \texttt{PracticallyIdentifiable} in Lean.
+
+\subsubsection*{Hypotheses}
+
+\begin{shypothesis}[approximate stationarity]\label{h:stat}
+There is $\gamma\ge0$ with $|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|$ for all $\delta$.
+\end{shypothesis}
+At an exact unconstrained minimum the normal equations give $A^{\top}r_0=0$, so $\gamma=0$. A numerical optimiser stops at a tolerance, and an optimum can lie on a bound, so the hypothesis allows a residual gradient. Proposition~\ref{p:proj} shows how $\gamma$ is computed.
+
+\begin{shypothesis}[profiled information]\label{h:info}
+There is $I_j>0$ with $I_j\,\delta_j^2\le\|A\delta\|^2$ for all $\delta$.
+\end{shypothesis}
+$\|A\delta\|^2$ is the linear prediction of the increase of the cost. The hypothesis says that a displacement $\delta_j$ of the parameter of interest cannot be hidden by moving the other free parameters: whatever they do, the outputs change by at least $\sqrt{I_j}\,|\delta_j|$ in units of noise. Lemma~\ref{l:info} gives the best such constant.
+
+\begin{shypothesis}[bounded nonlinearity]\label{h:rem}
+There is $\varepsilon\ge0$ with $\|\rho(\delta)\|\le\varepsilon$ for all $\delta\in F$.
+\end{shypothesis}
+This is the only hypothesis that involves the model away from the optimum.
+
+\subsubsection*{Step 1: a lower bound for the increase of the cost}
+
+\begin{slemma}[\texttt{dchi2\_lower\_grad}]\label{l:lower}
+Under Hypotheses~\ref{h:stat} and~\ref{h:rem}, for every $\delta\in F$ with $\|A\delta\|\ge\varepsilon$,
+\[ \Delta\chi^2(\delta)\ \ge\ (\|A\delta\|-\varepsilon)^2-2\gamma\|A\delta\|-2\|r_0\|\varepsilon . \]
+\end{slemma}
+\begin{proof}
+Since $r(\delta)=r_0+(A\delta+\rho)$, expanding the square gives the exact identity
+\[ \Delta\chi^2(\delta)=2\langle r_0,A\delta\rangle+2\langle r_0,\rho\rangle+\|A\delta+\rho\|^2 . \]
+We bound each term from below. (i) By Hypothesis~\ref{h:stat}, $2\langle r_0,A\delta\rangle\ge-2\gamma\|A\delta\|$. (ii) By the Cauchy--Schwarz inequality and Hypothesis~\ref{h:rem}, $2\langle r_0,\rho\rangle\ge-2\|r_0\|\,\|\rho\|\ge-2\|r_0\|\varepsilon$. (iii) By the triangle inequality, $\|A\delta\|=\|(A\delta+\rho)-\rho\|\le\|A\delta+\rho\|+\|\rho\|$, so $\|A\delta+\rho\|\ge\|A\delta\|-\varepsilon\ge0$, and squaring preserves the inequality between non-negative numbers. Adding (i)--(iii) gives the claim.
+\end{proof}
+\emph{Reasoning.} The identity separates three effects. The quadratic term $\|A\delta+\rho\|^2$ is the information: how much the outputs move. The term $2\langle r_0,A\delta\rangle$ vanishes at an exact optimum and measures how far the optimiser is from it. The cross term $2\langle r_0,\rho\rangle$ couples the misfit of the model with its nonlinearity: when the model fits the data well ($\|r_0\|$ small) the nonlinearity matters little, but when the misfit is large, as in the problems whose recorded noise does not match the data, even a moderate nonlinearity can lower the profile. This is why $\|r_0\|$ appears in the result.
+
+\subsubsection*{Step 2: the information that remains for one parameter}
+
+\begin{slemma}[\texttt{info\_of\_inverse}, \texttt{info\_of\_matrix}]\label{l:info}
+If $A^{\top}A$ is invertible, Hypothesis~\ref{h:info} holds with $I_j=1/[(A^{\top}A)^{-1}]_{jj}$, and this constant is the largest possible.
+\end{slemma}
+\begin{proof}
+Let $w=(A^{\top}A)^{-1}e_j$, so that $A^{\top}Aw=e_j$ and, for every $\delta$, $\langle Aw,A\delta\rangle=\langle A^{\top}Aw,\delta\rangle=\delta_j$. In particular $\|Aw\|^2=w_j=[(A^{\top}A)^{-1}]_{jj}>0$. By Cauchy--Schwarz, $\delta_j^2=\langle Aw,A\delta\rangle^2\le\|Aw\|^2\|A\delta\|^2=w_j\|A\delta\|^2$, which is Hypothesis~\ref{h:info} with $I_j=1/w_j$. For $\delta=w$ equality holds, so no larger constant is possible.
+\end{proof}
+\emph{Reasoning.} The extremal direction $w$ is the displacement that moves $\theta_j$ by one unit while the other free parameters compensate as well as possible in the least-squares sense; $I_j$ is the squared output change that still remains. Equivalently, if $a_j$ is the column of $A$ for $\theta_j$ and $P_{-j}$ the orthogonal projection onto the span of the other columns, then $I_j=\|(\mathrm{I}-P_{-j})a_j\|^2$, the part of the effect of $\theta_j$ that no combination of the other parameters can reproduce. This second form follows directly from $\|A\delta\|=\|\delta_ja_j+A_{-j}\delta_{-j}\|\ge|\delta_j|\,\mathrm{dist}(a_j,\mathrm{span}\,A_{-j})$, and it also holds when two \emph{other} columns are collinear (for example two calibration parameters with the same effect), in which case $A^{\top}A$ is singular but the information of $\theta_j$ is still well defined. We computed $I_j$ in this form. This is the quantity that distinguishes identifiability from collinearity: the condition number and the VIF of normalised columns measure only the angle between columns, whereas $I_j$ measures the size of the remaining effect in units of the noise, so a parameter strongly correlated with a scaling factor can still be identifiable when the data are precise (Brannmark, Fiedler, Raia), and an uncorrelated parameter cannot be identifiable when the recorded noise is much larger than its effect (Giordano, Perelson).
+
+\subsubsection*{Step 3: the profile crosses the threshold}
+
+\begin{stheorem}[\texttt{dchi2\_ge\_of\_coord\_grad}]\label{t:cross}
+Under Hypotheses~\ref{h:stat}--\ref{h:rem}, let
+\[ t^{\ast}=\frac{\varepsilon+\gamma+\sqrt{\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon}}{\sqrt{I_j}} . \]
+Then $\Delta\chi^2(\delta)\ge c$ for every $\delta\in F$ with $|\delta_j|\ge t^{\ast}$.
+\end{stheorem}
+\begin{proof}
+Write $a=\|A\delta\|$, $K=\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon\ge0$ and $s=\sqrt K$. By Hypothesis~\ref{h:info}, $a\ge\sqrt{I_j}\,|\delta_j|\ge\sqrt{I_j}\,t^{\ast}=\varepsilon+\gamma+s$. In particular $a\ge\varepsilon$, so Lemma~\ref{l:lower} applies. Put $x=a-\varepsilon\ge\gamma+s\ge0$. Then $x-\gamma\ge s\ge0$, hence $(x-\gamma)^2\ge s^2=K$, that is $x^2-2\gamma x\ge c+2\|r_0\|\varepsilon+2\gamma\varepsilon$. By Lemma~\ref{l:lower},
+\[ \Delta\chi^2(\delta)\ \ge\ x^2-2\gamma(x+\varepsilon)-2\|r_0\|\varepsilon\ =\ (x^2-2\gamma x)-2\gamma\varepsilon-2\|r_0\|\varepsilon\ \ge\ c . \qedhere \]
+\end{proof}
+\emph{Reasoning.} The lower bound of Lemma~\ref{l:lower} is a quadratic function of $a$ that becomes positive and grows once $a$ exceeds the losses caused by the gradient and the nonlinearity. $t^{\ast}$ is obtained by solving that quadratic for the value of $a$ at which the bound reaches $c$, and translating it to $\delta_j$ through the information: each unit of $\delta_j$ guarantees $\sqrt{I_j}$ units of output change.
+
+\begin{scorollary}[\texttt{practically\_identifiable\_grad}, \texttt{confidence\_coord\_lt}]\label{c:ident}
+Under Hypotheses~\ref{h:stat}--\ref{h:rem}, with $c>0$: (a) every $\delta\in F$ with $\Delta\chi^2(\delta)<c$ satisfies $|\delta_j|<t^{\ast}$, so the 95\% profile-likelihood interval of $\log|\theta_j|$ is contained in $(-t^{\ast},t^{\ast})$; (b) if $t^{\ast}<d_-$ and $t^{\ast}<d_+$, $\theta_j$ is practically identifiable within the bounds.
+\end{scorollary}
+\begin{proof}
+(a) is the contrapositive of Theorem~\ref{t:cross}. For (b), $t^{\ast}>0$ because $c>0$ and $I_j>0$; take $t_-=t_+=t^{\ast}$ in the definition: any $\delta\in F$ with $\delta_j\le-t^{\ast}$ or $\delta_j\ge t^{\ast}$ has $|\delta_j|\ge t^{\ast}$, so $\Delta\chi^2(\delta)\ge c$ by Theorem~\ref{t:cross}.
+\end{proof}
+
+\subsubsection*{Step 4: special cases and the computable constants}
+
+\begin{sproposition}[\texttt{tstar\_linear}, \texttt{tstarGrad\_zero}]\label{p:wald}
+With $\gamma=0$ the half-width reduces to $t^{\ast}=(\varepsilon+\sqrt{c+2\|r_0\|\varepsilon})/\sqrt{I_j}$, and with also $\varepsilon=0$ to
+\[ t^{\ast}=\sqrt{c/I_j}=\sqrt{c\,[(A^{\top}A)^{-1}]_{jj}} , \]
+the half-width of the Wald (linearised) confidence interval.
+\end{sproposition}
+\begin{proof}
+Direct substitution; with $I_j=1/w_j$, $\sqrt{c}/\sqrt{1/w_j}=\sqrt{c\,w_j}$.
+\end{proof}
+\emph{Reasoning.} For a model that is exactly linear in $\delta$ and an exact optimum, $\Delta\chi^2(\delta)=\|A\delta\|^2$ and its minimum over $\delta_j=t$ is exactly $I_jt^2$ (Lemma~\ref{l:info}, equality case), so the profile is the parabola $I_jt^2$ and the Wald interval is exact: the condition $\sqrt{c/I_j}<d_\pm$ is then necessary and sufficient. The general theorem quantifies how much the nonlinearity ($\varepsilon$), the misfit ($\|r_0\|$) and the optimiser ($\gamma$) can widen that interval.
+
+\begin{sproposition}[\texttt{stat\_of\_projection}]\label{p:proj}
+If $p$ is the orthogonal projection of $r_0$ onto the range of $A$ ($\langle r_0-p,A\delta\rangle=0$ for all $\delta$), Hypothesis~\ref{h:stat} holds with $\gamma=\|p\|$.
+\end{sproposition}
+\begin{proof}
+$\langle r_0,A\delta\rangle=\langle p,A\delta\rangle$, and Cauchy--Schwarz gives $|\langle p,A\delta\rangle|\le\|p\|\,\|A\delta\|$.
+\end{proof}
+We computed $p$ by linear least squares, $p=Ac^{\ast}$ with $c^{\ast}=\arg\min_c\|r_0-Ac\|$.
+
+\begin{sproposition}[\texttt{local\_injective}: local structural identifiability]\label{p:local}
+Let $G$ be the map from the free parameters to the outputs and $A$ its derivative at $0$. If $\|A\delta\|\ge\sigma\|\delta\|$ for all $\delta$ ($\sigma$ the smallest singular value) and $\|G(\delta)-G(0)-A\delta\|\le M\|\delta\|^2$ for $\|\delta\|\le r$, then $G(\delta)\ne G(0)$ for every $\delta\ne0$ with $\|\delta\|\le r$ and $M\|\delta\|<\sigma$.
+\end{sproposition}
+\begin{proof}
+If $G(\delta)=G(0)$, the remainder equals $-A\delta$, so $\sigma\|\delta\|\le\|A\delta\|\le M\|\delta\|^2$, that is $\sigma\le M\|\delta\|$, a contradiction.
+\end{proof}
+\emph{Reasoning.} This statement does not involve the data: it says that, near the optimum, different parameter values produce different outputs, so the parameters are identifiable from noise-free outputs. Practical identifiability (Corollary~\ref{c:ident}) is stronger, because it accounts for the noise and asks that the outputs change by more than the noise allows.
+
+\subsubsection*{Relation with sufficiency}
+Admissibility and practical identifiability are different properties, and neither implies the other. Admissibility asks whether re-estimating $S\cup\Theta_C$ reproduces the outputs of the full model after all parameters are perturbed; it holds, for example, when $\theta_j$ and a scaling factor $s$ enter only through their product $s\theta_j$, because the product can absorb any change, and in that case $I_j=0$ and $\theta_j$ is not identifiable (Fujita is an instance). Conversely, a parameter can be identifiable without being sufficient to reproduce the full model. The paper establishes the two properties separately: admissibility by the re-estimation test (Theorems~1 and~2 of the main text and the other steps of Supplementary Table~\ref{tab:modules}), and identifiability by the profiles, with Corollary~\ref{c:ident} as a sufficient condition.
+
+\subsubsection*{What is proved and what is computed}
+Lemmas~\ref{l:lower} and~\ref{l:info}, Theorem~\ref{t:cross}, Corollary~\ref{c:ident} and Propositions~\ref{p:wald}--\ref{p:local} are proved in Lean for arbitrary $r$, $A$, $F$ and constants, using only the three standard axioms (\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}); Supplementary Table~\ref{tab:statements} gives their formal statements (step~32). The projection form of $I_j$ is the elementary inequality given after Lemma~\ref{l:info}; the formal development uses the inverse-matrix form, and the theorem itself takes Hypothesis~\ref{h:info} as an assumption, so either form can be used to verify it. For each problem, $A$ is computed by central finite differences (step 0.01 in $\log|\theta|$), $\gamma$ by Proposition~\ref{p:proj}, $I_j$ by projection and $\|r_0\|$ directly. The remainder $\varepsilon$ is the only quantity that cannot be bounded over the admissible set with the methods of this study: we evaluated it at the computed profile points. Far from the optimum, the response of an ODE model saturates and its linearisation overestimates the change of the outputs, so a single bound over the whole range of a factor of 10 is very pessimistic. The application of Corollary~\ref{c:ident} to a particular problem is therefore a numerical check of its hypotheses, as for the other guarantees of the paper (Supplementary Table~\ref{tab:scope}).
