@@ -41,8 +41,15 @@ import petab_problem as PP  # noqa: E402
 
 SEL = CFG.SELECTION
 OUT = CFG.ROBUSTNESS
+# ROBUST_INDEP=1: independent directions at every size (seed 42 at +-5 %, which reproduces the
+# selection scenarios, and 42 + 1000 * (position of the size) at the others) instead of the paired
+# design; results in results/robustness_independent/ (Supplementary Note on robustness, point B5).
+INDEP = os.environ.get("ROBUST_INDEP") == "1"
+if INDEP:
+    OUT = CFG.RESULTS / "robustness_independent"
 LEVELS = CFG.LEVELS
 N_SCEN, SEED = CFG.N_SCENARIOS, CFG.SEED
+seed_of = lambda level: SEED if (not INDEP or level == CFG.EPSILON) else SEED + 1000 * (LEVELS.index(level) + 1)
 TAU_E = CFG.TAU_E
 
 
@@ -72,6 +79,7 @@ def evaluate(name):
     U = np.random.default_rng(SEED).uniform(-1, 1, size=(N_SCEN, p))   # the 15 directions u(k)
     res["semilla"] = SEED
     res["u"] = U.tolist()
+    res["direcciones"] = "independent at every size" if INDEP else "paired (same at every size)"
     ckf = OUT / "partial" / f"{name}.json"          # checkpoint per size (resume)
     done = json.loads(ckf.read_text()) if ckf.exists() else {}
     for level in LEVELS:
@@ -80,10 +88,10 @@ def evaluate(name):
             res["niveles"][key] = done[key]
             continue
         cs, es, fs, ks = [], [], [], []
-        rng = np.random.default_rng(SEED)   # same seed at every size: +-5 % = selection scenarios
+        rng = np.random.default_rng(seed_of(level))   # +-5 % = selection scenarios
         for k in range(N_SCEN):
             u_k = rng.uniform(-1, 1, size=p)
-            assert np.array_equal(u_k, U[k])   # same directions at every size (paired design)
+            assert INDEP or np.array_equal(u_k, U[k])   # paired design: same directions at every size
             th = th0 * (1 + level * u_k)
             yf = Sy.sim(th)
             if yf is None:
@@ -123,7 +131,7 @@ def evaluate(name):
             fs.append(best)
         q = lambda v, k: float(np.percentile(v, k)) if v else float("nan")  # noqa: E731
         res["niveles"][f"{int(round(100 * level))}"] = {
-            "n": len(fs), "cos_med": q(cs, 50), "erel_med": q(es, 50),
+            "n": len(fs), "semilla": seed_of(level), "cos_med": q(cs, 50), "erel_med": q(es, 50),
             "eaj_med": q(fs, 50), "eaj_q25": q(fs, 25), "eaj_q75": q(fs, 75),
             "escenarios": ks, "eaj": fs, "erel": es, "cos": cs}
         ckf.parent.mkdir(parents=True, exist_ok=True)

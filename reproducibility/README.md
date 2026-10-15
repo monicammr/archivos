@@ -52,12 +52,16 @@ analysis/               the method and the numerical analyses (Python)
   petab_problem.py      simulation of the measured outputs of a PEtab problem
   selection.py          parameter selection (stages 1 and 2, admissibility, backward elimination)
   external_validation.py  prediction of held-out experiments (real and synthetic data)
-  robustness.py         errors at perturbation sizes 1-50 % (paired scenarios), patterns A-D
+  robustness.py         errors at perturbation sizes 1-50 % (paired scenarios), patterns A-D;
+                        ROBUST_INDEP=1: independent directions at every size (point B5)
+  absolute_error.py     reproduction error in units of the noise sigma (point C1)
   single_parameter.py   single-parameter subsets (minimum size 2)
   simulator_check.py    comparison with the reference simulations of the benchmark
   timing.py             time of one simulation (computational cost)
   nested_validation.py  leakage-free nested validation (fixed parameters re-estimated on training data)
-  synthetic_seeds.py    synthetic prediction experiment with 20 seeds (reduced and full model)
+  synthetic_seeds.py    synthetic prediction experiment with 20 seeds (reduced and full model);
+                        SINT_AMPLITUD=a: truth theta0 (1 + a u); SINT_SOLO_SENAL=1: only the true signal
+                        y(theta*) - y(theta0) in noise units, without fits (point C3)
   baselines.py          random subsets and calibration-only re-estimation (baselines)
   qr_selection.py       selection by column-pivoted QR (same k, same validation)
   brun_morris.py        selection by Brun's collinearity index and by Morris screening
@@ -72,11 +76,16 @@ analysis/               the method and the numerical analyses (Python)
 results/                stored results (see DATA_DICTIONARY.md)
   selection/            selected subset of each of the 34 problems
   settings/<variant>/   the same with one setting changed (15 variants, 26 problems)
+  settings_extra/<variant>/  the same variants for Lang and Raimundez (three did not finish; README.md)
   external_validation/  held-out prediction, real and synthetic data
   robustness/           errors of the 15 scenarios at 7 perturbation sizes
+  robustness_independent/  the same with independent directions at every size
+  absolute_error/       reproduction error in units of sigma at +-5 %
   single_parameter/     single-parameter subsets
   nested_validation/    leakage-free nested validation (29 problems)
   synthetic_seeds/      synthetic experiment, 20 seeds (one file per problem and seed; RESUMEN.json)
+  synthetic_seeds_a005/, synthetic_seeds_a050/   the same with truths at +-5 % and +-50 % (seeds 42-51)
+  synthetic_signal_a005/, _a020/, _a050/          true signal y(theta*) - y(theta0) only (no fits)
   random_subsets/, calibration_only/   baselines
   qr_selection/, brun_morris/, profile_likelihood/   selections of the other criteria
   criteria_tests/, criteria_tests_20pc/  admissibility and synthetic test of the five criteria
@@ -85,9 +94,12 @@ results/                stored results (see DATA_DICTIONARY.md)
   timing_complete/      run time of the complete method from scratch (parallel, single core,
                         and the eight first-order problems with the corrected code)
   simulator_check/, cost/, sbml_to_lean/, sct/, crauste_blowup.json
+  _before_negative_fix/  earlier results of Armistead, Raimundez and Lang, kept for traceability (not used)
 figures_tables/         produce the figures, tables and Supplementary Notes from results/
   build_all.py          runs all of them (level A)
   comparison_*.py       figures, tables and statistics of the comparison with other criteria
+  make_review_notes.py  tables and figures of the additional analyses (B5, C3, C1, settings of Lang and Raimundez)
+  cifras_texto.py       recomputes the counts quoted in the main text from results/
 lean_proofs/            Lean 4 + Mathlib project (see lean_proofs/README.md)
 lean_translation/
   sbml_to_lean.py       translator SBML -> Lean (writes lean_proofs/Models/)
@@ -139,7 +151,11 @@ The output is written to `figures_tables/output/`:
   (Fig. 4), the supplementary figures `figS_perfiles.pdf`, `figS_admis_mapa.pdf`, `figS_synth_semillas.pdf`,
   `figS_anidada.pdf`, the supplementary tables `tables/tableS_*.tex` (profile likelihood, selections,
   real data, Wilcoxon, admissibility, McNemar, synthetic, nested validation, run times) and, in
-  `comparison/`, the statistics and the counts quoted in the text.
+  `comparison/`, the statistics and the counts quoted in the text;
+* additional analyses: `tables/tableS_robust_indep.tex` and `figures/figS_robust_indep.pdf`
+  (independent directions), `tables/tableS_signal.tex` and `figures/figS_signal.pdf` (signal and
+  amplitudes of the synthetic experiment), `tables/tableS_abs.tex` (error in units of sigma) and
+  `tables/tableS_settings_extra.tex` (settings of Lang and Raimundez).
 
 Each script prints the counts that the paper quotes (for example the numbers of admissible problems
 for each setting), so that they can be compared with the text. The note on the SCT example and
@@ -277,6 +293,11 @@ trajectories is used (cost note), and its model is verified in Lean.
 | Fig. 5, Suppl. Tables S10–S11, Suppl. Fig. S2; patterns A–D, pass rates | `robustness.py` | `robustness/` | `make_figures.py` (`fig4`), `make_robustness_note.py` |
 | Supplementary Note on the method settings (figure and table) | `selection.py --variant` | `settings/` | `make_fig5_settings.py`, `make_extra_notes.py` |
 | Single-parameter subsets (Results; Suppl. Table S13) | `single_parameter.py` | `single_parameter/` | `make_extra_notes.py` |
+| Robustness with independent directions (Results, Robustness; Supplementary Note on robustness, table and figure) | `robustness.py` with `ROBUST_INDEP=1` | `robustness_independent/` | `make_review_notes.py` |
+| Signal and amplitudes of the synthetic experiment (Results; Supplementary Note on the synthetic experiment, table and figure) | `synthetic_seeds.py` with `SINT_SOLO_SENAL=1` and `SINT_AMPLITUD=0.05`/`0.50` | `synthetic_signal_a005/`, `_a020/`, `_a050/`, `synthetic_seeds_a005/`, `_a050/` | `make_review_notes.py` |
+| Error in units of the noise (Results, settings; Supplementary Note on the method settings) | `absolute_error.py` | `absolute_error/` | `make_review_notes.py` |
+| Random scenarios, large problems and the greedy search in Lang (Supplementary Note *Random scenarios and large problems*, settings of Lang and Raimundez) | `selection.py --variant` | `settings_extra/` | `make_review_notes.py` |
+| Counts quoted in the main text | — | all of the above | `cifras_texto.py` |
 | Crauste (Results, non-admissible problems) | `crauste_blowup.py` | `crauste_blowup.json` | — |
 | Computational cost (Results; Suppl. Table S15) | `timing.py` | `cost/` | `make_extra_notes.py` |
 | Simulator check (Methods; Suppl. Table S9) | `simulator_check.py` | `simulator_check/` | `make_extra_notes.py` |
@@ -305,6 +326,27 @@ Information and are not generated.
   `nota`); all other times were measured on the same four-core server.
 * **SCT data.** `analysis/sct_model.py` describes the expected file (columns `xi3`–`xi8`, `eta4`, one row
   per day).
+
+## Changes in version 1.3
+
+* **Scenarios.** The random scenarios are `theta0 * (1 + epsilon * u)` without any clipping: parameters
+  with negative or very small nominal values keep their sign and their relative change (previous
+  versions clipped the perturbed values at 1e-12, which affected Armistead, Raimundez and Lang).
+  Armistead now selects {k_d, k00} and Raimundez {kdeg_membran__MKN1, ka_MAPK__MKN1}; Lang has no
+  admissible subset with the default settings (31 of 34 problems admissible). All analyses of these
+  three problems were recomputed; the earlier files are in `results/_before_negative_fix/`.
+* **Additional analyses.** Robustness with independent directions (`ROBUST_INDEP=1`,
+  `results/robustness_independent/`), the true signal and other amplitudes of the synthetic experiment
+  (`SINT_SOLO_SENAL`, `SINT_AMPLITUD`, `results/synthetic_signal_*`, `results/synthetic_seeds_a005`,
+  `_a050`), the error in units of the noise (`absolute_error.py`, `results/absolute_error/`) and the
+  settings variants of Lang and Raimundez (`results/settings_extra/`); tables and figures by
+  `figures_tables/make_review_notes.py`.
+* **Caches.** For problems with more than 200 parameters each settings variant keeps its own cache
+  of J, of the stage-2 ordering and of the e_fit already computed.
+* **Checkpoints.** Analyses that resume from checkpoints (external and nested validation, pivoted QR,
+  random subsets, calibration only) identify them by problem and number of free parameters; delete the
+  results and checkpoints of a problem before re-running it with a different subset.
+* `figures_tables/cifras_texto.py` recomputes the counts quoted in the main text.
 
 ## Changes in version 1.2
 

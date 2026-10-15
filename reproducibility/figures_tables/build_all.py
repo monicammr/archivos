@@ -35,6 +35,7 @@ STEPS = [
     ("Comparison with other criteria and further validations: supplementary tables", "comparison_tables.py"),
     ("Comparison with other criteria: bootstrap and McNemar statistics", "comparison_statistics.py"),
     ("Comparison with other criteria: summary of the counts quoted in the text", "comparison_summary.py"),
+    ("Additional analyses of the review: robustness with independent directions, signal and amplitudes, error in noise units, settings of Lang and Raimundez", "make_review_notes.py"),
 ]
 
 if __name__ == "__main__":

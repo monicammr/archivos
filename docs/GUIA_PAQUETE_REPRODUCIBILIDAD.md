@@ -34,7 +34,10 @@ participante del modelo SCT (se entregan "a pedido razonable", como dice el pape
 | `selection.py` | **el método**: sensibilidad J, etapa 1 (energía), etapa 2 (efecto finito), κ/VIF, admisibilidad con e_fit, poda | Fig. 2, Tabla 1, Tabla S1 |
 | `selection.py --variant …` | lo mismo cambiando un ajuste (δ, tolerancias, ±1 %/±10 %, τ_R, κ/VIF, τ_e) | Fig. 5, Tabla S14 |
 | `external_validation.py` | ajusta con unos experimentos y predice los otros (datos reales y sintéticos) | Fig. 3, Fig. S1, Tabla S12 |
-| `robustness.py` | mide el error a ±1…50 % con las mismas 15 direcciones; patrones A–D | Fig. 4, Tablas S10–S11, Fig. S2 |
+| `synthetic_seeds.py` | experimento sintético con 20 semillas; con `SINT_SOLO_SENAL=1` calcula solo la señal y(θ*)−y(θ₀) en σ, y con `SINT_AMPLITUD=0.05/0.50` repite el experimento con otras amplitudes (punto C3) | Fig. 3b; tabla y figura de señal y amplitudes |
+| `robustness.py` | mide el error a ±1…50 % con las mismas 15 direcciones; patrones A–D | Fig. 5, Tablas S10–S11, Fig. S2 |
+| `robustness.py` con `ROBUST_INDEP=1` | lo mismo con direcciones **nuevas** en cada tamaño (punto B5 de la auditoría) | tabla y figura de direcciones independientes (nota de robustez) |
+| `absolute_error.py` | expresa el error que deja el reducido en unidades del ruido σ (punto C1) | tabla del error en σ (nota de ajustes) |
 | `single_parameter.py` | prueba si un solo parámetro bastaría (justifica k_min = 2) | Tabla S13 |
 | `crauste_blowup.py` | muestra por qué Crauste no tiene reducción local | texto de Resultados |
 | `timing.py` | mide el tiempo de una simulación | Tabla S15 |
@@ -46,7 +49,11 @@ participante del modelo SCT (se entregan "a pedido razonable", como dice el pape
 | `verify_translation.py` | comprueba, sin usar el traductor, que el archivo Lean es el mismo modelo que el SBML (diferencia ~10⁻¹²) |
 | `mutation_control.py` | control: si se cambia un número del archivo Lean en 1 %, la comprobación lo detecta (~10⁻²) |
 
-`figures_tables/build_all.py` ejecuta todos los generadores de figuras, tablas y notas.
+`figures_tables/build_all.py` ejecuta todos los generadores de figuras, tablas y notas; entre ellos
+`make_review_notes.py`, que produce las tablas y figuras de los análisis adicionales (direcciones
+independientes, señal y amplitudes, error en σ y variantes de ajustes de Lang y Raimundez).
+`figures_tables/cifras_texto.py` recalcula las cifras que cita el texto principal (admisibles,
+identificabilidad, validación, comparación de criterios, robustez) para comprobarlas tras cualquier cambio.
 
 ---
 
@@ -156,5 +163,8 @@ Si prefieres no publicar todavía, Zenodo permite reservar el DOI y dejar el reg
 | ¿Son deterministas los resultados? | Sí: semillas fijas. Solo Chen puede variar levemente (algunas simulaciones fallan al integrar) |
 | ¿Por qué hay nombres en español en los resultados? | Son los nombres originales de los programas; el diccionario los traduce |
 | ¿El archivo Lean es de verdad el modelo del benchmark? | `verify_translation.py` (diferencia ~10⁻¹²) y el control del 1 % |
-| ¿Por qué no está el modelo completo de Chen y Lang? | Demasiado costoso (días o semanas); lo dice Methods |
+| ¿Por qué no está el modelo completo de Chen y Raimundez en el sintético? | Tienen más de 100 parámetros libres; con datos reales sí se reajusta (validación anidada) |
+| ¿Por qué Lang no es admisible? | La búsqueda voraz no llega a un par admisible con los ajustes por defecto, aunque existen (nota *Random scenarios and large problems*, tabla de variantes de Lang) |
+| ¿Cómo se tratan los parámetros negativos o nulos en los escenarios? | Perturbación multiplicativa sin recorte: conservan el signo; los nulos se representan por 10⁻¹² y nunca se eligen (misma nota) |
+| ¿Se obtiene lo mismo en otra máquina? | Sí: la selección de Lang y Raimundez coincidió con libRoadRunner 2.9.2 y 2.10.0 (e_fit iguales hasta 10⁻⁸) |
 | ¿Dónde están los datos del SCT? | No son públicos; se entregan a pedido razonable |

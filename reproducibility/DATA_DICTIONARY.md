@@ -198,6 +198,41 @@ time is `segundos`. `parallel_corrected_code/`: the eight problems of `config.FI
 corrected program (version 1.1); their subsets and `eajuste_med` are identical to `selection/`.
 The runs shared a 128-core server, so the times are upper bounds.
 
+## `robustness_independent/` (analysis/robustness.py with ROBUST_INDEP=1)
+
+Same fields as `robustness/`, plus `direcciones` ("independent at every size") and, in every size of
+`niveles`, `semilla` (seed of the directions of that size: 42 at +-5 %, 42 + 1000 i at the i-th other size).
+The top-level `u` are the directions of seed 42; the scenarios of the other sizes are not the rows of `u`.
+
+## `synthetic_signal_a<amplitude>/` and `synthetic_seeds_a<amplitude>/` (analysis/synthetic_seeds.py)
+
+One file per problem and seed (`<problem>/s<seed>.json`), as in `synthetic_seeds/`, with the amplitude
+`a` of the truth theta* = theta0 (1 + a u) in the folder name (005 = 0.05, 020 = 0.20, 050 = 0.50) and in
+`amplitud`. New fields (also in `synthetic_seeds_a005/`, `_a050/`):
+
+| Field | Meaning |
+|---|---|
+| `senal_rms_test`, `senal_rms_train` | root mean square of y(theta*) - y(theta0) per test / training measurement, in units of sigma |
+| `senal_norma_test`, `ruido_norma_test` | norm of y(theta*) - y(theta0) on the test measurements, and sqrt(n_test) (norm of unit noise) |
+
+The `synthetic_signal_*` folders contain only these fields (no fits). `synthetic_seeds_a*` contain the
+same fields as `synthetic_seeds/` (`B_chi2_test_*`, `B_epred_red`, `B_epred_full`, ...).
+
+## `absolute_error/` (analysis/absolute_error.py)
+
+| Field | Meaning |
+|---|---|
+| `n`, `n_escenarios` | number of measurements; valid scenarios at +-5 % |
+| `e_fit_med` | median e_fit over the scenarios (from `robustness/`, +-5 %) |
+| `cambio_rms_sigma_med` | median of `\|Delta y_full\| / sqrt(n)`, the change of the full model per measurement in units of sigma |
+| `error_rms_sigma_med`, `error_rms_sigma_max` | median and maximum of `e_fit * \|Delta y_full\| / sqrt(n)`, the error that remains after re-estimation, in units of sigma |
+| `escenarios` | the same quantities for every scenario `k` |
+
+## `settings_extra/` (analysis/selection.py --variant)
+
+Same fields as `selection/`, for Lang and Raimundez, in folders named as in `settings/`; `README.md`
+lists the variants that did not finish.
+
 ## Other files
 
 | File | Content |
