@@ -401,6 +401,11 @@ Information and are not generated.
   lean4checker recorded in `BUILD_LOG.md`.
 * **Level A on Windows**: missing or incompatible poppler only produces a warning (EPS/TIFF copies);
   UTF-8 output is forced.
+* **SCT note checked with the participant data**: with the data placed at `data/sct/datos_sct_31dias.csv`,
+  `make_sct_note.py` reproduces the reduced-model refit to a relative 1e-6 and every number of the note;
+  the local refit of the 22-parameter full model can differ by about 0.1 % in the test chi2/n with other
+  Python/NumPy versions (the reported R^2 is unchanged), so that check now has a 1 % tolerance and
+  prints the difference. The data themselves are not part of the package.
 
 ## Changes in version 1.4
 

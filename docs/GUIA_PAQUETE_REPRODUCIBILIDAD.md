@@ -149,6 +149,14 @@ Al terminar, `cd figures_tables && python build_all.py` rehace la Tabla 2, la Fi
   modelos solo con los axiomas estándar; `lean4checker` aceptó todos los módulos; un control negativo
   con `sorry` fue detectado. Se corrigieron dos errores de `verify.sh` (no comprobaba de verdad los
   modelos y fallaba al ejecutarlo dos veces).
+* **Nota SCT con tus datos (16-10-2026).** Con tu archivo `datos4sin.xlsx` convertido a
+  `reproducibility/data/sct/datos_sct_31dias.csv` (columnas `xi3`–`xi8`, `eta4`; 31 días), la nota SCT
+  se regenera completa: el reajuste del modelo reducido coincide con el guardado (error relativo
+  < 10⁻⁶), lo que confirma que son los mismos datos del paper, y todas las cifras de la nota coinciden.
+  El reajuste local del modelo completo (22 parámetros) difiere un 0,1 % con Python 3.14 (R² igual);
+  por eso esa comprobación tiene ahora una tolerancia del 1 %. **Los datos no están en el paquete ni en
+  GitHub** (la carpeta `data/` está excluida): se entregan a pedido razonable, como dice el paper.
+  Para que un revisor los use, se le envían aparte y los coloca en esa ruta (o en la variable `SCT_DATA`).
 * **Un error mío que corregí al armar el paquete.** Los certificados nuevos de identificabilidad se
   guardaban en la misma carpeta que leen las tablas del paper y las alteraban al regenerarlas; ahora
   están en `results/identifiability/audit2/` y las tablas regeneradas coinciden con las del paper.
