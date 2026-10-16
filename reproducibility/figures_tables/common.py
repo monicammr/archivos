@@ -67,6 +67,24 @@ def load_validation():
     return out
 
 
+def efit_final(name, d):
+    """Median e_fit of the final subset reported in Table 1, Supplementary Table S1 and Fig. 2.
+
+    For the problems whose selection used the first-order e_fit, the final subset was re-estimated
+    nonlinearly afterwards (results/efit_nonlinear); that value is reported. Returns (value, True)
+    in that case and (value of the selection, False) otherwise.
+    """
+    f = RESULTS / "efit_nonlinear" / f"{name}.json"
+    if f.exists():
+        return json.loads(f.read_text())["eajuste_med_nolineal"], True
+    return d.get("eajuste_med", float("nan")), False
+
+
+def fmt_efit(x, tau=0.4358898943540674):
+    """e_fit in percent with one decimal, or three when the value is within 0.1 points of tau_e."""
+    return f"{100 * x:.3f}" if abs(x - tau) < 1e-3 else f"{100 * x:.1f}"
+
+
 # Problems left out of the admissibility comparison between criteria. Bertozzi: our method selected
 # its parameters on all measured outputs, which include the test conditions (New York), whereas the
 # other criteria selected on the training outputs (California), so the criteria did not use the same

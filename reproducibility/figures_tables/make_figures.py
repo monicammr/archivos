@@ -23,7 +23,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch
 
-from common import HERE, FIG as OUT, load
+from common import efit_final, fmt_efit, HERE, FIG as OUT, load
 
 TAU = float(np.sqrt(1 - 0.9 ** 2))
 plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["DejaVu Sans"],
@@ -70,7 +70,7 @@ def fig1():
     box(cols[1], yM, h, "Relative sensitivity\n$J=\\partial y/\\partial\\log\\theta$\nenergies $E_j$", 3, BLUE)
     box(cols[2], yT, h, "Stage 1: greedy\nselection by $E_j$\n$\\kappa$, VIF $\\leq\\tau_\\kappa$\nuntil $R_{\\mathrm{var}}\\geq\\tau_R$", 4, BLUE)
     box(cols[2], yB, h, "Stage 2: greedy\nselection by finite\neffect $s_j$ until\nadmissible", 5, ORANGE, ls=(0, (3, 1.5)))
-    box(cols[4] + 1.2, yM, h, "Backward\nelimination:\ninclusion-minimal $S$;\nexternal validation", 7, GREEN, w=W - 0.4)
+    box(cols[4] + 1.2, yM, h, "Backward\nelimination:\nno single parameter\ncan be removed;\nexternal validation", 7, GREEN, w=W - 0.4)
     # decision node (hexagon)
     cx, cy, hw, hh = cols[3] + W / 2, yM + h / 2, W / 2 + 0.2, 9.2
     hexa = [(cx - hw, cy), (cx - hw + 3, cy + hh), (cx + hw - 3, cy + hh), (cx + hw, cy), (cx + hw - 3, cy - hh), (cx - hw + 3, cy - hh)]
@@ -148,7 +148,7 @@ def fig2():
     b.text(1.5, n - 0.6, "admissible", fontsize=6.4, va="center", color="#138a60", fontweight="bold")
     for y, r in zip(yy, rows):
         d = r["d"]; ok = d["admisible"]
-        er, ef = 100 * d.get("erel_med", np.nan), 100 * d["eajuste_med"]
+        er, ef = 100 * d.get("erel_med", np.nan), 100 * efit_final(d["sistema"], d)[0]
         if d["sistema"].startswith("Crauste"):
             b.text(2, y, "not defined (no solution for 1% changes)", fontsize=6.0, va="center", color=ORANGE, style="italic")
             continue
@@ -177,7 +177,7 @@ def fig2():
          Line2D([], [], marker="o", ls="", color=BLUE, ms=4.8, label="retained, $|S|+|\\Theta_C|$"),
          Line2D([], [], marker="o", ls="", mfc="white", mec=GREY, ms=4.8, label="before, $e_{\\mathrm{rel}}$"),
          Line2D([], [], marker="o", ls="", color=GREEN, ms=4.8, label="after, $e_{\\mathrm{fit}}$"),
-         Line2D([], [], marker="*", ls="", color=GREEN, ms=7, label="after, first-order estimate"),
+         Line2D([], [], marker="*", ls="", color=GREEN, ms=7, label="after, selected to first order (value: nonlinear check)"),
          Line2D([], [], marker="D", ls="", mfc="white", mec=ORANGE, ms=4.8, label="not admissible"),
          Patch(fc="#e8f6f0", ec="none", label="admissible region, $e_{\\mathrm{fit}}\\leq\\tau_e$")]
     fig.legend(handles=h, loc="lower center", ncol=4, fontsize=6.8, frameon=False, bbox_to_anchor=(0.56, 0.005),

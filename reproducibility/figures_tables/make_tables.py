@@ -12,7 +12,7 @@ import numpy as np
 import json
 import pandas as pd
 
-from common import RESULTS, TAB as OUT, load, load_validation, measurements
+from common import RESULTS, TAB as OUT, efit_final, fmt_efit, load, load_validation, measurements
 
 SEL, VAL, PAT = load("selection"), load_validation(), load("robustness")
 LIN = {"Alkan_SciSignal2018", "Bachmann_MSB2011", "Beer_MolBioSystems2014", "Chen_MSB2009",
@@ -62,8 +62,8 @@ def table1():
         c = len(d.get("calibracion", []))
         k = len(d["S"])
         st = "1" if d.get("etapa") == "Stage 1" else "2"
-        er = d.get("erel_med", np.nan); ef = d.get("eajuste_med", np.nan)
-        efs = f"{100 * ef:.1f}" + (r"$^{\ast}$" if name in LIN else "")
+        er = d.get("erel_med", np.nan); ef, _ = efit_final(name, d)
+        efs = fmt_efit(ef) + (r"$^{\ast}$" if name in LIN else "")
         if not d["admisible"]:
             efs = r"\textit{" + efs + "}"
         if name == "Crauste_CellSystems2017":     # no solution for changes of +-1 % (results/crauste_blowup.json)
@@ -99,8 +99,8 @@ def tableS1():
          r"\endfirsthead", r"\toprule", r"System & Selected biological parameters $S$ & Removed by backward elimination & $\kappa$ & VIF & $R_{\mathrm{var}}$ (\%) & $\cos\Delta$ & $e_{\mathrm{fit}}$ (\%) & Level \\", r"\midrule", r"\endhead"]
     for name, d in sorted(SEL.items(), key=lambda kv: kv[0].lower()):
         lv = nivel(d)
-        ef = 100 * d["eajuste_med"]
-        efs = "n.d." if name == "Crauste_CellSystems2017" else f"{ef:.1f}"
+        ef, _ = efit_final(name, d)
+        efs = "n.d." if name == "Crauste_CellSystems2017" else fmt_efit(ef) + (r"$^{\ast}$" if name in LIN else "")
         L.append(f"{brk(name.split('_')[0])} & {brk(', '.join(d['S']))} & {brk(', '.join(d.get('podados', []) or ['--']))} & "
                  f"{d['kappa']:.1f} & {d['VIF']:.1f} & {d['Rvar_%']:.0f} & {d['cos_med']:.2f} & {efs} & {lv if lv else '--'} \\\\")
     L += [r"\bottomrule", r"\end{longtable}"]

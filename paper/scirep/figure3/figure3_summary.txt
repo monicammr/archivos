@@ -5,17 +5,17 @@ keys A_chi2_test_red / A_chi2_test_full / A_chi2_test_theta0 / n_test / division
 All three chi2 columns exist (A_chi2_test_theta0 included), so both panels can be built.
 
 1. PROBLEMS
-   34 benchmark problems; 32 admissible; external validation was run for the admissible ones.
+   34 benchmark problems; 31 admissible; external validation was run for the admissible ones.
    Not validated (no admissible subset): Beer, Crauste.
-   Validation possible (train/test split): 30  (by condition 20, by time 10)
+   Validation possible (train/test split): 29  (by condition 20, by time 9)
    No valid split: Bertozzi (selected parameters act only in the test conditions),
                    Blasi (single condition and single time point).
 
 2. VALID PAIRS
    reduced_chi2 and full_chi2 both valid:   29  (missing full: Lang - full re-estimation not run)
-   reduced_chi2 and theta0_chi2 both valid: 30
+   reduced_chi2 and theta0_chi2 both valid: 29
    Noise-free data (test chi2/n of theta0 < 0.01): Giordano, Perelson, Rahman
-      Giordano   reduced 1.02e-07  full 0.0552  theta0 7.45e-09
+      Giordano   reduced 1.02e-07  full 0.00773  theta0 7.45e-09
       Perelson   reduced 3.96e-13  full 3.96e-13  theta0 3.96e-13
       Rahman     reduced 0.00199  full 0.0257  theta0 0.00148
    For these, chi2/n is far below 1 for every fit: the recorded noise is much larger than the scatter,
@@ -24,44 +24,44 @@ All three chi2 columns exist (A_chi2_test_theta0 included), so both panels can b
 3. PANELS OF THE FIGURE
    Panel a (reduced vs full):   n = 26   excluded: Bertozzi, Blasi (no split); Lang (no full refit);
                                          Giordano, Perelson, Rahman (noise-free); Beer, Crauste (not admissible)
-   Panel b (reduced vs theta0): n = 27   excluded: Bertozzi, Blasi (no split); Giordano, Perelson, Rahman (noise-free);
+   Panel b (reduced vs theta0): n = 26   excluded: Bertozzi, Blasi (no split); Giordano, Perelson, Rahman (noise-free);
                                          Beer, Crauste (not admissible)
 
 4. COUNTS (ratio q = reduced/reference; equivalent if 0.95 <= q <= 1.05)
    all valid pairs, reduced vs full (n = 29):
-      better (q < 0.95):              21
+      better (q < 0.95):              20
       equivalent (0.95 <= q <= 1.05):  6  Borghans, Isensee, Perelson, Schwen, Smith, Zhao
-      worse (q > 1.05):                2  Chen, Raia
-      equivalent or better:           27 of 29
+      worse (q > 1.05):                3  Chen, Fiedler, Raia
+      equivalent or better:           26 of 29
       q <= 2:                         29 of 29
-      |q - 1| < 0.2 %:                Borghans, Isensee, Perelson, Smith, Zhao
+      |q - 1| < 0.2 %:                Borghans, Perelson, Smith, Zhao
    panel a, reduced vs full (n = 26):
-      better (q < 0.95):              19
+      better (q < 0.95):              18
       equivalent (0.95 <= q <= 1.05):  5  Borghans, Isensee, Schwen, Smith, Zhao
-      worse (q > 1.05):                2  Chen, Raia
-      equivalent or better:           24 of 26
+      worse (q > 1.05):                3  Chen, Fiedler, Raia
+      equivalent or better:           23 of 26
       q <= 2:                         26 of 26
-      |q - 1| < 0.2 %:                Borghans, Isensee, Smith, Zhao
-   all valid pairs, reduced vs theta0 (n = 30):
+      |q - 1| < 0.2 %:                Borghans, Smith, Zhao
+   all valid pairs, reduced vs theta0 (n = 29):
       better (q < 0.95):               2
       equivalent (0.95 <= q <= 1.05):  7  Borghans, Bruno, Isensee, Liu, Perelson, Weber, Zhao
-      worse (q > 1.05):               21  Alkan, Armistead, Bachmann, Boehm, Brannmark, Chen, Elowitz, Fiedler, Fujita, Giordano, Lang, Laske, Lucarelli, Okuonghae, Rahman, Raia, Raimundez, Salazar-Cavazos, Schwen, Sneyd, Zheng
-      equivalent or better:            9 of 30
-      q <= 2:                         23 of 30
+      worse (q > 1.05):               20  Alkan, Armistead, Bachmann, Boehm, Brannmark, Chen, Elowitz, Fiedler, Fujita, Giordano, Laske, Lucarelli, Okuonghae, Rahman, Raia, Raimundez, Salazar-Cavazos, Schwen, Sneyd, Zheng
+      equivalent or better:            9 of 29
+      q <= 2:                         22 of 29
       |q - 1| < 0.2 %:                Bruno, Perelson, Zhao
-   panel b, reduced vs theta0 (n = 27):
+   panel b, reduced vs theta0 (n = 26):
       better (q < 0.95):               2
       equivalent (0.95 <= q <= 1.05):  6  Borghans, Bruno, Isensee, Liu, Weber, Zhao
-      worse (q > 1.05):               19  Alkan, Armistead, Bachmann, Boehm, Brannmark, Chen, Elowitz, Fiedler, Fujita, Lang, Laske, Lucarelli, Okuonghae, Raia, Raimundez, Salazar-Cavazos, Schwen, Sneyd, Zheng
-      equivalent or better:            8 of 27
-      q <= 2:                         21 of 27
+      worse (q > 1.05):               18  Alkan, Armistead, Bachmann, Boehm, Brannmark, Chen, Elowitz, Fiedler, Fujita, Laske, Lucarelli, Okuonghae, Raia, Raimundez, Salazar-Cavazos, Schwen, Sneyd, Zheng
+      equivalent or better:            8 of 26
+      q <= 2:                         20 of 26
       |q - 1| < 0.2 %:                Bruno, Zhao
 
 5. POOR ABSOLUTE FIT (reduced chi2/n > 10, shown with a marker in the figure)
-   Chen             reduced 20.77   theta0 15.22   full 15.12
-   Fiedler          reduced 11.21   theta0 1.217   full 14.11
+   Chen             reduced 20.88   theta0 15.22   full 17.71
+   Fiedler          reduced 11.21   theta0 1.217   full 9.315
    Okuonghae        reduced 4.671e+04   theta0 2.875e+04   full 1.224e+05
-   Oliveira         reduced 914.5   theta0 4.604e+05   full 8.145e+04
+   Oliveira         reduced 912.4   theta0 4.604e+05   full 8.135e+04
    Salazar-Cavazos  reduced 101.8   theta0 96.93   full 124.2
    Smith            reduced 1.498e+04   theta0 8.292e+04   full 1.498e+04
    theta0 itself has chi2/n > 10 in: Chen, Okuonghae, Oliveira, Salazar-Cavazos, Smith

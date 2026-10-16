@@ -10,7 +10,7 @@ taken from the overview table of the collection (stored in problem_sources.json)
 import json, re
 import numpy as np
 
-from common import HERE as SRC, OUT as HERE, RESULTS, load, load_validation
+from common import efit_final, fmt_efit, HERE as SRC, OUT as HERE, RESULTS, load, load_validation
 
 SEL, VAL, PAT = load("selection"), load_validation(), load("robustness")
 
@@ -288,8 +288,10 @@ def paragraph(s):
         sel += f"; backward elimination had removed {pn} from the initial selection"
     sel += f"; the reduced problem has {100 * (1 - (len(S) + nc) / d['p']):.0f}\\% fewer free parameters than the full one. "
     lv, pt = nivel(d), PAT[s]["patron"]
+    eff, nl = efit_final(s, d)
+    efs = fmt_efit(eff) + (rf" (nonlinear re-estimation of the final subset; {100 * d['eajuste_med']:.1f}\% to first order during the selection)" if nl else "")
     met = (rf"For this subset $\kappa={d['kappa']:.1f}$ and VIF ${d['VIF']:.1f}$ (no collinearity), $R_{{\mathrm{{var}}}}={d['Rvar_%']:.0f}\%$, "
-           rf"median $\cos\Delta={d['cos_med']:.2f}$ and median $e_{{\mathrm{{fit}}}}={100 * d['eajuste_med']:.1f}\%$ at $\pm$5\%: " +
+           rf"median $\cos\Delta={d['cos_med']:.2f}$ and median $e_{{\mathrm{{fit}}}}={efs}\%$ at $\pm$5\%: " +
            (r"the reduced model reproduces the full one, although only just within the threshold" if d["eajuste_med"] > 0.4 else r"the reduced model reproduces the full one") + rf", with guarantee {LEVEL[lv]}; robustness {PATTERN[pt]}.")
     lean = (f" The model was not verified in Lean because {NOT_VERIFIED[s]}." if s in NOT_VERIFIED
             else r" The hypotheses on the dynamics were verified in Lean (\sref{models}).")
