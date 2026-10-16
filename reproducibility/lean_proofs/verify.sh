@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 ulimit -s unlimited 2>/dev/null || ulimit -s hard 2>/dev/null || true   # large stack for Chen and Froehlich
 echo "1/4  Looking for 'sorry' and 'axiom' declarations..."
-if grep -rnwE "sorry|axiom" --include=*.lean . | grep -v "^./CheckAxioms.lean"; then
+if grep -rnwE "sorry|axiom" --include=*.lean --exclude-dir=.lake . | grep -v "^./CheckAxioms.lean"; then
   echo "ERROR: sorry/axiom found"; exit 1; fi
 echo "2/4  Downloading the precompiled Mathlib..."
 lake exe cache get
