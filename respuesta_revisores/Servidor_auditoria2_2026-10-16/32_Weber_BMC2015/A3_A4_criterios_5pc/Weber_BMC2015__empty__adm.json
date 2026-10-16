@@ -1,0 +1,17 @@
+{
+ "S": [],
+ "k": 0,
+ "n_calibracion": 5,
+ "eajuste_med": 0.48265436016059,
+ "erel_med": 0.989491780537447,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Weber_BMC2015",
+ "metodo": "empty",
+ "prueba": "adm",
+ "segundos": 9.3
+}

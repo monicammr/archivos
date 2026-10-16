@@ -1,0 +1,45 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "p": 16,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 60,
+ "S1": [
+  "transmission_rate_effective",
+  "symptomatic_start"
+ ],
+ "Rvar_S1_%": 42.45818984287399,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "transmission_rate_effective",
+  "symptomatic_start"
+ ],
+ "Rvar_%": 42.45818984287399,
+ "kappa": 5.949115050301822,
+ "VIF": 9.355056219661924,
+ "cos_med": 0.9901544188345416,
+ "erel_med": 0.8110007982948932,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "transmission_rate_effective",
+  "symptomatic_start"
+ ],
+ "podados": [],
+ "eajuste_med": 0.0652930869221818,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "transmission_rate_effective",
+    "symptomatic_start",
+    true
+   ]
+  ]
+ },
+ "segundos": 3.2
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "semilla": 44,
+ "familia": "dispersa",
+ "senal_rms_test": 1.4947458020995672,
+ "B_chi2_test_theta0": 2.755239991609389,
+ "B_chi2_test_red": 7.0312262654732605,
+ "B_epred_red": 1.602405103521655,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 3.0
+}

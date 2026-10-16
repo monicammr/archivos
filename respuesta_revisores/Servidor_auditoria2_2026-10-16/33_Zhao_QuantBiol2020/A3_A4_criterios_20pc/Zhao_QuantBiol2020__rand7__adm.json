@@ -1,0 +1,21 @@
+{
+ "S": [
+  "gamma_2_Stage_I_China",
+  "R_Stage_II_Hubei",
+  "gamma_2_Stage_II_Hubei"
+ ],
+ "k": 3,
+ "n_calibracion": 0,
+ "eajuste_med": 0.7941211681365892,
+ "erel_med": 0.9883501735788043,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "rand7",
+ "prueba": "adm",
+ "segundos": 3.3
+}

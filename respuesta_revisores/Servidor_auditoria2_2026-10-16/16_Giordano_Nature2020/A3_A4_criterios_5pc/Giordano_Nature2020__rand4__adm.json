@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kappa_22",
+  "xi_38"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.8021662463364995,
+ "erel_med": 1.0003743479207328,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "rand4",
+ "prueba": "adm",
+ "segundos": 5.2
+}

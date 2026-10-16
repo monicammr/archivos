@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kt",
+  "p_h2ax_act_dnapk"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.13617838550517772,
+ "erel_med": 0.2291504200462672,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8666666666666667,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "rand8",
+ "prueba": "adm",
+ "segundos": 11.6
+}

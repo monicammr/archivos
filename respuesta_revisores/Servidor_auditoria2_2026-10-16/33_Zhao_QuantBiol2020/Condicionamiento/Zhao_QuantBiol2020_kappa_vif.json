@@ -1,0 +1,16 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "kappa_centred": 1.1712416132071082,
+ "VIF_centred": 1.02281492916831,
+ "kappa_unit": 1.0,
+ "VIF_unit": 1.0,
+ "kappa_unit_with_calibration": 1.0,
+ "VIF_unit_with_calibration": 1.0,
+ "kappa_selection_json": 1.1712416132071082,
+ "VIF_selection_json": 1.02281492916831
+}

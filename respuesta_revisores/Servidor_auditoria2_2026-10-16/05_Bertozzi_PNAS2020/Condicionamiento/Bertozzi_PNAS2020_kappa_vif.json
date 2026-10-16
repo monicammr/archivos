@@ -1,0 +1,15 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "S": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "kappa_centred": 3.9079961707672064,
+ "VIF_centred": 4.334477879556751,
+ "kappa_unit": 4.652662160353092,
+ "VIF_unit": 5.923365097547628,
+ "kappa_unit_with_calibration": 4.652662160353092,
+ "VIF_unit_with_calibration": 5.923365097547628,
+ "kappa_selection_json": 3.9079961707672064,
+ "VIF_selection_json": 4.334477879556751
+}

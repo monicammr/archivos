@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kminus7a",
+  "k43r"
+ ],
+ "semilla": 48,
+ "familia": "dispersa",
+ "senal_rms_test": 75.39933877808313,
+ "B_chi2_test_theta0": 5651.174847642242,
+ "B_chi2_test_red": 237.66087470442082,
+ "B_epred_red": 0.20117097000132234,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 74.6
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "beta_1",
+  "symptomatic_init_concentration"
+ ],
+ "semilla": 49,
+ "familia": "loguniforme",
+ "senal_rms_test": 1219.9794458194083,
+ "B_chi2_test_theta0": 1488207.5721892351,
+ "B_chi2_test_red": 15795.84445061845,
+ "B_epred_red": 0.10317096710934118,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.9
+}

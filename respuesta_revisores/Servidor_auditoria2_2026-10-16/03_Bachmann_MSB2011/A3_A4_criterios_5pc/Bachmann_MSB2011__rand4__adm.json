@@ -1,0 +1,20 @@
+{
+ "S": [
+  "SOCS3RNATurn",
+  "init_SHP1"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.5040169158970305,
+ "erel_med": 0.7762098017723654,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand4",
+ "prueba": "adm",
+ "segundos": 21.2
+}

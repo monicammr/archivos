@@ -1,0 +1,15 @@
+{
+ "sistema": "Chen_MSB2009",
+ "S": [
+  "k106",
+  "k44"
+ ],
+ "kappa_centred": 1.008477130427679,
+ "VIF_centred": 1.000071258949058,
+ "kappa_unit": 1.029005382515099,
+ "VIF_unit": 1.0008177646034069,
+ "kappa_unit_with_calibration": 1.4487543296130176,
+ "VIF_unit_with_calibration": 1.1377818368482353,
+ "kappa_selection_json": 1.008472047195582,
+ "VIF_selection_json": 1.000071173872392
+}

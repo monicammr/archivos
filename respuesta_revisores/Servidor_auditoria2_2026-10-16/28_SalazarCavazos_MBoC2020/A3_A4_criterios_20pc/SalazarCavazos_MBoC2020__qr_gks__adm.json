@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kdephosYN__FREE",
+  "GRB2_total__FREE"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.5175795908832934,
+ "erel_med": 0.9891561958111065,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 29.6
+}

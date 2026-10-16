@@ -1,0 +1,87 @@
+Fri Oct 16 03:36:55 UTC 2026
+1/4  Looking for 'sorry' and 'axiom' declarations...
+2/4  Downloading the precompiled Mathlib...
+Current branch: HEAD
+Using cache (Azure) from origin: leanprover-community/mathlib4
+No files to download
+Decompressing 7199 file(s)
+Unpacked in 120 ms
+Completed successfully!
+3/4  Compiling the theory and the models (first time about 1-2 h; Chen and Froehlich take longest)...
+ Classical.choice,
+ Quot.sound]
+warning: CosineCertificate.lean:43:49: unused variable `hc`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: CosineCertificate.lean:43:62: unused variable `hε`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: SensitivityLipschitz.lean:81:0: automatically included section variable(s) unused in theorem 'SensitivityLipschitz.norm_pair_sub_le':
+  [NormedSpace ℝ E]
+  [NormedSpace ℝ P]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [NormedSpace ℝ E] [NormedSpace ℝ P] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: KineticCheck.lean:301:7: unused variable `y`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: KineticCheck.lean:302:7: unused variable `y`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ProfileIdentifiability.lean:365:18: unused variable `hη0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: ProfileIdentifiability.lean:365:46: unused variable `hγ0`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: NonVacuity.lean:128:43: unused variable `θ`
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Build completed successfully (2658 jobs).
+4/4  Axioms used by every theorem:
+CheckAxioms.lean: 309 of 309 declarations reported, 0 with non-standard axioms
+    308 depends on axioms: [propext, Classical.choice, Quot.sound]
+      1 depends on axioms: [propext, Quot.sound]
+CheckModelAxioms.lean: 28 of 28 declarations reported, 0 with non-standard axioms
+     28 depends on axioms: [propext, Classical.choice, Quot.sound]
+Done: every theorem and every model uses only [propext, Classical.choice, Quot.sound] (or a subset).
+verify.sh exit code: 0
+== lean4checker
+Build completed successfully (18 jobs).
+CertifiedFiniteODE: 
+CertifiedODEReduction: 
+CosineCertificate: 
+EventSystems: 
+ExactLinearCertificate: 
+FirstOrderErrorBound: 
+GlobalExistence: 
+GlobalLipschitzODE: 
+GreedySelection: 
+IdentifiabilityConditioning: 
+IntervalInit: 
+KineticCheck: 
+KineticNetwork: 
+KineticRegularity: 
+LinearizedFit: 
+LocalExistence: 
+NominalCertificate: 
+NumericalRobustness: 
+OutputComposition: 
+ParamDiffODE: 
+PatternMechanisms: 
+Poda: 
+PositivityInvariance: 
+RefitMonotone: 
+RiccatiNetwork: 
+ScaledError: 
+SensitivityLipschitz: 
+SpectralConditioning: 
+StrictExistence: 
+StrictNetwork: 
+TrajectoryErrorBound: 
+ProfileIdentifiability: 
+NonVacuity: 
+AllModels: 
+Fri Oct 16 03:45:15 UTC 2026
+VERIFY2_DONE

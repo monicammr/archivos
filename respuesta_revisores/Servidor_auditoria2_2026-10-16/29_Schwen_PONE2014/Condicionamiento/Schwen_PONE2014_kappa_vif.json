@@ -1,0 +1,15 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "kappa_centred": 3.148043381282165,
+ "VIF_centred": 3.0027708751013242,
+ "kappa_unit": 3.1447547424527156,
+ "VIF_unit": 2.997649979228857,
+ "kappa_unit_with_calibration": 21.013841386806046,
+ "VIF_unit_with_calibration": 89.32625557150166,
+ "kappa_selection_json": 3.1480433812821795,
+ "VIF_selection_json": 3.002770875101349
+}

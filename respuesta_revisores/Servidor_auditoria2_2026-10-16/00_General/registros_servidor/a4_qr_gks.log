@@ -1,0 +1,30 @@
+{"sistema": "Bertozzi_PNAS2020", "S_qr": ["I0_CA", "R0_CA"], "chi2_qr": 1.0000119607849882}
+{"sistema": "Armistead_CellDeathDis2024", "S_qr": ["k0", "k4"], "chi2_qr": 1.1569496635043286}
+{"sistema": "Bruno_JExpBot2016", "S_qr": ["kc1", "kc2", "init_b10_1", "init_bcar1", "kc4"], "chi2_qr": 0.9113919534123498}
+{"sistema": "Boehm_JProteomeRes2014", "S_qr": ["k_imp_homo", "k_imp_hetero"], "chi2_qr": 1.0615427408061913}
+{"sistema": "Blasi_CellSystems2016", "S_qr": null, "chi2_qr": null}
+{"sistema": "Elowitz_Nature2000", "S_qr": ["eff_GFP", "eff"], "chi2_qr": 1.4031453480723872}
+{"sistema": "Borghans_BiophysChem1997", "S_qr": ["Kz", "Kf"], "chi2_qr": 0.7433260861590782}
+{"sistema": "Brannmark_JBC2010", "S_qr": ["k1e", "k1c"], "chi2_qr": 1.7562044710816924}
+{"sistema": "Liu_IFACPapersOnLine2025", "S_qr": ["rho", "kappa"], "chi2_qr": 1.0255809384285322}
+{"sistema": "Fiedler_BMCSystBiol2016", "S_qr": ["k6", "k3"], "chi2_qr": 11.161763203002929}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "S_qr": ["d_D", "symptomatic_start"], "chi2_qr": 28692.912906834372}
+{"sistema": "Fujita_SciSignal2010", "S_qr": ["reaction_1_k1", "reaction_5_k1"], "chi2_qr": 6.0213196396790805}
+{"sistema": "Laske_PLOSComputBiol2019", "S_qr": ["k_syn_R_M", "k_syn_R_V"], "chi2_qr": 0.44483562582610936}
+{"sistema": "Perelson_Science1996", "S_qr": ["c", "delta"], "chi2_qr": 3.963671546106699e-13}
+{"sistema": "Rahman_MBS2016", "S_qr": ["treated_moderate_improve_rate", "infected_normal_transmission_rate_relative"], "chi2_qr": 0.0015406255047746558}
+{"sistema": "Oliveira_NatCommun2021", "S_qr": ["beta_1", "symptomatic_init_concentration"], "chi2_qr": 73197.68377883415}
+{"sistema": "Giordano_Nature2020", "S_qr": ["eta_22", "mu_0"], "chi2_qr": 1.398248291235549e-08}
+{"sistema": "Raia_CancerResearch2011", "S_qr": ["pRec_degradation", "SOCS3mRNA_production"], "chi2_qr": 0.6707729838830568}
+{"sistema": "Schwen_PONE2014", "S_qr": ["kin", "kd2fold"], "chi2_qr": 8.432138429516238}
+{"sistema": "SalazarCavazos_MBoC2020", "S_qr": ["kdephosYN__FREE", "GRB2_total__FREE"], "chi2_qr": 101.73474834454275}
+{"sistema": "Lucarelli_CellSystems2018", "S_qr": ["geneG_turn", "geneI_act1", "geneK_act1", "geneD_act1", "geneL_inh1", "geneF_turn", "geneA_act1", "geneE_inh1", "geneB_act1", "geneH_inh1"], "chi2_qr": 1.0159689125959799}
+{"sistema": "Zhao_QuantBiol2020", "S_qr": ["gamma_1_Stage_II_Hubei", "gamma_1_Stage_I_Wuhan", "gamma_1_Stage_I_China"], "chi2_qr": 0.3454096103031155}
+{"sistema": "Sneyd_PNAS2002", "S_qr": ["l6", "k3"], "chi2_qr": 1.8050346355411215}
+{"sistema": "Weber_BMC2015", "S_qr": ["p13", "a33"], "chi2_qr": 24.134744467438995}
+{"sistema": "Zheng_PNAS2012", "S_qr": ["k02_03", "k00_10"], "chi2_qr": 1.5479760240964846}
+{"sistema": "Alkan_SciSignal2018", "S_qr": ["p_atr_act_atm", "p_dnapk_act"], "chi2_qr": 2.729225544991759}
+{"sistema": "Bachmann_MSB2011", "S_qr": ["JAK2EpoRDeaSHP1", "CISRNATurn"], "chi2_qr": 4.769877377892736}
+{"sistema": "Smith_BMCSystBiol2013", "S_qr": ["k35f", "k32r"], "chi2_qr": 18908.593609989148}
+{"sistema": "Raimundez_PCB2020", "S_qr": ["ka_MAPK__MKN1", "ka_PI3K__pEGFR_EGF_2"], "chi2_qr": 1.1674692334733237}
+{"sistema": "Isensee_JCB2018", "S_qr": ["xi_KD_Rp_cAMPS", "KD_cAMP"], "chi2_qr": 1.083893510550953}

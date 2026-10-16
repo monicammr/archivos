@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kf_Fsk",
+  "KD_H89"
+ ],
+ "semilla": 48,
+ "familia": "dispersa",
+ "senal_rms_test": 4.603266824298857,
+ "B_chi2_test_theta0": 22.127803434821665,
+ "B_chi2_test_red": 1.2280357494660759,
+ "B_epred_red": 0.07777254333083738,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2693.3
+}

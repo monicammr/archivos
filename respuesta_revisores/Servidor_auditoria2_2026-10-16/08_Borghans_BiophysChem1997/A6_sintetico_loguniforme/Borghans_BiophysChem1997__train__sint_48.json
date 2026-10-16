@@ -1,0 +1,16 @@
+{
+ "S": [
+  "K_par",
+  "Vm2"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.1347599171106175,
+ "B_chi2_test_theta0": 2.3910528848979986,
+ "B_chi2_test_red": 1.4418345884371728,
+ "B_epred_red": 0.4656245763614256,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 2.2
+}

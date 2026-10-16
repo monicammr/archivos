@@ -1,0 +1,20 @@
+{
+ "S": [
+  "STAT5ActJAK2",
+  "SOCS3RNADelay"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.4899500799230841,
+ "erel_med": 0.7513264635447193,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 10.5
+}

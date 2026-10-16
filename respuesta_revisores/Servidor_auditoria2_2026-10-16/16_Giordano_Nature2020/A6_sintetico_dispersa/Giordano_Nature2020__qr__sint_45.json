@@ -1,0 +1,16 @@
+{
+ "S": [
+  "delta_0",
+  "eta_0"
+ ],
+ "semilla": 45,
+ "familia": "dispersa",
+ "senal_rms_test": 0.00017163086188869112,
+ "B_chi2_test_theta0": 0.8908483822263189,
+ "B_chi2_test_red": 0.8908433361671069,
+ "B_epred_red": 1.1151954955691092,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2.5
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k01_02",
+  "k13_12"
+ ],
+ "semilla": 44,
+ "familia": "loguniforme",
+ "senal_rms_test": 11.38879440768596,
+ "B_chi2_test_theta0": 133.96623711181797,
+ "B_chi2_test_red": 38.23811637624063,
+ "B_epred_red": 0.5194469978400561,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 2.0
+}

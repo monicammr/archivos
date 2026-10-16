@@ -1,0 +1,13 @@
+{
+ "S": [
+  "eff_GFP",
+  "eff"
+ ],
+ "chi2_test": 1.4031453480723872,
+ "chi2_ours": 1.49838255411681,
+ "ratio_vs_ours": 0.9364399927223136,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.3
+}

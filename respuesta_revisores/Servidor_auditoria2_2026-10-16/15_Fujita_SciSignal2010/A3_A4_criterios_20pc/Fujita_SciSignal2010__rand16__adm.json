@@ -1,0 +1,20 @@
+{
+ "S": [
+  "reaction_3_k1",
+  "reaction_4_k1"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.1362300133181681,
+ "erel_med": 0.821403926226557,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "rand16",
+ "prueba": "adm",
+ "segundos": 13.2
+}

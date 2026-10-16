@@ -1,0 +1,20 @@
+{
+ "S": [
+  "v1",
+  "init_A_state"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.3444884685185693,
+ "erel_med": 1.1508341899555072,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "rand10",
+ "prueba": "adm",
+ "segundos": 29.5
+}

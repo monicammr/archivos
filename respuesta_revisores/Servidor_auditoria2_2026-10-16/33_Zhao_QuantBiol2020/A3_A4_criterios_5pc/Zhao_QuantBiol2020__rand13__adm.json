@@ -1,0 +1,21 @@
+{
+ "S": [
+  "gamma_1_Stage_II_China",
+  "gamma_2_Stage_I_China",
+  "gamma_2_Stage_II_China"
+ ],
+ "k": 3,
+ "n_calibracion": 0,
+ "eajuste_med": 0.6174888475377646,
+ "erel_med": 0.9781877057720485,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 4.5
+}

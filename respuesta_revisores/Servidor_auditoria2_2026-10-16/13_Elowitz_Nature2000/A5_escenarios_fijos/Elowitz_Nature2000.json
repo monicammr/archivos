@@ -1,0 +1,81 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "p": 21,
+ "outputs": "all",
+ "fixed_scenarios": true,
+ "n_rows": 58,
+ "S1": [
+  "n_Hill",
+  "tau_mRNA",
+  "tau_prot",
+  "tau_prot_GFP",
+  "eff"
+ ],
+ "Rvar_S1_%": 91.38135065650587,
+ "S1_cumple": true,
+ "cos_S1": 0.9633429671664109,
+ "erel_S1": 0.36737859877896917,
+ "etapa": "Stage 1",
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "Rvar_%": 70.19966674305103,
+ "kappa": 2.863743013879168,
+ "VIF": 2.5807400102971263,
+ "cos_med": 0.8866612460078399,
+ "erel_med": 0.6479298030496355,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "n_Hill",
+  "tau_mRNA",
+  "tau_prot",
+  "tau_prot_GFP",
+  "eff"
+ ],
+ "podados": [
+  "tau_prot",
+  "tau_prot_GFP",
+  "eff"
+ ],
+ "eajuste_med": 0.3584572949196713,
+ "admisible": true,
+ "calibracion": [
+  "background",
+  "scale"
+ ],
+ "monotonia": {
+  "subsets_evaluated": 4,
+  "nested_pairs": 6,
+  "violations": 0,
+  "subsets": [
+   [
+    "n_Hill",
+    "tau_mRNA",
+    "tau_prot",
+    "tau_prot_GFP",
+    "eff",
+    true
+   ],
+   [
+    "n_Hill",
+    "tau_mRNA",
+    "tau_prot",
+    "tau_prot_GFP",
+    true
+   ],
+   [
+    "n_Hill",
+    "tau_mRNA",
+    true
+   ],
+   [
+    "n_Hill",
+    "tau_mRNA",
+    "tau_prot",
+    true
+   ]
+  ]
+ },
+ "segundos": 5.3
+}

@@ -1,0 +1,13 @@
+{
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "chi2_test": 2.2220742762022687,
+ "chi2_ours": 2.221536953058167,
+ "ratio_vs_ours": 1.0002418700005697,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.6
+}

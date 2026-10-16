@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k1a",
+  "k_IRSiP_DosR"
+ ],
+ "semilla": 48,
+ "familia": "dispersa",
+ "senal_rms_test": 3.2069287662920587,
+ "B_chi2_test_theta0": 10.485575860854814,
+ "B_chi2_test_red": 10.826414003101227,
+ "B_epred_red": 1.014874040516301,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 1.9
+}

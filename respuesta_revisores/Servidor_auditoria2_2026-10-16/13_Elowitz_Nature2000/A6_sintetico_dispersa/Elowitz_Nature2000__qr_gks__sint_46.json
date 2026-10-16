@@ -1,0 +1,16 @@
+{
+ "S": [
+  "eff_GFP",
+  "eff"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 4.655361274228327,
+ "B_chi2_test_theta0": 23.94617538174611,
+ "B_chi2_test_red": 4.863329122548935,
+ "B_epred_red": 0.2968961460959388,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 2.2
+}

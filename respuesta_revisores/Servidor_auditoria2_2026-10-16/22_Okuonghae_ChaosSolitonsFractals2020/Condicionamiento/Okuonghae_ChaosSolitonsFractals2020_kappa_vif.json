@@ -1,0 +1,15 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "kappa_centred": 1.3446988459481894,
+ "VIF_centred": 1.090311642838649,
+ "kappa_unit": 1.7236346972047378,
+ "VIF_unit": 1.3268782573336648,
+ "kappa_unit_with_calibration": 1.7236346972047378,
+ "VIF_unit_with_calibration": 1.3268782573336648,
+ "kappa_selection_json": 1.3446988459481894,
+ "VIF_selection_json": 1.090311642838649
+}

@@ -1,0 +1,15 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "kappa_centred": 1.3267416454328185,
+ "VIF_centred": 1.0820866619587688,
+ "kappa_unit": 1.3135221589549104,
+ "VIF_unit": 1.0762340531444488,
+ "kappa_unit_with_calibration": 1.4362330138322836,
+ "VIF_unit_with_calibration": 1.1368444081545237,
+ "kappa_selection_json": 1.3267416508753669,
+ "VIF_selection_json": 1.0820866644039628
+}

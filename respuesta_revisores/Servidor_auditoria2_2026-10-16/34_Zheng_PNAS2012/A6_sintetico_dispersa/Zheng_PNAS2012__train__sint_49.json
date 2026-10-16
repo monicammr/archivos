@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k01_02",
+  "k12_13"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 13.967242606301255,
+ "B_chi2_test_theta0": 195.89658530183428,
+ "B_chi2_test_red": 11.925670692514128,
+ "B_epred_red": 0.2394895409632331,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.3
+}

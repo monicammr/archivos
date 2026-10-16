@@ -1,0 +1,16 @@
+{
+ "S": [
+  "alpha_4",
+  "alpha_22"
+ ],
+ "semilla": 61,
+ "familia": "uniforme",
+ "senal_rms_test": 0.0006091400310670687,
+ "B_chi2_test_theta0": 0.8856362280892549,
+ "B_chi2_test_red": 0.9782590143708855,
+ "B_epred_red": 433.5734622015287,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.6
+}

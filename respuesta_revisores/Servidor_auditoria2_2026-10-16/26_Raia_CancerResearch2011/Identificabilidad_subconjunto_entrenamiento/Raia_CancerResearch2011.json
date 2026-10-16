@@ -1,0 +1,48 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "SOCS3mRNA_production",
+  "SOCS3_degradation"
+ ],
+ "n_calibracion": 5,
+ "n_datos": 205,
+ "coste_min": 358179.0883687616,
+ "chi2_por_gl": 1808.9852947917252,
+ "umbral_robusto": 6946.503532000224,
+ "rondas": 0,
+ "dchi2_minimo": 1.8074430570704862,
+ "perfiles": [
+  {
+   "parametro": "SOCS3mRNA_production",
+   "puntos_fallidos": 1,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1321.7378434564453,
+   "dchi2_max_der": 1280.2871054328862,
+   "clase": "identificable",
+   "ic_izq_log": 0.0001452632993377154,
+   "ic_der_log": 0.011073901076215198,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "SOCS3_degradation",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [
+    -1
+   ],
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 733.1774843042949,
+   "clase": "no identificable practico",
+   "ic_izq_log": Infinity,
+   "ic_der_log": 0.1029622286665007,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": false,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

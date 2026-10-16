@@ -1,0 +1,13 @@
+{
+ "S": [
+  "ka_MAPK__MKN1",
+  "ka_PI3K__pEGFR_EGF_2"
+ ],
+ "chi2_test": 1.1674692334733237,
+ "chi2_ours": 1.1673048698000734,
+ "ratio_vs_ours": 1.0001408061231496,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 148.3
+}

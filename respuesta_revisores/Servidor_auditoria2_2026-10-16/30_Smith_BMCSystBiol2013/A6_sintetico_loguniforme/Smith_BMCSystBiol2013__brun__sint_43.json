@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k8",
+  "k30f"
+ ],
+ "semilla": 43,
+ "familia": "loguniforme",
+ "senal_rms_test": 278.14150697843513,
+ "B_chi2_test_theta0": 77293.586347748,
+ "B_chi2_test_red": 27160.397543692594,
+ "B_epred_red": 0.5941866332378056,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 84.4
+}

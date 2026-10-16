@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k21",
+  "km2"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 22.079455743659338,
+ "B_chi2_test_theta0": 495.54754729810617,
+ "B_chi2_test_red": 250.62506001333574,
+ "B_epred_red": 0.7057971751718013,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 2.2
+}

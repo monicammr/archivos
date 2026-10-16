@@ -1,0 +1,13 @@
+{
+ "S": [
+  "JAK2EpoRDeaSHP1",
+  "CISRNATurn"
+ ],
+ "chi2_test": 4.769877377892736,
+ "chi2_ours": 4.767639179580845,
+ "ratio_vs_ours": 1.000469456313195,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 30.4
+}

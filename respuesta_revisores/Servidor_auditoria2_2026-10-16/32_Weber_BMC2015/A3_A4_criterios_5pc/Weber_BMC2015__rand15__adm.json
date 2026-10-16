@@ -1,0 +1,20 @@
+{
+ "S": [
+  "s12",
+  "p33"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.0673614796965374,
+ "erel_med": 0.7797284971505615,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Weber_BMC2015",
+ "metodo": "rand15",
+ "prueba": "adm",
+ "segundos": 14.2
+}

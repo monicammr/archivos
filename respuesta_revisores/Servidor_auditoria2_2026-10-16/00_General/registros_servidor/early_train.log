@@ -1,0 +1,1019 @@
+Admisibilidad y sintético: 29 problemas, 638 tareas, NPROC=40
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.14973130516390318, "segundos": 36.1}
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.5407828844632018, "segundos": 37.3}
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.4588196942127263, "segundos": 53.6}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "segundos": 56.1, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+[0m
+[0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "segundos": 57.4, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "segundos": 57.6, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "segundos": 57.9, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "segundos": 58.4, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.06689302704831643, "segundos": 58.8}
+[0m
+0m
+[0m
+0m
+0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.11408258270925221, "segundos": 61.6}
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.03834497035699972, "segundos": 62.5}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.3784264089567792, "segundos": 62.5}
+0m
+[0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.17022990765369814, "segundos": 67.7}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "segundos": 31.6, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+0m
+[0m
+0m
+0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.14497515417188267, "segundos": 70.7}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.08617997055926001, "segundos": 71.7}
+0m
+0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.07183500339011824, "segundos": 73.8}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.045108704734817644, "segundos": 74.1}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.04804307751862492, "segundos": 74.2}
+[0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.02870546469122412, "segundos": 77.3}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.04255007021282613, "segundos": 77.9}
+0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.03480557056865944, "segundos": 78.1}
+[0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.1079628077504361, "segundos": 78.5}
+0m0m
+0m
+0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "segundos": 44.7, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "real", "segundos": 82.5}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.20051848351876259, "segundos": 82.7}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.10461418438119274, "segundos": 87.3}
+[0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.03839007457222221, "segundos": 91.1}
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "adm", "eajuste_med": 0.30687547012053074, "admisible": true, "segundos": 20.1}
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 2.8046512148367237, "segundos": 52.5}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "real", "segundos": 143.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "real", "segundos": 56.9}
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 1.5285020094839543, "segundos": 60.8}
+0m
+0m
+0m
+0m
+[0m
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 2.9593234057546747, "segundos": 109.0}
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 2.708590771740087, "segundos": 43.0}
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.18709370004953396, "admisible": true, "segundos": 230.5}
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 2.342914858906701, "segundos": 118.4}
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 3.5013024746302306, "segundos": 190.6}
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 3.263455914169479, "segundos": 192.8}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.06611692284322475, "segundos": 346.4}
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 3.9125890548736484, "segundos": 110.6}
+0m
+[0m
+0m
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1.5908378836433528, "segundos": 92.9}
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 2.0435436173542993, "segundos": 57.7}
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "real", "segundos": 364.5}
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 3.545738447474132, "segundos": 87.8}
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 3.1412499318382987, "segundos": 77.6}
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 1.9757428164699549, "segundos": 125.2}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.18367738596303515, "segundos": 460.5}
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "adm", "eajuste_med": 0.12628885016640026, "admisible": true, "segundos": 46.1}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.5397468328143064, "segundos": 436.8}
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 2.590146516042869, "segundos": 168.8}
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 2.487403317423291, "segundos": 80.1}
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.13266999361353818, "segundos": 21.0}
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.3756212844942698, "segundos": 465.3}
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.1440875855263603, "segundos": 12.9}
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.5614893536175435, "segundos": 15.0}
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 4.09775580055237, "segundos": 164.3}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.5137155570123962, "segundos": 496.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 1.9832794289432452, "segundos": 149.1}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.28599115725181384, "segundos": 44.4}
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.6977609393685705, "segundos": 13.0}
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.3458001502561394, "segundos": 18.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.2768188744933725, "segundos": 18.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.17552907642984303, "segundos": 32.4}
+[0m
+[0m
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.38460649627451704, "segundos": 15.8}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "real", "segundos": 98.6}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.3463718211003269, "segundos": 68.1}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.7780540703524437, "segundos": 549.3}
+[0m
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.38557123538336086, "segundos": 16.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.297368579192061, "segundos": 57.8}
+0m
+[0m
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 2.036636267375169, "segundos": 305.7}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.03700250727753268, "segundos": 640.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "adm", "eajuste_med": 0.4892922031868096, "admisible": false, "segundos": 16.3}
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.32597883889312523, "segundos": 89.9}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.48789657914370965, "segundos": 39.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "real", "segundos": 8.9}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9932889084692862, "segundos": 8.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.4354345549860645, "segundos": 58.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.6250336191965069, "segundos": 4.6}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.5150147268834881, "segundos": 62.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.5689409514463264, "segundos": 8.8}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.5699721273406049, "segundos": 5.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.6349692415025894, "segundos": 7.7}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.4709746606770842, "segundos": 72.8}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.4726220769878643, "segundos": 595.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.8945798619057008, "segundos": 16.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.7487260704432105, "segundos": 16.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.818203476441863, "segundos": 7.8}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.23541430040359998, "segundos": 49.1}
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.7325336805002297, "segundos": 583.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.7442009801346401, "segundos": 7.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.9281465896275022, "segundos": 13.3}
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.719027527277108, "segundos": 603.8}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.6848135816242423, "segundos": 6.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.5825666381205393, "segundos": 9.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.9221326627479748, "segundos": 6.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.7206794512233136, "segundos": 6.2}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.7801100158631843, "segundos": 585.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.6722083629996176, "segundos": 7.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.8134245030106425, "segundos": 9.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.5200483247352307, "segundos": 46.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.9637371917065792, "segundos": 8.1}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "real", "segundos": 7.0}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 2.0279012604690503, "segundos": 7.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.8245450011551064, "segundos": 9.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 1.0297422907563643, "segundos": 15.0}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 1.6159636909549178, "segundos": 7.5}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 1.8897046177202705, "segundos": 7.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.7065084210317971, "segundos": 12.8}
+[0m
+0m
+[0m
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 7.9489426335801445, "segundos": 7.8}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 2.1868545045126533, "segundos": 5.6}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 2.5429830410088714, "segundos": 9.7}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 1.0614141878619845, "segundos": 7.6}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 2.0046208037022613, "segundos": 7.2}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 1.1829132259462292, "segundos": 7.7}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "real", "segundos": 0.6}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 2.7193366352479855, "segundos": 8.2}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 9.487251082880597, "segundos": 4.8}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.32648503951849833, "segundos": 0.5}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 4.160364319696553, "segundos": 0.8}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 8.812862734315905, "segundos": 5.6}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.22198466478445478, "segundos": 1.0}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.12558167281257626, "segundos": 0.6}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.1969836417006441, "segundos": 0.4}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.3371093588690175, "segundos": 0.3}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.7278397088740133, "segundos": 0.4}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.37998615480456527, "segundos": 0.8}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 3.3724578240592473, "segundos": 14.0}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.8424032627548417, "segundos": 0.4}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.0695587521557486, "segundos": 0.5}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.47634349115460356, "segundos": 0.4}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 1.323111467179927, "segundos": 7.0}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.07575237757655337, "segundos": 0.5}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 1.80454535400446, "segundos": 0.4}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.28230154561318654, "segundos": 0.4}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 1.087480629664251, "segundos": 0.4}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.4930785507147096, "segundos": 0.3}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.08937821408355348, "segundos": 0.4}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.831209496958767, "segundos": 5.6}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.23292366764797232, "segundos": 0.8}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "real", "segundos": 0.2}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 1.6180537291073414, "segundos": 0.5}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.44525630822251105, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.1090336909267628, "segundos": 0.2}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 1.005980033563835, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.4942766695649664, "segundos": 0.3}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 3.3805544166831103, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 1.7288388834626265, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.8039495525633801, "segundos": 0.0}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 6.342482682174511, "segundos": 16.9}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.48822332372588917, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.5187217927957957, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 1.2213655250023407, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.5427767300258619, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.08650556141581102, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.2902582846934023, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.40774049625183295, "segundos": 0.2}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.3788534584046387, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.4198750981544161, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.7752026458014616, "segundos": 0.4}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.40698865088249064, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "adm", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "real", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "sint", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.4267463277366717, "segundos": 0.5}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 3.3861682461814793, "segundos": 15.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "real", "segundos": 0.4}[
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 6.836328032528091, "segundos": 0.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.2804000297873202, "segundos": 0.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.4525022649120525, "segundos": 0.4}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 2.3226628157464657, "segundos": 1.8}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 1.5333541908254023, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 1.6538705937526377, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 9.577673077802219, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.519062833743334, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 1.1476409985597062, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 6.746239068106679, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 4.403610851208233, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.23008268079941932, "segundos": 0.1}
+[{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.5469639725785018, "segundos": 0.1}35
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 19.604823668478915, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.2710976181621187, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 8.417564217233593, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 1.009912134910153, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 5.544089910970747, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 1.4780751577957023, "segundos": 0.7}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 2.3419813320873453, "segundos": 0.7}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "adm", "eajuste_med": 0.33026237168959055, "admisible": true, "segundos": 2.1}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 2.950991244886306, "segundos": 16.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.5374770755728125, "segundos": 1.0}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "real", "segundos": 0.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0106566498126917, "segundos": 0.9}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.8593692320476567, "segundos": 1.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "adm", "eajuste_med": 0.0935348340647396, "admisible": true, "segundos": 2.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.8289449381005759, "segundos": 1.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.4173076017644194, "segundos": 1.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.7772274573264172, "segundos": 1.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.5411120370913491, "segundos": 1.0}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.8383927046918489, "segundos": 1.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.4201023235337006, "segundos": 2.1}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.22415877718879026, "segundos": 0.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 1.0102823112644954, "segundos": 1.1}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 1.4918517296799567, "segundos": 0.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.12476484742688009, "segundos": 1.2}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 1.2346664735060648, "segundos": 1.8}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.8207917768077218, "segundos": 0.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.7519975640893459, "segundos": 1.3}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.6303229988630698, "segundos": 1.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 1.0834955415868388, "segundos": 1.0}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 4.245317370572539, "segundos": 16.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 2.2657607635252726, "segundos": 1.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9173776563213846, "segundos": 1.2}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 3.212056863637611, "segundos": 0.5}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.3001318094543409, "segundos": 84.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.7957136030413433, "segundos": 1.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "real", "segundos": 2.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.5158358664796859, "segundos": 0.8}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 1.1614507496988566, "segundos": 0.8}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.5736125807841979, "segundos": 2.0}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.2982646270650872, "segundos": 2.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 4.924562788174065, "segundos": 0.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.6276207165773839, "segundos": 1.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 1.2676271907148626, "segundos": 0.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 1.380629760466688, "segundos": 0.8}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1.5310081462068568, "segundos": 1.4}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 5.066019480351271, "segundos": 18.8}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.9304153556799085, "segundos": 0.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.1051454560220715, "segundos": 7.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "real", "segundos": 0.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 3.1660139891986954, "segundos": 0.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.8647202556963772, "segundos": 0.7}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.4114860244107245, "segundos": 0.4}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 1.1405151679027095, "segundos": 0.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 2.3015536388449425, "segundos": 1.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.053293169119989686, "segundos": 5.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.3584660037177588, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.29608547460544754, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1.0968152353757445, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.46829257408465286, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.2779086823678063, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.7736144120319411, "segundos": 0.4}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.6863860173350483, "segundos": 0.4}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 1.9144363696787967, "segundos": 1.5}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.4951060147643619, "segundos": 0.4}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.2862793723543573, "segundos": 0.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.8133721089701079, "segundos": 7.5}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.7017960267174937, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.3998823967414188, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.22226986221005754, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.3726932138825786, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.214174171851552, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.5013098260435604, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.4456953260191994, "segundos": 0.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 1.3986448620976895, "segundos": 1.6}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 1.2547611791006676, "segundos": 0.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.4581600237700159, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "real", "segundos": 0.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.08561278070967884, "segundos": 0.6}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.17447692790180833, "segundos": 0.8}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.2865728755987513, "segundos": 0.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 1.016218554266111, "segundos": 0.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.15732301047225664, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 1.5915864430284739, "segundos": 0.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.4449957318555285, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.26643974864589276, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 1.3838526872607193, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.2986320561025323, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.4707570044146091, "segundos": 1.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.053723692920557134, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.5853946790068132, "segundos": 1.1}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.4585031644957732, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.13523186503347487, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.10847605031995267, "segundos": 0.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.5096005742553175, "segundos": 0.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.43691481274365623, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.1546999037368063, "segundos": 0.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.10660741937579278, "segundos": 1.1}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.2663088727853955, "segundos": 1.6}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 1.0685633456025145, "segundos": 1.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.2237192675714649, "segundos": 1.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 1.2816121240007048, "segundos": 1.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 3.395378508505636, "segundos": 270.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 1.0007995393282874, "segundos": 1.3}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "real", "segundos": 1.6}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.7230273254262162, "segundos": 1.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 1.651672115011598, "segundos": 0.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.26503921331553837, "segundos": 0.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 3.1745077915300257, "segundos": 0.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.9257492574317754, "segundos": 0.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 4.6320420829563655, "segundos": 0.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 3.728599978565022, "segundos": 0.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 2.5387768630062126, "segundos": 0.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 1.5004628172977723, "segundos": 0.7}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 2.9232954988306012, "segundos": 0.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.8511045103885251, "segundos": 0.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.8782005868370272, "segundos": 0.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 2.7804533877575146, "segundos": 2.6}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "adm", "eajuste_med": 0.035432951527476275, "admisible": true, "segundos": 19.6}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 1.5292601376105721, "segundos": 0.9}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.32748599447925136, "segundos": 1.0}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0678304794526368, "segundos": 2.9}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9456369018406502, "segundos": 1.1}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "real", "segundos": 1.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.4455799602917163, "segundos": 1.6}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 1.1364848632878137, "segundos": 2.9}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.3866179760683663, "segundos": 1.0}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.5608596573807154, "segundos": 1.1}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.4306828320600956, "segundos": 1.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.4658761732694959, "segundos": 0.8}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.153147135196867, "segundos": 1.8}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.20373576067554766, "segundos": 1.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.23092007160540776, "segundos": 2.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.6628237631252304, "segundos": 1.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.20173088703298184, "segundos": 1.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.24657001431184475, "segundos": 1.0}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.2888081242457162, "segundos": 1.0}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.2658528457139237, "segundos": 2.7}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.7543663266209548, "segundos": 1.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.19494536701201212, "segundos": 1.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "adm", "eajuste_med": 0.16587965354577328, "admisible": true, "segundos": 16.2}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "real", "segundos": 1.1}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 2.7789433390401004, "segundos": 0.2}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 2.9417463608866825, "segundos": 0.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.3630506489246394, "segundos": 3.1}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 1.5918504604865011, "segundos": 1.2}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 1361.4466313864498, "segundos": 1.6}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 788.6302346722665, "segundos": 1.5}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 137.39689382711512, "segundos": 1.3}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 217.72941149054054, "segundos": 0.3}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 529.3897453063718, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.37636650907771174, "segundos": 2.6}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 75.19587035091077, "segundos": 0.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "adm", "eajuste_med": 0.3584572949196713, "admisible": true, "segundos": 9.9}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 1534.3402725064095, "segundos": 0.4}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 303.2606369548524, "segundos": 0.5}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 1939.3480883910995, "segundos": 0.8}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 88.19380853079291, "segundos": 0.4}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 540.8250976170212, "segundos": 1.3}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 9.633639349068343, "segundos": 2.6}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 208.04640855518596, "segundos": 0.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.26898142873922437, "segundos": 3.9}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.4620584321903146, "segundos": 1.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9999999937134302, "segundos": 1.6}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1195.3994320079178, "segundos": 2.9}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "real", "segundos": 1.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9999999999999541, "segundos": 1.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.9999999987206435, "segundos": 1.9}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0000000155283333, "segundos": 0.9}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.9999999913995258, "segundos": 1.9}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 751.4425226879215, "segundos": 2.9}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.9999999927861797, "segundos": 0.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "adm", "eajuste_med": 0.7050581648579658, "admisible": false, "segundos": 14.0}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.9999999999890287, "segundos": 1.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.9999999956321342, "segundos": 0.9}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 1.000000004018209, "segundos": 0.9}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.9999999999948125, "segundos": 0.9}
+[0m
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.9999999949666323, "segundos": 3.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 1.0000000091516885, "segundos": 1.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.9999999805760245, "segundos": 1.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 1.0000000138706242, "segundos": 0.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9999999973201531, "segundos": 4.5}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "real", "segundos": 0.3}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 1.0000000066481478, "segundos": 1.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.5717629978862226, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9679574170368147, "segundos": 0.3}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 2.1514619253772778, "segundos": 0.4}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.9999999984464839, "segundos": 2.0}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.4376109511167381, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.7168399987657162, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 4.7813126574949205, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 1.620977924724444, "segundos": 0.3}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 1.5209855872909026, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 1.390950754491233, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.728722505421176, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.8583021527116766, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.5004283224691689, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 3.680958287307675, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 2.4703956778070935, "segundos": 0.4}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.37372452931354516, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.19337404034919184, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.3631090422959783, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 1.1269188077832515, "segundos": 0.7}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.05373764370483675, "admisible": true, "segundos": 8.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.5616782030239336, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 2.7422823095935867, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "real", "segundos": 0.3}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.28878520056837437, "segundos": 0.4}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.04688217420946844, "segundos": 0.3}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.16064629350424095, "segundos": 0.4}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.05409914389213841, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.10902624549076194, "segundos": 0.4}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.08228785613693357, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.6918376043581302, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.02038548378759892, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.06775152292716152, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.07873604578586095, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.1344268378883762, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.04281468216207899, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.14922890161533506, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.015151054301215394, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.06407635191964275, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 2.1636470069649127, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.04440558607548286, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.2039772427406701, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.17501659120349167, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.037927160702648025, "segundos": 0.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 1.0000000088412508, "segundos": 4.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "real", "segundos": 0.5}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 34.21673809964829, "segundos": 0.5}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.5085263742173007, "segundos": 0.5}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 6.2013871378344, "segundos": 0.5}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.033626383173942384, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 5.780390403301182, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.8499044565634398, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1.4103615526878626, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.6074941907238626, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 2.6686696905162552, "segundos": 0.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.9999999907091865, "segundos": 3.8}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.05805744531902351, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.46523885239988233, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.32014730895581966, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 1.8298540999813462, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.28294029660611486, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.07913805657030182, "segundos": 0.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.9999999947678804, "segundos": 4.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.3640936623463343, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "adm", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 4.094031673044453, "segundos": 0.2}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.0, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "real", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 1.1181723179430696, "segundos": 1.0}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.2, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.1, "no_evaluable": "sin subconjunto"}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.8896705976756479, "segundos": 1.2}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "sint", "segundos": 0.3, "no_evaluable": "sin subconjunto"}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "real", "segundos": 0.3}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.042268771034472234, "segundos": 0.3}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.5439995332302445, "segundos": 0.1}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.5464627954671321, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.047596500479092356, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.050998061174614404, "segundos": 0.3}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.03820993458119267, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.3650034047126341, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.04167395420547483, "admisible": true, "segundos": 2.3}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.04677981824067061, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.6244625098599378, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.761107800670664, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.21372564443631362, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.7759277728157419, "segundos": 0.1}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.023069736882290116, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.13352222026295962, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.2281327841894253, "segundos": 0.0}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.1704404156172406, "segundos": 0.9}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.18352117422591468, "segundos": 0.1}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.0030411285578467906, "segundos": 0.6}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.061427216389962305, "segundos": 0.3}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.4371978107888615, "segundos": 0.6}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.046336596851770114, "segundos": 0.6}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "adm", "eajuste_med": 0.03514171952671484, "admisible": true, "segundos": 1.2}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "real", "segundos": 1.8}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9407539137958293, "segundos": 1.8}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.6576348660796789, "segundos": 1.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 1.002749644080067, "segundos": 1.9}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "adm", "eajuste_med": 0.022635540042320917, "admisible": true, "segundos": 4.6}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1.0318489923493575, "segundos": 1.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.8053118055623617, "segundos": 3.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 1.1565507949555327, "segundos": 3.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 1.0135578653755861, "segundos": 3.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 1.016032011352578, "segundos": 2.2}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 1.033137688609196, "segundos": 1.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.9904746421766261, "segundos": 2.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 1.0760828426573008, "segundos": 2.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 1.169677202608673, "segundos": 1.6}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 1.1021315840075736, "segundos": 2.6}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 1.0097437673280494, "segundos": 2.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.9917142166110658, "segundos": 5.4}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 1.079944263056435, "segundos": 2.4}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.6303456543352071, "segundos": 639.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 1.140478908116246, "segundos": 2.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "adm", "eajuste_med": 0.27116560460898076, "admisible": true, "segundos": 11.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9841527106047074, "segundos": 8.3}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 1.0081306273223685, "segundos": 5.0}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "adm", "eajuste_med": 0.13306417577716645, "admisible": true, "segundos": 27.9}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.48278275826449807, "segundos": 659.6}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.6012794852678115, "segundos": 663.8}
+0m
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.18095658334841958, "segundos": 6.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.7709371937184989, "segundos": 6.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.46980567853900385, "segundos": 1.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.6458903710611792, "segundos": 7.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.0999712598019962, "segundos": 1.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.36871010788559333, "segundos": 6.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 1.55417955132137, "segundos": 12.0}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.30707531258299126, "segundos": 1.0}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.6368989157091675, "segundos": 1.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.20499431964502843, "segundos": 1.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.332253600143688, "segundos": 1.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 1.178606973491838, "segundos": 1.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "real", "segundos": 0.6}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.38860303935689744, "segundos": 1.0}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.16765753826473637, "segundos": 10.5}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.5911475316492848, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.2861632565340946, "segundos": 0.6}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.3824703140867317, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.25484878246716564, "segundos": 0.5}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.6051359621640572, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.3082336672648948, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 1.0512026466340763, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.23415232193602079, "segundos": 0.4}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1.1133541751556775, "segundos": 0.4}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.26933329808786777, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.9859461230796679, "segundos": 0.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.8483243755986164, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.627533784274756, "segundos": 0.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.5434722511187868, "segundos": 6.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.40573997977767784, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.8045878753383225, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.9258451452232007, "segundos": 0.4}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.3461739184506323, "segundos": 0.5}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.42390284891255464, "segundos": 0.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.8299425668061827, "segundos": 0.6}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "real", "segundos": 12.5}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 1.0, "segundos": 0.5}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 1.0, "segundos": 0.5}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 1.0, "segundos": 0.2}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0, "segundos": 0.9}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "real", "segundos": 1.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 1.0, "segundos": 0.2}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 1.0, "segundos": 1.0}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 1.0, "segundos": 0.2}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "adm", "eajuste_med": 0.14946951414605858, "admisible": true, "segundos": 27.7}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 1.0, "segundos": 0.2}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 1.0, "segundos": 0.4}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 1.0, "segundos": 0.2}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.16330605917360538, "segundos": 12.7}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "real", "segundos": 0.8}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 1.0, "segundos": 0.9}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.2983517839836452, "segundos": 12.6}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.356188990377212, "segundos": 0.9}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.33574067597533985, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.43017035456012814, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.5075084376795537, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.34608226242794465, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.4410520318858093, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.20079885043243506, "segundos": 0.3}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.2879779267778903, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.599489072269311, "segundos": 1.8}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 56, "B_epred_red": 0.493594431309023, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.45688869595058895, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.39131032519251846, "segundos": 1.7}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 44, "B_epred_red": 0.43935931919293486, "segundos": 1.8}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 58, "B_epred_red": 0.25837697281274735, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.3772636791739095, "segundos": 0.3}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.5281317540239291, "segundos": 0.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.6176213096942325, "segundos": 0.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.3196905537105451, "segundos": 0.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 48, "B_epred_red": 0.4749324989215361, "segundos": 1.7}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "sint", "semilla": 47, "B_epred_red": 0.21443338556231356, "segundos": 1.8}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 45, "B_epred_red": 0.29430432358891095, "segundos": 15.6}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.6056016272701975, "admisible": false, "segundos": 4.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.6841321781194496, "segundos": 12.9}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.33607683604863764, "segundos": 12.8}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "adm", "eajuste_med": 0.38116117929648846, "admisible": true, "segundos": 10.9}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.26029434636567517, "segundos": 12.6}
+0m
+[0m
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "adm", "eajuste_med": 0.29153213840954767, "admisible": true, "segundos": 13.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "adm", "eajuste_med": 0.07772269786524527, "admisible": true, "segundos": 59.4}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.7950129980717313, "segundos": 675.0}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.18706001871564362, "admisible": true, "segundos": 35.5}
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.4693943216925351, "segundos": 687.1}
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 3.3906673703284143, "segundos": 303.2}
+[0m
+0m
+0m
+[0m
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "adm", "eajuste_med": 0.059191407729437505, "admisible": true, "segundos": 61.3}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.6984445080487873, "segundos": 701.6}
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.40394695271632913, "segundos": 705.0}
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "adm", "eajuste_med": 0.2941059531024245, "admisible": true, "segundos": 106.2}
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 50, "B_epred_red": 0.5241260441854264, "segundos": 763.6}
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 43, "B_epred_red": 0.609302242302674, "segundos": 781.2}
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 59, "B_epred_red": 0.4389149676544833, "segundos": 784.5}
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "adm", "eajuste_med": 0.07610730242381197, "admisible": true, "segundos": 866.7}
+[0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 42, "B_epred_red": 0.6850856969101886, "segundos": 827.4}
+[0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 54, "B_epred_red": 0.9982450113429777, "segundos": 896.4}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "adm", "eajuste_med": 0.17065260610005112, "admisible": true, "segundos": 235.5}
+[0m
+[0m
+0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "sint", "semilla": 49, "B_epred_red": 0.34733266859152445, "segundos": 857.0}
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[[0m0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 57, "B_epred_red": 0.9859359512579551, "segundos": 1213.9}
+[0m
+0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 53, "B_epred_red": 0.6984355272136322, "segundos": 1328.5}
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 55, "B_epred_red": 0.08501518730470305, "segundos": 1506.6}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 52, "B_epred_red": 0.14926911484411176, "segundos": 1648.1}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 51, "B_epred_red": 0.08124583155103539, "segundos": 1673.0}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 46, "B_epred_red": 0.3101194730093357, "segundos": 1815.4}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 61, "B_epred_red": 0.07890246842580374, "segundos": 1856.2}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "sint", "semilla": 60, "B_epred_red": 0.11900700532478031, "segundos": 1907.1}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "adm", "eajuste_med": 0.07772293329608652, "admisible": true, "segundos": 3113.4}
+Done.
+Admisibilidad y sintético: 29 problemas, 29 tareas, NPROC=40
+{"sistema": "Bertozzi_PNAS2020", "metodo": "train", "prueba": "adm", "segundos": 1.5, "no_evaluable": "sin subconjunto"}
+{"sistema": "Perelson_Science1996", "metodo": "train", "prueba": "adm", "segundos": 2.2, "no_evaluable": "sin subconjunto"}
+{"sistema": "Rahman_MBS2016", "metodo": "train", "prueba": "adm", "eajuste_med": 0.04707583057200512, "admisible": true, "segundos": 4.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "train", "prueba": "adm", "eajuste_med": 0.38477721526020947, "admisible": true, "segundos": 5.8}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "train", "prueba": "adm", "eajuste_med": 0.02490553789389566, "admisible": true, "segundos": 6.9}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "train", "prueba": "adm", "eajuste_med": 0.09502000143310864, "admisible": true, "segundos": 7.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.034949257857554775, "admisible": true, "segundos": 7.2}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.7033730943697014, "admisible": false, "segundos": 12.6}
+{"sistema": "Bruno_JExpBot2016", "metodo": "train", "prueba": "adm", "eajuste_med": 0.67967021750211, "admisible": false, "segundos": 16.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "train", "prueba": "adm", "eajuste_med": 0.145793094589745, "admisible": true, "segundos": 21.6}
+{"sistema": "Zheng_PNAS2012", "metodo": "train", "prueba": "adm", "eajuste_med": 0.28453628609403414, "admisible": true, "segundos": 22.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "train", "prueba": "adm", "eajuste_med": 0.505507389450331, "admisible": false, "segundos": 22.9}
+{"sistema": "Elowitz_Nature2000", "metodo": "train", "prueba": "adm", "eajuste_med": 0.4361558775606285, "admisible": false, "segundos": 23.2}
+{"sistema": "Giordano_Nature2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.07976630634398633, "admisible": true, "segundos": 25.8}
+{"sistema": "Sneyd_PNAS2002", "metodo": "train", "prueba": "adm", "eajuste_med": 0.34938055763640585, "admisible": true, "segundos": 28.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "train", "prueba": "adm", "eajuste_med": 0.3116294918946383, "admisible": true, "segundos": 30.5}
+{"sistema": "Weber_BMC2015", "metodo": "train", "prueba": "adm", "eajuste_med": 0.03768221990004444, "admisible": true, "segundos": 34.1}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "train", "prueba": "adm", "eajuste_med": 0.1181174136064157, "admisible": true, "segundos": 35.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "train", "prueba": "adm", "eajuste_med": 0.19833217641948298, "admisible": true, "segundos": 40.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "train", "prueba": "adm", "eajuste_med": 0.13128039834186347, "admisible": true, "segundos": 59.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "train", "prueba": "adm", "eajuste_med": 0.07936382580245513, "admisible": true, "segundos": 62.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "train", "prueba": "adm", "eajuste_med": 0.14562892100883476, "admisible": true, "segundos": 69.8}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.1883151698155971, "admisible": true, "segundos": 102.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "train", "prueba": "adm", "eajuste_med": 0.2524747448935507, "admisible": true, "segundos": 114.9}
+{"sistema": "Raia_CancerResearch2011", "metodo": "train", "prueba": "adm", "eajuste_med": 0.06808007497183637, "admisible": true, "segundos": 119.1}
+{"sistema": "Schwen_PONE2014", "metodo": "train", "prueba": "adm", "eajuste_med": 0.1790796972622347, "admisible": true, "segundos": 262.0}
+{"sistema": "Raimundez_PCB2020", "metodo": "train", "prueba": "adm", "eajuste_med": 0.1937205073847403, "admisible": true, "segundos": 290.7}
+{"sistema": "Isensee_JCB2018", "metodo": "train", "prueba": "adm", "eajuste_med": 0.05763299215714259, "admisible": true, "segundos": 855.1}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "train", "prueba": "adm", "eajuste_med": 0.06911209494344371, "admisible": true, "segundos": 3550.0}
+Done.

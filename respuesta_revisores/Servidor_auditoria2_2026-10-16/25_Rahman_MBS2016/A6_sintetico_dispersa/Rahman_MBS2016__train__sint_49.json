@@ -1,0 +1,16 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate",
+  "behavioural_change_rate"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 16.91075682530743,
+ "B_chi2_test_theta0": 280.20777757319735,
+ "B_chi2_test_red": 2.080065154963193,
+ "B_epred_red": 0.09076374229528195,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.2
+}

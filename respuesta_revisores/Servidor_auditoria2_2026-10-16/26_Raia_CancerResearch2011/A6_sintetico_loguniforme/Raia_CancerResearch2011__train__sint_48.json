@@ -1,0 +1,16 @@
+{
+ "S": [
+  "SOCS3mRNA_production",
+  "SOCS3_degradation"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.746110397267425,
+ "B_chi2_test_theta0": 4.588436967706168,
+ "B_chi2_test_red": 4.4895707019637445,
+ "B_epred_red": 0.9918990711703121,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 4.1
+}

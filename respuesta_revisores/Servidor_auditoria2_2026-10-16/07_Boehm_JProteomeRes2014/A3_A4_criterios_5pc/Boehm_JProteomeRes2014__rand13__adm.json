@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k_imp_homo",
+  "k_phos"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.6695026821922924,
+ "erel_med": 0.7974507854063486,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 2.1
+}

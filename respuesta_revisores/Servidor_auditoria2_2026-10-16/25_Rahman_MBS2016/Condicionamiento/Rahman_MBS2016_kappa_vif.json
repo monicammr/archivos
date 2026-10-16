@@ -1,0 +1,15 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "kappa_centred": 5.925107557861928,
+ "VIF_centred": 9.283846000391641,
+ "kappa_unit": 12.412129074967318,
+ "VIF_unit": 39.016859777810595,
+ "kappa_unit_with_calibration": 12.412129074967318,
+ "VIF_unit_with_calibration": 39.016859777810595,
+ "kappa_selection_json": 5.925107557861928,
+ "VIF_selection_json": 9.283846000391641
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "pRec_degradation",
+  "pSTAT5_dephosphorylation"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.050024728690397875,
+ "erel_med": 0.8782357934293844,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 15.5
+}

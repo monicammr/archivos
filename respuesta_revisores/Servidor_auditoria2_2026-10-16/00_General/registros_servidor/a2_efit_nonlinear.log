@@ -1,0 +1,308 @@
+6 problems, 90 scenarios
+{"sistema": "Alkan_SciSignal2018", "escenario": 2, "efit": 0.07756415387613684, "erel": 0.11359302799068086, "descartado": null, "segundos": 19.8}
+{"sistema": "Alkan_SciSignal2018", "escenario": 3, "efit": 0.25842590222960005, "erel": 0.4965982853327844, "descartado": null, "segundos": 22.1}
+{"sistema": "Alkan_SciSignal2018", "escenario": 8, "efit": 0.05020085075668527, "erel": 0.08641330608476214, "descartado": null, "segundos": 22.7}
+{"sistema": "Alkan_SciSignal2018", "escenario": 7, "efit": 0.09170861550055895, "erel": 0.13537083671533684, "descartado": null, "segundos": 25.4}
+{"sistema": "Alkan_SciSignal2018", "escenario": 9, "efit": 0.12781981901115833, "erel": 0.18734958416272746, "descartado": null, "segundos": 25.5}
+{"sistema": "Alkan_SciSignal2018", "escenario": 10, "efit": 0.09811505962893331, "erel": 0.18864689729339876, "descartado": null, "segundos": 26.9}
+{"sistema": "Alkan_SciSignal2018", "escenario": 11, "efit": 0.19455947327973436, "erel": 0.4441831559722862, "descartado": null, "segundos": 28.2}
+{"sistema": "Alkan_SciSignal2018", "escenario": 5, "efit": 0.22401960600785556, "erel": 0.429790806112641, "descartado": null, "segundos": 29.1}
+{"sistema": "Alkan_SciSignal2018", "escenario": 4, "efit": 0.10252731234244596, "erel": 0.16772051361073323, "descartado": null, "segundos": 29.4}
+{"sistema": "Alkan_SciSignal2018", "escenario": 6, "efit": 0.24481246353117198, "erel": 0.4375970332076757, "descartado": null, "segundos": 30.5}
+{"sistema": "Alkan_SciSignal2018", "escenario": 12, "efit": 0.12010974133347577, "erel": 0.3186024076173131, "descartado": null, "segundos": 38.5}
+{"sistema": "Alkan_SciSignal2018", "escenario": 13, "efit": 0.25784846959623264, "erel": 0.3954566838376881, "descartado": null, "segundos": 39.5}
+{"sistema": "Alkan_SciSignal2018", "escenario": 1, "efit": 0.12748572439167224, "erel": 0.19916572871277483, "descartado": null, "segundos": 48.0}
+{"sistema": "Alkan_SciSignal2018", "escenario": 0, "efit": 0.05157135413932358, "erel": 0.12548124808852146, "descartado": null, "segundos": 49.7}
+{"sistema": "Alkan_SciSignal2018", "escenario": 14, "efit": 0.11875872820701677, "erel": 0.2134228668116976, "descartado": null, "segundos": 50.2}
+{"sistema": "Bachmann_MSB2011", "escenario": 4, "efit": 0.21913934586687794, "erel": 0.3251441720170859, "descartado": null, "segundos": 57.8}
+{"sistema": "Bachmann_MSB2011", "escenario": 5, "efit": 0.21756484512283228, "erel": 0.5069506402088466, "descartado": null, "segundos": 58.8}
+{"sistema": "Bachmann_MSB2011", "escenario": 6, "efit": 0.2187175231235054, "erel": 0.39416284639100285, "descartado": null, "segundos": 60.1}
+{"sistema": "Bachmann_MSB2011", "escenario": 7, "efit": 0.3985737986832082, "erel": 0.728305060935222, "descartado": null, "segundos": 63.4}
+{"sistema": "Bachmann_MSB2011", "escenario": 9, "efit": 0.379702724610291, "erel": 0.5254280218099902, "descartado": null, "segundos": 63.0}
+{"sistema": "Bachmann_MSB2011", "escenario": 10, "efit": 0.41742678591206966, "erel": 0.5296995623809622, "descartado": null, "segundos": 65.7}
+0m
+{"sistema": "Bachmann_MSB2011", "escenario": 1, "efit": 0.33801893607532374, "erel": 0.6544228712512531, "descartado": null, "segundos": 89.2}
+{"sistema": "Bachmann_MSB2011", "escenario": 3, "efit": 0.38271265610862276, "erel": 0.7901559278289144, "descartado": null, "segundos": 86.8}
+[0m
+{"sistema": "Bachmann_MSB2011", "escenario": 2, "efit": 0.2069608273969037, "erel": 0.3681860562517759, "descartado": null, "segundos": 103.3}
+[0m
+[0m
+0m
+{"sistema": "Bachmann_MSB2011", "escenario": 11, "efit": 0.35382324250495106, "erel": 1.0061953031574897, "descartado": null, "segundos": 100.1}
+{"sistema": "Isensee_JCB2018", "escenario": 0, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 57.3}
+{"sistema": "Isensee_JCB2018", "escenario": 2, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 53.4}
+{"sistema": "Isensee_JCB2018", "escenario": 4, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 52.4}
+{"sistema": "Bachmann_MSB2011", "escenario": 12, "efit": 0.22969389217480116, "erel": 0.527544095948046, "descartado": null, "segundos": 98.0}
+{"sistema": "Bachmann_MSB2011", "escenario": 8, "efit": 0.3657619846652269, "erel": 0.7258779536990477, "descartado": null, "segundos": 116.7}
+[0m
+{"sistema": "Isensee_JCB2018", "escenario": 12, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 0.6}
+{"sistema": "Isensee_JCB2018", "escenario": 3, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 54.5}
+0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 1, "efit": 0.43585137661135737, "erel": 0.6275444005047228, "descartado": null, "segundos": 8.7}
+{"sistema": "Isensee_JCB2018", "escenario": 5, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 54.5}
+{"sistema": "Isensee_JCB2018", "escenario": 6, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 50.2}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 2, "efit": 0.387513494120518, "erel": 0.7835070247358591, "descartado": null, "segundos": 8.3}
+[0m
+[0m
+0m
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 0, "efit": 0.5894634661975658, "erel": 0.8111726453201649, "descartado": null, "segundos": 24.6}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 4, "efit": 0.26512926553087124, "erel": 0.4899972825102493, "descartado": null, "segundos": 13.6}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 3, "efit": 0.4962457602878907, "erel": 0.5757489391748286, "descartado": null, "segundos": 16.7}
+{"sistema": "Bachmann_MSB2011", "escenario": 14, "efit": 0.1724947407136105, "erel": 0.3240381096975722, "descartado": null, "segundos": 125.6}
+[0m
+{"sistema": "Bachmann_MSB2011", "escenario": 13, "efit": 0.3248012628085578, "erel": 0.44096910662011385, "descartado": null, "segundos": 129.8}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 5, "efit": 0.3264349015765471, "erel": 0.6867003853019512, "descartado": null, "segundos": 17.2}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 6, "efit": 0.4187398014980428, "erel": 0.6647392116744871, "descartado": null, "segundos": 14.8}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 7, "efit": 0.3421977178006627, "erel": 0.4219659815517282, "descartado": null, "segundos": 11.6}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 11, "efit": 0.46764593013759126, "erel": 0.5384066246417105, "descartado": null, "segundos": 8.4}
+{"sistema": "Bachmann_MSB2011", "escenario": 0, "efit": 0.3459162760343059, "erel": 0.526782649040973, "descartado": null, "segundos": 171.6}
+[0m
+{"sistema": "Chen_MSB2009", "escenario": 8, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 192.8}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 9, "efit": 0.33577610885322495, "erel": 0.4643830471042823, "descartado": null, "segundos": 19.1}
+[0m
+{"sistema": "Isensee_JCB2018", "escenario": 8, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 69.2}
+0m
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 14, "efit": 0.4530680620132113, "erel": 0.5638148875256904, "descartado": null, "segundos": 7.4}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 8, "efit": 0.7522903111593487, "erel": 1.2967748221812556, "descartado": null, "segundos": 22.0}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 10, "efit": 0.30074790117293804, "erel": 0.44069746846559327, "descartado": null, "segundos": 19.5}
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 13, "efit": 0.5230054681832906, "erel": 0.5961991398667025, "descartado": null, "segundos": 12.5}
+0m
+{"sistema": "Isensee_JCB2018", "escenario": 14, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 56.6}
+[0m
+{"sistema": "Lucarelli_CellSystems2018", "escenario": 12, "efit": 0.5273373113418548, "erel": 0.7582859879178816, "descartado": null, "segundos": 21.4}
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+{"sistema": "Chen_MSB2009", "escenario": 11, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 237.8}
+[0m
+{"sistema": "Chen_MSB2009", "escenario": 12, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 240.6}
+[0m
+[0m
+0m
+{"sistema": "Chen_MSB2009", "escenario": 4, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 277.6}
+0m
+{"sistema": "Chen_MSB2009", "escenario": 14, "efit": null, "erel": null, "descartado": "falla la simulaci\u00f3n del modelo completo", "segundos": 293.8}
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+{"sistema": "Raimundez_PCB2020", "escenario": 9, "efit": 0.3365949608349164, "erel": 0.6600147865830615, "descartado": null, "segundos": 812.9}
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "escenario": 8, "efit": 0.23074628487299664, "erel": 0.6447731810168055, "descartado": null, "segundos": 862.7}
+{"sistema": "Raimundez_PCB2020", "escenario": 11, "efit": 0.10643939681372362, "erel": 0.3925697921339513, "descartado": null, "segundos": 830.3}
+0m
+{"sistema": "Raimundez_PCB2020", "escenario": 2, "efit": 0.2238710094806435, "erel": 1.9399162164941801, "descartado": null, "segundos": 887.1}
+0m
+0m
+{"sistema": "Isensee_JCB2018", "escenario": 13, "efit": 0.13203920449462014, "erel": 0.2934599807906457, "descartado": null, "segundos": 961.2}
+{"sistema": "Raimundez_PCB2020", "escenario": 3, "efit": 0.16746561184287728, "erel": 0.2472091897176541, "descartado": null, "segundos": 926.5}
+0m
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "escenario": 13, "efit": 0.27992680619454985, "erel": 0.7619886764934328, "descartado": null, "segundos": 875.4}
+{"sistema": "Raimundez_PCB2020", "escenario": 4, "efit": 0.07681934192807953, "erel": 0.5242683384112112, "descartado": null, "segundos": 992.9}
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "escenario": 0, "efit": 0.13695845469617043, "erel": 0.7135716487878014, "descartado": null, "segundos": 1013.8}
+0m
+[0m
+0m
+[0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "escenario": 5, "efit": 0.11348000527170295, "erel": 0.5247652591646429, "descartado": null, "segundos": 1060.4}
+{"sistema": "Raimundez_PCB2020", "escenario": 1, "efit": 0.10821327205102622, "erel": 0.5837409789122396, "descartado": null, "segundos": 1065.3}
+0m
+0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "escenario": 10, "efit": 0.3011295624487733, "erel": 0.6133148070525933, "descartado": null, "segundos": 1089.8}
+{"sistema": "Raimundez_PCB2020", "escenario": 7, "efit": 0.21964194661803166, "erel": 1.1746888300154883, "descartado": null, "segundos": 1146.2}
+{"sistema": "Raimundez_PCB2020", "escenario": 6, "efit": 0.14511718748645913, "erel": 0.45212727016872767, "descartado": null, "segundos": 1164.0}
+0m
+[0m
+0m
+{"sistema": "Raimundez_PCB2020", "escenario": 12, "efit": 0.1857033878612116, "erel": 0.7015788467036822, "descartado": null, "segundos": 1133.8}
+0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "escenario": 10, "efit": 0.06160942425952171, "erel": 0.3910332824357454, "descartado": null, "segundos": 1366.7}
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+{"sistema": "Raimundez_PCB2020", "escenario": 14, "efit": 0.35167471403889505, "erel": 0.9026566759809388, "descartado": null, "segundos": 804.8}
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "escenario": 7, "efit": 0.10505159892602804, "erel": 0.6498688905294383, "descartado": null, "segundos": 2278.3}
+0m
+{"sistema": "Isensee_JCB2018", "escenario": 9, "efit": 0.28599189895894495, "erel": 0.6568987370629822, "descartado": null, "segundos": 2262.1}
+[0m
+0m
+[0m
+0m
+{"sistema": "Chen_MSB2009", "escenario": 5, "efit": 0.08499436332831208, "erel": 0.7917524580624372, "descartado": null, "segundos": 2720.2}
+{"sistema": "Chen_MSB2009", "escenario": 3, "efit": 0.08723260545203791, "erel": 0.3066026484045845, "descartado": null, "segundos": 2866.1}
+{"sistema": "Chen_MSB2009", "escenario": 9, "efit": 0.03034659377673248, "erel": 0.5310874399804808, "descartado": null, "segundos": 2929.6}
+{"sistema": "Chen_MSB2009", "escenario": 7, "efit": 0.08491313254492634, "erel": 0.3886858048029788, "descartado": null, "segundos": 2970.3}
+0m
+0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "escenario": 11, "efit": 0.06400710525844851, "erel": Infinity, "descartado": null, "segundos": 3004.8}
+{"sistema": "Chen_MSB2009", "escenario": 0, "efit": 0.07669479508919895, "erel": 0.45232196459179774, "descartado": null, "segundos": 3258.1}
+[0m
+{"sistema": "Isensee_JCB2018", "escenario": 1, "efit": 0.12134138627464408, "erel": Infinity, "descartado": null, "segundos": 3796.8}
+{"sistema": "Chen_MSB2009", "escenario": 13, "efit": 0.16163133553940873, "erel": Infinity, "descartado": null, "segundos": 4015.6}
+{"sistema": "Chen_MSB2009", "escenario": 2, "efit": 0.1015149845099119, "erel": 0.5199539758350319, "descartado": null, "segundos": 4432.8}
+{"sistema": "Chen_MSB2009", "escenario": 6, "efit": 0.06976344723403724, "erel": 1.1877198662170916, "descartado": null, "segundos": 5105.9}
+{"sistema": "Chen_MSB2009", "escenario": 10, "efit": 0.05912256887207953, "erel": Infinity, "descartado": null, "segundos": 6342.1}
+{"sistema": "Chen_MSB2009", "escenario": 1, "efit": 0.05589929001965685, "erel": 1.4496958523048005, "descartado": null, "segundos": 10013.3}
+{"sistema": "Chen_MSB2009", "S": ["k106", "k44"], "n_escenarios_validos": 10, "eajuste_med_nolineal": 0.08080396381706265, "eajuste_med_primer_orden": 0.08201008441763927, "tasa_paso_nolineal": 1.0, "admisible_nolineal": true, "segundos_total": 45896.6}
+{"sistema": "Alkan_SciSignal2018", "S": ["kt", "k_rep_nhej"], "n_escenarios_validos": 15, "eajuste_med_nolineal": 0.12010974133347577, "eajuste_med_primer_orden": 0.1212591655750403, "tasa_paso_nolineal": 1.0, "admisible_nolineal": true, "segundos_total": 485.5}
+{"sistema": "Bachmann_MSB2011", "S": ["CISRNADelay", "JAK2ActEpo"], "n_escenarios_validos": 15, "eajuste_med_nolineal": 0.33801893607532374, "eajuste_med_primer_orden": 0.33709717294038805, "tasa_paso_nolineal": 1.0, "admisible_nolineal": true, "segundos_total": 1389.9}
+{"sistema": "Isensee_JCB2018", "S": ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2"], "n_escenarios_validos": 6, "eajuste_med_nolineal": 0.11319649260033607, "eajuste_med_primer_orden": 0.07588884060451623, "tasa_paso_nolineal": 1.0, "admisible_nolineal": true, "segundos_total": 14118.6}
+{"sistema": "Lucarelli_CellSystems2018", "S": ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn"], "n_escenarios_validos": 15, "eajuste_med_nolineal": 0.43585137661135737, "eajuste_med_primer_orden": 0.4354529716025807, "tasa_paso_nolineal": 0.5333333333333333, "admisible_nolineal": true, "segundos_total": 225.8}
+{"sistema": "Raimundez_PCB2020", "S": ["kdeg_membran__MKN1", "ka_MAPK__MKN1"], "n_escenarios_validos": 15, "eajuste_med_nolineal": 0.1857033878612116, "eajuste_med_primer_orden": 0.1870936917165585, "tasa_paso_nolineal": 1.0, "admisible_nolineal": true, "segundos_total": 14665.9}

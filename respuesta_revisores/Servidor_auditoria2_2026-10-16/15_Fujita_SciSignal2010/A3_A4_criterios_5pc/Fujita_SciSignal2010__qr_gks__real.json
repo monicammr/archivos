@@ -1,0 +1,13 @@
+{
+ "S": [
+  "reaction_1_k1",
+  "reaction_5_k1"
+ ],
+ "chi2_test": 6.0213196396790805,
+ "chi2_ours": 5.939147165229708,
+ "ratio_vs_ours": 1.0138357363714516,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.4
+}

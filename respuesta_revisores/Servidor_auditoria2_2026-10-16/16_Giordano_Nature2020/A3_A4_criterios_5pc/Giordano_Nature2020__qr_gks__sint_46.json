@@ -1,0 +1,16 @@
+{
+ "S": [
+  "eta_22",
+  "mu_0"
+ ],
+ "semilla": 46,
+ "familia": "uniforme",
+ "senal_rms_test": 0.00048752491631411446,
+ "B_chi2_test_theta0": 0.9925506565653609,
+ "B_chi2_test_red": 0.9926345636336728,
+ "B_epred_red": 1.093340458059766,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.6
+}

@@ -1,0 +1,13 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate",
+  "behavioural_change_rate"
+ ],
+ "chi2_test": 0.0024669590218221486,
+ "chi2_ours": 0.0019946462955132307,
+ "ratio_vs_ours": 1.2367902155742303,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.3
+}

@@ -1,0 +1,53 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "p": 46,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 30,
+ "S1": [
+  "k01_11",
+  "k12_13",
+  "k12_22",
+  "k03_13",
+  "k21_22",
+  "k00_01",
+  "k11_12",
+  "k20_30",
+  "k23_13",
+  "k21_20"
+ ],
+ "Rvar_S1_%": 41.00925548944938,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k01_02",
+  "k12_13"
+ ],
+ "Rvar_%": 34.16921936227409,
+ "kappa": 1.4646532144038598,
+ "VIF": 1.1528410190176561,
+ "cos_med": 0.8194042771477552,
+ "erel_med": 0.8440093902616206,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "k01_02",
+  "k12_13"
+ ],
+ "podados": [],
+ "eajuste_med": 0.2589511415860253,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "k01_02",
+    "k12_13",
+    true
+   ]
+  ]
+ },
+ "segundos": 9.8
+}

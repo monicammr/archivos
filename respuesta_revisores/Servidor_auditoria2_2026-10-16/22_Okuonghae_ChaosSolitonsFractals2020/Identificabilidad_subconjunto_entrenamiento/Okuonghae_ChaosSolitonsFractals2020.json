@@ -1,0 +1,48 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "transmission_rate_effective",
+  "symptomatic_start"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 92,
+ "coste_min": 445437.0081570178,
+ "chi2_por_gl": 4949.300090633531,
+ "umbral_robusto": 19005.31234803276,
+ "rondas": 0,
+ "dchi2_minimo": 4.837224692688324,
+ "perfiles": [
+  {
+   "parametro": "transmission_rate_effective",
+   "puntos_fallidos": 15,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "symptomatic_start",
+   "puntos_fallidos": 3,
+   "minimo_en_limite": [
+    -1
+   ],
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 5594.892130568158,
+   "clase": "no identificable practico",
+   "ic_izq_log": Infinity,
+   "ic_der_log": 0.039692181405221134,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 0,
+ "todos_identificables": false,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

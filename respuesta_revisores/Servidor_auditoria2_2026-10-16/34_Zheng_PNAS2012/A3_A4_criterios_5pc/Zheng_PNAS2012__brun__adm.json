@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k01_11",
+  "k12_13"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.2936577721768684,
+ "erel_med": 0.6850007167548415,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.7333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 6.3
+}

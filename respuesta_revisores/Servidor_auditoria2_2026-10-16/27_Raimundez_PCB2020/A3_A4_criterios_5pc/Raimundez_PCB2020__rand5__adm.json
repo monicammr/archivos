@@ -1,0 +1,20 @@
+{
+ "S": [
+  "xi_ka_RAS_pMMET_pEGFR",
+  "kimp_pEGFR_EGF_2__MKN1"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.20884279277802884,
+ "erel_med": 0.8014207110532068,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 220.6
+}

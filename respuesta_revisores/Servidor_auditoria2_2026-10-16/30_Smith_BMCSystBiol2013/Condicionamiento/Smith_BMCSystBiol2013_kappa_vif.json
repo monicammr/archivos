@@ -1,0 +1,15 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "kappa_centred": 3.1995607355713447,
+ "VIF_centred": 3.083717991676082,
+ "kappa_unit": 3.4648856200463687,
+ "VIF_unit": 3.5221819964213297,
+ "kappa_unit_with_calibration": 14.023236409105827,
+ "VIF_unit_with_calibration": 39.68237453659807,
+ "kappa_selection_json": 3.1995607355713447,
+ "VIF_selection_json": 3.083717991676082
+}

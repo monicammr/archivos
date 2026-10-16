@@ -1,0 +1,28 @@
+{
+ "S": [
+  "geneC_turn",
+  "geneJ_inh3",
+  "geneH_act3",
+  "geneL_act2",
+  "geneC_inh3",
+  "geneB_inh2",
+  "k_244",
+  "geneA_turn",
+  "geneL_inh3",
+  "geneH_inh1"
+ ],
+ "k": 10,
+ "n_calibracion": 0,
+ "eajuste_med": 0.9329053266333831,
+ "erel_med": 0.9767394485035087,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "rand8",
+ "prueba": "adm",
+ "segundos": 4.1
+}

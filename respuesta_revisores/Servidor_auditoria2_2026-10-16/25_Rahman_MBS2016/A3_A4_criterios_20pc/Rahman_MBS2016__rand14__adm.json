@@ -1,0 +1,20 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate",
+  "treated_weak_improve_rate"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.12383812384115747,
+ "erel_med": 0.7366530947121728,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "rand14",
+ "prueba": "adm",
+ "segundos": 0.9
+}

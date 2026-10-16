@@ -1,0 +1,21 @@
+{
+ "S": [
+  "geneG_turn",
+  "geneI_act1",
+  "geneK_act1",
+  "geneD_act1",
+  "geneL_inh1",
+  "geneF_turn",
+  "geneA_act1",
+  "geneE_inh1",
+  "geneB_act1",
+  "geneH_inh1"
+ ],
+ "chi2_test": 1.0159689125959799,
+ "chi2_ours": 1.6588292477170448,
+ "ratio_vs_ours": 0.6124614175896657,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 3.3
+}

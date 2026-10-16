@@ -1,0 +1,15 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "S": [
+  "k01_02",
+  "k13_12"
+ ],
+ "kappa_centred": 1.4008808841850589,
+ "VIF_centred": 1.1180074737242547,
+ "kappa_unit": 1.4008808841850589,
+ "VIF_unit": 1.1180074737242547,
+ "kappa_unit_with_calibration": 1.4008808841850589,
+ "VIF_unit_with_calibration": 1.1180074737242547,
+ "kappa_selection_json": 1.4008808841850589,
+ "VIF_selection_json": 1.1180074737242547
+}

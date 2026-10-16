@@ -291,8 +291,134 @@ theorem stat_of_projection (A : V →L[ℝ] W) (r0 p : W) {γ : ℝ}
   rw [this]
   exact (abs_real_inner_le_norm _ _).trans (mul_le_mul_of_nonneg_right hp (norm_nonneg _))
 
+/-! ## Hipótesis sólo en la cola del perfil y resto relativo (segunda auditoría)
+
+`practically_identifiable_grad` exige la cota del resto no lineal en todo el conjunto admisible
+`F`. La demostración sólo la usa en la **cola** `{δ ∈ F : φ δ ≤ −t₋ ∨ t₊ ≤ φ δ}`, y lejos del
+mínimo el resto absoluto crece con `‖A δ‖`; por eso se dan dos variantes:
+* `practically_identifiable_grad_tail`: la cota absoluta `‖ρ‖ ≤ ε` sólo en la cola;
+* `practically_identifiable_rel_tail`: la cota **relativa** `‖ρ‖ ≤ η‖A δ‖` (`η < 1`) en la cola,
+  con el semiancho `tstarRel`. -/
+
+/-- Variante de `practically_identifiable_grad` con la hipótesis del resto sólo en la cola. -/
+theorem practically_identifiable_grad_tail (R : V → W) (A : V →L[ℝ] W) (φ : V → ℝ) (F : Set V)
+    {ε γ c I dlo dhi tlo thi : ℝ} (hc : 0 < c) (hε0 : 0 ≤ ε) (hγ0 : 0 ≤ γ) (hI : 0 < I)
+    (hinfo : ∀ δ, I * (φ δ) ^ 2 ≤ ‖A δ‖ ^ 2)
+    (hstat : ∀ δ, |⟪R 0, A δ⟫| ≤ γ * ‖A δ‖)
+    (htlo : tstarGrad I ε γ c ‖R 0‖ ≤ tlo) (hthi : tstarGrad I ε γ c ‖R 0‖ ≤ thi)
+    (hlo : tlo < dlo) (hhi : thi < dhi)
+    (hrem : ∀ δ ∈ F, (φ δ ≤ -tlo ∨ thi ≤ φ δ) → ‖R δ - R 0 - A δ‖ ≤ ε) :
+    PracticallyIdentifiable R φ F c dlo dhi := by
+  have hpos : 0 < tstarGrad I ε γ c ‖R 0‖ := by
+    unfold tstarGrad
+    have : 0 < Real.sqrt (γ ^ 2 + c + 2 * ‖R 0‖ * ε + 2 * γ * ε) :=
+      Real.sqrt_pos.2 (by positivity)
+    exact div_pos (by linarith) (Real.sqrt_pos.2 hI)
+  refine ⟨tlo, thi, by linarith, hlo, by linarith, hhi, fun δ hδ hside => ?_⟩
+  apply dchi2_ge_of_coord_grad R A φ hc.le hε0 hγ0 hI hinfo δ (hstat δ) (hrem δ hδ hside)
+  rcases hside with h | h
+  · rw [abs_of_neg (by linarith)]; linarith
+  · rw [abs_of_pos (by linarith)]; linarith
+
+/-- Semiancho con resto relativo `‖ρ‖ ≤ η‖A δ‖`:
+`t*_rel = (b + √(b² + (1−η)² c)) / ((1−η)² √I)` con `b = γ + η‖r₀‖`. -/
+noncomputable def tstarRel (I η γ c r0 : ℝ) : ℝ :=
+  ((γ + η * r0) + Real.sqrt ((γ + η * r0) ^ 2 + (1 - η) ^ 2 * c)) /
+    ((1 - η) ^ 2 * Real.sqrt I)
+
+/-- **Cota inferior de Δχ² con resto relativo.**
+`Δχ²(δ) ≥ (1−η)²‖A δ‖² − 2(γ + η‖R 0‖)‖A δ‖`. -/
+theorem dchi2_lower_rel (R : V → W) (A : V →L[ℝ] W) {η γ : ℝ} (δ : V) (hη1 : η ≤ 1)
+    (hstat : |⟪R 0, A δ⟫| ≤ γ * ‖A δ‖) (hrem : ‖R δ - R 0 - A δ‖ ≤ η * ‖A δ‖) :
+    (1 - η) ^ 2 * ‖A δ‖ ^ 2 - 2 * (γ + η * ‖R 0‖) * ‖A δ‖ ≤ dchi2 R δ := by
+  set ρ := R δ - R 0 - A δ with hρ
+  have hR : R δ = R 0 + (A δ + ρ) := by rw [hρ]; abel
+  have h1 : ‖R δ‖ ^ 2 = ‖R 0‖ ^ 2 + 2 * ⟪R 0, A δ + ρ⟫ + ‖A δ + ρ‖ ^ 2 := by
+    rw [hR, norm_add_sq_real]
+  have h2 : ⟪R 0, A δ + ρ⟫ = ⟪R 0, A δ⟫ + ⟪R 0, ρ⟫ := inner_add_right _ _ _
+  have h3 : |⟪R 0, ρ⟫| ≤ ‖R 0‖ * (η * ‖A δ‖) :=
+    (abs_real_inner_le_norm _ _).trans (mul_le_mul_of_nonneg_left hrem (norm_nonneg _))
+  have h4 : (1 - η) * ‖A δ‖ ≤ ‖A δ + ρ‖ := by
+    have : ‖A δ‖ ≤ ‖A δ + ρ‖ + ‖ρ‖ := by
+      calc ‖A δ‖ = ‖(A δ + ρ) - ρ‖ := by rw [add_sub_cancel_right]
+        _ ≤ ‖A δ + ρ‖ + ‖ρ‖ := norm_sub_le _ _
+    linarith
+  have h5 : ((1 - η) * ‖A δ‖) ^ 2 ≤ ‖A δ + ρ‖ ^ 2 :=
+    pow_le_pow_left₀ (mul_nonneg (by linarith) (norm_nonneg _)) h4 2
+  have h6 := (abs_le.mp h3).1
+  have h7 := (abs_le.mp hstat).1
+  unfold dchi2
+  rw [h1, h2]
+  nlinarith
+
+/-- Desigualdad cuadrática auxiliar: si `s² = b² + q c`, `s ≥ 0`, `q > 0` y `b + s ≤ q a`,
+entonces `c ≤ q a² − 2 b a`. -/
+theorem quad_of_root {q b c s a : ℝ} (hq : 0 < q) (hs0 : 0 ≤ s) (hs2 : s ^ 2 = b ^ 2 + q * c)
+    (hba : b + s ≤ q * a) : c ≤ q * a ^ 2 - 2 * b * a := by
+  have h1 : s ≤ q * a - b := by linarith
+  have h2 : s ^ 2 ≤ (q * a - b) ^ 2 := pow_le_pow_left₀ hs0 h1 2
+  have h3 : q * c ≤ q * (q * a ^ 2 - 2 * b * a) := by nlinarith
+  exact le_of_mul_le_mul_left h3 hq
+
+/-- **El perfil supera el umbral (resto relativo).** -/
+theorem dchi2_ge_of_coord_rel (R : V → W) (A : V →L[ℝ] W) (φ : V → ℝ) {η γ c I : ℝ}
+    (hc : 0 ≤ c) (hη0 : 0 ≤ η) (hη1 : η < 1) (hγ0 : 0 ≤ γ) (hI : 0 < I)
+    (hinfo : ∀ δ, I * (φ δ) ^ 2 ≤ ‖A δ‖ ^ 2) (δ : V)
+    (hstat : |⟪R 0, A δ⟫| ≤ γ * ‖A δ‖) (hrem : ‖R δ - R 0 - A δ‖ ≤ η * ‖A δ‖)
+    (ht : tstarRel I η γ c ‖R 0‖ ≤ |φ δ|) : c ≤ dchi2 R δ := by
+  have hq : 0 < (1 - η) ^ 2 := by
+    have : 0 < 1 - η := by linarith
+    positivity
+  have hsI : 0 < Real.sqrt I := Real.sqrt_pos.2 hI
+  have hK : 0 ≤ (γ + η * ‖R 0‖) ^ 2 + (1 - η) ^ 2 * c := by positivity
+  have hs2 := Real.sq_sqrt hK
+  have hs0 := Real.sqrt_nonneg ((γ + η * ‖R 0‖) ^ 2 + (1 - η) ^ 2 * c)
+  have hA : Real.sqrt I * |φ δ| ≤ ‖A δ‖ := by
+    have h1 : (Real.sqrt I * |φ δ|) ^ 2 ≤ ‖A δ‖ ^ 2 := by
+      rw [mul_pow, Real.sq_sqrt hI.le, sq_abs]; exact hinfo δ
+    exact (abs_le_of_sq_le_sq' h1 (norm_nonneg _)).2
+  have hden : 0 < (1 - η) ^ 2 * Real.sqrt I := mul_pos hq hsI
+  have h1 : (γ + η * ‖R 0‖) + Real.sqrt ((γ + η * ‖R 0‖) ^ 2 + (1 - η) ^ 2 * c)
+      ≤ |φ δ| * ((1 - η) ^ 2 * Real.sqrt I) := by
+    have := ht
+    unfold tstarRel at this
+    exact (div_le_iff₀ hden).1 this
+  have h2 : (γ + η * ‖R 0‖) + Real.sqrt ((γ + η * ‖R 0‖) ^ 2 + (1 - η) ^ 2 * c)
+      ≤ (1 - η) ^ 2 * ‖A δ‖ := by
+    have := mul_le_mul_of_nonneg_left hA hq.le
+    nlinarith
+  have hquad := quad_of_root hq hs0 hs2 h2
+  have hlow := dchi2_lower_rel R A δ hη1.le hstat hrem
+  linarith
+
+/-- **Teorema principal con resto relativo en la cola.** Si en la cola
+`{δ ∈ F : φ δ ≤ −t₋ ∨ t₊ ≤ φ δ}` el resto no lineal es a lo sumo `η‖A δ‖` con `η < 1`, y
+`t*_rel ≤ t₋ < d₋`, `t*_rel ≤ t₊ < d₊`, entonces `θ_j` es prácticamente identificable. -/
+theorem practically_identifiable_rel_tail (R : V → W) (A : V →L[ℝ] W) (φ : V → ℝ) (F : Set V)
+    {η γ c I dlo dhi tlo thi : ℝ} (hc : 0 < c) (hη0 : 0 ≤ η) (hη1 : η < 1) (hγ0 : 0 ≤ γ)
+    (hI : 0 < I) (hinfo : ∀ δ, I * (φ δ) ^ 2 ≤ ‖A δ‖ ^ 2)
+    (hstat : ∀ δ, |⟪R 0, A δ⟫| ≤ γ * ‖A δ‖)
+    (htlo : tstarRel I η γ c ‖R 0‖ ≤ tlo) (hthi : tstarRel I η γ c ‖R 0‖ ≤ thi)
+    (hlo : tlo < dlo) (hhi : thi < dhi)
+    (hrem : ∀ δ ∈ F, (φ δ ≤ -tlo ∨ thi ≤ φ δ) → ‖R δ - R 0 - A δ‖ ≤ η * ‖A δ‖) :
+    PracticallyIdentifiable R φ F c dlo dhi := by
+  have hpos : 0 < tstarRel I η γ c ‖R 0‖ := by
+    unfold tstarRel
+    have h1 : 0 < 1 - η := by linarith
+    have : 0 < Real.sqrt ((γ + η * ‖R 0‖) ^ 2 + (1 - η) ^ 2 * c) :=
+      Real.sqrt_pos.2 (by positivity)
+    have : 0 ≤ γ + η * ‖R 0‖ := by positivity
+    exact div_pos (by linarith) (mul_pos (by positivity) (Real.sqrt_pos.2 hI))
+  refine ⟨tlo, thi, by linarith, hlo, by linarith, hhi, fun δ hδ hside => ?_⟩
+  apply dchi2_ge_of_coord_rel R A φ hc.le hη0 hη1 hγ0 hI hinfo δ (hstat δ) (hrem δ hδ hside)
+  rcases hside with h | h
+  · rw [abs_of_neg (by linarith)]; linarith
+  · rw [abs_of_pos (by linarith)]; linarith
+
 end ProfileIdentifiability
 
+#print axioms ProfileIdentifiability.practically_identifiable_grad_tail
+#print axioms ProfileIdentifiability.practically_identifiable_rel_tail
 #print axioms ProfileIdentifiability.practically_identifiable_grad
 #print axioms ProfileIdentifiability.stat_of_projection
 #print axioms ProfileIdentifiability.tstarGrad_zero

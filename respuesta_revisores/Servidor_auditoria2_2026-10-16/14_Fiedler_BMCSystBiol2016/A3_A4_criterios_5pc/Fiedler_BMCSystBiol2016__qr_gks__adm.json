@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k6",
+  "k3"
+ ],
+ "k": 2,
+ "n_calibracion": 8,
+ "eajuste_med": 0.3394651567840907,
+ "erel_med": 0.8834216472477442,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 14.1
+}

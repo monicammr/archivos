@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kappa",
+  "rho"
+ ],
+ "semilla": 50,
+ "familia": "dispersa",
+ "senal_rms_test": 0.14434780782197681,
+ "B_chi2_test_theta0": 1.2255104054342496,
+ "B_chi2_test_red": 1.3179634059922722,
+ "B_epred_red": 1.6726660099821278,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.7
+}

@@ -1,0 +1,23 @@
+{
+ "sistema": "Chen_MSB2009",
+ "escenario": 10,
+ "S": [
+  "k106",
+  "k44"
+ ],
+ "erel": Infinity,
+ "efit": 0.05912256887207953,
+ "arranques": {
+  "theta0": {
+   "e": 0.05916627976098234,
+   "nfev": 12,
+   "status": 3
+  },
+  "escenario": {
+   "e": 0.05912256887207953,
+   "nfev": 16,
+   "status": 3
+  }
+ },
+ "segundos": 6342.1
+}

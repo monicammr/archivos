@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k22",
+  "k3"
+ ],
+ "semilla": 44,
+ "familia": "loguniforme",
+ "senal_rms_test": 20.452721277369033,
+ "B_chi2_test_theta0": 425.7679907737714,
+ "B_chi2_test_red": 1035.1167960121647,
+ "B_epred_red": 1.5637030205013713,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 2.1
+}

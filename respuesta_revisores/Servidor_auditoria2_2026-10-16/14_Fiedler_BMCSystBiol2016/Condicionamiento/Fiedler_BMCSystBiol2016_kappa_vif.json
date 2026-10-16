@@ -1,0 +1,15 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "kappa_centred": 1.5155072353949903,
+ "VIF_centred": 1.1830394290619781,
+ "kappa_unit": 1.612324416065087,
+ "VIF_unit": 1.2460665160895392,
+ "kappa_unit_with_calibration": 14.470135646166314,
+ "VIF_unit_with_calibration": 47.18791553194171,
+ "kappa_selection_json": 1.5155072353949903,
+ "VIF_selection_json": 1.1830394290619781
+}

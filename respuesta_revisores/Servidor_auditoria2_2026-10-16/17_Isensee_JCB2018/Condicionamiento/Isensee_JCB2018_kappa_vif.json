@@ -1,0 +1,15 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "kappa_centred": 1.018659378553291,
+ "VIF_centred": 1.0003418239366364,
+ "kappa_unit": 2.112724000734322,
+ "VIF_unit": 1.6719092448207944,
+ "kappa_unit_with_calibration": 373270097181639.2,
+ "VIF_unit_with_calibration": 1620.7459664445903,
+ "kappa_selection_json": 1.018659337126297,
+ "VIF_selection_json": 1.0003418224325962
+}

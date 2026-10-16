@@ -1,0 +1,52 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "p": 22,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 17,
+ "S1": [
+  "k1f",
+  "km2",
+  "k1a",
+  "k_IRSiP_DosR",
+  "k1r"
+ ],
+ "Rvar_S1_%": 34.31488088286071,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "k21",
+  "km2"
+ ],
+ "Rvar_%": 24.908850395955426,
+ "kappa": 3.4422798771432888,
+ "VIF": 3.483420997338074,
+ "cos_med": 0.9670031817973044,
+ "erel_med": 0.5654811315617106,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "k21",
+  "km2"
+ ],
+ "podados": [],
+ "eajuste_med": 0.10916672084368097,
+ "admisible": true,
+ "calibracion": [
+  "k_IRP_1Step",
+  "k_IRSiP_1Step",
+  "k_IRSiP_2Step"
+ ],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "k21",
+    "km2",
+    true
+   ]
+  ]
+ },
+ "segundos": 83.5
+}

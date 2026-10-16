@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_d",
+  "k2"
+ ],
+ "semilla": 50,
+ "familia": "dispersa",
+ "senal_rms_test": 1.0548672601162252,
+ "B_chi2_test_theta0": 2.3723644442132006,
+ "B_chi2_test_red": 2.2725765297132945,
+ "B_epred_red": 0.9797367032164879,
+ "sistema": "Armistead_CellDeathDis2024",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.0
+}

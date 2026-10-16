@@ -1,0 +1,13 @@
+{
+ "S": [
+  "beta_1",
+  "symptomatic_init_concentration"
+ ],
+ "chi2_test": 73197.68377883415,
+ "chi2_ours": 912.4437319197926,
+ "ratio_vs_ours": 80.22158651342296,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.3
+}

@@ -1,0 +1,15 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "kappa_centred": 3.6678200135281247,
+ "VIF_centred": 3.881809261640121,
+ "kappa_unit": 3.8098748746073055,
+ "VIF_unit": 4.146010027966421,
+ "kappa_unit_with_calibration": 3.8098748746073055,
+ "VIF_unit_with_calibration": 4.146010027966421,
+ "kappa_selection_json": 3.6678200135281247,
+ "VIF_selection_json": 3.881809261640148
+}

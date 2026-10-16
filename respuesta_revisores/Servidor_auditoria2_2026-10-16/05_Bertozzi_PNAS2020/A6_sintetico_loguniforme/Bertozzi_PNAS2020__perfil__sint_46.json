@@ -1,0 +1,16 @@
+{
+ "S": [
+  "I0_CA",
+  "R0_CA"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 0.0,
+ "B_chi2_test_theta0": 1.161398934322001,
+ "B_chi2_test_red": 1.161398934322001,
+ "B_epred_red": NaN,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.4
+}

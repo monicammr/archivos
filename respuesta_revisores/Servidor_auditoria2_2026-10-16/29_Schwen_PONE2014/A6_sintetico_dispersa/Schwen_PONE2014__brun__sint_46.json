@@ -1,0 +1,16 @@
+{
+ "S": [
+  "ini_R1",
+  "kon_unspec"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 2.070169192628604,
+ "B_chi2_test_theta0": 5.113264742410699,
+ "B_chi2_test_red": 12.172630927030196,
+ "B_epred_red": 1.5289420955049782,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 20.0
+}

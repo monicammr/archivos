@@ -1,0 +1,15 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "kappa_centred": 5.501461131530608,
+ "VIF_centred": 8.07477871891553,
+ "kappa_unit": 5.019763551390038,
+ "VIF_unit": 6.809427940019778,
+ "kappa_unit_with_calibration": 364.64031490513526,
+ "VIF_unit_with_calibration": 22926.83549984654,
+ "kappa_selection_json": 5.501461131530608,
+ "VIF_selection_json": 8.07477871891553
+}

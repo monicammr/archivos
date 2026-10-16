@@ -1,0 +1,13 @@
+{
+ "S": [
+  "I0_CA",
+  "R0_CA"
+ ],
+ "chi2_test": 1.0000119607849882,
+ "chi2_ours": null,
+ "ratio_vs_ours": null,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.1
+}

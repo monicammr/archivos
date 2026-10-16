@@ -1,0 +1,23 @@
+{
+ "S": [
+  "init_bcry_1",
+  "init_bcar1",
+  "kb1",
+  "init_bcar2",
+  "init_zea_1"
+ ],
+ "k": 5,
+ "n_calibracion": 0,
+ "eajuste_med": 0.37768533591236003,
+ "erel_med": 0.4599367835266773,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "rand2",
+ "prueba": "adm",
+ "segundos": 3.1
+}

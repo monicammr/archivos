@@ -1,0 +1,20 @@
+{
+ "S": [
+  "psi",
+  "phi"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.698227061474241,
+ "erel_med": 0.902525305468904,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "rand19",
+ "prueba": "adm",
+ "segundos": 5.5
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "pu3",
+  "s12"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.03768221990004444,
+ "erel_med": 0.9086585914166102,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Weber_BMC2015",
+ "metodo": "train",
+ "prueba": "adm",
+ "segundos": 34.1
+}

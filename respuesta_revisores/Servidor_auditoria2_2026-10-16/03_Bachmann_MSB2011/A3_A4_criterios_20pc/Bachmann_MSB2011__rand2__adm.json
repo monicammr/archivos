@@ -1,0 +1,20 @@
+{
+ "S": [
+  "EpoRCISInh",
+  "STAT5ActJAK2"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.4903012202251006,
+ "erel_med": 0.7564069805920459,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand2",
+ "prueba": "adm",
+ "segundos": 10.4
+}

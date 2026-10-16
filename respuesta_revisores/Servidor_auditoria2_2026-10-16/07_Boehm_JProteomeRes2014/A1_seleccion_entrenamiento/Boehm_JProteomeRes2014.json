@@ -1,0 +1,57 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "p": 9,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 30,
+ "S1": [
+  "k_phos",
+  "k_imp_hetero",
+  "k_exp_homo"
+ ],
+ "Rvar_S1_%": 90.29328253466703,
+ "S1_cumple": true,
+ "cos_S1": 0.9836609753483648,
+ "erel_S1": 0.27199196065099546,
+ "etapa": "Stage 1",
+ "S": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "Rvar_%": 88.16410028789927,
+ "kappa": 1.0946644981694575,
+ "VIF": 1.00820315957504,
+ "cos_med": 0.9694421371121603,
+ "erel_med": 0.3852450636596235,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "k_phos",
+  "k_imp_hetero",
+  "k_exp_homo"
+ ],
+ "podados": [
+  "k_exp_homo"
+ ],
+ "eajuste_med": 0.059920183406897136,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 2,
+  "nested_pairs": 1,
+  "violations": 0,
+  "subsets": [
+   [
+    "k_phos",
+    "k_imp_hetero",
+    "k_exp_homo",
+    true
+   ],
+   [
+    "k_phos",
+    "k_imp_hetero",
+    true
+   ]
+  ]
+ },
+ "segundos": 2.2
+}

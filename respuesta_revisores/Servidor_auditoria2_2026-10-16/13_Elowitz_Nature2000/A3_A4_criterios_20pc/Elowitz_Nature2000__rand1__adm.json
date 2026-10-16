@@ -1,0 +1,20 @@
+{
+ "S": [
+  "init_Y_protein",
+  "init_Z_mRNA"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.7912733188007991,
+ "erel_med": 0.9661333679381101,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "rand1",
+ "prueba": "adm",
+ "segundos": 5.7
+}

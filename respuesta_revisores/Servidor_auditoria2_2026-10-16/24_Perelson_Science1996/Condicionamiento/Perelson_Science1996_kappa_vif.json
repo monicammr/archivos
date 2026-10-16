@@ -1,0 +1,15 @@
+{
+ "sistema": "Perelson_Science1996",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "kappa_centred": 1.904013969020102,
+ "VIF_centred": 1.475277694765487,
+ "kappa_unit": 1.4958947556895987,
+ "VIF_unit": 1.1711470813657738,
+ "kappa_unit_with_calibration": 1.4958947556895987,
+ "VIF_unit_with_calibration": 1.1711470813657738,
+ "kappa_selection_json": 1.904013969020122,
+ "VIF_selection_json": 1.4752776947655044
+}

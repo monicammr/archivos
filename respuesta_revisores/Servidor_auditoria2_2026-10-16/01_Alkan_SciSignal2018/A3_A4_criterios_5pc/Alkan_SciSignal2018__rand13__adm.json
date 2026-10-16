@@ -1,0 +1,20 @@
+{
+ "S": [
+  "p_p53_act_atr",
+  "p_wip1_turn"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.9446191440625034,
+ "erel_med": 0.9577516036624464,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 15.7
+}

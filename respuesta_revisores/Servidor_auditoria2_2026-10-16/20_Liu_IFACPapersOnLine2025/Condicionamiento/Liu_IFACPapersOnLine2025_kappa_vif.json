@@ -1,0 +1,15 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "kappa_centred": 1.2940850278202445,
+ "VIF_centred": 1.0679483998737394,
+ "kappa_unit": 1.7274914485219204,
+ "VIF_unit": 1.3298304724543182,
+ "kappa_unit_with_calibration": 1.7274914485219204,
+ "VIF_unit_with_calibration": 1.3298304724543182,
+ "kappa_selection_json": 1.2940850278202445,
+ "VIF_selection_json": 1.0679483998737394
+}

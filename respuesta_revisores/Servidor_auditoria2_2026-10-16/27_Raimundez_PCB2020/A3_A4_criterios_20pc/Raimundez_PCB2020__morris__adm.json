@@ -1,0 +1,20 @@
+{
+ "S": [
+  "d_AKTtotal__fm_2_hm",
+  "ki_AKT__MKN1"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.27473777218621864,
+ "erel_med": 0.7748984444599283,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 206.6
+}

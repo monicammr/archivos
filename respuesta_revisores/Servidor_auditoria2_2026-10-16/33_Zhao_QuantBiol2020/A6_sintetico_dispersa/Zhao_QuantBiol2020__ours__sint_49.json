@@ -1,0 +1,17 @@
+{
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 0.0,
+ "B_chi2_test_theta0": 0.9606076506134261,
+ "B_chi2_test_red": 0.960607650615675,
+ "B_epred_red": NaN,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 1.1
+}

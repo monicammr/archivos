@@ -1,0 +1,15 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "kappa_centred": 1.8623618174594274,
+ "VIF_centred": 1.4391774055575184,
+ "kappa_unit": 1.2666256897627701,
+ "VIF_unit": 1.05691241592577,
+ "kappa_unit_with_calibration": 25.433900012405513,
+ "VIF_unit_with_calibration": 146.55200177137067,
+ "kappa_selection_json": 1.8623618174594274,
+ "VIF_selection_json": 1.4391774055575184
+}

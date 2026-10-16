@@ -1,0 +1,47 @@
+{
+ "sistema": "Perelson_Science1996",
+ "p": 3,
+ "outputs": "all",
+ "fixed_scenarios": true,
+ "n_rows": 16,
+ "S1": [
+  "c",
+  "delta"
+ ],
+ "Rvar_S1_%": 100.0,
+ "S1_cumple": true,
+ "cos_S1": 0.9999999999999999,
+ "erel_S1": 0.0,
+ "etapa": "Stage 1",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "Rvar_%": 100.0,
+ "kappa": 1.904013969020102,
+ "VIF": 1.475277694765487,
+ "cos_med": 0.9999999999999999,
+ "erel_med": 0.0,
+ "n_escenarios": 2,
+ "S_antes_poda": [
+  "c",
+  "delta"
+ ],
+ "podados": [],
+ "eajuste_med": 0.0,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "c",
+    "delta",
+    true
+   ]
+  ]
+ },
+ "segundos": 1.4
+}

@@ -1,0 +1,19 @@
+{
+ "S": [
+  "init_Rec",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "geneH_turn"
+ ],
+ "chi2_test": 1.017040914057314,
+ "chi2_ours": 1.6588292477170448,
+ "ratio_vs_ours": 0.6131076573776423,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 8.9
+}

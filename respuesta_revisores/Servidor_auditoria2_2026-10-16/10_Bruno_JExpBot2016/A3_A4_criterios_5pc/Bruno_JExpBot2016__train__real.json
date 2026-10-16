@@ -1,0 +1,16 @@
+{
+ "S": [
+  "init_bcar1",
+  "kb1",
+  "init_bcry_1",
+  "init_b10_1",
+  "kc2"
+ ],
+ "chi2_test": 0.9093632518020328,
+ "chi2_ours": 0.9093632518020328,
+ "ratio_vs_ours": 1.0,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.3
+}

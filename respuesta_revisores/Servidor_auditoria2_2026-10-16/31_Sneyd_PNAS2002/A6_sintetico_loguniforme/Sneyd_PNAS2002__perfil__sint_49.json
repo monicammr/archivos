@@ -1,0 +1,16 @@
+{
+ "S": [
+  "l4",
+  "k_3"
+ ],
+ "semilla": 49,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.8826396167759452,
+ "B_chi2_test_theta0": 4.188092227136513,
+ "B_chi2_test_red": 0.9885916846245996,
+ "B_epred_red": 0.25288951969646173,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.6
+}

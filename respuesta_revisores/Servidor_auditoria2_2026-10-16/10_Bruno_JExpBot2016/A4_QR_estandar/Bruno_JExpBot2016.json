@@ -1,0 +1,25 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "k": 5,
+ "S_ours": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "S_qr": [
+  "kc1",
+  "kc2",
+  "init_b10_1",
+  "init_bcar1",
+  "kc4"
+ ],
+ "overlap": 1,
+ "chi2_ours": 0.9093632518020328,
+ "chi2_qr": 0.9113919534123498,
+ "ratio_qr_vs_ours": 1.0022309034440273,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.3,
+ "variant": "gks"
+}

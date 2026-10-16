@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "semilla": 51,
+ "familia": "loguniforme",
+ "senal_rms_test": 123.46372180463983,
+ "B_chi2_test_theta0": 15242.575571938669,
+ "B_chi2_test_red": 171.415204081685,
+ "B_epred_red": 0.10644257276517222,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 41.5
+}

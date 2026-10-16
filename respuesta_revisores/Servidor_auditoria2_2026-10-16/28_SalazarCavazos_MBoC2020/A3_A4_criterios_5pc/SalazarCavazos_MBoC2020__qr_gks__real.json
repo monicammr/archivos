@@ -1,0 +1,13 @@
+{
+ "S": [
+  "kdephosYN__FREE",
+  "GRB2_total__FREE"
+ ],
+ "chi2_test": 101.73474834454275,
+ "chi2_ours": 101.82516518363968,
+ "ratio_vs_ours": 0.9991120383754462,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 3.5
+}

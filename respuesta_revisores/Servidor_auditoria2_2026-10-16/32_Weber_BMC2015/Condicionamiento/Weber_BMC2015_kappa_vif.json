@@ -1,0 +1,15 @@
+{
+ "sistema": "Weber_BMC2015",
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "kappa_centred": 3.7448124477205407,
+ "VIF_centred": 4.0237321328592195,
+ "kappa_unit": 3.790547843563899,
+ "VIF_unit": 4.109462709545006,
+ "kappa_unit_with_calibration": 51.62109260861752,
+ "VIF_unit_with_calibration": 631.0226683064274,
+ "kappa_selection_json": 3.7448124477205407,
+ "VIF_selection_json": 4.0237321328592195
+}

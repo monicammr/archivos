@@ -1,0 +1,19 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "k": 2,
+ "S_ours": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "S_qr": [
+  "ka_MAPK__MKN1",
+  "ka_PI3K__pEGFR_EGF_2"
+ ],
+ "overlap": 1,
+ "chi2_ours": 1.1673048698000734,
+ "chi2_qr": 1.1674692334733237,
+ "ratio_qr_vs_ours": 1.0001408061231496,
+ "tipo": "condiciones nuevas",
+ "segundos": 305.1,
+ "variant": "gks"
+}

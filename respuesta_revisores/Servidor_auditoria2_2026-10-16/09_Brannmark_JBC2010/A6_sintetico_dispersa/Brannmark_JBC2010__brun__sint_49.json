@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k1f",
+  "k1a"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 0.1550494393015389,
+ "B_chi2_test_theta0": 1.0598532375814385,
+ "B_chi2_test_red": 18.775242759720694,
+ "B_epred_red": 23.600689352099874,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 1.0
+}

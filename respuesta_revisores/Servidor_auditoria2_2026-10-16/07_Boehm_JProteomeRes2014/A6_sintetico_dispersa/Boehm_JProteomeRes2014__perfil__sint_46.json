@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_phos",
+  "k_exp_homo"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 2.4728969004316412,
+ "B_chi2_test_theta0": 6.209977429176681,
+ "B_chi2_test_red": 6.030267108102704,
+ "B_epred_red": 1.0488510570505298,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.5
+}

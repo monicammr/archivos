@@ -1,0 +1,15 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "kappa_centred": 2.7383292700373025,
+ "VIF_centred": 2.4079520339209495,
+ "kappa_unit": 2.792956395248168,
+ "VIF_unit": 2.4822001509053546,
+ "kappa_unit_with_calibration": 4.153716912230966,
+ "VIF_unit_with_calibration": 4.162210942191068,
+ "kappa_selection_json": 2.738329270037303,
+ "VIF_selection_json": 2.407952033920953
+}

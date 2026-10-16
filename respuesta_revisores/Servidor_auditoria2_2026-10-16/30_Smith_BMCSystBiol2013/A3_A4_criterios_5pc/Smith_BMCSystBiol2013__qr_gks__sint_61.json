@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k35f",
+  "k32r"
+ ],
+ "semilla": 61,
+ "familia": "uniforme",
+ "senal_rms_test": 86.05251906659342,
+ "B_chi2_test_theta0": 7421.714343956057,
+ "B_chi2_test_red": 10392.30211491938,
+ "B_epred_red": 1.1848526909244628,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 39.2
+}

@@ -1,0 +1,15 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "kappa_centred": 2.863743013879168,
+ "VIF_centred": 2.5807400102971263,
+ "kappa_unit": 2.52041193309767,
+ "VIF_unit": 2.1274738096821757,
+ "kappa_unit_with_calibration": 5.548185007292311,
+ "VIF_unit_with_calibration": 6.033686213905897,
+ "kappa_selection_json": 2.863743013879167,
+ "VIF_selection_json": 2.5807400102971316
+}

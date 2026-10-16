@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k1d",
+  "k22"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.10447767337526019,
+ "erel_med": 0.6857526773840485,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "rand8",
+ "prueba": "adm",
+ "segundos": 20.7
+}

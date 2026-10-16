@@ -1,0 +1,13 @@
+{
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "chi2_test": 5.939710014207768,
+ "chi2_ours": 5.939147165229708,
+ "ratio_vs_ours": 1.0000947693267066,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 1.4
+}

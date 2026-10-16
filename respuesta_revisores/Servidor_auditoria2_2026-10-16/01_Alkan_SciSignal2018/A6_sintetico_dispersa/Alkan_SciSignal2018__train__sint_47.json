@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "semilla": 47,
+ "familia": "dispersa",
+ "senal_rms_test": 0.4009556937059424,
+ "B_chi2_test_theta0": 1.1469957310246124,
+ "B_chi2_test_red": 0.9709784593980746,
+ "B_epred_red": 0.49496663550756453,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 77.6
+}

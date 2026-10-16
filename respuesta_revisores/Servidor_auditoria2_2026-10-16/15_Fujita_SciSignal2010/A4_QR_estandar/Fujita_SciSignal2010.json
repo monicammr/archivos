@@ -1,0 +1,19 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "k": 2,
+ "S_ours": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "S_qr": [
+  "reaction_1_k1",
+  "reaction_5_k1"
+ ],
+ "overlap": 0,
+ "chi2_ours": 5.939147165229708,
+ "chi2_qr": 6.0213196396790805,
+ "ratio_qr_vs_ours": 1.0138357363714516,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.9,
+ "variant": "gks"
+}

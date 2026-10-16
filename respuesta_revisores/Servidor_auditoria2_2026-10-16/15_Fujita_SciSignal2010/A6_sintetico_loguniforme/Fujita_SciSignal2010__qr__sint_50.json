@@ -1,0 +1,16 @@
+{
+ "S": [
+  "reaction_1_k1",
+  "reaction_6_k1"
+ ],
+ "semilla": 50,
+ "familia": "loguniforme",
+ "senal_rms_test": 18.358883156431894,
+ "B_chi2_test_theta0": 337.8775432351145,
+ "B_chi2_test_red": 88.11830873925652,
+ "B_epred_red": 0.5042977472663593,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2.4
+}

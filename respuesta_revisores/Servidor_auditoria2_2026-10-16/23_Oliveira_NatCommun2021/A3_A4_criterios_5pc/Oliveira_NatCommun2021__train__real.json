@@ -1,0 +1,13 @@
+{
+ "S": [
+  "beta_0",
+  "beta_1"
+ ],
+ "chi2_test": 5761.649860194813,
+ "chi2_ours": 912.4437319197926,
+ "ratio_vs_ours": 6.314526209821435,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.5
+}

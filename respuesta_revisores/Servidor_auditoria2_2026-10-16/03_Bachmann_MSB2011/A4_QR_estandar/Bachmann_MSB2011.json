@@ -1,0 +1,19 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "k": 2,
+ "S_ours": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "S_qr": [
+  "JAK2EpoRDeaSHP1",
+  "CISRNATurn"
+ ],
+ "overlap": 0,
+ "chi2_ours": 4.767639179580845,
+ "chi2_qr": 4.769877377892736,
+ "ratio_qr_vs_ours": 1.000469456313195,
+ "tipo": "condiciones nuevas",
+ "segundos": 35.1,
+ "variant": "gks"
+}

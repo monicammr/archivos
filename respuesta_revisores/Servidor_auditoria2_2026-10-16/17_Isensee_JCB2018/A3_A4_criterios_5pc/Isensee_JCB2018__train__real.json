@@ -1,0 +1,13 @@
+{
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "chi2_test": 1.082488285497682,
+ "chi2_ours": 1.082488285497682,
+ "ratio_vs_ours": 1.0,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 143.7
+}

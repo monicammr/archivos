@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k0",
+  "alpha_cer"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.8086638078411537,
+ "erel_med": 0.8995686549986353,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Armistead_CellDeathDis2024",
+ "metodo": "rand11",
+ "prueba": "adm",
+ "segundos": 1.1
+}

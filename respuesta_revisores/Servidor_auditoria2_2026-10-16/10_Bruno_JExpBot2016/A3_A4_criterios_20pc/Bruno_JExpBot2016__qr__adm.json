@@ -1,0 +1,23 @@
+{
+ "S": [
+  "init_b10_1",
+  "init_bcar1",
+  "kc4",
+  "kc1",
+  "kc2"
+ ],
+ "k": 5,
+ "n_calibracion": 0,
+ "eajuste_med": 0.8928665067398724,
+ "erel_med": 0.926911973903929,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 3.3
+}

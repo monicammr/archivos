@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kminus7a",
+  "k8"
+ ],
+ "k": 2,
+ "n_calibracion": 9,
+ "eajuste_med": 0.07643329944083008,
+ "erel_med": 0.3321485235421058,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "rand19",
+ "prueba": "adm",
+ "segundos": 2075.3
+}

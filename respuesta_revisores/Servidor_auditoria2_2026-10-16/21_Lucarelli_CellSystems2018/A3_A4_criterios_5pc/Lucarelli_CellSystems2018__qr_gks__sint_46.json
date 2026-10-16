@@ -1,0 +1,24 @@
+{
+ "S": [
+  "geneG_turn",
+  "geneI_act1",
+  "geneK_act1",
+  "geneD_act1",
+  "geneL_inh1",
+  "geneF_turn",
+  "geneA_act1",
+  "geneE_inh1",
+  "geneB_act1",
+  "geneH_inh1"
+ ],
+ "semilla": 46,
+ "familia": "uniforme",
+ "senal_rms_test": 0.6018827235222748,
+ "B_chi2_test_theta0": 1.275063348829131,
+ "B_chi2_test_red": 1.1090322313039513,
+ "B_epred_red": 0.581351491861937,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 5.2
+}

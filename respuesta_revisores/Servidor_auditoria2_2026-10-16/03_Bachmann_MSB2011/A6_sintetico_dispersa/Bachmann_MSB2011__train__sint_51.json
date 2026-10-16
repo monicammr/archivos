@@ -1,0 +1,16 @@
+{
+ "S": [
+  "STAT5Imp",
+  "JAK2ActEpo"
+ ],
+ "semilla": 51,
+ "familia": "dispersa",
+ "senal_rms_test": 0.8714909423097978,
+ "B_chi2_test_theta0": 1.679963434747124,
+ "B_chi2_test_red": 4.889149408297651,
+ "B_epred_red": 2.3104945136608572,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 182.3
+}

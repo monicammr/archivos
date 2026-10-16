@@ -1,0 +1,20 @@
+{
+ "S": [
+  "K_2",
+  "tau2"
+ ],
+ "k": 2,
+ "n_calibracion": 8,
+ "eajuste_med": 0.12847620950461408,
+ "erel_med": 0.670497346443992,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "rand11",
+ "prueba": "adm",
+ "segundos": 6.0
+}

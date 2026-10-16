@@ -1,0 +1,20 @@
+{
+ "S": [
+  "STAT5Exp",
+  "SOCS3Turn"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.4788536272795545,
+ "erel_med": 0.7660631573712526,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand17",
+ "prueba": "adm",
+ "segundos": 10.8
+}

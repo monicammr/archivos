@@ -1,0 +1,202 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "p": 84,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 1157,
+ "S1": [
+  "init_Rec",
+  "S2tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "geneH_turn",
+  "geneG_turn",
+  "geneL_turn",
+  "geneI_turn",
+  "geneE_turn",
+  "geneA_turn",
+  "geneC_act1",
+  "geneB_inh2",
+  "geneB_turn",
+  "geneA_act1",
+  "geneL_inh1",
+  "geneC_turn",
+  "geneH_act3",
+  "geneJ_inh1",
+  "geneJ_turn",
+  "geneE_act3",
+  "geneI_inh3",
+  "geneF_act2"
+ ],
+ "Rvar_S1_%": 63.830758156072775,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "init_Rec",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "geneH_turn"
+ ],
+ "Rvar_%": 55.66747890958732,
+ "kappa": 6.2087460576838325,
+ "VIF": 8.780594003108948,
+ "cos_med": 0.7419040632882037,
+ "erel_med": 0.680601242504756,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "init_Rec",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "geneH_turn"
+ ],
+ "podados": [],
+ "eajuste_med": 0.4257103137730575,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 14,
+  "nested_pairs": 43,
+  "violations": 0,
+  "subsets": [
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    "k_234",
+    "geneH_turn",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "geneF_turn",
+    "k_234",
+    "geneK_turn",
+    "geneH_turn",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_phos",
+    "geneF_turn",
+    "k_234",
+    "geneK_turn",
+    "geneH_turn",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    "geneK_turn",
+    "geneH_turn",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    "k_234",
+    "geneK_turn",
+    false
+   ],
+   [
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    "k_234",
+    "geneK_turn",
+    "geneH_turn",
+    false
+   ],
+   [
+    "init_Rec",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    "k_234",
+    "geneK_turn",
+    "geneH_turn",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    "k_234",
+    "geneK_turn",
+    "geneH_turn",
+    true
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "geneF_turn",
+    "k_234",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    false
+   ],
+   [
+    "init_Rec",
+    "S3tot",
+    "S_dephosphos",
+    "S_phos",
+    "k_234",
+    "geneK_turn",
+    "geneH_turn",
+    false
+   ]
+  ]
+ },
+ "eajuste_metodo": "linealizado (primer orden, J relativa)",
+ "segundos": 39.6
+}

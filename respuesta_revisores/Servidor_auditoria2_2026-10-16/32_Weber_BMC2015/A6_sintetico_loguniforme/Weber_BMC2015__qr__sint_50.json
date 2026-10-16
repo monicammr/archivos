@@ -1,0 +1,16 @@
+{
+ "S": [
+  "a22",
+  "pu5"
+ ],
+ "semilla": 50,
+ "familia": "loguniforme",
+ "senal_rms_test": 7.9083497674835295,
+ "B_chi2_test_theta0": 61.96002724434205,
+ "B_chi2_test_red": 59.58548110040802,
+ "B_epred_red": 0.9807658436833558,
+ "sistema": "Weber_BMC2015",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 1.3
+}

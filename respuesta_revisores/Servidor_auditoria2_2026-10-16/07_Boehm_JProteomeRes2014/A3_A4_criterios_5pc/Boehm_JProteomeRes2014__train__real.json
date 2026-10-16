@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "chi2_test": 2.5674334260629963,
+ "chi2_ours": 2.5674334260629963,
+ "ratio_vs_ours": 1.0,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.4
+}

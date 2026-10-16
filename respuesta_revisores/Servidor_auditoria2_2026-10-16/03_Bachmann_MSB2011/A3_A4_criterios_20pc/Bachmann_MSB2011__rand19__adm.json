@@ -1,0 +1,20 @@
+{
+ "S": [
+  "SHP1ActEpoR",
+  "SOCS3EqcOE"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.4773237872157787,
+ "erel_med": 0.7740614836234367,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand19",
+ "prueba": "adm",
+ "segundos": 11.1
+}

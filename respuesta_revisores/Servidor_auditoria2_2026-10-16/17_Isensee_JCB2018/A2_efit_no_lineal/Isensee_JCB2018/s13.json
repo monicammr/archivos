@@ -1,0 +1,23 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "escenario": 13,
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "erel": 0.2934599807906457,
+ "efit": 0.13203920449462014,
+ "arranques": {
+  "theta0": {
+   "e": 0.9952088637164264,
+   "nfev": 11,
+   "status": 3
+  },
+  "escenario": {
+   "e": 0.13203920449462014,
+   "nfev": 16,
+   "status": 3
+  }
+ },
+ "segundos": 961.2
+}

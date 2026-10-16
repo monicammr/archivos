@@ -1,0 +1,16 @@
+{
+ "S": [
+  "Kz",
+  "Kf"
+ ],
+ "semilla": 53,
+ "familia": "uniforme",
+ "senal_rms_test": 1.5101742344775233,
+ "B_chi2_test_theta0": 2.9522454920308774,
+ "B_chi2_test_red": 4.068167897287701,
+ "B_epred_red": 1.2209981737392812,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.7
+}

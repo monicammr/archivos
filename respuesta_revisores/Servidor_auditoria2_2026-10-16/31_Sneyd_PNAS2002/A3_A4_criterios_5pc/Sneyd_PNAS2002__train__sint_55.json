@@ -1,0 +1,16 @@
+{
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "semilla": 55,
+ "familia": "uniforme",
+ "senal_rms_test": 0.5076115419563527,
+ "B_chi2_test_theta0": 1.442931963222234,
+ "B_chi2_test_red": 1.4194979489479693,
+ "B_epred_red": 0.8483243755986164,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.3
+}

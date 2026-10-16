@@ -1,0 +1,13 @@
+{
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_I_Wuhan"
+ ],
+ "chi2_test": 0.3454096103031155,
+ "chi2_ours": 0.3454096102986209,
+ "ratio_vs_ours": 1.0000000000130125,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 1.1
+}

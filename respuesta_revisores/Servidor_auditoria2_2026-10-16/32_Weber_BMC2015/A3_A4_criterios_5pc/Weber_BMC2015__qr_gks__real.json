@@ -1,0 +1,13 @@
+{
+ "S": [
+  "p13",
+  "a33"
+ ],
+ "chi2_test": 24.134744467438995,
+ "chi2_ours": 1.000852849606915,
+ "ratio_vs_ours": 24.114178699613955,
+ "sistema": "Weber_BMC2015",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.7
+}

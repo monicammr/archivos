@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k35f",
+  "k32r"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 38.73375979407163,
+ "B_chi2_test_theta0": 1517.091450664193,
+ "B_chi2_test_red": 328.2534993591717,
+ "B_epred_red": 0.4772648044929853,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 245.4
+}

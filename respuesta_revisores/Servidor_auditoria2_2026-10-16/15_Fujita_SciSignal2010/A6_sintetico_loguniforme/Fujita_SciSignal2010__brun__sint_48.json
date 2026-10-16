@@ -1,0 +1,16 @@
+{
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 14.426697265342364,
+ "B_chi2_test_theta0": 211.90484039124806,
+ "B_chi2_test_red": 58.04972833784954,
+ "B_epred_red": 0.526232764272532,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 1.8
+}

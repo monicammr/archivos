@@ -1,0 +1,15 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "S": [
+  "k_imp_hetero",
+  "k_phos"
+ ],
+ "kappa_centred": 1.0197597617127536,
+ "VIF_centred": 1.0003829191654263,
+ "kappa_unit": 1.8744139652028842,
+ "VIF_unit": 1.4495125120215615,
+ "kappa_unit_with_calibration": 1.8744139652028842,
+ "VIF_unit_with_calibration": 1.4495125120215615,
+ "kappa_selection_json": 1.0197597617127536,
+ "VIF_selection_json": 1.0003829191654263
+}

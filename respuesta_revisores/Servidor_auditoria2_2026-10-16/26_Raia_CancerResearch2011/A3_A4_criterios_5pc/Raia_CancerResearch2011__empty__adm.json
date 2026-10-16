@@ -1,0 +1,17 @@
+{
+ "S": [],
+ "k": 0,
+ "n_calibracion": 5,
+ "eajuste_med": 0.07550571810255804,
+ "erel_med": 0.6577836861465101,
+ "admisible": false,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "empty",
+ "prueba": "adm",
+ "segundos": 7.2
+}

@@ -1,0 +1,18 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "kappa_centred": 2.2580326528815435,
+ "VIF_centred": 1.5663014175786354,
+ "kappa_unit": 1.642010205351354,
+ "VIF_unit": 1.2667725558561636,
+ "kappa_unit_with_calibration": 1.642010205351354,
+ "VIF_unit_with_calibration": 1.2667725558561636,
+ "kappa_selection_json": 2.258032652881543,
+ "VIF_selection_json": 1.5663014175786354
+}

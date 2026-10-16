@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 0.6155221807033282,
+ "B_chi2_test_theta0": 0.8961625648087944,
+ "B_chi2_test_red": 1.155019642285024,
+ "B_epred_red": 1.434688581114205,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 0.7
+}

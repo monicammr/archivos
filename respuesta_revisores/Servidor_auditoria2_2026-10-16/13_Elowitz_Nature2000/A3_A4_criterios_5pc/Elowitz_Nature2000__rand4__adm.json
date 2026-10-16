@@ -1,0 +1,20 @@
+{
+ "S": [
+  "tau_mRNA",
+  "tps_active"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.4217564721941292,
+ "erel_med": 0.6851849772353005,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.5333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "rand4",
+ "prueba": "adm",
+ "segundos": 4.3
+}

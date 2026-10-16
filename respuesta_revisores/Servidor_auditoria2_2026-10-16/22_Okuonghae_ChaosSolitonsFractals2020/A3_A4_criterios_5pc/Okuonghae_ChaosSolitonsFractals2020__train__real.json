@@ -1,0 +1,13 @@
+{
+ "S": [
+  "transmission_rate_effective",
+  "symptomatic_start"
+ ],
+ "chi2_test": 72326.90491298826,
+ "chi2_ours": 46705.034547832045,
+ "ratio_vs_ours": 1.5485890464103196,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.3
+}

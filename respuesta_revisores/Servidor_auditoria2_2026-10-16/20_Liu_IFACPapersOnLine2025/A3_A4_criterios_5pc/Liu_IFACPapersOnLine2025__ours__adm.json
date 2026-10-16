@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.261302125089092,
+ "erel_med": 0.4738419313569642,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 2.3
+}

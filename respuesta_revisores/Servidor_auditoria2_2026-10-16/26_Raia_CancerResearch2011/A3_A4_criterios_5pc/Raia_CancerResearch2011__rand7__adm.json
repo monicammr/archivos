@@ -1,0 +1,20 @@
+{
+ "S": [
+  "pRec_intern",
+  "SOCS3mRNA_production"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.058786831871293514,
+ "erel_med": 0.3143570166502532,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "rand7",
+ "prueba": "adm",
+ "segundos": 40.6
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "gamma_a",
+  "theta"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.09151868812725066,
+ "erel_med": 0.9564035927644633,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "rand8",
+ "prueba": "adm",
+ "segundos": 1.0
+}

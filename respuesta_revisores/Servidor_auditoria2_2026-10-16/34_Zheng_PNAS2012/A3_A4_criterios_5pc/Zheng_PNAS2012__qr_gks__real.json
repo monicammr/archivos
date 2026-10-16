@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k02_03",
+  "k00_10"
+ ],
+ "chi2_test": 1.5479760240964846,
+ "chi2_ours": 1.5818297897976195,
+ "ratio_vs_ours": 0.9785983511503686,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.4
+}

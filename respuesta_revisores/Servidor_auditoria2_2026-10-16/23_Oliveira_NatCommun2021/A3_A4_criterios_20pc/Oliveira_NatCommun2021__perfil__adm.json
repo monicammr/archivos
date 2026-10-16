@@ -1,0 +1,20 @@
+{
+ "S": [
+  "t_1",
+  "beta_1"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.059552197844180976,
+ "erel_med": 0.7992520702570881,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 2.2
+}

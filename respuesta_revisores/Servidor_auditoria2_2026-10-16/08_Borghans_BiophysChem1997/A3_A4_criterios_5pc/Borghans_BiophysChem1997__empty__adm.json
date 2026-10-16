@@ -1,0 +1,17 @@
+{
+ "S": [],
+ "k": 0,
+ "n_calibracion": 2,
+ "eajuste_med": 0.5476811847761001,
+ "erel_med": 0.9951303584741282,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.2,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "empty",
+ "prueba": "adm",
+ "segundos": 5.7
+}

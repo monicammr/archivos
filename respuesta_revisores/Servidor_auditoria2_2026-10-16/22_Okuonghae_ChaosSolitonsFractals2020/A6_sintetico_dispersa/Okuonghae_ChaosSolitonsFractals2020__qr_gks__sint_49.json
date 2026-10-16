@@ -1,0 +1,16 @@
+{
+ "S": [
+  "d_D",
+  "symptomatic_start"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 533.3553336398319,
+ "B_chi2_test_theta0": 284807.2529285499,
+ "B_chi2_test_red": 100971.3448522638,
+ "B_epred_red": 0.5951154084629761,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.1
+}

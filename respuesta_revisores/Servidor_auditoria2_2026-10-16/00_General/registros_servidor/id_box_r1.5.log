@@ -1,0 +1,467 @@
+{"base": "Armistead_CellDeathDis2024", "seg": 0.0}
+{"base": "Bachmann_MSB2011", "seg": 0.0}
+{"base": "Blasi_CellSystems2016", "seg": 0.0}
+{"base": "Borghans_BiophysChem1997", "seg": 0.0}
+{"base": "Perelson_Science1996", "seg": 0.0}
+{"base": "Brannmark_JBC2010", "seg": 0.0}
+{"base": "Chen_MSB2009", "seg": 0.0}
+{"base": "Fiedler_BMCSystBiol2016", "seg": 0.0}
+{"base": "Bruno_JExpBot2016", "seg": 0.0}
+{"base": "Boehm_JProteomeRes2014", "seg": 0.0}
+{"base": "Bertozzi_PNAS2020", "seg": 0.0}
+{"base": "Elowitz_Nature2000", "seg": 0.0}
+{"base": "Giordano_Nature2020", "seg": 0.0}
+{"base": "Laske_PLOSComputBiol2019", "seg": 0.0}
+{"base": "Alkan_SciSignal2018", "seg": 0.0}
+{"base": "Liu_IFACPapersOnLine2025", "seg": 0.0}
+{"base": "Isensee_JCB2018", "seg": 0.0}
+{"base": "Okuonghae_ChaosSolitonsFractals2020", "seg": 0.0}
+{"base": "Rahman_MBS2016", "seg": 0.0}
+{"base": "Oliveira_NatCommun2021", "seg": 0.0}
+{"base": "Fujita_SciSignal2010", "seg": 0.0}
+{"base": "Lucarelli_CellSystems2018", "seg": 0.0}
+{"base": "Weber_BMC2015", "seg": 0.0}
+{"base": "Raia_CancerResearch2011", "seg": 0.0}
+{"base": "Schwen_PONE2014", "seg": 0.0}
+{"base": "Raimundez_PCB2020", "seg": 0.0}
+{"base": "Zheng_PNAS2012", "seg": 0.0}
+{"base": "Zhao_QuantBiol2020", "seg": 0.0}
+{"base": "Smith_BMCSystBiol2013", "seg": 0.0}
+{"base": "Sneyd_PNAS2002", "seg": 0.0}
+{"base": "SalazarCavazos_MBoC2020", "seg": 0.0}
+  2000/16355 points (95 s)
+  4000/16355 points (96 s)
+  6000/16355 points (1287 s)
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0mm
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+  8000/16355 points (1528 s)
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+  10000/16355 points (1540 s)
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+  12000/16355 points (1559 s)
+  14000/16355 points (1590 s)
+  16000/16355 points (1593 s)
+round 0: 126 adversarial searches
+round 1: 108 adversarial searches
+round 2: 21 adversarial searches
+round 3: 21 adversarial searches
+round 4: 21 adversarial searches
+                                sistema                            parametro     pf
+0                   Alkan_SciSignal2018                           k_rep_nhej  False
+1                   Alkan_SciSignal2018                                   kt  False
+2            Armistead_CellDeathDis2024                                  k00   True
+3            Armistead_CellDeathDis2024                                  k_d   True
+4                      Bachmann_MSB2011                          CISRNADelay  False
+5                      Bachmann_MSB2011                           JAK2ActEpo  False
+6                     Bertozzi_PNAS2020                                I0_NY  False
+7                     Bertozzi_PNAS2020                                R0_NY  False
+8                 Blasi_CellSystems2016                              a_basal   True
+9                 Blasi_CellSystems2016                         a_k16_k12k16   True
+10               Boehm_JProteomeRes2014                         k_imp_hetero   True
+11               Boehm_JProteomeRes2014                               k_phos  False
+12             Borghans_BiophysChem1997                                K_par  False
+13             Borghans_BiophysChem1997                                   Kz  False
+14                    Brannmark_JBC2010                                  k1f  False
+15                    Brannmark_JBC2010                                  km2  False
+16                    Bruno_JExpBot2016                           init_bcar1  False
+17                    Bruno_JExpBot2016                           init_bcar2  False
+18                    Bruno_JExpBot2016                          init_bcry_1  False
+19                    Bruno_JExpBot2016                           init_zea_1  False
+20                    Bruno_JExpBot2016                                  kb1  False
+21                         Chen_MSB2009                                 k106  False
+22                         Chen_MSB2009                                  k44  False
+23                   Elowitz_Nature2000                               n_Hill  False
+24                   Elowitz_Nature2000                             tau_mRNA  False
+25              Fiedler_BMCSystBiol2016                                   k6  False
+26              Fiedler_BMCSystBiol2016                                 tau2  False
+27                 Fujita_SciSignal2010                             init_AKT  False
+28                 Fujita_SciSignal2010                        reaction_6_k1  False
+29                  Giordano_Nature2020                             alpha_28  False
+30                  Giordano_Nature2020                              alpha_4  False
+31                      Isensee_JCB2018                 kf_RIIp_C_2__RII_C_2  False
+32                      Isensee_JCB2018                 xi_kf_RII_C_2__RII_2  False
+33             Laske_PLOSComputBiol2019                                k_imp  False
+34             Laske_PLOSComputBiol2019                            k_syn_R_M  False
+35             Liu_IFACPapersOnLine2025                                kappa  False
+36             Liu_IFACPapersOnLine2025                                  phi  False
+37            Lucarelli_CellSystems2018                                S2tot  False
+38            Lucarelli_CellSystems2018                                S3tot  False
+39            Lucarelli_CellSystems2018                                S4tot  False
+40            Lucarelli_CellSystems2018                         S_dephosphos  False
+41            Lucarelli_CellSystems2018                               S_phos  False
+42            Lucarelli_CellSystems2018                           geneF_turn  False
+43            Lucarelli_CellSystems2018                           geneH_turn  False
+44            Lucarelli_CellSystems2018                           geneK_turn  False
+45            Lucarelli_CellSystems2018                             init_Rec  False
+46            Lucarelli_CellSystems2018                                k_234  False
+47  Okuonghae_ChaosSolitonsFractals2020                              gamma_i  False
+48  Okuonghae_ChaosSolitonsFractals2020          transmission_rate_effective  False
+49               Oliveira_NatCommun2021                               beta_0  False
+50               Oliveira_NatCommun2021                          h_hosp_rate  False
+51                 Perelson_Science1996                                    c  False
+52                 Perelson_Science1996                                delta  False
+53                       Rahman_MBS2016  infected_moderate_transmission_rate   True
+54                       Rahman_MBS2016          infected_normal_worsen_rate   True
+55              Raia_CancerResearch2011                 SOCS3mRNA_production  False
+56              Raia_CancerResearch2011                           init_Rec_i  False
+57                    Raimundez_PCB2020                        ka_MAPK__MKN1  False
+58                    Raimundez_PCB2020                   kdeg_membran__MKN1  False
+59              SalazarCavazos_MBoC2020               ratio_kpkd_Y1068__FREE  False
+60              SalazarCavazos_MBoC2020                  ratio_kpkd_YN__FREE  False
+61                      Schwen_PONE2014                               ini_R1  False
+62                      Schwen_PONE2014                           ini_R2fold  False
+63                Smith_BMCSystBiol2013                                   k8  False
+64                Smith_BMCSystBiol2013                             kminus7b  False
+65                       Sneyd_PNAS2002                                   l2  False
+66                       Sneyd_PNAS2002                                   l4  False
+67                        Weber_BMC2015                                  a21  False
+68                        Weber_BMC2015                                  s12  False
+69                   Zhao_QuantBiol2020                     R_Stage_II_Wuhan  False
+70                   Zhao_QuantBiol2020                      R_Stage_I_China  False
+71                   Zhao_QuantBiol2020                gamma_1_Stage_I_Hubei  False
+72                       Zheng_PNAS2012                               k01_02   True
+73                       Zheng_PNAS2012                               k13_12   True
+certified parameters: 9 of 74
+Done (1831 s)

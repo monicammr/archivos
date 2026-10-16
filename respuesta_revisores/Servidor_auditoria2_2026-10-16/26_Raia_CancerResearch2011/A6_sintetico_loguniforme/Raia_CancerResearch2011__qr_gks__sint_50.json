@@ -1,0 +1,16 @@
+{
+ "S": [
+  "pRec_degradation",
+  "SOCS3mRNA_production"
+ ],
+ "semilla": 50,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.9295199486163734,
+ "B_chi2_test_theta0": 4.54889511428874,
+ "B_chi2_test_red": 4.225812985356328,
+ "B_epred_red": 0.9455982545802066,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 6.8
+}

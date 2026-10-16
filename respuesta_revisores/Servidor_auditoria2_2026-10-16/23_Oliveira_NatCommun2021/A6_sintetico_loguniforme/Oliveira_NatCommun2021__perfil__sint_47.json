@@ -1,0 +1,16 @@
+{
+ "S": [
+  "t_1",
+  "beta_1"
+ ],
+ "semilla": 47,
+ "familia": "loguniforme",
+ "senal_rms_test": 1451.3436777303186,
+ "B_chi2_test_theta0": 2106752.1872709705,
+ "B_chi2_test_red": 2430903.5063790902,
+ "B_epred_red": 1.074357176402468,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.1
+}

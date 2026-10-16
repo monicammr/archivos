@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kt",
+  "k_death_reox"
+ ],
+ "semilla": 42,
+ "familia": "dispersa",
+ "senal_rms_test": 0.8391598393538213,
+ "B_chi2_test_theta0": 1.6669268679167182,
+ "B_chi2_test_red": 1.0949596814296942,
+ "B_epred_red": 0.2939809339655471,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 38.6
+}

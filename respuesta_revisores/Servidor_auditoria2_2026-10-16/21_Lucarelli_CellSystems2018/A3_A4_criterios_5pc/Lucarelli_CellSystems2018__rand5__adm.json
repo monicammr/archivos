@@ -1,0 +1,28 @@
+{
+ "S": [
+  "geneI_inh3",
+  "geneH_act2",
+  "k_234",
+  "geneC_inh3",
+  "geneF_act3",
+  "geneG_turn",
+  "S4tot",
+  "geneE_inh3",
+  "geneJ_inh1",
+  "S2tot"
+ ],
+ "k": 10,
+ "n_calibracion": 0,
+ "eajuste_med": 0.771719016361519,
+ "erel_med": 0.9335580105886575,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 4.4
+}

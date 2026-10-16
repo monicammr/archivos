@@ -1,0 +1,13 @@
+{
+ "S": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "chi2_test": 2.7234450754123802,
+ "chi2_ours": 2.748324922924577,
+ "ratio_vs_ours": 0.9909472685326736,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 98.6
+}

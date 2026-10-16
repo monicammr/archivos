@@ -1,0 +1,1134 @@
+Admisibilidad y sintético: 29 problemas, 609 tareas, NPROC=44
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m[
+[0m
+0m
+[0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 30.5, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 31.8, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 31.8, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 32.0, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 32.1, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+[0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 32.8, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 33.2, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "segundos": 33.7, "no_evaluable": "falla la simulaci\u00f3n de la verdad"}
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 1.8573241998855823, "segundos": 34.3}
+[0m
+0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.33560776320768165, "segundos": 36.2}
+0m
+[0m
+0m
+[0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.19518215451585166, "segundos": 39.0}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 1.1848526909244628, "segundos": 39.2}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.06675531346016944, "segundos": 40.4}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.5237476213694993, "segundos": 40.8}
+[0m
+[0m
+0m
+0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.4248282461787715, "segundos": 43.0}
+[0m
+[0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.7660128021855428, "segundos": 45.2}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.16590315922178492, "segundos": 45.3}
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.6909888144185594, "segundos": 47.0}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.6415147483158454, "segundos": 47.1}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 1.6000430697266361, "segundos": 47.4}
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 1.3068750822448556, "segundos": 48.3}
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.11061593403140073, "segundos": 48.6}
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "real", "segundos": 50.0}
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.04168188315450521, "segundos": 50.6}
+[0m
+[0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.6033340945403172, "segundos": 51.5}
+[0m
+0m
+[35{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 1.5279321901174825, "segundos": 55.0}m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 1.1589508559175277, "segundos": 57.6}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.09295671120976833, "segundos": 58.0}
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "real", "segundos": 30.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 2.141426160515592, "segundos": 30.0}
+[0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 1.601791333986714, "segundos": 79.1}
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 2.5870302358980766, "segundos": 26.0}
+[0m
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 2.6852403968736223, "segundos": 30.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.7705272786902468, "segundos": 35.9}
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.3115526007656064, "segundos": 28.7}
+0m
+0m
+0m
+[0m
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 2.150004164339546, "segundos": 25.7}
+0m
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 1.5298149775004781, "segundos": 35.0}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 3.2264794099387473, "segundos": 61.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 3.4333542503546797, "segundos": 64.3}
+[0m
+[0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 2.921822666688793, "segundos": 70.4}
+[0m
+0m
+[0m
+[0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 3.498060508467342, "segundos": 39.1}
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 2.2339385920870467, "segundos": 44.4}
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 3.517265253749809, "segundos": 24.0}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "real", "segundos": 9.7}
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.5178579065181486, "segundos": 10.9}
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.12213240113677892, "segundos": 143.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9265430628660088, "segundos": 20.5}
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 2.58072495549313, "segundos": 59.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 2.1113309438518115, "segundos": 32.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 2.35214488375609, "segundos": 31.0}
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.7612350275258836, "segundos": 17.0}
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "real", "segundos": 148.3}
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.5589164235704038, "segundos": 10.6}
+0m
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.8594523797108498, "segundos": 12.5}
+0m
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 4.059355894089863, "segundos": 46.0}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.5214622030397994, "segundos": 11.7}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.4547107031112675, "segundos": 11.6}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.5135162849410845, "segundos": 9.7}
+[0m
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.7906289668894673, "segundos": 15.5}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 2.1526826251486613, "segundos": 46.9}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.9562554713117843, "segundos": 14.7}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.684434077426167, "segundos": 12.2}
+[0m
+0m
+0m
+0m
+0m
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "real", "segundos": 3.3}
+[0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.7164762649915756, "segundos": 10.4}
+0m
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.6107625794985334, "segundos": 8.9}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.39559572783578195, "segundos": 8.9}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.7075475354397642, "segundos": 10.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0543425274299985, "segundos": 4.1}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.601388115104827, "segundos": 12.2}
+0m
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.7316922944270612, "segundos": 10.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.7472514009030918, "segundos": 9.2}
+[0m
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.94241142875961, "segundos": 5.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.8305495380118653, "segundos": 3.6}
+[0m
+0m
+[0m
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.5854757339921385, "segundos": 4.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.9902623094122588, "segundos": 3.2}
+0m
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 4.076191598959109, "segundos": 114.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.581351491861937, "segundos": 5.2}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 1.0126949522340547, "segundos": 13.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.6229454012345692, "segundos": 5.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.7838656620201696, "segundos": 2.8}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.8851864501909151, "segundos": 4.1}
+[0m
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.8970517127030445, "segundos": 3.5}
+[0m
+0m
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.7590792246584172, "segundos": 6.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.7790542453704075, "segundos": 5.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.8890624171989866, "segundos": 3.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.818272583246236, "segundos": 2.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.9917170428331423, "segundos": 7.2}
+0m
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.6246277421035404, "segundos": 4.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.8074032519499362, "segundos": 3.8}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "real", "segundos": 2.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.8458546867547334, "segundos": 4.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.7547743571258658, "segundos": 4.0}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 2.3270846625578434, "segundos": 3.8}
+0m
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.6184409833370994, "segundos": 3.0}
+0m
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 1.882398221079812, "segundos": 4.3}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 3.3810039019939744, "segundos": 2.7}
+[0m
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 2.7129038096206672, "segundos": 3.7}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 3.6394675729186403, "segundos": 3.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.9709063736943321, "segundos": 8.8}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 7.972215492055694, "segundos": 4.1}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 1.8989016010173918, "segundos": 2.4}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 3.3693919485951627, "segundos": 3.0}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.0534799222521272, "segundos": 3.1}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.8219161110427179, "segundos": 22.3}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 2.367069531236024, "segundos": 4.3}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9052539560105598, "segundos": 0.3}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "real", "segundos": 0.7}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9045798245941014, "segundos": 0.1}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.0650418179392613, "segundos": 2.7}
+0m
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.506664798906201, "segundos": 0.2}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.662834098654967, "segundos": 0.3}
+[0m
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.5258482866988201, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.5752463093565583, "segundos": 0.3}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.3953812757780246, "segundos": 0.3}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.069180090580282, "segundos": 0.2}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.5183128914118355, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.8125489505954325, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.8257158328902554, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 1.6766127331176204, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.2661403970335035, "segundos": 0.3}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 4.2862193047450425, "segundos": 3.5}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 2.6624882790291515, "segundos": 3.4}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.8580603402516838, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.7819617243652517, "segundos": 0.2}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 2.6605205337688163, "segundos": 0.2}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.8577214031855327, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.5886059642437342, "segundos": 0.1}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.7564824624533741, "segundos": 0.4}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 9.592305477551061, "segundos": 2.7}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.7407307139797201, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.4459621379461899, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.4970175447194111, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.8103094167532015, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 3.2244708534267748, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "real", "segundos": 0.2}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.963047605993924, "segundos": 0.0}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.6503772688874048, "segundos": 0.4}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.26617649848935804, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 1.1366280086763514, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.2411101977332315, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.32640054022099846, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.7532506396286585, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.9557893381174432, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.4657990807422661, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.20969171359945377, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.4587992666032243, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.6315854330585573, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.6026556415696934, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.35571477745609226, "segundos": 0.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.22231125787555178, "segundos": 0.1}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 2.007329159642403, "segundos": 4.5}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "real", "segundos": 0.1}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 10.425165394387328, "segundos": 2.8}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": NaN, "segundos": 0.1}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": NaN, "segundos": 0.1}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": NaN, "segundos": 0.1}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": NaN, "segundos": 0.1}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": NaN, "segundos": 0.1}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": NaN, "segundos": 0.0}
+[{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": NaN, "segundos": 0.0}35
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": NaN, "segundos": 0.2}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": NaN, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.8013520791530809, "segundos": 0.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 1.6755389125395364, "segundos": 0.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 1.8961167304880207, "segundos": 0.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.5354218072633421, "segundos": 0.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 5.273487758314965, "segundos": 0.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 33.87799407088875, "segundos": 0.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.6100704715364428, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.3256828280662251, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 2.802272787891447, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 2.8214482058518464, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 2.3735891046510265, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 7.884552165159719, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.07178183669800538, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.3290576747532739, "segundos": 0.0}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 1.4125146831444364, "segundos": 3.4}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.682903205282896, "segundos": 2.9}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 6.996431885120331, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 4.3288025738640785, "segundos": 0.1}[
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 1.3771538167695874, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 6.200923240466036, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 2.568076873032459, "segundos": 0.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 2.2645357561472212, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "real", "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.9051838532942864, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.4132982426278159, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.7158130461259189, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.4125572684678073, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9660982142077523, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.9057046370436851, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 1.129236449105613, "segundos": 0.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.914960275467874, "segundos": 0.3}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.3305034894741042, "segundos": 0.4}
+0m
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.1356066709797168, "segundos": 0.8}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.4163533560365152, "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.28680171712672825, "segundos": 0.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.48149628464336747, "segundos": 0.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.15856523325298125, "segundos": 0.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 1.0213662379907964, "segundos": 0.3}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.8564538798133401, "segundos": 0.3}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 1.2209981737392812, "segundos": 0.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.8361158087065403, "segundos": 1.2}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "real", "segundos": 0.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 1.3042966193361287, "segundos": 0.5}
+0m
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9588653527327968, "segundos": 0.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 4.874483506379152, "segundos": 0.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.8897866558814659, "segundos": 0.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 3.0308700744609554, "segundos": 0.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.6540639631523923, "segundos": 0.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.7121555929935237, "segundos": 1.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.861125251176385, "segundos": 0.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 3.4903964948011255, "segundos": 0.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.4040769087653624, "segundos": 0.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.657311745453686, "segundos": 0.4}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 1.2068865844704548, "segundos": 0.4}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.6940463089664725, "segundos": 0.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 5.09234178027758, "segundos": 0.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 3.630285037759497, "segundos": 0.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.7572277925812285, "segundos": 0.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.7779239349488147, "segundos": 0.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "real", "segundos": 0.2}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 2.5808521633108508, "segundos": 0.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 6.436108918070968, "segundos": 0.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.7996830637075262, "segundos": 0.3}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9870304133433099, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0370827121608481, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.9879050443945728, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.003473684442562, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.0395330772510394, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 1.0937192170245384, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.9985042126309729, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.9635074063704537, "segundos": 0.1}
+[0m
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 1.2631043833081275, "segundos": 0.5}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 1.0106562586805665, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 1.0799427561460633, "segundos": 0.3}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 1.0029312938258446, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.0026803500940045, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.9863511373656754, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.5980480146734842, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 1.0023628419681823, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.9954301142420982, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.9701030712906062, "segundos": 0.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 1.0052199073189392, "segundos": 0.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 6.5071948775032595, "segundos": 0.6}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.9518656151479296, "segundos": 0.2}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 1.0167103273096407, "segundos": 0.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "real", "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.7069289860756796, "segundos": 0.3}
+[0m
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.6948866975634347, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.7752966393516086, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.526626032629304, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.0825339336905313, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.4913519106920956, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.9883490543284947, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.2236058750463215, "segundos": 0.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.7019555246869087, "segundos": 0.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 1.2928704581800534, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 3.081673411752847, "segundos": 0.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.25228059220357385, "segundos": 0.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.5844693901343551, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.6716892475108247, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.47403218436855354, "segundos": 0.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 1.1747493781965848, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 1.1435572732283499, "segundos": 0.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.4568831426169891, "segundos": 0.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.2947477240415075, "segundos": 0.2}
+[0m
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.6296848253178462, "segundos": 0.6}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 1.0235946451545437, "segundos": 0.7}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9216477598784026, "segundos": 0.7}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.9619086519681573, "segundos": 0.7}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "real", "segundos": 0.8}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.2858732421761552, "segundos": 0.7}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 3.8600915851489357, "segundos": 0.8}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.6890856481583097, "segundos": 0.9}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.5589534850984835, "segundos": 0.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.5450252618803852, "segundos": 0.8}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.3866517065954215, "segundos": 0.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 1.9086394868368919, "segundos": 0.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 2.702649680560887, "segundos": 0.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.9138896963770177, "segundos": 0.3}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.9502077597930658, "segundos": 0.3}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.593401192539253, "segundos": 0.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 2.4971165207936297, "segundos": 0.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 3.6811336469505873, "segundos": 0.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 1.527484436483624, "segundos": 1.1}
+0m
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 1.004546104115613, "segundos": 0.3}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 3.3766121127056596, "segundos": 0.8}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 1.1856461735742068, "segundos": 0.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "real", "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.5773734889187481, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.22777749155223334, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.17119615563709986, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.31291631552350685, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.11513019575622511, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.39679031634160894, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.20401314572550946, "segundos": 0.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.3413238616427994, "segundos": 0.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.21921747933447383, "segundos": 0.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.286750009515243, "segundos": 0.5}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.45241388102660307, "segundos": 0.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.22755215194962014, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.36682907374249235, "segundos": 0.3}
+[0m
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.4321237742661853, "segundos": 0.4}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.18753257361299522, "segundos": 0.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.2041994373034643, "segundos": 0.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.206380436473887, "segundos": 0.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.6050903216530501, "segundos": 0.8}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.14327309956446296, "segundos": 0.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.3118671619866997, "segundos": 0.3}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "real", "segundos": 0.5}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.1703024357697296, "segundos": 0.0}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 1.2042096553003945, "segundos": 0.1}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 2.3316851651594455, "segundos": 0.5}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.3639552453177544, "segundos": 0.7}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.9461148517888205, "segundos": 0.0}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.9869043615490246, "segundos": 0.0}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.9702197443020427, "segundos": 0.0}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.927485468912944, "segundos": 0.6}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 1.1196071160231862, "segundos": 0.6}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.093340458059766, "segundos": 0.6}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 1.3963335176281046, "segundos": 0.1}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 1.3568366666368996, "segundos": 0.5}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.9913613667661482, "segundos": 0.0}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 1.0943217678137989, "segundos": 0.0}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.718100213824313, "segundos": 0.1}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 1.106429184569185, "segundos": 0.0}
+[0m
+0m
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.7488634631286899, "segundos": 0.1}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.060379594044564, "segundos": 0.5}
+0m
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.9198796435110215, "segundos": 0.5}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.391745957722123, "segundos": 1.0}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 4.9547308200295985, "segundos": 9.9}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "real", "segundos": 0.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9999999938582036, "segundos": 0.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9999999974514114, "segundos": 1.0}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.9999999931318169, "segundos": 1.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0000000107201326, "segundos": 1.0}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.0000000043937798, "segundos": 1.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.999999999990434, "segundos": 1.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.000000008915369, "segundos": 1.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 1.0000000000036486, "segundos": 0.5}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.9999999999943054, "segundos": 0.6}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 1.0000000062429075, "segundos": 0.4}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "real", "segundos": 0.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.9999999965342344, "segundos": 0.5}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 2.1514619253780705, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9679574170713368, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.6209779243377087, "segundos": 0.0}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.5717629976985081, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.4376109532832299, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.7168400016277175, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.1269187940523617, "segundos": 0.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 1.0000000000025653, "segundos": 0.6}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.5209855872714377, "segundos": 0.0}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 4.781038335092759, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 2.47039567654435, "segundos": 0.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.9999999977775784, "segundos": 0.7}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 1.3909507544925253, "segundos": 0.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.9999999999943548, "segundos": 0.6}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 1.000000013356842, "segundos": 0.6}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.8583021526988355, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 3.6809582858372982, "segundos": 0.0}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.9999999808248743, "segundos": 0.7}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.5004283225074793, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.728722505421176, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 2.7422823096376576, "segundos": 0.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.5616782033387057, "segundos": 0.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.9999999999996845, "segundos": 0.8}[
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.9999999999889304, "segundos": 1.6}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.37372452931827416, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.3631092078606639, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.19337404035117964, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "real", "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.6210667556553099, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.5353873539551856, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.29197342079197536, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.5436882598380905, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.3528610822065162, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.43085928884964486, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.37524350889249286, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.4575919106519149, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.5933415697449099, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.33209179802294975, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.42246285766767555, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.5697664547829506, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.26684285516367606, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.3053775125663225, "segundos": 0.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.3914817001069996, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.36485339337430023, "segundos": 0.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.3731354916122328, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.4849558886983626, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.25282910096846434, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.5239344266706568, "segundos": 0.3}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.9999999952676877, "segundos": 1.7}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 1.641906306510548, "segundos": 0.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 24.795768475516613, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "real", "segundos": 0.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 7.101444880313285, "segundos": 0.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 5.494618810571935, "segundos": 0.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0707143242169768, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 1.6836822773539921, "segundos": 0.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.2575640271630546, "segundos": 0.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.9516508406058306, "segundos": 0.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 2.0451820093950976, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.3566616550025973, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.07626929975187587, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.8520720325066664, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.2708679232645008, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.24951205006323834, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.26780151338139835, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.5382739628253894, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.7931591247288927, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 3.059375006384252, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "real", "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 23.292132397900037, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 19.330595009097497, "segundos": 0.1}
+0m
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": NaN, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 34.60259556207882, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 15.621425688781612, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 18.967718533937752, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 11.256405256300091, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 8.146602899200008, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 20.949854222737677, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 10.302579843766415, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 10.672451493497492, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 29.824961590053164, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 25.494080860815878, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 31.743210020771194, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 50.58991066158832, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 74.19988369563778, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 10.089288011233974, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 113.56432570522122, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 38.50063073545616, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 16.948789946775626, "segundos": 0.0}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 2.5698948279171323, "segundos": 0.5}
+[0m
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "real", "segundos": 0.2}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.4570152679380367, "segundos": 0.1}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.4144623723199701, "segundos": 0.2}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.17411474269002838, "segundos": 0.2}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 1.203532913398177, "segundos": 0.2}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.04590012148508678, "segundos": 0.2}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.40447826402346615, "segundos": 0.2}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.0325366274575933, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.3621044205490396, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.18280450484055327, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.10370152878624102, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.365226572211933, "segundos": 0.2}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.25116424326447795, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.23151914934806125, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.5572936235921073, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.23492008245113696, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.2772020970322919, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.02451598617165993, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.41736303954294685, "segundos": 0.0}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.03566103952759022, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.998589267505432, "segundos": 0.5}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.25025838566735054, "segundos": 0.3}
+0m
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.9655620181949944, "segundos": 0.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.003025291610204, "segundos": 0.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0176693348044747, "segundos": 0.8}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.1221357340674984, "segundos": 0.8}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 1.0205608440636222, "segundos": 0.8}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.6854313404230303, "segundos": 0.9}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.8920022028673023, "segundos": 0.9}
+0m
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "real", "segundos": 1.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0122503826158058, "segundos": 1.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 3.3353391135781068, "segundos": 75.3}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 1.0509812976689483, "segundos": 0.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 1.0814088120897003, "segundos": 0.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 1.0163825834338212, "segundos": 0.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 1.0044935973229117, "segundos": 0.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.8868595229996901, "segundos": 0.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.9829586513554052, "segundos": 1.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 1.136968413058022, "segundos": 0.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.49392848205036, "segundos": 0.9}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.9924000132111698, "segundos": 1.6}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 1.0201795680286945, "segundos": 0.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 1.0045157132735063, "segundos": 0.8}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 1.1188849822556832, "segundos": 1.1}
+0m
+[0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.3640513265630781, "segundos": 157.3}
+[0m
+0m
+0m
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "real", "segundos": 3.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.8962943069355934, "segundos": 3.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.8230913859201184, "segundos": 3.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 1.1026933510403694, "segundos": 3.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.581675735796493, "segundos": 3.2}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.8254908074130637, "segundos": 3.4}
+[0m
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.533029787514736, "segundos": 3.2}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 1.036740616622494, "segundos": 3.7}
+[0m
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0560424120928558, "segundos": 3.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.0061047428612426, "segundos": 0.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.9338459636291571, "segundos": 0.6}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.9696751695783864, "segundos": 3.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.6259060916413416, "segundos": 0.6}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 1.0387016883298577, "segundos": 0.8}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "real", "segundos": 0.5}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9410411803042746, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.5594055589227337, "segundos": 0.2}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 1.0556290034562845, "segundos": 0.9}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.3804240965119745, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.0401671552758274, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.8820050507764571, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.38013172597175166, "segundos": 0.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 1.3022057935572178, "segundos": 0.8}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.7139729468600501, "segundos": 1.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.9815005575828559, "segundos": 0.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.027776048614703, "segundos": 0.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.6785342884584771, "segundos": 0.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.9797685759344207, "segundos": 0.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.7550295799526133, "segundos": 0.2}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.6939785095895327, "segundos": 1.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.6264700778408918, "segundos": 0.1}
+[0m
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.948257159582177, "segundos": 0.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.6565191909069736, "segundos": 0.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.9571653708407016, "segundos": 0.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.9428647315146459, "segundos": 0.4}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.9366237843797937, "segundos": 0.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.0211217742024032, "segundos": 0.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.9709624730430892, "segundos": 0.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.9675488107336033, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "real", "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 1.0, "segundos": 0.2}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 1.0, "segundos": 0.3}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 1.0, "segundos": 0.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.5600532024480097, "segundos": 3.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "real", "segundos": 0.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 1.001841587909352, "segundos": 0.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.9937161564169255, "segundos": 0.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.9822687692636339, "segundos": 0.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.9940799652856304, "segundos": 0.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.9546067970227045, "segundos": 0.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.954202183267881, "segundos": 0.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.9616529501559247, "segundos": 0.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.9322310186712861, "segundos": 0.4}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.8565541961314871, "segundos": 0.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.9205016403270807, "segundos": 0.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.9457217824191099, "segundos": 0.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.9922818923309072, "segundos": 0.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.9165227639633313, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.9332931564737262, "segundos": 0.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.8120368993001668, "segundos": 0.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.9566873208130185, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.8940767237324834, "segundos": 0.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.9399964079041566, "segundos": 0.4}
+0m
+[0m
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.9267147481757316, "segundos": 0.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.9450545861237022, "segundos": 0.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 1.121347774109879, "segundos": 5.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.5920876188585066, "segundos": 6.1}
+[0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.14861918581369915, "segundos": 208.5}
+0m
+350mm
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.6452864111074617, "segundos": 181.7}
+[0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": 0.42806706877336265, "segundos": 178.0}
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 59, "B_epred_red": 0.6851397494548939, "segundos": 182.0}
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 45, "B_epred_red": 0.6073670903971916, "segundos": 209.9}
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.8582790446109562, "segundos": 207.8}
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 43, "B_epred_red": 0.8927906623312644, "segundos": 235.8}
+0m
+[0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.6286665926169153, "segundos": 237.1}
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 47, "B_epred_red": 0.5256761518248314, "segundos": 239.1}
+0m
+0m
+0m
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 58, "B_epred_red": 0.3916819834832277, "segundos": 235.5}
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.8490741644631383, "segundos": 240.8}
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.7103392782882388, "segundos": 288.0}
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.45364435513908796, "segundos": 281.3}
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 50, "B_epred_red": 0.6661168626440981, "segundos": 286.9}
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 49, "B_epred_red": 0.3079078280026159, "segundos": 296.6}
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 1.9826741641356447, "segundos": 298.3}
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "real", "segundos": 331.4}
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 57, "B_epred_red": 0.42394696999878667, "segundos": 290.7}
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.30802315139370817, "segundos": 321.1}
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 42, "B_epred_red": 0.5351014261554056, "segundos": 361.2}
+[0m
+[0m
+[0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 51, "B_epred_red": 0.08323191889514317, "segundos": 365.5}
+0m
+0m
+[0m
+[0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 53, "B_epred_red": 0.2448529210459125, "segundos": 379.8}
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "sint", "semilla": 52, "B_epred_red": 0.6919102649497291, "segundos": 367.8}
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 44, "B_epred_red": 0.13167766118449645, "segundos": 439.3}
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 54, "B_epred_red": 0.06350360011838044, "segundos": 474.7}
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 55, "B_epred_red": 0.12020066900827259, "segundos": 522.6}
+0m
+[0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 46, "B_epred_red": 0.14358884821724785, "segundos": 556.9}
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 56, "B_epred_red": 0.06959229111431817, "segundos": 644.6}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 48, "B_epred_red": 0.04954606479453021, "segundos": 692.4}
+0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 61, "B_epred_red": NaN, "segundos": 871.8}
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "sint", "semilla": 60, "B_epred_red": 0.1845331155559528, "segundos": 1347.9}
+Done.

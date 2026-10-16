@@ -1,0 +1,16 @@
+{
+ "S": [
+  "beta_0",
+  "beta_1"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 18426.51963794282,
+ "B_chi2_test_theta0": 339531660.2060136,
+ "B_chi2_test_red": 25.55709538279378,
+ "B_epred_red": 0.0002631500942092333,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.1
+}

@@ -1,0 +1,46 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "S": [
+  "a_basal",
+  "a_k16_k12k16"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 252,
+ "coste_min": 1615.7007354199002,
+ "chi2_por_gl": 6.462802941679601,
+ "umbral_robusto": 24.817163296049667,
+ "rondas": 0,
+ "dchi2_minimo": 0.4434927391450856,
+ "perfiles": [
+  {
+   "parametro": "a_basal",
+   "puntos_fallidos": 6,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 7850.735160505364,
+   "dchi2_max_der": 8053.744876241694,
+   "clase": "identificable",
+   "ic_izq_log": 0.019857539741966364,
+   "ic_der_log": 0.019837888788719123,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.05026368945584164,
+   "ic_der_log_robusto": 0.050237654340569315
+  },
+  {
+   "parametro": "a_k16_k12k16",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 2617.3121659298913,
+   "dchi2_max_der": 4497.201385519877,
+   "clase": "identificable",
+   "ic_izq_log": 0.058560896965793356,
+   "ic_der_log": 0.058254619258623255,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.15029502567765715,
+   "ic_der_log_robusto": 0.1486394071759824
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

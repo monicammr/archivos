@@ -1,0 +1,16 @@
+{
+ "S": [
+  "p_chk1_dea_wip1",
+  "k_death_reox"
+ ],
+ "semilla": 44,
+ "familia": "loguniforme",
+ "senal_rms_test": 2.0288885772652456,
+ "B_chi2_test_theta0": 4.760708568653162,
+ "B_chi2_test_red": 2.1954009422772707,
+ "B_epred_red": 0.5670800086765363,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 51.6
+}

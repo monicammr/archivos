@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k1a",
+  "k_IRSiP_DosR"
+ ],
+ "semilla": 42,
+ "familia": "loguniforme",
+ "senal_rms_test": 6.740110365292251,
+ "B_chi2_test_theta0": 43.858214101520886,
+ "B_chi2_test_red": 42.24121614044135,
+ "B_epred_red": 0.9802932648885544,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2.3
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "SOCS3EqcOE",
+  "EpoRActJAK2"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.37896528327602064,
+ "erel_med": 0.7214021690764008,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand12",
+ "prueba": "adm",
+ "segundos": 10.7
+}

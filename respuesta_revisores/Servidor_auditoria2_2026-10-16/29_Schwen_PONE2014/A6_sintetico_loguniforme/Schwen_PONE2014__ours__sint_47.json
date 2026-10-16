@@ -1,0 +1,16 @@
+{
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "semilla": 47,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.5383496713924452,
+ "B_chi2_test_theta0": 1.758910415239456,
+ "B_chi2_test_red": 7.035317974412333,
+ "B_epred_red": 1.7019164068876436,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 8.5
+}

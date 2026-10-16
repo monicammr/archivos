@@ -1,0 +1,15 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "kappa_centred": 1.0708488831630785,
+ "VIF_centred": 1.0046929558218436,
+ "kappa_unit": 1.220134098287379,
+ "VIF_unit": 1.0401104867576756,
+ "kappa_unit_with_calibration": 1.220134098287379,
+ "VIF_unit_with_calibration": 1.0401104867576756,
+ "kappa_selection_json": 1.0708488831630785,
+ "VIF_selection_json": 1.0046929558218436
+}

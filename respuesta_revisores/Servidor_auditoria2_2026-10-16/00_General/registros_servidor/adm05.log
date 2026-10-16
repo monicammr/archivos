@@ -1,0 +1,1704 @@
+Admisibilidad y sintético: 29 problemas, 783 tareas, NPROC=44
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m[
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.0795887111449796, "admisible": true, "segundos": 693.4}
+{"sistema": "Isensee_JCB2018", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.07371557773362443, "admisible": true, "segundos": 693.8}
+[0m
+0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.10159320986220335, "admisible": true, "segundos": 696.0}
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.06094313249228685, "admisible": true, "segundos": 708.7}
+0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.08026271186536744, "admisible": true, "segundos": 721.2}
+{"sistema": "Isensee_JCB2018", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.10198709277874748, "admisible": true, "segundos": 721.6}
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.08158550783913246, "admisible": true, "segundos": 726.7}
+0m
+[0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.06024739191831073, "admisible": true, "segundos": 730.2}
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.10050701605637775, "admisible": true, "segundos": 746.9}
+[0m
+0m
+0m
+[0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.10294329235975355, "admisible": false, "segundos": 752.4}
+[0m
+0m
+0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.0978744643200461, "admisible": true, "segundos": 759.8}
+[0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.09843473139656544, "admisible": true, "segundos": 760.9}
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.10215957274874188, "admisible": true, "segundos": 772.5}
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.10294329235975355, "admisible": true, "segundos": 797.1}
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "perfil", "prueba": "adm", "segundos": 2.6, "no_evaluable": "sin subconjunto"}
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.07610730242381197, "admisible": true, "segundos": 823.0}
+[0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.2822421159452362, "admisible": true, "segundos": 135.6}
+0m
+[0m
+[0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.18709370004953396, "admisible": true, "segundos": 218.2}
+0m
+[0m
+0m
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.24720892788808949, "admisible": true, "segundos": 217.3}
+0m
+[0m
+[0m
+0m
+0m
+0m
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.18709370004953396, "admisible": true, "segundos": 221.0}
+0m
+0m
+0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.27739329890493714, "admisible": true, "segundos": 223.8}
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.28287056063884, "admisible": false, "segundos": 210.7}
+0m
+[0m
+0m
+[0m
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.19301677279601548, "admisible": true, "segundos": 120.6}
+0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Raimundez_PCB2020", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.14163588892692244, "admisible": true, "segundos": 217.0}
+[0m
+0m
+[0m
+[0m
+[0m
+[0m
+0m
+0m
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.13719513009200998, "admisible": false, "segundos": 1047.3}
+[0m
+0m
+[0m
+0m
+0m
+[0m
+0m
+[0m
+[0m
+0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.09394643513907586, "admisible": true, "segundos": 386.2}
+{"sistema": "Isensee_JCB2018", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.0941685877610595, "admisible": true, "segundos": 385.1}
+[0m
+0m
+[0m
+[0m
+[0m
+0m
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.09652695217353618, "admisible": true, "segundos": 384.8}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.09353615487759896, "admisible": true, "segundos": 379.2}
+0m
+0m
+[0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.08655429014068292, "admisible": true, "segundos": 398.3}
+0m
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.09826206668485725, "admisible": true, "segundos": 413.9}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.2753957428792151, "admisible": true, "segundos": 120.1}
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.060189012405238454, "admisible": true, "segundos": 403.5}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.2571624290324543, "admisible": true, "segundos": 118.8}
+[0m
+{"sistema": "Raimundez_PCB2020", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.20934537552943405, "admisible": true, "segundos": 214.3}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.27914655406607203, "admisible": true, "segundos": 214.2}
+[0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.09521943233596533, "admisible": true, "segundos": 473.0}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.2706054402659791, "admisible": true, "segundos": 118.6}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.1889992312436228, "admisible": true, "segundos": 121.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.5025839816912002, "admisible": false, "segundos": 11.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.3475685707593294, "admisible": true, "segundos": 11.3}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.2669964780658686, "admisible": true, "segundos": 217.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.3370971719542961, "admisible": true, "segundos": 20.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.30687547012053074, "admisible": true, "segundos": 11.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.3370971719542961, "admisible": true, "segundos": 10.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.2945575251747446, "admisible": true, "segundos": 10.7}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.20884279277802884, "admisible": true, "segundos": 220.6}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.5000050225813234, "admisible": false, "segundos": 11.1}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.1958506933340525, "admisible": true, "segundos": 131.6}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.2700244574950467, "admisible": true, "segundos": 215.2}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.2694524562707967, "admisible": true, "segundos": 121.1}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.4979025698070592, "admisible": false, "segundos": 10.9}
+{"sistema": "Bachmann_MSB2011", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.5053037217953223, "admisible": false, "segundos": 20.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.4746898047756071, "admisible": false, "segundos": 19.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.341767074850193, "admisible": true, "segundos": 10.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.4939762802051, "admisible": false, "segundos": 11.0}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.4621929941150811, "admisible": false, "segundos": 12.5}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.5043782328865922, "admisible": false, "segundos": 11.4}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.1692169859158966, "admisible": true, "segundos": 119.4}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.4263733243179921, "admisible": true, "segundos": 10.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.37896528327602064, "admisible": true, "segundos": 10.7}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.5040169158970305, "admisible": false, "segundos": 21.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.5025909336306313, "admisible": false, "segundos": 19.9}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.43412971537105455, "admisible": true, "segundos": 11.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.5003022815083014, "admisible": false, "segundos": 11.0}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.28735465065041554, "admisible": true, "segundos": 11.9}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.4788536272795545, "admisible": false, "segundos": 10.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.5025835031292961, "admisible": false, "segundos": 11.3}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.3494283206361511, "admisible": true, "segundos": 19.2}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.3756667527893453, "admisible": true, "segundos": 19.9}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.4263733243179921, "admisible": true, "segundos": 10.8}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.2663947603373089, "admisible": true, "segundos": 214.3}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.2782944376514211, "admisible": true, "segundos": 119.7}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.17051341976572348, "admisible": true, "segundos": 120.0}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.9453904850445013, "admisible": false, "segundos": 12.8}
+{"sistema": "Alkan_SciSignal2018", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.11558038226660505, "admisible": true, "segundos": 11.7}
+{"sistema": "Alkan_SciSignal2018", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.8941767267741224, "admisible": false, "segundos": 12.0}
+{"sistema": "Alkan_SciSignal2018", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.13108502888854248, "admisible": true, "segundos": 11.8}
+{"sistema": "Alkan_SciSignal2018", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.12628885016640026, "admisible": true, "segundos": 12.8}
+{"sistema": "Bachmann_MSB2011", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.4698622423547464, "admisible": false, "segundos": 20.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.9418601753362585, "admisible": false, "segundos": 11.7}
+{"sistema": "Alkan_SciSignal2018", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.1212591662142224, "admisible": true, "segundos": 20.8}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.9238278801409752, "admisible": false, "segundos": 11.7}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.14814524425458042, "admisible": true, "segundos": 118.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.9478545910682975, "admisible": false, "segundos": 19.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.9476594595391066, "admisible": false, "segundos": 11.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.9440931765734121, "admisible": false, "segundos": 10.5}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.9378949304024591, "admisible": false, "segundos": 10.7}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.1329684345320584, "admisible": true, "segundos": 10.5}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.9338942055011803, "admisible": false, "segundos": 21.5}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.945342472818214, "admisible": false, "segundos": 11.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.9343982520301212, "admisible": false, "segundos": 20.9}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.9452711838882616, "admisible": false, "segundos": 10.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.9454150080927025, "admisible": false, "segundos": 21.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.9108231885564665, "admisible": false, "segundos": 4.8}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.8766703561398432, "admisible": false, "segundos": 12.5}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.9337527228486329, "admisible": false, "segundos": 11.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.4130359032560612, "admisible": true, "segundos": 4.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 2.2}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.9461835668185166, "admisible": false, "segundos": 10.9}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.4354529673002491, "admisible": true, "segundos": 8.2}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.8974986953064253, "admisible": false, "segundos": 11.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.7402054725091215, "admisible": false, "segundos": 3.6}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.9338952556840343, "admisible": false, "segundos": 10.7}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.9446191440625034, "admisible": false, "segundos": 15.7}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.769350400141591, "admisible": false, "segundos": 7.9}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.8992411583234856, "admisible": false, "segundos": 10.9}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.945342472818214, "admisible": false, "segundos": 11.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.855586920803876, "admisible": false, "segundos": 3.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.8780480513234118, "admisible": false, "segundos": 3.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.6528919622769096, "admisible": false, "segundos": 4.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.8049167841139094, "admisible": false, "segundos": 4.2}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.25494883365822335, "admisible": true, "segundos": 119.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.7897313279904308, "admisible": false, "segundos": 3.4}
+{"sistema": "Alkan_SciSignal2018", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.9454154872054598, "admisible": false, "segundos": 22.0}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.5487410338722888, "admisible": false, "segundos": 8.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.771719016361519, "admisible": false, "segundos": 4.4}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.9098906777420696, "admisible": false, "segundos": 4.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.9414434680830266, "admisible": false, "segundos": 3.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.7571710954507165, "admisible": false, "segundos": 6.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.846999533055557, "admisible": false, "segundos": 4.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.8408190049630504, "admisible": false, "segundos": 3.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.7858578222290704, "admisible": false, "segundos": 4.3}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.8817020633304884, "admisible": false, "segundos": 3.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.9366938243928798, "admisible": false, "segundos": 3.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.6241384614026515, "admisible": false, "segundos": 3.6}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.9316000913151186, "admisible": false, "segundos": 6.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.7565704592684445, "admisible": false, "segundos": 4.2}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.9373180137509293, "admisible": false, "segundos": 8.1}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.8702403164823468, "admisible": false, "segundos": 6.5}
+{"sistema": "Lucarelli_CellSystems2018", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.8616582836989054, "admisible": false, "segundos": 8.3}
+0m
+0m
+{"sistema": "Isensee_JCB2018", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.09961942870791524, "admisible": true, "segundos": 657.5}
+{"sistema": "Isensee_JCB2018", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.07610730242381197, "admisible": true, "segundos": 631.2}
+{"sistema": "Schwen_PONE2014", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.2726689838644994, "admisible": false, "segundos": 76.4}
+{"sistema": "Schwen_PONE2014", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.1892851595563329, "admisible": true, "segundos": 86.1}
+{"sistema": "Schwen_PONE2014", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.1760888875003343, "admisible": true, "segundos": 87.9}
+{"sistema": "Schwen_PONE2014", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.17065260610000316, "admisible": true, "segundos": 95.7}
+{"sistema": "Schwen_PONE2014", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.17065260610005112, "admisible": true, "segundos": 98.0}
+{"sistema": "Schwen_PONE2014", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.14690003169236898, "admisible": true, "segundos": 99.1}
+{"sistema": "Schwen_PONE2014", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.14690003169326687, "admisible": true, "segundos": 98.6}
+{"sistema": "Schwen_PONE2014", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.1760888875003343, "admisible": true, "segundos": 97.4}
+{"sistema": "Schwen_PONE2014", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.19461679599282075, "admisible": true, "segundos": 100.8}
+{"sistema": "Raimundez_PCB2020", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.1728313002862709, "admisible": true, "segundos": 214.1}
+{"sistema": "Schwen_PONE2014", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.1932731854630404, "admisible": true, "segundos": 141.0}
+{"sistema": "Schwen_PONE2014", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.18930939826875712, "admisible": true, "segundos": 144.7}
+{"sistema": "Weber_BMC2015", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.040700115456463605, "admisible": true, "segundos": 11.7}
+{"sistema": "Weber_BMC2015", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.4824362669466485, "admisible": false, "segundos": 9.8}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.06273883031388625, "admisible": true, "segundos": 1446.9}
+{"sistema": "Weber_BMC2015", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.4130828649227243, "admisible": true, "segundos": 8.9}
+{"sistema": "Schwen_PONE2014", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.17065260610000316, "admisible": true, "segundos": 164.6}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.07772293329231827, "admisible": true, "segundos": 1453.1}
+{"sistema": "Weber_BMC2015", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.040700132400308696, "admisible": true, "segundos": 13.0}
+{"sistema": "Weber_BMC2015", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.06881920479286681, "admisible": true, "segundos": 8.7}
+{"sistema": "Weber_BMC2015", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.48265436016059, "admisible": false, "segundos": 9.3}
+{"sistema": "Schwen_PONE2014", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.10795056407676097, "admisible": true, "segundos": 174.7}
+{"sistema": "Weber_BMC2015", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.1154439578246057, "admisible": true, "segundos": 11.1}
+{"sistema": "Weber_BMC2015", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.07346425064665124, "admisible": true, "segundos": 9.7}
+{"sistema": "Schwen_PONE2014", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.18014451036085385, "admisible": true, "segundos": 94.1}
+{"sistema": "Weber_BMC2015", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.411881074807427, "admisible": true, "segundos": 9.4}
+{"sistema": "Schwen_PONE2014", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.194519438551128, "admisible": true, "segundos": 103.4}
+{"sistema": "Schwen_PONE2014", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.16681847941814587, "admisible": true, "segundos": 91.7}
+{"sistema": "Weber_BMC2015", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.044086171107521756, "admisible": true, "segundos": 21.5}
+{"sistema": "Weber_BMC2015", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.08361793518248448, "admisible": true, "segundos": 10.5}
+{"sistema": "Schwen_PONE2014", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.16998851103904347, "admisible": true, "segundos": 90.5}
+{"sistema": "Weber_BMC2015", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.07346425064665124, "admisible": true, "segundos": 9.7}
+{"sistema": "Schwen_PONE2014", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.1892851595563329, "admisible": true, "segundos": 85.9}
+{"sistema": "Weber_BMC2015", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.06964265829841386, "admisible": true, "segundos": 9.7}
+{"sistema": "Weber_BMC2015", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.04489211460784582, "admisible": true, "segundos": 9.5}
+{"sistema": "Weber_BMC2015", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.050626107355896253, "admisible": true, "segundos": 10.7}
+{"sistema": "Schwen_PONE2014", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.24951312350795363, "admisible": true, "segundos": 95.5}
+{"sistema": "Weber_BMC2015", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.04708738147540646, "admisible": true, "segundos": 17.7}
+{"sistema": "Schwen_PONE2014", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.18963845311331798, "admisible": true, "segundos": 185.8}
+{"sistema": "Weber_BMC2015", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.0666292800766576, "admisible": true, "segundos": 12.6}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.33026237168959055, "admisible": true, "segundos": 1.9}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.6049437808660059, "admisible": false, "segundos": 1.2}
+{"sistema": "Schwen_PONE2014", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.17103475892972228, "admisible": true, "segundos": 94.1}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.7410774517799205, "admisible": false, "segundos": 1.8}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.5671485122752021, "admisible": false, "segundos": 0.9}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.33026237168959055, "admisible": true, "segundos": 1.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.33026237168959055, "admisible": true, "segundos": 1.7}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.7174453313810135, "admisible": false, "segundos": 1.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.9625253981591876, "admisible": false, "segundos": 1.2}
+{"sistema": "Schwen_PONE2014", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.19265942936749852, "admisible": true, "segundos": 97.2}
+{"sistema": "Weber_BMC2015", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.0687289053716559, "admisible": true, "segundos": 9.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.8883154045560819, "admisible": false, "segundos": 2.7}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.9625253981591876, "admisible": false, "segundos": 1.3}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.7246187779931258, "admisible": false, "segundos": 1.5}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.9034395112306197, "admisible": false, "segundos": 1.5}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.8308955825143868, "admisible": false, "segundos": 2.0}
+{"sistema": "Weber_BMC2015", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.06842355656340274, "admisible": true, "segundos": 20.9}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.9034395112306197, "admisible": false, "segundos": 1.7}
+{"sistema": "Weber_BMC2015", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.4824362669466485, "admisible": false, "segundos": 9.5}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.9624219616243722, "admisible": false, "segundos": 1.2}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.8086638078411537, "admisible": false, "segundos": 1.1}
+{"sistema": "Weber_BMC2015", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.06800768025504084, "admisible": true, "segundos": 8.6}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.7246187642003832, "admisible": false, "segundos": 1.3}
+{"sistema": "Weber_BMC2015", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.06951946714616458, "admisible": true, "segundos": 9.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.746602413845463, "admisible": false, "segundos": 1.7}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.8261901936667368, "admisible": false, "segundos": 0.9}
+{"sistema": "Weber_BMC2015", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.06964265829841386, "admisible": true, "segundos": 9.1}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.3291003004368945, "admisible": true, "segundos": 0.6}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.5718086427436759, "admisible": false, "segundos": 2.4}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.9625253981591876, "admisible": false, "segundos": 1.2}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.1}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.9442949717240712, "admisible": false, "segundos": 0.6}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.9625253981591876, "admisible": false, "segundos": 1.2}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.93211892334644, "admisible": false, "segundos": 2.3}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.9624219616243722, "admisible": false, "segundos": 1.4}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.9034395112306197, "admisible": false, "segundos": 1.5}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.9442949717240712, "admisible": false, "segundos": 1.0}
+{"sistema": "Armistead_CellDeathDis2024", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.9034395112306197, "admisible": false, "segundos": 1.8}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.9442949717240712, "admisible": false, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.24019411043485758, "admisible": true, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.19212608168164827, "admisible": true, "segundos": 0.7}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.9442949717240712, "admisible": false, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.9442949717240712, "admisible": false, "segundos": 1.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.19212609029721495, "admisible": true, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.2585509098875824, "admisible": true, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.9449719005106166, "admisible": false, "segundos": 1.4}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.24019411043485758, "admisible": true, "segundos": 0.9}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.9442949717240712, "admisible": false, "segundos": 0.5}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.2271073708089679, "admisible": true, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.192313271845308, "admisible": true, "segundos": 1.2}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.9449719005106166, "admisible": false, "segundos": 1.5}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.9442949717241593, "admisible": false, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.9449719005106166, "admisible": false, "segundos": 1.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.9442949717241593, "admisible": false, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.192313271845308, "admisible": true, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.9442949717240712, "admisible": false, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.19212609029721495, "admisible": true, "segundos": 1.0}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.2401941033288505, "admisible": true, "segundos": 0.6}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.24019411043485758, "admisible": true, "segundos": 0.9}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.3}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.2585509098875824, "admisible": true, "segundos": 0.9}
+{"sistema": "Bertozzi_PNAS2020", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.9449719005106166, "admisible": false, "segundos": 1.9}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.0935348340647396, "admisible": true, "segundos": 1.3}
+{"sistema": "Schwen_PONE2014", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.14690003169326687, "admisible": true, "segundos": 197.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.0935348340647396, "admisible": true, "segundos": 1.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.0935348340647396, "admisible": true, "segundos": 1.3}
+{"sistema": "Weber_BMC2015", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.0673614796965374, "admisible": true, "segundos": 14.2}
+{"sistema": "Weber_BMC2015", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.06894588504048595, "admisible": true, "segundos": 22.4}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.0935348340647396, "admisible": true, "segundos": 1.4}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.5652953587716454, "admisible": false, "segundos": 2.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.6695020933300034, "admisible": false, "segundos": 2.5}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.4631954503837452, "admisible": false, "segundos": 2.4}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.4530797369628501, "admisible": false, "segundos": 2.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.4631954503837452, "admisible": false, "segundos": 2.5}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.459480541012854, "admisible": false, "segundos": 1.6}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.10679086658800431, "admisible": true, "segundos": 1.2}
+{"sistema": "Weber_BMC2015", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.06585256947140075, "admisible": true, "segundos": 13.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.4631954503837452, "admisible": false, "segundos": 2.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.4631954503837452, "admisible": false, "segundos": 2.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.4530797369628501, "admisible": false, "segundos": 2.4}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.4530797369628501, "admisible": false, "segundos": 1.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.4594805410141639, "admisible": false, "segundos": 1.5}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.5652953587716454, "admisible": false, "segundos": 2.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.0935348340647396, "admisible": true, "segundos": 1.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.0935348340647396, "admisible": true, "segundos": 2.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.6695026821922924, "admisible": false, "segundos": 2.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.45790899912760663, "admisible": false, "segundos": 2.2}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.9947198170323702, "admisible": false, "segundos": 4.3}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.45790899912760663, "admisible": false, "segundos": 4.4}
+{"sistema": "Weber_BMC2015", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.06866614599021557, "admisible": true, "segundos": 19.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.5652953587716454, "admisible": false, "segundos": 2.1}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.9345806491913313, "admisible": false, "segundos": 2.4}
+{"sistema": "Boehm_JProteomeRes2014", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.6695026821922924, "admisible": false, "segundos": 4.1}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.06020316303773079, "admisible": true, "segundos": 1498.4}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.5476811847761001, "admisible": false, "segundos": 5.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.16587965354577328, "admisible": true, "segundos": 8.2}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.3550587550579574, "admisible": true, "segundos": 9.2}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.04342311800097633, "admisible": true, "segundos": 10.2}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.09727639576074823, "admisible": true, "segundos": 10.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.5513263934478746, "admisible": false, "segundos": 11.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.5513263934478746, "admisible": false, "segundos": 11.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.5331005735072175, "admisible": false, "segundos": 17.3}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.45487580204413997, "admisible": false, "segundos": 16.5}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.5245697396877227, "admisible": false, "segundos": 21.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.4908986510088666, "admisible": false, "segundos": 17.2}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.5339973339891126, "admisible": false, "segundos": 22.1}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.3239248807414241, "admisible": true, "segundos": 15.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.3781662991909584, "admisible": true, "segundos": 21.9}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.5162294535215511, "admisible": false, "segundos": 19.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.5474996908605567, "admisible": false, "segundos": 32.0}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.03421154480455535, "admisible": true, "segundos": 35.9}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.1160945217690544, "admisible": true, "segundos": 12.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.07806330274521281, "admisible": true, "segundos": 17.1}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.5245697396877227, "admisible": false, "segundos": 40.0}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.0428537609033626, "admisible": true, "segundos": 41.8}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.24254672507802738, "admisible": true, "segundos": 25.0}
+{"sistema": "Schwen_PONE2014", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.16635800685588167, "admisible": true, "segundos": 174.2}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.5341653810054315, "admisible": false, "segundos": 34.2}
+{"sistema": "Brannmark_JBC2010", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.09781483594762613, "admisible": true, "segundos": 15.3}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.07829151587232247, "admisible": true, "segundos": 1538.6}
+{"sistema": "Schwen_PONE2014", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.1760888875003343, "admisible": true, "segundos": 151.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.44488245496718115, "admisible": false, "segundos": 45.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.09663434133375179, "admisible": true, "segundos": 18.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.1591103064002478, "admisible": false, "segundos": 11.7}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.4703729119554016, "admisible": false, "segundos": 39.1}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.5251904568409043, "admisible": false, "segundos": 32.3}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.485723377752097, "admisible": false, "segundos": 50.4}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.09338219820671348, "admisible": true, "segundos": 15.9}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.11527566974517943, "admisible": true, "segundos": 13.0}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.07772310424268444, "admisible": true, "segundos": 15.2}
+{"sistema": "Brannmark_JBC2010", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.08781839950921005, "admisible": true, "segundos": 26.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.09273243085232936, "admisible": true, "segundos": 13.0}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.08287257314121169, "admisible": true, "segundos": 15.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.1319823805200722, "admisible": true, "segundos": 13.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.37768533591236003, "admisible": true, "segundos": 3.0}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.10646236143348033, "admisible": true, "segundos": 24.7}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.8939249205377371, "admisible": false, "segundos": 2.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.8939249205377371, "admisible": false, "segundos": 3.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.08287240501873362, "admisible": true, "segundos": 23.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.10447767337526019, "admisible": true, "segundos": 20.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.08227289500690474, "admisible": true, "segundos": 26.9}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.10381403556544122, "admisible": true, "segundos": 24.5}
+{"sistema": "Bruno_JExpBot2016", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.7050581648579658, "admisible": false, "segundos": 2.8}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.10369707333090786, "admisible": true, "segundos": 26.4}
+{"sistema": "Bruno_JExpBot2016", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.8584724056252322, "admisible": false, "segundos": 3.0}
+{"sistema": "Bruno_JExpBot2016", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.7050581648579658, "admisible": false, "segundos": 2.8}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.8352181661507972, "admisible": false, "segundos": 3.3}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.37768533591236003, "admisible": true, "segundos": 3.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.8011594382092585, "admisible": false, "segundos": 3.0}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.6564288546559205, "admisible": false, "segundos": 2.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.6031008544294955, "admisible": false, "segundos": 5.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.796928295585341, "admisible": false, "segundos": 2.7}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.6414639786314169, "admisible": false, "segundos": 4.7}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.8609350216718796, "admisible": false, "segundos": 3.0}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.8406768628152179, "admisible": false, "segundos": 3.3}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.8308888198005071, "admisible": false, "segundos": 5.5}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.10381387918822906, "admisible": true, "segundos": 13.0}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.5283528992295543, "admisible": false, "segundos": 2.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.6845946620713317, "admisible": false, "segundos": 5.7}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.6714207907721337, "admisible": false, "segundos": 2.9}
+{"sistema": "Schwen_PONE2014", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.16671953375744647, "admisible": true, "segundos": 167.6}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.670837372661726, "admisible": false, "segundos": 2.8}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.09433760124364411, "admisible": true, "segundos": 26.5}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.6907598695978749, "admisible": false, "segundos": 2.9}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.7838640518819482, "admisible": false, "segundos": 3.3}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.6352635724588676, "admisible": false, "segundos": 3.0}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.778120586222387, "admisible": false, "segundos": 4.5}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.9245771185570562, "admisible": false, "segundos": 5.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.13215871338299542, "admisible": true, "segundos": 16.9}
+{"sistema": "Elowitz_Nature2000", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.3584572949196713, "admisible": true, "segundos": 4.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.7691065832094309, "admisible": false, "segundos": 2.1}
+{"sistema": "Bruno_JExpBot2016", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.7459100428792532, "admisible": false, "segundos": 5.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.09441445023285698, "admisible": true, "segundos": 31.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.6504930224825985, "admisible": false, "segundos": 4.6}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.07772287202444435, "admisible": true, "segundos": 28.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.40244617886273215, "admisible": true, "segundos": 4.7}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.6928498537324441, "admisible": false, "segundos": 7.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.7336261714571374, "admisible": false, "segundos": 5.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.40244617886273215, "admisible": true, "segundos": 4.1}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.5400664585331797, "admisible": false, "segundos": 58.9}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.4209548270947797, "admisible": true, "segundos": 4.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.11533036494807052, "admisible": true, "segundos": 22.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.4217564721941292, "admisible": true, "segundos": 4.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.3584572949196713, "admisible": true, "segundos": 7.9}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.5816474817284965, "admisible": false, "segundos": 4.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.6504930224825985, "admisible": false, "segundos": 8.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.7194725373864826, "admisible": false, "segundos": 10.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.40572289673218603, "admisible": true, "segundos": 9.2}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.3611395572444638, "admisible": true, "segundos": 6.9}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.651475580206242, "admisible": false, "segundos": 4.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.4410551327163096, "admisible": false, "segundos": 4.3}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.4410551327163096, "admisible": false, "segundos": 4.4}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.5784653474038782, "admisible": false, "segundos": 5.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.6086592031027658, "admisible": false, "segundos": 5.0}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.5816474817284965, "admisible": false, "segundos": 4.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.4056450354951415, "admisible": true, "segundos": 4.8}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.6963799010430745, "admisible": false, "segundos": 10.9}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.5355498376400105, "admisible": false, "segundos": 9.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.5923380087722737, "admisible": false, "segundos": 6.1}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.09338219820671348, "admisible": true, "segundos": 27.0}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.14720530335263396, "admisible": true, "segundos": 6.5}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.4158057880410889, "admisible": true, "segundos": 8.0}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.42365898438640265, "admisible": false, "segundos": 4.6}
+{"sistema": "Elowitz_Nature2000", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.6580853110464085, "admisible": false, "segundos": 11.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.0812991750859943, "admisible": true, "segundos": 5.9}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.3470586112405053, "admisible": true, "segundos": 6.7}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.40886192568534124, "admisible": true, "segundos": 7.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.13744339225415678, "admisible": true, "segundos": 7.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.33922170564294024, "admisible": true, "segundos": 7.6}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.08006703447165642, "admisible": true, "segundos": 6.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.3340594628306097, "admisible": true, "segundos": 9.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.14663823315045266, "admisible": true, "segundos": 5.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.13309479445647696, "admisible": true, "segundos": 13.0}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.13306417577716645, "admisible": true, "segundos": 12.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.13376924925691155, "admisible": true, "segundos": 12.5}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.3394651567840907, "admisible": true, "segundos": 14.1}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.1389921089128981, "admisible": true, "segundos": 6.3}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.3470586112405053, "admisible": true, "segundos": 6.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.08384805886244674, "admisible": true, "segundos": 10.8}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.13971831240300972, "admisible": true, "segundos": 6.4}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.13034888190942756, "admisible": true, "segundos": 6.9}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.13034888190942756, "admisible": true, "segundos": 6.9}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.13299888930612225, "admisible": true, "segundos": 13.1}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.33922170564294024, "admisible": true, "segundos": 14.3}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.3340594628306097, "admisible": true, "segundos": 8.2}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.13306417577716645, "admisible": true, "segundos": 12.7}
+{"sistema": "Brannmark_JBC2010", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.10549591055311955, "admisible": true, "segundos": 73.1}
+{"sistema": "Fujita_SciSignal2010", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.2956458925171418, "admisible": false, "segundos": 5.0}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.3340594628306097, "admisible": true, "segundos": 8.8}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.132999195167153, "admisible": true, "segundos": 13.5}
+{"sistema": "Fujita_SciSignal2010", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.21705519718529956, "admisible": true, "segundos": 8.3}
+{"sistema": "Brannmark_JBC2010", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.10549870613122635, "admisible": true, "segundos": 68.1}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.13265051459204827, "admisible": true, "segundos": 9.5}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.2445972235088381, "admisible": true, "segundos": 9.9}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.175787732375809, "admisible": true, "segundos": 16.8}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.18716340849114074, "admisible": true, "segundos": 12.0}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.11117029216096797, "admisible": true, "segundos": 25.6}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.1517459358468733, "admisible": true, "segundos": 10.1}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.1378841064299709, "admisible": true, "segundos": 9.8}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.2461176534784641, "admisible": true, "segundos": 17.5}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.19015504433237063, "admisible": true, "segundos": 18.8}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.257397095399984, "admisible": true, "segundos": 18.0}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.19015405432162097, "admisible": true, "segundos": 19.5}
+{"sistema": "Giordano_Nature2020", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.05750445056487047, "admisible": true, "segundos": 3.6}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.5342955838272464, "admisible": false, "segundos": 109.9}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.13482344137429603, "admisible": true, "segundos": 9.0}
+{"sistema": "Giordano_Nature2020", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.6}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.15370154528974384, "admisible": true, "segundos": 18.3}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.21972724938393684, "admisible": true, "segundos": 8.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.21972724938393684, "admisible": true, "segundos": 9.1}
+{"sistema": "Giordano_Nature2020", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.7806993629761386, "admisible": false, "segundos": 5.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.13265051459204827, "admisible": true, "segundos": 9.4}
+{"sistema": "Giordano_Nature2020", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.8157921528930765, "admisible": false, "segundos": 4.7}
+{"sistema": "Giordano_Nature2020", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.10560885051594887, "admisible": true, "segundos": 4.2}
+{"sistema": "Giordano_Nature2020", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.06368220557008106, "admisible": true, "segundos": 5.8}
+{"sistema": "Giordano_Nature2020", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.2532712980784284, "admisible": true, "segundos": 4.7}
+{"sistema": "Giordano_Nature2020", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.05373764370483675, "admisible": true, "segundos": 7.4}
+{"sistema": "Giordano_Nature2020", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.14218064309057415, "admisible": true, "segundos": 4.8}
+{"sistema": "Giordano_Nature2020", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.8021662463364995, "admisible": false, "segundos": 5.2}
+{"sistema": "Giordano_Nature2020", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.9086383103837667, "admisible": false, "segundos": 10.9}
+{"sistema": "Giordano_Nature2020", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.2847579215201254, "admisible": true, "segundos": 5.0}
+{"sistema": "Giordano_Nature2020", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.17198112233647272, "admisible": true, "segundos": 5.1}
+{"sistema": "Giordano_Nature2020", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.9011421146200613, "admisible": false, "segundos": 4.4}
+{"sistema": "Giordano_Nature2020", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.2891351302412095, "admisible": true, "segundos": 3.9}
+{"sistema": "Giordano_Nature2020", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.7187216012941463, "admisible": false, "segundos": 5.1}
+{"sistema": "Giordano_Nature2020", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.19839546666620916, "admisible": true, "segundos": 5.1}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.1531477717424681, "admisible": true, "segundos": 18.5}
+{"sistema": "Giordano_Nature2020", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.8186085592491678, "admisible": false, "segundos": 5.7}
+{"sistema": "Giordano_Nature2020", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.9359295859850575, "admisible": false, "segundos": 3.1}
+{"sistema": "Giordano_Nature2020", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.9690446216244586, "admisible": false, "segundos": 5.7}
+{"sistema": "Giordano_Nature2020", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.510283943633478, "admisible": false, "segundos": 4.7}
+{"sistema": "Giordano_Nature2020", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.5614403645001107, "admisible": false, "segundos": 5.1}
+{"sistema": "Giordano_Nature2020", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.8823039043765798, "admisible": false, "segundos": 11.9}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.19015405432162097, "admisible": true, "segundos": 18.2}
+{"sistema": "Giordano_Nature2020", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.19839546666620916, "admisible": true, "segundos": 4.9}
+{"sistema": "Giordano_Nature2020", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.1771419613193636, "admisible": true, "segundos": 8.8}
+{"sistema": "Giordano_Nature2020", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.3851223647694768, "admisible": true, "segundos": 5.7}
+{"sistema": "Giordano_Nature2020", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.6634637905891483, "admisible": false, "segundos": 9.3}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.21727068526473148, "admisible": false, "segundos": 8.1}
+{"sistema": "Fujita_SciSignal2010", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.2941059531024245, "admisible": true, "segundos": 49.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.14946951414605858, "admisible": true, "segundos": 12.6}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.14946951414605858, "admisible": true, "segundos": 12.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.14946951414605858, "admisible": true, "segundos": 13.3}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.14946951414605858, "admisible": true, "segundos": 12.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.15039964870691316, "admisible": true, "segundos": 15.3}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.10099807710184461, "admisible": true, "segundos": 17.0}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.2941059531024245, "admisible": true, "segundos": 51.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.18586485536824063, "admisible": true, "segundos": 21.6}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.15920824809341208, "admisible": true, "segundos": 19.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.12478192956085317, "admisible": true, "segundos": 26.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.09391371727959019, "admisible": true, "segundos": 23.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.19670655245681531, "admisible": true, "segundos": 23.5}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.15039964870691316, "admisible": true, "segundos": 14.4}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.15920824809341208, "admisible": true, "segundos": 27.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.15039964870691314, "admisible": true, "segundos": 13.9}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.261302125089092, "admisible": true, "segundos": 2.3}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.12478192956085317, "admisible": true, "segundos": 14.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.1596249362020834, "admisible": true, "segundos": 17.0}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.19670655245681531, "admisible": true, "segundos": 17.3}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.27116560460898076, "admisible": true, "segundos": 2.6}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.27116560460898076, "admisible": true, "segundos": 2.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.09391371727959019, "admisible": true, "segundos": 14.0}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.27116560460898076, "admisible": true, "segundos": 2.8}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.27116560460898076, "admisible": true, "segundos": 2.7}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.18586485536824063, "admisible": true, "segundos": 24.4}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.27116560460898076, "admisible": true, "segundos": 5.5}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.26054261051009303, "admisible": true, "segundos": 2.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.7070704552391669, "admisible": false, "segundos": 3.0}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.698227061474241, "admisible": false, "segundos": 2.8}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.5267654242865746, "admisible": false, "segundos": 3.4}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.818250294472147, "admisible": false, "segundos": 3.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.7070704552391669, "admisible": false, "segundos": 2.8}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.7493019278360125, "admisible": false, "segundos": 2.6}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.16106264291691563, "admisible": true, "segundos": 22.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.6969769809706843, "admisible": false, "segundos": 3.4}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.8182502944729997, "admisible": false, "segundos": 3.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.261302125089092, "admisible": true, "segundos": 2.2}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.15920824809341208, "admisible": true, "segundos": 26.3}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.5054452728897325, "admisible": false, "segundos": 3.3}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.6988583451891892, "admisible": false, "segundos": 3.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.698227061474241, "admisible": false, "segundos": 5.8}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.7070704552391669, "admisible": false, "segundos": 5.6}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.04108488654646083, "admisible": true, "segundos": 1.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.11157533710323184, "admisible": true, "segundos": 1.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.6972009363262183, "admisible": false, "segundos": 2.8}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.7070704552391669, "admisible": false, "segundos": 2.8}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.2}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.4802898079921891, "admisible": false, "segundos": 4.0}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.18586485536824063, "admisible": true, "segundos": 16.7}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.16431400076741537, "admisible": true, "segundos": 2.1}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.7035275205794851, "admisible": false, "segundos": 3.4}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.0412602754333078, "admisible": true, "segundos": 2.3}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.040558646424579556, "admisible": true, "segundos": 1.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.042291428445212186, "admisible": true, "segundos": 2.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.040440590071757807, "admisible": true, "segundos": 1.5}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.042291428445212186, "admisible": true, "segundos": 2.1}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.04134424324032702, "admisible": true, "segundos": 1.7}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.040440590071757807, "admisible": true, "segundos": 1.5}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.06484145436135753, "admisible": true, "segundos": 1.7}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.04221879818801548, "admisible": true, "segundos": 1.8}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.13304500849745626, "admisible": true, "segundos": 0.9}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.09151868812725066, "admisible": true, "segundos": 1.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.04103779204387489, "admisible": true, "segundos": 1.3}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.16377094942187018, "admisible": true, "segundos": 1.8}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.7070704552391669, "admisible": false, "segundos": 5.7}
+{"sistema": "Liu_IFACPapersOnLine2025", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.698227061474241, "admisible": false, "segundos": 5.5}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.040750368154499214, "admisible": true, "segundos": 1.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.040763152060717074, "admisible": true, "segundos": 1.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.0412602754333078, "admisible": true, "segundos": 0.9}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.16275653439749144, "admisible": true, "segundos": 1.0}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.049895226604382226, "admisible": true, "segundos": 1.5}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.1981018900620162, "admisible": true, "segundos": 1.1}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.16106264291691563, "admisible": true, "segundos": 21.6}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.040987517766027666, "admisible": true, "segundos": 2.2}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.1643101086823307, "admisible": true, "segundos": 1.7}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.16377094942187018, "admisible": true, "segundos": 2.0}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.03876099286382602, "admisible": true, "segundos": 2.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.03876099286382602, "admisible": true, "segundos": 2.0}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.04818095635617412, "admisible": true, "segundos": 1.9}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.1122293145874042, "admisible": true, "segundos": 2.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.0780612738373422, "admisible": true, "segundos": 3.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.0780612738373422, "admisible": true, "segundos": 3.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.08101612804775134, "admisible": true, "segundos": 3.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.12919945274698397, "admisible": true, "segundos": 4.5}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.9997836535643305, "admisible": false, "segundos": 2.3}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.47218144636106946, "admisible": false, "segundos": 2.8}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.14228796827067272, "admisible": true, "segundos": 2.6}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.11870480997506389, "admisible": true, "segundos": 6.0}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.14336042922905523, "admisible": true, "segundos": 1.6}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.12856879200884763, "admisible": true, "segundos": 2.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.03876099286382602, "admisible": true, "segundos": 1.8}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.47218144636106946, "admisible": false, "segundos": 5.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.14529316575425474, "admisible": true, "segundos": 2.6}
+{"sistema": "Perelson_Science1996", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.2}
+{"sistema": "Perelson_Science1996", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.0}
+{"sistema": "Perelson_Science1996", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.14528737627073493, "admisible": true, "segundos": 5.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.24407539259527647, "admisible": true, "segundos": 5.6}
+{"sistema": "Perelson_Science1996", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.08327793564168823, "admisible": true, "segundos": 2.3}
+{"sistema": "Perelson_Science1996", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.14332686220494864, "admisible": true, "segundos": 2.6}
+{"sistema": "Perelson_Science1996", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Perelson_Science1996", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.2}
+{"sistema": "Perelson_Science1996", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.2}
+{"sistema": "Perelson_Science1996", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.0, "admisible": true, "segundos": 0.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.12856879025604578, "admisible": true, "segundos": 3.0}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.47224883301873233, "admisible": false, "segundos": 2.0}
+{"sistema": "Rahman_MBS2016", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.2}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.14227972090406368, "admisible": true, "segundos": 2.5}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.14227972090406368, "admisible": true, "segundos": 2.5}
+{"sistema": "Rahman_MBS2016", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.035097206163198585, "admisible": true, "segundos": 0.8}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.1122293145874042, "admisible": true, "segundos": 2.1}
+{"sistema": "Rahman_MBS2016", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.11244852937006973, "admisible": true, "segundos": 1.1}
+{"sistema": "Rahman_MBS2016", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.12808680929133756, "admisible": true, "segundos": 1.2}
+{"sistema": "Rahman_MBS2016", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.03710102189562673, "admisible": true, "segundos": 1.3}
+{"sistema": "Rahman_MBS2016", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.03514171952671484, "admisible": true, "segundos": 1.2}
+{"sistema": "Rahman_MBS2016", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.598304962440321, "admisible": false, "segundos": 1.1}
+{"sistema": "Rahman_MBS2016", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.2914154200655532, "admisible": true, "segundos": 1.1}
+{"sistema": "Rahman_MBS2016", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.3541022205108693, "admisible": true, "segundos": 0.9}
+{"sistema": "Rahman_MBS2016", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.19899103114609418, "admisible": true, "segundos": 1.3}
+{"sistema": "Rahman_MBS2016", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.08490321900933719, "admisible": true, "segundos": 1.7}
+{"sistema": "Rahman_MBS2016", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.12808680780168558, "admisible": true, "segundos": 1.2}
+{"sistema": "Rahman_MBS2016", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.19899103114609418, "admisible": true, "segundos": 0.8}
+{"sistema": "Rahman_MBS2016", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.5983043521303992, "admisible": false, "segundos": 1.0}
+{"sistema": "Rahman_MBS2016", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.5983043521303992, "admisible": false, "segundos": 0.9}
+{"sistema": "Rahman_MBS2016", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.9987863874933022, "admisible": false, "segundos": 1.0}
+{"sistema": "Rahman_MBS2016", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.03514171952671484, "admisible": true, "segundos": 0.6}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.1122293145874042, "admisible": true, "segundos": 4.2}
+{"sistema": "Rahman_MBS2016", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.2322297391551996, "admisible": true, "segundos": 1.2}
+{"sistema": "Rahman_MBS2016", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.4904505278571617, "admisible": false, "segundos": 1.1}
+{"sistema": "Rahman_MBS2016", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.0940217696898962, "admisible": true, "segundos": 0.6}
+{"sistema": "Rahman_MBS2016", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.2002612547216129, "admisible": true, "segundos": 0.8}
+{"sistema": "Rahman_MBS2016", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.9987863874933022, "admisible": false, "segundos": 0.6}
+{"sistema": "Rahman_MBS2016", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.9999965878689805, "admisible": false, "segundos": 0.9}
+{"sistema": "Rahman_MBS2016", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.5983043521303992, "admisible": false, "segundos": 0.8}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.05083755548924334, "admisible": true, "segundos": 1680.1}
+{"sistema": "Rahman_MBS2016", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.49044997736454615, "admisible": false, "segundos": 1.6}
+{"sistema": "Fujita_SciSignal2010", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.2941059531024245, "admisible": true, "segundos": 89.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.19670655245681531, "admisible": true, "segundos": 28.6}
+{"sistema": "Rahman_MBS2016", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.1124470330487725, "admisible": true, "segundos": 1.6}
+{"sistema": "Rahman_MBS2016", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.19899103114609418, "admisible": true, "segundos": 1.4}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.1596249362020834, "admisible": true, "segundos": 27.4}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.1419786485715761, "admisible": true, "segundos": 28.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "empty", "prueba": "adm", "eajuste_med": 0.07550571810255804, "admisible": false, "segundos": 7.2}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.059191570104062084, "admisible": true, "segundos": 16.6}
+{"sistema": "Raia_CancerResearch2011", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.047962705663745664, "admisible": true, "segundos": 17.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.03301667474966372, "admisible": true, "segundos": 20.3}
+{"sistema": "Raia_CancerResearch2011", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.03353433711103641, "admisible": true, "segundos": 20.1}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.0177553580410496, "admisible": true, "segundos": 13.4}
+{"sistema": "Raia_CancerResearch2011", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.03301667474966372, "admisible": true, "segundos": 21.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.055295737700363244, "admisible": true, "segundos": 21.9}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.05127571114815703, "admisible": true, "segundos": 25.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.024651005922492003, "admisible": true, "segundos": 25.1}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.04154143701295553, "admisible": true, "segundos": 26.6}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.04104393711347931, "admisible": true, "segundos": 26.1}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.03615288404718517, "admisible": true, "segundos": 26.3}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.04143975353302295, "admisible": true, "segundos": 28.7}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.1772518296284279, "admisible": true, "segundos": 117.4}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.0547789679795802, "admisible": true, "segundos": 13.2}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.05643891003025745, "admisible": true, "segundos": 30.4}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.048028507480049346, "admisible": true, "segundos": 17.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.050024728690397875, "admisible": true, "segundos": 15.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.05717460317091135, "admisible": true, "segundos": 15.3}
+{"sistema": "Raia_CancerResearch2011", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.06046452890454628, "admisible": true, "segundos": 36.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 5.9}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.05717460317091135, "admisible": true, "segundos": 15.7}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.055295737700363244, "admisible": true, "segundos": 39.1}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.058786831871293514, "admisible": true, "segundos": 40.6}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.05909890668035405, "admisible": true, "segundos": 21.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.05524563471796517, "admisible": true, "segundos": 25.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.18706001871564362, "admisible": true, "segundos": 20.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.03459950331035391, "admisible": true, "segundos": 25.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.3982780953246794, "admisible": true, "segundos": 20.5}
+{"sistema": "Raia_CancerResearch2011", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.04143975353302295, "admisible": true, "segundos": 29.1}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.2888636144745802, "admisible": true, "segundos": 21.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.18706001871564362, "admisible": true, "segundos": 29.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.23455081576446735, "admisible": true, "segundos": 21.0}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.2888636144745802, "admisible": true, "segundos": 22.2}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.07730602149733602, "admisible": true, "segundos": 1741.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.18706001871564362, "admisible": true, "segundos": 34.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.5201132842780738, "admisible": false, "segundos": 40.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.5201132842780738, "admisible": false, "segundos": 41.6}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.3982780953246794, "admisible": true, "segundos": 18.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.3982780953246794, "admisible": true, "segundos": 32.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.3658617238626659, "admisible": true, "segundos": 19.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.31378459002522063, "admisible": true, "segundos": 35.9}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.2354424161327057, "admisible": true, "segundos": 36.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.18706001871564362, "admisible": true, "segundos": 16.8}
+{"sistema": "Sneyd_PNAS2002", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.2354424161327057, "admisible": true, "segundos": 18.4}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.9017622942467579, "admisible": false, "segundos": 6.6}
+{"sistema": "Sneyd_PNAS2002", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.49671461162066216, "admisible": false, "segundos": 5.5}
+{"sistema": "Sneyd_PNAS2002", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.6821142159840797, "admisible": false, "segundos": 5.4}
+{"sistema": "Sneyd_PNAS2002", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.38116117929648846, "admisible": true, "segundos": 10.0}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.3982780953246794, "admisible": true, "segundos": 18.4}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.3658617238626659, "admisible": true, "segundos": 35.9}
+{"sistema": "Sneyd_PNAS2002", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.7356011108645956, "admisible": false, "segundos": 10.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.897210918656108, "admisible": false, "segundos": 6.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.38116117929648846, "admisible": true, "segundos": 10.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.2888636144745802, "admisible": true, "segundos": 39.0}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.6525616252801671, "admisible": false, "segundos": 8.6}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.9998961153520669, "admisible": false, "segundos": 6.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.829007016243922, "admisible": false, "segundos": 9.0}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.8007746279749812, "admisible": false, "segundos": 6.6}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.23448869374634201, "admisible": true, "segundos": 38.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.4743736896013075, "admisible": false, "segundos": 6.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.6525616252801671, "admisible": false, "segundos": 8.6}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.9999971080752519, "admisible": false, "segundos": 5.7}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.6996403860507281, "admisible": false, "segundos": 9.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.4747000463436204, "admisible": false, "segundos": 5.8}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.7766877153048921, "admisible": false, "segundos": 6.7}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.2955629445655794, "admisible": true, "segundos": 2.9}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.35339616131998536, "admisible": true, "segundos": 37.6}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.3653907795837328, "admisible": true, "segundos": 5.0}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.31378459002522063, "admisible": true, "segundos": 32.3}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.8976100673235251, "admisible": false, "segundos": 6.6}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.4746947089585826, "admisible": false, "segundos": 5.5}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.4464523461061172, "admisible": false, "segundos": 11.1}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.9999642872762038, "admisible": false, "segundos": 10.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.44134002363119174, "admisible": false, "segundos": 3.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.6996403860507281, "admisible": false, "segundos": 5.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.18706001871564362, "admisible": true, "segundos": 36.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.4376814742208053, "admisible": false, "segundos": 3.0}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.9695193583828522, "admisible": false, "segundos": 4.9}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.7973137426298651, "admisible": false, "segundos": 9.8}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.6077825464665473, "admisible": false, "segundos": 3.1}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.34142206348736076, "admisible": true, "segundos": 2.8}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.46322632064052216, "admisible": false, "segundos": 3.0}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.49365635359613946, "admisible": false, "segundos": 2.9}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.9633261514118382, "admisible": false, "segundos": 2.5}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.48460351385266487, "admisible": false, "segundos": 3.0}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.9746685600056787, "admisible": false, "segundos": 4.8}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.5062455891365498, "admisible": false, "segundos": 3.2}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.8875349055378149, "admisible": false, "segundos": 14.8}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.9013273806708718, "admisible": false, "segundos": 2.5}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.6150133998321923, "admisible": false, "segundos": 2.9}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.9802858530222366, "admisible": false, "segundos": 4.7}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.44136881628613067, "admisible": false, "segundos": 2.8}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.4379250077295682, "admisible": false, "segundos": 5.4}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.4424106222938523, "admisible": false, "segundos": 2.9}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.9139300593389349, "admisible": false, "segundos": 4.4}
+{"sistema": "Sneyd_PNAS2002", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.8839962323403727, "admisible": false, "segundos": 15.5}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.9184783696337311, "admisible": false, "segundos": 4.9}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.47053890426919176, "admisible": false, "segundos": 3.3}
+{"sistema": "Zheng_PNAS2012", "metodo": "empty", "prueba": "adm", "eajuste_med": 1.0, "admisible": false, "segundos": 0.4}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.6174888475377646, "admisible": false, "segundos": 4.5}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.9898592902202693, "admisible": false, "segundos": 2.7}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.6050478639709126, "admisible": false, "segundos": 5.0}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.6967917819737489, "admisible": false, "segundos": 3.4}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.5170281848818562, "admisible": false, "segundos": 5.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.29153213840954767, "admisible": true, "segundos": 3.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.9304914048785717, "admisible": false, "segundos": 3.8}
+{"sistema": "Zhao_QuantBiol2020", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.5081453395959948, "admisible": false, "segundos": 4.9}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.9998494738394296, "admisible": false, "segundos": 1.9}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.9293645481763539, "admisible": false, "segundos": 3.6}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.9629860023738294, "admisible": false, "segundos": 3.8}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.9123397794611662, "admisible": false, "segundos": 3.9}
+{"sistema": "Zheng_PNAS2012", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.300354127024743, "admisible": true, "segundos": 6.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.9996306049875003, "admisible": false, "segundos": 4.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.9425464272542448, "admisible": false, "segundos": 4.0}
+{"sistema": "Zheng_PNAS2012", "metodo": "brun", "prueba": "adm", "eajuste_med": 0.2936577721768684, "admisible": true, "segundos": 6.3}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.9996333700366526, "admisible": false, "segundos": 4.5}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand11", "prueba": "adm", "eajuste_med": 0.6969530498392359, "admisible": false, "segundos": 3.3}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.31378459002522063, "admisible": true, "segundos": 61.7}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.9362282008791286, "admisible": false, "segundos": 3.6}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.9999065092573675, "admisible": false, "segundos": 2.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "perfil", "prueba": "adm", "eajuste_med": 0.6711672165218272, "admisible": false, "segundos": 6.6}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.947207386008467, "admisible": false, "segundos": 4.6}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand12", "prueba": "adm", "eajuste_med": 0.999796461807268, "admisible": false, "segundos": 4.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.950697094474044, "admisible": false, "segundos": 6.7}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.7026666921040302, "admisible": false, "segundos": 3.1}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.7247565996697544, "admisible": false, "segundos": 3.0}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.9629007892482535, "admisible": false, "segundos": 3.9}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.9769520176769508, "admisible": false, "segundos": 3.0}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand1", "prueba": "adm", "eajuste_med": 0.7165593630878788, "admisible": false, "segundos": 7.6}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.9628396223015392, "admisible": false, "segundos": 4.2}
+{"sistema": "Zheng_PNAS2012", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.7945822113734923, "admisible": false, "segundos": 5.7}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.29636580818508373, "admisible": true, "segundos": 49.9}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.26830417533667017, "admisible": true, "segundos": 200.2}
+{"sistema": "Fujita_SciSignal2010", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.1772518296284279, "admisible": true, "segundos": 203.5}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.2344886937464292, "admisible": true, "segundos": 51.5}
+{"sistema": "Fujita_SciSignal2010", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.26780062885410844, "admisible": true, "segundos": 211.5}
+{"sistema": "Fujita_SciSignal2010", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.26830417533667017, "admisible": true, "segundos": 212.0}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand9", "prueba": "adm", "eajuste_med": 0.08500347617117664, "admisible": true, "segundos": 1808.8}
+{"sistema": "Schwen_PONE2014", "metodo": "rand8", "prueba": "adm", "eajuste_med": 0.1998375846820884, "admisible": true, "segundos": 500.3}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr_gks", "prueba": "adm", "eajuste_med": 0.11054582118713766, "admisible": true, "segundos": 1857.3}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "ours", "prueba": "adm", "eajuste_med": 0.07772293329608652, "admisible": true, "segundos": 1880.6}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "morris", "prueba": "adm", "eajuste_med": 0.07737369636803927, "admisible": true, "segundos": 1927.4}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand14", "prueba": "adm", "eajuste_med": 0.08037064875535685, "admisible": true, "segundos": 2014.6}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand6", "prueba": "adm", "eajuste_med": 0.07643329944083008, "admisible": true, "segundos": 2030.6}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand19", "prueba": "adm", "eajuste_med": 0.07643329944083008, "admisible": true, "segundos": 2075.3}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand3", "prueba": "adm", "eajuste_med": 0.08448771642123903, "admisible": true, "segundos": 2170.5}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "qr", "prueba": "adm", "eajuste_med": 0.08500347617117664, "admisible": true, "segundos": 2200.1}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand16", "prueba": "adm", "eajuste_med": 0.08476367395441001, "admisible": true, "segundos": 2205.2}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand15", "prueba": "adm", "eajuste_med": 0.09148460125269148, "admisible": true, "segundos": 2261.3}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand18", "prueba": "adm", "eajuste_med": 0.08500347617117664, "admisible": true, "segundos": 2283.4}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand2", "prueba": "adm", "eajuste_med": 0.12496672927881512, "admisible": true, "segundos": 2295.4}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand0", "prueba": "adm", "eajuste_med": 0.093766115628468, "admisible": true, "segundos": 2295.5}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand5", "prueba": "adm", "eajuste_med": 0.093766115628468, "admisible": true, "segundos": 2315.7}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand13", "prueba": "adm", "eajuste_med": 0.10161461510266402, "admisible": true, "segundos": 2331.6}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand17", "prueba": "adm", "eajuste_med": 0.09148460125269148, "admisible": true, "segundos": 2446.9}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand4", "prueba": "adm", "eajuste_med": 0.07076266233774746, "admisible": true, "segundos": 2606.2}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand7", "prueba": "adm", "eajuste_med": 0.07084942341043249, "admisible": true, "segundos": 2631.4}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "rand10", "prueba": "adm", "eajuste_med": 0.0719534600030112, "admisible": true, "segundos": 2678.7}
+Done.

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "semilla": 42,
+ "familia": "dispersa",
+ "senal_rms_test": 1.3190174533125443,
+ "B_chi2_test_theta0": 2.6510037650690768,
+ "B_chi2_test_red": 2.0606080828032685,
+ "B_epred_red": 0.7792902961225423,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 708.8
+}

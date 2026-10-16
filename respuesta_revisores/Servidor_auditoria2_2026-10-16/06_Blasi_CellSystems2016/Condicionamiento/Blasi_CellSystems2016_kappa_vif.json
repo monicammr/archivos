@@ -1,0 +1,15 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "S": [
+  "a_basal",
+  "a_k16_k12k16"
+ ],
+ "kappa_centred": 1.7637884290480006,
+ "VIF_centred": 1.358098719788541,
+ "kappa_unit": 2.6358776749116415,
+ "VIF_unit": 2.272945127742531,
+ "kappa_unit_with_calibration": 2.6358776749116415,
+ "VIF_unit_with_calibration": 2.272945127742531,
+ "kappa_selection_json": 1.7637884290480006,
+ "VIF_selection_json": 1.358098719788541
+}

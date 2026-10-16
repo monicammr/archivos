@@ -1,0 +1,20 @@
+{
+ "S": [
+  "behavioural_change_rate",
+  "treated_moderate_improve_rate"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.4904505278571617,
+ "erel_med": 0.9899364435549136,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "rand10",
+ "prueba": "adm",
+ "segundos": 1.1
+}

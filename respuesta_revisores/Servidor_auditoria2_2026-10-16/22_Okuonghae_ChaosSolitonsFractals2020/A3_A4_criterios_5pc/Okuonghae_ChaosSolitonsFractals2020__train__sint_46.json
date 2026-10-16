@@ -1,0 +1,16 @@
+{
+ "S": [
+  "transmission_rate_effective",
+  "symptomatic_start"
+ ],
+ "semilla": 46,
+ "familia": "uniforme",
+ "senal_rms_test": 215.81722166139215,
+ "B_chi2_test_theta0": 46645.62820818124,
+ "B_chi2_test_red": 558.12162876508,
+ "B_epred_red": 0.10902624549076194,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.4
+}

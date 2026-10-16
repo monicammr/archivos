@@ -1,0 +1,15 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "beta_0",
+  "h_hosp_rate"
+ ],
+ "kappa_centred": 1.2268878751433,
+ "VIF_centred": 1.0423984067227519,
+ "kappa_unit": 1.023125207710531,
+ "VIF_unit": 1.0005227562645986,
+ "kappa_unit_with_calibration": 1.023125207710531,
+ "VIF_unit_with_calibration": 1.0005227562645986,
+ "kappa_selection_json": 1.2268878751433,
+ "VIF_selection_json": 1.0423984067227519
+}

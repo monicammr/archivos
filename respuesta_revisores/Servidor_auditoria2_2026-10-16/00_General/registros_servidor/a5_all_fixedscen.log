@@ -1,0 +1,262 @@
+== Bertozzi_PNAS2020
+== Bachmann_MSB2011
+== Alkan_SciSignal2018
+== Armistead_CellDeathDis2024
+== Beer_MolBioSystems2014
+== Boehm_JProteomeRes2014
+== Blasi_CellSystems2016
+== Borghans_BiophysChem1997
+  J: 0 columns already done, 101 to go
+{"sistema": "Bertozzi_PNAS2020", "p": 8, "outputs": "all", "fixed_scenarios": true, "n_rows": 22, "S1": ["R0_NY", "I0_NY", "R0_CA"], "Rvar_S1_%": 85.53154087011889, "S1_cumple": false, "etapa": "Stage 2", "S": ["R0_NY", "I0_NY"], "Rvar_%": 77.94535188688087, "kappa": 3.9079961707672064, "VIF": 4.334477879556751, "cos_med": 0.9172011521323531, "erel_med": 0.5846764138313009, "n_escenarios": 15, "S_antes_poda": ["R0_NY", "I0_NY"], "podados": [], "eajuste_med": 0.3291003004368945, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["R0_NY", "I0_NY", true]]}, "segundos": 1.7}
+  J: 0 columns already done, 44 to go
+{"sistema": "Armistead_CellDeathDis2024", "p": 14, "outputs": "all", "fixed_scenarios": true, "n_rows": 58, "S1": ["k_d", "k00", "k2", "alpha_cer", "k3"], "Rvar_S1_%": 69.39073141373686, "S1_cumple": false, "etapa": "Stage 2", "S": ["k_d", "k00"], "Rvar_%": 58.289690646919446, "kappa": 1.0031187307515856, "VIF": 1.0000096962650384, "cos_med": 0.8071083027311279, "erel_med": 0.6036238734707986, "n_escenarios": 15, "S_antes_poda": ["k_d", "k00"], "podados": [], "eajuste_med": 0.33026237168959055, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["k_d", "k00", true]]}, "segundos": 1.9}
+  J: 1/101 columns
+  J: 11/101 columns
+  J: 21/101 columns
+  J: 31/101 columns
+  J: 41/101 columns
+  J: 51/101 columns
+  J: 61/101 columns
+  J: 71/101 columns
+== Brannmark_JBC2010
+{"sistema": "Boehm_JProteomeRes2014", "p": 9, "outputs": "all", "fixed_scenarios": true, "n_rows": 48, "S1": ["k_imp_hetero", "k_phos", "k_exp_homo", "k_exp_hetero", "k_imp_homo"], "Rvar_S1_%": 69.27769487778755, "S1_cumple": false, "etapa": "Stage 2", "S": ["k_imp_hetero", "k_phos"], "Rvar_%": 68.25917041521744, "kappa": 1.0197597617127536, "VIF": 1.0003829191654263, "cos_med": 0.9271771389230133, "erel_med": 0.6000118599041862, "n_escenarios": 15, "S_antes_poda": ["k_imp_hetero", "k_phos"], "podados": [], "eajuste_med": 0.0935348340647396, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["k_imp_hetero", "k_phos", true]]}, "segundos": 3.3}
+== Bruno_JExpBot2016
+  J: 81/101 columns
+  J: 91/101 columns
+  J: 101/101 columns
+{"sistema": "Blasi_CellSystems2016", "p": 9, "outputs": "all", "fixed_scenarios": true, "n_rows": 252, "S1": ["a_basal", "a_k16_k12k16", "a_k12k16_k8k12k16", "a_k5k12_k5k8k12", "a_k8k12k16_4ac"], "Rvar_S1_%": 92.89834680898389, "S1_cumple": true, "cos_S1": 0.9788826098651361, "erel_S1": 0.2107102196976061, "etapa": "Stage 1", "S": ["a_basal", "a_k16_k12k16"], "Rvar_%": 78.98630043658068, "kappa": 1.7637884290480006, "VIF": 1.358098719788541, "cos_med": 0.9143903998849273, "erel_med": 0.4053623309131062, "n_escenarios": 15, "S_antes_poda": ["a_basal", "a_k16_k12k16", "a_k12k16_k8k12k16", "a_k5k12_k5k8k12", "a_k8k12k16_4ac"], "podados": ["a_k12k16_k8k12k16", "a_k5k12_k5k8k12", "a_k8k12k16_4ac"], "eajuste_med": 0.4023514304922723, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 4, "nested_pairs": 6, "violations": 0, "subsets": [["a_basal", "a_k16_k12k16", "a_k12k16_k8k12k16", "a_k5k12_k5k8k12", "a_k8k12k16_4ac", true], ["a_basal", "a_k16_k12k16", "a_k12k16_k8k12k16", "a_k5k12_k5k8k12", true], ["a_basal", "a_k16_k12k16", true], ["a_basal", "a_k16_k12k16", "a_k12k16_k8k12k16", true]]}, "segundos": 4.3}
+== Chen_MSB2009
+== Crauste_CellSystems2017
+  J: 1/44 columns
+  J: 11/44 columns
+  finite effects: 1/27
+  finite effects: 11/27
+  finite effects: 21/27
+  J: 21/44 columns
+  J: 31/44 columns
+  J: 41/44 columns
+{"sistema": "Bachmann_MSB2011", "p": 113, "outputs": "all", "fixed_scenarios": true, "n_rows": 541, "S1": ["CISRNADelay", "JAK2ActEpo", "EpoRActJAK2", "STAT5Imp", "STAT5Exp", "JAK2EpoRDeaSHP1", "CISTurn", "STAT5ActJAK2", "SOCS3EqcOE", "init_SHP1", "SOCS3RNATurn", "CISEqc", "SHP1ProOE", "SHP1Dea", "SOCS3Inh", "SOCS3Eqc", "init_STAT5", "CISEqcOE", "SOCS3RNADelay", "EpoRCISRemove", "init_EpoRJAK2", "SOCS3Turn"], "Rvar_S1_%": 87.36799056877945, "S1_cumple": false, "etapa": "Stage 2", "S": ["CISRNADelay", "JAK2ActEpo"], "Rvar_%": 36.04097027381666, "kappa": 2.8265235251614973, "VIF": 2.528600916081591, "cos_med": 0.8524494574548724, "erel_med": 0.526782649040973, "n_escenarios": 15, "S_antes_poda": ["CISRNADelay", "JAK2ActEpo"], "podados": [], "eajuste_med": 0.33709717294038816, "admisible": true, "calibracion": ["offset_CIS_actd", "offset_CIS_cisoe", "offset_CIS_long", "offset_CIS_shp1oe", "offset_CIS_socs3oe", "offset_SOCS3_cisoe", "offset_SOCS3_long", "offset_SOCS3_socs3oe", "offset_pEpoR_actd", "offset_pEpoR_cisoe", "offset_pEpoR_cisoe_pepor", "offset_pEpoR_dr30", "offset_pEpoR_dr7", "offset_pEpoR_fine", "offset_pEpoR_long", "offset_pEpoR_shp1oe", "offset_pEpoR_socs3oe", "offset_pJAK2_actd", "offset_pJAK2_cisoe", "offset_pJAK2_dr30", "offset_pJAK2_dr7", "offset_pJAK2_fine", "offset_pJAK2_long", "offset_pJAK2_shp1oe", "offset_pJAK2_socs3oe", "offset_pSTAT5_actd", "offset_pSTAT5_cisoe", "offset_pSTAT5_conc", "offset_pSTAT5_long", "offset_pSTAT5_shp1oe", "offset_pSTAT5_socs3oe", "scale1_CIS_dr90", "scale2_CIS_dr90", "scale_CISRNA_foldA", "scale_CISRNA_foldB", "scale_CISRNA_foldC", "scale_CIS_actd", "scale_CIS_cisoe", "scale_CIS_long", "scale_CIS_shp1oe", "scale_CIS_socs3oe", "scale_SHP1_shp1oe", "scale_SOCS3RNA_foldA", "scale_SOCS3RNA_foldB", "scale_SOCS3RNA_foldC", "scale_SOCS3_cisoe", "scale_SOCS3_long", "scale_SOCS3_socs3oe", "scale_pEpoR_actd", "scale_pEpoR_cisoe", "scale_pEpoR_cisoe_pepor", "scale_pEpoR_dr30", "scale_pEpoR_dr7", "scale_pEpoR_fine", "scale_pEpoR_long", "scale_pEpoR_shp1oe", "scale_pEpoR_socs3oe", "scale_pJAK2_actd", "scale_pJAK2_cisoe", "scale_pJAK2_dr30", "scale_pJAK2_dr7", "scale_pJAK2_fine", "scale_pJAK2_long", "scale_pJAK2_shp1oe", "scale_pJAK2_socs3oe", "scale_pSTAT5_actd", "scale_pSTAT5_cisoe", "scale_pSTAT5_dr10", "scale_pSTAT5_long", "scale_pSTAT5_shp1oe", "scale_pSTAT5_socs3oe", "scale_tSTAT5_actd", "scale_tSTAT5_long", "scale_tSTAT5_shp1oe"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["CISRNADelay", "JAK2ActEpo", true]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 10.2}
+== Elowitz_Nature2000
+  J: 0 columns already done, 70 to go
+{"sistema": "Elowitz_Nature2000", "p": 21, "outputs": "all", "fixed_scenarios": true, "n_rows": 58, "S1": ["n_Hill", "tau_mRNA", "tau_prot", "tau_prot_GFP", "eff"], "Rvar_S1_%": 91.38135065650587, "S1_cumple": true, "cos_S1": 0.9633429671664109, "erel_S1": 0.36737859877896917, "etapa": "Stage 1", "S": ["n_Hill", "tau_mRNA"], "Rvar_%": 70.19966674305103, "kappa": 2.863743013879168, "VIF": 2.5807400102971263, "cos_med": 0.8866612460078399, "erel_med": 0.6479298030496355, "n_escenarios": 15, "S_antes_poda": ["n_Hill", "tau_mRNA", "tau_prot", "tau_prot_GFP", "eff"], "podados": ["tau_prot", "tau_prot_GFP", "eff"], "eajuste_med": 0.3584572949196713, "admisible": true, "calibracion": ["background", "scale"], "monotonia": {"subsets_evaluated": 4, "nested_pairs": 6, "violations": 0, "subsets": [["n_Hill", "tau_mRNA", "tau_prot", "tau_prot_GFP", "eff", true], ["n_Hill", "tau_mRNA", "tau_prot", "tau_prot_GFP", true], ["n_Hill", "tau_mRNA", true], ["n_Hill", "tau_mRNA", "tau_prot", true]]}, "segundos": 5.3}
+== Fiedler_BMCSystBiol2016
+{"sistema": "Borghans_BiophysChem1997", "p": 23, "outputs": "all", "fixed_scenarios": true, "n_rows": 111, "S1": ["v1", "Vm2", "Kz", "K_par", "v0", "Kf", "Ka"], "Rvar_S1_%": 66.87025486100303, "S1_cumple": false, "etapa": "Stage 2", "S": ["Kz", "K_par"], "Rvar_%": 21.497197933006042, "kappa": 2.7383292700373025, "VIF": 2.4079520339209495, "cos_med": 0.8602699355678163, "erel_med": 0.5105002625269818, "n_escenarios": 15, "S_antes_poda": ["Kz", "K_par"], "podados": [], "eajuste_med": 0.04342311800097633, "admisible": true, "calibracion": ["offset", "scale"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["Kz", "K_par", true]]}, "segundos": 18.6}
+== Fujita_SciSignal2010
+{"sistema": "Brannmark_JBC2010", "p": 22, "outputs": "all", "fixed_scenarios": true, "n_rows": 43, "S1": ["k1f", "km2", "km3", "k1a", "k_IRSiP_DosR", "k1r", "k1b", "k1e"], "Rvar_S1_%": 42.396495221119565, "S1_cumple": false, "etapa": "Stage 2", "S": ["k1f", "km2"], "Rvar_%": 32.39111249000821, "kappa": 1.8623618174594274, "VIF": 1.4391774055575184, "cos_med": 0.8542719811561553, "erel_med": 0.6736228182247616, "n_escenarios": 15, "S_antes_poda": ["k1f", "km2"], "podados": [], "eajuste_med": 0.07806330274521281, "admisible": true, "calibracion": ["k_IRP_1Step", "k_IRSiP_1Step", "k_IRSiP_2Step"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["k1f", "km2", true]]}, "segundos": 17.9}
+{"sistema": "Bruno_JExpBot2016", "p": 13, "outputs": "all", "fixed_scenarios": true, "n_rows": 77, "S1": ["kb1", "init_bcar2", "init_zea_1", "init_bcar1", "szea", "init_bcry_1", "init_b10_1"], "Rvar_S1_%": 89.02301695103338, "S1_cumple": true, "cos_S1": 0.9537463860075475, "erel_S1": 0.3045597379055639, "etapa": "Stage 1", "S": ["kb1", "init_bcar2", "init_zea_1", "init_bcar1", "init_bcry_1"], "Rvar_%": 74.68364468783348, "kappa": 2.2580326528815435, "VIF": 1.5663014175786354, "cos_med": 0.9042430876704673, "erel_med": 0.4599367835266773, "n_escenarios": 15, "S_antes_poda": ["kb1", "init_bcar2", "init_zea_1", "init_bcar1", "szea", "init_bcry_1", "init_b10_1"], "podados": ["szea", "init_b10_1"], "eajuste_med": 0.37768533591236003, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 9, "nested_pairs": 21, "violations": 0, "subsets": [["kb1", "init_bcar2", "init_zea_1", "init_bcar1", "szea", "init_bcry_1", "init_b10_1", true], ["kb1", "init_zea_1", "init_bcar1", "init_bcry_1", false], ["kb1", "init_bcar2", "init_zea_1", "init_bcar1", "init_bcry_1", true], ["kb1", "init_bcar2", "init_zea_1", "init_bcar1", "szea", false], ["kb1", "init_bcar2", "init_zea_1", "init_bcar1", "szea", "init_bcry_1", true], ["init_bcar2", "init_zea_1", "init_bcar1", "init_bcry_1", false], ["kb1", "init_bcar2", "init_zea_1", "init_bcry_1", false], ["kb1", "init_bcar2", "init_bcar1", "init_bcry_1", false], ["kb1", "init_bcar2", "init_zea_1", "init_bcar1", false]]}, "segundos": 18.3}
+== Giordano_Nature2020
+== Isensee_JCB2018
+  J: 1/70 columns
+  J: 11/70 columns
+{"sistema": "Fiedler_BMCSystBiol2016", "p": 22, "outputs": "all", "fixed_scenarios": true, "n_rows": 72, "S1": ["tau2", "k6", "k3", "k4", "K_2"], "Rvar_S1_%": 57.001728319102384, "S1_cumple": false, "etapa": "Stage 2", "S": ["tau2", "k6"], "Rvar_%": 42.24269131502166, "kappa": 1.5155072353949903, "VIF": 1.1830394290619781, "cos_med": 0.8745042095346391, "erel_med": 0.5843954665827433, "n_escenarios": 15, "S_antes_poda": ["tau2", "k6"], "podados": [], "eajuste_med": 0.14720530335263396, "admisible": true, "calibracion": ["s_pErk_20140430_gel1", "s_pErk_20140430_gel2", "s_pErk_20140505_gel1", "s_pErk_20140505_gel2", "s_pMek_20140430_gel1", "s_pMek_20140430_gel2", "s_pMek_20140505_gel1", "s_pMek_20140505_gel2"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["tau2", "k6", true]]}, "segundos": 7.4}
+== Lang_PLOSComputBiol2024
+{"sistema": "Giordano_Nature2020", "p": 50, "outputs": "all", "fixed_scenarios": true, "n_rows": 313, "S1": ["alpha_4", "alpha_28", "zeta_22", "rho_22", "nu_22", "rho_38", "eta_38", "rho_0", "nu_0"], "Rvar_S1_%": 73.61001332492147, "S1_cumple": false, "etapa": "Stage 2", "S": ["alpha_4", "alpha_28"], "Rvar_%": 73.57903431014375, "kappa": 3.6678200135281247, "VIF": 3.881809261640121, "cos_med": 0.9674626197095865, "erel_med": 1.0832184796172433, "n_escenarios": 15, "S_antes_poda": ["alpha_4", "alpha_28"], "podados": [], "eajuste_med": 0.05750445056487047, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["alpha_4", "alpha_28", true]]}, "segundos": 4.9}
+{"sistema": "Alkan_SciSignal2018", "p": 44, "outputs": "all", "fixed_scenarios": true, "n_rows": 1733, "S1": ["kt", "k_rep_nhej"], "Rvar_S1_%": 94.31242991504705, "S1_cumple": true, "cos_S1": 0.9804640854863386, "erel_S1": 0.19916572871277483, "etapa": "Stage 1", "S": ["kt", "k_rep_nhej"], "Rvar_%": 94.31242991504705, "kappa": 1.3267416508753669, "VIF": 1.0820866644039628, "cos_med": 0.9804640854863386, "erel_med": 0.19916572871277483, "n_escenarios": 15, "S_antes_poda": ["kt", "k_rep_nhej"], "podados": [], "eajuste_med": 0.12125916557504031, "admisible": true, "calibracion": ["scale_p21_mRNA_fold", "scale_patm_au", "scale_pchk1_au", "scale_pchk2_au", "scale_pdnapk_au", "scale_pp53_au", "scale_tp21_au", "scale_tp53_au", "scale_wip1_mRNA_fold", "scale_yh2ax_au"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["kt", "k_rep_nhej", true]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 27.2}
+  J: 21/70 columns
+  J: 31/70 columns
+== Laske_PLOSComputBiol2019
+== Liu_IFACPapersOnLine2025
+{"sistema": "Crauste_CellSystems2017", "p": 12, "outputs": "all", "fixed_scenarios": true, "n_rows": 21, "S1": ["mu_P"], "Rvar_S1_%": 88.02408356840603, "S1_cumple": false, "etapa": "Stage 2", "S": ["rho_E"], "Rvar_%": 0.0, "kappa": 1.0, "VIF": 1.0, "cos_med": 0.03534569145539601, "erel_med": Infinity, "n_escenarios": 8, "S_antes_poda": ["rho_E"], "podados": [], "eajuste_med": 0.9516930384478459, "admisible": false, "calibracion": [], "monotonia": {"subsets_evaluated": 0, "nested_pairs": 0, "violations": 0, "subsets": []}, "segundos": 24.8}
+  J: 41/70 columns
+== Lucarelli_CellSystems2018
+  J: 51/70 columns
+  J: 61/70 columns
+  J: 0 columns already done, 72 to go
+{"sistema": "Liu_IFACPapersOnLine2025", "p": 9, "outputs": "all", "fixed_scenarios": true, "n_rows": 100, "S1": ["kappa", "phi", "delta"], "Rvar_S1_%": 81.08545847850493, "S1_cumple": false, "etapa": "Stage 2", "S": ["kappa", "phi"], "Rvar_%": 80.70250830202201, "kappa": 1.2940850278202445, "VIF": 1.0679483998737394, "cos_med": 0.9229459014117455, "erel_med": 0.4738419313569642, "n_escenarios": 15, "S_antes_poda": ["kappa", "phi"], "podados": [], "eajuste_med": 0.261302125089092, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["kappa", "phi", true]]}, "segundos": 5.9}
+  J: 1/72 columns
+  J: 11/72 columns
+  J: 21/72 columns
+== Okuonghae_ChaosSolitonsFractals2020
+  J: 31/72 columns
+  J: 41/72 columns
+  J: 51/72 columns
+  J: 61/72 columns
+  J: 71/72 columns
+  J: 0 columns already done, 277 to go
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "p": 16, "outputs": "all", "fixed_scenarios": true, "n_rows": 92, "S1": ["transmission_rate_effective", "gamma_i"], "Rvar_S1_%": 52.77065138114233, "S1_cumple": false, "etapa": "Stage 2", "S": ["transmission_rate_effective", "gamma_i"], "Rvar_%": 52.77065138114233, "kappa": 1.3446988459481894, "VIF": 1.090311642838649, "cos_med": 0.9982668693326272, "erel_med": 0.7486028043788497, "n_escenarios": 15, "S_antes_poda": ["transmission_rate_effective", "gamma_i"], "podados": [], "eajuste_med": 0.04108488654646083, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["transmission_rate_effective", "gamma_i", true]]}, "segundos": 3.3}
+== Oliveira_NatCommun2021
+  finite effects: 1/72
+  finite effects: 11/72
+  finite effects: 21/72
+  finite effects: 31/72
+  finite effects: 41/72
+  finite effects: 51/72
+  finite effects: 61/72
+  finite effects: 71/72
+{"sistema": "Oliveira_NatCommun2021", "p": 12, "outputs": "all", "fixed_scenarios": true, "n_rows": 120, "S1": ["beta_0", "h_hosp_rate"], "Rvar_S1_%": 46.716420282364155, "S1_cumple": false, "etapa": "Stage 2", "S": ["beta_0", "h_hosp_rate"], "Rvar_%": 46.716420282364155, "kappa": 1.2268878751433, "VIF": 1.0423984067227519, "cos_med": 0.9502423631154521, "erel_med": 1.3356989300505397, "n_escenarios": 15, "S_antes_poda": ["beta_0", "h_hosp_rate"], "podados": [], "eajuste_med": 0.12919945274698397, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["beta_0", "h_hosp_rate", true]]}, "segundos": 6.0}
+== Perelson_Science1996
+{"sistema": "Laske_PLOSComputBiol2019", "p": 13, "outputs": "all", "fixed_scenarios": true, "n_rows": 42, "S1": ["k_imp", "k_syn_R_M", "k_bind_M1"], "Rvar_S1_%": 94.48379363472628, "S1_cumple": true, "cos_S1": 0.9976392204523762, "erel_S1": 0.06887617300323995, "etapa": "Stage 1", "S": ["k_imp", "k_syn_R_M"], "Rvar_%": 84.47937843905132, "kappa": 1.4463828887882808, "VIF": 1.1425073931498066, "cos_med": 0.9904929154111961, "erel_med": 0.1377147563359455, "n_escenarios": 15, "S_antes_poda": ["k_imp", "k_syn_R_M", "k_bind_M1"], "podados": ["k_bind_M1"], "eajuste_med": 0.10099807710184461, "admisible": true, "calibracion": ["vRNA_offset", "Int_nuc_off"], "monotonia": {"subsets_evaluated": 2, "nested_pairs": 1, "violations": 0, "subsets": [["k_imp", "k_syn_R_M", true], ["k_imp", "k_syn_R_M", "k_bind_M1", true]]}, "segundos": 21.3}
+{"sistema": "Perelson_Science1996", "p": 3, "outputs": "all", "fixed_scenarios": true, "n_rows": 16, "S1": ["c", "delta"], "Rvar_S1_%": 100.0, "S1_cumple": true, "cos_S1": 0.9999999999999999, "erel_S1": 0.0, "etapa": "Stage 1", "S": ["c", "delta"], "Rvar_%": 100.0, "kappa": 1.904013969020102, "VIF": 1.475277694765487, "cos_med": 0.9999999999999999, "erel_med": 0.0, "n_escenarios": 2, "S_antes_poda": ["c", "delta"], "podados": [], "eajuste_med": 0.0, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["c", "delta", true]]}, "segundos": 1.4}
+== Rahman_MBS2016
+== Raia_CancerResearch2011
+{"sistema": "Rahman_MBS2016", "p": 9, "outputs": "all", "fixed_scenarios": true, "n_rows": 23, "S1": ["infected_moderate_transmission_rate", "infected_normal_worsen_rate", "treated_moderate_improve_rate"], "Rvar_S1_%": 59.751553089848365, "S1_cumple": false, "etapa": "Stage 2", "S": ["infected_moderate_transmission_rate", "infected_normal_worsen_rate"], "Rvar_%": 59.75155308980564, "kappa": 5.925107557861928, "VIF": 9.283846000391641, "cos_med": 0.9672077236980665, "erel_med": 0.702077334501909, "n_escenarios": 15, "S_antes_poda": ["infected_moderate_transmission_rate", "infected_normal_worsen_rate"], "podados": [], "eajuste_med": 0.03710102189562673, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["infected_moderate_transmission_rate", "infected_normal_worsen_rate", true]]}, "segundos": 1.5}
+  finite effects: 1/70
+== Raimundez_PCB2020
+  finite effects: 11/70
+  J: 0 columns already done, 43 to go
+  finite effects: 21/70
+  J: 0 columns already done, 136 to go
+  finite effects: 31/70
+  finite effects: 41/70
+  finite effects: 51/70
+  finite effects: 61/70
+[0m
+  J: 1/277 columns
+[0m
+{"sistema": "Lucarelli_CellSystems2018", "p": 84, "outputs": "all", "fixed_scenarios": true, "n_rows": 1755, "S1": ["init_Rec", "S2tot", "S_dephosphos", "S3tot", "S_phos", "geneF_turn", "k_234", "geneK_turn", "geneH_turn", "S4tot", "geneL_turn", "geneC_act1", "geneA_turn", "geneE_turn", "geneA_act1", "geneC_turn", "geneJ_turn", "geneF_act3"], "Rvar_S1_%": 68.74897735581283, "S1_cumple": false, "etapa": "Stage 2", "S": ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn"], "Rvar_%": 63.84383798984719, "kappa": 6.535310100253637, "VIF": 9.846532545697995, "cos_med": 0.8110126953777862, "erel_med": 0.5961991398667025, "n_escenarios": 15, "S_antes_poda": ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn"], "podados": [], "eajuste_med": 0.4354529716025804, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 18, "nested_pairs": 73, "violations": 0, "subsets": [["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "k_234", "geneK_turn", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "geneK_turn", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn", true], ["S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", false], ["init_Rec", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", false], ["init_Rec", "S2tot", "S3tot", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S_dephosphos", "S_phos", "geneF_turn", "k_234", "geneK_turn", "S4tot", "geneH_turn", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", "S_phos", false], ["init_Rec", "S2tot", "S3tot", "S_dephosphos", false], ["init_Rec", "S2tot", false]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 35.1}
+== SalazarCavazos_MBoC2020
+  J: 11/277 columns
+  J: 21/277 columns
+  J: 31/277 columns
+0m
+  J: 41/277 columns
+  J: 11/136 columns
+  J: 21/136 columns
+  J: 31/136 columns
+  J: 41/136 columns
+  J: 51/136 columns
+[0m
+{"sistema": "Fujita_SciSignal2010", "p": 19, "outputs": "all", "fixed_scenarios": true, "n_rows": 144, "S1": ["init_AKT", "reaction_6_k1", "reaction_4_k1", "reaction_3_k1", "reaction_8_k1", "reaction_5_k2"], "Rvar_S1_%": 50.92951986206011, "S1_cumple": false, "etapa": "Stage 2", "S": ["init_AKT", "reaction_6_k1"], "Rvar_%": 35.85703147077508, "kappa": 2.339300856286609, "VIF": 1.913766516023977, "cos_med": 0.765491772087893, "erel_med": 0.8071290267149046, "n_escenarios": 15, "S_antes_poda": ["init_AKT", "reaction_6_k1"], "podados": [], "eajuste_med": 0.2941059531024245, "admisible": true, "calibracion": ["scaling_pAkt_tot", "scaling_pEGFR_tot", "scaling_pS6_tot"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["init_AKT", "reaction_6_k1", true]]}, "segundos": 61.7}
+== Schwen_PONE2014
+  J: 51/277 columns
+0m
+  J: 61/136 columns
+{"sistema": "Raia_CancerResearch2011", "p": 39, "outputs": "all", "fixed_scenarios": true, "n_rows": 205, "S1": ["SOCS3mRNA_production", "init_Rec_i", "pRec_degradation", "CD274mRNA_production", "DecoyR_binding"], "Rvar_S1_%": 69.15871779377454, "S1_cumple": false, "etapa": "Stage 2", "S": ["SOCS3mRNA_production", "init_Rec_i"], "Rvar_%": 69.1401602505649, "kappa": 5.501461131530608, "VIF": 8.07477871891553, "cos_med": 0.9978387641650331, "erel_med": 0.3189069878951724, "n_escenarios": 15, "S_antes_poda": ["SOCS3mRNA_production", "init_Rec_i"], "podados": [], "eajuste_med": 0.03301667474966372, "admisible": true, "calibracion": ["scaling_CD274mRNA", "scaling_IL13_cell", "scaling_SOCS3mRNA", "scaling_pIL4Ra", "scaling_pJAK2"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["SOCS3mRNA_production", "init_Rec_i", true]]}, "segundos": 38.4}
+== Smith_BMCSystBiol2013
+  J: 71/136 columns
+  J: 81/136 columns
+  J: 91/136 columns
+[0m
+  J: 101/136 columns
+[0m
+  J: 61/277 columns
+  J: 111/136 columns
+  J: 71/277 columns
+0m
+0m
+  J: 0 columns already done, 155 to go
+  J: 81/277 columns
+  J: 91/277 columns
+{"sistema": "SalazarCavazos_MBoC2020", "p": 6, "outputs": "all", "fixed_scenarios": true, "n_rows": 18, "S1": ["ratio_kpkd_Y1068__FREE", "ratio_kpkd_YN__FREE", "GRB2_total__FREE"], "Rvar_S1_%": 84.65409018073566, "S1_cumple": false, "etapa": "Stage 2", "S": ["ratio_kpkd_Y1068__FREE", "ratio_kpkd_YN__FREE"], "Rvar_%": 83.63570181859889, "kappa": 5.427274422121799, "VIF": 7.8723143479451005, "cos_med": 0.9730421419117051, "erel_med": 0.4111149796804519, "n_escenarios": 15, "S_antes_poda": ["ratio_kpkd_Y1068__FREE", "ratio_kpkd_YN__FREE"], "podados": [], "eajuste_med": 0.18706001871564362, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["ratio_kpkd_Y1068__FREE", "ratio_kpkd_YN__FREE", true]]}, "segundos": 39.4}
+== Sneyd_PNAS2002
+  J: 121/136 columns
+  J: 131/136 columns
+  J: 101/277 columns
+{"sistema": "Sneyd_PNAS2002", "p": 15, "outputs": "all", "fixed_scenarios": true, "n_rows": 135, "S1": ["l4", "l2", "k4", "k_1", "k_3", "k2"], "Rvar_S1_%": 63.52308659867328, "S1_cumple": false, "etapa": "Stage 2", "S": ["l4", "l2"], "Rvar_%": 43.82794243659841, "kappa": 1.0708488831630785, "VIF": 1.0046929558218436, "cos_med": 0.8773208165057735, "erel_med": 0.5646323116564582, "n_escenarios": 15, "S_antes_poda": ["l4", "l2"], "podados": [], "eajuste_med": 0.38116117929648846, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["l4", "l2", true]]}, "segundos": 12.5}
+== Weber_BMC2015
+  J: 111/277 columns
+  J: 121/277 columns
+[0m
+  J: 131/277 columns
+0m
+0m
+  J: 141/277 columns
+  finite effects: 1/57
+0m
+  J: 151/277 columns
+  finite effects: 11/57
+  finite effects: 21/57
+  finite effects: 31/57
+  finite effects: 41/57
+0m
+  finite effects: 51/57
+{"sistema": "Weber_BMC2015", "p": 36, "outputs": "all", "fixed_scenarios": true, "n_rows": 135, "S1": ["a21", "s12", "p12"], "Rvar_S1_%": 25.457127323072626, "S1_cumple": false, "etapa": "Stage 2", "S": ["s12", "a21"], "Rvar_%": 24.722183011221595, "kappa": 3.7448124477205407, "VIF": 4.0237321328592195, "cos_med": 0.40683328968169874, "erel_med": 0.9262960331471597, "n_escenarios": 15, "S_antes_poda": ["s12", "a21"], "podados": [], "eajuste_med": 0.040700115456463605, "admisible": true, "calibracion": ["scale_yCERTpRN24", "scale_yPI4K3BpRN24", "scale_yPKDpN0", "scale_yPKDpN24", "scale_yPKDpN25"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["s12", "a21", true]]}, "segundos": 25.1}
+== Zhao_QuantBiol2020
+[0m
+{"sistema": "Beer_MolBioSystems2014", "p": 72, "outputs": "all", "fixed_scenarios": true, "n_rows": 27132, "S1": ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", "beta_typeIDT1_ExpID3", "kdim_typeIDwt", "ksyn_typeIDT5", "kdim_typeIDT5"], "Rvar_S1_%": 71.17344854284488, "S1_cumple": false, "etapa": "Stage 2", "S": ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", "beta_typeIDT1_ExpID3", "kdim_typeIDwt", "ksyn_typeIDT5", "kdim_typeIDT5"], "Rvar_%": 71.17344854284488, "kappa": 7.216932359303426, "VIF": 9.99750128321883, "cos_med": 0.8227403461410095, "erel_med": 0.5731413635508193, "n_escenarios": 15, "S_antes_poda": ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", "beta_typeIDT1_ExpID3", "kdim_typeIDwt", "ksyn_typeIDT5", "kdim_typeIDT5"], "podados": [], "eajuste_med": 0.5014169118354784, "admisible": false, "calibracion": [], "monotonia": {"subsets_evaluated": 17, "nested_pairs": 136, "violations": 0, "subsets": [["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", "beta_typeIDT1_ExpID3", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", "beta_typeIDT1_ExpID3", "kdim_typeIDwt", "ksyn_typeIDT5", "kdim_typeIDT5", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", "beta_typeIDT1_ExpID3", "kdim_typeIDwt", "ksyn_typeIDT5", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", "beta_typeIDT3_ExpID3", "beta_typeIDT3_ExpID5", "beta_typeIDT3_ExpID1", "beta_typeIDT3_ExpID4", "init_Bac", "beta_typeIDT1_ExpID6", "beta_typeIDT1_ExpID5", "beta_typeIDT1_ExpID1", "beta_typeIDT1_ExpID4", "beta_typeIDT1_ExpID3", "kdim_typeIDwt", false], ["kdegi_typeIDT1", "kdegi_typeIDT3", "ksyn_typeIDT3", "kdim_typeIDT1", "beta_typeIDT3_ExpID2", false]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 159.2}
+== Zheng_PNAS2012
+  J: 161/277 columns
+  J: 171/277 columns
+  J: 181/277 columns
+  J: 191/277 columns
+{"sistema": "Zheng_PNAS2012", "p": 46, "outputs": "all", "fixed_scenarios": true, "n_rows": 60, "S1": ["k13_12", "k01_11", "k12_22", "k03_13", "k21_22", "k00_01", "k11_12", "k20_30", "k23_13", "k21_20", "k30_31", "k10_20", "k03_02"], "Rvar_S1_%": 42.96458290970623, "S1_cumple": false, "etapa": "Stage 2", "S": ["k01_02", "k13_12"], "Rvar_%": 34.774342179568464, "kappa": 1.4008808841850589, "VIF": 1.1180074737242547, "cos_med": 0.5682428912770384, "erel_med": 0.9469732985111915, "n_escenarios": 15, "S_antes_poda": ["k01_02", "k13_12"], "podados": [], "eajuste_med": 0.300354127024743, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["k01_02", "k13_12", true]]}, "segundos": 5.4}
+{"sistema": "Zhao_QuantBiol2020", "p": 28, "outputs": "all", "fixed_scenarios": true, "n_rows": 82, "S1": ["R_Stage_I_China", "R_Stage_II_Wuhan", "gamma_1_Stage_I_Hubei", "gamma_1_Stage_I_Wuhan", "R_Stage_II_Hubei", "gamma_2_Stage_II_Hubei", "R_Stage_II_China", "gamma_2_Stage_III_Wuhan", "gamma_2_Stage_II_China", "R_Stage_III_Wuhan"], "Rvar_S1_%": 73.94697515071526, "S1_cumple": false, "etapa": "Stage 2", "S": ["R_Stage_I_China", "R_Stage_II_Wuhan", "gamma_1_Stage_I_Hubei"], "Rvar_%": 68.66995676836721, "kappa": 1.1712416132071082, "VIF": 1.02281492916831, "cos_med": 0.901753810642219, "erel_med": 0.6952506591236154, "n_escenarios": 15, "S_antes_poda": ["R_Stage_I_China", "R_Stage_II_Wuhan", "gamma_1_Stage_I_Hubei"], "podados": [], "eajuste_med": 0.2955629445655794, "admisible": true, "calibracion": [], "monotonia": {"subsets_evaluated": 4, "nested_pairs": 3, "violations": 0, "subsets": [["R_Stage_II_Wuhan", "gamma_1_Stage_I_Hubei", false], ["R_Stage_I_China", "gamma_1_Stage_I_Hubei", false], ["R_Stage_I_China", "R_Stage_II_Wuhan", false], ["R_Stage_I_China", "R_Stage_II_Wuhan", "gamma_1_Stage_I_Hubei", true]]}, "segundos": 18.2}
+0m
+  J: 201/277 columns
+[0m
+0m
+  J: 211/277 columns
+0m
+0m
+[0m
+  J: 221/277 columns
+  J: 231/277 columns
+0m
+  J: 241/277 columns
+  J: 251/277 columns
+{"sistema": "Raimundez_PCB2020", "p": 136, "outputs": "all", "fixed_scenarios": true, "n_rows": 627, "S1": ["kdeg_membran__MKN1", "ka_MAPK__MKN1", "d_ksyn_EGFR__MKN1_2_HS746T", "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T", "kimp_pEGFR_EGF_2__MKN1", "ka_RAS__pEGFR_EGF_2__MKN1", "ka_AKT__MKN1", "d_AKTtotal__fm_2_hm", "d_ksyn_MMET__fm_2_hm", "d_PI3Ktotal__fm_2_hm", "d_kdeg_pEGFR_EGF_2_i__MKN1_2_HS746T", "KD_EGFR_CET", "ka_PI3K__basal", "kbin_EGFR_CET", "xi_ka_PI3K_pMMET_2", "kdim_MMET_EGFR", "xi_kdeg_pMMET_2_i", "xi_ka_RAS_pMMET_2", "d_MAPKtotal__MKN1_2_HS746T"], "Rvar_S1_%": 63.972721643477314, "S1_cumple": false, "etapa": "Stage 2", "S": ["kdeg_membran__MKN1", "ka_MAPK__MKN1"], "Rvar_%": 42.05599584158664, "kappa": 1.3408433303201317, "VIF": 1.0885193533131055, "cos_med": 0.7858910846074038, "erel_med": 0.6447731810168055, "n_escenarios": 15, "S_antes_poda": ["kdeg_membran__MKN1", "ka_MAPK__MKN1"], "podados": [], "eajuste_med": 0.1870936917165585, "admisible": true, "calibracion": ["s_EGFR_ID10_HS746T_FM_EGF", "s_EGFR_ID10_HS746T_FM_EGF_CET", "s_EGFR_ID12_MKN1_FM_HM", "s_EGFR_ID3_HS746T_FM", "s_EGFR_ID3_MKN1_FM", "s_EGFR_ID4_HS746T_HM_3min", "s_EGFR_ID4_MKN1_HM_3min", "s_MMET_ID10_HS746T_FM_EGF", "s_MMET_ID10_HS746T_FM_EGF_CET", "s_pAKT_ID12_MKN1_FM_HM", "s_pAKT_ID2_HS746T_HM", "s_pAKT_ID2_MKN1_HM", "s_pAKT_ID5_MKN1_FM_15min", "s_pAKT_ID5_MKN1_FM_1min", "s_pAKT_ID5_MKN1_FM_240min", "s_pAKT_ID5_MKN1_FM_3min", "s_pAKT_ID7_HS746T_FM_15min", "s_pAKT_ID7_HS746T_FM_1min", "s_pAKT_ID7_HS746T_FM_240min", "s_pAKT_ID7_HS746T_FM_3min", "s_pAKT_ID8_HS746T_HM_15min", "s_pAKT_ID8_HS746T_HM_1min", "s_pAKT_ID8_HS746T_HM_240min", "s_pAKT_ID8_HS746T_HM_3min", "s_pAKT_ID9_HS746T_FM", "s_pAKT_ID9_HS746T_HM_30EGF", "s_pAKT_ID9_HS746T_HM_5EGF", "s_pEGFR_ID10_HS746T_FM_EGF", "s_pEGFR_ID10_HS746T_FM_EGF_CET", "s_pEGFR_ID12_MKN1_FM_HM", "s_pEGFR_ID2_HS746T_HM", "s_pEGFR_ID2_MKN1_HM", "s_pEGFR_ID3_HS746T_FM", "s_pEGFR_ID3_MKN1_FM", "s_pEGFR_ID4_HS746T_HM_3min", "s_pEGFR_ID4_MKN1_HM_3min", "s_pEGFR_ID5_MKN1_FM_15min", "s_pEGFR_ID5_MKN1_FM_1min", "s_pEGFR_ID5_MKN1_FM_240min", "s_pEGFR_ID5_MKN1_FM_3min", "s_pEGFR_ID6_MKN1_HM_15min", "s_pEGFR_ID6_MKN1_HM_1min", "s_pEGFR_ID6_MKN1_HM_240min", "s_pEGFR_ID6_MKN1_HM_3min", "s_pEGFR_ID7_HS746T_FM_15min", "s_pEGFR_ID7_HS746T_FM_1min", "s_pEGFR_ID7_HS746T_FM_240min", "s_pEGFR_ID7_HS746T_FM_3min", "s_pEGFR_ID8_HS746T_HM_15min", "s_pEGFR_ID8_HS746T_HM_1min", "s_pEGFR_ID8_HS746T_HM_240min", "s_pEGFR_ID8_HS746T_HM_3min", "s_pEGFR_ID9_HS746T_FM", "s_pEGFR_ID9_HS746T_HM_30EGF", "s_pEGFR_ID9_HS746T_HM_5EGF", "s_pEGFR_ID9b_MKN1_HM_1EGF", "s_pEGFR_ID9b_MKN1_HM_5EGF", "s_pMAPK_ID10_HS746T_FM_EGF", "s_pMAPK_ID10_HS746T_FM_EGF_CET", "s_pMAPK_ID12_MKN1_FM_HM", "s_pMAPK_ID2_HS746T_HM", "s_pMAPK_ID2_MKN1_HM", "s_pMAPK_ID5_MKN1_FM_15min", "s_pMAPK_ID5_MKN1_FM_1min", "s_pMAPK_ID5_MKN1_FM_240min", "s_pMAPK_ID5_MKN1_FM_3min", "s_pMAPK_ID7_HS746T_FM_15min", "s_pMAPK_ID7_HS746T_FM_1min", "s_pMAPK_ID7_HS746T_FM_240min", "s_pMAPK_ID7_HS746T_FM_3min", "s_pMAPK_ID8_HS746T_HM_15min", "s_pMAPK_ID8_HS746T_HM_1min", "s_pMAPK_ID8_HS746T_HM_240min", "s_pMAPK_ID8_HS746T_HM_3min", "s_pMAPK_ID9_HS746T_FM", "s_pMAPK_ID9_HS746T_HM_30EGF", "s_pMAPK_ID9_HS746T_HM_5EGF", "s_pMAPK_ID9b_MKN1_HM_1EGF", "s_pMAPK_ID9b_MKN1_HM_5EGF"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["kdeg_membran__MKN1", "ka_MAPK__MKN1", true]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 148.1}
+  J: 261/277 columns
+  J: 1/43 columns
+[0m
+  J: 11/43 columns
+0m
+  J: 271/277 columns
+[0m
+{"sistema": "Schwen_PONE2014", "p": 30, "outputs": "all", "fixed_scenarios": true, "n_rows": 286, "S1": ["ini_R1", "ini_R2fold", "ka1", "kon_unspec", "kin2"], "Rvar_S1_%": 66.48876372983933, "S1_cumple": false, "etapa": "Stage 2", "S": ["ini_R1", "ini_R2fold"], "Rvar_%": 46.11101431062511, "kappa": 3.148043381282165, "VIF": 3.0027708751013242, "cos_med": 0.9296093321457116, "erel_med": 0.4160507806042604, "n_escenarios": 15, "S_antes_poda": ["ini_R1", "ini_R2fold"], "podados": [], "eajuste_med": 0.17065260610005112, "admisible": true, "calibracion": ["fragments", "km_nExpID1", "km_nExpID2", "km_nExpID3", "km_nExpID4", "offset", "offset_nExpID1", "offset_nExpID2", "offset_nExpID3", "offset_nExpID4", "scale", "scaleElisa_nExpID1", "scaleElisa_nExpID2", "scaleElisa_nExpID3", "scaleElisa_nExpID4"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["ini_R1", "ini_R2fold", true]]}, "segundos": 163.4}
+  finite effects: 1/261
+  finite effects: 11/261
+  finite effects: 21/261
+  finite effects: 31/261
+  finite effects: 41/261
+0m
+  finite effects: 51/261
+  finite effects: 61/261
+  finite effects: 71/261
+  finite effects: 81/261
+  finite effects: 91/261
+  finite effects: 101/261
+  finite effects: 111/261
+  J: 21/43 columns
+  finite effects: 121/261
+  J: 31/43 columns
+  finite effects: 131/261
+  finite effects: 141/261
+  finite effects: 151/261
+  finite effects: 161/261
+  finite effects: 171/261
+  finite effects: 181/261
+  finite effects: 191/261
+  finite effects: 201/261
+  finite effects: 211/261
+  finite effects: 221/261
+  finite effects: 231/261
+  finite effects: 241/261
+  finite effects: 251/261
+  finite effects: 261/261
+  J: 41/43 columns
+  J: 1/155 columns
+  J: 11/155 columns
+  J: 21/155 columns
+  J: 31/155 columns
+  J: 41/155 columns
+  J: 51/155 columns
+{"sistema": "Lang_PLOSComputBiol2024", "p": 294, "outputs": "all", "fixed_scenarios": true, "n_rows": 9600, "S1": ["kDeE2f1", "kDeCe", "kDeCa2", "kDpCdh", "kPhCAEB", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", "ic_wt_Nuc__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_", "ic_wt_Cyt__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_1__CDKN1A_CCNE_A_B_1_Ser130u_"], "Rvar_S1_%": 16.934618942994636, "S1_cumple": false, "etapa": "Stage 2", "S": ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", "ic_wt_Nuc__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_", "ic_wt_Cyt__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_1__CDKN1A_CCNE_A_B_1_Ser130u_"], "Rvar_%": 16.934618942994643, "kappa": 8.672975199909764, "VIF": 9.993680326551472, "cos_med": 0.7263527523785422, "erel_med": 0.7028260244279416, "n_escenarios": 15, "S_antes_poda": ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", "ic_wt_Nuc__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_", "ic_wt_Cyt__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_1__CDKN1A_CCNE_A_B_1_Ser130u_"], "podados": [], "eajuste_med": 0.5628059913932455, "admisible": false, "calibracion": ["oCCNA", "oCCNB", "oCCNE", "oE2F", "oRB1_pSer807Ser811", "oSKP2", "oCDKN1A", "oCDKN1B", "sCCNA", "sCCNB", "sCCNE", "sE2F", "sRB1_pSer807Ser811", "sSKP2", "sCDKN1A", "sCDKN1B"], "monotonia": {"subsets_evaluated": 12, "nested_pairs": 66, "violations": 0, "subsets": [["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", "ic_wt_Nuc__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_", "ic_wt_Cyt__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_1__CDKN1A_CCNE_A_B_1_Ser130u_", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", false], ["kDeE2f1", "kDeCe", "kDeCa2", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", "ic_wt_Nuc__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_", "ic_wt_Cyt__SKP2", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", "ic_wt_Nuc__SKP2", "ic_wt_Cyt__CCNE_CDKN1A_B_", false], ["kDeE2f1", "kDeCe", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", "kDpCdh", "kImImSKP2_1", "kImImCDKN1A_CCNE_A_B_Ser130p__1", "ic_wt_Nuc__CDKN1B_CCNE_A_Thr187p_", "ic_wt_Cyt__CDKN1B_CCNE_A_Thr187u_", "ic_wt_Nuc__SKP2", false], ["kDeE2f1", "kDeCe", "kDeCa2", "kPhCAEB", false]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 642.6}
+  J: 61/155 columns
+  J: 71/155 columns
+{"sistema": "Isensee_JCB2018", "p": 46, "outputs": "all", "fixed_scenarios": true, "n_rows": 687, "S1": ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP", "KD_cAMP", "xi_AC_cAMP_Fsk", "kf_RIIp_cAMP_C_2__RIIp_2", "kf_RII_2__RII_C_2"], "Rvar_S1_%": 90.529968510894, "S1_cumple": true, "cos_S1": 0.0, "erel_S1": Infinity, "etapa": "Stage 1", "S": ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2"], "Rvar_%": 68.41467438141669, "kappa": 1.018659337126297, "VIF": 1.0003418224325962, "cos_med": 0.766181882545627, "erel_med": 0.6533838137962102, "n_escenarios": 6, "S_antes_poda": ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP", "KD_cAMP", "xi_AC_cAMP_Fsk", "kf_RIIp_cAMP_C_2__RIIp_2", "kf_RII_2__RII_C_2"], "podados": ["ks_AC_cAMP", "KD_cAMP", "xi_AC_cAMP_Fsk", "kf_RIIp_cAMP_C_2__RIIp_2", "kf_RII_2__RII_C_2"], "eajuste_med": 0.07588884060352133, "admisible": true, "calibracion": ["b_Calpha_global", "b_pRII_global", "rel_open", "s_Calpha_global", "s_pRII_JI09_150302_Drg345_343_CycNuc", "s_pRII_JI09_150330_Drg350_348_CycNuc", "s_pRII_JI09_150330_Drg353_351_CycNuc", "s_pRII_JI09_151102_Drg421_418_Age", "s_pRII_Western", "s_pRII_global", "xi_rel_open"], "monotonia": {"subsets_evaluated": 6, "nested_pairs": 15, "violations": 0, "subsets": [["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", true], ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP", "KD_cAMP", "xi_AC_cAMP_Fsk", "kf_RIIp_cAMP_C_2__RIIp_2", true], ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP", "KD_cAMP", "xi_AC_cAMP_Fsk", true], ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP", "KD_cAMP", "xi_AC_cAMP_Fsk", "kf_RIIp_cAMP_C_2__RIIp_2", "kf_RII_2__RII_C_2", true], ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP", true], ["kf_RIIp_C_2__RII_C_2", "xi_kf_RII_C_2__RII_2", "ks_AC_cAMP", "KD_cAMP", true]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 766.7}
+  J: 81/155 columns
+  J: 91/155 columns
+  J: 101/155 columns
+  J: 111/155 columns
+  J: 121/155 columns
+  J: 131/155 columns
+  J: 141/155 columns
+  J: 151/155 columns
+{"sistema": "Smith_BMCSystBiol2013", "p": 25, "outputs": "all", "fixed_scenarios": true, "n_rows": 62, "S1": ["k8", "kminus7b", "kminus7a", "k30f", "k1"], "Rvar_S1_%": 56.06078043397478, "S1_cumple": false, "etapa": "Stage 2", "S": ["k8", "kminus7b"], "Rvar_%": 40.63403768856803, "kappa": 3.1995607355713447, "VIF": 3.083717991676082, "cos_med": 0.959714566706304, "erel_med": 0.32032758697875363, "n_escenarios": 15, "S_antes_poda": ["k8", "kminus7b"], "podados": [], "eajuste_med": 0.07772293329608652, "admisible": true, "calibracion": ["sc_PI3K", "sc_GLUT_2B", "sc_BINS", "sc_PIRS", "sc_PTP", "sc_GLUT_3B_120", "sc_GLUT_3B_240", "sc_SOD2", "sc_FOXO1"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["k8", "kminus7b", true]]}, "segundos": 1866.4}
+  finite effects: 1/152
+  finite effects: 11/152
+  finite effects: 21/152
+  finite effects: 31/152
+  finite effects: 41/152
+  finite effects: 51/152
+  finite effects: 61/152
+  finite effects: 71/152
+  finite effects: 81/152
+  finite effects: 91/152
+  finite effects: 101/152
+  finite effects: 111/152
+  finite effects: 121/152
+  finite effects: 131/152
+  finite effects: 141/152
+  finite effects: 151/152
+{"sistema": "Chen_MSB2009", "p": 155, "outputs": "all", "fixed_scenarios": true, "n_rows": 120, "S1": ["k106", "k44", "k2b", "kd57", "k73", "k6", "k110", "k114", "kd53", "k50", "k60", "k94", "kd5b", "k60b", "kd95", "kd37", "kd97"], "Rvar_S1_%": 25.867855359165592, "S1_cumple": false, "etapa": "Stage 2", "S": ["k106", "k44"], "Rvar_%": 24.700155594689658, "kappa": 1.008472047195582, "VIF": 1.000071173872392, "cos_med": 0.7793071240080249, "erel_med": 0.661419949021459, "n_escenarios": 10, "S_antes_poda": ["k106", "k44"], "podados": [], "eajuste_med": 0.08201008441763927, "admisible": true, "calibracion": ["AKT_t", "EGFR_t", "ERK_t"], "monotonia": {"subsets_evaluated": 1, "nested_pairs": 0, "violations": 0, "subsets": [["k106", "k44", true]]}, "eajuste_metodo": "linealizado (primer orden, J relativa)", "segundos": 4417.4}

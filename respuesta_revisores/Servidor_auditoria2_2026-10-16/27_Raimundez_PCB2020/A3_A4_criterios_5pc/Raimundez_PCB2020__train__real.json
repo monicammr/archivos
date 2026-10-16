@@ -1,0 +1,13 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "chi2_test": 1.1672980113586453,
+ "chi2_ours": 1.1673048698000734,
+ "ratio_vs_ours": 0.9999941245499736,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 364.5
+}

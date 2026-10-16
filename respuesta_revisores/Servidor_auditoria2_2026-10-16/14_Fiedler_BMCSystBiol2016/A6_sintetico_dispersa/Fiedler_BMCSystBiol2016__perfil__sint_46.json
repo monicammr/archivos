@@ -1,0 +1,16 @@
+{
+ "S": [
+  "K_2",
+  "k6"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 1.609896922037091,
+ "B_chi2_test_theta0": 3.665070754867191,
+ "B_chi2_test_red": 6.407839543504099,
+ "B_epred_red": 1.4033123797580227,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 1.6
+}

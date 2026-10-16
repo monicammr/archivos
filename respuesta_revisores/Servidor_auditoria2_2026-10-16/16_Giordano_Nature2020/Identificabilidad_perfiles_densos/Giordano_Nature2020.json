@@ -1,0 +1,46 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 313,
+ "coste_min": 8.380009535949673e-07,
+ "chi2_por_gl": 2.6945368282796374e-09,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 4.435325586072513e-09,
+ "perfiles": [
+  {
+   "parametro": "alpha_4",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 4.495603161359211e-05,
+   "dchi2_max_der": 43.615517724173365,
+   "clase": "no identificable practico",
+   "ic_izq_log": Infinity,
+   "ic_der_log": 0.6574942562832844,
+   "clase_robusto": "no identificable practico",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": 0.6574942562832844
+  },
+  {
+   "parametro": "alpha_28",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 3.298047954174434e-06,
+   "dchi2_max_der": 3.695459744312016,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 0,
+ "todos_identificables": false,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

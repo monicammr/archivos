@@ -1,0 +1,16 @@
+{
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "semilla": 44,
+ "familia": "dispersa",
+ "senal_rms_test": 2.530721132237047,
+ "B_chi2_test_theta0": 8.340864260817897,
+ "B_chi2_test_red": 1.209848671941478,
+ "B_epred_red": 0.10245112871688623,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.6
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "a21",
+  "s12"
+ ],
+ "semilla": 42,
+ "familia": "dispersa",
+ "senal_rms_test": 2.307198463400396,
+ "B_chi2_test_theta0": 5.895219582831953,
+ "B_chi2_test_red": 32.114680033540594,
+ "B_epred_red": 2.376448194472537,
+ "sistema": "Weber_BMC2015",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 1.7
+}

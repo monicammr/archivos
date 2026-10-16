@@ -1,0 +1,15 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "kappa_centred": 2.826523498042363,
+ "VIF_centred": 2.5286008783555998,
+ "kappa_unit": 2.4319787725351754,
+ "VIF_unit": 2.0208990391374937,
+ "kappa_unit_with_calibration": 5.286326977250603,
+ "VIF_unit_with_calibration": 6.109708514411917,
+ "kappa_selection_json": 2.826523525161499,
+ "VIF_selection_json": 2.5286009160815928
+}

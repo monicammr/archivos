@@ -1,0 +1,20 @@
+{
+ "S": [
+  "alpha_28",
+  "epsilon_12"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.17198112233647272,
+ "erel_med": 1.0627800163020782,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "rand6",
+ "prueba": "adm",
+ "segundos": 5.1
+}

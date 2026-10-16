@@ -1,0 +1,23 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "kappa_centred": 6.535310131633967,
+ "VIF_centred": 9.846532640799659,
+ "kappa_unit": 6.577698012683531,
+ "VIF_unit": 9.947981283925541,
+ "kappa_unit_with_calibration": 6.577698012683531,
+ "VIF_unit_with_calibration": 9.947981283925541,
+ "kappa_selection_json": 6.535310100253645,
+ "VIF_selection_json": 9.846532545697954
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "GRB2_total__FREE",
+  "kdephosYN__FREE"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 0.045168239943464306,
+ "B_chi2_test_theta0": 0.5993404544505821,
+ "B_chi2_test_red": 0.7386545234219284,
+ "B_epred_red": 3.9796614285413985,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 14.4
+}

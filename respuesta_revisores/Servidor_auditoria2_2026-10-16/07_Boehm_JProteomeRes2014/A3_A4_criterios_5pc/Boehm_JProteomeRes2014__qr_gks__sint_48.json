@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_imp_homo",
+  "k_imp_hetero"
+ ],
+ "semilla": 48,
+ "familia": "uniforme",
+ "senal_rms_test": 0.07646544663610938,
+ "B_chi2_test_theta0": 0.8124963130750323,
+ "B_chi2_test_red": 7.053974940530687,
+ "B_epred_red": 33.87799407088875,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.2
+}

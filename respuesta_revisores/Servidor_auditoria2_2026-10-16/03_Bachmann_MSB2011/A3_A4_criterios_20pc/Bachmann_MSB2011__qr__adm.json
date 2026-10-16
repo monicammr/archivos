@@ -1,0 +1,20 @@
+{
+ "S": [
+  "SOCS3Inh",
+  "CISEqcOE"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.49868489967959057,
+ "erel_med": 0.7964870265809038,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 11.0
+}

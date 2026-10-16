@@ -1,0 +1,19 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "k": 2,
+ "S_ours": [
+  "R0_NY",
+  "I0_NY"
+ ],
+ "S_qr": [
+  "I0_CA",
+  "R0_CA"
+ ],
+ "overlap": 0,
+ "chi2_ours": null,
+ "chi2_qr": 1.0000119607849882,
+ "ratio_qr_vs_ours": null,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.5,
+ "variant": "gks"
+}

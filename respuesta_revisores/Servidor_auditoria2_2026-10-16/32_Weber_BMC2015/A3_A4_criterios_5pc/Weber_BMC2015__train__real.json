@@ -1,0 +1,13 @@
+{
+ "S": [
+  "pu3",
+  "s12"
+ ],
+ "chi2_test": 0.9973316056794119,
+ "chi2_ours": 1.000852849606915,
+ "ratio_vs_ours": 0.9964817566049935,
+ "sistema": "Weber_BMC2015",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.6
+}

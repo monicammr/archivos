@@ -1,0 +1,70 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "p": 13,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 33,
+ "S1": [
+  "k_syn_R_M",
+  "k_bind_M1",
+  "k_imp",
+  "k_rel"
+ ],
+ "Rvar_S1_%": 90.97347643421129,
+ "S1_cumple": true,
+ "cos_S1": 0.9665501453919336,
+ "erel_S1": 0.2893866802290371,
+ "etapa": "Stage 1",
+ "S": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "Rvar_%": 78.1458371011984,
+ "kappa": 1.140580158968838,
+ "VIF": 1.0174020108488997,
+ "cos_med": 0.8504753315926694,
+ "erel_med": 0.5458789447647135,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "k_syn_R_M",
+  "k_bind_M1",
+  "k_imp",
+  "k_rel"
+ ],
+ "podados": [
+  "k_imp",
+  "k_rel"
+ ],
+ "eajuste_med": 0.37354607127076983,
+ "admisible": true,
+ "calibracion": [
+  "vRNA_offset",
+  "Int_nuc_off"
+ ],
+ "monotonia": {
+  "subsets_evaluated": 3,
+  "nested_pairs": 3,
+  "violations": 0,
+  "subsets": [
+   [
+    "k_syn_R_M",
+    "k_bind_M1",
+    "k_imp",
+    true
+   ],
+   [
+    "k_syn_R_M",
+    "k_bind_M1",
+    "k_imp",
+    "k_rel",
+    true
+   ],
+   [
+    "k_syn_R_M",
+    "k_bind_M1",
+    true
+   ]
+  ]
+ },
+ "segundos": 143.4
+}

@@ -1,0 +1,24 @@
+{
+ "S": [
+  "init_Rec",
+  "Rec_act",
+  "geneL_turn",
+  "S4tot",
+  "geneK_turn",
+  "geneJ_turn",
+  "S_phos",
+  "geneC_turn",
+  "geneA_turn",
+  "geneB_turn"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.9818600770684147,
+ "B_chi2_test_theta0": 4.771536219440877,
+ "B_chi2_test_red": 4.135038164328684,
+ "B_epred_red": 0.9192276183436054,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 24.8
+}

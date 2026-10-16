@@ -1,0 +1,15 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "kappa_centred": 1.4463828887882808,
+ "VIF_centred": 1.1425073931498066,
+ "kappa_unit": 1.2058409617524024,
+ "VIF_unit": 1.0354463843831154,
+ "kappa_unit_with_calibration": 2.939363879016399,
+ "VIF_unit_with_calibration": 2.687826385751527,
+ "kappa_selection_json": 1.4463828887882808,
+ "VIF_selection_json": 1.1425073931498066
+}

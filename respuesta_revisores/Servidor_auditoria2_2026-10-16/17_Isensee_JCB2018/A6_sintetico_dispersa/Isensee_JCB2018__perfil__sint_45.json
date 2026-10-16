@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kf_RIIp_2__RII_2",
+  "kf_RII_C_2__RIIp_C_2"
+ ],
+ "semilla": 45,
+ "familia": "dispersa",
+ "senal_rms_test": 0.9681274392122479,
+ "B_chi2_test_theta0": 1.838697329936519,
+ "B_chi2_test_red": 1.8315822173454734,
+ "B_epred_red": 0.9966793930265903,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 690.5
+}

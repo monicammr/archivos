@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k11",
+  "k5"
+ ],
+ "semilla": 42,
+ "familia": "loguniforme",
+ "senal_rms_test": 2.3656302517566967,
+ "B_chi2_test_theta0": 6.293989961545974,
+ "B_chi2_test_red": 0.4930425871181149,
+ "B_epred_red": 0.1321278270371629,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 3.4
+}

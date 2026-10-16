@@ -1,0 +1,479 @@
+[
+ {
+  "sistema": "Alkan_SciSignal2018",
+  "S": [
+   "kt",
+   "k_rep_nhej"
+  ],
+  "kappa_centred": 1.3267416454328185,
+  "VIF_centred": 1.0820866619587688,
+  "kappa_unit": 1.3135221589549104,
+  "VIF_unit": 1.0762340531444488,
+  "kappa_unit_with_calibration": 1.4362330138322836,
+  "VIF_unit_with_calibration": 1.1368444081545237,
+  "kappa_selection_json": 1.3267416508753669,
+  "VIF_selection_json": 1.0820866644039628
+ },
+ {
+  "sistema": "Armistead_CellDeathDis2024",
+  "S": [
+   "k_d",
+   "k00"
+  ],
+  "kappa_centred": 1.0031187307515856,
+  "VIF_centred": 1.0000096962650384,
+  "kappa_unit": 1.2917837816517739,
+  "VIF_unit": 1.0669930783258585,
+  "kappa_unit_with_calibration": 1.2917837816517739,
+  "VIF_unit_with_calibration": 1.0669930783258585,
+  "kappa_selection_json": 1.0031187307515856,
+  "VIF_selection_json": 1.0000096962650384
+ },
+ {
+  "sistema": "Bachmann_MSB2011",
+  "S": [
+   "CISRNADelay",
+   "JAK2ActEpo"
+  ],
+  "kappa_centred": 2.826523498042363,
+  "VIF_centred": 2.5286008783555998,
+  "kappa_unit": 2.4319787725351754,
+  "VIF_unit": 2.0208990391374937,
+  "kappa_unit_with_calibration": 5.286326977250603,
+  "VIF_unit_with_calibration": 6.109708514411917,
+  "kappa_selection_json": 2.826523525161499,
+  "VIF_selection_json": 2.5286009160815928
+ },
+ {
+  "sistema": "Bertozzi_PNAS2020",
+  "S": [
+   "R0_NY",
+   "I0_NY"
+  ],
+  "kappa_centred": 3.9079961707672064,
+  "VIF_centred": 4.334477879556751,
+  "kappa_unit": 4.652662160353092,
+  "VIF_unit": 5.923365097547628,
+  "kappa_unit_with_calibration": 4.652662160353092,
+  "VIF_unit_with_calibration": 5.923365097547628,
+  "kappa_selection_json": 3.9079961707672064,
+  "VIF_selection_json": 4.334477879556751
+ },
+ {
+  "sistema": "Blasi_CellSystems2016",
+  "S": [
+   "a_basal",
+   "a_k16_k12k16"
+  ],
+  "kappa_centred": 1.7637884290480006,
+  "VIF_centred": 1.358098719788541,
+  "kappa_unit": 2.6358776749116415,
+  "VIF_unit": 2.272945127742531,
+  "kappa_unit_with_calibration": 2.6358776749116415,
+  "VIF_unit_with_calibration": 2.272945127742531,
+  "kappa_selection_json": 1.7637884290480006,
+  "VIF_selection_json": 1.358098719788541
+ },
+ {
+  "sistema": "Boehm_JProteomeRes2014",
+  "S": [
+   "k_imp_hetero",
+   "k_phos"
+  ],
+  "kappa_centred": 1.0197597617127536,
+  "VIF_centred": 1.0003829191654263,
+  "kappa_unit": 1.8744139652028842,
+  "VIF_unit": 1.4495125120215615,
+  "kappa_unit_with_calibration": 1.8744139652028842,
+  "VIF_unit_with_calibration": 1.4495125120215615,
+  "kappa_selection_json": 1.0197597617127536,
+  "VIF_selection_json": 1.0003829191654263
+ },
+ {
+  "sistema": "Borghans_BiophysChem1997",
+  "S": [
+   "Kz",
+   "K_par"
+  ],
+  "kappa_centred": 2.7383292700373025,
+  "VIF_centred": 2.4079520339209495,
+  "kappa_unit": 2.792956395248168,
+  "VIF_unit": 2.4822001509053546,
+  "kappa_unit_with_calibration": 4.153716912230966,
+  "VIF_unit_with_calibration": 4.162210942191068,
+  "kappa_selection_json": 2.738329270037303,
+  "VIF_selection_json": 2.407952033920953
+ },
+ {
+  "sistema": "Brannmark_JBC2010",
+  "S": [
+   "k1f",
+   "km2"
+  ],
+  "kappa_centred": 1.8623618174594274,
+  "VIF_centred": 1.4391774055575184,
+  "kappa_unit": 1.2666256897627701,
+  "VIF_unit": 1.05691241592577,
+  "kappa_unit_with_calibration": 25.433900012405513,
+  "VIF_unit_with_calibration": 146.55200177137067,
+  "kappa_selection_json": 1.8623618174594274,
+  "VIF_selection_json": 1.4391774055575184
+ },
+ {
+  "sistema": "Bruno_JExpBot2016",
+  "S": [
+   "kb1",
+   "init_bcar2",
+   "init_zea_1",
+   "init_bcar1",
+   "init_bcry_1"
+  ],
+  "kappa_centred": 2.2580326528815435,
+  "VIF_centred": 1.5663014175786354,
+  "kappa_unit": 1.642010205351354,
+  "VIF_unit": 1.2667725558561636,
+  "kappa_unit_with_calibration": 1.642010205351354,
+  "VIF_unit_with_calibration": 1.2667725558561636,
+  "kappa_selection_json": 2.258032652881543,
+  "VIF_selection_json": 1.5663014175786354
+ },
+ {
+  "sistema": "Chen_MSB2009",
+  "S": [
+   "k106",
+   "k44"
+  ],
+  "kappa_centred": 1.008477130427679,
+  "VIF_centred": 1.000071258949058,
+  "kappa_unit": 1.029005382515099,
+  "VIF_unit": 1.0008177646034069,
+  "kappa_unit_with_calibration": 1.4487543296130176,
+  "VIF_unit_with_calibration": 1.1377818368482353,
+  "kappa_selection_json": 1.008472047195582,
+  "VIF_selection_json": 1.000071173872392
+ },
+ {
+  "sistema": "Elowitz_Nature2000",
+  "S": [
+   "n_Hill",
+   "tau_mRNA"
+  ],
+  "kappa_centred": 2.863743013879168,
+  "VIF_centred": 2.5807400102971263,
+  "kappa_unit": 2.52041193309767,
+  "VIF_unit": 2.1274738096821757,
+  "kappa_unit_with_calibration": 5.548185007292311,
+  "VIF_unit_with_calibration": 6.033686213905897,
+  "kappa_selection_json": 2.863743013879167,
+  "VIF_selection_json": 2.5807400102971316
+ },
+ {
+  "sistema": "Fiedler_BMCSystBiol2016",
+  "S": [
+   "tau2",
+   "k6"
+  ],
+  "kappa_centred": 1.5155072353949903,
+  "VIF_centred": 1.1830394290619781,
+  "kappa_unit": 1.612324416065087,
+  "VIF_unit": 1.2460665160895392,
+  "kappa_unit_with_calibration": 14.470135646166314,
+  "VIF_unit_with_calibration": 47.18791553194171,
+  "kappa_selection_json": 1.5155072353949903,
+  "VIF_selection_json": 1.1830394290619781
+ },
+ {
+  "sistema": "Fujita_SciSignal2010",
+  "S": [
+   "init_AKT",
+   "reaction_6_k1"
+  ],
+  "kappa_centred": 2.339300856286609,
+  "VIF_centred": 1.913766516023977,
+  "kappa_unit": 2.617695863506388,
+  "VIF_unit": 2.2495668402547278,
+  "kappa_unit_with_calibration": 36621.63279205662,
+  "VIF_unit_with_calibration": 245148884.28763008,
+  "kappa_selection_json": 2.339300856286609,
+  "VIF_selection_json": 1.913766516023977
+ },
+ {
+  "sistema": "Giordano_Nature2020",
+  "S": [
+   "alpha_4",
+   "alpha_28"
+  ],
+  "kappa_centred": 3.6678200135281247,
+  "VIF_centred": 3.881809261640121,
+  "kappa_unit": 3.8098748746073055,
+  "VIF_unit": 4.146010027966421,
+  "kappa_unit_with_calibration": 3.8098748746073055,
+  "VIF_unit_with_calibration": 4.146010027966421,
+  "kappa_selection_json": 3.6678200135281247,
+  "VIF_selection_json": 3.881809261640148
+ },
+ {
+  "sistema": "Isensee_JCB2018",
+  "S": [
+   "kf_RIIp_C_2__RII_C_2",
+   "xi_kf_RII_C_2__RII_2"
+  ],
+  "kappa_centred": 1.018659378553291,
+  "VIF_centred": 1.0003418239366364,
+  "kappa_unit": 2.112724000734322,
+  "VIF_unit": 1.6719092448207944,
+  "kappa_unit_with_calibration": 373270097181639.2,
+  "VIF_unit_with_calibration": 1620.7459664445903,
+  "kappa_selection_json": 1.018659337126297,
+  "VIF_selection_json": 1.0003418224325962
+ },
+ {
+  "sistema": "Laske_PLOSComputBiol2019",
+  "S": [
+   "k_imp",
+   "k_syn_R_M"
+  ],
+  "kappa_centred": 1.4463828887882808,
+  "VIF_centred": 1.1425073931498066,
+  "kappa_unit": 1.2058409617524024,
+  "VIF_unit": 1.0354463843831154,
+  "kappa_unit_with_calibration": 2.939363879016399,
+  "VIF_unit_with_calibration": 2.687826385751527,
+  "kappa_selection_json": 1.4463828887882808,
+  "VIF_selection_json": 1.1425073931498066
+ },
+ {
+  "sistema": "Liu_IFACPapersOnLine2025",
+  "S": [
+   "kappa",
+   "phi"
+  ],
+  "kappa_centred": 1.2940850278202445,
+  "VIF_centred": 1.0679483998737394,
+  "kappa_unit": 1.7274914485219204,
+  "VIF_unit": 1.3298304724543182,
+  "kappa_unit_with_calibration": 1.7274914485219204,
+  "VIF_unit_with_calibration": 1.3298304724543182,
+  "kappa_selection_json": 1.2940850278202445,
+  "VIF_selection_json": 1.0679483998737394
+ },
+ {
+  "sistema": "Lucarelli_CellSystems2018",
+  "S": [
+   "init_Rec",
+   "S2tot",
+   "S3tot",
+   "S_dephosphos",
+   "S_phos",
+   "geneF_turn",
+   "k_234",
+   "geneK_turn",
+   "S4tot",
+   "geneH_turn"
+  ],
+  "kappa_centred": 6.535310131633967,
+  "VIF_centred": 9.846532640799659,
+  "kappa_unit": 6.577698012683531,
+  "VIF_unit": 9.947981283925541,
+  "kappa_unit_with_calibration": 6.577698012683531,
+  "VIF_unit_with_calibration": 9.947981283925541,
+  "kappa_selection_json": 6.535310100253645,
+  "VIF_selection_json": 9.846532545697954
+ },
+ {
+  "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+  "S": [
+   "transmission_rate_effective",
+   "gamma_i"
+  ],
+  "kappa_centred": 1.3446988459481894,
+  "VIF_centred": 1.090311642838649,
+  "kappa_unit": 1.7236346972047378,
+  "VIF_unit": 1.3268782573336648,
+  "kappa_unit_with_calibration": 1.7236346972047378,
+  "VIF_unit_with_calibration": 1.3268782573336648,
+  "kappa_selection_json": 1.3446988459481894,
+  "VIF_selection_json": 1.090311642838649
+ },
+ {
+  "sistema": "Oliveira_NatCommun2021",
+  "S": [
+   "beta_0",
+   "h_hosp_rate"
+  ],
+  "kappa_centred": 1.2268878751433,
+  "VIF_centred": 1.0423984067227519,
+  "kappa_unit": 1.023125207710531,
+  "VIF_unit": 1.0005227562645986,
+  "kappa_unit_with_calibration": 1.023125207710531,
+  "VIF_unit_with_calibration": 1.0005227562645986,
+  "kappa_selection_json": 1.2268878751433,
+  "VIF_selection_json": 1.0423984067227519
+ },
+ {
+  "sistema": "Perelson_Science1996",
+  "S": [
+   "c",
+   "delta"
+  ],
+  "kappa_centred": 1.904013969020102,
+  "VIF_centred": 1.475277694765487,
+  "kappa_unit": 1.4958947556895987,
+  "VIF_unit": 1.1711470813657738,
+  "kappa_unit_with_calibration": 1.4958947556895987,
+  "VIF_unit_with_calibration": 1.1711470813657738,
+  "kappa_selection_json": 1.904013969020122,
+  "VIF_selection_json": 1.4752776947655044
+ },
+ {
+  "sistema": "Rahman_MBS2016",
+  "S": [
+   "infected_moderate_transmission_rate",
+   "infected_normal_worsen_rate"
+  ],
+  "kappa_centred": 5.925107557861928,
+  "VIF_centred": 9.283846000391641,
+  "kappa_unit": 12.412129074967318,
+  "VIF_unit": 39.016859777810595,
+  "kappa_unit_with_calibration": 12.412129074967318,
+  "VIF_unit_with_calibration": 39.016859777810595,
+  "kappa_selection_json": 5.925107557861928,
+  "VIF_selection_json": 9.283846000391641
+ },
+ {
+  "sistema": "Raia_CancerResearch2011",
+  "S": [
+   "SOCS3mRNA_production",
+   "init_Rec_i"
+  ],
+  "kappa_centred": 5.501461131530608,
+  "VIF_centred": 8.07477871891553,
+  "kappa_unit": 5.019763551390038,
+  "VIF_unit": 6.809427940019778,
+  "kappa_unit_with_calibration": 364.64031490513526,
+  "VIF_unit_with_calibration": 22926.83549984654,
+  "kappa_selection_json": 5.501461131530608,
+  "VIF_selection_json": 8.07477871891553
+ },
+ {
+  "sistema": "Raimundez_PCB2020",
+  "S": [
+   "kdeg_membran__MKN1",
+   "ka_MAPK__MKN1"
+  ],
+  "kappa_centred": 1.3408433326838227,
+  "VIF_centred": 1.0885193544075153,
+  "kappa_unit": 1.4141285160075525,
+  "VIF_unit": 1.1249549005181534,
+  "kappa_unit_with_calibration": 21.887152497669387,
+  "VIF_unit_with_calibration": 75.53655310260125,
+  "kappa_selection_json": 1.3408433303201317,
+  "VIF_selection_json": 1.0885193533131055
+ },
+ {
+  "sistema": "SalazarCavazos_MBoC2020",
+  "S": [
+   "ratio_kpkd_Y1068__FREE",
+   "ratio_kpkd_YN__FREE"
+  ],
+  "kappa_centred": 5.427274422121799,
+  "VIF_centred": 7.8723143479451005,
+  "kappa_unit": 4.542421800496061,
+  "VIF_unit": 5.6705151159133536,
+  "kappa_unit_with_calibration": 4.542421800496061,
+  "VIF_unit_with_calibration": 5.6705151159133536,
+  "kappa_selection_json": 5.427274422121799,
+  "VIF_selection_json": 7.8723143479451005
+ },
+ {
+  "sistema": "Schwen_PONE2014",
+  "S": [
+   "ini_R1",
+   "ini_R2fold"
+  ],
+  "kappa_centred": 3.148043381282165,
+  "VIF_centred": 3.0027708751013242,
+  "kappa_unit": 3.1447547424527156,
+  "VIF_unit": 2.997649979228857,
+  "kappa_unit_with_calibration": 21.013841386806046,
+  "VIF_unit_with_calibration": 89.32625557150166,
+  "kappa_selection_json": 3.1480433812821795,
+  "VIF_selection_json": 3.002770875101349
+ },
+ {
+  "sistema": "Smith_BMCSystBiol2013",
+  "S": [
+   "k8",
+   "kminus7b"
+  ],
+  "kappa_centred": 3.1995607355713447,
+  "VIF_centred": 3.083717991676082,
+  "kappa_unit": 3.4648856200463687,
+  "VIF_unit": 3.5221819964213297,
+  "kappa_unit_with_calibration": 14.023236409105827,
+  "VIF_unit_with_calibration": 39.68237453659807,
+  "kappa_selection_json": 3.1995607355713447,
+  "VIF_selection_json": 3.083717991676082
+ },
+ {
+  "sistema": "Sneyd_PNAS2002",
+  "S": [
+   "l4",
+   "l2"
+  ],
+  "kappa_centred": 1.0708488831630785,
+  "VIF_centred": 1.0046929558218436,
+  "kappa_unit": 1.220134098287379,
+  "VIF_unit": 1.0401104867576756,
+  "kappa_unit_with_calibration": 1.220134098287379,
+  "VIF_unit_with_calibration": 1.0401104867576756,
+  "kappa_selection_json": 1.0708488831630785,
+  "VIF_selection_json": 1.0046929558218436
+ },
+ {
+  "sistema": "Weber_BMC2015",
+  "S": [
+   "s12",
+   "a21"
+  ],
+  "kappa_centred": 3.7448124477205407,
+  "VIF_centred": 4.0237321328592195,
+  "kappa_unit": 3.790547843563899,
+  "VIF_unit": 4.109462709545006,
+  "kappa_unit_with_calibration": 51.62109260861752,
+  "VIF_unit_with_calibration": 631.0226683064274,
+  "kappa_selection_json": 3.7448124477205407,
+  "VIF_selection_json": 4.0237321328592195
+ },
+ {
+  "sistema": "Zhao_QuantBiol2020",
+  "S": [
+   "R_Stage_I_China",
+   "R_Stage_II_Wuhan",
+   "gamma_1_Stage_I_Hubei"
+  ],
+  "kappa_centred": 1.1712416132071082,
+  "VIF_centred": 1.02281492916831,
+  "kappa_unit": 1.0,
+  "VIF_unit": 1.0,
+  "kappa_unit_with_calibration": 1.0,
+  "VIF_unit_with_calibration": 1.0,
+  "kappa_selection_json": 1.1712416132071082,
+  "VIF_selection_json": 1.02281492916831
+ },
+ {
+  "sistema": "Zheng_PNAS2012",
+  "S": [
+   "k01_02",
+   "k13_12"
+  ],
+  "kappa_centred": 1.4008808841850589,
+  "VIF_centred": 1.1180074737242547,
+  "kappa_unit": 1.4008808841850589,
+  "VIF_unit": 1.1180074737242547,
+  "kappa_unit_with_calibration": 1.4008808841850589,
+  "VIF_unit_with_calibration": 1.1180074737242547,
+  "kappa_selection_json": 1.4008808841850589,
+  "VIF_selection_json": 1.1180074737242547
+ }
+]

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "pu3",
+  "s12"
+ ],
+ "semilla": 49,
+ "familia": "uniforme",
+ "senal_rms_test": 2.704763817284407,
+ "B_chi2_test_theta0": 8.371235691366845,
+ "B_chi2_test_red": 1.8114222846658432,
+ "B_epred_red": 0.3371093588690175,
+ "sistema": "Weber_BMC2015",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.3
+}

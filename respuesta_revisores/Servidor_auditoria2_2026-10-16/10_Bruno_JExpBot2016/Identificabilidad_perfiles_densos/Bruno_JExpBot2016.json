@@ -1,0 +1,88 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 77,
+ "coste_min": 65.11143679399319,
+ "chi2_por_gl": 0.9043255110276832,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.44875384061987234,
+ "perfiles": [
+  {
+   "parametro": "kb1",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1459.2810328385829,
+   "dchi2_max_der": 2849.4143576810343,
+   "clase": "identificable",
+   "ic_izq_log": 0.04472315245946967,
+   "ic_der_log": 0.04366354146938052,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.04472315245946967,
+   "ic_der_log_robusto": 0.04366354146938052
+  },
+  {
+   "parametro": "init_bcar2",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1760.5920467423166,
+   "dchi2_max_der": 8298.854052021888,
+   "clase": "identificable",
+   "ic_izq_log": 0.04213206398991489,
+   "ic_der_log": 0.04047264742702849,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.04213206398991489,
+   "ic_der_log_robusto": 0.04047264742702849
+  },
+  {
+   "parametro": "init_zea_1",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1454.4209695387567,
+   "dchi2_max_der": 7933.319580653959,
+   "clase": "identificable",
+   "ic_izq_log": 0.044836565403951416,
+   "ic_der_log": 0.0427237834997202,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.044836565403951416,
+   "ic_der_log_robusto": 0.0427237834997202
+  },
+  {
+   "parametro": "init_bcar1",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1171.4635295290545,
+   "dchi2_max_der": 4880.948681155165,
+   "clase": "identificable",
+   "ic_izq_log": 0.05406324129021851,
+   "ic_der_log": 0.0515893362194446,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.05406324129021851,
+   "ic_der_log_robusto": 0.0515893362194446
+  },
+  {
+   "parametro": "init_bcry_1",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 841.7861759774405,
+   "dchi2_max_der": 4591.626691370119,
+   "clase": "identificable",
+   "ic_izq_log": 0.059344599311264304,
+   "ic_der_log": 0.05572567974029175,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.059344599311264304,
+   "ic_der_log_robusto": 0.05572567974029175
+  }
+ ],
+ "n_identificables": 5,
+ "todos_identificables": true,
+ "n_identificables_robusto": 5,
+ "todos_identificables_robusto": true
+}

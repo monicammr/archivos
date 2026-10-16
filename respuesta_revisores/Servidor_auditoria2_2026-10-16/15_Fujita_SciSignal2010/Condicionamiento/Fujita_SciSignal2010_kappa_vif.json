@@ -1,0 +1,15 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "kappa_centred": 2.339300856286609,
+ "VIF_centred": 1.913766516023977,
+ "kappa_unit": 2.617695863506388,
+ "VIF_unit": 2.2495668402547278,
+ "kappa_unit_with_calibration": 36621.63279205662,
+ "VIF_unit_with_calibration": 245148884.28763008,
+ "kappa_selection_json": 2.339300856286609,
+ "VIF_selection_json": 1.913766516023977
+}

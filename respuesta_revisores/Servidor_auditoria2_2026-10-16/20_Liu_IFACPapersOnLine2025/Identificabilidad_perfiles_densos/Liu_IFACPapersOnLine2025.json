@@ -1,0 +1,46 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "S": [
+  "kappa",
+  "phi"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 100,
+ "coste_min": 99.9964697853787,
+ "chi2_por_gl": 1.0203721406671296,
+ "umbral_robusto": 3.9182290201617773,
+ "rondas": 0,
+ "dchi2_minimo": 0.053836799944221525,
+ "perfiles": [
+  {
+   "parametro": "kappa",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 348.4964492920955,
+   "dchi2_max_der": 6217.519123063262,
+   "clase": "identificable",
+   "ic_izq_log": 0.11532544554125979,
+   "ic_der_log": 0.10665402289807088,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.11643868070360831,
+   "ic_der_log_robusto": 0.10782153849166541
+  },
+  {
+   "parametro": "phi",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 107.89645996077338,
+   "dchi2_max_der": 73.7078339724117,
+   "clase": "identificable",
+   "ic_izq_log": 0.1636415776105286,
+   "ic_der_log": 0.1768846717331793,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.1652575109241139,
+   "ic_der_log_robusto": 0.17889614513419239
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

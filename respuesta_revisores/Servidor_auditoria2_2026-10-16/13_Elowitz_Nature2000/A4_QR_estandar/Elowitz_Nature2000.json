@@ -1,0 +1,19 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "k": 2,
+ "S_ours": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "S_qr": [
+  "eff_GFP",
+  "eff"
+ ],
+ "overlap": 0,
+ "chi2_ours": 1.49838255411681,
+ "chi2_qr": 1.4031453480723872,
+ "ratio_qr_vs_ours": 0.9364399927223136,
+ "tipo": "extrapolaci\u00f3n temporal (t \u2265 410)",
+ "segundos": 0.4,
+ "variant": "gks"
+}

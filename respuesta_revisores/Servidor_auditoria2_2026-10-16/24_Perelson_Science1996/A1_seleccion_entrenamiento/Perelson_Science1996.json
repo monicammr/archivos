@@ -1,0 +1,48 @@
+{
+ "sistema": "Perelson_Science1996",
+ "p": 3,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 10,
+ "S1": [
+  "c",
+  "delta"
+ ],
+ "Rvar_S1_%": 100.0,
+ "S1_cumple": true,
+ "cos_S1": NaN,
+ "erel_S1": NaN,
+ "motivo_stage2": "Stage 1 cumple R_var pero no es admisible",
+ "etapa": "Stage 2",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "Rvar_%": 100.0,
+ "kappa": 2.551307237245343,
+ "VIF": 2.165699517402274,
+ "cos_med": NaN,
+ "erel_med": NaN,
+ "n_escenarios": 0,
+ "S_antes_poda": [
+  "c",
+  "delta"
+ ],
+ "podados": [],
+ "eajuste_med": NaN,
+ "admisible": false,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "c",
+    "delta",
+    false
+   ]
+  ]
+ },
+ "segundos": 0.8
+}

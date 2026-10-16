@@ -1,0 +1,15 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "kappa_centred": 1.3408433326838227,
+ "VIF_centred": 1.0885193544075153,
+ "kappa_unit": 1.4141285160075525,
+ "VIF_unit": 1.1249549005181534,
+ "kappa_unit_with_calibration": 21.887152497669387,
+ "VIF_unit_with_calibration": 75.53655310260125,
+ "kappa_selection_json": 1.3408433303201317,
+ "VIF_selection_json": 1.0885193533131055
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.12628885016640026,
+ "erel_med": 0.2097271690247176,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "train",
+ "prueba": "adm",
+ "segundos": 46.1
+}

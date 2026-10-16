@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k8",
+  "kminus7b"
+ ],
+ "chi2_test": 14976.89407617693,
+ "chi2_ours": 14976.894073807967,
+ "ratio_vs_ours": 1.0000000001581746,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 82.5
+}

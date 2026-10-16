@@ -1,0 +1,21 @@
+{
+ "S": [
+  "gamma_1_Stage_I_China",
+  "gamma_1_Stage_III_Wuhan",
+  "gamma_1_Stage_II_Wuhan"
+ ],
+ "k": 3,
+ "n_calibracion": 0,
+ "eajuste_med": 0.5081453395959948,
+ "erel_med": 1.1681738054163442,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "rand18",
+ "prueba": "adm",
+ "segundos": 4.9
+}

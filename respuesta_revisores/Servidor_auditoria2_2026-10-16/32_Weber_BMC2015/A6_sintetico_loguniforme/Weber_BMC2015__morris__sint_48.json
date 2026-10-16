@@ -1,0 +1,16 @@
+{
+ "S": [
+  "pu3",
+  "a21"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 4.382781174010917,
+ "B_chi2_test_theta0": 21.859728919937975,
+ "B_chi2_test_red": 12.221081927444597,
+ "B_epred_red": 0.8015571663594871,
+ "sistema": "Weber_BMC2015",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 2.1
+}

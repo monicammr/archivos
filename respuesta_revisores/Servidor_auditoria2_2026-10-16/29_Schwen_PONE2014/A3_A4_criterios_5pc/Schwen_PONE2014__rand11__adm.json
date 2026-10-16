@@ -1,0 +1,20 @@
+{
+ "S": [
+  "ini_R2fold",
+  "kout_frag"
+ ],
+ "k": 2,
+ "n_calibracion": 15,
+ "eajuste_med": 0.18014451036085385,
+ "erel_med": 0.471401865723203,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "rand11",
+ "prueba": "adm",
+ "segundos": 94.1
+}

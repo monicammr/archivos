@@ -1,0 +1,16 @@
+{
+ "S": [
+  "STAT5Imp",
+  "CISRNADelay"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.5153841630152178,
+ "B_chi2_test_theta0": 3.113109217067098,
+ "B_chi2_test_red": 5.060020609670298,
+ "B_epred_red": 1.3054308175496983,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 165.5
+}

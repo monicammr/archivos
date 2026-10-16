@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "semilla": 42,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.591139009492955,
+ "B_chi2_test_theta0": 2.469393649706666,
+ "B_chi2_test_red": 2.4693936444213076,
+ "B_epred_red": 0.9999999988449342,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 2.2
+}

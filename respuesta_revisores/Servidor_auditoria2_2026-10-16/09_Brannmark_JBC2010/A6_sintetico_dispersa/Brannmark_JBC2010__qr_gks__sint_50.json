@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k1e",
+  "k1c"
+ ],
+ "semilla": 50,
+ "familia": "dispersa",
+ "senal_rms_test": 3.278416358260081,
+ "B_chi2_test_theta0": 14.378515183393839,
+ "B_chi2_test_red": 24.753130656633168,
+ "B_epred_red": 1.3703656892231817,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 1.6
+}

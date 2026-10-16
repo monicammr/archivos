@@ -1,0 +1,15 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "kappa_centred": 5.427274422121799,
+ "VIF_centred": 7.8723143479451005,
+ "kappa_unit": 4.542421800496061,
+ "VIF_unit": 5.6705151159133536,
+ "kappa_unit_with_calibration": 4.542421800496061,
+ "VIF_unit_with_calibration": 5.6705151159133536,
+ "kappa_selection_json": 5.427274422121799,
+ "VIF_selection_json": 7.8723143479451005
+}

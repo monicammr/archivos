@@ -1,0 +1,15 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "S": [
+  "k_d",
+  "k00"
+ ],
+ "kappa_centred": 1.0031187307515856,
+ "VIF_centred": 1.0000096962650384,
+ "kappa_unit": 1.2917837816517739,
+ "VIF_unit": 1.0669930783258585,
+ "kappa_unit_with_calibration": 1.2917837816517739,
+ "VIF_unit_with_calibration": 1.0669930783258585,
+ "kappa_selection_json": 1.0031187307515856,
+ "VIF_selection_json": 1.0000096962650384
+}

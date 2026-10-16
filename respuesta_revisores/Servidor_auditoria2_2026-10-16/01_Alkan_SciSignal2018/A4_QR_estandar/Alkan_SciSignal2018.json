@@ -1,0 +1,19 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "k": 2,
+ "S_ours": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "S_qr": [
+  "p_atr_act_atm",
+  "p_dnapk_act"
+ ],
+ "overlap": 0,
+ "chi2_ours": 2.748324922924577,
+ "chi2_qr": 2.729225544991759,
+ "ratio_qr_vs_ours": 0.9930505386122636,
+ "tipo": "condiciones nuevas",
+ "segundos": 14.0,
+ "variant": "gks"
+}
