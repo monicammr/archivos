@@ -127,6 +127,37 @@ for name in ("refits.log", "refits_remaining.log", "refits_final.log", "raia_10_
                 if d["puntos"] > 0 and (d["sistema"], d["seg_total"]) not in seen:
                     seen.add((d["sistema"], d["seg_total"])); tc[d["sistema"]] += d["seg_total"]
 T["pl"] = {s: t1[s] + tc.get(s, 0.0) for s in t1}
+# profile likelihood of the full model: the logs give elapsed time with the points in parallel; the
+# processor time is the sum over the profile points (all rounds), and is the one added to the totals
+T["pl_cpu"] = {d.name: sum(json.loads(f.read_text()).get("segundos", 0.0) for f in d.glob("perfil_*.json"))
+               for d in (RES / "profile_likelihood").iterdir() if d.is_dir() and d.name != "logs"}
+# nonlinear re-estimation of the final subset of the problems selected with the first-order e_fit
+T["nl"] = {s: r.get("segundos_total") for s, r in load("efit_nonlinear").items()}
+# analyses added in the second review
+T["sel_fix"] = {s: seg(r) for s, r in load("selection_fixedscen").items()}
+T["sel_train"] = {s: seg(r) for s, r in load("selection_train_fixedscen").items()}
+T["gks"] = {s: seg(r) for s, r in load("qr_selection_gks").items()}
+T["crit5f"] = summed("criteria_tests_fixedscen")
+T["crit20f"] = summed("criteria_tests_20pc_fixedscen")
+T["synlog"] = summed("criteria_tests_sint_loguniforme")
+T["synsp"] = summed("criteria_tests_sint_dispersa")
+
+
+def profile_points(folder):
+    out = {}
+    base = RES / "identifiability" / folder
+    for d in sorted(base.iterdir()) if base.exists() else []:
+        if d.is_dir():
+            t = sum(json.loads(f.read_text()).get("segundos", 0.0) for f in d.glob("p_*.json"))
+            if (d / "minimo.npz").exists():
+                m = np.load(d / "minimo.npz")
+                t += float(m["segundos"]) if "segundos" in m.files else 0.0
+            out[d.name] = t
+    return out
+
+
+T["ident_dense"] = profile_points("profiles_dense")
+T["ident_train"] = profile_points("profiles_selection_train_fixedscen")
 
 LAB = {"sel_par": "Selection, parallel", "sel_1": "Selection, 1 core", "settings": "Settings (15 variants)",
        "rob": "Robustness, paired", "rob_ind": "Robustness, independent", "single": "Single parameter",
@@ -134,7 +165,14 @@ LAB = {"sel_par": "Selection, parallel", "sel_1": "Selection, 1 core", "settings
        "syn5": r"Synthetic, $\pm$5\%, 10 seeds", "syn50": r"Synthetic, $\pm$50\%, 10 seeds", "signal": "True signal, 3 amplitudes",
        "ident": "Identifiability of $S$", "qr": "Pivoted QR", "bm": "Brun and Morris", "rand": "Random subsets (20)",
        "cal": "Calibration only", "crit5": r"Criteria test, $\pm$5\%", "crit20": r"Criteria test, $\pm$20\%",
-       "pl": "Profile likelihood, full model"}
+       "pl": "Profile likelihood, full model (elapsed)", "pl_cpu": "Profile likelihood, full model (processor)",
+       "nl": "Nonlinear check of $S$",
+       "sel_fix": "Selection, fixed scen.", "sel_train": "Selection, training",
+       "gks": "Pivoted QR (GKS)", "crit5f": r"Criteria, $\pm$5\%, fixed",
+       "crit20f": r"Criteria, $\pm$20\%, fixed", "synlog": "Synthetic, log-uniform",
+       "synsp": "Synthetic, sparse", "ident_dense": "Profiles, 20 per side",
+       "ident_train": "Profiles, training $S$"}
+ELAPSED = {"sel_1", "pl"}      # not added to the totals (the same computation is counted elsewhere)
 
 
 def table(keys, name, caption, label):
@@ -156,9 +194,12 @@ table(["sel_par", "sel_1", "settings", "rob", "rob_ind", "single"], "tableS_time
 table(["ext", "nest", "syn20", "syn5", "syn50", "signal", "ident"], "tableS_time_validation.tex",
       r"Computing time of the validation and identifiability analyses, for every problem: external and nested validation on real data, synthetic experiment (20 seeds at $\pm$20\%, 10 seeds at $\pm$5\% and $\pm$50\%), true signal $y(\theta^\ast)-y(\theta_0)$ at the three amplitudes, and the identifiability of the selected parameters (fit of the reduced problem and all profile points)." + COMMON,
       "tab:timevalidation")
-table(["qr", "bm", "rand", "cal", "crit5", "crit20", "pl"], "tableS_time_comparison.tex",
-      r"Computing time of the comparison with other criteria, for every problem: selection and validation by pivoted QR, Brun and Morris, the random and calibration-only baselines, the admissibility and synthetic tests of the subsets of all criteria ($\pm$5\%, including the synthetic seeds, and $\pm$20\%), and profile likelihood of every biological parameter of the full model (all rounds)." + COMMON,
+table(["qr", "bm", "rand", "cal", "crit5", "crit20", "pl", "pl_cpu"], "tableS_time_comparison.tex",
+      r"Computing time of the comparison with other criteria, for every problem: selection and validation by pivoted QR, Brun and Morris, the random and calibration-only baselines, the admissibility and synthetic tests of the subsets of all criteria ($\pm$5\%, including the synthetic seeds, and $\pm$20\%), and profile likelihood of every biological parameter of the full model (all rounds), as elapsed time with the profile points in parallel and as processor time, the sum over the points." + COMMON,
       "tab:timecomparison")
+table(["nl", "sel_fix", "sel_train", "gks", "crit5f", "crit20f", "synlog", "synsp", "ident_dense", "ident_train"], "tableS_time_review.tex",
+      r"Computing time of the analyses added in the second review, for every problem: nonlinear re-estimation of the final subset in the 15 scenarios for the problems selected with the first-order $e_{\mathrm{fit}}$; the complete selection repeated with the fixed scenario set and on the training outputs; standard pivoted QR; the admissibility tests of all criteria with the fixed scenario set at $\pm$5\% (including the synthetic seeds) and $\pm$20\%; the synthetic comparison with log-uniform and sparse truths (all criteria, ten seeds); and the identifiability profiles with 20 points per side and of the subsets selected on the training outputs. The check of the identifiability hypotheses over the admissible set (512 Sobol points and adversarial search for five radii) did not record times per problem and is not included; it took about 3~h of elapsed time on an 88-core server." + COMMON,
+      "tab:timereview")
 
 # summary per analysis
 rows, tot_all = [], 0.0
@@ -167,13 +208,13 @@ for k, lab in LAB.items():
     if not v:
         continue
     vals = list(v.values()); smax = max(v, key=v.get)
-    tot_all += sum(vals) if k not in ("sel_1",) else 0
+    tot_all += sum(vals) if k not in ELAPSED else 0
     rows.append([lab, str(len(v)), fmt(statistics.median(vals)), f"{fmt(v[smax])} ({short(smax)})", f"{sum(vals) / 3600:.1f}"])
 head = ["Analysis", "Problems", "Median", "Maximum (problem)", "Total (h)"]
 s = [r"\begin{longtable}{@{}lrrlr@{}}",
-     r"\caption{Summary of the computing time per analysis over the problems of Supplementary Tables~\ref{tab:timemethod}--\ref{tab:timecomparison}: number of problems, median and maximum time per problem and total time.}\label{tab:timesummary}\\",
+     r"\caption{Summary of the computing time per analysis over the problems of Supplementary Tables~\ref{tab:timemethod}--\ref{tab:timereview}: number of problems, median and maximum time per problem and total time, in processor time where an analysis consists of independent tasks; the elapsed time of profile likelihood and the selection on one core are listed but not added to the total.}\label{tab:timesummary}\\",
      r"\toprule", " & ".join(head) + r" \\", r"\midrule", r"\endfirsthead", r"\toprule", " & ".join(head) + r" \\", r"\midrule", r"\endhead"]
-s += [" & ".join(r) + r" \\" for r in rows] + [r"\midrule", rf"All analyses (selection on one core excluded) & & & & {tot_all / 3600:.0f} \\", r"\bottomrule", r"\end{longtable}"]
+s += [" & ".join(r) + r" \\" for r in rows] + [r"\midrule", rf"All analyses & & & & {tot_all / 3600:.0f} \\", r"\bottomrule", r"\end{longtable}"]
 (TAB / "tableS_time_summary.tex").write_text("\n".join(s) + "\n", encoding="utf-8"); print("written tableS_time_summary.tex")
 
 # numbers for the main text
@@ -192,7 +233,7 @@ for k in LAB:
         print(f"  {k}: total {sum(v) / 3600:.1f} h over {len(v)}")
 per = collections.defaultdict(float)
 for k in LAB:
-    if k == "sel_1":
+    if k in ELAPSED:
         continue
     for s, t in T[k].items():
         if ok(t):

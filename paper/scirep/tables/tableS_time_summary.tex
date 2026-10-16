@@ -1,5 +1,5 @@
 \begin{longtable}{@{}lrrlr@{}}
-\caption{Summary of the computing time per analysis over the problems of Supplementary Tables~\ref{tab:timemethod}--\ref{tab:timecomparison}: number of problems, median and maximum time per problem and total time.}\label{tab:timesummary}\\
+\caption{Summary of the computing time per analysis over the problems of Supplementary Tables~\ref{tab:timemethod}--\ref{tab:timereview}: number of problems, median and maximum time per problem and total time, in processor time where an analysis consists of independent tasks; the elapsed time of profile likelihood and the selection on one core are listed but not added to the total.}\label{tab:timesummary}\\
 \toprule
 Analysis & Problems & Median & Maximum (problem) & Total (h) \\
 \midrule
@@ -27,8 +27,19 @@ Random subsets (20) & 29 & 4 s & 1.2 h (Isensee) & 1.6 \\
 Calibration only & 28 & $<$1 s & 4.6 min (Isensee) & 0.1 \\
 Criteria test, $\pm$5\% & 29 & 1.8 min & 13.8 h (Isensee) & 23.2 \\
 Criteria test, $\pm$20\% & 29 & 33 s & 1.4 h (Smith) & 2.3 \\
-Profile likelihood, full model & 28 & 17 s & 5.2 h (Isensee) & 7.6 \\
+Profile likelihood, full model (elapsed) & 28 & 17 s & 5.2 h (Isensee) & 7.6 \\
+Profile likelihood, full model (processor) & 27 & 5.5 min & 110.1 h (Isensee) & 193.0 \\
+Nonlinear check of $S$ & 6 & 2.2 h & 12.7 h (Chen) & 21.3 \\
+Selection, fixed scen. & 34 & 18 s & 1.2 h (Chen) & 2.4 \\
+Selection, training & 34 & 16 s & 1.2 h (Chen) & 2.4 \\
+Pivoted QR (GKS) & 29 & $<$1 s & 9.2 min (Isensee) & 0.3 \\
+Criteria, $\pm$5\%, fixed & 29 & 5.3 min & 16.7 h (Smith) & 39.6 \\
+Criteria, $\pm$20\%, fixed & 29 & 3.4 min & 13.7 h (Smith) & 21.3 \\
+Synthetic, log-uniform & 29 & 2.2 min & 22.1 h (Raimundez) & 48.5 \\
+Synthetic, sparse & 29 & 1.8 min & 17.3 h (Raimundez) & 37.8 \\
+Profiles, 20 per side & 31 & 47 s & 64.0 h (Chen) & 102.4 \\
+Profiles, training $S$ & 17 & 36 s & 1.6 h (Bachmann) & 3.0 \\
 \midrule
-All analyses (selection on one core excluded) & & & & 169 \\
+All analyses & & & & 634 \\
 \bottomrule
 \end{longtable}
