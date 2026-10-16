@@ -1,0 +1,20 @@
+{
+ "S": [
+  "eff",
+  "tau_mRNA_GFP"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.6963799010430745,
+ "erel_med": 0.9855982242918742,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "rand3",
+ "prueba": "adm",
+ "segundos": 10.9
+}

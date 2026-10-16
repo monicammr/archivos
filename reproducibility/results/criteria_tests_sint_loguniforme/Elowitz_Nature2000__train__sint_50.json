@@ -1,0 +1,16 @@
+{
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "semilla": 50,
+ "familia": "loguniforme",
+ "senal_rms_test": 4.172540475605013,
+ "B_chi2_test_theta0": 17.858903702199704,
+ "B_chi2_test_red": 10.592381519392832,
+ "B_epred_red": 0.7240574339314497,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 3.9
+}

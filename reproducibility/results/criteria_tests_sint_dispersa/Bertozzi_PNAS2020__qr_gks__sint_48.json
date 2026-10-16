@@ -1,0 +1,16 @@
+{
+ "S": [
+  "I0_CA",
+  "R0_CA"
+ ],
+ "semilla": 48,
+ "familia": "dispersa",
+ "senal_rms_test": 0.0,
+ "B_chi2_test_theta0": 0.5584272521500022,
+ "B_chi2_test_red": 0.5584272521500022,
+ "B_epred_red": NaN,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.0
+}

@@ -1,0 +1,23 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "escenario": 8,
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "erel": 0.7258779536990477,
+ "efit": 0.3657619846652269,
+ "arranques": {
+  "theta0": {
+   "e": 0.3657619846652269,
+   "nfev": 12,
+   "status": 3
+  },
+  "escenario": {
+   "e": 0.3657620371171748,
+   "nfev": 10,
+   "status": 2
+  }
+ },
+ "segundos": 116.7
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "exposed_init_concentration",
+  "asymptomatic_init_concentration"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.14332686220494864,
+ "erel_med": 0.9842576562544377,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 2.6
+}

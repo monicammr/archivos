@@ -1,0 +1,19 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "k": 2,
+ "S_ours": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "S_qr": [
+  "pRec_degradation",
+  "SOCS3mRNA_production"
+ ],
+ "overlap": 1,
+ "chi2_ours": 8.223759823396664,
+ "chi2_qr": 0.6707729838830568,
+ "ratio_qr_vs_ours": 0.08156524488649367,
+ "tipo": "condiciones nuevas",
+ "segundos": 2.1,
+ "variant": "gks"
+}

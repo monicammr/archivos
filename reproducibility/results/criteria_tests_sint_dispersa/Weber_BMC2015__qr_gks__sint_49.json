@@ -1,0 +1,16 @@
+{
+ "S": [
+  "p13",
+  "a33"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 5.40342314521322,
+ "B_chi2_test_theta0": 31.02606367631934,
+ "B_chi2_test_red": 9.881278964440149,
+ "B_epred_red": 0.5221671822320951,
+ "sistema": "Weber_BMC2015",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.4
+}

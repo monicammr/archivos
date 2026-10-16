@@ -1,0 +1,16 @@
+{
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "semilla": 47,
+ "familia": "uniforme",
+ "senal_rms_test": 0.3070477091590504,
+ "B_chi2_test_theta0": 0.4413753910899009,
+ "B_chi2_test_red": 6.800081692793572,
+ "B_epred_red": 7.9489426335801445,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 7.8
+}

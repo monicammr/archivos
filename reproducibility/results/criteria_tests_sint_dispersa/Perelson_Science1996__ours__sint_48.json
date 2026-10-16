@@ -1,0 +1,16 @@
+{
+ "S": [
+  "c",
+  "delta"
+ ],
+ "semilla": 48,
+ "familia": "dispersa",
+ "senal_rms_test": 5.465473950354241e-06,
+ "B_chi2_test_theta0": 0.6511988898133613,
+ "B_chi2_test_red": 0.651194266503096,
+ "B_epred_red": 1.8539167826718461,
+ "sistema": "Perelson_Science1996",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 0.2
+}

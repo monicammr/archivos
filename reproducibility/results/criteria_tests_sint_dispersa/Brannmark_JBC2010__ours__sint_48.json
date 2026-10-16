@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "semilla": 48,
+ "familia": "dispersa",
+ "senal_rms_test": 3.2069287662920587,
+ "B_chi2_test_theta0": 10.485575860854814,
+ "B_chi2_test_red": 2.465285118251754,
+ "B_epred_red": 0.3753033587501196,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 2.4
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "tau2",
+  "k5"
+ ],
+ "semilla": 47,
+ "familia": "uniforme",
+ "senal_rms_test": 0.9242958513162156,
+ "B_chi2_test_theta0": 2.4381782822608753,
+ "B_chi2_test_red": 9.17845063926169,
+ "B_epred_red": 2.7804533877575146,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 2.6
+}

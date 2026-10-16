@@ -1,0 +1,20 @@
+{
+ "S": [
+  "t_2",
+  "h_hosp_rate"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.9998370386279902,
+ "erel_med": 1.0000138671195653,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "rand6",
+ "prueba": "adm",
+ "segundos": 2.3
+}

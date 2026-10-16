@@ -1,0 +1,16 @@
+{
+ "S": [
+  "K_1",
+  "tau2"
+ ],
+ "semilla": 45,
+ "familia": "loguniforme",
+ "senal_rms_test": 3.012597121781796,
+ "B_chi2_test_theta0": 9.884275942126838,
+ "B_chi2_test_red": 2.2976423658742524,
+ "B_epred_red": 0.4550687867675518,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 1.0
+}

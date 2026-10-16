@@ -1,0 +1,20 @@
+{
+ "S": [
+  "init_EpoRJAK2",
+  "SOCS3RNATurn"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.5000803508307631,
+ "erel_med": 0.7497818616606832,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand15",
+ "prueba": "adm",
+ "segundos": 10.4
+}

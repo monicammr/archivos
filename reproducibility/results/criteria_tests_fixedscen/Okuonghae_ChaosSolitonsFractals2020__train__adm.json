@@ -1,0 +1,20 @@
+{
+ "S": [
+  "transmission_rate_effective",
+  "symptomatic_start"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.04167395420547483,
+ "erel_med": 0.7932029595247857,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "train",
+ "prueba": "adm",
+ "segundos": 2.3
+}

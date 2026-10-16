@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "semilla": 55,
+ "familia": "uniforme",
+ "senal_rms_test": 2.7048092396800474,
+ "B_chi2_test_theta0": 8.354976636738208,
+ "B_chi2_test_red": 1.0412088732281302,
+ "B_epred_red": 0.08501518730470305,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 1506.6
+}

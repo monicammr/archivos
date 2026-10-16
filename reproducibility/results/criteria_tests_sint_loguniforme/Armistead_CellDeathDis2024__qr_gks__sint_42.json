@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k0",
+  "k4"
+ ],
+ "semilla": 42,
+ "familia": "loguniforme",
+ "senal_rms_test": 3.394232958620046,
+ "B_chi2_test_theta0": 11.408457802075493,
+ "B_chi2_test_red": 2.8227881477456562,
+ "B_epred_red": 0.47164163076850757,
+ "sistema": "Armistead_CellDeathDis2024",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.6
+}

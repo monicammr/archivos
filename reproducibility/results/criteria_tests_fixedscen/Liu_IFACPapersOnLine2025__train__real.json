@@ -1,0 +1,13 @@
+{
+ "S": [
+  "kappa",
+  "rho"
+ ],
+ "chi2_test": 1.0255809384138141,
+ "chi2_ours": 0.9537288471177436,
+ "ratio_vs_ours": 1.0753380706824736,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.3
+}

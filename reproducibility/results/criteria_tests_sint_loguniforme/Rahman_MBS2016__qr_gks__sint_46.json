@@ -1,0 +1,16 @@
+{
+ "S": [
+  "treated_moderate_improve_rate",
+  "infected_normal_transmission_rate_relative"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 17.676417587465128,
+ "B_chi2_test_theta0": 305.53368856719516,
+ "B_chi2_test_red": 1.4770029932870932,
+ "B_epred_red": 0.006689278772145119,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.7
+}

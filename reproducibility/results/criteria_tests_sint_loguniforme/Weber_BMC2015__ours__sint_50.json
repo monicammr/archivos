@@ -1,0 +1,16 @@
+{
+ "S": [
+  "s12",
+  "a21"
+ ],
+ "semilla": 50,
+ "familia": "loguniforme",
+ "senal_rms_test": 7.9083497674835295,
+ "B_chi2_test_theta0": 61.96002724434205,
+ "B_chi2_test_red": 2.9951223126790105,
+ "B_epred_red": 0.1821340025448955,
+ "sistema": "Weber_BMC2015",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 1.0
+}

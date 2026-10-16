@@ -1,0 +1,20 @@
+{
+ "S": [
+  "beta_1",
+  "symptomatic_init_concentration"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.03850530122129134,
+ "erel_med": 0.8302563872346088,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 2.4
+}

@@ -1,0 +1,71 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "p": 28,
+ "outputs": "all",
+ "fixed_scenarios": true,
+ "n_rows": 82,
+ "S1": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei",
+  "gamma_1_Stage_I_Wuhan",
+  "R_Stage_II_Hubei",
+  "gamma_2_Stage_II_Hubei",
+  "R_Stage_II_China",
+  "gamma_2_Stage_III_Wuhan",
+  "gamma_2_Stage_II_China",
+  "R_Stage_III_Wuhan"
+ ],
+ "Rvar_S1_%": 73.94697515071526,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "Rvar_%": 68.66995676836721,
+ "kappa": 1.1712416132071082,
+ "VIF": 1.02281492916831,
+ "cos_med": 0.901753810642219,
+ "erel_med": 0.6952506591236154,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "R_Stage_I_China",
+  "R_Stage_II_Wuhan",
+  "gamma_1_Stage_I_Hubei"
+ ],
+ "podados": [],
+ "eajuste_med": 0.2955629445655794,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 4,
+  "nested_pairs": 3,
+  "violations": 0,
+  "subsets": [
+   [
+    "R_Stage_II_Wuhan",
+    "gamma_1_Stage_I_Hubei",
+    false
+   ],
+   [
+    "R_Stage_I_China",
+    "gamma_1_Stage_I_Hubei",
+    false
+   ],
+   [
+    "R_Stage_I_China",
+    "R_Stage_II_Wuhan",
+    false
+   ],
+   [
+    "R_Stage_I_China",
+    "R_Stage_II_Wuhan",
+    "gamma_1_Stage_I_Hubei",
+    true
+   ]
+  ]
+ },
+ "segundos": 18.2
+}

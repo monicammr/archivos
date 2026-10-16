@@ -1,0 +1,66 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "p": 30,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 267,
+ "S1": [
+  "ini_R1",
+  "ini_R2fold",
+  "kon_unspec",
+  "ka1",
+  "kin",
+  "kout2",
+  "kout"
+ ],
+ "Rvar_S1_%": 67.28486194803892,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "Rvar_%": 49.47156554344916,
+ "kappa": 3.0316195641261365,
+ "VIF": 2.824880654667488,
+ "cos_med": 0.9205601655594463,
+ "erel_med": 0.4177736064892652,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "podados": [],
+ "eajuste_med": 0.17675821637087405,
+ "admisible": true,
+ "calibracion": [
+  "fragments",
+  "km_nExpID1",
+  "km_nExpID2",
+  "km_nExpID3",
+  "km_nExpID4",
+  "offset",
+  "offset_nExpID1",
+  "offset_nExpID2",
+  "offset_nExpID3",
+  "offset_nExpID4",
+  "scale",
+  "scaleElisa_nExpID1",
+  "scaleElisa_nExpID2",
+  "scaleElisa_nExpID3",
+  "scaleElisa_nExpID4"
+ ],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "ini_R1",
+    "ini_R2fold",
+    true
+   ]
+  ]
+ },
+ "segundos": 201.3
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kout",
+  "kout2"
+ ],
+ "k": 2,
+ "n_calibracion": 15,
+ "eajuste_med": 0.22337866286603628,
+ "erel_med": 0.6146034136647314,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 97.3
+}

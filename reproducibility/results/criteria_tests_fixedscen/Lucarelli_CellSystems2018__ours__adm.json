@@ -1,0 +1,28 @@
+{
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "k": 10,
+ "n_calibracion": 0,
+ "eajuste_med": 0.4354529673002491,
+ "erel_med": 0.5961991398667025,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.5333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 8.2
+}

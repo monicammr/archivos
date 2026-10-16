@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "chi2_test": 0.44483562196793053,
+ "chi2_ours": 0.757740623887529,
+ "ratio_vs_ours": 0.5870552639579176,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 1.8
+}

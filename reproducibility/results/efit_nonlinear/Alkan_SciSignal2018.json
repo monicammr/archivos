@@ -1,0 +1,13 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "n_escenarios_validos": 15,
+ "eajuste_med_nolineal": 0.12010974133347577,
+ "eajuste_med_primer_orden": 0.1212591655750403,
+ "tasa_paso_nolineal": 1.0,
+ "admisible_nolineal": true,
+ "segundos_total": 485.5
+}

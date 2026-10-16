@@ -1,0 +1,13 @@
+{
+ "S": [
+  "alpha_4",
+  "alpha_22"
+ ],
+ "chi2_test": 2.7302558435522707e-08,
+ "chi2_ours": 1.0236762094202532e-07,
+ "ratio_vs_ours": 0.2667108816662369,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 1.1
+}

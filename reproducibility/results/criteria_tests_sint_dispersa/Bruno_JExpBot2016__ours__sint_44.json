@@ -1,0 +1,19 @@
+{
+ "S": [
+  "kb1",
+  "init_bcar2",
+  "init_zea_1",
+  "init_bcar1",
+  "init_bcry_1"
+ ],
+ "semilla": 44,
+ "familia": "dispersa",
+ "senal_rms_test": 0.3959690706391524,
+ "B_chi2_test_theta0": 1.250211909043602,
+ "B_chi2_test_red": 1.2095045295977684,
+ "B_epred_red": 1.0875081289071944,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 0.9
+}

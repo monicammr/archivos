@@ -1,0 +1,16 @@
+{
+ "S": [
+  "reaction_6_k1",
+  "reaction_8_k1"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 14.426697265342364,
+ "B_chi2_test_theta0": 211.90484039124806,
+ "B_chi2_test_red": 38.78735339362087,
+ "B_epred_red": 0.43153308838851595,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 11.3
+}

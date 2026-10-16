@@ -1,0 +1,46 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "k21",
+  "km2"
+ ],
+ "n_calibracion": 3,
+ "n_datos": 43,
+ "coste_min": 43.035271367874216,
+ "chi2_por_gl": 1.1325071412598477,
+ "umbral_robusto": 4.348827422437815,
+ "rondas": 0,
+ "dchi2_minimo": 0.04519783530363952,
+ "perfiles": [
+  {
+   "parametro": "k21",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 54.33949869875883,
+   "dchi2_max_der": 55.826716746280766,
+   "clase": "identificable",
+   "ic_izq_log": 0.46478681669476923,
+   "ic_der_log": 0.4315093695700542,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.4948589696203892,
+   "ic_der_log_robusto": 0.4543460671804759
+  },
+  {
+   "parametro": "km2",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 752.0160092142869,
+   "dchi2_max_der": 55.70230988916536,
+   "clase": "identificable",
+   "ic_izq_log": 0.24181521300499234,
+   "ic_der_log": 0.2956425348136227,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.25447379872263454,
+   "ic_der_log_robusto": 0.3182675572883824
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

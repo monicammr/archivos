@@ -1,0 +1,13 @@
+{
+ "S": [
+  "kin",
+  "kd2fold"
+ ],
+ "chi2_test": 8.432138429516238,
+ "chi2_ours": 8.195942168849825,
+ "ratio_vs_ours": 1.0288186831727681,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 2.7
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "SOCS3Inh",
+  "CISEqcOE"
+ ],
+ "semilla": 50,
+ "familia": "dispersa",
+ "senal_rms_test": 0.9840024637731851,
+ "B_chi2_test_theta0": 1.8786715369868539,
+ "B_chi2_test_red": 4.37473211635591,
+ "B_epred_red": 1.8859454990715343,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 176.8
+}

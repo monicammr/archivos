@@ -1,0 +1,16 @@
+{
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_I_Wuhan"
+ ],
+ "semilla": 57,
+ "familia": "uniforme",
+ "senal_rms_test": 1.5254870933014124,
+ "B_chi2_test_theta0": 3.9813647441284186,
+ "B_chi2_test_red": 3.9813647441284186,
+ "B_epred_red": 1.0,
+ "sistema": "Zhao_QuantBiol2020",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.3
+}

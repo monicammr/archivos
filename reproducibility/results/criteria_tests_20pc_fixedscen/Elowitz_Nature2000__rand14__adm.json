@@ -1,0 +1,20 @@
+{
+ "S": [
+  "eff_GFP",
+  "tau_prot"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.5228833329245851,
+ "erel_med": 0.8871956817306449,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "rand14",
+ "prueba": "adm",
+ "segundos": 5.9
+}

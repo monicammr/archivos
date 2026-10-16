@@ -1,0 +1,13 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "n_escenarios_validos": 15,
+ "eajuste_med_nolineal": 0.33801893607532374,
+ "eajuste_med_primer_orden": 0.33709717294038805,
+ "tasa_paso_nolineal": 1.0,
+ "admisible_nolineal": true,
+ "segundos_total": 1389.9
+}

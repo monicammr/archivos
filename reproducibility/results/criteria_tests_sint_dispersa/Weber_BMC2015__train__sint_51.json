@@ -1,0 +1,16 @@
+{
+ "S": [
+  "pu3",
+  "s12"
+ ],
+ "semilla": 51,
+ "familia": "dispersa",
+ "senal_rms_test": 7.953279692567397,
+ "B_chi2_test_theta0": 65.43069436441587,
+ "B_chi2_test_red": 8.555742159551947,
+ "B_epred_red": 0.33825540058291204,
+ "sistema": "Weber_BMC2015",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.7
+}

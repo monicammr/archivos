@@ -1,0 +1,16 @@
+{
+ "S": [
+  "Kd",
+  "init_A_state"
+ ],
+ "semilla": 43,
+ "familia": "dispersa",
+ "senal_rms_test": 0.6416359678650566,
+ "B_chi2_test_theta0": 2.0261159709472643,
+ "B_chi2_test_red": 1.550319073269597,
+ "B_epred_red": 0.2394962968425235,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2.5
+}

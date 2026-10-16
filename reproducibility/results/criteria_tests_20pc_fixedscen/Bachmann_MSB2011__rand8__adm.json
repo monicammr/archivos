@@ -1,0 +1,20 @@
+{
+ "S": [
+  "EpoRCISRemove",
+  "SOCS3RNATurn"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.5027894247730055,
+ "erel_med": 0.7507821765403877,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand8",
+ "prueba": "adm",
+ "segundos": 19.5
+}

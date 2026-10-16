@@ -1,0 +1,31 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "escenario": 14,
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "erel": 0.5638148875256904,
+ "efit": 0.4530680620132113,
+ "arranques": {
+  "theta0": {
+   "e": 0.4530680620132113,
+   "nfev": 11,
+   "status": 3
+  },
+  "escenario": {
+   "e": 0.4530680714717291,
+   "nfev": 12,
+   "status": 3
+  }
+ },
+ "segundos": 7.4
+}

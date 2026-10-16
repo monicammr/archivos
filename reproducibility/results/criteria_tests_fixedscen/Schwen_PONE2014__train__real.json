@@ -1,0 +1,13 @@
+{
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "chi2_test": 8.195942166513905,
+ "chi2_ours": 8.195942168849825,
+ "ratio_vs_ours": 0.9999999997149907,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 7.0
+}

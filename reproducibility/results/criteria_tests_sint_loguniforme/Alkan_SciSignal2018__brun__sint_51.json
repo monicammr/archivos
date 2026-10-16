@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "semilla": 51,
+ "familia": "loguniforme",
+ "senal_rms_test": 4.963926411560913,
+ "B_chi2_test_theta0": 26.281270789746323,
+ "B_chi2_test_red": 3.2425517452981585,
+ "B_epred_red": 0.30950515904486503,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 126.2
+}

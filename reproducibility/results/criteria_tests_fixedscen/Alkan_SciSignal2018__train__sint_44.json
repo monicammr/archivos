@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "semilla": 44,
+ "familia": "uniforme",
+ "senal_rms_test": 0.4742393526895978,
+ "B_chi2_test_theta0": 1.1042943533503171,
+ "B_chi2_test_red": 0.9677908415894351,
+ "B_epred_red": 0.3463718211003269,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 68.1
+}

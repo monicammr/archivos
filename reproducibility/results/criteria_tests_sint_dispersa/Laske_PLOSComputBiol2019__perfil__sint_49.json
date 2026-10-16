@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_bind_M1",
+  "k_syn_R_M"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 1.995712731207876,
+ "B_chi2_test_theta0": 2.9556595628411233,
+ "B_chi2_test_red": 2.9556595646146113,
+ "B_epred_red": 1.0000000003117222,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 2.3
+}

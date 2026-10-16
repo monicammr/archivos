@@ -1,0 +1,16 @@
+{
+ "S": [
+  "xi_KD_Rp_cAMPS",
+  "KD_cAMP"
+ ],
+ "semilla": 50,
+ "familia": "loguniforme",
+ "senal_rms_test": 17.65677051562632,
+ "B_chi2_test_theta0": 314.4355184495736,
+ "B_chi2_test_red": 6.005764855499505,
+ "B_epred_red": 0.12468241787636596,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 2159.1
+}

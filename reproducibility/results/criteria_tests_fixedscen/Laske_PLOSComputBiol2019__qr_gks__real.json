@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k_syn_R_M",
+  "k_syn_R_V"
+ ],
+ "chi2_test": 0.44483562582610936,
+ "chi2_ours": 0.757740623887529,
+ "ratio_vs_ours": 0.5870552690496056,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.8
+}

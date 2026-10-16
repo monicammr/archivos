@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k02_03",
+  "k00_10"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.9304914048785717,
+ "erel_med": 0.996903730032048,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 3.8
+}

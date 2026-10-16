@@ -1,0 +1,10 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "escenario": 12,
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "descartado": "falla la simulaci\u00f3n del modelo completo",
+ "segundos": 0.6
+}

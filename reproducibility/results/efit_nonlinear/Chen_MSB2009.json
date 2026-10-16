@@ -1,0 +1,13 @@
+{
+ "sistema": "Chen_MSB2009",
+ "S": [
+  "k106",
+  "k44"
+ ],
+ "n_escenarios_validos": 10,
+ "eajuste_med_nolineal": 0.08080396381706265,
+ "eajuste_med_primer_orden": 0.08201008441763927,
+ "tasa_paso_nolineal": 1.0,
+ "admisible_nolineal": true,
+ "segundos_total": 45896.6
+}

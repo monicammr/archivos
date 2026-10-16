@@ -1,0 +1,16 @@
+{
+ "S": [
+  "JAK2EpoRDeaSHP1",
+  "CISRNATurn"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.5153841630152178,
+ "B_chi2_test_theta0": 3.113109217067098,
+ "B_chi2_test_red": 4.5870486988717944,
+ "B_epred_red": 1.2317127800704497,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 244.8
+}

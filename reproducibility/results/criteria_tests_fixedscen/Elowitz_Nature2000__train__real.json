@@ -1,0 +1,13 @@
+{
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "chi2_test": 1.49838255411681,
+ "chi2_ours": 1.49838255411681,
+ "ratio_vs_ours": 1.0,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.5
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "SOCS3Eqc",
+  "SOCS3EqcOE"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.5034708897554527,
+ "erel_med": 0.7679670689299926,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand16",
+ "prueba": "adm",
+ "segundos": 10.5
+}

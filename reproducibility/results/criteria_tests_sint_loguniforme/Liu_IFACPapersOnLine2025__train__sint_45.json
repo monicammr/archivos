@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kappa",
+  "rho"
+ ],
+ "semilla": 45,
+ "familia": "loguniforme",
+ "senal_rms_test": 0.8727641144393895,
+ "B_chi2_test_theta0": 1.6993474445106513,
+ "B_chi2_test_red": 1.5429130457489677,
+ "B_epred_red": 0.8949214432504922,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.2
+}

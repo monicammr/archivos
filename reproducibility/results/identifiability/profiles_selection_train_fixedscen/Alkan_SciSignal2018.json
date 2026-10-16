@@ -1,0 +1,46 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt",
+  "p_atm_act_dsb"
+ ],
+ "n_calibracion": 10,
+ "n_datos": 1733,
+ "coste_min": 3349.0570602891457,
+ "chi2_por_gl": 1.9459948055137395,
+ "umbral_robusto": 7.47262005317276,
+ "rondas": 1,
+ "dchi2_minimo": 0.8487750693329872,
+ "perfiles": [
+  {
+   "parametro": "kt",
+   "puntos_fallidos": 9,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 8114.743559580678,
+   "dchi2_max_der": 7200.473267651067,
+   "clase": "identificable",
+   "ic_izq_log": 0.0007738845261124105,
+   "ic_der_log": 0.0006183589152892095,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.0015059752678822128,
+   "ic_der_log_robusto": 0.0012033232370959122
+  },
+  {
+   "parametro": "p_atm_act_dsb",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1538.0930558409245,
+   "dchi2_max_der": 816.2571271477864,
+   "clase": "identificable",
+   "ic_izq_log": 0.1048028292393595,
+   "ic_der_log": 0.10351398090934326,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.14159348114980022,
+   "ic_der_log_robusto": 0.13776827359197139
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

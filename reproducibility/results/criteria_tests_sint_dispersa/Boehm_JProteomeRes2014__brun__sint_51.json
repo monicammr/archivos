@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "semilla": 51,
+ "familia": "dispersa",
+ "senal_rms_test": 0.30566324755934243,
+ "B_chi2_test_theta0": 1.0382998103274241,
+ "B_chi2_test_red": 2.084160477145653,
+ "B_epred_red": 3.045526409956879,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 0.2
+}

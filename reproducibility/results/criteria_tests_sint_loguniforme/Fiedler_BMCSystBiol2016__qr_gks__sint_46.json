@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k6",
+  "k3"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 21.94167897847691,
+ "B_chi2_test_theta0": 487.2771405653178,
+ "B_chi2_test_red": 127.03870708630095,
+ "B_epred_red": 0.5103232877216789,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 3.3
+}

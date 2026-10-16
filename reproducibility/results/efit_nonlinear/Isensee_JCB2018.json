@@ -1,0 +1,13 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "S": [
+  "kf_RIIp_C_2__RII_C_2",
+  "xi_kf_RII_C_2__RII_2"
+ ],
+ "n_escenarios_validos": 6,
+ "eajuste_med_nolineal": 0.11319649260033607,
+ "eajuste_med_primer_orden": 0.07588884060451623,
+ "tasa_paso_nolineal": 1.0,
+ "admisible_nolineal": true,
+ "segundos_total": 14118.6
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kf_Fsk",
+  "KD_H89"
+ ],
+ "semilla": 47,
+ "familia": "loguniforme",
+ "senal_rms_test": 12.773052411379041,
+ "B_chi2_test_theta0": 163.4836437484989,
+ "B_chi2_test_red": 1.8089742821271408,
+ "B_epred_red": 0.07636379144765691,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 3012.3
+}

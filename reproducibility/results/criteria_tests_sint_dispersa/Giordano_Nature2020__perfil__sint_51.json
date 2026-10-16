@@ -1,0 +1,16 @@
+{
+ "S": [
+  "nu_0",
+  "rho_22"
+ ],
+ "semilla": 51,
+ "familia": "dispersa",
+ "senal_rms_test": 5.285693605232052e-05,
+ "B_chi2_test_theta0": 1.3042000513339194,
+ "B_chi2_test_red": 1.304198760982328,
+ "B_epred_red": 0.9735710707535118,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 2.3
+}

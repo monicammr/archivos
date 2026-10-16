@@ -1,17 +1,28 @@
 # Build log
 
-Complete compilation of this folder from scratch (Lean 4.23.0, Mathlib v4.23.0; 4 cores, 15 GB RAM;
-stack `ulimit -s unlimited`, `--tstack=4000000` for the models). Generated 2026-10-10.
+Clean build and independent check of this folder, 16 October 2026 (second audit), on a fresh clone
+of commit `b64f2c7` (Lean 4.23.0, Mathlib v4.23.0; Linux x86-64, 88 cores, 251 GB RAM).
 
-* Modules compiled: **71 of 71** without errors (31 theory modules; 22 models, Chen and Froehlich split into parts), plus `All.lean` and `AllModels.lean`.
-* Warnings reported by Lean: 5 (linter style messages only; no `sorry`).
-* `CheckAxioms.lean` (all 289 theorems and lemmas of the theory):
-  * 288 × `[propext, Classical.choice, Quot.sound]`
-  * 1 × `[propext, Quot.sound]`
-* `CheckModelAxioms.lean` (final theorem of each of the 22 models of the first build):
-  * 22 × `[propext, Classical.choice, Quot.sound]`
+* `./verify.sh` from scratch: **2,658 build jobs completed without errors** (32 theory modules, the
+  non-vacuity witnesses `NonVacuity.lean`, and the 28 benchmark models, Chen and Froehlich split into
+  parts; 46 model modules), in 18 min 20 s of wall-clock time.
+* No `sorry` and no `axiom` declaration in the sources.
+* `CheckAxioms.lean`: **309 of 309** theorems and lemmas reported; 308 depend on
+  `[propext, Classical.choice, Quot.sound]` and 1 on `[propext, Quot.sound]`; none on any other axiom.
+* `CheckModelAxioms.lean`: **28 of 28** final model theorems reported, all on the standard axioms.
+  (In earlier versions this check failed silently because `AllModels` was not a build target;
+  `verify.sh` now stops with an error unless every declaration is reported with standard axioms only.)
+* Independent re-check with **lean4checker** (v4.23.0), which replays every declaration of a module
+  through the kernel: all 32 theory modules, `NonVacuity`, and all 46 model modules accepted.
+* Negative control: a test file with `theorem neg_control : (1:Nat) = 2 := by sorry` is reported as
+  depending on `sorryAx`, so the axiom check detects an unproved statement.
+* `NonVacuity.lean` gives, for the central theorems (threshold, backward elimination, κ/VIF filters,
+  monotone re-estimation, least-squares stability and the three identifiability theorems), concrete
+  instances in which every hypothesis is proved, including a nonlinear residual for the
+  identifiability theorems, and negative examples in which the defined properties fail.
+  `DEFINITIONS_AUDIT.md` compares every definition with the paper and the code.
 
-No theorem depends on any axiom beyond Lean's standard ones (`propext`, `Classical.choice`, `Quot.sound`).
+## Previous build (10 October 2026; 31 theory modules, 289 theorems, 22 models)
 
 ## Compilation time per module
 

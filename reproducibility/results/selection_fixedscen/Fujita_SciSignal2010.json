@@ -1,0 +1,53 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "p": 19,
+ "outputs": "all",
+ "fixed_scenarios": true,
+ "n_rows": 144,
+ "S1": [
+  "init_AKT",
+  "reaction_6_k1",
+  "reaction_4_k1",
+  "reaction_3_k1",
+  "reaction_8_k1",
+  "reaction_5_k2"
+ ],
+ "Rvar_S1_%": 50.92951986206011,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "Rvar_%": 35.85703147077508,
+ "kappa": 2.339300856286609,
+ "VIF": 1.913766516023977,
+ "cos_med": 0.765491772087893,
+ "erel_med": 0.8071290267149046,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "podados": [],
+ "eajuste_med": 0.2941059531024245,
+ "admisible": true,
+ "calibracion": [
+  "scaling_pAkt_tot",
+  "scaling_pEGFR_tot",
+  "scaling_pS6_tot"
+ ],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "init_AKT",
+    "reaction_6_k1",
+    true
+   ]
+  ]
+ },
+ "segundos": 61.7
+}

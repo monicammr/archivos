@@ -1,0 +1,16 @@
+{
+ "S": [
+  "ka_MAPK__MKN1",
+  "ka_PI3K__pEGFR_EGF_2"
+ ],
+ "semilla": 55,
+ "familia": "uniforme",
+ "senal_rms_test": 1.9265061386258198,
+ "B_chi2_test_theta0": 4.896453465516563,
+ "B_chi2_test_red": 3.8835608751987687,
+ "B_epred_red": 0.8490741644631383,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 240.8
+}

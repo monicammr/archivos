@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kdephosY1068__FREE",
+  "ratio_kpkd_Y1068__FREE"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.2830323149456178,
+ "erel_med": 0.4501845042220416,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "rand18",
+ "prueba": "adm",
+ "segundos": 36.8
+}

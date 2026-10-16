@@ -1,0 +1,16 @@
+{
+ "S": [
+  "d_MAPKtotal__MKN1_2_HS746T",
+  "d_MPI3Ktotal__fm_2_hm"
+ ],
+ "semilla": 45,
+ "familia": "dispersa",
+ "senal_rms_test": 2.709154036399227,
+ "B_chi2_test_theta0": 8.715313507498042,
+ "B_chi2_test_red": 2.85828245621843,
+ "B_epred_red": 0.5085401857179395,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 722.8
+}

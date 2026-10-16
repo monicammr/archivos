@@ -1,0 +1,24 @@
+{
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "semilla": 49,
+ "familia": "dispersa",
+ "senal_rms_test": 0.45159468748896375,
+ "B_chi2_test_theta0": 1.1354327811748695,
+ "B_chi2_test_red": 1.4218529290000035,
+ "B_epred_red": 1.4376773424507265,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 23.9
+}

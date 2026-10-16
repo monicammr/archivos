@@ -1,0 +1,19 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "k": 2,
+ "S_ours": [
+  "k1f",
+  "km2"
+ ],
+ "S_qr": [
+  "k1e",
+  "k1c"
+ ],
+ "overlap": 0,
+ "chi2_ours": 5.955850686824016,
+ "chi2_qr": 1.7562044710816924,
+ "ratio_qr_vs_ours": 0.2948704666097323,
+ "tipo": "condiciones nuevas",
+ "segundos": 1.0,
+ "variant": "gks"
+}

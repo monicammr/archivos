@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k1e",
+  "k1c"
+ ],
+ "semilla": 42,
+ "familia": "uniforme",
+ "senal_rms_test": 2.393663474534405,
+ "B_chi2_test_theta0": 5.545374220392146,
+ "B_chi2_test_red": 5.771359765559429,
+ "B_epred_red": 0.8897866558814659,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.6
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "Kd",
+  "init_A_state"
+ ],
+ "semilla": 45,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.0171314443574755,
+ "B_chi2_test_theta0": 2.3568059349116446,
+ "B_chi2_test_red": 2.058778110113075,
+ "B_epred_red": 0.8891936905607211,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2.4
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "alpha_4",
+  "alpha_28"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 0.0005512739494523997,
+ "B_chi2_test_theta0": 0.9925534770799279,
+ "B_chi2_test_red": 1.1141902166049855,
+ "B_epred_red": 548.6131576784594,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 2.8
+}

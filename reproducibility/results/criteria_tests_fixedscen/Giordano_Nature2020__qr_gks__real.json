@@ -1,0 +1,13 @@
+{
+ "S": [
+  "eta_22",
+  "mu_0"
+ ],
+ "chi2_test": 1.398248291235549e-08,
+ "chi2_ours": 1.0236762094202532e-07,
+ "ratio_vs_ours": 0.1365908749630345,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.5
+}

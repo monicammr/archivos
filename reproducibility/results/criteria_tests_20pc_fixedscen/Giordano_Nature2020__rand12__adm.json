@@ -1,0 +1,20 @@
+{
+ "S": [
+  "eta_22",
+  "rho_0"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.9362274586352578,
+ "erel_med": 0.9994522810403008,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "rand12",
+ "prueba": "adm",
+ "segundos": 4.6
+}

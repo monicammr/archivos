@@ -1,0 +1,16 @@
+{
+ "S": [
+  "delta_0",
+  "eta_0"
+ ],
+ "semilla": 49,
+ "familia": "loguniforme",
+ "senal_rms_test": 0.0008008323237204066,
+ "B_chi2_test_theta0": 1.169763699399486,
+ "B_chi2_test_red": 1.1697527143153048,
+ "B_epred_red": 1.083687522410428,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 5.4
+}

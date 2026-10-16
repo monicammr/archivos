@@ -1,0 +1,16 @@
+{
+ "S": [
+  "c",
+  "delta"
+ ],
+ "semilla": 43,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.7478978949901163e-06,
+ "B_chi2_test_theta0": 0.2695801439804211,
+ "B_chi2_test_red": 0.2695863202498168,
+ "B_epred_red": 8.230550753325607,
+ "sistema": "Perelson_Science1996",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.5
+}

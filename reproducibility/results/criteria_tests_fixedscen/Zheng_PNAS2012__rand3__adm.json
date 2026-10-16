@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k01_00",
+  "k22_32"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.9293645481763539,
+ "erel_med": 1.0002745053714448,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "rand3",
+ "prueba": "adm",
+ "segundos": 3.6
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "reaction_6_k1",
+  "reaction_8_k1"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.25089417994052376,
+ "erel_med": 0.6533777434170895,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 78.6
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "exposed_start",
+  "theta"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.16275653439749144,
+ "erel_med": 0.929735022927173,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "rand15",
+ "prueba": "adm",
+ "segundos": 1.0
+}

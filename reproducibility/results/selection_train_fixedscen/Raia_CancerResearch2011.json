@@ -1,0 +1,54 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "p": 39,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 133,
+ "S1": [
+  "SOCS3mRNA_production",
+  "SOCS3_degradation",
+  "pRec_degradation",
+  "CD274mRNA_production",
+  "DecoyR_binding"
+ ],
+ "Rvar_S1_%": 68.24728561713779,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "SOCS3mRNA_production",
+  "SOCS3_degradation"
+ ],
+ "Rvar_%": 68.22902811799459,
+ "kappa": 4.2576582899449615,
+ "VIF": 5.045704612450729,
+ "cos_med": 0.996887246037063,
+ "erel_med": 0.31013900142456896,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "SOCS3mRNA_production",
+  "SOCS3_degradation"
+ ],
+ "podados": [],
+ "eajuste_med": 0.05103726131387158,
+ "admisible": true,
+ "calibracion": [
+  "scaling_CD274mRNA",
+  "scaling_IL13_cell",
+  "scaling_SOCS3mRNA",
+  "scaling_pIL4Ra",
+  "scaling_pJAK2"
+ ],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "SOCS3mRNA_production",
+    "SOCS3_degradation",
+    true
+   ]
+  ]
+ },
+ "segundos": 58.2
+}

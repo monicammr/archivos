@@ -1,0 +1,16 @@
+{
+ "S": [
+  "nu_0",
+  "rho_22"
+ ],
+ "semilla": 48,
+ "familia": "loguniforme",
+ "senal_rms_test": 0.005398823695185747,
+ "B_chi2_test_theta0": 0.833132970216046,
+ "B_chi2_test_red": 0.8330622651369429,
+ "B_epred_red": 1.0299314170126361,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.2
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "d_AKTtotal__fm_2_hm",
+  "xi_ka_RAS_pMMET_pEGFR"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.27914655406607203,
+ "erel_med": 0.7833133836534575,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "rand3",
+ "prueba": "adm",
+ "segundos": 214.2
+}

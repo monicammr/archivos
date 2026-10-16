@@ -1,0 +1,20 @@
+{
+ "S": [
+  "nu_22",
+  "gamma_22"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.6633627235400628,
+ "erel_med": 0.9995060984068885,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 4.5
+}

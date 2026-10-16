@@ -1,0 +1,20 @@
+{
+ "S": [
+  "alpha",
+  "beta"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.6937724447711815,
+ "erel_med": 1.0295666274398132,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "metodo": "rand7",
+ "prueba": "adm",
+ "segundos": 3.2
+}

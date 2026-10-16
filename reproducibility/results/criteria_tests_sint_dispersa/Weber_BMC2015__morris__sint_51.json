@@ -1,0 +1,16 @@
+{
+ "S": [
+  "pu3",
+  "a21"
+ ],
+ "semilla": 51,
+ "familia": "dispersa",
+ "senal_rms_test": 7.953279692567397,
+ "B_chi2_test_theta0": 65.43069436441587,
+ "B_chi2_test_red": 122.41464342491129,
+ "B_epred_red": 1.3906730494297836,
+ "sistema": "Weber_BMC2015",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 4.2
+}

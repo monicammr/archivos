@@ -1,0 +1,46 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "p": 12,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 80,
+ "S1": [
+  "beta_0",
+  "beta_1",
+  "h_hosp_rate"
+ ],
+ "Rvar_S1_%": 62.40374220166021,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "beta_0",
+  "beta_1"
+ ],
+ "Rvar_%": 62.40333128429027,
+ "kappa": 3.931027730360253,
+ "VIF": 4.379422864580141,
+ "cos_med": 0.9855340408613309,
+ "erel_med": 0.882330795704412,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "beta_0",
+  "beta_1"
+ ],
+ "podados": [],
+ "eajuste_med": 0.05430937579693985,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "beta_0",
+    "beta_1",
+    true
+   ]
+  ]
+ },
+ "segundos": 5.5
+}

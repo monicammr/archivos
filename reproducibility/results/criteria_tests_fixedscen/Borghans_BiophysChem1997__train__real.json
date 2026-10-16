@@ -1,0 +1,13 @@
+{
+ "S": [
+  "K_par",
+  "Vm2"
+ ],
+ "chi2_test": 0.7415788224342247,
+ "chi2_ours": 0.7430659894685557,
+ "ratio_vs_ours": 0.9979986070478146,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.7
+}

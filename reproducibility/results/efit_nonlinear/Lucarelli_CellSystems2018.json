@@ -1,0 +1,21 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "S": [
+  "init_Rec",
+  "S2tot",
+  "S3tot",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "k_234",
+  "geneK_turn",
+  "S4tot",
+  "geneH_turn"
+ ],
+ "n_escenarios_validos": 15,
+ "eajuste_med_nolineal": 0.43585137661135737,
+ "eajuste_med_primer_orden": 0.4354529716025807,
+ "tasa_paso_nolineal": 0.5333333333333333,
+ "admisible_nolineal": true,
+ "segundos_total": 225.8
+}

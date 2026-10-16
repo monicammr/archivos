@@ -1,0 +1,20 @@
+{
+ "S": [
+  "rho_22",
+  "gamma_4"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.10560885051594887,
+ "erel_med": 1.0173925207292858,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "rand0",
+ "prueba": "adm",
+ "segundos": 4.2
+}

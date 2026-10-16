@@ -1,0 +1,20 @@
+{
+ "S": [
+  "symptomatic_start",
+  "sigma"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.034314061596430474,
+ "erel_med": 1.107965405583445,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 1.6
+}

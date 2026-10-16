@@ -1,0 +1,16 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate",
+  "treated_moderate_improve_rate"
+ ],
+ "semilla": 48,
+ "familia": "dispersa",
+ "senal_rms_test": 18.08649135714305,
+ "B_chi2_test_theta0": 320.0078513152381,
+ "B_chi2_test_red": 0.4003967658257719,
+ "B_epred_red": 0.018325502681902625,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.7
+}

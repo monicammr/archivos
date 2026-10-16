@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "semilla": 55,
+ "familia": "uniforme",
+ "senal_rms_test": 1.9265061386258198,
+ "B_chi2_test_theta0": 4.896453465516563,
+ "B_chi2_test_red": 2.18361306865872,
+ "B_epred_red": 0.5137155570123962,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 496.4
+}

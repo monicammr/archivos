@@ -1,0 +1,23 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "escenario": 8,
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "erel": 0.6447731810168055,
+ "efit": 0.23074628487299664,
+ "arranques": {
+  "theta0": {
+   "e": 0.23074628487299664,
+   "nfev": 11,
+   "status": 3
+  },
+  "escenario": {
+   "e": 0.2307463037970688,
+   "nfev": 12,
+   "status": 3
+  }
+ },
+ "segundos": 862.7
+}

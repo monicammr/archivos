@@ -1,0 +1,13 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "n_escenarios_validos": 15,
+ "eajuste_med_nolineal": 0.1857033878612116,
+ "eajuste_med_primer_orden": 0.1870936917165585,
+ "tasa_paso_nolineal": 1.0,
+ "admisible_nolineal": true,
+ "segundos_total": 14665.9
+}

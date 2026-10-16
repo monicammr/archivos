@@ -1,0 +1,51 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "p": 15,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 90,
+ "S1": [
+  "l4",
+  "l2",
+  "k4",
+  "k_1",
+  "k_3",
+  "l_4",
+  "k2",
+  "l6"
+ ],
+ "Rvar_S1_%": 62.5753041012398,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "l4",
+  "l2"
+ ],
+ "Rvar_%": 41.83686744504992,
+ "kappa": 1.0670968192221384,
+ "VIF": 1.0042233576481174,
+ "cos_med": 0.8649614021145451,
+ "erel_med": 0.5544380709362622,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "l4",
+  "l2"
+ ],
+ "podados": [],
+ "eajuste_med": 0.3742211286927043,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "l4",
+    "l2",
+    true
+   ]
+  ]
+ },
+ "segundos": 13.1
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kdephosYN__FREE",
+  "SHC1_total__FREE"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.3510789106125033,
+ "erel_med": 0.8472731002576048,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "rand12",
+ "prueba": "adm",
+ "segundos": 23.6
+}

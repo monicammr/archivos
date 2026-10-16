@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k_d",
+  "k00"
+ ],
+ "chi2_test": 1.2180658482279045,
+ "chi2_ours": 1.2180658482279045,
+ "ratio_vs_ours": 1.0,
+ "sistema": "Armistead_CellDeathDis2024",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.2
+}

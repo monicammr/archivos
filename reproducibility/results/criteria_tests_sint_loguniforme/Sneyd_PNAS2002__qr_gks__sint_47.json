@@ -1,0 +1,16 @@
+{
+ "S": [
+  "l6",
+  "k3"
+ ],
+ "semilla": 47,
+ "familia": "loguniforme",
+ "senal_rms_test": 2.661837506432559,
+ "B_chi2_test_theta0": 7.61496231259966,
+ "B_chi2_test_red": 2.81638254757522,
+ "B_epred_red": 0.44779824740142965,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 1.8
+}

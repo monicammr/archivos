@@ -1,0 +1,20 @@
+{
+ "S": [
+  "eff_GFP",
+  "tau_prot_GFP"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.7194725373864826,
+ "erel_med": 0.9720726176822699,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "qr",
+ "prueba": "adm",
+ "segundos": 10.4
+}

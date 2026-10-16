@@ -1,0 +1,16 @@
+{
+ "S": [
+  "Kz",
+  "K_par"
+ ],
+ "semilla": 42,
+ "familia": "loguniforme",
+ "senal_rms_test": 2.7236426171926635,
+ "B_chi2_test_theta0": 7.278327323259022,
+ "B_chi2_test_red": 2.2393810350641883,
+ "B_epred_red": 0.521307323161091,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 14.2
+}

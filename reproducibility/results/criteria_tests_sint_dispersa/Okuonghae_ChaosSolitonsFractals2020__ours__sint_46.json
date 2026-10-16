@@ -1,0 +1,16 @@
+{
+ "S": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 373.6066178078963,
+ "B_chi2_test_theta0": 139427.82105507006,
+ "B_chi2_test_red": 3595.1308033564005,
+ "B_epred_red": 0.15991104159220418,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 0.8
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "l_4",
+  "l2"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.4743736896013075,
+ "erel_med": 0.8408909796477714,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "rand7",
+ "prueba": "adm",
+ "segundos": 6.1
+}

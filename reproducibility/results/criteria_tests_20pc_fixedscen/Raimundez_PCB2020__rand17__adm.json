@@ -1,0 +1,20 @@
+{
+ "S": [
+  "xi_kdim_MMET",
+  "ksyn_MMET__HS746T_fm"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.15753849694080918,
+ "erel_med": 0.7946088069468485,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "rand17",
+ "prueba": "adm",
+ "segundos": 115.0
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "l6",
+  "k3"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.9017622942467579,
+ "erel_med": 0.9843079746484864,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Sneyd_PNAS2002",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 6.6
+}

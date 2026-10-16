@@ -1,0 +1,13 @@
+{
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "chi2_test": 101.82516518363968,
+ "chi2_ours": 101.82516518363968,
+ "ratio_vs_ours": 1.0,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 12.5
+}

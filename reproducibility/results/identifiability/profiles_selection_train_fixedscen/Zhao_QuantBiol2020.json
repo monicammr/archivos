@@ -1,0 +1,46 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "S": [
+  "R_Stage_I_China",
+  "R_Stage_I_Wuhan"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 82,
+ "coste_min": 21.924728614082138,
+ "chi2_por_gl": 0.2740591076760267,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.21133722753405948,
+ "perfiles": [
+  {
+   "parametro": "R_Stage_I_China",
+   "puntos_fallidos": 4,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 8.975772882216226,
+   "dchi2_max_der": 585.7356202704472,
+   "clase": "identificable",
+   "ic_izq_log": 0.3323419968667437,
+   "ic_der_log": 0.10730284873557361,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.3323419968667437,
+   "ic_der_log_robusto": 0.10730284873557361
+  },
+  {
+   "parametro": "R_Stage_I_Wuhan",
+   "puntos_fallidos": 4,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 6.485308805239178,
+   "dchi2_max_der": 319.6618451215505,
+   "clase": "identificable",
+   "ic_izq_log": 0.44822575945880605,
+   "ic_der_log": 0.11520508832484201,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.44822575945880605,
+   "ic_der_log_robusto": 0.11520508832484201
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "SOCS3Inh",
+  "CISEqcOE"
+ ],
+ "semilla": 51,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.9681962467929113,
+ "B_chi2_test_theta0": 5.605352876871912,
+ "B_chi2_test_red": 5.352408504127984,
+ "B_epred_red": 0.9862501762579232,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 112.0
+}

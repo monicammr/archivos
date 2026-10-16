@@ -1,0 +1,16 @@
+{
+ "S": [
+  "reaction_1_k1",
+  "reaction_5_k1"
+ ],
+ "semilla": 51,
+ "familia": "dispersa",
+ "senal_rms_test": 5.647498948880067,
+ "B_chi2_test_theta0": 32.1730392930861,
+ "B_chi2_test_red": 1.6719684812142788,
+ "B_epred_red": 0.09108637170692221,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 2.1
+}

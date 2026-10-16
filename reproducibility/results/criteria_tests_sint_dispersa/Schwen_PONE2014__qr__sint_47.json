@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kd2fold",
+  "kout"
+ ],
+ "semilla": 47,
+ "familia": "dispersa",
+ "senal_rms_test": 0.8513667707785129,
+ "B_chi2_test_theta0": 1.4931433604361635,
+ "B_chi2_test_red": 2.9322503918551557,
+ "B_epred_red": 1.8946946628883947,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 13.1
+}

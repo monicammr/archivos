@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k23_13",
+  "k21_20"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.941335182497984,
+ "erel_med": 1.0059532453554334,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 4.1
+}

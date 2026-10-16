@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kbin_EGFR_CET",
+  "kdim_MMET_EGFR"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.2700244574950467,
+ "erel_med": 0.7890632830500253,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "rand6",
+ "prueba": "adm",
+ "segundos": 215.2
+}

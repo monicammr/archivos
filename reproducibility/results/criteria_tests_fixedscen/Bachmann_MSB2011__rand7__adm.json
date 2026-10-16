@@ -1,0 +1,20 @@
+{
+ "S": [
+  "init_EpoRJAK2",
+  "SOCS3Inh"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.5025909336306313,
+ "erel_med": 0.7972276130404848,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand7",
+ "prueba": "adm",
+ "segundos": 19.9
+}

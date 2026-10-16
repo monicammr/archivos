@@ -1,0 +1,20 @@
+{
+ "S": [
+  "exposed_init_concentration",
+  "gamma_h"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.845715629501691,
+ "erel_med": 1.0008695912435843,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 2.4
+}

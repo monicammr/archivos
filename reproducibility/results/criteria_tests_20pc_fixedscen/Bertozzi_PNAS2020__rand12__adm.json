@@ -1,0 +1,20 @@
+{
+ "S": [
+  "R0_CA",
+  "gamma_NY"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.18869637493926408,
+ "erel_med": 0.9642604268844834,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Bertozzi_PNAS2020",
+ "metodo": "rand12",
+ "prueba": "adm",
+ "segundos": 0.7
+}

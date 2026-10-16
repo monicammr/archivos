@@ -1,0 +1,16 @@
+{
+ "S": [
+  "ratio_kpkd_YN__FREE",
+  "kdephosYN__FREE"
+ ],
+ "semilla": 49,
+ "familia": "loguniforme",
+ "senal_rms_test": 4.327500071487908,
+ "B_chi2_test_theta0": 22.39230471700783,
+ "B_chi2_test_red": 20.920489381582282,
+ "B_epred_red": 0.9629614575802956,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 1.3
+}

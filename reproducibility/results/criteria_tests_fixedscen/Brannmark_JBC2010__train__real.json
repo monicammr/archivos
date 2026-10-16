@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k21",
+  "km2"
+ ],
+ "chi2_test": 1.1601720525334154,
+ "chi2_ours": 5.955850686824016,
+ "ratio_vs_ours": 0.19479535561561942,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 2.3
+}

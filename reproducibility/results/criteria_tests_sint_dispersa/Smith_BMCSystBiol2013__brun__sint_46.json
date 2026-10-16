@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k8",
+  "k30f"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 38.73375979407163,
+ "B_chi2_test_theta0": 1517.091450664193,
+ "B_chi2_test_red": 307.24448249681416,
+ "B_epred_red": 0.4446189868583682,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "brun",
+ "prueba": "sint",
+ "segundos": 132.2
+}

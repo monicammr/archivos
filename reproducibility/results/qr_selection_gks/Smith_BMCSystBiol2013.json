@@ -1,0 +1,19 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "k": 2,
+ "S_ours": [
+  "k8",
+  "kminus7b"
+ ],
+ "S_qr": [
+  "k35f",
+  "k32r"
+ ],
+ "overlap": 0,
+ "chi2_ours": 14976.894073807967,
+ "chi2_qr": 18908.593609989148,
+ "ratio_qr_vs_ours": 1.2625176833597997,
+ "tipo": "condiciones nuevas",
+ "segundos": 81.1,
+ "variant": "gks"
+}

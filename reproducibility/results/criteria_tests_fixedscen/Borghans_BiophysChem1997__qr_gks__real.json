@@ -1,0 +1,13 @@
+{
+ "S": [
+  "Kz",
+  "Kf"
+ ],
+ "chi2_test": 0.7433260861590782,
+ "chi2_ours": 0.7430659894685557,
+ "ratio_vs_ours": 1.0003500317525076,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.4
+}

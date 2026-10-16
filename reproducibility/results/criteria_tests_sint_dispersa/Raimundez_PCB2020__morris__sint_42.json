@@ -1,0 +1,16 @@
+{
+ "S": [
+  "d_AKTtotal__fm_2_hm",
+  "ki_AKT__MKN1"
+ ],
+ "semilla": 42,
+ "familia": "dispersa",
+ "senal_rms_test": 1.3190174533125443,
+ "B_chi2_test_theta0": 2.6510037650690768,
+ "B_chi2_test_red": 1.3869739817039688,
+ "B_epred_red": 0.43469594427259,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 924.0
+}

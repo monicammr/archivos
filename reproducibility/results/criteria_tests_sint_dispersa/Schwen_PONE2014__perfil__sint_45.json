@@ -1,0 +1,16 @@
+{
+ "S": [
+  "ini_R2fold",
+  "ini_R1"
+ ],
+ "semilla": 45,
+ "familia": "dispersa",
+ "senal_rms_test": 2.4572527942861897,
+ "B_chi2_test_theta0": 7.810680263040684,
+ "B_chi2_test_red": 6.0163511373449605,
+ "B_epred_red": 1.0140326329299185,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 8.7
+}

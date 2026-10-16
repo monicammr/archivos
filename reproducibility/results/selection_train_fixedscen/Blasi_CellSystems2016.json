@@ -1,0 +1,78 @@
+{
+ "sistema": "Blasi_CellSystems2016",
+ "p": 9,
+ "outputs": "all",
+ "fixed_scenarios": true,
+ "n_rows": 252,
+ "S1": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12",
+  "a_k8k12k16_4ac"
+ ],
+ "Rvar_S1_%": 92.89834680898389,
+ "S1_cumple": true,
+ "cos_S1": 0.9788826098651361,
+ "erel_S1": 0.2107102196976061,
+ "etapa": "Stage 1",
+ "S": [
+  "a_basal",
+  "a_k16_k12k16"
+ ],
+ "Rvar_%": 78.98630043658068,
+ "kappa": 1.7637884290480006,
+ "VIF": 1.358098719788541,
+ "cos_med": 0.9143903998849273,
+ "erel_med": 0.4053623309131062,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "a_basal",
+  "a_k16_k12k16",
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12",
+  "a_k8k12k16_4ac"
+ ],
+ "podados": [
+  "a_k12k16_k8k12k16",
+  "a_k5k12_k5k8k12",
+  "a_k8k12k16_4ac"
+ ],
+ "eajuste_med": 0.4023514304922723,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 4,
+  "nested_pairs": 6,
+  "violations": 0,
+  "subsets": [
+   [
+    "a_basal",
+    "a_k16_k12k16",
+    "a_k12k16_k8k12k16",
+    "a_k5k12_k5k8k12",
+    "a_k8k12k16_4ac",
+    true
+   ],
+   [
+    "a_basal",
+    "a_k16_k12k16",
+    "a_k12k16_k8k12k16",
+    "a_k5k12_k5k8k12",
+    true
+   ],
+   [
+    "a_basal",
+    "a_k16_k12k16",
+    true
+   ],
+   [
+    "a_basal",
+    "a_k16_k12k16",
+    "a_k12k16_k8k12k16",
+    true
+   ]
+  ]
+ },
+ "segundos": 2.4
+}

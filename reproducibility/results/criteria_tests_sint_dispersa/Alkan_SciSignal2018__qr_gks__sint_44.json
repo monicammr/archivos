@@ -1,0 +1,16 @@
+{
+ "S": [
+  "p_atr_act_atm",
+  "p_dnapk_act"
+ ],
+ "semilla": 44,
+ "familia": "dispersa",
+ "senal_rms_test": 0.26083984156690276,
+ "B_chi2_test_theta0": 0.9159122625351709,
+ "B_chi2_test_red": 0.875243835181712,
+ "B_epred_red": 0.599636721452943,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 50.6
+}

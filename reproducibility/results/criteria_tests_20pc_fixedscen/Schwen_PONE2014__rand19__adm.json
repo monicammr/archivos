@@ -1,0 +1,20 @@
+{
+ "S": [
+  "kd2fold",
+  "kin2"
+ ],
+ "k": 2,
+ "n_calibracion": 15,
+ "eajuste_med": 0.1591359031542625,
+ "erel_med": 0.5593706741280605,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "rand19",
+ "prueba": "adm",
+ "segundos": 115.7
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "pu3",
+  "s12"
+ ],
+ "semilla": 51,
+ "familia": "loguniforme",
+ "senal_rms_test": 7.094916551080012,
+ "B_chi2_test_theta0": 52.506112233283744,
+ "B_chi2_test_red": 14.816628544818558,
+ "B_epred_red": 0.515623807649454,
+ "sistema": "Weber_BMC2015",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 1.0
+}

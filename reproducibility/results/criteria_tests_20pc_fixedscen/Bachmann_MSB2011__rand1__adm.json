@@ -1,0 +1,20 @@
+{
+ "S": [
+  "SHP1Dea",
+  "SHP1ProOE"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.4975902861334462,
+ "erel_med": 0.7935076245065436,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand1",
+ "prueba": "adm",
+ "segundos": 10.4
+}

@@ -1,0 +1,20 @@
+{
+ "S": [
+  "KD_IBMX",
+  "xi_b_Sp8_Br_cAMPS"
+ ],
+ "k": 2,
+ "n_calibracion": 11,
+ "eajuste_med": 0.10215957274874188,
+ "erel_med": Infinity,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 6,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "rand3",
+ "prueba": "adm",
+ "segundos": 772.5
+}

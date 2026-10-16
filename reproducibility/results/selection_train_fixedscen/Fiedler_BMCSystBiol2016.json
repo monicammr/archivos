@@ -1,0 +1,57 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "p": 22,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 52,
+ "S1": [
+  "tau2",
+  "k5",
+  "k4",
+  "K_2",
+  "K_3"
+ ],
+ "Rvar_S1_%": 53.41472008348765,
+ "S1_cumple": false,
+ "etapa": "Stage 2",
+ "S": [
+  "tau2",
+  "k5"
+ ],
+ "Rvar_%": 47.8503754318867,
+ "kappa": 1.3077602235450363,
+ "VIF": 1.0737377880431263,
+ "cos_med": 0.8529075549482428,
+ "erel_med": 0.6146231802546587,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "tau2",
+  "k5"
+ ],
+ "podados": [],
+ "eajuste_med": 0.1606304038038791,
+ "admisible": true,
+ "calibracion": [
+  "s_pErk_20140430_gel1",
+  "s_pErk_20140430_gel2",
+  "s_pErk_20140505_gel1",
+  "s_pErk_20140505_gel2",
+  "s_pMek_20140430_gel1",
+  "s_pMek_20140430_gel2",
+  "s_pMek_20140505_gel1",
+  "s_pMek_20140505_gel2"
+ ],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "tau2",
+    "k5",
+    true
+   ]
+  ]
+ },
+ "segundos": 7.6
+}

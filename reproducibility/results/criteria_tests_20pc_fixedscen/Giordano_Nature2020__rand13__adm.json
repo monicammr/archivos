@@ -1,0 +1,20 @@
+{
+ "S": [
+  "sigma_22",
+  "zeta_38"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.9840860153745901,
+ "erel_med": 1.0001847148481782,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 3.4
+}

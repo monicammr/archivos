@@ -1,0 +1,16 @@
+{
+ "S": [
+  "reaction_6_k1",
+  "reaction_8_k1"
+ ],
+ "semilla": 44,
+ "familia": "dispersa",
+ "senal_rms_test": 3.9587295732016976,
+ "B_chi2_test_theta0": 16.084739897482788,
+ "B_chi2_test_red": 6.112932211214319,
+ "B_epred_red": 0.4836881402965701,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 2.8
+}

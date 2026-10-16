@@ -1,0 +1,20 @@
+{
+ "S": [
+  "ka_RAS__basal__MKN1",
+  "xi_kexp_pMMET_2_i"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.25494883365822335,
+ "erel_med": 0.7188106889963595,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "rand18",
+ "prueba": "adm",
+ "segundos": 119.5
+}

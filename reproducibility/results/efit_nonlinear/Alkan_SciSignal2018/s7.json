@@ -1,0 +1,23 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "escenario": 7,
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "erel": 0.13537083671533684,
+ "efit": 0.09170861550055895,
+ "arranques": {
+  "theta0": {
+   "e": 0.09170861564255132,
+   "nfev": 6,
+   "status": 2
+  },
+  "escenario": {
+   "e": 0.09170861550055895,
+   "nfev": 4,
+   "status": 2
+  }
+ },
+ "segundos": 25.4
+}

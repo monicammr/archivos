@@ -1,0 +1,20 @@
+{
+ "S": [
+  "nu",
+  "psi"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.040558646424579556,
+ "erel_med": 0.8793253367913529,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "rand1",
+ "prueba": "adm",
+ "segundos": 1.2
+}

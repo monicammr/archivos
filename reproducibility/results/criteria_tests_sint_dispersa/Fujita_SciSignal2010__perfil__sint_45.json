@@ -1,0 +1,16 @@
+{
+ "S": [
+  "reaction_8_k1",
+  "EGFR_turnover"
+ ],
+ "semilla": 45,
+ "familia": "dispersa",
+ "senal_rms_test": 2.2756471911648166,
+ "B_chi2_test_theta0": 6.3820898736332765,
+ "B_chi2_test_red": 1.891876257389967,
+ "B_epred_red": 0.41602125267984075,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 1.1
+}

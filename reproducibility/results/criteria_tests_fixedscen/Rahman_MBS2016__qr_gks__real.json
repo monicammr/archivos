@@ -1,0 +1,13 @@
+{
+ "S": [
+  "treated_moderate_improve_rate",
+  "infected_normal_transmission_rate_relative"
+ ],
+ "chi2_test": 0.0015406255047746558,
+ "chi2_ours": 0.0019946462955132307,
+ "ratio_vs_ours": 0.7723803003270043,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.2
+}

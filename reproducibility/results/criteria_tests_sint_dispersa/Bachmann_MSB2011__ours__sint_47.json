@@ -1,0 +1,16 @@
+{
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "semilla": 47,
+ "familia": "dispersa",
+ "senal_rms_test": 1.178414722509023,
+ "B_chi2_test_theta0": 1.9492792056649846,
+ "B_chi2_test_red": 2.6627917114420994,
+ "B_epred_red": 1.0057668849514032,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 243.2
+}

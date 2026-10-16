@@ -1,0 +1,10 @@
+{
+ "sistema": "Chen_MSB2009",
+ "escenario": 11,
+ "S": [
+  "k106",
+  "k44"
+ ],
+ "descartado": "falla la simulaci\u00f3n del modelo completo",
+ "segundos": 237.8
+}

@@ -1,0 +1,19 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "k": 2,
+ "S_ours": [
+  "kappa",
+  "phi"
+ ],
+ "S_qr": [
+  "rho",
+  "kappa"
+ ],
+ "overlap": 1,
+ "chi2_ours": 0.9537288471177436,
+ "chi2_qr": 1.0255809384285322,
+ "ratio_qr_vs_ours": 1.0753380706979054,
+ "tipo": "condiciones nuevas",
+ "segundos": 0.2,
+ "variant": "gks"
+}

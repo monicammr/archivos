@@ -1,0 +1,13 @@
+{
+ "S": [
+  "pRec_degradation",
+  "SOCS3mRNA_production"
+ ],
+ "chi2_test": 0.6707729838830568,
+ "chi2_ours": 8.223759823396664,
+ "ratio_vs_ours": 0.08156524488649367,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 1.0
+}

@@ -1,0 +1,13 @@
+{
+ "S": [
+  "d_D",
+  "symptomatic_start"
+ ],
+ "chi2_test": 28692.912906834372,
+ "chi2_ours": 46705.034547832045,
+ "ratio_vs_ours": 0.6143430399874577,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.2
+}

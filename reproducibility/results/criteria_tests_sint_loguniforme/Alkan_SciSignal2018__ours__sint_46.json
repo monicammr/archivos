@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "semilla": 46,
+ "familia": "loguniforme",
+ "senal_rms_test": 1.4115308931835355,
+ "B_chi2_test_theta0": 3.049070707897541,
+ "B_chi2_test_red": 1.4732965915615728,
+ "B_epred_red": 0.5418601688898155,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "ours",
+ "prueba": "sint",
+ "segundos": 24.2
+}

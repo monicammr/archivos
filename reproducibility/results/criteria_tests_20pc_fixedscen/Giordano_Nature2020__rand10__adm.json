@@ -1,0 +1,20 @@
+{
+ "S": [
+  "zeta_22",
+  "lam_22"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.3420145684021043,
+ "erel_med": 1.0229219450712193,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "rand10",
+ "prueba": "adm",
+ "segundos": 4.6
+}

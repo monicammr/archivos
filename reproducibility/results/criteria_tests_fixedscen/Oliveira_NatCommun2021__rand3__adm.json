@@ -1,0 +1,20 @@
+{
+ "S": [
+  "beta_1",
+  "gamma_u"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.24407539259527647,
+ "erel_med": 0.890755495557779,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "rand3",
+ "prueba": "adm",
+ "segundos": 5.6
+}

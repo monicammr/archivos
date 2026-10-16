@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k01_02",
+  "k12_13"
+ ],
+ "chi2_test": 1.577354762892199,
+ "chi2_ours": 1.5818297897976195,
+ "ratio_vs_ours": 0.9971709807627324,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 0.8
+}

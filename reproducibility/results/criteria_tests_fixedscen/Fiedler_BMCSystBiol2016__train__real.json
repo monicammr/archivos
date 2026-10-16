@@ -1,0 +1,13 @@
+{
+ "S": [
+  "tau2",
+  "k5"
+ ],
+ "chi2_test": 10.971065934198803,
+ "chi2_ours": 11.207266309262952,
+ "ratio_vs_ours": 0.9789243542050102,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "train",
+ "prueba": "real",
+ "segundos": 1.6
+}

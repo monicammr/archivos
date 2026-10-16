@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k35f",
+  "k32r"
+ ],
+ "chi2_test": 18908.593609989148,
+ "chi2_ours": 14976.894073807967,
+ "ratio_vs_ours": 1.2625176833597997,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 50.0
+}

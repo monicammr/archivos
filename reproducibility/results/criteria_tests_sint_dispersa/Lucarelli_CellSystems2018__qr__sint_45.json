@@ -1,0 +1,24 @@
+{
+ "S": [
+  "S4tot",
+  "geneK_turn",
+  "geneJ_turn",
+  "geneB_act2",
+  "geneG_act1",
+  "geneH_turn",
+  "geneL_turn",
+  "geneE_act2",
+  "geneI_act1",
+  "geneC_act1"
+ ],
+ "semilla": 45,
+ "familia": "dispersa",
+ "senal_rms_test": 0.33782020413106845,
+ "B_chi2_test_theta0": 1.1905629369981696,
+ "B_chi2_test_red": 1.2767514613343591,
+ "B_epred_red": 1.3902203755361853,
+ "sistema": "Lucarelli_CellSystems2018",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 34.6
+}

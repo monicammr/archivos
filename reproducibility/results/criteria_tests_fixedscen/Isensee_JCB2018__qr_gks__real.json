@@ -1,0 +1,13 @@
+{
+ "S": [
+  "xi_KD_Rp_cAMPS",
+  "KD_cAMP"
+ ],
+ "chi2_test": 1.083893510550953,
+ "chi2_ours": 1.082488285497682,
+ "ratio_vs_ours": 1.0012981434275983,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 331.4
+}

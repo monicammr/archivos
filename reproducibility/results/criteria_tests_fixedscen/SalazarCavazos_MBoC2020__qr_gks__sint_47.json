@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kdephosYN__FREE",
+  "GRB2_total__FREE"
+ ],
+ "semilla": 47,
+ "familia": "uniforme",
+ "senal_rms_test": 3.799712656211206,
+ "B_chi2_test_theta0": 23.81431333993721,
+ "B_chi2_test_red": 13.545209424327433,
+ "B_epred_red": 0.8254908074130637,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 3.4
+}

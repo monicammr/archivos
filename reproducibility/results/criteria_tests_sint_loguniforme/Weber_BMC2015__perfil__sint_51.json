@@ -1,0 +1,16 @@
+{
+ "S": [
+  "pu5",
+  "m22"
+ ],
+ "semilla": 51,
+ "familia": "loguniforme",
+ "senal_rms_test": 7.094916551080012,
+ "B_chi2_test_theta0": 52.506112233283744,
+ "B_chi2_test_red": 187.4515870002978,
+ "B_epred_red": 1.9138293868462553,
+ "sistema": "Weber_BMC2015",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 1.0
+}

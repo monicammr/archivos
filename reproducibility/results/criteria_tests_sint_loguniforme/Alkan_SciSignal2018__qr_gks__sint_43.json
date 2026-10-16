@@ -1,0 +1,16 @@
+{
+ "S": [
+  "p_atr_act_atm",
+  "p_dnapk_act"
+ ],
+ "semilla": 43,
+ "familia": "loguniforme",
+ "senal_rms_test": 8.118260977030436,
+ "B_chi2_test_theta0": 66.88992185358804,
+ "B_chi2_test_red": 58.64230569988019,
+ "B_epred_red": 0.9337978508302612,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 48.1
+}

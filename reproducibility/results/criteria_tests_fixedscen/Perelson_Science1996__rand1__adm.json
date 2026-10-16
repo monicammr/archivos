@@ -1,0 +1,20 @@
+{
+ "S": [
+  "c",
+  "delta"
+ ],
+ "k": 2,
+ "n_calibracion": 0,
+ "eajuste_med": 0.0,
+ "erel_med": 0.0,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 2,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Perelson_Science1996",
+ "metodo": "rand1",
+ "prueba": "adm",
+ "segundos": 0.1
+}

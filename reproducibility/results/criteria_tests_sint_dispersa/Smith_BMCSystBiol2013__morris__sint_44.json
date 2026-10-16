@@ -1,0 +1,16 @@
+{
+ "S": [
+  "kminus8",
+  "kminus7b"
+ ],
+ "semilla": 44,
+ "familia": "dispersa",
+ "senal_rms_test": 49.630235708508984,
+ "B_chi2_test_theta0": 2523.4118558547957,
+ "B_chi2_test_red": 543.5515382061731,
+ "B_epred_red": 0.4725959392785997,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 106.4
+}

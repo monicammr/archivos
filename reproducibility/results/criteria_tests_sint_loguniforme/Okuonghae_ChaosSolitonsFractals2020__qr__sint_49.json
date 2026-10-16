@@ -1,0 +1,16 @@
+{
+ "S": [
+  "asymptomatic_start",
+  "d_D"
+ ],
+ "semilla": 49,
+ "familia": "loguniforme",
+ "senal_rms_test": 58.75826287558044,
+ "B_chi2_test_theta0": 3445.398583240072,
+ "B_chi2_test_red": 13640.878902785726,
+ "B_epred_red": 1.9897534413574642,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 0.8
+}

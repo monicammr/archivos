@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "semilla": 61,
+ "familia": "uniforme",
+ "senal_rms_test": 0.18726385263775105,
+ "B_chi2_test_theta0": 0.74792842921667,
+ "B_chi2_test_red": 0.747928431603029,
+ "B_epred_red": 1.0000000138706242,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.8
+}

@@ -1,0 +1,16 @@
+{
+ "S": [
+  "behavioural_change_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "semilla": 46,
+ "familia": "dispersa",
+ "senal_rms_test": 9.689378613011023,
+ "B_chi2_test_theta0": 97.16161753160804,
+ "B_chi2_test_red": 20.333618841810374,
+ "B_epred_red": 0.45357279789444643,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "perfil",
+ "prueba": "sint",
+ "segundos": 0.1
+}

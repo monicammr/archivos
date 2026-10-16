@@ -1,0 +1,23 @@
+{
+ "S": [
+  "kc1",
+  "kc2",
+  "k5",
+  "kc4",
+  "szea"
+ ],
+ "k": 5,
+ "n_calibracion": 0,
+ "eajuste_med": 0.8446974801087572,
+ "erel_med": 0.9144341146047573,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Bruno_JExpBot2016",
+ "metodo": "rand4",
+ "prueba": "adm",
+ "segundos": 3.4
+}

@@ -1,0 +1,19 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "k": 2,
+ "S_ours": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "S_qr": [
+  "kin",
+  "kd2fold"
+ ],
+ "overlap": 0,
+ "chi2_ours": 8.195942168849825,
+ "chi2_qr": 8.432138429516238,
+ "ratio_qr_vs_ours": 1.0288186831727681,
+ "tipo": "condiciones nuevas",
+ "segundos": 5.3,
+ "variant": "gks"
+}

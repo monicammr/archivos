@@ -1,0 +1,16 @@
+{
+ "S": [
+  "sigma",
+  "nu"
+ ],
+ "semilla": 47,
+ "familia": "loguniforme",
+ "senal_rms_test": 41028.18527683289,
+ "B_chi2_test_theta0": 1683315661.0315807,
+ "B_chi2_test_red": 1881319.29428195,
+ "B_epred_red": 0.0334334952267462,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "morris",
+ "prueba": "sint",
+ "segundos": 0.4
+}

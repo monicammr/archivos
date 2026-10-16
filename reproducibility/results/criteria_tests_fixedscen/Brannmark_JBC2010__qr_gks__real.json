@@ -1,0 +1,13 @@
+{
+ "S": [
+  "k1e",
+  "k1c"
+ ],
+ "chi2_test": 1.7562044710816924,
+ "chi2_ours": 5.955850686824016,
+ "ratio_vs_ours": 0.2948704666097323,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "qr_gks",
+ "prueba": "real",
+ "segundos": 0.4
+}

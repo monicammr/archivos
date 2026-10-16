@@ -1,0 +1,16 @@
+{
+ "S": [
+  "p13",
+  "a33"
+ ],
+ "semilla": 59,
+ "familia": "uniforme",
+ "senal_rms_test": 3.7841079092762095,
+ "B_chi2_test_theta0": 16.97696829076075,
+ "B_chi2_test_red": 6.0089106771650975,
+ "B_epred_red": 0.6503772688874048,
+ "sistema": "Weber_BMC2015",
+ "metodo": "qr_gks",
+ "prueba": "sint",
+ "segundos": 0.4
+}

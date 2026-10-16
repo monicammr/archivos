@@ -1,0 +1,20 @@
+{
+ "S": [
+  "k_IRSiP_DosR",
+  "km2"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.08781839950921005,
+ "erel_med": 0.6991634218379332,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 26.3
+}

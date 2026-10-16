@@ -1,0 +1,47 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "p": 9,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 50,
+ "S1": [
+  "kappa",
+  "rho"
+ ],
+ "Rvar_S1_%": 100.0,
+ "S1_cumple": true,
+ "cos_S1": 1.0,
+ "erel_S1": 0.0,
+ "etapa": "Stage 1",
+ "S": [
+  "kappa",
+  "rho"
+ ],
+ "Rvar_%": 100.0,
+ "kappa": 5.375849863798659,
+ "VIF": 7.733591029869687,
+ "cos_med": 1.0,
+ "erel_med": 0.0,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "kappa",
+  "rho"
+ ],
+ "podados": [],
+ "eajuste_med": 2.884108102464501e-13,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 1,
+  "nested_pairs": 0,
+  "violations": 0,
+  "subsets": [
+   [
+    "kappa",
+    "rho",
+    true
+   ]
+  ]
+ },
+ "segundos": 3.1
+}

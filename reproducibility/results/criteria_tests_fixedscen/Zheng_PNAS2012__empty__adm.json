@@ -1,0 +1,17 @@
+{
+ "S": [],
+ "k": 0,
+ "n_calibracion": 0,
+ "eajuste_med": 1.0,
+ "erel_med": 1.0,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Zheng_PNAS2012",
+ "metodo": "empty",
+ "prueba": "adm",
+ "segundos": 0.4
+}

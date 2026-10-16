@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "semilla": 51,
+ "familia": "uniforme",
+ "senal_rms_test": 0.1589926720969449,
+ "B_chi2_test_theta0": 1.1208262768656163,
+ "B_chi2_test_red": 1.401421275151507,
+ "B_epred_red": 2.3419813320873453,
+ "sistema": "Boehm_JProteomeRes2014",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 0.7
+}

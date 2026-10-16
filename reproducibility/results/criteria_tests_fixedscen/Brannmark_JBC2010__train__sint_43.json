@@ -1,0 +1,16 @@
+{
+ "S": [
+  "k21",
+  "km2"
+ ],
+ "semilla": 43,
+ "familia": "uniforme",
+ "senal_rms_test": 1.6261589028543826,
+ "B_chi2_test_theta0": 4.041648340380293,
+ "B_chi2_test_red": 2.94421327418653,
+ "B_epred_red": 0.7957136030413433,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "train",
+ "prueba": "sint",
+ "segundos": 1.7
+}

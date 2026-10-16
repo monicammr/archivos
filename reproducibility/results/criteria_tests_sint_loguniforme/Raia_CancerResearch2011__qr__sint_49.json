@@ -1,0 +1,16 @@
+{
+ "S": [
+  "Rec_recycle",
+  "DecoyR_binding"
+ ],
+ "semilla": 49,
+ "familia": "loguniforme",
+ "senal_rms_test": 14.250220040531405,
+ "B_chi2_test_theta0": 201.9075880669007,
+ "B_chi2_test_red": 2.3399597918165687,
+ "B_epred_red": 0.06346669304585824,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "qr",
+ "prueba": "sint",
+ "segundos": 2.4
+}

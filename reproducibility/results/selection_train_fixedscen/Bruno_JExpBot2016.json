@@ -1,0 +1,107 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "p": 13,
+ "outputs": "train",
+ "fixed_scenarios": true,
+ "n_rows": 49,
+ "S1": [
+  "init_bcar1",
+  "kb1",
+  "init_bcry_1",
+  "init_b10_1",
+  "kc2",
+  "kb2"
+ ],
+ "Rvar_S1_%": 90.83013209108685,
+ "S1_cumple": true,
+ "cos_S1": 0.9447754709036356,
+ "erel_S1": 0.32817140418292107,
+ "etapa": "Stage 1",
+ "S": [
+  "init_bcar1",
+  "kb1",
+  "init_bcry_1",
+  "init_b10_1",
+  "kc2"
+ ],
+ "Rvar_%": 86.18856870608288,
+ "kappa": 2.7713149969085844,
+ "VIF": 2.0919899724505537,
+ "cos_med": 0.9240492009419277,
+ "erel_med": 0.3845470725908452,
+ "n_escenarios": 15,
+ "S_antes_poda": [
+  "init_bcar1",
+  "kb1",
+  "init_bcry_1",
+  "init_b10_1",
+  "kc2",
+  "kb2"
+ ],
+ "podados": [
+  "kb2"
+ ],
+ "eajuste_med": 0.3448295694946499,
+ "admisible": true,
+ "calibracion": [],
+ "monotonia": {
+  "subsets_evaluated": 7,
+  "nested_pairs": 11,
+  "violations": 0,
+  "subsets": [
+   [
+    "init_bcar1",
+    "kb1",
+    "init_b10_1",
+    "kc2",
+    false
+   ],
+   [
+    "kb1",
+    "init_bcry_1",
+    "init_b10_1",
+    "kc2",
+    false
+   ],
+   [
+    "init_bcar1",
+    "kb1",
+    "init_bcry_1",
+    "kc2",
+    false
+   ],
+   [
+    "init_bcar1",
+    "kb1",
+    "init_bcry_1",
+    "init_b10_1",
+    false
+   ],
+   [
+    "init_bcar1",
+    "kb1",
+    "init_bcry_1",
+    "init_b10_1",
+    "kc2",
+    "kb2",
+    true
+   ],
+   [
+    "init_bcar1",
+    "init_bcry_1",
+    "init_b10_1",
+    "kc2",
+    false
+   ],
+   [
+    "init_bcar1",
+    "kb1",
+    "init_bcry_1",
+    "init_b10_1",
+    "kc2",
+    true
+   ]
+  ]
+ },
+ "segundos": 13.7
+}
