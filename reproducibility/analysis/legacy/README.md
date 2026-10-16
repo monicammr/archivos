@@ -10,6 +10,5 @@ Note "Logical sequence of the formal proofs": the resulting constants L_c range 
 and on the numerical admissibility test instead.
 
 It is not used by any other result of the paper, is not maintained, and its comments are in Spanish.
-The row of the SCT model in that table was computed by a companion script for an earlier version of
-the SCT model, which is not included. `certify_systems.py` reads the benchmark from `bench/problems` next to it (create a link to
+`certify_systems.py` reads the benchmark from `bench/problems` next to it (create a link to
 `data/Benchmark-Models-PEtab/problems`) and writes to `resultados/`.

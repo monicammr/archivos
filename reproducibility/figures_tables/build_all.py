@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Regenerate every figure, table and Supplementary Note of the paper from the stored results
-(README, level A). Takes a few minutes; no simulation is run except the small refits of the SCT note.
+(README, level A). Takes a few minutes; no simulation is run.
 
 Output folder: ./output (or the folder given by PAPER_DIR):
   tables/table1.tex, tables/tableS1.tex, tables/tableS3.tex
@@ -27,7 +27,6 @@ STEPS = [
     ("Note: statements of the formal theorems (and lean_proofs/FORMULAS.md)", "make_formulas.py"),
     ("Supplementary Table S3 (Lean modules)", "make_tableS3.py"),
     ("Note: verified benchmark models (Supplementary Tables S7, S8)", "make_models.py"),
-    ("Note: SCT model (Supplementary Table S16, Fig. S3; needs the participant data)", "make_sct_note.py"),
     ("Second audit: statistics of the comparison (fixed scenarios, null controls, standard QR, training-output selection, three families of truths) and Table 2", "audit2_stats.py"),
     ("Comparison with other criteria: Fig. 3 (revised) and Fig. 4", "comparison_figures.py"),
     ("Second audit: supplementary tables (nonlinear check, admissibility per problem, synthetic families, identifiability by region)", "audit2_tables.py"),
@@ -56,4 +55,4 @@ if __name__ == "__main__":
     print(f"\nOutput written to {OUT}")
     if failed:
         print("Not completed:", ", ".join(failed),
-              "(make_sct_note.py needs the SCT participant data, available on request)")
+              )

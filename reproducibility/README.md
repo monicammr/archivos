@@ -19,8 +19,7 @@ This package contains everything needed to check the results of the paper:
   (`lean_translation/`).
 
 The benchmark problems themselves are downloaded from the PEtab benchmark collection
-(`scripts/get_benchmark.sh`). The step-count data of the participant of the social cognitive theory
-(SCT) example are not included; they are available from the authors on reasonable request.
+(`scripts/get_benchmark.sh`). The paper analyses no data from human participants.
 
 ---
 
@@ -79,7 +78,6 @@ analysis/               the method and the numerical analyses (Python)
   identifiability_box.py hypotheses of the Lean identifiability theorems over the admissible set,
                         by region radius (sampling and adversarial search)
   crauste_blowup.py     why no local reduction exists for Crauste
-  sct_model.py, sct_analysis.py   SCT example (needs the participant data)
 results/                stored results (see DATA_DICTIONARY.md)
   selection/            selected subset of each of the 34 problems
   settings/<variant>/   the same with one setting changed (15 variants, 26 problems)
@@ -100,7 +98,7 @@ results/                stored results (see DATA_DICTIONARY.md)
                         conditions of the Lean theorem (certificado*.csv); summary.md
   timing_complete/      run time of the complete method from scratch (parallel, single core,
                         and the eight first-order problems with the corrected code)
-  simulator_check/, cost/, sbml_to_lean/, sct/, crauste_blowup.json
+  simulator_check/, cost/, sbml_to_lean/, crauste_blowup.json
   _before_negative_fix/  earlier results of Armistead, Raimundez and Lang, kept for traceability (not used)
   --- second review (version 1.5) ---
   selection_fixedscen/  selection with a fixed scenario set (A5), with the monotonicity log
@@ -184,9 +182,7 @@ The output is written to `figures_tables/output/`:
   `tables/tableS_settings_extra.tex` (settings of Lang and Raimundez).
 
 Each script prints the counts that the paper quotes (for example the numbers of admissible problems
-for each setting), so that they can be compared with the text. The note on the SCT example and
-Supplementary Fig. S3 need the participant data (place the file as described in
-`analysis/sct_model.py`); without it, that step is skipped with a message.
+for each setting), so that they can be compared with the text.
 
 To see where a particular number of the paper comes from, use the table
 [Where each result comes from](#where-each-result-comes-from) and open the JSON file of the problem
@@ -268,7 +264,6 @@ python mutation_control.py           # a 1 % change of one number is detected (d
    | f | `python single_parameter.py` | Suppl. Table S13 | ~1 h |
    | g | `python crauste_blowup.py` | Results (Crauste) | minutes |
    | h | `python timing.py --write Boehm_JProteomeRes2014 Chen_MSB2009 ...` | Suppl. Table S15 | minutes (times depend on the machine) |
-   | i | `python sct_analysis.py` | Suppl. Note SCT, Table S16 | ~30 min (needs the data) |
    | j | `python nested_validation.py` (Chen: `VAL_PMAX=200 JAC_NPROC=110 REPRO_RTOL=1e-6 REPRO_ATOL=1e-8 python nested_validation.py Chen_MSB2009`) | Suppl. Note nested validation | hours; Chen ~10 min on 110 cores |
    | k | `SINT_SEEDS=42-61 python synthetic_seeds.py` | Fig. 3b, Suppl. Note synthetic experiment | ~1 h on 100 cores |
    | l | `python baselines.py` | Table 2, Suppl. Note comparison on real data | ~1 h |
@@ -353,7 +348,6 @@ trajectories is used (cost note), and its model is verified in Lean.
 | Fig. 6, Table 2; Suppl. Tables S3–S6 (formal statements) | `lean_proofs/` | — | `fig6_architecture.tex`, `make_tableS3.py`, `make_formulas.py` |
 | Verified models, translation fidelity (Methods; Suppl. Tables S7–S8) | `lean_translation/` | `sbml_to_lean/` | `make_models.py` |
 | System-by-system summary (Supplementary Note) | all of the above | all of the above | `make_systems_note.py` |
-| SCT example (Introduction, Results; Suppl. Table S16, Fig. S3) | `sct_analysis.py` | `sct/` | `make_sct_note.py` |
 
 Supplementary Tables S2 (notation) and S4 (scope of each guarantee) are text of the Supplementary
 Information and are not generated.
@@ -373,8 +367,6 @@ Information and are not generated.
   piecewise with the discontinuities of the condition as breakpoints (Isensee).
 * **Smith.** Its simulation time in `cost/` was measured on a second machine and scaled by 1.55 (field
   `nota`); all other times were measured on the same four-core server.
-* **SCT data.** `analysis/sct_model.py` describes the expected file (columns `xi3`–`xi8`, `eta4`, one row
-  per day).
 
 * **Generated and edited text.** Every table of the paper and of the Supplementary Information is
   regenerated identically by level A. Some Supplementary Notes (`suppl_*.tex`) were edited by hand
@@ -395,17 +387,16 @@ Information and are not generated.
   the hypotheses of the Lean theorems over the admissible set (`identifiability_box.py`); two new
   Lean theorems with the remainder bound only on the tail of the profile
   (`practically_identifiable_grad_tail`, `practically_identifiable_rel_tail`; 309 theorems).
+* **Social cognitive theory example removed.** The paper no longer analyses the step-count data of
+  the participant of the earlier study that motivated the work (it only cites that study), so the
+  SCT programs, their stored result and the corresponding Supplementary Note are no longer part of
+  the package.
 * **Lean verification**: `NonVacuity.lean`, `DEFINITIONS_AUDIT.md`; `verify.sh` now fails unless all
   309 theorems and 28 model theorems are reported with standard axioms (the model check failed
   silently before because `AllModels` was not a build target) and works when re-run; clean build and
   lean4checker recorded in `BUILD_LOG.md`.
 * **Level A on Windows**: missing or incompatible poppler only produces a warning (EPS/TIFF copies);
   UTF-8 output is forced.
-* **SCT note checked with the participant data**: with the data placed at `data/sct/datos_sct_31dias.csv`,
-  `make_sct_note.py` reproduces the reduced-model refit to a relative 1e-6 and every number of the note;
-  the local refit of the 22-parameter full model can differ by about 0.1 % in the test chi2/n with other
-  Python/NumPy versions (the reported R^2 is unchanged), so that check now has a 1 % tolerance and
-  prints the difference. The data themselves are not part of the package.
 
 ## Changes in version 1.4
 

@@ -242,7 +242,6 @@ lists the variants that did not finish.
 | `crauste_blowup.json` | `nominal` and `un_parametro_1%` (24 one-at-a-time changes): `existe_en_[0,28]` (the solution exists on the measured horizon), `t_final` (time reached), `efectores_max`, `t_max`; `tolerancias`: number of failures (`fallos_*`) for each integrator tolerance |
 | `sbml_to_lean/<problem>.json` | report of the translation to Lean: sizes (`n_estados`, `n_theta`, `reacciones`), checks done in Python before writing the Lean file, `lean` (file written), `teorema_final`, `traducido` |
 | `sbml_to_lean/translation_fidelity.json` | for each model: `err_rel_max` (largest relative difference between the vector field of the Lean file and libRoadRunner), `err_theta`, `err_x0`, `err_por_punto` |
-| `sct/sct_analysis.json` | SCT example: `theta0`, `R2_theta0`, `DE_100` (100 differential-evolution runs: seeds, R^2, parameter ranges, `cambia_signo` = changes sign), `sigma`, selection fields as above, `descartes` (rejected candidates and the parameter they are most collinear with), `niveles`/`patron` (robustness), `validacion` (chi2/n and R^2 on days 25-31; `red` = reduced, `full` = full, `_DE` = full model re-fitted by differential evolution; `estable_*` = stable) |
 
 ## Second review (version 1.5)
 

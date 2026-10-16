@@ -4,13 +4,13 @@ All programs, results and formal proofs of this work are collected in a reproduc
 
 \subsection*{Contents of the package}
 \begin{itemize}\itemsep0pt
-\item \texttt{analysis/}: the method and every numerical analysis of the paper in Python (simulation of the measured outputs of a PEtab problem, selection, external and nested validation, synthetic experiment, robustness, single-parameter subsets, settings, cost, simulator check, comparison with other criteria, identifiability, SCT example), including the additional analyses described in the Supplementary Notes on robustness (independent directions), on the synthetic experiment (true signal and other amplitudes), on the method settings (error in units of the noise) and on random scenarios and large problems; all settings and seeds are in \texttt{analysis/config.py}.
+\item \texttt{analysis/}: the method and every numerical analysis of the paper in Python (simulation of the measured outputs of a PEtab problem, selection, external and nested validation, synthetic experiment, robustness, single-parameter subsets, settings, cost, simulator check, comparison with other criteria, identifiability), including the additional analyses described in the Supplementary Notes on robustness (independent directions), on the synthetic experiment (true signal and other amplitudes), on the method settings (error in units of the noise) and on random scenarios and large problems; all settings and seeds are in \texttt{analysis/config.py}.
 \item \texttt{results/}: the results of these analyses, one file per benchmark problem, with a data dictionary (\texttt{DATA\_DICTIONARY.md}).
 \item \texttt{figures\_tables/}: the programs that produce every figure, table and Supplementary Note that contains numbers from those results.
 \item \texttt{lean\_proofs/}: the Lean~4 development (32 modules, 309 theorems and lemmas, 28 benchmark models, and the non-vacuity witnesses 	exttt{NonVacuity.lean}).
 \item \texttt{lean\_translation/}: the translator of the SBML models into Lean and the independent check of the translation.
 \end{itemize}
-The PEtab problems are downloaded from the benchmark collection at commit \texttt{fcbddf1} by \texttt{scripts/get\_benchmark.sh}; the step-count data of the SCT example are available from the authors on reasonable request.
+The PEtab problems are downloaded from the benchmark collection at commit \texttt{fcbddf1} by \texttt{scripts/get\_benchmark.sh}.
 
 \subsection*{Three levels of checking}
 \begin{enumerate}\itemsep0pt

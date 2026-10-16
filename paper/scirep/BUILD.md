@@ -6,19 +6,17 @@ output written into this folder:
 
 ```bash
 cd ../../reproducibility/figures_tables
-PAPER_DIR=../../paper/scirep SCT_DATA=../../certificados/datos_sct/datos_sct_31dias.csv python build_all.py
+PAPER_DIR=../../paper/scirep python build_all.py
 cd ../../paper/scirep
 pdflatex main && bibtex main && pdflatex main && pdflatex main
 pdflatex supplementary && pdflatex supplementary && pdflatex supplementary
 ```
 
-(`SCT_DATA` points to the participant data of the SCT example, which are not public; without it the
-SCT note and Supplementary Fig. S3 are left as they are.)
 
 Files written by the build: `tables/table1.tex`, `tables/tableS1.tex`, `tables/tableS3.tex`,
 `figures/fig*.{pdf,eps,tif}`, `figures/figS*.pdf`, `figure3/`, `suppl_simulator.tex`,
 `suppl_synthetic.tex`, `suppl_single.tex`, `suppl_settings.tex`, `suppl_cost.tex`,
-`suppl_robustness.tex`, `suppl_systems.tex`, `suppl_formulas.tex`, `suppl_models.tex`, `suppl_sct.tex`.
+`suppl_robustness.tex`, `suppl_systems.tex`, `suppl_formulas.tex`, `suppl_models.tex`.
 The other `.tex` files (`main.tex`, `supplementary.tex`, `note_sequence.tex`, `suppl_validation.tex`,
 `suppl_reproduction.tex`, `suppl_conclusion.tex`, `references.tex`) are written by hand.
 

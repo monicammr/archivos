@@ -19,8 +19,8 @@ Es una carpeta autocontenida con todo lo que respalda el paper:
 | `lean_translation/` | el traductor SBML → Lean y la comprobación de la traducción | el puente entre modelos y Lean |
 | `scripts/` | descarga del benchmark y comparación de resultados | utilidades |
 
-No incluye: los problemas PEtab (se descargan con `scripts/get_benchmark.sh`) ni los datos de pasos del
-participante del modelo SCT (se entregan "a pedido razonable", como dice el paper).
+No incluye los problemas PEtab (se descargan con `scripts/get_benchmark.sh`). El paper ya no analiza
+datos de personas.
 
 ---
 
@@ -41,7 +41,6 @@ participante del modelo SCT (se entregan "a pedido razonable", como dice el pape
 | `single_parameter.py` | prueba si un solo parámetro bastaría (justifica k_min = 2) | Tabla S13 |
 | `crauste_blowup.py` | muestra por qué Crauste no tiene reducción local | texto de Resultados |
 | `timing.py` | mide el tiempo de una simulación | Tabla S15 |
-| `sct_model.py`, `sct_analysis.py` | el ejemplo SCT (necesita los datos del participante) | Tabla S16, Fig. S3 |
 
 | Programa (`lean_translation/`) | Qué hace |
 |---|---|
@@ -132,6 +131,14 @@ Al terminar, `cd figures_tables && python build_all.py` rehace la Tabla 2, la Fi
 
 ## 4. Qué comprobé antes de entregártelo
 
+* **Ejemplo SCT retirado (16-10-2026).** El estudio original de los pasos no pasó por un comité de
+  ética y *Scientific Reports* exige nombrar al comité que aprobó cualquier investigación con
+  personas. Por eso el paper ya no analiza esos datos: solo cita tu artículo previo como motivación.
+  Se quitaron la subsección de Resultados, la de Methods, la nota del suplemento, su tabla y la
+  Fig. S3, y del paquete los programas `sct_*.py`, `make_sct_note.py` y `results/sct/`. La
+  declaración de ética ahora es «Not applicable». Tu archivo de datos sigue en tu OneDrive; la
+  copia CSV está en `reproducibility/data/sct/` (excluida de git) y puedes borrarla si quieres.
+
 * **Código equivalente.** Los programas del paquete son versiones ordenadas (en inglés) de los que
   usamos (`certificados/`). Comprobé automáticamente que la lógica es la misma, comparando la estructura
   del código función por función, y además volví a ejecutarlos y comparé los resultados con los
@@ -142,21 +149,12 @@ Al terminar, `cd figures_tables && python build_all.py` rehace la Tabla 2, la Fi
   regenera todo en unos 20 segundos, y las tablas, las figuras y las notas coinciden con las del paper.
 * **Benchmark.** `get_benchmark.sh` descarga exactamente los mismos archivos que usamos (commit fcbddf1).
 * **Segunda auditoría (16-10-2026).** El nivel A regenera en Windows todas las tablas del paper y del
-  suplemento **idénticas** a las enviadas (solo falta la nota SCT, que necesita los datos del
-  participante). Algunas notas del suplemento se retocaron a mano después de generarlas (redacción y
+  suplemento **idénticas** a las enviadas . Algunas notas del suplemento se retocaron a mano después de generarlas (redacción y
   números de figura), así que su texto regenerado puede variar en la redacción, no en las cifras.
 * **Lean (16-10-2026).** Compilación desde cero en una copia limpia: 309 de 309 teoremas y 28 de 28
   modelos solo con los axiomas estándar; `lean4checker` aceptó todos los módulos; un control negativo
   con `sorry` fue detectado. Se corrigieron dos errores de `verify.sh` (no comprobaba de verdad los
   modelos y fallaba al ejecutarlo dos veces).
-* **Nota SCT con tus datos (16-10-2026).** Con tu archivo `datos4sin.xlsx` convertido a
-  `reproducibility/data/sct/datos_sct_31dias.csv` (columnas `xi3`–`xi8`, `eta4`; 31 días), la nota SCT
-  se regenera completa: el reajuste del modelo reducido coincide con el guardado (error relativo
-  < 10⁻⁶), lo que confirma que son los mismos datos del paper, y todas las cifras de la nota coinciden.
-  El reajuste local del modelo completo (22 parámetros) difiere un 0,1 % con Python 3.14 (R² igual);
-  por eso esa comprobación tiene ahora una tolerancia del 1 %. **Los datos no están en el paquete ni en
-  GitHub** (la carpeta `data/` está excluida): se entregan a pedido razonable, como dice el paper.
-  Para que un revisor los use, se le envían aparte y los coloca en esa ruta (o en la variable `SCT_DATA`).
 * **Un error mío que corregí al armar el paquete.** Los certificados nuevos de identificabilidad se
   guardaban en la misma carpeta que leen las tablas del paper y las alteraban al regenerarlas; ahora
   están en `results/identifiability/audit2/` y las tablas regeneradas coinciden con las del paper.
@@ -221,7 +219,6 @@ Si prefieres no publicar todavía, Zenodo permite reservar el DOI y dejar el reg
 | ¿Por qué Lang no es admisible? | La búsqueda voraz no llega a un par admisible con los ajustes por defecto, aunque existen (nota *Random scenarios and large problems*, tabla de variantes de Lang) |
 | ¿Cómo se tratan los parámetros negativos o nulos en los escenarios? | Perturbación multiplicativa sin recorte: conservan el signo; los nulos se representan por 10⁻¹² y nunca se eligen (misma nota) |
 | ¿Se obtiene lo mismo en otra máquina? | Sí: la selección de Lang y Raimundez coincidió con libRoadRunner 2.9.2 y 2.10.0 (e_fit iguales hasta 10⁻⁸) |
-| ¿Dónde están los datos del SCT? | No son públicos; se entregan a pedido razonable |
 | ¿Tu método vio los datos de prueba al elegir? | Sí en la selección principal; por eso se repitió con solo entrenamiento (`selection_train_fixedscen/`): rinde como Brun y mejor que QR y perfil |
 | ¿Pasar la prueba de admisibilidad tiene mérito? | Controles nulos: al azar ~16/28, solo calibración 9/28, frente a 28/28 (`criteria_tests_fixedscen/`) |
 | ¿Las demostraciones de Lean son vacías? | No: `NonVacuity.lean` da un ejemplo verificado de cada teorema central; `DEFINITIONS_AUDIT.md` compara definiciones |
