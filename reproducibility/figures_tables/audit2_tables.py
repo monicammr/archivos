@@ -85,7 +85,7 @@ rows.append("\\end{tabular}")
 radii = [("10", ""), ("5", "_r5"), ("3", "_r3"), ("2", "_r2"), ("1.5", "_r1.5")]
 cert = {}
 for r, t in radii:
-    for row in csv.DictReader(open(R / "identifiability" / f"certificado_box{t}_parametros.csv", encoding="utf-8")):
+    for row in csv.DictReader(open(R / "identifiability" / "audit2" / f"certificado_box{t}_parametros.csv", encoding="utf-8")):
         cert.setdefault((row["sistema"], row["parametro"]), {})[r] = row["pf"] == "True"
 dense = {}
 for f in glob.glob(str(R / "identifiability" / "profiles_dense" / "*.json")):

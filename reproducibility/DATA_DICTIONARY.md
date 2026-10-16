@@ -243,3 +243,61 @@ lists the variants that did not finish.
 | `sbml_to_lean/<problem>.json` | report of the translation to Lean: sizes (`n_estados`, `n_theta`, `reacciones`), checks done in Python before writing the Lean file, `lean` (file written), `teorema_final`, `traducido` |
 | `sbml_to_lean/translation_fidelity.json` | for each model: `err_rel_max` (largest relative difference between the vector field of the Lean file and libRoadRunner), `err_theta`, `err_x0`, `err_por_punto` |
 | `sct/sct_analysis.json` | SCT example: `theta0`, `R2_theta0`, `DE_100` (100 differential-evolution runs: seeds, R^2, parameter ranges, `cambia_signo` = changes sign), `sigma`, selection fields as above, `descartes` (rejected candidates and the parameter they are most collinear with), `niveles`/`patron` (robustness), `validacion` (chi2/n and R^2 on days 25-31; `red` = reduced, `full` = full, `_DE` = full model re-fitted by differential evolution; `estable_*` = stable) |
+
+## Second review (version 1.5)
+
+### `selection_fixedscen/`, `selection_train_fixedscen/` (analysis/selection.py)
+
+Same fields as `selection/`, plus:
+
+| Field | Meaning |
+|---|---|
+| `outputs` | `all` (all measured outputs) or `train` (rows of the training set only) |
+| `fixed_scenarios` | `true`: a scenario in which the simulation with the subset fails counts as e_rel = inf; first-order e_fit = min(e_rel, projection) per scenario |
+| `n_rows` | number of outputs used by the selection |
+| `monotonia` | monotonicity log: `subsets_evaluated`, `nested_pairs` (pairs S < T of evaluated subsets), `violations` (S admissible and T not), `subsets` (each evaluated subset with its admissibility) |
+
+### `qr_selection_gks/` (analysis/qr_selection.py with QR_VARIANT=gks)
+
+Same fields as `qr_selection/` (`S_qr`, `chi2_qr`, `chi2_ours`, `overlap`, ...), plus `variant` = `gks`.
+
+### `efit_nonlinear/<problem>/s<k>.json` and `efit_nonlinear/<problem>.json` (analysis/efit_nonlinear.py)
+
+| Field | Meaning |
+|---|---|
+| `escenario` | scenario index (0-14) |
+| `erel`, `efit` | relative error without and with nonlinear re-estimation of S and the calibration parameters |
+| `arranques` | each starting point (`theta0`, `escenario`): error `e`, function evaluations `nfev`, optimiser `status` |
+| `descartado` | why a scenario was discarded (full-model simulation failed, or change below the noise floor) |
+| `eajuste_med_nolineal`, `eajuste_med_primer_orden` | median nonlinear e_fit and the first-order value of the selection |
+| `tasa_paso_nolineal`, `admisible_nolineal`, `n_escenarios_validos`, `segundos_total` | pass rate, admissibility, valid scenarios, total CPU time |
+
+### `criteria_tests_fixedscen/`, `criteria_tests_20pc_fixedscen/`, `criteria_tests_sint_<family>/` (analysis/criteria_tests.py)
+
+One file per problem, criterion (`metodo`: `ours`, `train`, `brun`, `morris`, `perfil`, `qr`, `qr_gks`, `empty` = k = 0, `rand<i>` = random subset i) and test (`adm`, `real`, `sint_<seed>`):
+
+| Field | Meaning |
+|---|---|
+| `eajuste_med`, `erel_med`, `admisible` | admissibility test as in the selection (`admisible_sin_kmin`: without the rule \|S\| >= 2) |
+| `tasa_paso`, `n_escenarios`, `escenarios_fijos`, `k`, `n_calibracion` | pass rate, valid scenarios, fixed scenario set, subset size, calibration parameters |
+| `chi2_test`, `chi2_ours`, `ratio_vs_ours` | real data: test chi2/n of the subset, of our main subset, and their ratio |
+| `familia`, `semilla`, `B_epred_red`, `B_chi2_test_theta0`, `senal_rms_test` | synthetic test: family of truths, seed, e_pred, chi2/n of theta0 on the synthetic test data (>= 2: signal), true signal in noise units |
+
+### `conditioning_check.json` (analysis/conditioning_check.py)
+
+`kappa_centred`, `VIF_centred` (as in the selection), `kappa_unit`, `VIF_unit` (unit-length columns
+without centring, as in the Lean least-squares statements), `kappa_unit_with_calibration`.
+
+### `identifiability/profiles_dense/`, `identifiability/profiles_selection_train_fixedscen/`
+
+Same format as `identifiability/profiles/` (20 points per side, or the subsets selected on the
+training outputs).
+
+### `identifiability/audit2/certificado_box[_r<r>].csv` and `..._parametros.csv` (analysis/identifiability_box.py)
+
+One row per selected parameter, side (`lado`) and condition (`condicion`: `abs` = absolute remainder
+on the tail, `rel` = relative remainder): `I_j`, `gamma`, `norma_r0`, `d_lado` (distance to the bound
+of the region), `pasa_muestra` (condition holds on the sample), `t` (tail start), `valor_final`
+(epsilon or eta after the adversarial search), `pasa_final`. `_parametros.csv`: `pf` = the hypotheses
+hold on both sides for parameter `parametro` in the region of radius r (10 if no suffix).
+`certificado_train.csv`: same columns as `identifiability/certificado.csv` for the training-output subsets.

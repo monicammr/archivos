@@ -12,8 +12,9 @@ This package contains everything needed to check the results of the paper:
 * the **results** of those analyses, one file per benchmark problem (`results/`, 16 MB);
 * the **programs that produce every figure, table and Supplementary Note** of the paper from those
   results (`figures_tables/`);
-* the **formal proofs** in Lean 4 with Mathlib: 32 modules with 304 theorems and lemmas, and the
-  hypotheses of 28 benchmark models (`lean_proofs/`);
+* the **formal proofs** in Lean 4 with Mathlib: 32 modules with 309 theorems and lemmas, the
+  hypotheses of 28 benchmark models, and machine-checked non-vacuity witnesses for the central
+  theorems (`lean_proofs/`);
 * the **translator** of the SBML models into Lean and an independent check of the translation
   (`lean_translation/`).
 
@@ -27,8 +28,8 @@ The benchmark problems themselves are downloaded from the PEtab benchmark collec
 
 | Level | What it does | Time | Needs |
 |---|---|---|---|
-| **A** | Regenerates every figure, table and Supplementary Note from the stored results | under a minute | Python, LaTeX |
-| **B** | Compiles all formal proofs and checks that they use no unproved assumption | 1–2 h | Lean (elan) |
+| **A** | Regenerates every figure, table and Supplementary Note from the stored results | about two minutes | Python, LaTeX |
+| **B** | Compiles all formal proofs and checks that they use no unproved assumption | 20 min (many cores) to 2 h | Lean (elan) |
 | **C** | Re-runs the analyses from the PEtab problems and compares with the stored results | minutes per problem; about 1–2 days in total on 4 cores | Python, the benchmark (download) |
 
 Each level is independent. A reader who only wants to see where a number comes from needs level A;
@@ -47,6 +48,8 @@ CITATION.cff            how to cite
 scripts/
   get_benchmark.sh      downloads the 35 PEtab problems used (commit fcbddf1, about 80 MB)
   compare_results.py    compares re-computed results with the stored ones
+  fase_a_audit2.sh      runs all re-analyses of the second review (A1-A6) on a many-core server
+  identificabilidad_audit2.sh  runs the identifiability analyses of the second review
 analysis/               the method and the numerical analyses (Python)
   config.py             paths and settings of the paper (delta, tau_R, tau_kappa, tau_e, seeds, ...)
   petab_problem.py      simulation of the measured outputs of a PEtab problem
@@ -71,6 +74,10 @@ analysis/               the method and the numerical analyses (Python)
   identifiability_local.py       kappa and VIF of the sensitivities of S and the calibration parameters
   identifiability_conditions.py  quantities of the Lean theorem ProfileIdentifiability (I_j, gamma, remainder)
   identifiability_server.py/.sh  the same profiles on a many-core Linux server (Jacobian in parallel)
+  efit_nonlinear.py     nonlinear re-estimation of the final subsets of the first-order problems (A2)
+  conditioning_check.py kappa and VIF of the final subsets with centred and with unit-length columns
+  identifiability_box.py hypotheses of the Lean identifiability theorems over the admissible set,
+                        by region radius (sampling and adversarial search)
   crauste_blowup.py     why no local reduction exists for Crauste
   sct_model.py, sct_analysis.py   SCT example (needs the participant data)
 results/                stored results (see DATA_DICTIONARY.md)
@@ -95,13 +102,31 @@ results/                stored results (see DATA_DICTIONARY.md)
                         and the eight first-order problems with the corrected code)
   simulator_check/, cost/, sbml_to_lean/, sct/, crauste_blowup.json
   _before_negative_fix/  earlier results of Armistead, Raimundez and Lang, kept for traceability (not used)
+  --- second review (version 1.5) ---
+  selection_fixedscen/  selection with a fixed scenario set (A5), with the monotonicity log
+  selection_train_fixedscen/  selection on the training outputs only (A1)
+  qr_selection_gks/     standard (Golub-Klema-Stewart) pivoted QR (A4)
+  efit_nonlinear/       nonlinear e_fit of the six first-order problems, one file per scenario (A2)
+  criteria_tests_fixedscen/, criteria_tests_20pc_fixedscen/  admissibility of every criterion, of
+                        k = 0 and of 20 random subsets, real-data and synthetic tests (A1, A3, A4)
+  criteria_tests_sint_loguniforme/, criteria_tests_sint_dispersa/  other families of truths (A6)
+  conditioning_check.json  kappa and VIF, centred and unit-length, of the final subsets
+  identifiability/profiles_dense/  profiles with 20 points per side
+  identifiability/profiles_selection_train_fixedscen/  profiles of the training-output subsets
+  identifiability/box/, identifiability/audit2/  hypotheses of the Lean theorems by region radius
+  audit2_stats.json     statistics of Table 2 and Fig. 4 (written by figures_tables/audit2_stats.py)
 figures_tables/         produce the figures, tables and Supplementary Notes from results/
   build_all.py          runs all of them (level A)
   comparison_*.py       figures, tables and statistics of the comparison with other criteria
   make_review_notes.py  tables and figures of the additional analyses (B5, C3, C1, settings of Lang and Raimundez)
   cifras_texto.py       recomputes the counts quoted in the main text from results/
   make_timing_notes.py  computing time of every analysis for every problem (Suppl. Note on computing time)
+  audit2_stats.py       statistics of the comparison after the second review, Table 2
+  audit2_tables.py      supplementary tables of the second review
 lean_proofs/            Lean 4 + Mathlib project (see lean_proofs/README.md)
+  NonVacuity.lean       witnesses: every central theorem has an instance with all hypotheses proved
+  DEFINITIONS_AUDIT.md  correspondence of each Lean definition with the paper and the code
+  BUILD_LOG.md          log of the clean build and of the independent check with lean4checker
 lean_translation/
   sbml_to_lean.py       translator SBML -> Lean (writes lean_proofs/Models/)
   verify_translation.py independent check of the translated models against libRoadRunner
@@ -177,10 +202,26 @@ cd lean_proofs
 ```
 
 The script (i) checks that no file contains `sorry` or `axiom`, (ii) downloads the precompiled
-Mathlib, (iii) compiles the 32 theory modules and the 28 model files and (iv) prints the axioms used by
-every theorem. Only Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`) must appear.
-The first compilation takes about 1–2 hours (mostly the largest models, Chen and Froehlich); the log of
-our build is `lean_proofs/BUILD_LOG.md`. `lean_proofs/README.md` relates each step of the method to
+Mathlib, (iii) compiles the 32 theory modules, the witnesses `NonVacuity.lean` and the 28 model files
+and (iv) reports the axioms used by every theorem (309) and by the final theorem of every model (28).
+It stops with an error unless every declaration is reported and only Lean's standard axioms
+(`propext`, `Classical.choice`, `Quot.sound`) appear. The first compilation takes about 20 minutes on
+many cores and 1–2 hours on a laptop (mostly the largest models, Chen and Froehlich); the log of our
+clean build is `lean_proofs/BUILD_LOG.md`.
+
+An independent re-check of the compiled declarations with
+[lean4checker](https://github.com/leanprover/lean4checker) (tag `v4.23.0`):
+
+```bash
+git clone https://github.com/leanprover/lean4checker && cd lean4checker
+git checkout v4.23.0 && cp ../lean_proofs/lean-toolchain . && lake build && cd ../lean_proofs
+for m in ScaledError Poda GreedySelection ProfileIdentifiability NonVacuity; do
+  lake env ../lean4checker/.lake/build/bin/lean4checker $m; done      # any module; silent on success
+```
+
+`NonVacuity.lean` gives, for each central theorem, a concrete instance in which every hypothesis is
+proved (so that no central statement is vacuous) and, for defined properties, an instance in which
+they fail; `DEFINITIONS_AUDIT.md` compares each Lean definition with the paper and with the code. `lean_proofs/README.md` relates each step of the method to
 its theorems, and `lean_proofs/FORMULAS.md` gives the statement of every theorem in mathematical
 notation.
 
@@ -237,8 +278,10 @@ python mutation_control.py           # a 1 % change of one number is detected (d
    | p | `python criteria_tests.py`, then `SOLO_SINT=1 SINT_SEMILLAS=47,...,61 python criteria_tests.py` and `ADM_NIVEL=0.20 python criteria_tests.py` (after l-o) | Fig. 4a-b, Table 2, Suppl. Notes admissibility and synthetic comparison | ~1 h on 100 cores |
    | q | `REPRO_RESULTS=$PWD/../results_timing NPROC=64 python selection.py` (and with `NPROC=1`) | Fig. 4d, Suppl. Note cost | the run time is the measurement |
    | r | `python identifiability_local.py`, `NPROC=8 python identifiability_profiles.py` (Bachmann, Chen, Isensee, Lang, Raimundez and Smith: `bash identifiability_server.sh` on a server), then `python identifiability_conditions.py` (`CERT_PAR=256` to run the simulations of one problem in parallel) | Results (identifiability), Suppl. Note identifiability | ~10 min on 8 cores; ~3 h on 256 cores for the six large problems |
+   | s | `NCORES=88 bash scripts/fase_a_audit2.sh` (second review: A5 fixed scenarios, A1 selection on the training outputs, A2 nonlinear check, A4 standard QR, A3 null controls, A6 other families of truths), then `python conditioning_check.py` | Table 2, Fig. 4, Methods, Suppl. Notes *Nonlinear check*, *Selection on the training outputs, null controls and standard pivoted QR*, *Conditioning with unit-length columns* | ~6 h on 88 cores (Chen in A2 longest) |
+   | t | `NPROC=30 bash scripts/identificabilidad_audit2.sh` (after r and s) | Results and Suppl. Note *Identifiability over the admissible set* | ~5 h on 88 cores |
 
-   Steps j, n and p distribute the work over many processes and use `fork` (Linux). The stored
+   Steps j, n, p, s and t distribute the work over many processes and use `fork` (Linux). The stored
    results of steps j-q were computed on a 128-core server shared by several computations; their
    run times (`segundos`) are therefore upper bounds.
 
@@ -299,6 +342,10 @@ trajectories is used (cost note), and its model is verified in Lean.
 | Error in units of the noise (Results, settings; Supplementary Note on the method settings) | `absolute_error.py` | `absolute_error/` | `make_review_notes.py` |
 | Random scenarios, large problems and the greedy search in Lang (Supplementary Note *Random scenarios and large problems*, settings of Lang and Raimundez) | `selection.py --variant` | `settings_extra/` | `make_review_notes.py` |
 | Computing time of every analysis (Results, cost; Supplementary Note *Computing time of the analyses*) | all programs (field `segundos`) | all of the above | `make_timing_notes.py` |
+| Second review: Table 2, Fig. 4 (null controls, standard QR, training-output selection, three families of truths) | `selection.py` (`REPRO_OUTPUTS=train`, `REPRO_FIXED_SCEN=1`), `qr_selection.py` (`QR_VARIANT=gks`), `criteria_tests.py` (`CT_METODOS`, `SINT_FAMILIA`) | `selection_*fixedscen/`, `qr_selection_gks/`, `criteria_tests_*fixedscen/`, `criteria_tests_sint_*/` | `audit2_stats.py`, `comparison_figures.py`, `audit2_tables.py` |
+| Nonlinear check of the first-order problems (Results, Methods; Suppl. Note) | `efit_nonlinear.py` | `efit_nonlinear/` | `audit2_tables.py` |
+| Conditioning with unit-length columns (Methods; Suppl. Note) | `conditioning_check.py` | `conditioning_check.json` | — |
+| Identifiability over the admissible set, dense profiles, profiles of the training-output subsets (Results; Suppl. Note) | `identifiability_box.py`, `identifiability_profiles.py` (`ID_DENSE=1`, `ID_SUBSETS=...`) | `identifiability/box/`, `identifiability/audit2/`, `identifiability/profiles_dense/`, `identifiability/profiles_selection_train_fixedscen/` | `audit2_tables.py` |
 | Counts quoted in the main text | — | all of the above | `cifras_texto.py` |
 | Crauste (Results, non-admissible problems) | `crauste_blowup.py` | `crauste_blowup.json` | — |
 | Computational cost (Results; Suppl. Table S15) | `timing.py` | `cost/` | `make_extra_notes.py` |
@@ -328,6 +375,32 @@ Information and are not generated.
   `nota`); all other times were measured on the same four-core server.
 * **SCT data.** `analysis/sct_model.py` describes the expected file (columns `xi3`–`xi8`, `eta4`, one row
   per day).
+
+* **Generated and edited text.** Every table of the paper and of the Supplementary Information is
+  regenerated identically by level A. Some Supplementary Notes (`suppl_*.tex`) were edited by hand
+  after being generated (wording and cross-references, e.g. figure numbers), so their regenerated
+  text can differ in wording from the submitted version; the numbers come from the same results.
+
+## Changes in version 1.5 (second review)
+
+* **Fixed scenario set** (`REPRO_FIXED_SCEN=1`): a scenario in which the simulation with the subset
+  fails counts as not reproduced instead of being discarded, and the first-order `e_fit` is
+  `min(e_rel, projection)` scenario by scenario. No subset changed; the monotonicity log (field
+  `monotonia`) found no violation among 660 nested pairs.
+* **Selection on the training outputs** (`REPRO_OUTPUTS=train`), **standard pivoted QR**
+  (`QR_VARIANT=gks`), **null controls** (k = 0 and 20 random subsets), **other families of synthetic
+  truths** (`SINT_FAMILIA=loguniforme|dispersa`), **nonlinear check** of the first-order problems
+  (`efit_nonlinear.py`) and **conditioning with unit-length columns** (`conditioning_check.py`).
+* **Identifiability**: dense profiles (`ID_DENSE=1`), profiles of other subsets (`ID_SUBSETS`) and
+  the hypotheses of the Lean theorems over the admissible set (`identifiability_box.py`); two new
+  Lean theorems with the remainder bound only on the tail of the profile
+  (`practically_identifiable_grad_tail`, `practically_identifiable_rel_tail`; 309 theorems).
+* **Lean verification**: `NonVacuity.lean`, `DEFINITIONS_AUDIT.md`; `verify.sh` now fails unless all
+  309 theorems and 28 model theorems are reported with standard axioms (the model check failed
+  silently before because `AllModels` was not a build target) and works when re-run; clean build and
+  lean4checker recorded in `BUILD_LOG.md`.
+* **Level A on Windows**: missing or incompatible poppler only produces a warning (EPS/TIFF copies);
+  UTF-8 output is forced.
 
 ## Changes in version 1.4
 

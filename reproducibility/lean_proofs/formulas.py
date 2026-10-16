@@ -348,6 +348,11 @@ mod("ProfileIdentifiability", G4,
      ("dchi2_ge_of_coord_grad", r"|\varphi(\delta)|\ge\frac{\varepsilon+\gamma+\sqrt{\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon}}{\sqrt I}\Rightarrow\Delta\chi^2(\delta)\ge c", "The profile exceeds c beyond t* (numerical optimum)."),
      ("practically_identifiable_grad", r"t^{\ast}_\gamma<d_-,\ t^{\ast}_\gamma<d_+\Rightarrow\mathrm{PracticallyIdentifiable}", "Main theorem with a numerical optimum."),
      ("stat_of_projection", r"\langle r_0-p,A\delta\rangle=0\ \forall\delta,\ \|p\|\le\gamma\Rightarrow|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|", "γ is the norm of the projection of r_0 onto the range of A."),
+     ("practically_identifiable_grad_tail", r"t^{\ast}_\gamma\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\varepsilon\ \text{only for }\delta\in F,\ \varphi(\delta)\le-t_-\vee\varphi(\delta)\ge t_+\Rightarrow\mathrm{PracticallyIdentifiable}", "Main theorem with the remainder bound needed only on the tail of the profile (second audit)."),
+     ("dchi2_lower_rel", r"|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|,\ \|r(\delta)-r_0-A\delta\|\le\eta\|A\delta\|\Rightarrow\Delta\chi^2(\delta)\ge(1-\eta)^2\|A\delta\|^2-2(\gamma+\eta\|r_0\|)\|A\delta\|", "Lower bound of the cost increase with a relative nonlinear remainder."),
+     ("quad_of_root", r"q>0,\ s\ge0,\ s^2=b^2+qc,\ b+s\le qa\Rightarrow c\le qa^2-2ba", "Elementary quadratic inequality used by the relative version."),
+     ("dchi2_ge_of_coord_rel", r"|\varphi(\delta)|\ge t^{\ast}_{\mathrm{rel}}=\frac{b+\sqrt{b^2+(1-\eta)^2c}}{(1-\eta)^2\sqrt I},\ b=\gamma+\eta\|r_0\|\Rightarrow\Delta\chi^2(\delta)\ge c", "The profile exceeds c beyond the relative half-width (η < 1)."),
+     ("practically_identifiable_rel_tail", r"\eta<1,\ t^{\ast}_{\mathrm{rel}}\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\eta\|A\delta\|\ \text{on the tail}\Rightarrow\mathrm{PracticallyIdentifiable}", "Main theorem with a relative remainder bound on the tail of the profile (second audit)."),
      ])
 
 mod("OutputComposition", G5,

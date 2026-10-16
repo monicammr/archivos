@@ -13,9 +13,9 @@ Es una carpeta autocontenida con todo lo que respalda el paper:
 | Carpeta | Qué contiene | En palabras simples |
 |---|---|---|
 | `analysis/` | los programas del método y de cada análisis (Python) | lo que "calcula" |
-| `results/` | los resultados de esos cálculos, un archivo por problema (3 MB) | los números del paper |
+| `results/` | los resultados de esos cálculos, un archivo por problema (unos 40 MB) | los números del paper |
 | `figures_tables/` | los programas que hacen cada figura, tabla y nota del suplemento | lo que "dibuja" |
-| `lean_proofs/` | las demostraciones en Lean 4 (32 módulos, 304 teoremas y lemas, 28 modelos) | lo que "demuestra" |
+| `lean_proofs/` | las demostraciones en Lean 4 (32 módulos, 309 teoremas y lemas, 28 modelos, y los testigos de no vacuidad) | lo que "demuestra" |
 | `lean_translation/` | el traductor SBML → Lean y la comprobación de la traducción | el puente entre modelos y Lean |
 | `scripts/` | descarga del benchmark y comparación de resultados | utilidades |
 
@@ -59,6 +59,23 @@ verosimilitud perfilada del modelo completo, que no fue viable en los problemas 
 `figures_tables/cifras_texto.py` recalcula las cifras que cita el texto principal (admisibles,
 identificabilidad, validación, comparación de criterios, robustez) para comprobarlas tras cualquier cambio.
 
+### 2b. Programas añadidos en la segunda auditoría (versión 1.5)
+
+| Programa | Qué hace | Por qué | Produce |
+|---|---|---|---|
+| `selection.py` con `REPRO_FIXED_SCEN=1` | repite la selección con un conjunto fijo de escenarios y registra la monotonía | antes un escenario que fallaba se descartaba y cada subconjunto podía evaluarse con escenarios distintos; el Teorema 2 suponía monotonía | `results/selection_fixedscen/` (ningún subconjunto cambió; 0 violaciones en 660 pares) |
+| `selection.py` con `REPRO_OUTPUTS=train` | repite tu selección viendo solo las salidas de entrenamiento | los demás criterios elegían con entrenamiento y el tuyo con todas las salidas | `results/selection_train_fixedscen/` |
+| `qr_selection.py` con `QR_VARIANT=gks` | QR pivotado estándar (Golub–Klema–Stewart) | el QR anterior no era el algoritmo de la literatura | `results/qr_selection_gks/` |
+| `criteria_tests.py` | admisibilidad de todos los criterios, de k = 0 y de 20 subconjuntos al azar; con `SINT_FAMILIA=loguniforme` o `dispersa`, otras familias de verdades sintéticas | controles nulos y una prueba sintética que no use la misma familia que tu método | `results/criteria_tests_*` |
+| `efit_nonlinear.py` | re-estimación no lineal de los 6 problemas de primer orden | su admisibilidad se había decidido solo con la aproximación lineal | `results/efit_nonlinear/` (los 6 se confirman) |
+| `conditioning_check.py` | κ y VIF con columnas centradas y sin centrar | el código y Lean usan normalizaciones distintas | `results/conditioning_check.json` |
+| `identifiability_profiles.py` con `ID_DENSE=1` o `ID_SUBSETS=…` | perfiles con 20 puntos por lado, o de otros subconjuntos | ver si la clasificación depende de la resolución, y perfilar los subconjuntos de entrenamiento | `results/identifiability/profiles_dense/`, `profiles_selection_train_fixedscen/` |
+| `identifiability_box.py` | comprueba las hipótesis de los teoremas de Lean de identificabilidad en toda la región alrededor del óptimo (factor 10, 5, 3, 2 y 1,5) | antes se comprobaban solo sobre el perfil | `results/identifiability/box/`, `results/identifiability/audit2/` |
+| `scripts/fase_a_audit2.sh`, `scripts/identificabilidad_audit2.sh` | lanzan todo lo anterior en un servidor de muchos núcleos | — | — |
+| `figures_tables/audit2_stats.py`, `audit2_tables.py` | estadísticas (McNemar, bootstrap, Holm), Tabla 2 y tablas nuevas del suplemento | — | Tabla 2, Fig. 4, tablas S nuevas |
+| `lean_proofs/NonVacuity.lean` | ejemplos verificados que muestran que las hipótesis de cada teorema central se pueden cumplir | descartar teoremas vacíos | — |
+| `lean_proofs/DEFINITIONS_AUDIT.md` | compara cada definición de Lean con el paper y el código | descartar que el enunciado no diga lo que el paper afirma | — |
+
 ---
 
 ## 3. Cómo ejecutarlo en tu computadora
@@ -71,7 +88,7 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-**Nivel A (menos de un minuto): rehacer figuras y tablas desde los resultados guardados**
+**Nivel A (unos dos minutos): rehacer figuras y tablas desde los resultados guardados**
 
 ```
 cd figures_tables
@@ -81,7 +98,7 @@ python build_all.py
 Aparecen en `figures_tables/output/`. Para Fig. 6 y las copias EPS/TIFF hacen falta `pdflatex` y
 poppler (`pdftops`, `pdftoppm`).
 
-**Nivel B (1–2 horas): compilar Lean**
+**Nivel B (20 minutos con muchos núcleos, 1–2 horas en un portátil): compilar Lean**
 
 Instalar elan (https://github.com/leanprover/elan) y luego, dentro de `lean_proofs/`: `./verify.sh`
 (en Windows, desde Git Bash o WSL).
@@ -100,6 +117,17 @@ python scripts/compare_results.py results_rerun/selection results/selection
 Puedes recalcular un solo problema (como en el ejemplo) o todos (sin nombres). Los pasos y tiempos
 están en la tabla del README.
 
+**Análisis de la segunda auditoría (en un servidor Linux de muchos núcleos):**
+
+```
+bash scripts/get_benchmark.sh
+NCORES=88 nohup bash scripts/fase_a_audit2.sh > fase_a.log 2>&1 &          (unas 6 h con 88 núcleos)
+NPROC=30 nohup bash scripts/identificabilidad_audit2.sh > identif.log 2>&1 &  (unas 5 h)
+cd analysis && python conditioning_check.py
+```
+
+Al terminar, `cd figures_tables && python build_all.py` rehace la Tabla 2, la Fig. 4 y las tablas nuevas.
+
 ---
 
 ## 4. Qué comprobé antes de entregártelo
@@ -113,6 +141,17 @@ están en la tabla del README.
 * **Figuras y tablas.** En un entorno de Python nuevo, instalado solo con `requirements.txt`, el nivel A
   regenera todo en unos 20 segundos, y las tablas, las figuras y las notas coinciden con las del paper.
 * **Benchmark.** `get_benchmark.sh` descarga exactamente los mismos archivos que usamos (commit fcbddf1).
+* **Segunda auditoría (16-10-2026).** El nivel A regenera en Windows todas las tablas del paper y del
+  suplemento **idénticas** a las enviadas (solo falta la nota SCT, que necesita los datos del
+  participante). Algunas notas del suplemento se retocaron a mano después de generarlas (redacción y
+  números de figura), así que su texto regenerado puede variar en la redacción, no en las cifras.
+* **Lean (16-10-2026).** Compilación desde cero en una copia limpia: 309 de 309 teoremas y 28 de 28
+  modelos solo con los axiomas estándar; `lean4checker` aceptó todos los módulos; un control negativo
+  con `sorry` fue detectado. Se corrigieron dos errores de `verify.sh` (no comprobaba de verdad los
+  modelos y fallaba al ejecutarlo dos veces).
+* **Un error mío que corregí al armar el paquete.** Los certificados nuevos de identificabilidad se
+  guardaban en la misma carpeta que leen las tablas del paper y las alteraban al regenerarlas; ahora
+  están en `results/identifiability/audit2/` y las tablas regeneradas coinciden con las del paper.
 
 ---
 
@@ -139,7 +178,10 @@ Al rehacer todo con cuidado aparecieron cuatro cosas que corregí en el paper:
 
 1. Entra a https://zenodo.org con tu cuenta (puedes usar ORCID o GitHub).
 2. **New upload**.
-3. Arrastra el archivo `reproducibility_v1.0.0.zip` (está en la carpeta `zenodo/` del repositorio).
+3. Arrastra el archivo `Paquete_reproducibilidad_v1.5.0_2026-10-16.zip` (está en tu carpeta de
+   Descargas y en `zenodo/` del repositorio). Como el registro ya existe (DOI 10.5281/zenodo.23338175),
+   **no crees uno nuevo**: entra al registro y pulsa **New version**; Zenodo le da un DOI nuevo a la
+   versión y mantiene el historial.
 4. Pulsa **Reserve DOI** (o "Get a DOI now"): Zenodo te muestra el DOI, algo como `10.5281/zenodo.1234567`.
 5. Completa los datos:
    * *Resource type*: Software.
@@ -147,7 +189,7 @@ Al rehacer todo con cuidado aparecieron cuatro cosas que corregí en el paper:
    * *Creators*: los cuatro autores, con afiliación ESPOL (y ORCID si los tienen).
    * *Description*: puedes copiar el primer párrafo del README.
    * *License*: MIT.
-   * *Version*: 1.0.0.
+   * *Version*: 1.5.0. El título debe ser **idéntico** al del paper (punto N9 de la auditoría).
 6. **Antes de publicar**, pon el DOI en el paper. En `main.tex` y `supplementary.tex` (arriba del todo)
    reemplaza `10.5281/zenodo.XXXXXXX` por tu DOI en la línea `\newcommand{\zenododoi}{...}`; con eso se
    actualizan todas las menciones. Compila de nuevo.
@@ -172,3 +214,7 @@ Si prefieres no publicar todavía, Zenodo permite reservar el DOI y dejar el reg
 | ¿Cómo se tratan los parámetros negativos o nulos en los escenarios? | Perturbación multiplicativa sin recorte: conservan el signo; los nulos se representan por 10⁻¹² y nunca se eligen (misma nota) |
 | ¿Se obtiene lo mismo en otra máquina? | Sí: la selección de Lang y Raimundez coincidió con libRoadRunner 2.9.2 y 2.10.0 (e_fit iguales hasta 10⁻⁸) |
 | ¿Dónde están los datos del SCT? | No son públicos; se entregan a pedido razonable |
+| ¿Tu método vio los datos de prueba al elegir? | Sí en la selección principal; por eso se repitió con solo entrenamiento (`selection_train_fixedscen/`): rinde como Brun y mejor que QR y perfil |
+| ¿Pasar la prueba de admisibilidad tiene mérito? | Controles nulos: al azar ~16/28, solo calibración 9/28, frente a 28/28 (`criteria_tests_fixedscen/`) |
+| ¿Las demostraciones de Lean son vacías? | No: `NonVacuity.lean` da un ejemplo verificado de cada teorema central; `DEFINITIONS_AUDIT.md` compara definiciones |
+| ¿Cómo sé que Lean no dejó pasar un hueco? | `verify.sh` informa los axiomas de los 309 teoremas y 28 modelos, `lean4checker` los revisa otra vez, y un `sorry` de prueba se detecta (`BUILD_LOG.md`) |

@@ -30,7 +30,7 @@ G = [
         ("SpectralConditioning", r"$\kappa$ and VIF exactly as computed numerically (spectral theorem, matrix inverse)", None),
         ("NumericalRobustness", r"Finite-difference error; $R_{\mathrm{var}}$, $\kappa$ and VIF certified from approximate values with margins", r"fd\_column\_error, rvar\_certified\_from\_approx"),
         ("PatternMechanisms", r"Opposing effects imply rejection by $\kappa$ and non-identifiability; zero discarded energy implies exact first-order reduction", r"not\_okKappa\_of\_kernel, exact\_reduction\_of\_zero\_energy"),
-        ("ProfileIdentifiability", r"Practical identifiability of the reduced problem: if the guaranteed half-width $t^{\ast}$ from the profiled information is smaller than the distance to the bounds, the profile likelihood exceeds the threshold on both sides", r"practically\_identifiable\_grad, tstar\_linear, local\_injective")]),
+        ("ProfileIdentifiability", r"Practical identifiability of the reduced problem: if the guaranteed half-width $t^{\ast}$ from the profiled information is smaller than the distance to the bounds, the profile likelihood exceeds the threshold on both sides", r"practically\_identifiable\_grad, practically\_identifiable\_rel\_tail, local\_injective")]),
     ("Re-estimation, minimality and measured outputs", [
         ("RefitMonotone", r"Re-estimating more parameters never increases the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$", r"fitErr\_anti, fitErr\_le\_erel, admissible\_mono"),
         ("Poda", r"Theorem 2: backward elimination returns an admissible subset from which no parameter can be removed; inclusion-minimal for a monotone criterion", r"prune\_spec, prune\_inclusion\_minimal"),

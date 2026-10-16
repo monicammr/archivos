@@ -1,7 +1,7 @@
 \snote{stmts}
 \sloppy
 
-This note states, in mathematical notation, every theorem and lemma of the Lean formalisation (32 modules, 304 declarations) and explains what it means, so that the formal statements can be read alongside the code. The Lean name is given as it appears in the source (prefixed by the module namespace). Hypotheses are written before $\Rightarrow$; standing assumptions of each module are given in its description. Supplementary Table~\ref{tab:leannot} explains the symbols used throughout; symbols specific to a module are explained at the start of that module. Supplementary Table~\ref{tab:statements} gives the statements, in one block per module, in the order of Supplementary Table~\ref{tab:modules}; the blocks are grouped as in \sref{seq}. The same content, with the Lean identifiers, is in \texttt{lean\_proofs/FORMULAS.md}.
+This note states, in mathematical notation, every theorem and lemma of the Lean formalisation (32 modules, 309 declarations) and explains what it means, so that the formal statements can be read alongside the code. The Lean name is given as it appears in the source (prefixed by the module namespace). Hypotheses are written before $\Rightarrow$; standing assumptions of each module are given in its description. Supplementary Table~\ref{tab:leannot} explains the symbols used throughout; symbols specific to a module are explained at the start of that module. Supplementary Table~\ref{tab:statements} gives the statements, in one block per module, in the order of Supplementary Table~\ref{tab:modules}; the blocks are grouped as in \sref{seq}. The same content, with the Lean identifiers, is in \texttt{lean\_proofs/FORMULAS.md}.
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.6cm}>{\raggedright\arraybackslash}p{7.2cm}@{}}
@@ -878,7 +878,7 @@ Lean name & Statement & Meaning \\
 
 \subsection*{Step 32. Identifiability of the reduced problem}
 
-\subsubsection*{Step 32. \texttt{ProfileIdentifiability} (13)}
+\subsubsection*{Step 32. \texttt{ProfileIdentifiability} (18)}
 Practical identifiability of the reduced problem by profile likelihood: lower bound of the cost increase, profiled information, guaranteed half-width t* of the confidence interval, local structural identifiability.
 
 {\small\raggedright Notation: $\Delta\chi^2(\delta)=\|r(\hat\theta+\delta)\|^2-\|r_0\|^2$ (\texttt{dchi2 R $\delta$}): increase of the cost from the optimum; $A$ (\texttt{A}): sensitivity of the noise-scaled residuals at the optimum; $I_j=1/[(A^{\top}A)^{-1}]_{jj}$ (\texttt{I}): profiled information of parameter j; $t^{\ast}$ (\texttt{tstar, tstarGrad}): guaranteed half-width of the confidence interval of log $\theta$\_j.}
@@ -904,6 +904,11 @@ Lean name & Statement & Meaning \\
 \texttt{dchi2\_\allowbreak{}ge\_\allowbreak{}of\_\allowbreak{}coord\_\allowbreak{}grad} & $\displaystyle |\varphi(\delta)|\ge\frac{\varepsilon+\gamma+\sqrt{\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon}}{\sqrt I}\Rightarrow\Delta\chi^2(\delta)\ge c$ & The profile exceeds c beyond t* (numerical optimum). \\[3pt]
 \texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}grad} & $\displaystyle t^{\ast}_\gamma<d_-,\ t^{\ast}_\gamma<d_+\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with a numerical optimum. \\[3pt]
 \texttt{stat\_\allowbreak{}of\_\allowbreak{}projection} & $\displaystyle \langle r_0-p,A\delta\rangle=0\ \forall\delta,\ \|p\|\le\gamma\Rightarrow|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|$ & $\gamma$ is the norm of the projection of r\_0 onto the range of A. \\[3pt]
+\texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}grad\_\allowbreak{}tail} & $\displaystyle t^{\ast}_\gamma\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\varepsilon\ \text{only for }\delta\in F,\ \varphi(\delta)\le-t_-\vee\varphi(\delta)\ge t_+\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with the remainder bound needed only on the tail of the profile (second audit). \\[3pt]
+\texttt{dchi2\_\allowbreak{}lower\_\allowbreak{}rel} & $\displaystyle |\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|,\ \|r(\delta)-r_0-A\delta\|\le\eta\|A\delta\|\Rightarrow\Delta\chi^2(\delta)\ge(1-\eta)^2\|A\delta\|^2-2(\gamma+\eta\|r_0\|)\|A\delta\|$ & Lower bound of the cost increase with a relative nonlinear remainder. \\[3pt]
+\texttt{quad\_\allowbreak{}of\_\allowbreak{}root} & $\displaystyle q>0,\ s\ge0,\ s^2=b^2+qc,\ b+s\le qa\Rightarrow c\le qa^2-2ba$ & Elementary quadratic inequality used by the relative version. \\[3pt]
+\texttt{dchi2\_\allowbreak{}ge\_\allowbreak{}of\_\allowbreak{}coord\_\allowbreak{}rel} & $\displaystyle |\varphi(\delta)|\ge t^{\ast}_{\mathrm{rel}}=\frac{b+\sqrt{b^2+(1-\eta)^2c}}{(1-\eta)^2\sqrt I},\ b=\gamma+\eta\|r_0\|\Rightarrow\Delta\chi^2(\delta)\ge c$ & The profile exceeds c beyond the relative half-width ($\eta$ $<$ 1). \\[3pt]
+\texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}rel\_\allowbreak{}tail} & $\displaystyle \eta<1,\ t^{\ast}_{\mathrm{rel}}\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\eta\|A\delta\|\ \text{on the tail}\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with a relative remainder bound on the tail of the profile (second audit). \\[3pt]
 \bottomrule
 \end{longtable}
 }

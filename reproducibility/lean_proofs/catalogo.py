@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 D = Path(__file__).resolve().parent
-TEORIA = sorted(p for p in D.glob("*.lean") if p.stem not in ("All", "AllModels", "CheckAxioms", "CheckModelAxioms", "lakefile"))
+TEORIA = sorted(p for p in D.glob("*.lean") if p.stem not in ("All", "AllModels", "CheckAxioms", "CheckModelAxioms", "lakefile", "NonVacuity"))
 MODELOS = sorted((D / "Models").glob("*.lean"))
 
 

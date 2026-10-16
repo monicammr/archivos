@@ -23,7 +23,7 @@ eps and eta are estimates from below of suprema (no interval arithmetic): the re
 hypotheses of the theorems over the right set, densely and adversarially, but is not a proof.
 
 Usage:  NPROC=40 python identifiability_box.py [Problem ...]
-Output: results/identifiability/box/<problem>.json and results/identifiability/certificado_box.csv
+Output: results/identifiability/box/<problem>.json and results/identifiability/audit2/certificado_box*.csv (outside the folder read by the paper tables)
 """
 import json
 import math
@@ -280,13 +280,14 @@ if __name__ == "__main__":
                      "t": r.get("t"), "valor_final": r.get("valor"), "rondas_adversario": r["rondas"],
                      "pasa_final": state[key] == "pass"})
     df = pd.DataFrame(rows)
-    df.to_csv(P.OUTD.parent / f"certificado_box{TAG}.csv", index=False)
+    (P.OUTD.parent / "audit2").mkdir(exist_ok=True)
+    df.to_csv(P.OUTD.parent / "audit2" / f"certificado_box{TAG}.csv", index=False)
     # one line per parameter: certified if, on BOTH sides, one of the two conditions passes
     if len(df):
         df["pf"] = df.get("pasa_final", False).fillna(False).astype(bool)
         lado = df.groupby(["sistema", "parametro", "lado"])["pf"].any().reset_index()
         par = lado.groupby(["sistema", "parametro"])["pf"].all().reset_index()
-        par.to_csv(P.OUTD.parent / f"certificado_box{TAG}_parametros.csv", index=False)
+        par.to_csv(P.OUTD.parent / "audit2" / f"certificado_box{TAG}_parametros.csv", index=False)
         print(par.to_string())
         print("certified parameters:", int(par["pf"].sum()), "of", len(par))
     print(f"Done ({time.time() - t0:.0f} s)", flush=True)

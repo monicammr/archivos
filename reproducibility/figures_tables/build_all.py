@@ -11,6 +11,7 @@ Output folder: ./output (or the folder given by PAPER_DIR):
 
 Usage: python build_all.py
 """
+import os
 import subprocess
 import sys
 import time
@@ -27,7 +28,9 @@ STEPS = [
     ("Supplementary Table S3 (Lean modules)", "make_tableS3.py"),
     ("Note: verified benchmark models (Supplementary Tables S7, S8)", "make_models.py"),
     ("Note: SCT model (Supplementary Table S16, Fig. S3; needs the participant data)", "make_sct_note.py"),
+    ("Second audit: statistics of the comparison (fixed scenarios, null controls, standard QR, training-output selection, three families of truths) and Table 2", "audit2_stats.py"),
     ("Comparison with other criteria: Fig. 3 (revised) and Fig. 4", "comparison_figures.py"),
+    ("Second audit: supplementary tables (nonlinear check, admissibility per problem, synthetic families, identifiability by region)", "audit2_tables.py"),
     ("Comparison with other criteria: supplementary figures", "comparison_suppl_figures.py"),
     ("Pivoted QR against our method on real data (Supplementary Fig., fig_brun.pdf)", "figure_qr_scatter.py"),
     ("Identifiability of the selected parameters (Supplementary Table, tableS_identif)", "identifiability_table.py"),
@@ -44,7 +47,9 @@ if __name__ == "__main__":
     for label, script in STEPS:
         t = time.time()
         print(f"== {label} ({script})", flush=True)
-        r = subprocess.run([sys.executable, str(HERE / script)], cwd=HERE)
+        # UTF-8 output also on consoles with another default encoding (Windows)
+        r = subprocess.run([sys.executable, str(HERE / script)], cwd=HERE,
+                           env={**os.environ, "PYTHONIOENCODING": "utf-8"})
         if r.returncode != 0:
             failed.append(script)
         print(f"   {'done' if r.returncode == 0 else 'NOT DONE'} in {time.time() - t:.0f} s", flush=True)

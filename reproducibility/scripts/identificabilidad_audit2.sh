@@ -13,6 +13,7 @@ N=${NPROC:-30}
 LOG=../results/logs_fase_a
 mkdir -p "$LOG"
 ID=../results/identifiability
+mkdir -p $ID/audit2
 echo "$(date) start identifiability"
 
 # (b) dense profiles from the optimum of the main profiles
@@ -22,12 +23,12 @@ for d in $ID/profiles/*/; do
   [ -f "$ID/profiles_dense/$n/minimo.npz" ] || cp "$d/minimo.npz" "$ID/profiles_dense/$n/"
 done
 (ID_DENSE=1 NPROC=$N python identifiability_profiles.py > "$LOG/id_dense.log" 2>&1 &&
- ID_DENSE=1 CERT_OUT=certificado_dense.csv NPROC=$N python identifiability_conditions.py >> "$LOG/id_dense.log" 2>&1;
+ ID_DENSE=1 CERT_OUT=audit2/certificado_dense.csv NPROC=$N python identifiability_conditions.py >> "$LOG/id_dense.log" 2>&1;
  echo "$(date) (b) done") &
 
 # (a) subsets selected on the training outputs
 (ID_SUBSETS=selection_train_fixedscen ID_SOLO_CAMBIADOS=1 NPROC=$N python identifiability_profiles.py > "$LOG/id_train.log" 2>&1 &&
- ID_SUBSETS=selection_train_fixedscen CERT_OUT=certificado_train.csv NPROC=$N python identifiability_conditions.py >> "$LOG/id_train.log" 2>&1;
+ ID_SUBSETS=selection_train_fixedscen CERT_OUT=audit2/certificado_train.csv NPROC=$N python identifiability_conditions.py >> "$LOG/id_train.log" 2>&1;
  echo "$(date) (a) done") &
 
 # (c) over the admissible set

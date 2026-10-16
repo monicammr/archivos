@@ -275,9 +275,15 @@ def export():
     if os.environ.get("NO_EXPORT") == "1":   # sin las copias EPS/TIFF (p. ej. sin poppler completo)
         return
     for f in sorted(OUT.glob("fig*.pdf")):
-        subprocess.run(["pdftops", "-eps", str(f), str(f.with_suffix(".eps"))], check=True)
-        subprocess.run(["pdftoppm", "-tiff", "-tiffcompression", "lzw", "-r", "300", "-singlefile",
-                        str(f), str(f.with_suffix(""))], check=True)
+        # the PDF files are the figures of the paper; the EPS/TIFF copies are only for the journal's
+        # production, so a missing or incompatible poppler only produces a warning
+        for cmd in (["pdftops", "-eps", str(f), str(f.with_suffix(".eps"))],
+                    ["pdftoppm", "-tiff", "-tiffcompression", "lzw", "-r", "300", "-singlefile",
+                     str(f), str(f.with_suffix(""))]):
+            try:
+                subprocess.run(cmd, check=True, capture_output=True)
+            except (OSError, subprocess.CalledProcessError) as e:
+                print(f"warning: {cmd[0]} could not convert {f.name} ({e}); the PDF is unaffected")
 
 
 if __name__ == "__main__":
