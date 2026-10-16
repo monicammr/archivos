@@ -1,0 +1,53 @@
+\begin{tabular}{@{}llrrl@{}}
+\toprule
+Family & Criterion & Rate & Difference (95\% CI) & Holm $P$ \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Uniform $\pm$20\%, reference: our method (all outputs); 281 cases, 24 problems}} \\
+ & Our method (all outputs) & 56\% & -- & -- \\
+ & Brun & 55\% & $+1$ ($-1$ to $+3$) & 0.433 \\
+ & Morris & 48\% & $+8$ ($+2$ to $+16$) & 0.010 \\
+ & Profile likelihood & 39\% & $+17$ ($+7$ to $+28$) & 0.002 \\
+ & Pivoted QR (GKS) & 30\% & $+26$ ($+12$ to $+40$) & $<0.001$ \\
+ & Pivoted QR (earlier) & 34\% & $+22$ ($+10$ to $+34$) & $<0.001$ (unadj.) \\
+\multicolumn{5}{@{}l}{\emph{Uniform $\pm$20\%, reference: our method (training outputs); 280 cases, 23 problems}} \\
+ & Our method (training outputs) & 51\% & -- & -- \\
+ & Brun & 55\% & $-4$ ($-12$ to $+1$) & 0.412 \\
+ & Morris & 48\% & $+3$ ($-7$ to $+13$) & 0.603 \\
+ & Profile likelihood & 39\% & $+12$ ($+3$ to $+21$) & 0.022 \\
+ & Pivoted QR (GKS) & 30\% & $+21$ ($+6$ to $+35$) & 0.022 \\
+ & Pivoted QR (earlier) & 34\% & $+17$ ($+2$ to $+30$) & 0.023 (unadj.) \\
+ & Our method (all outputs) & 56\% & $-5$ ($-12$ to $-0$) & 0.038 (unadj.) \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Log-uniform, reference: our method (all outputs); 217 cases, 25 problems}} \\
+ & Our method (all outputs) & 50\% & -- & -- \\
+ & Brun & 50\% & $-0$ ($-3$ to $+2$) & 1.000 \\
+ & Morris & 47\% & $+2$ ($-3$ to $+9$) & 1.000 \\
+ & Profile likelihood & 37\% & $+13$ ($+4$ to $+23$) & 0.018 \\
+ & Pivoted QR (GKS) & 24\% & $+25$ ($+14$ to $+37$) & $<0.001$ \\
+ & Pivoted QR (earlier) & 29\% & $+21$ ($+9$ to $+34$) & $<0.001$ (unadj.) \\
+\multicolumn{5}{@{}l}{\emph{Log-uniform, reference: our method (training outputs); 217 cases, 25 problems}} \\
+ & Our method (training outputs) & 48\% & -- & -- \\
+ & Brun & 50\% & $-2$ ($-8$ to $+1$) & 0.958 \\
+ & Morris & 47\% & $+0$ ($-7$ to $+8$) & 0.958 \\
+ & Profile likelihood & 37\% & $+11$ ($+2$ to $+20$) & 0.046 \\
+ & Pivoted QR (GKS) & 24\% & $+24$ ($+12$ to $+36$) & $<0.001$ \\
+ & Pivoted QR (earlier) & 29\% & $+19$ ($+5$ to $+34$) & 0.007 (unadj.) \\
+ & Our method (all outputs) & 50\% & $-2$ ($-8$ to $+3$) & 0.614 (unadj.) \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Sparse, reference: our method (all outputs); 147 cases, 24 problems}} \\
+ & Our method (all outputs) & 54\% & -- & -- \\
+ & Brun & 52\% & $+2$ ($-1$ to $+6$) & 0.312 \\
+ & Morris & 46\% & $+8$ ($+3$ to $+14$) & 0.003 \\
+ & Profile likelihood & 40\% & $+14$ ($+4$ to $+24$) & 0.008 \\
+ & Pivoted QR (GKS) & 39\% & $+15$ ($+4$ to $+27$) & 0.019 \\
+ & Pivoted QR (earlier) & 44\% & $+10$ ($-1$ to $+21$) & 0.101 (unadj.) \\
+\multicolumn{5}{@{}l}{\emph{Sparse, reference: our method (training outputs); 147 cases, 24 problems}} \\
+ & Our method (training outputs) & 55\% & -- & -- \\
+ & Brun & 52\% & $+3$ ($-3$ to $+11$) & 0.420 \\
+ & Morris & 46\% & $+10$ ($+2$ to $+18$) & 0.028 \\
+ & Profile likelihood & 40\% & $+15$ ($+5$ to $+26$) & 0.009 \\
+ & Pivoted QR (GKS) & 39\% & $+16$ ($+5$ to $+28$) & 0.023 \\
+ & Pivoted QR (earlier) & 44\% & $+11$ ($-3$ to $+24$) & 0.140 (unadj.) \\
+ & Our method (all outputs) & 54\% & $+1$ ($-6$ to $+10$) & 0.862 (unadj.) \\
+\bottomrule
+\end{tabular}

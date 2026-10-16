@@ -1,0 +1,46 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 18,
+ "coste_min": 719.4028702624793,
+ "chi2_por_gl": 44.962679391404954,
+ "umbral_robusto": 172.65668886299503,
+ "rondas": 0,
+ "dchi2_minimo": 0.42059177894248023,
+ "perfiles": [
+  {
+   "parametro": "ratio_kpkd_Y1068__FREE",
+   "puntos_fallidos": 3,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 4168.152103334477,
+   "dchi2_max_der": 5363.451032068893,
+   "clase": "identificable",
+   "ic_izq_log": 0.036453458512671,
+   "ic_der_log": 0.03573168427337895,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.2634920173203906,
+   "ic_der_log_robusto": 0.22333819995717108
+  },
+  {
+   "parametro": "ratio_kpkd_YN__FREE",
+   "puntos_fallidos": 1,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 903.8680628006313,
+   "dchi2_max_der": 9601.929887567017,
+   "clase": "identificable",
+   "ic_izq_log": 0.06136698143994645,
+   "ic_der_log": 0.05795346726532537,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.49355468951770975,
+   "ic_der_log_robusto": 0.3449266044647225
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

@@ -123,54 +123,31 @@ fig.savefig(FIG / "fig3_validation_v2.png", dpi=200, bbox_inches="tight")
 plt.close(fig)
 
 # ── Figura 4 ──────────────────────────────────────────────────────────────────────
-def adm(sub):
-    A = collections.defaultdict(dict)
-    for f in glob.glob(str(R / sub / "*__adm.json")):
-        d = json.loads(Path(f).read_text(encoding="utf-8"))
-        if d.get("sistema") in EXCLUDE_ADMISSIBILITY:
-            continue
-        if "admisible" in d:
-            A[d["metodo"]][d["sistema"]] = bool(d["admisible"])
-    return A
-A5, A20 = adm("criteria_tests"), adm("criteria_tests_20pc")
-
-# sintético: casos comunes con señal, bootstrap por problemas
-SS = collections.defaultdict(lambda: collections.defaultdict(dict))
-for f in glob.glob(str(R / "criteria_tests" / "*__sint_*.json")):
-    d = json.loads(Path(f).read_text(encoding="utf-8"))
-    if ok(d.get("B_epred_red")):
-        SS[d["sistema"]][d["metodo"]][d["semilla"]] = d
-for f in glob.glob(str(R / "synthetic_seeds" / "*" / "s*.json")):
-    d = json.loads(Path(f).read_text(encoding="utf-8"))
-    if ok(d.get("B_epred_red")):
-        SS[d["sistema"]]["ours"][d["semilla"]] = d
-cnt = collections.defaultdict(lambda: collections.defaultdict(lambda: [0, 0]))
-for s in SS:
-    for k in range(42, 62):
-        ds = [SS[s][m].get(k) for m in M]
-        if all(ds) and ds[0]["B_chi2_test_theta0"] >= 2:
-            for m, d in zip(M, ds):
-                cnt[s][m][0] += d["B_epred_red"] <= TAU; cnt[s][m][1] += 1
-sis = sorted(cnt)
-rng = np.random.default_rng(0)
-idx = rng.integers(0, len(sis), size=(10000, len(sis)))
-tasa, ic = {}, {}
-for m in M:
-    a = np.array([cnt[s][m][0] for s in sis], float); n = np.array([cnt[s][m][1] for s in sis], float)
-    tasa[m] = a.sum() / n.sum()
-    bt = a[idx].sum(1) / n[idx].sum(1)
-    ic[m] = np.percentile(bt, [2.5, 97.5])
+# Second audit: fixed scenario set, our method also selected on the training outputs, standard
+# (Golub-Klema-Stewart) pivoted QR, null controls, three families of synthetic truths; the numbers
+# come from audit2_stats.py (results/audit2_stats.json).
+ST = json.loads((R / "audit2_stats.json").read_text(encoding="utf-8"))
+COL.update({"train": "#7aa7e6", "qr_gks": "#e87ba4", "random": "#9a9893", "empty": "#c9c7c1"})
+NOM.update({"ours": "Our method", "train": "Our method (training outputs)", "qr_gks": "Pivoted QR (GKS)",
+            "random": "Random (median of 20)", "empty": "Calibration only"})
+MA = ["ours", "train", "brun", "morris", "perfil", "qr_gks", "random", "empty"]
+MS = ["ours", "train", "brun", "morris", "perfil", "qr_gks"]
 
 # datos reales: cocientes con el nuestro
-an = L("nested_validation"); qr = L("qr_selection"); mb = L("brun_morris")
-pf = L("profile_likelihood"); al = L("random_subsets"); va = L("calibration_only")
+an = L("nested_validation"); mb = L("brun_morris")
+pf = L("profile_likelihood"); al = L("random_subsets"); va = L("calibration_only"); gk = L("qr_selection_gks")
+tr = {}
+for f in glob.glob(str(R / "criteria_tests_fixedscen" / "*__train__real.json")):
+    d = json.loads(Path(f).read_text(encoding="utf-8")); tr[d["sistema"]] = d.get("chi2_test")
 ours = {s: d.get("chi2_test_red_original") for s, d in an.items()}
-otros = [("brun", "Brun", {s: d.get("chi2_brun") for s, d in mb.items()}),
+otros = [("train", "Our method (training outputs)", tr),
+         ("brun", "Brun", {s: d.get("chi2_brun") for s, d in mb.items()}),
          ("morris", "Morris", {s: d.get("chi2_morris") for s, d in mb.items()}),
          ("perfil", "Profile likelihood", {s: d.get("chi2_perfil") for s, d in pf.items()}),
-         ("qr", "Pivoted QR", {s: d.get("chi2_qr") for s, d in qr.items()}),
+         ("qr_gks", "Pivoted QR (GKS)", {s: d.get("chi2_qr") for s, d in gk.items()}),
          ("rand", "Random (median of 20)", {s: d.get("chi2_rand_median") for s, d in al.items()}),
          ("vac", "Calibration only", {s: d.get("chi2_vacio") for s, d in va.items()})]
+rng = np.random.default_rng(0)
 
 # tiempos
 tp = L("timing_complete/parallel"); tp.update(L("timing_complete/parallel_corrected_code"))
@@ -182,35 +159,48 @@ for s, d in pf.items():
     if "no_evaluable" in d and "PL_PMAX" in d["no_evaluable"]:
         nopf.append(s)
 
-fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.2), gridspec_kw={"hspace": 0.6, "wspace": 0.6})
-# a) admisibilidad
+fig, axs = plt.subplots(2, 2, figsize=(7.2, 6.6), gridspec_kw={"hspace": 0.62, "wspace": 0.75})
+# a) admisibilidad, con controles nulos
 ax = axs[0, 0]
-yy = np.arange(len(M))[::-1]
-for j, m in enumerate(M):
-    for off, A, alpha, hatch, lab in ((0.19, A5, 1.0, None, "±5%"), (-0.19, A20, 0.55, "////", "±20%")):
-        v = list(A[m].values()); fr = np.mean(v)
-        ax.barh(yy[j] + off, fr, height=0.34, color=COL[m], alpha=alpha, hatch=hatch, edgecolor="white", lw=0.5)
-        ax.text(fr + 0.015, yy[j] + off, f"{sum(v)}/{len(v)}", va="center", fontsize=6, color=INK)
-ax.set_yticks(yy); ax.set_yticklabels([NOM[m] for m in M]); ax.set_xlim(0, 1.18)
+yy = np.arange(len(MA))[::-1]
+for j, m in enumerate(MA):
+    for off, lvl, alpha, hatch in ((0.19, "5", 1.0, None), (-0.19, "20", 0.55, "////")):
+        r = ST["admissibility"][lvl][m]
+        k = r.get("admissible", r.get("median_admissible")); n = r["n"]
+        ax.barh(yy[j] + off, k / n, height=0.34, color=COL[m], alpha=alpha, hatch=hatch, edgecolor="white", lw=0.5)
+        ax.text(k / n + 0.015, yy[j] + off, f"{k:.0f}/{n}", va="center", fontsize=5.5, color=INK)
+ax.set_yticks(yy); ax.set_yticklabels([NOM[m] for m in MA]); ax.set_xlim(0, 1.2)
 ax.set_xticks([0, 0.25, 0.5, 0.75, 1]); ax.set_xticklabels(["0", "25", "50", "75", "100"])
 ax.set_xlabel("Problems with an admissible subset (%)")
 ax.set_title("Reproduces the full model", loc="left", color=INK, pad=12)
 from matplotlib.patches import Patch
 ax.legend(handles=[Patch(color="#8a8984", label="±5% (level used by our method)"),
                    Patch(facecolor="#8a8984", alpha=0.55, hatch="////", edgecolor="white", label="±20% (used by none)")],
-          loc="upper center", bbox_to_anchor=(0.42, -0.2), frameon=False, fontsize=6, ncol=2)
+          loc="upper center", bbox_to_anchor=(0.3, -0.16), frameon=False, fontsize=6, ncol=2)
 letra(ax, "a")
-# b) sintético
+# b) sintético: tres familias de verdades (uniforme con IC 95 %)
 ax = axs[0, 1]
-for j, m in enumerate(M):
-    ax.plot(ic[m], [yy[j]] * 2, color=COL[m], lw=2, solid_capstyle="round")
-    ax.scatter(tasa[m], yy[j], s=40, color=COL[m], edgecolor="white", linewidth=1, zorder=3)
-    ax.text(ic[m][1] + 0.015, yy[j], f"{tasa[m]:.0%}", va="center", fontsize=6, color=INK)
-ax.axvline(tasa["ours"], color=COL["ours"], lw=0.8, ls=":")
-ax.set_yticks(yy); ax.set_yticklabels([NOM[m] for m in M]); ax.set_xlim(0.15, 0.85)
+ys = np.arange(len(MS))[::-1]
+fams = [("uniforme", "o", "Uniform ±20%"), ("loguniforme", "s", "Log-uniform"), ("dispersa", "^", "Sparse")]
+for j, m in enumerate(MS):
+    for k, (fam, mk, lab) in enumerate(fams):
+        ref = "ref_train" if m == "train" else "ref_ours"
+        r = ST["synthetic"][fam][ref][m]
+        yv = ys[j] + (0.22, 0, -0.22)[k]
+        if fam == "uniforme":
+            ax.plot(r["ci"], [yv] * 2, color=COL[m], lw=1.6, solid_capstyle="round")
+        ax.scatter(r["rate"], yv, s=26 if k == 0 else 18, marker=mk, color=COL[m] if k == 0 else "white",
+                   edgecolor=COL[m], linewidth=1, zorder=3)
+ax.axvline(ST["synthetic"]["uniforme"]["ref_ours"]["ours"]["rate"], color=COL["ours"], lw=0.8, ls=":")
+ax.set_yticks(ys); ax.set_yticklabels([NOM[m] for m in MS]); ax.set_xlim(0.1, 0.8)
 ax.set_xticks([0.2, 0.4, 0.6, 0.8]); ax.set_xticklabels(["20", "40", "60", "80"])
-ax.set_xlabel(f"Synthetic cases with $e_{{\\mathrm{{pred}}}}\\leq\\tau_e$ (%), 95% CI")
-ax.set_title(f"Predicts unseen data ({int(sum(cnt[s]['ours'][1] for s in sis))} cases, {len(sis)} problems)", loc="left", color=INK, pad=12)
+ax.set_xlabel(r"Synthetic cases with $e_{\mathrm{pred}}\leq\tau_e$ (%)")
+U = ST["synthetic"]["uniforme"]["ref_ours"]
+ax.set_title(r"Predicts data unseen by $\theta_0$", loc="left", color=INK, pad=12)
+from matplotlib.lines import Line2D
+ax.legend(handles=[Line2D([], [], marker=mk, ls="", color="#52514e", markerfacecolor="#52514e" if k == 0 else "white", label=lab)
+                   for k, (_, mk, lab) in enumerate(fams)], loc="upper center", bbox_to_anchor=(0.35, -0.16),
+          frameon=False, fontsize=6, ncol=3)
 letra(ax, "b")
 # c) datos reales
 ax = axs[1, 0]
@@ -218,7 +208,7 @@ for j, (k, nom, dic) in enumerate(otros):
     v = [dic[s] / ours[s] for s in ours if s in dic and ok(dic[s]) and ok(ours[s]) and dic[s] > 0 and ours[s] > 0]
     yj = len(otros) - 1 - j
     jit = (rng.random(len(v)) - 0.5) * 0.35
-    ax.scatter(np.clip(v, 0.05, 20), yj + jit, s=9, color=COL.get(k, "#8a8984"), edgecolor="white", linewidth=0.4)
+    ax.scatter(np.clip(v, 0.05, 20), yj + jit, s=9, color={"rand": COL["random"], "vac": COL["empty"]}.get(k, COL.get(k, "#8a8984")), edgecolor="white", linewidth=0.4)
     ax.plot([np.median(v)] * 2, [yj - 0.3, yj + 0.3], color=INK, lw=1.2)
 ax.axvspan(0.95, 1.05, color="#efeeea", zorder=0); ax.axvline(1, color=INK2, lw=0.8)
 ax.set_xscale("log"); ax.set_xlim(0.05, 20)
@@ -253,4 +243,4 @@ letra(ax, "d")
 fig.savefig(FIG / "fig4_comparison.pdf", bbox_inches="tight")
 fig.savefig(FIG / "fig4_comparison.png", dpi=200, bbox_inches="tight")
 plt.close(fig)
-print("ok", {m: f"{tasa[m]:.3f}" for m in M}, len(filas), len(sint))
+print("ok", len(filas), len(sint))

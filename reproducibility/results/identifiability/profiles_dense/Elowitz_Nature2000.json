@@ -1,0 +1,46 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "n_calibracion": 2,
+ "n_datos": 58,
+ "coste_min": 58.00021925020194,
+ "chi2_por_gl": 1.0740781342629988,
+ "umbral_robusto": 4.124460035569915,
+ "rondas": 0,
+ "dchi2_minimo": 0.8022834597956532,
+ "perfiles": [
+  {
+   "parametro": "n_Hill",
+   "puntos_fallidos": 1,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 9608.607632751447,
+   "dchi2_max_der": 1775.3645524561716,
+   "clase": "identificable",
+   "ic_izq_log": 0.042261567113144556,
+   "ic_der_log": 0.04427513731484145,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.04389015669191104,
+   "ic_der_log_robusto": 0.0461057644046806
+  },
+  {
+   "parametro": "tau_mRNA",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 268.99150291642127,
+   "dchi2_max_der": 643.5919979829124,
+   "clase": "identificable",
+   "ic_izq_log": 0.0316792990856042,
+   "ic_der_log": 0.03134546605823313,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.03291109917950391,
+   "ic_der_log_robusto": 0.03254750143768435
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}
