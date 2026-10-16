@@ -2,7 +2,7 @@
 
 Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axiomas propios.
 
-**Módulos de teoría:** 32; **teoremas y lemas:** 304. **Modelos del benchmark verificados:** 28.
+**Módulos de teoría:** 32; **teoremas y lemas:** 309. **Modelos del benchmark verificados:** 28.
 
 ## Resumen por módulo
 
@@ -31,7 +31,7 @@ Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axi
 | `PatternMechanisms` | 4 | Mecanismos detrás de los patrones de robustez (sección 3.2) |
 | `Poda` | 4 | Poda (eliminación hacia atrás): el subconjunto final es mínimo por inclusión |
 | `PositivityInvariance` | 15 | Positividad: las concentraciones que empiezan `≥ 0` siguen `≥ 0` |
-| `ProfileIdentifiability` | 13 | Identificabilidad práctica del problema reducido (verosimilitud perfilada) |
+| `ProfileIdentifiability` | 18 | Identificabilidad práctica del problema reducido (verosimilitud perfilada) |
 | `RefitMonotone` | 5 | Reajustar más parámetros nunca empeora el error (e_ajuste monótono) |
 | `RiccatiNetwork` | 9 | Existencia en un horizonte finito con crecimiento cuadrático (cota de Riccati) |
 | `ScaledError` | 5 | cos Δ = error mínimo tras reajustar el tamaño de la respuesta |
@@ -350,6 +350,11 @@ Generado por `catalogo.py`. Todas las demostraciones compilan sin `sorry` ni axi
 | theorem | `ProfileIdentifiability.dchi2_ge_of_coord_grad` | El perfil supera el umbral (mínimo numérico) |
 | theorem | `ProfileIdentifiability.practically_identifiable_grad` | Teorema principal con mínimo numérico. Igual que practically_identifiable, con la |
 | theorem | `ProfileIdentifiability.stat_of_projection` | γ mediante la proyección. Si p es la proyección de R 0 sobre la imagen de A |
+| theorem | `ProfileIdentifiability.practically_identifiable_grad_tail` | Variante de practically_identifiable_grad con la hipótesis del resto sólo en la cola |
+| theorem | `ProfileIdentifiability.dchi2_lower_rel` | Cota inferior de Δχ² con resto relativo |
+| theorem | `ProfileIdentifiability.quad_of_root` | Desigualdad cuadrática auxiliar: si s² = b² + q c, s ≥ 0, q > 0 y b + s ≤ q a, |
+| theorem | `ProfileIdentifiability.dchi2_ge_of_coord_rel` | El perfil supera el umbral (resto relativo) |
+| theorem | `ProfileIdentifiability.practically_identifiable_rel_tail` | Teorema principal con resto relativo en la cola. Si en la cola |
 
 ### `RefitMonotone`
 

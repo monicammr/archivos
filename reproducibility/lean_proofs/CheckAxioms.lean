@@ -190,6 +190,11 @@ import All
 #print axioms ProfileIdentifiability.dchi2_ge_of_coord_grad
 #print axioms ProfileIdentifiability.practically_identifiable_grad
 #print axioms ProfileIdentifiability.stat_of_projection
+#print axioms ProfileIdentifiability.practically_identifiable_grad_tail
+#print axioms ProfileIdentifiability.dchi2_lower_rel
+#print axioms ProfileIdentifiability.quad_of_root
+#print axioms ProfileIdentifiability.dchi2_ge_of_coord_rel
+#print axioms ProfileIdentifiability.practically_identifiable_rel_tail
 #print axioms RefitMonotone.feas_mono
 #print axioms RefitMonotone.fitErr_anti
 #print axioms RefitMonotone.fitErr_union_le
@@ -306,8 +311,3 @@ import All
 #print axioms TrajectoryErrorBound.remainder_isLittleO
 #print axioms TrajectoryErrorBound.trajectory_error_bound
 #print axioms TrajectoryErrorBound.trajectory_error_from_Rvar
-#print axioms ProfileIdentifiability.practically_identifiable_grad_tail
-#print axioms ProfileIdentifiability.practically_identifiable_rel_tail
-#print axioms ProfileIdentifiability.dchi2_lower_rel
-#print axioms ProfileIdentifiability.dchi2_ge_of_coord_rel
-#print axioms ProfileIdentifiability.quad_of_root
