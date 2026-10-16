@@ -217,6 +217,46 @@ s = [r"\begin{longtable}{@{}lrrlr@{}}",
 s += [" & ".join(r) + r" \\" for r in rows] + [r"\midrule", rf"All analyses & & & & {tot_all / 3600:.0f} \\", r"\bottomrule", r"\end{longtable}"]
 (TAB / "tableS_time_summary.tex").write_text("\n".join(s) + "\n", encoding="utf-8"); print("written tableS_time_summary.tex")
 
+# breakdown in hours by purpose: the method itself, its evaluation, the comparison with other criteria
+hours = lambda keys: sum(t for k in keys for t in T[k].values() if ok(t) and t > 0) / 3600
+GROUPS = [
+    ("The method itself", [
+        ("Selection of the subset (34 problems, sensitivities in parallel)", ["sel_par"]),
+        ("Nonlinear verification of the final subset (six problems selected to first order)", ["nl"])]),
+    ("Evaluation of the method", [
+        ("Selection repeated with fixed scenarios and on the training outputs", ["sel_fix", "sel_train"]),
+        ("Sensitivity to the method settings (15 variants)", ["settings"]),
+        (r"Robustness to the size of parameter changes ($\pm$1\% to $\pm$50\%, paired and independent directions)", ["rob", "rob_ind"]),
+        ("Single-parameter subsets", ["single"]),
+        ("Validation on real data (external and nested)", ["ext", "nest"]),
+        (r"Synthetic experiments ($\pm$5\%, $\pm$20\%, $\pm$50\%) and true signal", ["syn20", "syn5", "syn50", "signal"]),
+        ("Identifiability of the selected parameters: profiles (10 points per side)", ["ident"]),
+        ("Identifiability: profiles with 20 points per side", ["ident_dense"]),
+        ("Identifiability: subsets selected on the training outputs", ["ident_train"])]),
+    ("Comparison with other criteria", [
+        ("Profile likelihood of the full model (processor time)", ["pl_cpu"]),
+        (r"Admissibility and synthetic tests of the subsets of all criteria ($\pm$5\% and $\pm$20\%, both scenario sets)", ["crit5", "crit20", "crit5f", "crit20f"]),
+        ("Synthetic comparison with log-uniform and sparse truths (all criteria)", ["synlog", "synsp"]),
+        ("Selection by pivoted QR (both variants), Brun, Morris, random subsets and calibration only", ["qr", "gks", "bm", "rand", "cal"])]),
+]
+used = {k for _, items in GROUPS for _, ks in items for k in ks}
+assert used | ELAPSED == set(LAB), set(LAB) - used - ELAPSED      # every analysis is in exactly one row
+s = [r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{11.2cm}rr@{}}",
+     r"\caption{Processor time of all the analyses reported in the paper, in hours, grouped by purpose. Processor time is the sum over all cores of the times recorded by each task in the final runs (Supplementary Tables~\ref{tab:timemethod}--\ref{tab:timereview}); because the analyses ran in parallel on servers with 88 to 256 cores and on an 8-core workstation, the elapsed time was much shorter. Earlier runs superseded by corrections of the code, repeated runs, the compilation of the Lean proofs and the check of the identifiability hypotheses over the admissible set (about 3~h of elapsed time on an 88-core server, not recorded per task) are not included.}\label{tab:timebreakdown}\\",
+     r"\toprule", r"Analysis & Hours & Share \\", r"\midrule", r"\endfirsthead",
+     r"\toprule", r"Analysis & Hours & Share \\", r"\midrule", r"\endhead"]
+for g, items in GROUPS:
+    sub = sum(hours(ks) for _, ks in items)
+    s.append(rf"\multicolumn{{3}}{{@{{}}l}}{{\textbf{{{g}}}}} \\")
+    for lab, ks in items:
+        h = hours(ks)
+        s.append(rf"\quad {lab} & {h:.1f} & {100 * h / (tot_all / 3600):.1f}\% \\")
+    s.append(rf"\quad \emph{{Subtotal}} & \emph{{{sub:.1f}}} & \emph{{{100 * sub / (tot_all / 3600):.1f}\%}} \\")
+    s.append(r"\addlinespace")
+    print(f"  group {g}: {sub:.1f} h")
+s += [r"\midrule", rf"\textbf{{All analyses}} & \textbf{{{tot_all / 3600:.1f}}} & 100\% \\", r"\bottomrule", r"\end{longtable}"]
+(TAB / "tableS_time_breakdown.tex").write_text("\n".join(s) + "\n", encoding="utf-8"); print("written tableS_time_breakdown.tex")
+
 # numbers for the main text
 med = lambda k, ss=None: statistics.median([t for s, t in T[k].items() if ok(t) and t > 0 and (ss is None or s in ss)])
 sel = {s: t for s, t in T["sel_par"].items() if ok(t)}
