@@ -1,0 +1,462 @@
+{
+ "problems": {
+  "Alkan_SciSignal2018": {
+   "share_calibration": 0.07049027589590932,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": false,
+    "empty": false,
+    "efit_ours": 0.1212591662142224,
+    "random_fraction": 0.05,
+    "discriminates": true
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": false,
+    "empty": false,
+    "efit_ours": 0.12473038788498819,
+    "random_fraction": 0.05,
+    "discriminates": true
+   }
+  },
+  "Bachmann_MSB2011": {
+   "share_calibration": 0.302452484346205,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": false,
+    "efit_ours": 0.3370971719542961,
+    "random_fraction": 0.4,
+    "discriminates": true
+   },
+   "calfixed": {
+    "ours": false,
+    "train": true,
+    "brun": true,
+    "morris": false,
+    "perfil": true,
+    "qr_gks": false,
+    "empty": false,
+    "efit_ours": 0.44142612650376434,
+    "random_fraction": 0.05,
+    "discriminates": true
+   }
+  },
+  "Borghans_BiophysChem1997": {
+   "share_calibration": 0.0036840279203367225,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": false,
+    "efit_ours": 0.04342311800097633,
+    "random_fraction": 0.2,
+    "discriminates": true
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": false,
+    "efit_ours": 0.04501487488341284,
+    "random_fraction": 0.35,
+    "discriminates": true
+   }
+  },
+  "Brannmark_JBC2010": {
+   "share_calibration": 0.22499940638158356,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.07806330274521281,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.12080070947109156,
+    "random_fraction": 1.0,
+    "discriminates": false
+   }
+  },
+  "Elowitz_Nature2000": {
+   "share_calibration": 0.1065286158908735,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": false,
+    "perfil": false,
+    "qr_gks": false,
+    "empty": false,
+    "efit_ours": 0.3584572949196713,
+    "random_fraction": 0.4,
+    "discriminates": true
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": false,
+    "perfil": false,
+    "qr_gks": false,
+    "empty": false,
+    "efit_ours": 0.40462782409443643,
+    "random_fraction": 0.2,
+    "discriminates": true
+   }
+  },
+  "Fiedler_BMCSystBiol2016": {
+   "share_calibration": 0.3311652543819178,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.14720530335263396,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": false,
+    "efit_ours": 0.14668362876490992,
+    "random_fraction": 0.95,
+    "discriminates": false
+   }
+  },
+  "Fujita_SciSignal2010": {
+   "share_calibration": 0.22405708143448308,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.2941059531024245,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.3561999995433874,
+    "random_fraction": 1.0,
+    "discriminates": false
+   }
+  },
+  "Isensee_JCB2018": {
+   "share_calibration": 0.8371979973586636,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.07610730242381197,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.22971742494943362,
+    "random_fraction": 1.0,
+    "discriminates": false
+   }
+  },
+  "Laske_PLOSComputBiol2019": {
+   "share_calibration": 0.9322857502974019,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.10099807710184461,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": false,
+    "brun": false,
+    "morris": false,
+    "perfil": false,
+    "qr_gks": false,
+    "empty": false,
+    "efit_ours": 0.36560297511034034,
+    "random_fraction": 0.1,
+    "discriminates": true
+   }
+  },
+  "Raia_CancerResearch2011": {
+   "share_calibration": 0.49568972310539366,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.03301667474966372,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.034359205373361894,
+    "random_fraction": 1.0,
+    "discriminates": false
+   }
+  },
+  "Raimundez_PCB2020": {
+   "share_calibration": 0.3043405144254763,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": null,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.18709370004953396,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": null,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.21527148714802707,
+    "random_fraction": 1.0,
+    "discriminates": false
+   }
+  },
+  "Schwen_PONE2014": {
+   "share_calibration": 0.7051237218087177,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.17065260610005112,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": false,
+    "efit_ours": 0.2916597206675944,
+    "random_fraction": 1.0,
+    "discriminates": false
+   }
+  },
+  "Smith_BMCSystBiol2013": {
+   "share_calibration": 0.7502095680590594,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.07772293329608652,
+    "random_fraction": 1.0,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": true,
+    "efit_ours": 0.17356729894650047,
+    "random_fraction": 1.0,
+    "discriminates": false
+   }
+  },
+  "Weber_BMC2015": {
+   "share_calibration": 0.03590722380975585,
+   "standard": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": true,
+    "empty": false,
+    "efit_ours": 0.040700115456463605,
+    "random_fraction": 0.95,
+    "discriminates": false
+   },
+   "calfixed": {
+    "ours": true,
+    "train": true,
+    "brun": true,
+    "morris": true,
+    "perfil": true,
+    "qr_gks": false,
+    "empty": false,
+    "efit_ours": 0.03948448555798694,
+    "random_fraction": 0.9,
+    "discriminates": false
+   }
+  }
+ },
+ "counts": {
+  "standard": {
+   "ours": {
+    "admissible": 14,
+    "n": 14
+   },
+   "train": {
+    "admissible": 14,
+    "n": 14
+   },
+   "brun": {
+    "admissible": 14,
+    "n": 14
+   },
+   "morris": {
+    "admissible": 13,
+    "n": 14
+   },
+   "perfil": {
+    "admissible": 12,
+    "n": 13
+   },
+   "qr_gks": {
+    "admissible": 12,
+    "n": 14
+   },
+   "empty": {
+    "admissible": 9,
+    "n": 14
+   },
+   "random_median_fraction": 1.0,
+   "random_majority_problems": 10,
+   "discriminating_problems": [
+    "Alkan_SciSignal2018",
+    "Bachmann_MSB2011",
+    "Borghans_BiophysChem1997",
+    "Elowitz_Nature2000"
+   ]
+  },
+  "calfixed": {
+   "ours": {
+    "admissible": 13,
+    "n": 14
+   },
+   "train": {
+    "admissible": 13,
+    "n": 14
+   },
+   "brun": {
+    "admissible": 13,
+    "n": 14
+   },
+   "morris": {
+    "admissible": 11,
+    "n": 14
+   },
+   "perfil": {
+    "admissible": 11,
+    "n": 13
+   },
+   "qr_gks": {
+    "admissible": 9,
+    "n": 14
+   },
+   "empty": {
+    "admissible": 6,
+    "n": 14
+   },
+   "random_median_fraction": 0.975,
+   "random_majority_problems": 9,
+   "discriminating_problems": [
+    "Alkan_SciSignal2018",
+    "Bachmann_MSB2011",
+    "Borghans_BiophysChem1997",
+    "Elowitz_Nature2000",
+    "Laske_PLOSComputBiol2019"
+   ]
+  }
+ },
+ "processor_hours": 16.72
+}

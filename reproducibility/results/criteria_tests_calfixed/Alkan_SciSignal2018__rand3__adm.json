@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k_damage_sn38_ssb",
+  "p_p21_mrna_turn"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.960131668852648,
+ "erel_med": 0.9979449442339278,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "rand3",
+ "prueba": "adm",
+ "segundos": 10.4
+}

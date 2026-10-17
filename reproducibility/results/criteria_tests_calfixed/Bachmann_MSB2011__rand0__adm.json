@@ -1,0 +1,21 @@
+{
+ "S": [
+  "STAT5Exp",
+  "SOCS3RNADelay"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.6431538894264743,
+ "erel_med": 0.9706884814141744,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.06666666666666667,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand0",
+ "prueba": "adm",
+ "segundos": 14.9
+}

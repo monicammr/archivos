@@ -1,0 +1,21 @@
+{
+ "S": [
+  "JAK2_p_inhibition",
+  "pSTAT5_dephosphorylation"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.06737668877655986,
+ "erel_med": 1.2218988222009362,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "rand11",
+ "prueba": "adm",
+ "segundos": 17.0
+}

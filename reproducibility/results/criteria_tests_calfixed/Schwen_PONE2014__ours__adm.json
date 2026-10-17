@@ -1,0 +1,39 @@
+{
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "k": 2,
+ "n_calibracion": 15,
+ "eajuste_med": 0.2916597206675944,
+ "erel_med": 0.8219492482104128,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.6082587999666518,
+  1.2718242018303993,
+  1.2431674525065641,
+  1.0829519447088305,
+  0.36508668462686833,
+  0.4529837554987036,
+  1.36546331090537,
+  0.3954018127048661,
+  1.080650115868058,
+  0.8968374026086579,
+  0.8093097524482951,
+  0.4490165883637575,
+  0.13247986940264977,
+  0.7051237218087177,
+  0.17306112556750472
+ ],
+ "frac_cambio_calibracion_med": 0.7051237218087177,
+ "calibracion_fija": true,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 97.4
+}

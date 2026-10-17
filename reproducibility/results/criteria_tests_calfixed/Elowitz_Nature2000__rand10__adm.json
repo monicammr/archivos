@@ -1,0 +1,21 @@
+{
+ "S": [
+  "tps_repr",
+  "tau_mRNA_GFP"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.7154772034982413,
+ "erel_med": 0.9834123330229491,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "rand10",
+ "prueba": "adm",
+ "segundos": 5.7
+}

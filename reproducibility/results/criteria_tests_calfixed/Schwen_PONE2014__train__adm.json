@@ -1,0 +1,21 @@
+{
+ "S": [
+  "ini_R1",
+  "ini_R2fold"
+ ],
+ "k": 2,
+ "n_calibracion": 15,
+ "eajuste_med": 0.2916597206675944,
+ "erel_med": 0.8219492482104128,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "train",
+ "prueba": "adm",
+ "segundos": 98.6
+}

@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k30f",
+  "k32r"
+ ],
+ "k": 2,
+ "n_calibracion": 9,
+ "eajuste_med": 0.155486587563416,
+ "erel_med": 0.9774963156717164,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "rand11",
+ "prueba": "adm",
+ "segundos": 1053.3
+}

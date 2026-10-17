@@ -1,0 +1,39 @@
+{
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.44142612650376434,
+ "erel_med": 0.7135587673632938,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.48937440624795486,
+  0.23431926369015138,
+  0.1895444670609419,
+  0.4241937317454534,
+  0.5530657664691381,
+  0.2614304528445813,
+  0.22484064334157183,
+  0.2683137051644763,
+  0.302452484346205,
+  0.4571245922798692,
+  0.5707606774883682,
+  0.42623092765338616,
+  0.28342340761888246,
+  0.3984737733305401,
+  0.23316117154325175
+ ],
+ "frac_cambio_calibracion_med": 0.302452484346205,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 20.0
+}

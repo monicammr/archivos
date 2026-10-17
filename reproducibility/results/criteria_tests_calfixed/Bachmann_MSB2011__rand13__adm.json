@@ -1,0 +1,21 @@
+{
+ "S": [
+  "STAT5Imp",
+  "init_STAT5"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.6225022966326771,
+ "erel_med": 0.9669426619286996,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand13",
+ "prueba": "adm",
+ "segundos": 10.9
+}

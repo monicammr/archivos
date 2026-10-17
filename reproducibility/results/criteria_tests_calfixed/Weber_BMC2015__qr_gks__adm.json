@@ -1,0 +1,21 @@
+{
+ "S": [
+  "p13",
+  "a33"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.45916937763711124,
+ "erel_med": 0.9982317759062408,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Weber_BMC2015",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 9.2
+}

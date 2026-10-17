@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k_syn_R_C",
+  "k_bind_M1"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.5232951223854052,
+ "erel_med": 0.8674982434209073,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.06666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "rand18",
+ "prueba": "adm",
+ "segundos": 24.6
+}

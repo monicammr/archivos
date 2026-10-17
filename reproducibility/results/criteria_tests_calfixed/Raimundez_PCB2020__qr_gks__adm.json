@@ -1,0 +1,21 @@
+{
+ "S": [
+  "ka_MAPK__MKN1",
+  "ka_PI3K__pEGFR_EGF_2"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.2876579029095914,
+ "erel_med": 0.9620224997950638,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 134.0
+}

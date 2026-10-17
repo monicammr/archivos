@@ -1,0 +1,21 @@
+{
+ "S": [
+  "CISInh",
+  "STAT5ActJAK2"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.45237546565372805,
+ "erel_med": 0.9372202926467522,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand3",
+ "prueba": "adm",
+ "segundos": 10.9
+}

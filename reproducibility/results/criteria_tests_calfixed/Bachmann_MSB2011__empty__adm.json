@@ -1,0 +1,18 @@
+{
+ "S": [],
+ "k": 0,
+ "n_calibracion": 74,
+ "eajuste_med": 0.6865380279362624,
+ "erel_med": 1.0,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "empty",
+ "prueba": "adm",
+ "segundos": 13.7
+}

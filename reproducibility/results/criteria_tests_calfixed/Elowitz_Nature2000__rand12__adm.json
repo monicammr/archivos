@@ -1,0 +1,21 @@
+{
+ "S": [
+  "init_Z_protein",
+  "init_GFP_mRNA"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.7051007334365671,
+ "erel_med": 1.002557426110162,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "rand12",
+ "prueba": "adm",
+ "segundos": 4.8
+}

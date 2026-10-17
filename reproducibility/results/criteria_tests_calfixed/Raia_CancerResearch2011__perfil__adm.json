@@ -1,0 +1,21 @@
+{
+ "S": [
+  "pSTAT5_dephosphorylation",
+  "pJAK2_dephosphorylation"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.06728783861519069,
+ "erel_med": 1.1209780464674353,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 17.4
+}

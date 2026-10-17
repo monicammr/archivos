@@ -1,0 +1,21 @@
+{
+ "S": [
+  "ki_MAPK",
+  "d_kimp_pEGFR_EGF_2__MKN1_2_HS746T"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.2033381885666217,
+ "erel_med": 0.9447350554937087,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "rand12",
+ "prueba": "adm",
+ "segundos": 119.6
+}

@@ -1,0 +1,39 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.21527148714802707,
+ "erel_med": 0.7407733916863448,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.19701459168361096,
+  0.059344828863861145,
+  2.1800131905356883,
+  0.228223014574438,
+  0.5534306948593513,
+  0.427037014052458,
+  0.9296692924980697,
+  0.6957575818346514,
+  0.2576420765620402,
+  0.14087263932207136,
+  0.15909145876625969,
+  0.09626534548514655,
+  0.3043405144254763,
+  1.0407575907258915,
+  0.5108197664839252
+ ],
+ "frac_cambio_calibracion_med": 0.3043405144254763,
+ "calibracion_fija": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 139.7
+}

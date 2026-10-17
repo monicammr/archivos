@@ -1,0 +1,18 @@
+14 problems with calibration parameters; processor time 16.72 h
+problem                      share C   ours std/cal   calib. only   random std/cal
+Alkan                           0.07        yes/yes         no/no        0.05/0.05
+Bachmann                        0.30         yes/no         no/no        0.40/0.05
+Borghans                        0.00        yes/yes         no/no        0.20/0.35
+Brannmark                       0.22        yes/yes       yes/yes        1.00/1.00
+Elowitz                         0.11        yes/yes         no/no        0.40/0.20
+Fiedler                         0.33        yes/yes        yes/no        1.00/0.95
+Fujita                          0.22        yes/yes       yes/yes        1.00/1.00
+Isensee                         0.84        yes/yes       yes/yes        1.00/1.00
+Laske                           0.93        yes/yes        yes/no        1.00/0.10
+Raia                            0.50        yes/yes       yes/yes        1.00/1.00
+Raimundez                       0.30        yes/yes       yes/yes        1.00/1.00
+Schwen                          0.71        yes/yes        yes/no        1.00/1.00
+Smith                           0.75        yes/yes       yes/yes        1.00/1.00
+Weber                           0.04        yes/yes         no/no        0.95/0.90
+standard {'ours': '14/14', 'train': '14/14', 'brun': '14/14', 'morris': '13/14', 'perfil': '12/13', 'qr_gks': '12/14', 'empty': '9/14'} random median fraction 1.0 | problems where the test discriminates: 4
+calfixed {'ours': '13/14', 'train': '13/14', 'brun': '13/14', 'morris': '11/14', 'perfil': '11/13', 'qr_gks': '9/14', 'empty': '6/14'} random median fraction 0.975 | problems where the test discriminates: 5

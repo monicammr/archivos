@@ -1,0 +1,21 @@
+{
+ "S": [
+  "xi_kf_RII_C_2__RII_2",
+  "xi_b_Rp8_Br_cAMPS"
+ ],
+ "k": 2,
+ "n_calibracion": 11,
+ "eajuste_med": 0.25124729336773854,
+ "erel_med": 1.0127395751158916,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 6,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "rand17",
+ "prueba": "adm",
+ "segundos": 396.6
+}

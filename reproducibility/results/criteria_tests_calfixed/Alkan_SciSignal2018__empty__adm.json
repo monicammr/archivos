@@ -1,0 +1,18 @@
+{
+ "S": [],
+ "k": 0,
+ "n_calibracion": 10,
+ "eajuste_med": 0.9860535423906442,
+ "erel_med": 1.0,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "empty",
+ "prueba": "adm",
+ "segundos": 19.3
+}

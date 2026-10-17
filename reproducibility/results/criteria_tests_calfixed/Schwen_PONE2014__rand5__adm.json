@@ -1,0 +1,21 @@
+{
+ "S": [
+  "kout",
+  "koff_unspec"
+ ],
+ "k": 2,
+ "n_calibracion": 15,
+ "eajuste_med": 0.32685174949634055,
+ "erel_med": 0.9929832066600142,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.8666666666666667,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Schwen_PONE2014",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 85.7
+}

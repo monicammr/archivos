@@ -1,0 +1,21 @@
+{
+ "S": [
+  "Rec_recycle",
+  "SOCS3_degradation"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.037630144534171586,
+ "erel_med": 0.8956776604874566,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "rand6",
+ "prueba": "adm",
+ "segundos": 13.8
+}

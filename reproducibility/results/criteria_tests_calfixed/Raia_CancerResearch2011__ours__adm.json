@@ -1,0 +1,39 @@
+{
+ "S": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.034359205373361894,
+ "erel_med": 0.543796675342786,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.08496868315684614,
+  0.17131338924594838,
+  0.5429702705535914,
+  0.002671078190729588,
+  3.3758397654248036,
+  4.006498400180946,
+  28.229778197911546,
+  0.49568972310539366,
+  0.17885368053908318,
+  0.10010791679060091,
+  0.12012177747263494,
+  0.3145708071108355,
+  1.676050765982012,
+  2.50260806345016,
+  0.7764159123650491
+ ],
+ "frac_cambio_calibracion_med": 0.49568972310539366,
+ "calibracion_fija": true,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 20.7
+}

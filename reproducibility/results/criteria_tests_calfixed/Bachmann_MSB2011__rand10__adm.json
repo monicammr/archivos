@@ -1,0 +1,21 @@
+{
+ "S": [
+  "init_SHP1",
+  "STAT5ActEpoR"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.5289400314420882,
+ "erel_med": 1.0138840393163404,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.3333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand10",
+ "prueba": "adm",
+ "segundos": 10.7
+}

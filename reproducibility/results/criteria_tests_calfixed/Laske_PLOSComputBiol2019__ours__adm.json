@@ -1,0 +1,39 @@
+{
+ "S": [
+  "k_imp",
+  "k_syn_R_M"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.36560297511034034,
+ "erel_med": 0.5691490912577937,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.7333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.6485583507634116,
+  0.5833680962068201,
+  0.5058954196470136,
+  1.6515674713719681,
+  1.3509379513523645,
+  0.9322857502974019,
+  1.0511946391849547,
+  1.255861283246366,
+  1.2956398752083862,
+  1.2274813907029858,
+  0.03731084919095434,
+  0.9061870267642729,
+  0.7969258804023442,
+  0.32001250245934076,
+  1.0072048879017668
+ ],
+ "frac_cambio_calibracion_med": 0.9322857502974019,
+ "calibracion_fija": true,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 24.8
+}

@@ -1,0 +1,21 @@
+{
+ "S": [
+  "kdeg_membran__MKN1",
+  "ka_MAPK__MKN1"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.21527148714802707,
+ "erel_med": 0.7407733916863448,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "brun",
+ "prueba": "adm",
+ "segundos": 120.2
+}

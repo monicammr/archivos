@@ -1,0 +1,21 @@
+{
+ "S": [
+  "xi_KD_Rp_cAMPS",
+  "xi_b_Rp_cAMPS"
+ ],
+ "k": 2,
+ "n_calibracion": 11,
+ "eajuste_med": 0.22279870379742484,
+ "erel_med": Infinity,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 6,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Isensee_JCB2018",
+ "metodo": "rand10",
+ "prueba": "adm",
+ "segundos": 406.5
+}

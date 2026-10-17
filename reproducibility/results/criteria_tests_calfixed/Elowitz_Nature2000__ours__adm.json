@@ -1,0 +1,39 @@
+{
+ "S": [
+  "n_Hill",
+  "tau_mRNA"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.40462782409443643,
+ "erel_med": 0.5720302367019097,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.06914602365126975,
+  0.0006031787938660439,
+  0.7591156434833686,
+  0.21234822300553038,
+  0.08986919489254543,
+  0.03168180909771058,
+  0.20454357824806377,
+  0.8961080538268282,
+  0.3881867756521931,
+  5.506933239989854e-07,
+  0.1065286158908735,
+  0.1390509812140982,
+  0.07382394392476166,
+  0.6917498887455781,
+  0.01799918072119585
+ ],
+ "frac_cambio_calibracion_med": 0.1065286158908735,
+ "calibracion_fija": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 4.6
+}

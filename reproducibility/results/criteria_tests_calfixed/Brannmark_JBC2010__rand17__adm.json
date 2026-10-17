@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k_IRSiP_DosR",
+  "k22"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.12981666665008745,
+ "erel_med": 0.8927514348790831,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "rand17",
+ "prueba": "adm",
+ "segundos": 23.5
+}

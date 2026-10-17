@@ -1,0 +1,21 @@
+{
+ "S": [
+  "kt",
+  "k_death_reox"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.1344476134168813,
+ "erel_med": 0.2114889187162045,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.7333333333333333,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 11.8
+}

@@ -1,0 +1,21 @@
+{
+ "S": [
+  "p_wip1_mrna_turn",
+  "p_mrna_exp_inh_dox"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.9845032822326015,
+ "erel_med": 0.9999272093579773,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "rand10",
+ "prueba": "adm",
+ "segundos": 10.4
+}

@@ -1,0 +1,21 @@
+{
+ "S": [
+  "K_par",
+  "beta_par"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.35774161841680513,
+ "erel_med": 0.8856770348825339,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 9.3
+}

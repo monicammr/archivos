@@ -1,0 +1,21 @@
+{
+ "S": [
+  "eff_GFP",
+  "eff"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.7606832675015517,
+ "erel_med": 1.06622833692688,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.2,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Elowitz_Nature2000",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 7.1
+}

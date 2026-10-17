@@ -1,0 +1,39 @@
+{
+ "S": [
+  "tau2",
+  "k6"
+ ],
+ "k": 2,
+ "n_calibracion": 8,
+ "eajuste_med": 0.14668362876490992,
+ "erel_med": 0.6873462343207976,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.23279278684790009,
+  0.35821773113156724,
+  0.37677243212244205,
+  0.39174136684263,
+  0.5288578172893247,
+  0.6556485654856012,
+  0.12089197530255268,
+  0.14705513169746362,
+  0.25201211576605137,
+  0.18851300760603118,
+  0.47219308380228314,
+  0.3311652543819178,
+  0.347392785118277,
+  0.13510180731404062,
+  0.3030610519163521
+ ],
+ "frac_cambio_calibracion_med": 0.3311652543819178,
+ "calibracion_fija": true,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 7.1
+}

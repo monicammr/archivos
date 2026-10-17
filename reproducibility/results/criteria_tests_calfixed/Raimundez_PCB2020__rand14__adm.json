@@ -1,0 +1,21 @@
+{
+ "S": [
+  "d_PI3Ktotal__fm_2_hm",
+  "xi_kdeg_pMMET_pEGFR_i"
+ ],
+ "k": 2,
+ "n_calibracion": 79,
+ "eajuste_med": 0.2423813693742705,
+ "erel_med": 1.0007137331207157,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Raimundez_PCB2020",
+ "metodo": "rand14",
+ "prueba": "adm",
+ "segundos": 123.6
+}

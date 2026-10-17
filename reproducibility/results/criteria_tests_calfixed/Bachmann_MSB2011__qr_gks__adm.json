@@ -1,0 +1,21 @@
+{
+ "S": [
+  "JAK2EpoRDeaSHP1",
+  "CISRNATurn"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.47792395095463786,
+ "erel_med": 0.9979903896222553,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 15.3
+}

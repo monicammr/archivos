@@ -1,0 +1,39 @@
+{
+ "S": [
+  "k1f",
+  "km2"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.12080070947109156,
+ "erel_med": 0.7193668286669084,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.43041819755513644,
+  7.829338588410978,
+  0.6171352854065674,
+  0.3454560701770846,
+  0.22499940638158356,
+  0.2889734377432253,
+  0.04210416266949751,
+  0.17907461692278115,
+  0.21278596054254945,
+  0.06573380419796948,
+  0.11640482622459236,
+  0.2137853476390068,
+  0.18655842659767205,
+  0.25917938730324924,
+  0.7809012409063701
+ ],
+ "frac_cambio_calibracion_med": 0.22499940638158356,
+ "calibracion_fija": true,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 17.1
+}

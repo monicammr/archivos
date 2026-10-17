@@ -1,0 +1,21 @@
+{
+ "S": [
+  "p_p53_act_chk1",
+  "p_h2ax_act_dnapk"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.9849896163860272,
+ "erel_med": 0.9999992681601915,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "rand15",
+ "prueba": "adm",
+ "segundos": 10.5
+}

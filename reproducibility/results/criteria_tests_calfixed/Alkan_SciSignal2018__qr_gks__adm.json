@@ -1,0 +1,21 @@
+{
+ "S": [
+  "p_atr_act_atm",
+  "p_dnapk_act"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.9283584309128815,
+ "erel_med": 0.9908417474097017,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 11.7
+}

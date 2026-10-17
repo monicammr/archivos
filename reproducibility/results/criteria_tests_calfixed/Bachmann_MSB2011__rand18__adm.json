@@ -1,0 +1,21 @@
+{
+ "S": [
+  "JAK2EpoRDeaSHP1",
+  "STAT5Imp"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.5821762492646788,
+ "erel_med": 0.9633350603443568,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.26666666666666666,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "rand18",
+ "prueba": "adm",
+ "segundos": 11.3
+}

@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k22",
+  "km3"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.08331146681561635,
+ "erel_med": 0.7949446824371633,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "rand4",
+ "prueba": "adm",
+ "segundos": 23.1
+}

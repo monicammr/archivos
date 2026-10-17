@@ -1,0 +1,21 @@
+{
+ "S": [
+  "CISRNADelay",
+  "JAK2ActEpo"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.44142612650376434,
+ "erel_med": 0.7135587673632938,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.4666666666666667,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "morris",
+ "prueba": "adm",
+ "segundos": 12.9
+}

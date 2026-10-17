@@ -1,0 +1,21 @@
+{
+ "S": [
+  "pu4",
+  "p31"
+ ],
+ "k": 2,
+ "n_calibracion": 5,
+ "eajuste_med": 0.07423066214351955,
+ "erel_med": 0.9615608194541522,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Weber_BMC2015",
+ "metodo": "rand5",
+ "prueba": "adm",
+ "segundos": 10.3
+}

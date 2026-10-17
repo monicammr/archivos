@@ -1,0 +1,39 @@
+{
+ "S": [
+  "kt",
+  "k_rep_nhej"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.12473038788498819,
+ "erel_med": 0.20718195192107453,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.055053719400072976,
+  0.11802761513159253,
+  0.03975590580956341,
+  0.48536278288271295,
+  0.036055097615086094,
+  0.25957750745819896,
+  0.14828204713359283,
+  0.027150198861171558,
+  0.10063020500152407,
+  0.06544445967548403,
+  0.02145832832590432,
+  0.4898220110100896,
+  0.0325389378010861,
+  0.5186143629518262,
+  0.07049027589590932
+ ],
+ "frac_cambio_calibracion_med": 0.07049027589590932,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 17.4
+}

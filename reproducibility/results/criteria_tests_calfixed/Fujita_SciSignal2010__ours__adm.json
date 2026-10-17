@@ -1,0 +1,39 @@
+{
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "k": 2,
+ "n_calibracion": 3,
+ "eajuste_med": 0.3561999995433874,
+ "erel_med": 1.0053081996963884,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6666666666666666,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "frac_cambio_calibracion": [
+  0.6128022835570924,
+  0.05131720986038391,
+  0.03782088469817715,
+  0.17130966698866068,
+  0.06929465120397155,
+  0.49551229430771165,
+  0.6620922228968034,
+  0.5124573907303039,
+  0.0850572797405868,
+  0.22405708143448308,
+  0.3544147808725724,
+  0.41429177050777855,
+  0.0250630272982411,
+  0.6532062183093613,
+  0.03471217260021874
+ ],
+ "frac_cambio_calibracion_med": 0.22405708143448308,
+ "calibracion_fija": true,
+ "sistema": "Fujita_SciSignal2010",
+ "metodo": "ours",
+ "prueba": "adm",
+ "segundos": 62.9
+}

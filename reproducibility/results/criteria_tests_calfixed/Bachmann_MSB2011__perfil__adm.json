@@ -1,0 +1,21 @@
+{
+ "S": [
+  "STAT5Imp",
+  "CISRNADelay"
+ ],
+ "k": 2,
+ "n_calibracion": 74,
+ "eajuste_med": 0.3476573707738855,
+ "erel_med": 0.6832806006067993,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.6,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Bachmann_MSB2011",
+ "metodo": "perfil",
+ "prueba": "adm",
+ "segundos": 13.2
+}

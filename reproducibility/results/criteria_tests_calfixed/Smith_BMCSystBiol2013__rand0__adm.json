@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k43f",
+  "k42f"
+ ],
+ "k": 2,
+ "n_calibracion": 9,
+ "eajuste_med": 0.3098926434352741,
+ "erel_med": 1.0015662172555326,
+ "admisible": true,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 0.9333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "rand0",
+ "prueba": "adm",
+ "segundos": 1517.8
+}

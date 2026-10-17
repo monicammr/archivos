@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k_syn_R_M",
+  "k_syn_R_V"
+ ],
+ "k": 2,
+ "n_calibracion": 2,
+ "eajuste_med": 0.5441670455520263,
+ "erel_med": 0.9356440524429701,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.13333333333333333,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "qr_gks",
+ "prueba": "adm",
+ "segundos": 25.4
+}

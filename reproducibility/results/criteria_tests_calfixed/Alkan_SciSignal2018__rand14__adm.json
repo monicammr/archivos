@@ -1,0 +1,21 @@
+{
+ "S": [
+  "k_dox_apo",
+  "p_p53_act_atm"
+ ],
+ "k": 2,
+ "n_calibracion": 10,
+ "eajuste_med": 0.9774930752484053,
+ "erel_med": 0.9992195390385057,
+ "admisible": false,
+ "admisible_sin_kmin": false,
+ "tasa_paso": 0.0,
+ "n_escenarios": 15,
+ "lineal": true,
+ "escenarios_fijos": true,
+ "calibracion_fija": true,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "rand14",
+ "prueba": "adm",
+ "segundos": 10.5
+}
