@@ -1,0 +1,151 @@
+{
+ "common_problems": [
+  "Alkan_SciSignal2018",
+  "Armistead_CellDeathDis2024",
+  "Bachmann_MSB2011",
+  "Boehm_JProteomeRes2014",
+  "Borghans_BiophysChem1997",
+  "Brannmark_JBC2010",
+  "Bruno_JExpBot2016",
+  "Elowitz_Nature2000",
+  "Fiedler_BMCSystBiol2016",
+  "Fujita_SciSignal2010",
+  "Giordano_Nature2020",
+  "Isensee_JCB2018",
+  "Laske_PLOSComputBiol2019",
+  "Liu_IFACPapersOnLine2025",
+  "Lucarelli_CellSystems2018",
+  "Okuonghae_ChaosSolitonsFractals2020",
+  "Oliveira_NatCommun2021",
+  "Perelson_Science1996",
+  "Rahman_MBS2016",
+  "Raia_CancerResearch2011",
+  "SalazarCavazos_MBoC2020",
+  "Schwen_PONE2014",
+  "Smith_BMCSystBiol2013",
+  "Sneyd_PNAS2002",
+  "Weber_BMC2015",
+  "Zhao_QuantBiol2020",
+  "Zheng_PNAS2012"
+ ],
+ "criteria": {
+  "ours": {
+   "problems": 27,
+   "identifiable": 57,
+   "selected": 66,
+   "all_identifiable": 21,
+   "admissible_5": 27,
+   "identifiable_and_admissible": 21,
+   "identical_to_ours": 27,
+   "cpu_h": null
+  },
+  "train": {
+   "problems": 26,
+   "identifiable": 50,
+   "selected": 61,
+   "all_identifiable": 19,
+   "admissible_5": 23,
+   "identifiable_and_admissible": 16,
+   "identical_to_ours": 9,
+   "cpu_h": null,
+   "mcnemar_all_identifiable": {
+    "only_ours": 2,
+    "only_other": 0,
+    "p": 0.5
+   },
+   "mcnemar_both": {
+    "only_ours": 5,
+    "only_other": 0,
+    "p": 0.0625
+   }
+  },
+  "brun": {
+   "problems": 27,
+   "identifiable": 56,
+   "selected": 66,
+   "all_identifiable": 20,
+   "admissible_5": 25,
+   "identifiable_and_admissible": 18,
+   "identical_to_ours": 9,
+   "cpu_h": 4.7,
+   "mcnemar_all_identifiable": {
+    "only_ours": 2,
+    "only_other": 1,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   "mcnemar_both": {
+    "only_ours": 4,
+    "only_other": 1,
+    "p": 0.375,
+    "p_holm": 0.375
+   }
+  },
+  "morris": {
+   "problems": 27,
+   "identifiable": 53,
+   "selected": 66,
+   "all_identifiable": 18,
+   "admissible_5": 22,
+   "identifiable_and_admissible": 14,
+   "identical_to_ours": 6,
+   "cpu_h": 13.1,
+   "mcnemar_all_identifiable": {
+    "only_ours": 3,
+    "only_other": 0,
+    "p": 0.25,
+    "p_holm": 0.75
+   },
+   "mcnemar_both": {
+    "only_ours": 7,
+    "only_other": 0,
+    "p": 0.015625,
+    "p_holm": 0.046875
+   }
+  },
+  "perfil": {
+   "problems": 27,
+   "identifiable": 57,
+   "selected": 66,
+   "all_identifiable": 22,
+   "admissible_5": 18,
+   "identifiable_and_admissible": 14,
+   "identical_to_ours": 2,
+   "cpu_h": 8.6,
+   "mcnemar_all_identifiable": {
+    "only_ours": 0,
+    "only_other": 1,
+    "p": 1.0,
+    "p_holm": 1.0
+   },
+   "mcnemar_both": {
+    "only_ours": 8,
+    "only_other": 1,
+    "p": 0.0390625,
+    "p_holm": 0.078125
+   }
+  },
+  "qr_gks": {
+   "problems": 27,
+   "identifiable": 50,
+   "selected": 66,
+   "all_identifiable": 14,
+   "admissible_5": 16,
+   "identifiable_and_admissible": 7,
+   "identical_to_ours": 1,
+   "cpu_h": 12.4,
+   "mcnemar_all_identifiable": {
+    "only_ours": 8,
+    "only_other": 1,
+    "p": 0.0390625,
+    "p_holm": 0.15625
+   },
+   "mcnemar_both": {
+    "only_ours": 15,
+    "only_other": 1,
+    "p": 0.000518798828125,
+    "p_holm": 0.0020751953125
+   }
+  }
+ }
+}

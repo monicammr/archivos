@@ -1,0 +1,46 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "S": [
+  "reaction_8_k1",
+  "EGFR_turnover"
+ ],
+ "n_calibracion": 3,
+ "n_datos": 144,
+ "coste_min": 761.0644900371959,
+ "chi2_por_gl": 5.475284100987021,
+ "umbral_robusto": 21.025090947790158,
+ "rondas": 0,
+ "dchi2_minimo": 1.0199257101314743,
+ "perfiles": [
+  {
+   "parametro": "reaction_8_k1",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1427.7907946197888,
+   "dchi2_max_der": 2425.2229881780927,
+   "clase": "identificable",
+   "ic_izq_log": 0.07003234617721041,
+   "ic_der_log": 0.06872242222877953,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.16809030223811233,
+   "ic_der_log_robusto": 0.16385579543480838
+  },
+  {
+   "parametro": "EGFR_turnover",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 803.6718590793467,
+   "dchi2_max_der": 3057.6060845108696,
+   "clase": "identificable",
+   "ic_izq_log": 0.0971888291481253,
+   "ic_der_log": 0.09332485415609354,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.22621971163164653,
+   "ic_der_log_robusto": 0.2120628893825795
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

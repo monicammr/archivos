@@ -1,0 +1,46 @@
+{
+ "sistema": "Raimundez_PCB2020",
+ "S": [
+  "ka_MAPK__MKN1",
+  "ka_PI3K__pEGFR_EGF_2"
+ ],
+ "n_calibracion": 79,
+ "n_datos": 627,
+ "coste_min": 2647.5581311271144,
+ "chi2_por_gl": 4.849007566166876,
+ "umbral_robusto": 18.620189054080804,
+ "rondas": 0,
+ "dchi2_minimo": 0.01956751349780461,
+ "perfiles": [
+  {
+   "parametro": "ka_MAPK__MKN1",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1598.1629177282402,
+   "dchi2_max_der": 6121.3074949311285,
+   "clase": "identificable",
+   "ic_izq_log": 0.061415450583752196,
+   "ic_der_log": 0.06001541117964573,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.1372539822829822,
+   "ic_der_log_robusto": 0.12949265429442205
+  },
+  {
+   "parametro": "ka_PI3K__pEGFR_EGF_2",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 26.890562525869427,
+   "dchi2_max_der": 33.985419853253006,
+   "clase": "identificable",
+   "ic_izq_log": 0.7359558432889746,
+   "ic_der_log": 0.6809627454991436,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 1.8042389513954205,
+   "ic_der_log_robusto": 1.5509768598806692
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

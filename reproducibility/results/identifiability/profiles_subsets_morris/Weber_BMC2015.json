@@ -1,0 +1,46 @@
+{
+ "sistema": "Weber_BMC2015",
+ "S": [
+  "pu3",
+  "a21"
+ ],
+ "n_calibracion": 5,
+ "n_datos": 135,
+ "coste_min": 120.27729201971196,
+ "chi2_por_gl": 0.9396663439039997,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.10806327173987995,
+ "perfiles": [
+  {
+   "parametro": "pu3",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 636.9001985202825,
+   "dchi2_max_der": 81.9007364373012,
+   "clase": "identificable",
+   "ic_izq_log": 0.3095243727418121,
+   "ic_der_log": 0.26862951493784326,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.3095243727418121,
+   "ic_der_log_robusto": 0.26862951493784326
+  },
+  {
+   "parametro": "a21",
+   "puntos_fallidos": 1,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 382.85038762491774,
+   "dchi2_max_der": 150.69003607066082,
+   "clase": "identificable",
+   "ic_izq_log": 0.27530665795415626,
+   "ic_der_log": 0.2498029454718832,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.27530665795415626,
+   "ic_der_log_robusto": 0.2498029454718832
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

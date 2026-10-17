@@ -1,0 +1,46 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "eff_GFP",
+  "eff"
+ ],
+ "n_calibracion": 2,
+ "n_datos": 58,
+ "coste_min": 57.99977595288583,
+ "chi2_por_gl": 1.0740699250534413,
+ "umbral_robusto": 4.124428512205214,
+ "rondas": 0,
+ "dchi2_minimo": 0.04541452821985814,
+ "perfiles": [
+  {
+   "parametro": "eff_GFP",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 115.91488236023055,
+   "dchi2_max_der": 115.77151658586918,
+   "clase": "identificable",
+   "ic_izq_log": 0.44519336712904245,
+   "ic_der_log": 0.4312475928005014,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.4589336365305049,
+   "ic_der_log_robusto": 0.4434504969736027
+  },
+  {
+   "parametro": "eff",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 108.86864415002911,
+   "dchi2_max_der": 142.89027908401607,
+   "clase": "identificable",
+   "ic_izq_log": 0.42704931967056997,
+   "ic_der_log": 0.43441296337942287,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.4389205877186527,
+   "ic_der_log_robusto": 0.4469887984918488
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

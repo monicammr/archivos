@@ -29,7 +29,7 @@ The benchmark problems themselves are downloaded from the PEtab benchmark collec
 |---|---|---|---|
 | **A** | Regenerates every figure, table and Supplementary Note from the stored results (no simulation) | a few minutes | Python, LaTeX |
 | **B** | Compiles all formal proofs and checks that they use no unproved assumption | 20 min (many cores) to 2 h | Lean (elan) |
-| **C** | Re-runs the analyses from the PEtab problems and compares with the stored results | the method (selection): minutes per problem, 1.3 h of processor time for all 34; all analyses of the paper: about 634 h of processor time (about a week on 4 cores, a day on 32 cores) | Python, the benchmark (download) |
+| **C** | Re-runs the analyses from the PEtab problems and compares with the stored results | the method (selection): minutes per problem, 1.3 h of processor time for all 34; all analyses of the paper: about 673 h of processor time (about a week on 4 cores, a day on 32 cores) | Python, the benchmark (download) |
 
 Each level is independent. A reader who only wants to see where a number comes from needs level A
 (it shows that every number of the paper follows from the stored results, not that those results are

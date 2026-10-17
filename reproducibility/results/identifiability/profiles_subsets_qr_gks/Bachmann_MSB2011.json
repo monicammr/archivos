@@ -1,0 +1,46 @@
+{
+ "sistema": "Bachmann_MSB2011",
+ "S": [
+  "JAK2EpoRDeaSHP1",
+  "CISRNATurn"
+ ],
+ "n_calibracion": 74,
+ "n_datos": 541,
+ "coste_min": 540.9877090128574,
+ "chi2_por_gl": 1.1634144279846397,
+ "umbral_robusto": 4.467511403461017,
+ "rondas": 0,
+ "dchi2_minimo": -0.002536828042934758,
+ "perfiles": [
+  {
+   "parametro": "JAK2EpoRDeaSHP1",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 254.51129708343865,
+   "dchi2_max_der": 1587.6581150202724,
+   "clase": "identificable",
+   "ic_izq_log": 0.20400490399489515,
+   "ic_der_log": 0.20502685814324875,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.21625078082946697,
+   "ic_der_log_robusto": 0.21460297282888083
+  },
+  {
+   "parametro": "CISRNATurn",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 0.022327074872237063,
+   "dchi2_max_der": 0.00021243067681098182,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": false,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": false
+}

@@ -1,0 +1,46 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "k1f",
+  "k1a"
+ ],
+ "n_calibracion": 3,
+ "n_datos": 43,
+ "coste_min": 43.035225769679876,
+ "chi2_por_gl": 1.1325059413073653,
+ "umbral_robusto": 4.3488228146202825,
+ "rondas": 0,
+ "dchi2_minimo": 0.0813019338470653,
+ "perfiles": [
+  {
+   "parametro": "k1f",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 290.7887959492884,
+   "dchi2_max_der": 71.90094445803865,
+   "clase": "identificable",
+   "ic_izq_log": 0.30441375236419255,
+   "ic_der_log": 0.35692023515001814,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.32632920318152403,
+   "ic_der_log_robusto": 0.38749409546422475
+  },
+  {
+   "parametro": "k1a",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 139.52993900116903,
+   "dchi2_max_der": 260.61897398290904,
+   "clase": "identificable",
+   "ic_izq_log": 0.2575869876131463,
+   "ic_der_log": 0.2403073325531317,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.2747482870705873,
+   "ic_der_log_robusto": 0.2540485949759952
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

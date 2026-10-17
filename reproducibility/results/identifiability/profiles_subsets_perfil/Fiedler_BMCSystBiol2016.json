@@ -1,0 +1,46 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "K_2",
+  "k6"
+ ],
+ "n_calibracion": 8,
+ "n_datos": 72,
+ "coste_min": 62.56086628738455,
+ "chi2_por_gl": 1.0090462304416863,
+ "umbral_robusto": 3.874737524896075,
+ "rondas": 0,
+ "dchi2_minimo": 0.02129843832491929,
+ "perfiles": [
+  {
+   "parametro": "K_2",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 14.631116635332354,
+   "dchi2_max_der": 33.927528728812,
+   "clase": "identificable",
+   "ic_izq_log": 0.6941676967807522,
+   "ic_der_log": 0.6632169745902947,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.6982767362310511,
+   "ic_der_log_robusto": 0.6669655761282783
+  },
+  {
+   "parametro": "k6",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 39.240223253076614,
+   "dchi2_max_der": 41.37878695507312,
+   "clase": "identificable",
+   "ic_izq_log": 0.7174868116081708,
+   "ic_der_log": 0.5988349878544847,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.7203921320194818,
+   "ic_der_log_robusto": 0.6017925410767977
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

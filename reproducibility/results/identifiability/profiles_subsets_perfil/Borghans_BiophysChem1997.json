@@ -1,0 +1,46 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "Kz",
+  "v0"
+ ],
+ "n_calibracion": 2,
+ "n_datos": 111,
+ "coste_min": 104.30071700439878,
+ "chi2_por_gl": 0.9747730561158764,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 11.063768464034297,
+ "perfiles": [
+  {
+   "parametro": "Kz",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 82.2428278973312,
+   "dchi2_max_der": 85.22129486145234,
+   "clase": "identificable",
+   "ic_izq_log": 0.003017534272217803,
+   "ic_der_log": 0.0026414050079211454,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.003017534272217803,
+   "ic_der_log_robusto": 0.0026414050079211454
+  },
+  {
+   "parametro": "v0",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 84.28397590149864,
+   "dchi2_max_der": 82.2320966664371,
+   "clase": "identificable",
+   "ic_izq_log": 0.002724991923212781,
+   "ic_der_log": 0.017353942341088096,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.002724991923212781,
+   "ic_der_log_robusto": 0.017353942341088096
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

@@ -10,29 +10,30 @@ Analysis & Hours & Share \\
 \endhead
 \multicolumn{3}{@{}l}{\textbf{The method itself}} \\
 \quad Selection of the subset (34 problems, sensitivities in parallel) & 1.3 & 0.2\% \\
-\quad Nonlinear verification of the final subset (six problems selected to first order) & 21.3 & 3.4\% \\
-\quad \emph{Subtotal} & \emph{22.7} & \emph{3.6\%} \\
+\quad Nonlinear verification of the final subset (six problems selected to first order) & 21.3 & 3.2\% \\
+\quad \emph{Subtotal} & \emph{22.7} & \emph{3.4\%} \\
 \addlinespace
 \multicolumn{3}{@{}l}{\textbf{Evaluation of the method}} \\
-\quad Selection repeated with fixed scenarios and on the training outputs & 4.8 & 0.8\% \\
-\quad Sensitivity to the method settings (15 variants) & 50.3 & 7.9\% \\
+\quad Selection repeated with fixed scenarios and on the training outputs & 4.8 & 0.7\% \\
+\quad Sensitivity to the method settings (15 variants) & 50.3 & 7.5\% \\
 \quad Robustness to the size of parameter changes ($\pm$1\% to $\pm$50\%, paired and independent directions) & 5.2 & 0.8\% \\
 \quad Single-parameter subsets & 3.2 & 0.5\% \\
-\quad Validation on real data (external and nested) & 2.3 & 0.4\% \\
-\quad Synthetic experiments ($\pm$5\%, $\pm$20\%, $\pm$50\%) and true signal & 45.5 & 7.2\% \\
-\quad Identifiability of the selected parameters: profiles (10 points per side) & 26.0 & 4.1\% \\
-\quad Identifiability: profiles with 20 points per side & 102.4 & 16.2\% \\
-\quad Identifiability: subsets selected on the training outputs & 3.0 & 0.5\% \\
-\quad \emph{Subtotal} & \emph{242.7} & \emph{38.3\%} \\
+\quad Validation on real data (external and nested) & 2.3 & 0.3\% \\
+\quad Synthetic experiments ($\pm$5\%, $\pm$20\%, $\pm$50\%) and true signal & 45.5 & 6.8\% \\
+\quad Identifiability of the selected parameters: profiles (10 points per side) & 26.0 & 3.9\% \\
+\quad Identifiability: profiles with 20 points per side & 102.4 & 15.2\% \\
+\quad Identifiability: subsets selected on the training outputs & 3.0 & 0.4\% \\
+\quad \emph{Subtotal} & \emph{242.7} & \emph{36.1\%} \\
 \addlinespace
 \multicolumn{3}{@{}l}{\textbf{Comparison with other criteria}} \\
-\quad Profile likelihood of the full model (processor time) & 193.0 & 30.4\% \\
-\quad Admissibility and synthetic tests of the subsets of all criteria ($\pm$5\% and $\pm$20\%, both scenario sets) & 86.5 & 13.6\% \\
-\quad Synthetic comparison with log-uniform and sparse truths (all criteria) & 86.3 & 13.6\% \\
+\quad Profile likelihood of the full model (processor time) & 193.0 & 28.7\% \\
+\quad Admissibility and synthetic tests of the subsets of all criteria ($\pm$5\% and $\pm$20\%, both scenario sets) & 86.5 & 12.9\% \\
+\quad Synthetic comparison with log-uniform and sparse truths (all criteria) & 86.3 & 12.8\% \\
+\quad Identifiability of the subsets of Brun, Morris, pivoted QR and profile likelihood (profiles) & 38.9 & 5.8\% \\
 \quad Selection by pivoted QR (both variants), Brun, Morris, random subsets and calibration only & 2.8 & 0.4\% \\
-\quad \emph{Subtotal} & \emph{368.6} & \emph{58.1\%} \\
+\quad \emph{Subtotal} & \emph{407.5} & \emph{60.6\%} \\
 \addlinespace
 \midrule
-\textbf{All analyses} & \textbf{633.9} & 100\% \\
+\textbf{All analyses} & \textbf{672.8} & 100\% \\
 \bottomrule
 \end{longtable}

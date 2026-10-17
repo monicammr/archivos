@@ -1,0 +1,46 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "S": [
+  "kin",
+  "kd2fold"
+ ],
+ "n_calibracion": 15,
+ "n_datos": 286,
+ "coste_min": 258.3970697023629,
+ "chi2_por_gl": 0.9605839022392673,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.03556771595054897,
+ "perfiles": [
+  {
+   "parametro": "kin",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 21.936890856399202,
+   "dchi2_max_der": 84.01429097080273,
+   "clase": "identificable",
+   "ic_izq_log": 0.5418249949869685,
+   "ic_der_log": 0.47764942231562135,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.5418249949869685,
+   "ic_der_log_robusto": 0.47764942231562135
+  },
+  {
+   "parametro": "kd2fold",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 269.8270062417109,
+   "dchi2_max_der": 238.47008228839837,
+   "clase": "identificable",
+   "ic_izq_log": 0.22294699422812522,
+   "ic_der_log": 0.21797663149705543,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.22294699422812522,
+   "ic_der_log_robusto": 0.21797663149705543
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

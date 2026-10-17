@@ -1,0 +1,46 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "n_calibracion": 2,
+ "n_datos": 42,
+ "coste_min": 6.474138465981601,
+ "chi2_por_gl": 0.17037206489425266,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.027889442747978777,
+ "perfiles": [
+  {
+   "parametro": "k_syn_R_M",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 221.8972103874496,
+   "dchi2_max_der": 44.8500664570691,
+   "clase": "identificable",
+   "ic_izq_log": 0.33570238014049136,
+   "ic_der_log": 0.366059745896728,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.33570238014049136,
+   "ic_der_log_robusto": 0.366059745896728
+  },
+  {
+   "parametro": "k_bind_M1",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 27.831114346084572,
+   "dchi2_max_der": 45.778071291742606,
+   "clase": "identificable",
+   "ic_izq_log": 0.5707799527686249,
+   "ic_der_log": 0.5791974087519155,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.5707799527686249,
+   "ic_der_log_robusto": 0.5791974087519155
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

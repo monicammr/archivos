@@ -1,0 +1,46 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "beta_0",
+  "t_1"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 120,
+ "coste_min": 20511.846493891,
+ "chi2_por_gl": 173.82920757534745,
+ "umbral_robusto": 667.5041570893342,
+ "rondas": 0,
+ "dchi2_minimo": 1465.223994458498,
+ "perfiles": [
+  {
+   "parametro": "beta_0",
+   "puntos_fallidos": 15,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 0.0,
+   "dchi2_max_der": 0.0,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "t_1",
+   "puntos_fallidos": 11,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 5371.007334690195,
+   "dchi2_max_der": 7549.147809980168,
+   "clase": "identificable",
+   "ic_izq_log": 0.00013103798513138418,
+   "ic_der_log": 0.00010984863661322029,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.02277822911765867,
+   "ic_der_log_robusto": 0.019094901455708378
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": false,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": false
+}

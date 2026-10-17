@@ -1,0 +1,46 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "S": [
+  "k_phos",
+  "k_exp_homo"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 48,
+ "coste_min": 47.97656510565615,
+ "chi2_por_gl": 1.042968806644699,
+ "umbral_robusto": 4.005000217515644,
+ "rondas": 0,
+ "dchi2_minimo": 0.024988935475903418,
+ "perfiles": [
+  {
+   "parametro": "k_phos",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1592.1273203411881,
+   "dchi2_max_der": 476.8029155882881,
+   "clase": "identificable",
+   "ic_izq_log": 0.1466242702009344,
+   "ic_der_log": 0.14912593000010468,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.1500297074946319,
+   "ic_der_log_robusto": 0.15268894957123086
+  },
+  {
+   "parametro": "k_exp_homo",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 101.65431715359215,
+   "dchi2_max_der": 190.60162584908846,
+   "clase": "identificable",
+   "ic_izq_log": 0.5442386785842805,
+   "ic_der_log": 0.539473019736668,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.5556670472741182,
+   "ic_der_log_robusto": 0.550397725509683
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

@@ -1,0 +1,46 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "S": [
+  "xi_KD_Rp_cAMPS",
+  "KD_cAMP"
+ ],
+ "n_calibracion": 11,
+ "n_datos": 687,
+ "coste_min": 686.7366668716277,
+ "chi2_por_gl": 1.0188971318570144,
+ "umbral_robusto": 3.912564986330935,
+ "rondas": 0,
+ "dchi2_minimo": 0.20786145666477296,
+ "perfiles": [
+  {
+   "parametro": "xi_KD_Rp_cAMPS",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 262.5960015362514,
+   "dchi2_max_der": 363.8645934363501,
+   "clase": "identificable",
+   "ic_izq_log": 0.18083054546240995,
+   "ic_der_log": 0.19441802092482752,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.182996145752726,
+   "ic_der_log_robusto": 0.19676782952723093
+  },
+  {
+   "parametro": "KD_cAMP",
+   "puntos_fallidos": 7,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 329.35928660632476,
+   "dchi2_max_der": 565.6466617476478,
+   "clase": "identificable",
+   "ic_izq_log": 0.11098244183740398,
+   "ic_der_log": 0.12273971046986751,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.111314374669652,
+   "ic_der_log_robusto": 0.12354792507667163
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

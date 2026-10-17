@@ -1,0 +1,46 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "S": [
+  "k0",
+  "k4"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 58,
+ "coste_min": 57.94939921849601,
+ "chi2_por_gl": 1.034810700330286,
+ "umbral_robusto": 3.973673089268298,
+ "rondas": 0,
+ "dchi2_minimo": 0.5649987081197381,
+ "perfiles": [
+  {
+   "parametro": "k0",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 4132.058701772736,
+   "dchi2_max_der": 832.7919259423252,
+   "clase": "identificable",
+   "ic_izq_log": 0.05654776806810846,
+   "ic_der_log": 0.06013902654092076,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.057318285220489595,
+   "ic_der_log_robusto": 0.061111997287198905
+  },
+  {
+   "parametro": "k4",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 533.5083573612565,
+   "dchi2_max_der": 61.970435620002675,
+   "clase": "identificable",
+   "ic_izq_log": 0.10916025332714727,
+   "ic_der_log": 0.1361049692668837,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.11044993435349343,
+   "ic_der_log_robusto": 0.13884417899796878
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

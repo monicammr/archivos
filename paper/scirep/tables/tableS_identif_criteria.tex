@@ -1,0 +1,18 @@
+\begin{longtable}{@{}lrrrrrrr@{}}
+\caption{Practical identifiability of the parameters selected by every criterion, with the profile-likelihood procedure of our subsets (reduced problem, all data, $\Delta\chi^2=3.84$ on both sides), over the 27 problems in which every criterion has a subset. Identifiable: selected parameters whose 95\% profile-likelihood interval is bounded on both sides within the bounds of the study. All identifiable: problems in which every selected parameter is identifiable. Admissible: the subset reproduces the full model at $\pm$5\% (Table~2 of the main text). Both: all parameters identifiable \emph{and} the subset admissible. $P$: exact McNemar test against our subsets (all outputs) over problems, for ``all identifiable'' and for ``both'', Holm-adjusted over the four existing criteria (for our subsets selected on the training outputs, unadjusted). Bertozzi is excluded, as in the comparison of admissibility. Same as ours: problems in which the criterion chose exactly our subset, whose profiles are then ours. Our subsets selected on the training outputs are shown only for the problems in which that selection gave an admissible subset.}\label{tab:identifcrit}\\
+\toprule
+Criterion & Problems & Identifiable & All identifiable & Admissible & Both & $P$ (all id.; both) & Same as ours \\
+\midrule
+\endfirsthead
+\toprule
+Criterion & Problems & Identifiable & All identifiable & Admissible & Both & $P$ (all id.; both) & Same as ours \\
+\midrule
+\endhead
+Ours (all outputs) & 27 & 57/66 (86\%) & 21 & 27 & 21 & -- & -- \\
+Ours (training) & 26 & 50/61 (82\%) & 19 & 23 & 16 & 0.5; 0.062 & 9 \\
+Brun & 27 & 56/66 (85\%) & 20 & 25 & 18 & 1; 0.38 & 9 \\
+Morris & 27 & 53/66 (80\%) & 18 & 22 & 14 & 0.75; 0.047 & 6 \\
+Profile likelihood & 27 & 57/66 (86\%) & 22 & 18 & 14 & 1; 0.078 & 2 \\
+Pivoted QR & 27 & 50/66 (76\%) & 14 & 16 & 7 & 0.16; 0.0021 & 1 \\
+\bottomrule
+\end{longtable}

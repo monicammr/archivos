@@ -1,0 +1,46 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "S": [
+  "l4",
+  "k_3"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 135,
+ "coste_min": 134.76645006755643,
+ "chi2_por_gl": 1.0132815794553116,
+ "umbral_robusto": 3.8910012651083963,
+ "rondas": 0,
+ "dchi2_minimo": 0.09874267349795218,
+ "perfiles": [
+  {
+   "parametro": "l4",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1858.688377493658,
+   "dchi2_max_der": 467.0368092858897,
+   "clase": "identificable",
+   "ic_izq_log": 0.06143554332926739,
+   "ic_der_log": 0.06370626966937736,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.06180347686395606,
+   "ic_der_log_robusto": 0.06411876284472386
+  },
+  {
+   "parametro": "k_3",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 28.85290422972409,
+   "dchi2_max_der": 597.6220253457113,
+   "clase": "identificable",
+   "ic_izq_log": 0.3467741720805061,
+   "ic_der_log": 0.2541164049559945,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.34983785402141143,
+   "ic_der_log_robusto": 0.2555623562432372
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

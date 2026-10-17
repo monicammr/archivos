@@ -1,0 +1,46 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "pSTAT5_dephosphorylation",
+  "pJAK2_dephosphorylation"
+ ],
+ "n_calibracion": 5,
+ "n_datos": 205,
+ "coste_min": 355397.86301196134,
+ "chi2_por_gl": 1794.9387020806128,
+ "umbral_robusto": 6892.564615989552,
+ "rondas": 0,
+ "dchi2_minimo": 1.9225325410370715,
+ "perfiles": [
+  {
+   "parametro": "pSTAT5_dephosphorylation",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 572.145551052352,
+   "dchi2_max_der": 5300.194988092466,
+   "clase": "identificable",
+   "ic_izq_log": 0.04669840017859897,
+   "ic_der_log": 0.043227955390421624,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "pJAK2_dephosphorylation",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 854.9106279891566,
+   "dchi2_max_der": 1267.2987901568413,
+   "clase": "identificable",
+   "ic_izq_log": 0.06604817189560828,
+   "ic_der_log": 0.05915838476421644,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

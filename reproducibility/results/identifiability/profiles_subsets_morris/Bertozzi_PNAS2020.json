@@ -1,0 +1,46 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "S": [
+  "gamma_CA",
+  "R0_CA"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 22,
+ "coste_min": 21.99890035743669,
+ "chi2_por_gl": 1.0999450178718344,
+ "umbral_robusto": 4.223788868627844,
+ "rondas": 0,
+ "dchi2_minimo": -8.640213071231528e-06,
+ "perfiles": [
+  {
+   "parametro": "gamma_CA",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": -7.227384699604045e-07,
+   "dchi2_max_der": 0.0001522392097434988,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "R0_CA",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 67.82643343224407,
+   "dchi2_max_der": 15.239414347364928,
+   "clase": "identificable",
+   "ic_izq_log": 1.1286614938561104,
+   "ic_der_log": 1.776384730983103,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 1.1315261201552491,
+   "ic_der_log_robusto": 1.7940135060735276
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": false,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": false
+}

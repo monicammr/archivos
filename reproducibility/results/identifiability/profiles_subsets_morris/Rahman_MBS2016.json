@@ -1,0 +1,46 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "infected_normal_transmission_rate_relative",
+  "infected_moderate_transmission_rate"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 23,
+ "coste_min": 0.03580055482692547,
+ "chi2_por_gl": 0.001704788325091689,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.04910814602876512,
+ "perfiles": [
+  {
+   "parametro": "infected_normal_transmission_rate_relative",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 159.578109252655,
+   "dchi2_max_der": 28.593149132965163,
+   "clase": "identificable",
+   "ic_izq_log": 0.39979173902205506,
+   "ic_der_log": 0.48953650450889274,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.39979173902205506,
+   "ic_der_log_robusto": 0.48953650450889274
+  },
+  {
+   "parametro": "infected_moderate_transmission_rate",
+   "puntos_fallidos": 1,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 321.3687356940048,
+   "dchi2_max_der": 143.18746901981828,
+   "clase": "identificable",
+   "ic_izq_log": 0.44999944811466563,
+   "ic_der_log": 0.3341852744170285,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.44999944811466563,
+   "ic_der_log_robusto": 0.3341852744170285
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 2,
+ "todos_identificables_robusto": true
+}

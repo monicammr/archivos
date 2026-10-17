@@ -158,6 +158,12 @@ def profile_points(folder):
 
 T["ident_dense"] = profile_points("profiles_dense")
 T["ident_train"] = profile_points("profiles_selection_train_fixedscen")
+# identifiability of the subsets of the other criteria (scripts/identificabilidad_criterios.sh)
+_ic = collections.defaultdict(float)
+for _c in ("brun", "morris", "qr_gks", "perfil"):
+    for _s, _t in profile_points(f"profiles_subsets_{_c}").items():
+        _ic[_s] += _t
+T["ident_crit"] = dict(_ic)
 
 LAB = {"sel_par": "Selection, parallel", "sel_1": "Selection, 1 core", "settings": "Settings (15 variants)",
        "rob": "Robustness, paired", "rob_ind": "Robustness, independent", "single": "Single parameter",
@@ -171,7 +177,7 @@ LAB = {"sel_par": "Selection, parallel", "sel_1": "Selection, 1 core", "settings
        "gks": "Pivoted QR (GKS)", "crit5f": r"Criteria, $\pm$5\%, fixed",
        "crit20f": r"Criteria, $\pm$20\%, fixed", "synlog": "Synthetic, log-uniform",
        "synsp": "Synthetic, sparse", "ident_dense": "Profiles, 20 per side",
-       "ident_train": "Profiles, training $S$"}
+       "ident_train": "Profiles, training $S$", "ident_crit": "Profiles, other criteria"}
 ELAPSED = {"sel_1", "pl"}      # not added to the totals (the same computation is counted elsewhere)
 
 
@@ -197,8 +203,8 @@ table(["ext", "nest", "syn20", "syn5", "syn50", "signal", "ident"], "tableS_time
 table(["qr", "bm", "rand", "cal", "crit5", "crit20", "pl", "pl_cpu"], "tableS_time_comparison.tex",
       r"Computing time of the comparison with other criteria, for every problem: selection and validation by pivoted QR, Brun and Morris, the random and calibration-only baselines, the admissibility and synthetic tests of the subsets of all criteria ($\pm$5\%, including the synthetic seeds, and $\pm$20\%), and profile likelihood of every biological parameter of the full model (all rounds), as elapsed time with the profile points in parallel and as processor time, the sum over the points." + COMMON,
       "tab:timecomparison")
-table(["nl", "sel_fix", "sel_train", "gks", "crit5f", "crit20f", "synlog", "synsp", "ident_dense", "ident_train"], "tableS_time_review.tex",
-      r"Computing time of the analyses added in the second review, for every problem: nonlinear re-estimation of the final subset in the 15 scenarios for the problems selected with the first-order $e_{\mathrm{fit}}$; the complete selection repeated with the fixed scenario set and on the training outputs; standard pivoted QR; the admissibility tests of all criteria with the fixed scenario set at $\pm$5\% (including the synthetic seeds) and $\pm$20\%; the synthetic comparison with log-uniform and sparse truths (all criteria, ten seeds); and the identifiability profiles with 20 points per side and of the subsets selected on the training outputs. The check of the identifiability hypotheses over the admissible set (512 Sobol points and adversarial search for five radii) did not record times per problem and is not included; it took about 3~h of elapsed time on an 88-core server." + COMMON,
+table(["nl", "sel_fix", "sel_train", "gks", "crit5f", "crit20f", "synlog", "synsp", "ident_dense", "ident_train", "ident_crit"], "tableS_time_review.tex",
+      r"Computing time of the analyses added in the second review, for every problem: nonlinear re-estimation of the final subset in the 15 scenarios for the problems selected with the first-order $e_{\mathrm{fit}}$; the complete selection repeated with the fixed scenario set and on the training outputs; standard pivoted QR; the admissibility tests of all criteria with the fixed scenario set at $\pm$5\% (including the synthetic seeds) and $\pm$20\%; the synthetic comparison with log-uniform and sparse truths (all criteria, ten seeds); and the identifiability profiles with 20 points per side and of the subsets selected on the training outputs; and the identifiability profiles of the subsets of Brun, Morris, pivoted QR and profile likelihood (sum over the four criteria). The check of the identifiability hypotheses over the admissible set (512 Sobol points and adversarial search for five radii) did not record times per problem and is not included; it took about 3~h of elapsed time on an 88-core server." + COMMON,
       "tab:timereview")
 
 # summary per analysis
@@ -237,6 +243,7 @@ GROUPS = [
         ("Profile likelihood of the full model (processor time)", ["pl_cpu"]),
         (r"Admissibility and synthetic tests of the subsets of all criteria ($\pm$5\% and $\pm$20\%, both scenario sets)", ["crit5", "crit20", "crit5f", "crit20f"]),
         ("Synthetic comparison with log-uniform and sparse truths (all criteria)", ["synlog", "synsp"]),
+        ("Identifiability of the subsets of Brun, Morris, pivoted QR and profile likelihood (profiles)", ["ident_crit"]),
         ("Selection by pivoted QR (both variants), Brun, Morris, random subsets and calibration only", ["qr", "gks", "bm", "rand", "cal"])]),
 ]
 used = {k for _, items in GROUPS for _, ks in items for k in ks}

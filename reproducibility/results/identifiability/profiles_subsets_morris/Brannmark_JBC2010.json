@@ -1,0 +1,46 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "k22",
+  "k3"
+ ],
+ "n_calibracion": 3,
+ "n_datos": 43,
+ "coste_min": 42.99135541980875,
+ "chi2_por_gl": 1.1313514584160196,
+ "umbral_robusto": 4.344389600317515,
+ "rondas": 0,
+ "dchi2_minimo": 0.00017182562082496133,
+ "perfiles": [
+  {
+   "parametro": "k22",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1.989560768590927,
+   "dchi2_max_der": 0.33221072959631925,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "k3",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 1.959132864858546,
+   "dchi2_max_der": 0.32096694168468076,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 0,
+ "todos_identificables": false,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

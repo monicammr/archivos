@@ -1,0 +1,46 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k8",
+  "k30f"
+ ],
+ "n_calibracion": 9,
+ "n_datos": 62,
+ "coste_min": 184162.43483618955,
+ "chi2_por_gl": 3611.0281340429324,
+ "umbral_robusto": 13866.34803472486,
+ "rondas": 0,
+ "dchi2_minimo": 9.158887587575009,
+ "perfiles": [
+  {
+   "parametro": "k8",
+   "puntos_fallidos": 3,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 5199.992623461701,
+   "dchi2_max_der": 767.6122258350952,
+   "clase": "identificable",
+   "ic_izq_log": 0.01299609304785616,
+   "ic_der_log": 0.020963244516776048,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  },
+  {
+   "parametro": "k30f",
+   "puntos_fallidos": 5,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 9089.466989728622,
+   "dchi2_max_der": 6238.128823218634,
+   "clase": "identificable",
+   "ic_izq_log": 0.006728352669019525,
+   "ic_der_log": 0.005184284597332583,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 2,
+ "todos_identificables": true,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}
