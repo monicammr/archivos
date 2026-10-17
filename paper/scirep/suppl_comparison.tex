@@ -22,12 +22,12 @@ Supplementary Table~\ref{tab:perfil} gives the classification of every problem. 
 \emph{The two large problems.} Bachmann and Lucarelli were profiled in a separate run, with the same protocol and the profile points distributed over 60 cores. In Bachmann (90 free parameters, of which 27 biological and the rest calibration parameters), the 221 profile points took 70~min of wall-clock time and 40~h of computing time (median 5.4~min per point, at most 54~min), against 10~s for our complete method; 7 of the 27 biological parameters were identifiable, 5 bounded on one side and 15 flat. Profile likelihood selected \texttt{STAT5Imp} and \texttt{CISRNADelay}, which shares \texttt{CISRNADelay} with our subset (\texttt{CISRNADelay}, \texttt{JAK2ActEpo}); both subsets are admissible (median $e_{\mathrm{fit}}$ 0.30 against 0.34 for ours at $\pm$5\%, 0.30 at $\pm$20\%) and predict the real test data equally well (test $\chi^2/n$ 4.77 for both). In Lucarelli (72 free parameters, all biological), the 592 points took 11~min and 9~h of computing time (median 46~s per point), against 35~s for our method; 14 parameters were identifiable, 15 bounded on one side and 43 flat. The ten parameters selected by profile likelihood share four with our subset (\texttt{init\_Rec}, \texttt{S4tot}, \texttt{S\_phos}, \texttt{geneK\_turn}); they predict the real test data better (test $\chi^2/n$ 1.08 against 1.66) but do not reproduce the full model (median $e_{\mathrm{fit}}$ 0.74 at $\pm$5\% and 0.75 at $\pm$20\%, against 0.435 for our subset). Neither problem needed a re-estimation of the optimum. Profile likelihood was not run for Chen and Raimundez because of the cost given above.
 
 {\footnotesize\setlength{\tabcolsep}{4pt}
-\input{tables/tableS_perfil.tex}
+\input{tables/tableS_profile_likelihood.tex}
 }
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{figures/figS_perfiles.pdf}
+\includegraphics[width=\textwidth]{figures/figS_profiles.pdf}
 \caption{\textbf{Profile likelihoods of three problems.} $\Delta\chi^2$ on the training data as a function of the displacement of $\log|\theta_j|$ from the optimum, for every biological parameter, coloured by class. Dashed line, 95\% threshold. Labels mark the parameters selected by profile likelihood (P) and by our method (O); in Raia they are omitted for legibility.}
 \label{fig:perfiles}
 \end{figure}
@@ -135,7 +135,7 @@ Supplementary Table~\ref{tab:admis} and Supplementary Figure~\ref{fig:admismapa}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/figS_admis_mapa.pdf}
+\includegraphics[width=0.92\textwidth]{figures/figS_admissibility_map.pdf}
 \caption{\textbf{Admissibility of the subsets of every criterion in every problem.} Cell value: smaller of the median $e_{\mathrm{fit}}$ and the median $e_{\mathrm{rel}}$ over 15 scenarios; blue, admissible ($\le\tau_e=0.436$). Left, $\pm$5\%; right, $\pm$20\%. --, criterion not computed.}
 \label{fig:admismapa}
 \end{figure}
@@ -158,7 +158,7 @@ Supplementary Table~\ref{tab:synthmethods} gives the results per problem and Sup
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{figures/figS_synth_semillas.pdf}
+\includegraphics[width=\textwidth]{figures/figS_synth_seeds.pdf}
 \caption{\textbf{Synthetic experiment: fraction of cases with $e_{\mathrm{pred}}\le\tau_e$ for each criterion and seed.} Horizontal lines, mean over seeds. Cases common to the five criteria with signal.}
 \label{fig:synthsemillas}
 \end{figure}

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Supplementary tables of the comparison with other criteria and of the further validations, from
-the stored results (one .tex file per table in output/tables/): tableS_perfil, tableS_selecciones,
+the stored results (one .tex file per table in output/tables/): tableS_profile_likelihood, tableS_selecciones,
 tableS_realdata, tableS_wilcoxon_real, tableS_admis, tableS_mcnemar, tableS_synth_methods,
-tableS_synth_stats, tableS_synth20, tableS_synth20_seeds, tableS_nested, tableS_tiempos.
+tableS_synth_stats, tableS_synth20, tableS_synth20_seeds, tableS_nested, tableS_times_method_vs_profile.
 Usage: python comparison_tables.py
 """
 import sys, json, glob, math, collections
@@ -90,7 +90,7 @@ for s, r in sorted(pf.items()):
                   str(r["n_no_identificables_practicos"]), str(r["n_planos"]),
                   ", ".join(esc(x) for x in r["S_perfil"]), str(r["overlap_perfil_ours"]),
                   "; ".join(nota) or "--"])
-escribe("tableS_perfil.tex", longtable(
+escribe("tableS_profile_likelihood.tex", longtable(
     "@{}lrrrrr>{\\raggedright}p{2.5cm}r>{\\raggedright\\arraybackslash}p{2.3cm}@{}",
     "Profile likelihood of the biological parameters (training data). Ident.: profile above $\\Delta\\chi^2=3.84$ on both sides; one side: only on one side; flat: on neither side. Selected: the $k$ parameters with the narrowest profile confidence interval. Common: parameters shared with the subset of our method. Re-fits: times the full model was re-estimated because a profile point improved the optimum; residual: remaining improvement (in units of $\\chi^2$) after the last re-fit; a residual above one unit means that the optimum of the full model did not converge, so the classification of that problem is provisional. Failed pts: profile points excluded because the fit failed (simulation failure or $\\Delta\\chi^2>10^4$). A side is classified from its remaining points, so a failure can make a parameter look less identifiable than it is; this affects three parameters not classified as identifiable (Okuonghae gamma\\_i and Weber m31, one side; Weber p31, flat), whose class is therefore an upper bound on non-identifiability.",
     "tab:perfil", ["Problem", "$k$", "Bio", "Ident.", "One side", "Flat", "Selected by profile likelihood", "Common", "Note"], filas))
@@ -306,7 +306,7 @@ for s in sorted(ref):
 both_t = [(par_s, t1[s_]) for s_, par_s in ((s_, (fx.get(s_) or tp.get(s_) or {}).get("segundos")) for s_ in ref)
           if ok(par_s) and s_ in t1]
 n_fast, n_both = sum(o < q for o, q in both_t), len(both_t)
-escribe("tableS_tiempos.tex", longtable(
+escribe("tableS_times_method_vs_profile.tex", longtable(
     "@{}lrrrrrl@{}",
     "Computation time (seconds of wall-clock time) of our complete method (selection, admissibility test and backward elimination, run from scratch without cached results) with the sensitivity computations in parallel and on a single core, and of profile likelihood with all profile points of a problem computed in parallel (120 cores; 60 cores for Bachmann and Lucarelli, whose more than 60 free parameters were profiled in a separate run) (first round, and including the re-estimations of the optimum). Profile likelihood was not run for three reasons, given in the last column: not run, because of its computational cost (Chen, Raimundez; Supplementary Note \\textit{Profile likelihood}); no split, no training/test split on which to select (Blasi); not admissible, our method found no admissible subset, so there was nothing to compare. "
     f"Our method was faster in {n_fast} of the {n_both} problems with both times. "

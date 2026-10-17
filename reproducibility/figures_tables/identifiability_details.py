@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Resultados por sistema de la nota «Identifiability of the selected parameters»:
-  * figS_identif_perfiles.pdf — perfil Δχ² de cada parámetro seleccionado en los 32 problemas
+  * figS_identif_profiles.pdf — perfil Δχ² de cada parámetro seleccionado en los 32 problemas
     (un panel por problema; color según la clase del perfil; umbral 3,84);
   * tableS_identif_param.tex — una fila por parámetro: clase, intervalo de confianza (log),
     información perfilada I_j, semiancho de Wald, γ, ε, t* y distancias a los límites.
@@ -91,7 +91,7 @@ fig.legend(handles=[Line2D([], [], color=c, marker="o", ms=3, lw=1, label=NOMBRE
            loc="lower center", ncol=4, frameon=False, bbox_to_anchor=(0.5, -0.005))
 fig.tight_layout(rect=(0, 0.025, 1, 1), h_pad=0.6, w_pad=0.4)
 (PAPER / "figures").mkdir(parents=True, exist_ok=True)
-fig.savefig(PAPER / "figures" / "figS_identif_perfiles.pdf")
+fig.savefig(PAPER / "figures" / "figS_identif_profiles.pdf")
 plt.close(fig)
 
 # ── tabla por parámetro ───────────────────────────────────────────────────────────

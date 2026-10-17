@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
 Supplementary figures of the comparison with other criteria, from the stored results:
-  figures/figS_perfiles.pdf        profile likelihoods of three problems
-  figures/figS_admis_mapa.pdf      admissibility per problem and criterion, +-5 % and +-20 %
-  figures/figS_synth_semillas.pdf  synthetic success per seed and criterion
-  figures/figS_anidada.pdf         nested validation: original, nested and full
+  figures/figS_profiles.pdf        profile likelihoods of three problems
+  figures/figS_admissibility_map.pdf      admissibility per problem and criterion, +-5 % and +-20 %
+  figures/figS_synth_seeds.pdf  synthetic success per seed and criterion
+  figures/figS_nested.pdf         nested validation: original, nested and full
 Usage: python comparison_suppl_figures.py
 """
 import sys, json, glob, math, collections
@@ -67,7 +67,7 @@ fig.legend(handles=[Line2D([], [], color="#2a78d6", lw=1.4, label="identifiable"
                     Line2D([], [], color="#b0afaa", lw=0.8, label="flat"),
                     Line2D([], [], color=INK, lw=0.8, ls="--", label="$\\Delta\\chi^2=3.84$")],
            loc="lower center", ncol=4, frameon=False, bbox_to_anchor=(0.5, -0.12), fontsize=6)
-fig.savefig(FIG / "figS_perfiles.pdf", bbox_inches="tight"); plt.close(fig)
+fig.savefig(FIG / "figS_profiles.pdf", bbox_inches="tight"); plt.close(fig)
 
 # ── mapa de admisibilidad ─────────────────────────────────────────────────────────
 def adm(sub):
@@ -102,7 +102,7 @@ for ax, A, tit in ((axs[0], A5, "$\\pm$5% (level used by our method)"), (axs[1],
     ax.tick_params(length=0)
 fig.text(0.5, 0.06, "Blue: admissible (smaller of median $e_{\\mathrm{fit}}$ and median $e_{\\mathrm{rel}}$ at most $\\tau_e=0.436$); value shown in each cell",
          ha="center", fontsize=6, color=INK2)
-fig.savefig(FIG / "figS_admis_mapa.pdf", bbox_inches="tight"); plt.close(fig)
+fig.savefig(FIG / "figS_admissibility_map.pdf", bbox_inches="tight"); plt.close(fig)
 
 # ── aciertos del sintético por semilla ───────────────────────────────────────────
 SS = collections.defaultdict(lambda: collections.defaultdict(dict))
@@ -138,7 +138,7 @@ ax.set_xticks(range(len(sem))); ax.set_xticklabels(sem, fontsize=6); ax.set_xlab
 ax.set_ylabel("Fraction of cases with $e_{\\mathrm{pred}}\\leq\\tau_e$")
 ax.set_ylim(0, 1); ax.grid(axis="y", color=GRID, lw=0.5)
 ax.legend(ncol=5, frameon=False, loc="upper center", bbox_to_anchor=(0.5, 1.15), fontsize=6)
-fig.savefig(FIG / "figS_synth_semillas.pdf", bbox_inches="tight"); plt.close(fig)
+fig.savefig(FIG / "figS_synth_seeds.pdf", bbox_inches="tight"); plt.close(fig)
 
 # ── validación anidada ────────────────────────────────────────────────────────────
 an = L("nested_validation")
@@ -156,5 +156,5 @@ for ax, x, xl, tit in ((axs[0], fu, "Full model re-estimated on training data", 
     ax.set_xscale("log"); ax.set_yscale("log"); ax.set_xlim(lo, hi); ax.set_ylim(lo, hi)
     ax.set_xlabel(f"Test $\\chi^2/n$, {xl}"); ax.set_ylabel("Test $\\chi^2/n$, nested reduced model")
     ax.set_title(tit, loc="left", fontsize=7, color=INK)
-fig.savefig(FIG / "figS_anidada.pdf", bbox_inches="tight"); plt.close(fig)
+fig.savefig(FIG / "figS_nested.pdf", bbox_inches="tight"); plt.close(fig)
 print("ok")

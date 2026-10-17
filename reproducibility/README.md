@@ -201,8 +201,8 @@ The output is written to `figures_tables/output/`:
   single parameter, settings, cost, robustness, system-by-system summary, verified models,
   statements of the formal theorems);
 * comparison with other criteria: `figures/fig3_validation_v2.pdf` (Fig. 3), `figures/fig4_comparison.pdf`
-  (Fig. 4), the supplementary figures `figS_perfiles.pdf`, `figS_admis_mapa.pdf`, `figS_synth_semillas.pdf`,
-  `figS_anidada.pdf`, the supplementary tables `tables/tableS_*.tex` (profile likelihood, selections,
+  (Fig. 4), the supplementary figures `figS_profiles.pdf`, `figS_admissibility_map.pdf`, `figS_synth_seeds.pdf`,
+  `figS_nested.pdf`, the supplementary tables `tables/tableS_*.tex` (profile likelihood, selections,
   real data, Wilcoxon, admissibility, McNemar, synthetic, nested validation, run times) and, in
   `comparison/`, the statistics and the counts quoted in the text;
 * additional analyses: `tables/tableS_robust_indep.tex` and `figures/figS_robust_indep.pdf`
