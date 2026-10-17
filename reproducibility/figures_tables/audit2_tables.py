@@ -56,6 +56,12 @@ rows += ["\\bottomrule", "\\end{longtable}", "\\endgroup"]
 (TAB / "tableS_admis_audit2.tex").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 # ---- synthetic families
+def sg(x):
+    """Signed integer percentage without a negative zero."""
+    v = int(round(x))
+    return "0" if v == 0 else f"{v:+d}"
+
+
 nom = {"ours": "Our method (all outputs)", "train": "Our method (training outputs)", "brun": "Brun",
        "morris": "Morris", "perfil": "Profile likelihood", "qr_gks": "Pivoted QR (GKS)", "qr": "Pivoted QR (earlier)"}
 fam = {"uniforme": "Uniform $\\pm$20\\%", "loguniforme": "Log-uniform", "dispersa": "Sparse"}
@@ -74,8 +80,8 @@ for fk, fl in fam.items():
                 p = r.get("p_holm", r.get("p_raw"))
                 ptxt = "$<0.001$" if p < 0.001 else f"{p:.3f}"
                 tag = "" if "p_holm" in r else " (unadj.)"
-                rows.append(f" & {nom[m]} & {100 * r['rate']:.0f}\\% & ${100 * r['diff_vs_ref']:+.0f}$ "
-                            f"(${100 * r['diff_ci'][0]:+.0f}$ to ${100 * r['diff_ci'][1]:+.0f}$) & {ptxt}{tag} \\\\")
+                rows.append(f" & {nom[m]} & {100 * r['rate']:.0f}\\% & ${sg(100 * r['diff_vs_ref'])}$ "
+                            f"(${sg(100 * r['diff_ci'][0])}$ to ${sg(100 * r['diff_ci'][1])}$) & {ptxt}{tag} \\\\")
     rows.append("\\midrule")
 rows[-1] = "\\bottomrule"
 rows.append("\\end{tabular}")

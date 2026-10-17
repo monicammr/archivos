@@ -77,7 +77,7 @@ al, va, ref = L("random_subsets"), L("calibration_only"), L("selection")
 filas = []
 for s, r in sorted(pf.items()):
     if "no_evaluable" in r:
-        filas.append([corto(s), "\\multicolumn{8}{l}{\\emph{not evaluated: " + esc(r["no_evaluable"]).replace("parámetros libres", "free parameters").replace("sin división entrenamiento/prueba", "no training/test split") + "}}"])
+        filas.append([corto(s), "\\multicolumn{8}{l}{\\emph{not evaluated: " + esc(r["no_evaluable"]).replace("parámetros libres", "free parameters").replace("sin división entrenamiento/prueba", "no training/test split").replace(" $>$ PL\\_\\allowbreak{}PMAX=60", ", above the limit of 60") + "}}"])
         continue
     nota = []
     if r.get("rondas_reajuste"):
@@ -128,11 +128,11 @@ for s in sorted(an):
 escribe("tableS_realdata.tex", longtable(
     "@{}lrrrrrrrrr@{}",
     "Test $\\chi^2/n$ on the held-out experiments (real data) of every selection criterion and baseline. All variants keep the non-selected parameters at $\\theta_0$ except the full model, which re-estimates all parameters on the training data. Bold: lowest value among the seven selection variants. $\\theta_0$, published estimate, obtained using all data including the test experiments.",
-    "tab:realdata", ["Problem", "Ours", "Calib. only", "Random", "QR", "Brun", "Morris", "Profile", "Full", "$\\theta_0$"], filas))
+    "tab:realdata", ["Problem", "Ours", "Calib. only", "Random", "QR (earlier)", "Brun", "Morris", "Profile", "Full", "$\\theta_0$"], filas))
 
 # ── 4. Wilcoxon en datos reales ───────────────────────────────────────────────────
 ours = {s: an[s].get("chi2_test_red_original") for s in an}
-otros = [("Pivoted QR", {s: qr[s].get("chi2_qr") for s in qr}),
+otros = [("Pivoted QR (earlier variant)", {s: qr[s].get("chi2_qr") for s in qr}),
          ("Brun", {s: mb[s].get("chi2_brun") for s in mb}),
          ("Morris", {s: mb[s].get("chi2_morris") for s in mb}),
          ("Profile likelihood", {s: pf[s].get("chi2_perfil") for s in pf}),
@@ -198,38 +198,43 @@ escribe("tableS_mcnemar.tex", longtable(
     "tab:mcnemar", ["Level", "Criterion", "Problems", "Only ours admissible", "Only the other", "$p$"], filas))
 
 # ── 6. sintético: cinco criterios ─────────────────────────────────────────────────
+# Same sources and case selection as Table 2 of the main text (audit2_stats.py): pivoted QR in the
+# standard Golub-Klema-Stewart form (qr_gks); cases common to all criteria, the earlier QR variant included.
+M6 = ["ours", "qr_gks", "brun", "morris", "perfil"]
+REQ = M6 + ["qr"]
 SS = collections.defaultdict(lambda: collections.defaultdict(dict))
-for f in glob.glob(str(R / "criteria_tests" / "*__sint_*.json")):
-    d = json.loads(Path(f).read_text(encoding="utf-8"))
-    if ok(d.get("B_epred_red")):
-        SS[d["sistema"]][d["metodo"]][d["semilla"]] = d
 for f in glob.glob(str(R / "synthetic_seeds" / "*" / "s*.json")):
     d = json.loads(Path(f).read_text(encoding="utf-8"))
-    if ok(d.get("B_epred_red")):
+    if ok(d.get("B_epred_red")) and ok(d.get("B_chi2_test_theta0")):
         SS[d["sistema"]]["ours"][d["semilla"]] = d
+for folder in ("criteria_tests", "criteria_tests_fixedscen"):
+    for f in glob.glob(str(R / folder / "*__sint_*.json")):
+        d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if ok(d.get("B_epred_red")) and ok(d.get("B_chi2_test_theta0")):
+            SS[d["sistema"]][d["metodo"]].setdefault(d["semilla"], d)
 filas, cnt = [], {}
 for s in sorted(SS):
-    c = {m: [0, 0] for m in M}; med = {m: [] for m in M}
+    c = {m: [0, 0] for m in M6}; med = {m: [] for m in M6}
     for k in range(42, 62):
-        ds = [SS[s][m].get(k) for m in M]
+        ds = [SS[s][m].get(k) for m in REQ]
         if all(ds) and ds[0]["B_chi2_test_theta0"] >= 2:
-            for m, d in zip(M, ds):
+            for m, d in zip(M6, ds):
                 c[m][0] += d["B_epred_red"] <= TAU; c[m][1] += 1; med[m].append(d["B_epred_red"])
     if c["ours"][1]:
         cnt[s] = c
-        filas.append([corto(s), str(c["ours"][1])] + [f"{c[m][0]} ({np.median(med[m]):.2f})" for m in M])
-tot = {m: sum(cnt[s][m][0] for s in cnt) for m in M}; n = sum(cnt[s]["ours"][1] for s in cnt)
-filas.append(["\\midrule Total", str(n)] + [f"{tot[m]} ({tot[m] / n:.0%})".replace("%", "\\%") for m in M])
+        filas.append([corto(s), str(c["ours"][1])] + [f"{c[m][0]} ({np.median(med[m]):.2f})" for m in M6])
+tot = {m: sum(cnt[s][m][0] for s in cnt) for m in M6}; n = sum(cnt[s]["ours"][1] for s in cnt)
+filas.append(["\\midrule Total", str(n)] + [f"{tot[m]} ({tot[m] / n:.0%})".replace("%", "\\%") for m in M6])
 escribe("tableS_synth_methods.tex", longtable(
     "@{}lrrrrrr@{}",
-    "Synthetic prediction experiment for the five criteria (20 seeds, cases common to all criteria in which the parameter change exceeded the noise). Each entry: number of cases with $e_{\\mathrm{pred}}\\le\\tau_e$ and, in parentheses, the median $e_{\\mathrm{pred}}$.",
+    "Synthetic prediction experiment for the five criteria (20 seeds, cases common to all criteria in which the parameter change exceeded the noise; the same cases as in Table~2 of the main text; pivoted QR in the standard Golub--Klema--Stewart form). Each entry: number of cases with $e_{\\mathrm{pred}}\\le\\tau_e$ and, in parentheses, the median $e_{\\mathrm{pred}}$.",
     "tab:synthmethods", ["Problem", "Cases", "Ours", "Pivoted QR", "Brun", "Morris", "Profile"], filas))
 
 sis = sorted(cnt); rng = np.random.default_rng(0)
 idx = rng.integers(0, len(sis), size=(10000, len(sis)))
-A = {m: np.array([cnt[s][m][0] for s in sis], float) for m in M}; N = np.array([cnt[s][m][1] for s in sis], float)
+A = {m: np.array([cnt[s][m][0] for s in sis], float) for m in M6}; N = np.array([cnt[s][m][1] for s in sis], float)
 filas = []
-for m in M[1:]:
+for m in M6[1:]:
     dif = A["ours"][idx].sum(1) / N[idx].sum(1) - A[m][idx].sum(1) / N[idx].sum(1)
     obs = (A["ours"].sum() - A[m].sum()) / N.sum()
     lo, hi = np.percentile(dif, [2.5, 97.5]); p = max(min(1, 2 * min((dif <= 0).mean(), (dif >= 0).mean())), 1e-4)
@@ -240,7 +245,7 @@ for m in M[1:]:
         if len(r) >= 10:
             v.append(np.median(r))
     v = np.array(v); nz = v[np.abs(v) > 1e-9]
-    filas.append([{"qr": "Pivoted QR", "brun": "Brun", "morris": "Morris", "perfil": "Profile likelihood"}[m],
+    filas.append([{"qr_gks": "Pivoted QR", "brun": "Brun", "morris": "Morris", "perfil": "Profile likelihood"}[m],
                   f"{100 * obs:+.1f}", f"{100 * lo:+.1f} to {100 * hi:+.1f}", f"{p:.2g}",
                   str(len(v)), f"{math.exp(np.median(v)):.2f}", f"{stats.wilcoxon(nz).pvalue:.2g}"])
 escribe("tableS_synth_stats.tex", longtable(

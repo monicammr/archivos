@@ -86,9 +86,9 @@ compiles the file in a few seconds and prints
 
 \begin{quote}\small\raggedright\texttt{'Models.Boehm\_JProteomeRes2014.final' depends on axioms: [propext, Classical.choice, Quot.sound]}\end{quote}
 
-and, from the folder \texttt{certificados/}, the command
+and, from the folder \texttt{lean\_translation/} of the reproducibility package, the command
 
-\begin{quote}\small\raggedright\texttt{python3 verifica\_traduccion.py Boehm\_JProteomeRes2014}\end{quote}
+\begin{quote}\small\raggedright\texttt{python3 verify\_translation.py Boehm\_JProteomeRes2014}\end{quote}
 
 compares the file with the SBML model (largest relative difference $4\times10^{-16}$).
 
@@ -98,7 +98,7 @@ Of the 34 benchmark problems analysed in the paper, 27 have a verified model; Fr
 
 \begin{itemize}\itemsep0pt\small
 \item \textbf{Smith}: two reactions (R16f and R17f) have rates $k_{11}\,\mathrm{Akt}\,\max(\mathrm{PIP3}-\mathrm{basal},0)$ and $k_{12}\,\mathrm{PKC}\,\max(\mathrm{PIP3}-\mathrm{basal},0)$, written in the SBML model as a piecewise expression. The maximum has a kink at $\mathrm{PIP3}=\mathrm{basal}$, so the vector field is not $C^1$ and the theorem on the differentiability of the solution with respect to the parameters (steps 15--17) does not apply. Finite-difference sensitivities remain valid as long as the trajectory does not cross the kink; a proof that it never does on the simulated horizon would allow the model to be verified, but it is not implemented.
-\item \textbf{Liu} and \textbf{Oliveira}: they contain events triggered by the state or by a parameter-dependent condition, not at fixed times; such events are outside Hypothesis~2 (step~18).
+\item \textbf{Liu} and \textbf{Oliveira}: they contain events triggered by the state or by a parameter-dependent condition, not at fixed times; such events are outside model class~2 (step~18).
 \item \textbf{Alkan}: the model translates, but the syntactic checkers cannot establish well-definedness for 22 rate terms or quasi-positivity for 6 of them; this does not mean that the properties fail, only that the automatic proof does not cover them.
 \item \textbf{Perelson} and \textbf{Schwen}: the quasi-positivity check fails for two rate terms each, so non-negativity of the solutions is not established by the checker.
 \item \textbf{Beer}: smoothness and quasi-positivity are verified on both segments of the model, but the linear growth check is not satisfied, so existence of the nominal solution on the horizon is not proved; only a conditional theorem (assuming the solution exists) is available.
@@ -171,7 +171,7 @@ Of the 34 benchmark problems analysed in the paper, 27 have a verified model; Fr
 
 \begin{itemize}\itemsep0pt\small
 \item \textbf{File:} \texttt{Models/Boehm\_JProteomeRes2014.lean}.
-\item \textbf{States ($n=9$):} STAT5A, STAT5B, pApB, pApA, pBpB, nucpApA, nucpApB, nucpBpB, $\tau$ (tiempo).
+\item \textbf{States ($n=9$):} STAT5A, STAT5B, pApB, pApA, pBpB, nucpApA, nucpApB, nucpBpB, $\tau$ (time).
 \item \textbf{Parameters and nominal values $\theta_0$ ($p=6$):} Epo\_degradation\_BaF3 $=$ 0.02698; k\_exp\_hetero $=$ $1.001\times10^{-5}$; k\_exp\_homo $=$ 0.00617; k\_imp\_hetero $=$ 0.01637; k\_imp\_homo $=$ $9.775\times10^{4}$; k\_phos $=$ $1.577\times10^{4}$.
 \item \textbf{Parameters declared positive:} 6 of 6.
 \item \textbf{Rate terms:} 10, each with its stoichiometric column.
@@ -279,7 +279,7 @@ Of the 34 benchmark problems analysed in the paper, 27 have a verified model; Fr
 
 \begin{itemize}\itemsep0pt\small
 \item \textbf{File:} \texttt{Models/Fiedler\_BMCSystBiol2016.lean}.
-\item \textbf{States ($n=7$):} RAF, pRAF, MEK, pMEK, ERK, pERK, $\tau$ (tiempo).
+\item \textbf{States ($n=7$):} RAF, pRAF, MEK, pMEK, ERK, pERK, $\tau$ (time).
 \item \textbf{Strictly positive species $\Sigma$ (6):} RAF, pRAF, MEK, pMEK, ERK, pERK.
 \item \textbf{Parameters and nominal values $\theta_0$ ($p=12$):} K\_1 $=$ $1\times10^{-5}$; K\_2 $=$ 1.511; K\_3 $=$ 0.9605; k10 $=$ 0.02641; k11 $=$ 163.2; k2 $=$ 1.226; k3 $=$ 769.2; k4 $=$ 2.907; k5 $=$ 577.6; k6 $=$ 3.608; tau1 $=$ 0.2428; tau2 $=$ 0.02114.
 \item \textbf{Parameters declared positive:} 12 of 12.

@@ -130,6 +130,9 @@ def fig2():
         col = BLUE if ok else ORANGE
         a.plot([ret, p], [y, y], color="#cfd8e3" if ok else "#f5c6b1", lw=2.2, solid_capstyle="round", zorder=1)
         a.scatter(p, y, s=16, color=GREY, zorder=3)
+        if d["sistema"].startswith("Crauste"):      # no admissible subset: no reduction to show
+            a.text(p * 1.13, y, "no subset", va="center", fontsize=6.0, color=ORANGE, style="italic")
+            continue
         if ok:
             a.scatter(ret, y, s=20, color=BLUE, zorder=4)
         else:
@@ -164,7 +167,7 @@ def fig2():
     b.set_xlim(0, 140)
     b.grid(axis="x", color=GRID, lw=0.5); b.set_axisbelow(True)
     b.set_xlabel("Median relative error at $\\pm$5% (15 scenarios, %)", fontsize=7.2, labelpad=4)
-    b.text(139, yy[nad - 1] - 0.5 + 0.35, "no admissible subset", fontsize=6.0, color=ORANGE, ha="right", va="bottom", fontweight="bold")
+    b.text(139, yy[nad - 1] - 0.5 - 0.25, "no admissible subset", fontsize=6.0, color=ORANGE, ha="right", va="top", fontweight="bold")
     # ---- panel headings: title and a separate subtitle line
     for ax, letter, title, sub in (
             (a, "a", "Reduction: full model $\\rightarrow$ retained", "labels: % reduction (biological + calibration retained)"),

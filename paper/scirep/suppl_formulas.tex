@@ -183,7 +183,7 @@ Lean name & Statement & Meaning \\
 \end{longtable}
 }
 
-\subsubsection*{Step 6. \texttt{Poda} (4)}
+\subsubsection*{Step 6. \texttt{Poda} (4; \emph{poda} is Spanish for pruning)}
 Theorem 2 of the paper: backward elimination (pruning) returns an admissible subset from which no parameter can be removed; with a monotone criterion, no proper subset of it is admissible.
 
 {\small\raggedright Notation: $Q(S)$ (\texttt{Q}): admissibility predicate; $\operatorname{prune}(S)$ (\texttt{prune Q pick hpick S}): repeatedly remove an element whose removal keeps Q, until none exists.}
@@ -474,7 +474,7 @@ Lean name & Statement & Meaning \\
 }
 
 \subsubsection*{Step 18. \texttt{EventSystems} (1)}
-Hypothesis 2: systems with events at fixed times (piecewise ODEs with reset maps).
+Model class 2: systems with events at fixed times (piecewise ODEs with reset maps).
 
 {\small\raggedright Notation: $f_k,\ L_k,\ R_k$ (\texttt{f k, L k, R k}): vector field, length and reset map of segment k: y\_\{k+1\}(0) = R\_k(y\_k(L\_k), $\theta$).}
 
@@ -578,7 +578,7 @@ Lean name & Statement & Meaning \\
 \subsection*{Steps 23--31. Hypotheses of the benchmark models (kinetic models and reaction networks)}
 
 \subsubsection*{Step 23. \texttt{KineticRegularity} (11)}
-Hypothesis 1: rate laws (mass action, Michaelis--Menten, Hill, \dots{}) define infinitely differentiable vector fields on their domain.
+Model class 1: rate laws (mass action, Michaelis--Menten, Hill, \dots{}) define infinitely differentiable vector fields on their domain.
 
 {\small\raggedright Notation: $\mathrm{MM}(V,K,x)=\dfrac{Vx}{K+x}$ (\texttt{mm V K x}): Michaelis--Menten law; $\mathrm{Hill}_m=\dfrac{Vx^m}{K^m+x^m}$ (\texttt{hill V K x m, hillR V K x h}): Hill law with integer (m) or real (h) exponent; $\mathrm{noDen}(e)$ (\texttt{e.noDen}): e has no division, real power or logarithm (mass action).}
 
@@ -638,7 +638,7 @@ Lean name & Statement & Meaning \\
 }
 
 \subsubsection*{Step 25. \texttt{GlobalExistence} (11)}
-Condition C4: global existence of the nominal solution under a linear growth bound on the non-negative orthant.
+Global existence of the nominal solution under a linear growth bound on the non-negative orthant.
 
 {\small\raggedright Notation: $\operatorname{clamp}_B(z)_i=\max(0,\min(B,z_i))$ (\texttt{clampB B z}): truncation to the box [0, B]$^n$; $[0,B]^n$ (\texttt{box B}): box.}
 
@@ -904,11 +904,11 @@ Lean name & Statement & Meaning \\
 \texttt{dchi2\_\allowbreak{}ge\_\allowbreak{}of\_\allowbreak{}coord\_\allowbreak{}grad} & $\displaystyle |\varphi(\delta)|\ge\frac{\varepsilon+\gamma+\sqrt{\gamma^2+c+2\|r_0\|\varepsilon+2\gamma\varepsilon}}{\sqrt I}\Rightarrow\Delta\chi^2(\delta)\ge c$ & The profile exceeds c beyond t* (numerical optimum). \\[3pt]
 \texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}grad} & $\displaystyle t^{\ast}_\gamma<d_-,\ t^{\ast}_\gamma<d_+\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with a numerical optimum. \\[3pt]
 \texttt{stat\_\allowbreak{}of\_\allowbreak{}projection} & $\displaystyle \langle r_0-p,A\delta\rangle=0\ \forall\delta,\ \|p\|\le\gamma\Rightarrow|\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|$ & $\gamma$ is the norm of the projection of r\_0 onto the range of A. \\[3pt]
-\texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}grad\_\allowbreak{}tail} & $\displaystyle t^{\ast}_\gamma\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\varepsilon\ \text{only for }\delta\in F,\ \varphi(\delta)\le-t_-\vee\varphi(\delta)\ge t_+\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with the remainder bound needed only on the tail of the profile (second audit). \\[3pt]
+\texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}grad\_\allowbreak{}tail} & $\displaystyle t^{\ast}_\gamma\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\varepsilon\ \text{only for }\delta\in F,\ \varphi(\delta)\le-t_-\vee\varphi(\delta)\ge t_+\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with the remainder bound needed only on the tail of the profile. \\[3pt]
 \texttt{dchi2\_\allowbreak{}lower\_\allowbreak{}rel} & $\displaystyle |\langle r_0,A\delta\rangle|\le\gamma\|A\delta\|,\ \|r(\delta)-r_0-A\delta\|\le\eta\|A\delta\|\Rightarrow\Delta\chi^2(\delta)\ge(1-\eta)^2\|A\delta\|^2-2(\gamma+\eta\|r_0\|)\|A\delta\|$ & Lower bound of the cost increase with a relative nonlinear remainder. \\[3pt]
 \texttt{quad\_\allowbreak{}of\_\allowbreak{}root} & $\displaystyle q>0,\ s\ge0,\ s^2=b^2+qc,\ b+s\le qa\Rightarrow c\le qa^2-2ba$ & Elementary quadratic inequality used by the relative version. \\[3pt]
 \texttt{dchi2\_\allowbreak{}ge\_\allowbreak{}of\_\allowbreak{}coord\_\allowbreak{}rel} & $\displaystyle |\varphi(\delta)|\ge t^{\ast}_{\mathrm{rel}}=\frac{b+\sqrt{b^2+(1-\eta)^2c}}{(1-\eta)^2\sqrt I},\ b=\gamma+\eta\|r_0\|\Rightarrow\Delta\chi^2(\delta)\ge c$ & The profile exceeds c beyond the relative half-width ($\eta$ $<$ 1). \\[3pt]
-\texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}rel\_\allowbreak{}tail} & $\displaystyle \eta<1,\ t^{\ast}_{\mathrm{rel}}\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\eta\|A\delta\|\ \text{on the tail}\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with a relative remainder bound on the tail of the profile (second audit). \\[3pt]
+\texttt{practically\_\allowbreak{}identifiable\_\allowbreak{}rel\_\allowbreak{}tail} & $\displaystyle \eta<1,\ t^{\ast}_{\mathrm{rel}}\le t_\pm<d_\pm,\ \|r(\delta)-r_0-A\delta\|\le\eta\|A\delta\|\ \text{on the tail}\Rightarrow\mathrm{PracticallyIdentifiable}$ & Main theorem with a relative remainder bound on the tail of the profile. \\[3pt]
 \bottomrule
 \end{longtable}
 }

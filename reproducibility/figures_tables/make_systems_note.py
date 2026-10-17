@@ -98,7 +98,7 @@ TXT = {
         r"\texttt{kf\_RIIp\_C\_2\_\_RII\_C\_2} is the rate of dephosphorylation of the regulatory subunit within the holoenzyme (pRII$_2$:C$_2$ $\to$ RII$_2$:C$_2$); "
         r"\texttt{xi\_kf\_RII\_C\_2\_\_RII\_2} is the factor that scales the dissociation of the catalytic subunits from the phosphorylated holoenzyme."),
     "Lang_PLOSComputBiol2024": (
-        "Mammalian cell cycle (E2F, RB, cyclins and CDK inhibitors) in the cytoplasm and nucleus (several hundred species).",
+        "Mammalian cell cycle (E2F, RB, cyclins and CDK inhibitors) in the cytoplasm and nucleus (124 species).",
         r"\texttt{kDeE2f1} is the degradation rate of E2F1, shared by all the complexes that contain it; "
         r"\texttt{kDeCe} is the degradation rate of cyclin E in its complexes with the CDK inhibitors p21 and p27."),
     "Laske_PLOSComputBiol2019": (
@@ -115,7 +115,7 @@ TXT = {
         r"\texttt{k\_234} is the rate of formation of the ppSMAD2:ppSMAD3:SMAD4 complex; "
         r"\texttt{geneF\_turn}, \texttt{geneH\_turn} and \texttt{geneK\_turn} are the turnover rates of three target genes."),
     "Okuonghae_ChaosSolitonsFractals2020": (
-        "Model of the COVID-19 epidemic in Lagos, Nigeria, with detected and undetected infected classes (9 species).",
+        "Model of the COVID-19 epidemic in Lagos, Nigeria, with detected and undetected infected classes (8 state variables).",
         r"\texttt{transmission\_rate\_effective} is the effective transmission rate (force of infection, susceptible $\to$ exposed); "
         r"\texttt{gamma\_i} is the recovery rate of detected infected individuals."),
     "Oliveira_NatCommun2021": (
@@ -210,14 +210,13 @@ def validation(s, d):
     out += f", {chi(f)} for the full model refitted to the same data and {chi(t0)} for the published $\\theta_0$. "
     if max(r, f) < 0.01:
         out += "All fits reproduce the data almost exactly, so the comparison is not informative."
-    elif abs(r - f) <= 0.002 * f:
-        out += "The two refitted models predict equally well."
+    elif abs(r - f) <= 0.05 * f:
+        out += "The two refitted models predict equally well (test $\\chi^2/n$ within 5\\%)."
     elif r < f:
         ft = v.get("A_chi2_train_full")
-        if f > 3 * r and ft is not None and ft < f / 3:
+        if f > 3 * r and f > 1 and ft is not None and ft < f / 3:
             out += (f"The reduced model, anchored at $\\theta_0$, predicts the test data better than the refitted "
-                    f"full model, which fits the training data closely ($\\chi^2/n$ {chi(ft)}) but predicts the "
-                    f"test data poorly, a sign of overfitting.")
+                    f"full model, whose training error ($\\chi^2/n$ {chi(ft)}) is much smaller than its test error.")
         elif f > 3 * r:
             out += ("The reduced model, anchored at $\\theta_0$, predicts the test data much better than the "
                     "refitted full model.")
@@ -242,7 +241,7 @@ def paragraph(s):
     kind, ref = DOI[s]
     src = (rf" Source: \href{{https://doi.org/{ref}}}{{\nolinkurl{{doi:{ref}}}}}." if kind == "doi"
            else rf" Source: \href{{https://pubmed.ncbi.nlm.nih.gov/{ref}/}}{{PubMed {ref}}}.")
-    size = f"The full model has {d['p']} parameters" + (f", {nc} of which are measurement calibration parameters (scales, offsets or noise levels) that are always re-estimated" if nc else "") + "."
+    size = f"The full model has {d['p']} parameters" + (f", {nc} of which are measurement calibration parameters (scales and offsets) that are always re-estimated; noise parameters stay at their published values" if nc else "") + "."
     head = f"{what}{src} {size}"
     if s == "Crauste_CellSystems2017":
         B = json.loads((RESULTS / "crauste_blowup.json").read_text())
@@ -315,7 +314,7 @@ def main():
          r"The numbers are those of Table~1 of the main text and Supplementary Table~\ref{tab:selected}: $p$ is the number of estimated parameters, "
          r"$\kappa$ and VIF are the condition number and largest variance inflation factor of the selected sensitivity columns, $R_{\mathrm{var}}$ is the fraction of sensitivity energy kept, "
          r"$\cos\Delta$ and $e_{\mathrm{fit}}$ are medians over 15 random scenarios at $\pm$5\% (threshold $\tau_e=0.436$), the level of guarantee is defined in the Results of the main text, "
-         r"and the robustness patterns A--D are those of Fig.~4 of the main text. In the external validation, both the reduced and the full model are refitted to the training data, and the test $\chi^2/n$ "
+         r"and the robustness patterns A--D are those of Fig.~5 of the main text. In sloppy models the selected subset is often one of several admissible ones (with the training outputs, 20 of the 29 problems with an admissible subset chose a different one), so the descriptions below give the role of the selected parameters in the model, not a unique biological finding. In the external validation, both the reduced and the full model are refitted to the training data, and the test $\chi^2/n$ "
          r"(mean squared residual divided by the recorded noise variance; about 1 for a model that predicts within the noise) is computed on the held-out data. The published estimate $\\theta_0$ was obtained with all the data, including the test data, so its test $\\chi^2/n$ is a reference rather than a competing prediction.", ""]
     for s in systems:
         L += paragraph(s) + [""]

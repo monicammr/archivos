@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage[margin=2.2cm]{geometry}
+\usepackage[a4paper,hmargin=1.9cm,vmargin=2.2cm]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
 \theoremstyle{definition}
 \newtheorem{sdefinition}{Definition}
@@ -13,7 +13,7 @@
 \newtheorem*{sremark}{Remark}
 \usepackage{booktabs,longtable,array}
 \usepackage{url}
-\usepackage[hidelinks,bookmarksopen,bookmarksdepth=3,pdftitle={Supplementary Information},pdfauthor={Monica Miranda R., Carlos Salazar, Cesar Martin, Adriana Aguirre}]{hyperref}
+\usepackage[hidelinks,bookmarksopen,bookmarksdepth=3,pdftitle={Supplementary Information: Re-estimation-verified selection of small parameter subsets for systems biology models},pdfauthor={Monica Miranda R., Carlos Salazar, Cesar Martin, Adriana Aguirre}]{hyperref}
 \usepackage{bookmark}
 \usepackage{caption}
 \usepackage{graphicx}
@@ -92,7 +92,7 @@ M\'onica Miranda R., Carlos Salazar, C\'esar Mart\'in, Adriana Aguirre
 
 \snote{sel}
 
-Supplementary Table~\ref{tab:selected} gives the final subset $S$ for each problem (after backward elimination), the parameters removed by backward elimination, and the quantities that characterise the subset at $\pm5\%$: condition number $\kappa$ and largest VIF of the selected sensitivity columns (no collinearity: both $\le10$), fraction of sensitivity energy kept $R_{\mathrm{var}}$, median $\cos\Delta$ over the 15 scenarios, and median $e_{\mathrm{fit}}$ (admissibility: $\le43.6\%$). The last column gives the level of guarantee of each admissible subset: level~1, $e_{\mathrm{fit}}\le\tau_e$ (the subset reproduces the full model after re-estimation, checked numerically); level~2, in addition $\cos\Delta\ge0.9$ (by Theorem~1 a single rescaling of the reduced response already achieves the threshold); level~3, in addition $R_{\mathrm{var}}\ge0.89$ (the first-order error bound G1 of \sref{seq} also applies). Levels~2 and~3 are stronger guarantees, not requirements of the method; 14, 15 and 2 problems reach levels 1, 2 and~3. For the problems marked $^{\ast}$ the subset was selected with the first-order $e_{\mathrm{fit}}$ and the value shown is the nonlinear re-estimation of the final subset (for Beer and Lang, the first-order value). Calibration parameters, which are always re-estimated, are not listed. Crauste, Beer and Lang have no admissible subset; the subset at which the method stopped is shown. For Crauste it is not meaningful: about half of the perturbed simulations have no solution on the measured horizon (finite-time growth without bound), so the sensitivity matrix is incomplete.
+Supplementary Table~\ref{tab:selected} gives the final subset $S$ for each problem (after backward elimination), the parameters removed by backward elimination, and the quantities that characterise the subset at $\pm5\%$: condition number $\kappa$ and largest VIF of the selected sensitivity columns (below the collinearity thresholds of the selection, centred columns: both $\le10$), fraction of sensitivity energy kept $R_{\mathrm{var}}$, median $\cos\Delta$ over the 15 scenarios, and median $e_{\mathrm{fit}}$ (admissibility: $\le43.6\%$). The last column gives the level of guarantee of each admissible subset: level~1, $e_{\mathrm{fit}}\le\tau_e$ (the subset reproduces the full model after re-estimation, checked numerically); level~2, in addition $\cos\Delta\ge0.9$ (by Theorem~1 a single rescaling of the reduced response already achieves the threshold); level~3, in addition $R_{\mathrm{var}}\ge0.89$ (the first-order error bound G1 of \sref{seq} also applies). Levels~2 and~3 are stronger guarantees, not requirements of the method; 14, 15 and 2 problems reach levels 1, 2 and~3. For the problems marked $^{\ast}$ the subset was selected with the first-order $e_{\mathrm{fit}}$ and the value shown is the nonlinear re-estimation of the final subset (for Beer and Lang, the first-order value). Calibration parameters, which are always re-estimated, are not listed. Crauste, Beer and Lang have no admissible subset; the subset at which the method stopped is shown. For Crauste it is not meaningful: about half of the perturbed simulations have no solution on the measured horizon (finite-time growth without bound), so the sensitivity matrix is incomplete.
 
 {\small
 \input{tables/tableS1.tex}
@@ -176,6 +176,7 @@ $e_{\mathrm{pred}}$ & relative prediction error with respect to a known truth (s
 
 \input{suppl_identif_criteria}
 
+\clearpage
 \input{suppl_conclusion}
 
 \end{document}

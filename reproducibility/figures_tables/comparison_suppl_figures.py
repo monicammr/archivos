@@ -16,12 +16,14 @@ import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
 HERE = Path(__file__).resolve().parent
-from common import RESULTS as R, FIG, TAB, OUT as _OUT
+from common import RESULTS as R, FIG, TAB, OUT as _OUT, EXCLUDE_ADMISSIBILITY
 
 TAU = math.sqrt(1 - 0.81)
-COL = {"ours": "#2a78d6", "brun": "#eb6834", "morris": "#1baf7a", "perfil": "#eda100", "qr": "#e87ba4"}
-NOM = {"ours": "Our method", "brun": "Brun", "morris": "Morris", "perfil": "Profile likelihood", "qr": "Pivoted QR"}
-M = ["ours", "brun", "morris", "perfil", "qr"]
+COL = {"ours": "#2a78d6", "brun": "#eb6834", "morris": "#1baf7a", "perfil": "#eda100", "qr_gks": "#e87ba4"}
+NOM = {"ours": "Our method", "brun": "Brun", "morris": "Morris", "perfil": "Profile likelihood", "qr_gks": "Pivoted QR"}
+# Same data as Table 2 of the main text: fixed scenario set, pivoted QR in the standard
+# Golub-Klema-Stewart form, Bertozzi excluded from the admissibility comparison.
+M = ["ours", "brun", "morris", "perfil", "qr_gks"]
 INK, INK2, GRID = "#0b0b0b", "#52514e", "#d9d8d4"
 plt.rcParams.update({"font.family": "sans-serif", "font.sans-serif": ["Arial", "DejaVu Sans"], "font.size": 7,
                      "axes.titlesize": 8, "axes.edgecolor": INK2, "xtick.color": INK2, "ytick.color": INK2,
@@ -74,10 +76,10 @@ def adm(sub):
     A = collections.defaultdict(dict)
     for f in glob.glob(str(R / sub / "*__adm.json")):
         d = json.loads(Path(f).read_text(encoding="utf-8"))
-        if "eajuste_med" in d:
+        if "eajuste_med" in d and d.get("sistema") not in EXCLUDE_ADMISSIBILITY:
             A[d["sistema"]][d["metodo"]] = min(d["eajuste_med"], d["erel_med"])
     return A
-A5, A20 = adm("criteria_tests"), adm("criteria_tests_20pc")
+A5, A20 = adm("criteria_tests_fixedscen"), adm("criteria_tests_20pc_fixedscen")
 sis = sorted(A5, key=lambda s: corto(s))
 fig, axs = plt.subplots(1, 2, figsize=(7.2, 6.4), gridspec_kw={"wspace": 0.08})
 cmap = plt.get_cmap("Blues_r")
@@ -106,21 +108,22 @@ fig.savefig(FIG / "figS_admissibility_map.pdf", bbox_inches="tight"); plt.close(
 
 # ── aciertos del sintético por semilla ───────────────────────────────────────────
 SS = collections.defaultdict(lambda: collections.defaultdict(dict))
-for f in glob.glob(str(R / "criteria_tests" / "*__sint_*.json")):
-    d = json.loads(Path(f).read_text(encoding="utf-8"))
-    if ok(d.get("B_epred_red")):
-        SS[d["sistema"]][d["metodo"]][d["semilla"]] = d
 for f in glob.glob(str(R / "synthetic_seeds" / "*" / "s*.json")):
     d = json.loads(Path(f).read_text(encoding="utf-8"))
-    if ok(d.get("B_epred_red")):
+    if ok(d.get("B_epred_red")) and ok(d.get("B_chi2_test_theta0")):
         SS[d["sistema"]]["ours"][d["semilla"]] = d
+for folder in ("criteria_tests", "criteria_tests_fixedscen"):
+    for f in glob.glob(str(R / folder / "*__sint_*.json")):
+        d = json.loads(Path(f).read_text(encoding="utf-8"))
+        if ok(d.get("B_epred_red")) and ok(d.get("B_chi2_test_theta0")):
+            SS[d["sistema"]][d["metodo"]].setdefault(d["semilla"], d)
 sem = list(range(42, 62))
 tasa = {m: [] for m in M}
 for k in sem:
     c = {m: [0, 0] for m in M}
     for s in SS:
         ds = [SS[s][m].get(k) for m in M]
-        if all(ds) and ds[0]["B_chi2_test_theta0"] >= 2:
+        if all(ds) and SS[s]["qr"].get(k) and ds[0]["B_chi2_test_theta0"] >= 2:
             for m, d in zip(M, ds):
                 c[m][0] += d["B_epred_red"] <= TAU; c[m][1] += 1
     for m in M:

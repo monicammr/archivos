@@ -1,6 +1,6 @@
 % Notas de la comparación con otros criterios de selección (14 de octubre de 2026).
-% Tablas: tables/tableS_*.tex (certificados/tablas_suplemento.py);
-% figuras: figures/figS_*.pdf (certificados/figuras_suplemento.py).
+% Tables: tables/tableS_*.tex (figures_tables/comparison_tables.py);
+% Figures: figures/figS_*.pdf (figures_tables/comparison_suppl_figures.py).
 
 \snote{profile}
 
@@ -61,7 +61,7 @@ These differences do not by themselves invalidate the comparison, and some of th
 
 \snote{compreal}
 
-Supplementary Table~\ref{tab:realdata} gives the test $\chi^2/n$ on the held-out experiments of every criterion and baseline, together with the full model and the published estimate, and Supplementary Table~\ref{tab:wilcoxonreal} the paired comparison with our method over problems. When the non-selected parameters are kept at $\theta_0$, all selection criteria and the random and calibration-only baselines predict similarly: the median ratios to our method are between 0.98 and 1.00, and only pivoted QR (1\% lower $\chi^2$) and calibration-only re-estimation (2\% lower) differ significantly, in favour of the alternative. Oliveira is the only problem in which the specific selection matters strongly. As discussed in the main text, this test does not discriminate between criteria because the fixed parameters carry the information of $\theta_0$, which was estimated with all data.
+Supplementary Table~\ref{tab:realdata} gives the test $\chi^2/n$ on the held-out experiments of every criterion and baseline, together with the full model and the published estimate, and Supplementary Table~\ref{tab:wilcoxonreal} the paired comparison with our method over problems. When the non-selected parameters are kept at $\theta_0$, all selection criteria and the random and calibration-only baselines predict similarly: the median ratios to our method are 0.99 or 1.00, and only the earlier pivoted-QR variant (ratio 0.99, $p=0.026$, unadjusted) and calibration-only re-estimation (0.99, $p=0.003$) differ significantly, slightly in favour of the alternative; standard pivoted QR does not ($P=0.16$, Table~2 of the main text). Oliveira is the only problem in which the specific selection matters strongly. As discussed in the main text, this test does not discriminate between criteria because the fixed parameters carry the information of $\theta_0$, which was estimated with all data.
 
 {\scriptsize\setlength{\tabcolsep}{3pt}
 \input{tables/tableS_realdata.tex}
@@ -143,10 +143,10 @@ Supplementary Table~\ref{tab:admis} and Supplementary Figure~\ref{fig:admismapa}
 \snote{compsynth}
 
 \subsection*{Design}
-The synthetic prediction experiment (\sref{synth}) was repeated with the subsets of every criterion, with the same 20 seeds (42--61), so that the five criteria are evaluated on exactly the same truths and noise realisations. Each subset, with the calibration parameters, was re-estimated on the synthetic training data from $\theta_0$ and $e_{\mathrm{pred}}$ was computed on the test data. The comparison uses the cases common to the five criteria in which the parameter change exceeded the noise (282 cases in 24 problems). Because the 20 seeds of a problem are not independent, the main statistic resamples whole problems (Methods, \emph{Statistics}).
+The synthetic prediction experiment (\sref{synth}) was repeated with the subsets of every criterion, with the same 20 seeds (42--61), so that the five criteria are evaluated on exactly the same truths and noise realisations. Each subset, with the calibration parameters, was re-estimated on the synthetic training data from $\theta_0$ and $e_{\mathrm{pred}}$ was computed on the test data. The comparison uses the cases common to the five criteria in which the parameter change exceeded the noise (281 cases in 24 problems, as in Table~2 of the main text; pivoted QR in the standard Golub--Klema--Stewart form). Because the 20 seeds of a problem are not independent, the main statistic resamples whole problems (Methods, \emph{Statistics}).
 
 \subsection*{Results}
-Supplementary Table~\ref{tab:synthmethods} gives the results per problem and Supplementary Table~\ref{tab:synthstats} the statistics. Our subsets reached $e_{\mathrm{pred}}\le\tau_e$ in 56\% of the cases, those of Brun in 55\%, Morris 48\%, profile likelihood 39\% and pivoted QR 34\%; the advantage of our method over pivoted QR (22 percentage points, 95\% confidence interval 10--34), profile likelihood (17, 8--28) and Morris (9, 2--16) is significant, whereas the difference from Brun is not. The per-problem median prediction error did not differ significantly between criteria (Wilcoxon $p\ge0.07$). Supplementary Figure~\ref{fig:synthsemillas} shows that the ordering of the criteria is similar across seeds.
+Supplementary Table~\ref{tab:synthmethods} gives the results per problem and Supplementary Table~\ref{tab:synthstats} the statistics. Our subsets reached $e_{\mathrm{pred}}\le\tau_e$ in 56\% of the cases, those of Brun in 55\%, Morris 48\%, profile likelihood 39\% and pivoted QR 30\%; the advantage of our method over pivoted QR (26 percentage points, 95\% confidence interval 12--40), profile likelihood (17, 7--28) and Morris (8, 2--16) is significant, whereas the difference from Brun (1, $-1$ to 3) is not, which does not establish equivalence. The per-problem median prediction error differed significantly only from that of pivoted QR (Wilcoxon $p=0.02$; $p\ge0.23$ for the other criteria). Supplementary Figure~\ref{fig:synthsemillas} shows that the ordering of the criteria is similar across seeds.
 
 {\small
 \input{tables/tableS_synth_methods.tex}

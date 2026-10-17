@@ -29,7 +29,12 @@ def chi(x):
         return "--"
     if x < 0.01:
         return r"$<$0.01"
-    return f"{x:.2f}" if x < 100 else f"{x:.3g}" if x < 1e4 else f"{x:.2e}".replace("e+0", "e").replace("e+", "e")
+    if x < 100:
+        return f"{x:.2f}"
+    if x < 1e4:
+        return f"{x:,.0f}".replace(",", "{,}")
+    e = int(np.floor(np.log10(x)))
+    return f"{x / 10 ** e:.1f}e{e}"
 
 
 def identif():
@@ -75,8 +80,9 @@ def table1():
         lv = nivel(d)
         idf = IDF.get(name)
         ids = "--" if idf is None or not d["admisible"] else f"{idf[0]}/{idf[2]} ({idf[1]})"
-        L.append(f"{tex(short)} & {d['p']} & {m} & {c} & {k} & {st} & {'--' if not np.isfinite(er) else f'{100 * er:.0f}'} & {efs} & {lv or '--'} & {pt} & {ids} & {vs} \\\\")
-    L += [r"\botrule", r"\end{tabular}"]
+        ks = "--" if name == "Crauste_CellSystems2017" else str(k)   # no admissible subset
+        L.append(f"{tex(short)} & {d['p']} & {m} & {c} & {ks} & {st} & {'--' if not np.isfinite(er) else f'{100 * er:.0f}'} & {efs} & {lv or '--'} & {pt} & {ids} & {vs} \\\\")
+    L += [r"\bottomrule", r"\end{tabular}"]
     (OUT / "table1.tex").write_text("\n".join(L) + "\n")
 
 
@@ -102,7 +108,7 @@ def tableS1():
         ef, _ = efit_final(name, d)
         efs = "n.d." if name == "Crauste_CellSystems2017" else fmt_efit(ef) + (r"$^{\ast}$" if name in LIN else "")
         L.append(f"{brk(name.split('_')[0])} & {brk(', '.join(d['S']))} & {brk(', '.join(d.get('podados', []) or ['--']))} & "
-                 f"{d['kappa']:.1f} & {d['VIF']:.1f} & {d['Rvar_%']:.0f} & {d['cos_med']:.2f} & {efs} & {lv if lv else '--'} \\\\")
+                 f"{d['kappa']:.1f} & {d['VIF']:.1f} & {d['Rvar_%']:.0f} & {d['cos_med']:.3f} & {efs} & {lv if lv else '--'} \\\\")
     L += [r"\bottomrule", r"\end{longtable}"]
     (OUT / "tableS1.tex").write_text("\n".join(L) + "\n")
     lv = [nivel(d) for d in SEL.values() if d.get("admisible")]
