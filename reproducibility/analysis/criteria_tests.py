@@ -28,6 +28,13 @@ the training outputs"):
   dispersa (a random 15 % of the estimable parameters changed by +-50 %, the rest at theta0):
   other families of synthetic truths than the one used to decide admissibility; results in
   results/criteria_tests_sint_<family>/;
+* CT_CAL_FIXED=1 (test of the role of the calibration parameters, pre-submission audit, L6): the same
+  15 scenarios, but the calibration parameters are reset to theta0, so that only the biological
+  parameters are perturbed; the subset and the calibration parameters are still re-estimated. The
+  biological perturbations are identical to those of the standard test (paired comparison). For our
+  subsets the fraction of the output change of the standard scenarios that is due to the calibration
+  parameters alone, ||dy_C||^2 / ||dy_full||^2, is also reported. Only problems with calibration
+  parameters are run (in the others the test is unchanged). Results in results/criteria_tests_calfixed/;
 * CT_METODOS (comma-separated) restricts the methods; CT_PRUEBAS = adm,sint,real (default adm,sint);
   "real" fits the subset to the real training data and reports the test chi2/n.
 
@@ -66,6 +73,9 @@ if FAMILIA != "uniforme":
     OUTD = R / f"criteria_tests_sint_{FAMILIA}"
 elif FIXED:
     OUTD = OUTD.parent / (OUTD.name + "_fixedscen")
+CAL_FIXED = os.environ.get("CT_CAL_FIXED") == "1"
+if CAL_FIXED:
+    OUTD = R / ("criteria_tests_calfixed" if NIVEL == 0.05 else f"criteria_tests_calfixed_{round(NIVEL * 100)}pc")
 SEMILLAS = [int(x) for x in os.environ.get("SINT_SEMILLAS", "42,43,44,45,46").split(",")]
 SOLO_SINT = os.environ.get("SOLO_SINT") == "1"
 PRUEBAS = os.environ.get("CT_PRUEBAS", "sint" if SOLO_SINT else "adm,sint").split(",")
@@ -132,6 +142,26 @@ def admisibilidad(name, metodo):
     y0 = y0.ravel()
     rng = np.random.default_rng(SEED)
     escen = [th0 * (1 + NIVEL * rng.uniform(-1, 1, size=p)) for _ in range(N_ESC)]
+    extra = {}
+    if CAL_FIXED:
+        Cl = [S.names.index(q) for q in info.get("calibracion", []) if q in S.names]
+        if metodo == "ours" and Cl:
+            # share of the output change of the standard scenarios that the calibration parameters
+            # alone produce (computed once per problem, with our subset's run)
+            share = []
+            for th in escen:
+                ya, tc = S.sim(th), th0.copy()
+                tc[Cl] = th[Cl]
+                yc = S.sim(tc)
+                if ya is None or yc is None:
+                    continue
+                da, dc = ya.ravel() - y0, yc.ravel() - y0
+                if np.linalg.norm(da) > 0:
+                    share.append(float(np.dot(dc, dc) / np.dot(da, da)))
+            extra["frac_cambio_calibracion"] = share
+            extra["frac_cambio_calibracion_med"] = float(np.median(share)) if share else None
+        escen = [np.where(np.isin(np.arange(p), Cl), th0, th) for th in escen]
+        extra["calibracion_fija"] = True
     full = []
     for th in escen:
         yf = S.sim(th)
@@ -202,7 +232,7 @@ def admisibilidad(name, metodo):
             "admisible": bool(len(nombres) >= 2 and min(med, med_r) <= TAU),
             "admisible_sin_kmin": bool(min(med, med_r) <= TAU),
             "tasa_paso": float(np.mean(np.asarray(efit) <= TAU)),
-            "n_escenarios": len(efit), "lineal": lineal, "escenarios_fijos": FIXED}
+            "n_escenarios": len(efit), "lineal": lineal, "escenarios_fijos": FIXED, **extra}
 
 
 def real(name, metodo):
@@ -310,6 +340,8 @@ if __name__ == "__main__":
     sel = [x for x in sys.argv[1:] if not x.startswith("--")]
     if sel:
         nombres = [n for n in nombres if n in sel]
+    if CAL_FIXED:      # without calibration parameters the test is identical to the standard one
+        nombres = [n for n in nombres if json.loads((SUBS / f"{n}.json").read_text()).get("calibracion")]
     tareas = []
     for n in nombres:
         for m in METODOS:
