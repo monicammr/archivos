@@ -1,19 +1,33 @@
 \documentclass[11pt]{letter}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[margin=2.4cm]{geometry}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
 \signature{M\'onica Miranda R.\\Faculty of Engineering, Control and Automation Systems Group\\Escuela Superior Polit\'ecnica del Litoral (ESPOL), Guayaquil, Ecuador\\mmmirand@espol.edu.ec}
-\address{Escuela Superior Polit\'ecnica del Litoral (ESPOL)\\Guayaquil, Ecuador}
+\address{Escuela Superior Polit\'ecnica del Litoral (ESPOL)\\Faculty of Engineering\\Guayaquil, Ecuador}
 
 \begin{document}
-\begin{letter}{The Editors\\Scientific Reports}
+\begin{letter}{The Editors\\\emph{Scientific Reports}}
 
 \opening{Dear Editors,}
 
-We submit the manuscript ``Few biological parameters suffice to reproduce measured dynamics in systems biology models: local sensitivity-based reduction with formally verified mathematical guarantees'' by M\'onica Miranda R., Carlos Salazar, C\'esar Mart\'in and Adriana Aguirre for consideration as an Article in \emph{Scientific Reports}.
+We submit the manuscript ``Few biological parameters suffice to reproduce measured dynamics: re-estimation-verified parameter subset selection for systems biology models'' by M\'onica Miranda R., Carlos Salazar, C\'esar Mart\'in and Adriana Aguirre for consideration as an Article in \emph{Scientific Reports}.
 
-Mathematical models of biological and behavioural processes often contain far more unknown parameters than experimental data can determine. We present a method that, before any model fitting, selects a small set of model parameters that is sufficient to reproduce the measured data, with all other parameters kept at their published values. Applied to 34 published models with real experimental data from the PEtab benchmark collection, the method found such a subset in 32 models, in most cases only two parameters. The reduced models predicted held-out experiments as well as or better than the full models in 27 of 29 testable cases, and 27 of the 32 reductions remained valid for parameter changes of up to 50\%. The main mathematical steps of the method are verified with the Lean proof assistant, and all code and results are openly available.
+Dynamical models in systems biology routinely contain tens to hundreds of unknown rate constants, far more than the available data can determine. Calibrating all of them is slow, numerically unstable and yields parameter values that the data do not constrain. Existing subset-selection criteria choose a few parameters to estimate, but they do not test whether re-estimating the chosen subset actually reproduces what the full model predicts for the measured outputs. Our method closes this gap: starting from published parameter values, it ranks the biological parameters by their effect on the measured outputs, rejects redundant ones, accepts a subset only if re-estimating it (together with the measurement scaling and offset factors) reproduces the full model under random perturbations of all parameters, and removes every parameter that is not needed.
 
-We believe the work suits \emph{Scientific Reports} because it addresses a problem shared by many fields that use dynamical models, including systems biology, pharmacology, epidemiology and behavioural science, and because its conclusions rest on a large, public benchmark and on reproducible code rather than on a single case study. The study was motivated by a social cognitive theory model of physical activity, which is included as an illustrative case.
+We evaluated the method on 34 published models with real data from the PEtab benchmark collection, under a common protocol with null baselines and four established criteria (Brun's collinearity index, Morris screening, profile likelihood and standard pivoted QR). The main findings are:
+\begin{itemize}
+\item In 31 of the 34 models a small subset, usually of two biological parameters, reproduces the measured outputs of the full model; this was confirmed by nonlinear re-estimation, and 24 reductions remain below the admissibility threshold for parameter changes of up to 50\% with independent perturbation directions.
+\item With the other parameters at their published values, all selected parameters are practically identifiable in 25 models (65 of 74 parameters, by profile likelihood).
+\item The test is demanding: random subsets of the same size, or the scaling factors alone, reproduce the full model in only 16 and 9 of 28 models.
+\item Several criteria select identifiable parameters; our subsets are both identifiable and sufficient to reproduce the full model in more problems than those of any other criterion (21 of 27, against 18 for Brun's index, a difference that is not significant, 14 for Morris screening and for profile likelihood, and 7 for pivoted QR). Selected from the same training data, our subsets predict unseen synthetic data as reliably as Brun's and more reliably than those of pivoted QR and profile likelihood.
+\end{itemize}
+
+We have been careful to state the scope of these results. The ranking by sensitivity is not new, and we say so: the contribution is the verification by re-estimation, the reduction by backward elimination and the explicit reporting of the three models in which no reduction was found. We do not claim that reduced models predict better than full models on data unseen by the published estimates, and we report that the minimum subset size of two is a conservative choice, which we test explicitly. The mathematical statements on which the method relies are formally verified in the Lean~4 proof assistant (32 modules, 309 theorems and lemmas, and the hypotheses on the dynamics of 28 benchmark models), and the manuscript specifies when each formal statement applies to a numerical result and when it does not.
+
+We believe the work suits \emph{Scientific Reports} because the problem it addresses, too many parameters for the available data, is shared by systems biology, pharmacology and epidemiology, and because its conclusions rest on a large public benchmark and on fully reproducible analyses rather than on a single case study. A reproducibility package (Zenodo, doi:10.5281/zenodo.23338175) contains the code of the method and of every analysis, all stored results, the programs that regenerate every figure and table, and the Lean proofs, with a manual that describes three independent levels of checking.
+
+The study analyses only publicly available, previously published benchmark models and data; no new data from human participants were collected. The main text is somewhat above the recommended length because the comparison with existing criteria and the scope of the formal verification needed to be reported in the main text; detailed results are given in the Methods and in the Supplementary Information.
 
 \textbf{Suggested reviewers.} [Name, affiliation, e-mail and area of expertise of three to five suggested reviewers.]
 
@@ -21,9 +35,9 @@ We believe the work suits \emph{Scientific Reports} because it addresses a probl
 
 \textbf{Prior discussions.} We have had no prior discussions with any Editorial Board Member of \emph{Scientific Reports} about this work.
 
-\textbf{Related submissions.} [State here the status of any related conference or journal submission of this work, e.g. withdrawn or not overlapping.]
+\textbf{Related submissions.} [State the status of any related conference or journal submission of this work, or ``None''.]
 
-All authors have approved the manuscript and agree with its submission. The corresponding author is M\'onica Miranda R.
+All authors have approved the manuscript and agree with its submission. The manuscript has not been published and is not under consideration elsewhere. The corresponding author is M\'onica Miranda R.
 
 \closing{Sincerely,}
 
