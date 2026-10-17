@@ -1,0 +1,32 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k30r"
+ ],
+ "n_calibracion": 9,
+ "n_datos": 62,
+ "coste_min": 195393.78694736806,
+ "chi2_por_gl": 3757.572825910924,
+ "umbral_robusto": 14429.079651497948,
+ "rondas": 0,
+ "dchi2_minimo": 114.40704984270269,
+ "perfiles": [
+  {
+   "parametro": "k30r",
+   "puntos_fallidos": 7,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 7016.814144300122,
+   "dchi2_max_der": 6848.347909219563,
+   "clase": "identificable",
+   "ic_izq_log": 0.0016782182589620066,
+   "ic_der_log": 0.0016520554997028606,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

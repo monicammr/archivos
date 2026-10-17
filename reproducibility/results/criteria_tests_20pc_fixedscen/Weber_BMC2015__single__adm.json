@@ -1,0 +1,19 @@
+{
+ "S": [
+  "a21"
+ ],
+ "k": 1,
+ "n_calibracion": 5,
+ "eajuste_med": 0.058333993878651125,
+ "erel_med": 0.8128365034174987,
+ "admisible": false,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Weber_BMC2015",
+ "metodo": "single",
+ "prueba": "adm",
+ "segundos": 16.3
+}

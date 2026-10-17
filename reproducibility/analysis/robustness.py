@@ -88,8 +88,17 @@ def evaluate(name):
     res["direcciones"] = "independent at every size" if INDEP else "paired (same at every size)"
     ckf = OUT / "partial" / f"{name}.json"          # checkpoint per size (resume)
     done = json.loads(ckf.read_text()) if ckf.exists() else {}
+    # sizes computed separately by ROBUST_LEVEL runs (one process per size), merged here
+    for f in (OUT / "partial").glob(f"{name}__L*.json"):
+        done.update(json.loads(f.read_text()))
+    only = os.environ.get("ROBUST_LEVEL")          # e.g. "20": compute only this size
+    if only:
+        ckf = OUT / "partial" / f"{name}__L{only}.json"
+        done = {k: v for k, v in done.items() if k == only}
     for level in LEVELS:
         key = f"{int(round(100 * level))}"
+        if only and key != only:
+            continue
         if key in done:
             res["niveles"][key] = done[key]
             continue
@@ -143,6 +152,8 @@ def evaluate(name):
         ckf.parent.mkdir(parents=True, exist_ok=True)
         done[key] = res["niveles"][key]
         ckf.write_text(json.dumps(done))
+    if only:
+        return None
     ok = [res["niveles"][k]["eaj_med"] <= TAU_E for k in res["niveles"]
           if np.isfinite(res["niveles"][k]["eaj_med"])]
     lev = [LEVELS[i] for i in range(len(ok))]
@@ -168,6 +179,9 @@ def _safe(name):
         r = evaluate(name)
     except Exception as e:
         r = {"sistema": name, "error": repr(e)}
+    if r is None:                                    # ROBUST_LEVEL run: only the checkpoint is written
+        print(json.dumps({"sistema": name, "nivel": os.environ.get("ROBUST_LEVEL")}), flush=True)
+        return
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f"{name}.json").write_text(json.dumps(r, indent=1))
     print(json.dumps({k: r.get(k) for k in ("sistema", "patron", "error", "segundos")}),

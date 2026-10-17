@@ -1,0 +1,15 @@
+{
+ "S": [
+  "km2"
+ ],
+ "semilla": 42,
+ "familia": "uniforme",
+ "senal_rms_test": 2.393663474534405,
+ "B_chi2_test_theta0": 5.545374220392146,
+ "B_chi2_test_red": 7.848411190324409,
+ "B_epred_red": 1.1879109242851302,
+ "sistema": "Brannmark_JBC2010",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.7
+}

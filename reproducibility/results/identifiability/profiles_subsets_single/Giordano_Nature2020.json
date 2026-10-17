@@ -1,0 +1,32 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "gamma_4"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 313,
+ "coste_min": 8.600954046965409e-07,
+ "chi2_por_gl": 2.7567160406940415e-09,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 1.3834226318307782e-07,
+ "perfiles": [
+  {
+   "parametro": "gamma_4",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 2.129029674485836e-05,
+   "dchi2_max_der": 1.8341578778814531,
+   "clase": "plano",
+   "ic_izq_log": Infinity,
+   "ic_der_log": Infinity,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 0,
+ "todos_identificables": false,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

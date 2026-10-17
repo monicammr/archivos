@@ -1,0 +1,15 @@
+{
+ "S": [
+  "gamma_0"
+ ],
+ "semilla": 53,
+ "familia": "uniforme",
+ "senal_rms_test": 121.19312347833906,
+ "B_chi2_test_theta0": 14648.555025147398,
+ "B_chi2_test_red": 35.22662137977731,
+ "B_epred_red": 0.04721691836226984,
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.0
+}

@@ -1,0 +1,39 @@
+{"min": "Rahman_MBS2016", "coste": 0.036, "seg": 0.0}
+{"min": "Okuonghae_ChaosSolitonsFractals2020", "coste": 549161.661, "seg": 0.0}
+{"min": "Oliveira_NatCommun2021", "coste": 111982.42, "seg": 0.1}
+{"min": "Borghans_BiophysChem1997", "coste": 104.28, "seg": 0.2}
+{"min": "Weber_BMC2015", "coste": 120.283, "seg": 0.2}
+{"min": "Brannmark_JBC2010", "coste": 43.035, "seg": 0.5}
+{"min": "Fujita_SciSignal2010", "coste": 761.065, "seg": 0.4}
+{"min": "Giordano_Nature2020", "coste": 0.0, "seg": 0.1}
+{"min": "Fiedler_BMCSystBiol2016", "coste": 66.124, "seg": 0.3}
+{"min": "Laske_PLOSComputBiol2019", "coste": 7.074, "seg": 0.9}
+{"min": "Raia_CancerResearch2011", "coste": 356473.316, "seg": 1.2}
+{"min": "Schwen_PONE2014", "coste": 258.613, "seg": 4.1}
+{"min": "SalazarCavazos_MBoC2020", "coste": 719.407, "seg": 0.4}
+{"min": "Alkan_SciSignal2018", "coste": 3371.866, "seg": 5.1}
+{"min": "Smith_BMCSystBiol2013", "coste": 195393.787, "seg": 40.5}
+ronda 0: 15 problemas, 300 puntos
+  50/300 puntos (62 s)
+  100/300 puntos (64 s)
+  150/300 puntos (65 s)
+  200/300 puntos (65 s)
+  250/300 puntos (70 s)
+  300/300 puntos (101 s)
+Done (101 s)
+                                sistema                            parametro  n_libres    norma_r0         gamma           I_j        eps_j      eta_j  puntos_eps parametros_nulos    tstar_rel  cruce_cert_menos  cruce_cert_mas  certificado_local  certificado_rel       tstar  tstar_lineal   d_menos     d_mas  certificado  certificado_lineal   clase_perfil clase_perfil_robusto
+0                   Alkan_SciSignal2018                                   kt        11   58.067772  5.427576e-04  1.115320e+05    43.654218   0.326788           7                      0.251052              0.05            0.05               True             True    0.344003      0.005868  2.302585  2.302585         True                True  identificable        identificable
+1              Borghans_BiophysChem1997                                   v0         3   10.211753  3.837461e-01  4.629325e+05  1631.797694   1.061471          16                           inf               inf             inf              False            False    2.672208      0.002880  2.302222  2.302948        False                True  identificable        identificable
+2                     Brannmark_JBC2010                                  km2         4    6.560125  3.069853e-03  9.471560e+01    36.779009   0.874582          16                     75.031720               inf             inf              False            False    6.046062      0.201351  2.302603  2.302568        False                True  identificable        identificable
+3               Fiedler_BMCSystBiol2016                                  k10         9    8.131693  2.388656e-04  7.492923e+01    19.462506   0.565261          15                      5.667361               inf             inf              False            False    4.316204      0.226381  2.339805  2.265365        False                True  identificable        identificable
+4                  Fujita_SciSignal2010                        reaction_2_k1         4   27.587408  2.734532e-03  8.383600e+02    71.719098   0.842790          16                     64.990920               inf            0.20              False            False    4.650783      0.067678  2.303140  2.302030        False                True  identificable        identificable
+5                   Giordano_Nature2020                              gamma_4         1    0.000927  2.081979e-08  6.034173e-05     1.336564  74.808858          15                           inf               inf             inf              False            False  424.406639    252.264843  2.270006  2.335164        False               False          plano                plano
+6              Laske_PLOSComputBiol2019                                k_imp         3    2.659669  2.554550e-04  5.456007e+01    68.127733   0.975907          16                   1210.934129               inf             inf              False            False   11.814310      0.265294  2.303546  2.301624        False                True  identificable        identificable
+7   Okuonghae_ChaosSolitonsFractals2020                              gamma_0         1  741.054425  6.173638e-02  3.598147e+07     0.000000   0.000000           0                      0.000337               inf             inf              False            False    0.000337      0.000327  2.190185  2.414985        False                True          plano                plano
+8                Oliveira_NatCommun2021                               delta_         1  334.637744  6.195609e-02  3.529671e+08     0.000000   0.000000           0                      0.000108               inf             inf              False            False    0.000108      0.000104  2.156780  2.448390        False                True          plano                plano
+9                        Rahman_MBS2016  infected_moderate_transmission_rate         1    0.189210  9.611332e-06  2.616952e+04   307.219579   0.825702          12                      0.108216              0.05            0.05               True             True    1.966859      0.012113  2.302569  2.302601         True                True  identificable        identificable
+10              Raia_CancerResearch2011                           init_Rec_i         6  597.053864  3.414440e-01  2.930072e+02   136.734592   1.033658          12                           inf               inf             inf              False            False   31.620972      0.114479  0.971500  3.633670        False                True  identificable                plano
+11              SalazarCavazos_MBoC2020               ratio_kpkd_Y1068__FREE         1   26.821768  3.894692e-05  1.663174e+04    13.903870   0.154017           9                      0.092985              0.05            0.05               True             True    0.320124      0.015195  2.302089  2.303081         True                True  identificable        identificable
+12                      Schwen_PONE2014                           ini_R2fold        16   16.081462  1.068710e+01  2.268341e+02    25.363265   0.686797          15                     29.424271               inf             inf              False            False    4.944436      0.130110  2.290745  2.314425        False                True  identificable        identificable
+13                Smith_BMCSystBiol2013                                 k30r        10  442.033694  4.511366e-02  4.586445e+04     7.781974   0.090659           8                      0.453320              0.05            0.05               True             True    0.423978      0.009150  1.229721  3.375449         True                True  identificable                plano
+14                        Weber_BMC2015                                  a21         6   10.967361  7.922111e-05  2.959545e+04    37.821253   0.313694           9                      0.088047              0.05            0.05               True             True    0.387662      0.011391  2.302586  2.302584         True                True  identificable        identificable

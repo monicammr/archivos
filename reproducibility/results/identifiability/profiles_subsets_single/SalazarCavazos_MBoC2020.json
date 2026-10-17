@@ -1,0 +1,32 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_Y1068__FREE"
+ ],
+ "n_calibracion": 0,
+ "n_datos": 18,
+ "coste_min": 719.407233373578,
+ "chi2_por_gl": 42.31807255138694,
+ "umbral_robusto": 162.50139859732585,
+ "rondas": 0,
+ "dchi2_minimo": 40.75074111230242,
+ "perfiles": [
+  {
+   "parametro": "ratio_kpkd_Y1068__FREE",
+   "puntos_fallidos": 7,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 5849.925405034688,
+   "dchi2_max_der": 3078.673523724898,
+   "clase": "identificable",
+   "ic_izq_log": 0.0047115707532994116,
+   "ic_der_log": 0.004522299356356884,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.1006498015416729,
+   "ic_der_log_robusto": 0.09590998107573578
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": true
+}

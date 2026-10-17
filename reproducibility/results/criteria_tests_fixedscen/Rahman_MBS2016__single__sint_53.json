@@ -1,0 +1,15 @@
+{
+ "S": [
+  "infected_moderate_transmission_rate"
+ ],
+ "semilla": 53,
+ "familia": "uniforme",
+ "senal_rms_test": 2.3275895694669457,
+ "B_chi2_test_theta0": 8.17464602356264,
+ "B_chi2_test_red": 2.9872668560920923,
+ "B_epred_red": 0.15175463457183455,
+ "sistema": "Rahman_MBS2016",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.1
+}

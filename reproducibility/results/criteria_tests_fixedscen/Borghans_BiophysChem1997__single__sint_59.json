@@ -1,0 +1,15 @@
+{
+ "S": [
+  "v0"
+ ],
+ "semilla": 59,
+ "familia": "uniforme",
+ "senal_rms_test": 1.2168294087048401,
+ "B_chi2_test_theta0": 2.0974092780941094,
+ "B_chi2_test_red": 2.892044459189833,
+ "B_epred_red": 1.2882998189462205,
+ "sistema": "Borghans_BiophysChem1997",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.5
+}

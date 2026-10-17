@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k_imp"
+ ],
+ "semilla": 42,
+ "familia": "uniforme",
+ "senal_rms_test": 0.3987864798672533,
+ "B_chi2_test_theta0": 0.48990308973427826,
+ "B_chi2_test_red": 2.5992728204666666,
+ "B_epred_red": 3.272439104614346,
+ "sistema": "Laske_PLOSComputBiol2019",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 1.4
+}

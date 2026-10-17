@@ -1,0 +1,32 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "S": [
+  "ini_R2fold"
+ ],
+ "n_calibracion": 15,
+ "n_datos": 286,
+ "coste_min": 258.6134310432261,
+ "chi2_por_gl": 0.9578275223823189,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.565527849487637,
+ "perfiles": [
+  {
+   "parametro": "ini_R2fold",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 765.6549700029972,
+   "dchi2_max_der": 610.598780321729,
+   "clase": "identificable",
+   "ic_izq_log": 0.1207847353795759,
+   "ic_der_log": 0.12497489981134276,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.1207847353795759,
+   "ic_der_log_robusto": 0.12497489981134276
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": true
+}

@@ -1,0 +1,32 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_imp"
+ ],
+ "n_calibracion": 2,
+ "n_datos": 42,
+ "coste_min": 7.073841780576338,
+ "chi2_por_gl": 0.18138055847631634,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 0.1324845102379717,
+ "perfiles": [
+  {
+   "parametro": "k_imp",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 141.3330549234126,
+   "dchi2_max_der": 297.60944679761917,
+   "clase": "identificable",
+   "ic_izq_log": 0.2701026402625119,
+   "ic_der_log": 0.23796554282699417,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.2701026402625119,
+   "ic_der_log_robusto": 0.23796554282699417
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": true
+}

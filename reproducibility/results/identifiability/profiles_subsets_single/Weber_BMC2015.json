@@ -1,0 +1,32 @@
+{
+ "sistema": "Weber_BMC2015",
+ "S": [
+  "a21"
+ ],
+ "n_calibracion": 5,
+ "n_datos": 135,
+ "coste_min": 120.28300733603488,
+ "chi2_por_gl": 0.9324264134576348,
+ "umbral_robusto": 3.84,
+ "rondas": 0,
+ "dchi2_minimo": 69.7980131709564,
+ "perfiles": [
+  {
+   "parametro": "a21",
+   "puntos_fallidos": 7,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 7827.730677841983,
+   "dchi2_max_der": 6891.286613667379,
+   "clase": "identificable",
+   "ic_izq_log": 0.0024462202890844927,
+   "ic_der_log": 0.0027507946326456897,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.0024462202890844927,
+   "ic_der_log_robusto": 0.0027507946326456897
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": true
+}

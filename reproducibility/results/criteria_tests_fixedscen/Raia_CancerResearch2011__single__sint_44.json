@@ -1,0 +1,15 @@
+{
+ "S": [
+  "init_Rec_i"
+ ],
+ "semilla": 44,
+ "familia": "uniforme",
+ "senal_rms_test": 0.24870442421152547,
+ "B_chi2_test_theta0": 1.257235149920283,
+ "B_chi2_test_red": 1.3650497839516431,
+ "B_epred_red": 1.4953359812077933,
+ "sistema": "Raia_CancerResearch2011",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.9
+}

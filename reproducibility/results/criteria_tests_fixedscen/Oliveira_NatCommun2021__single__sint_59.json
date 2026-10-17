@@ -1,0 +1,15 @@
+{
+ "S": [
+  "delta_"
+ ],
+ "semilla": 59,
+ "familia": "uniforme",
+ "senal_rms_test": 401.470748942644,
+ "B_chi2_test_theta0": 161186.34632047717,
+ "B_chi2_test_red": 10144.981096884283,
+ "B_epred_red": 0.2508113680444103,
+ "sistema": "Oliveira_NatCommun2021",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.1
+}

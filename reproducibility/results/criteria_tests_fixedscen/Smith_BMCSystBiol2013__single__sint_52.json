@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k30r"
+ ],
+ "semilla": 52,
+ "familia": "uniforme",
+ "senal_rms_test": 71.72356483628425,
+ "B_chi2_test_theta0": 5181.069077308173,
+ "B_chi2_test_red": 1749.4325147740844,
+ "B_epred_red": 0.5800478181596986,
+ "sistema": "Smith_BMCSystBiol2013",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 31.9
+}

@@ -1,0 +1,17 @@
+Admisibilidad y sintético: 15 problemas, 15 tareas, NPROC=15
+{"sistema": "Rahman_MBS2016", "metodo": "single", "prueba": "adm", "eajuste_med": 0.1238386359280676, "admisible": false, "segundos": 0.9}
+{"sistema": "Okuonghae_ChaosSolitonsFractals2020", "metodo": "single", "prueba": "adm", "eajuste_med": 0.045159365936586815, "admisible": false, "segundos": 1.1}
+{"sistema": "Oliveira_NatCommun2021", "metodo": "single", "prueba": "adm", "eajuste_med": 0.10527602032143163, "admisible": false, "segundos": 2.5}
+{"sistema": "Giordano_Nature2020", "metodo": "single", "prueba": "adm", "eajuste_med": 0.12186352055598636, "admisible": false, "segundos": 5.3}
+{"sistema": "Fiedler_BMCSystBiol2016", "metodo": "single", "prueba": "adm", "eajuste_med": 0.146934825234694, "admisible": false, "segundos": 7.5}
+{"sistema": "Fujita_SciSignal2010", "metodo": "single", "prueba": "adm", "eajuste_med": 0.19537233701606913, "admisible": false, "segundos": 12.8}
+{"sistema": "Laske_PLOSComputBiol2019", "metodo": "single", "prueba": "adm", "eajuste_med": 0.16059340519155643, "admisible": false, "segundos": 16.0}
+{"sistema": "SalazarCavazos_MBoC2020", "metodo": "single", "prueba": "adm", "eajuste_med": 0.2875860066500007, "admisible": false, "segundos": 16.3}
+{"sistema": "Weber_BMC2015", "metodo": "single", "prueba": "adm", "eajuste_med": 0.058333993878651125, "admisible": false, "segundos": 16.3}
+{"sistema": "Alkan_SciSignal2018", "metodo": "single", "prueba": "adm", "eajuste_med": 0.13618225757169708, "admisible": false, "segundos": 16.9}
+{"sistema": "Borghans_BiophysChem1997", "metodo": "single", "prueba": "adm", "eajuste_med": 0.18373555181040824, "admisible": false, "segundos": 19.0}
+{"sistema": "Raia_CancerResearch2011", "metodo": "single", "prueba": "adm", "eajuste_med": 0.040446171145290706, "admisible": false, "segundos": 19.9}
+{"sistema": "Brannmark_JBC2010", "metodo": "single", "prueba": "adm", "eajuste_med": 0.0938289072785468, "admisible": false, "segundos": 21.8}
+{"sistema": "Schwen_PONE2014", "metodo": "single", "prueba": "adm", "eajuste_med": 0.20132889463002893, "admisible": false, "segundos": 83.4}
+{"sistema": "Smith_BMCSystBiol2013", "metodo": "single", "prueba": "adm", "eajuste_med": 0.08029327718621344, "admisible": false, "segundos": 924.3}
+Done.

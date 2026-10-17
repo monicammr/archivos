@@ -1,0 +1,19 @@
+{
+ "S": [
+  "k10"
+ ],
+ "k": 1,
+ "n_calibracion": 8,
+ "eajuste_med": 0.146934825234694,
+ "erel_med": 0.9286730554690834,
+ "admisible": false,
+ "admisible_sin_kmin": true,
+ "tasa_paso": 1.0,
+ "n_escenarios": 15,
+ "lineal": false,
+ "escenarios_fijos": true,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "single",
+ "prueba": "adm",
+ "segundos": 7.5
+}

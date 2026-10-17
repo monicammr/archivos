@@ -1,0 +1,15 @@
+{
+ "S": [
+  "a21"
+ ],
+ "semilla": 52,
+ "familia": "uniforme",
+ "senal_rms_test": 3.2965992142602403,
+ "B_chi2_test_theta0": 10.968137851519685,
+ "B_chi2_test_red": 1.0455297195693383,
+ "B_epred_red": 0.055097679501679785,
+ "sistema": "Weber_BMC2015",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.6
+}

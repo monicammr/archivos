@@ -1,0 +1,32 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "init_Rec_i"
+ ],
+ "n_calibracion": 5,
+ "n_datos": 205,
+ "coste_min": 356473.31596046884,
+ "chi2_por_gl": 1791.3231957812504,
+ "umbral_robusto": 6878.6810718000015,
+ "rondas": 0,
+ "dchi2_minimo": 4.247315723972861,
+ "perfiles": [
+  {
+   "parametro": "init_Rec_i",
+   "puntos_fallidos": 2,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 884.7169207693078,
+   "dchi2_max_der": 5148.58720399288,
+   "clase": "identificable",
+   "ic_izq_log": 0.045205021825033234,
+   "ic_der_log": 0.03648765381439601,
+   "clase_robusto": "plano",
+   "ic_izq_log_robusto": Infinity,
+   "ic_der_log_robusto": Infinity
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 0,
+ "todos_identificables_robusto": false
+}

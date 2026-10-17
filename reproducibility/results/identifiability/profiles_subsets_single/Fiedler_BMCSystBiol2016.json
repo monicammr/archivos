@@ -1,0 +1,32 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "k10"
+ ],
+ "n_calibracion": 8,
+ "n_datos": 72,
+ "coste_min": 66.12443563529285,
+ "chi2_por_gl": 1.04959421643322,
+ "umbral_robusto": 4.030441791103565,
+ "rondas": 0,
+ "dchi2_minimo": 0.1833587845967628,
+ "perfiles": [
+  {
+   "parametro": "k10",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 249.08411329015917,
+   "dchi2_max_der": 103.68736835499217,
+   "clase": "identificable",
+   "ic_izq_log": 0.21476533209077286,
+   "ic_der_log": 0.22697845573777053,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.21865613690764665,
+   "ic_der_log_robusto": 0.2319296361521029
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": true
+}

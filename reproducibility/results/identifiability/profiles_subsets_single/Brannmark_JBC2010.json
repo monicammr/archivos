@@ -1,0 +1,32 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "km2"
+ ],
+ "n_calibracion": 3,
+ "n_datos": 43,
+ "coste_min": 43.035240420589794,
+ "chi2_por_gl": 1.103467703092046,
+ "umbral_robusto": 4.237315979873456,
+ "rondas": 0,
+ "dchi2_minimo": 0.20963130167749,
+ "perfiles": [
+  {
+   "parametro": "km2",
+   "puntos_fallidos": 0,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 806.4837200793482,
+   "dchi2_max_der": 109.70343843445349,
+   "clase": "identificable",
+   "ic_izq_log": 0.2001738655390339,
+   "ic_der_log": 0.22088143946979474,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.20612638539186956,
+   "ic_der_log_robusto": 0.23114223569669046
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": true
+}

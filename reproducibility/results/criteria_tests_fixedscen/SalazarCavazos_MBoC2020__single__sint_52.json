@@ -1,0 +1,15 @@
+{
+ "S": [
+  "ratio_kpkd_Y1068__FREE"
+ ],
+ "semilla": 52,
+ "familia": "uniforme",
+ "senal_rms_test": 1.649345750596366,
+ "B_chi2_test_theta0": 3.0215195379222486,
+ "B_chi2_test_red": 1.5035429706907826,
+ "B_epred_red": 0.6685043398193773,
+ "sistema": "SalazarCavazos_MBoC2020",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 4.3
+}

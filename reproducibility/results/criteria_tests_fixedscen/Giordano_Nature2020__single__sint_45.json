@@ -1,0 +1,15 @@
+{
+ "S": [
+  "gamma_4"
+ ],
+ "semilla": 45,
+ "familia": "uniforme",
+ "senal_rms_test": 0.0013788461509357027,
+ "B_chi2_test_theta0": 0.7995351798111524,
+ "B_chi2_test_red": 0.7994654588451178,
+ "B_epred_red": 1.3477384842448747,
+ "sistema": "Giordano_Nature2020",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.0
+}

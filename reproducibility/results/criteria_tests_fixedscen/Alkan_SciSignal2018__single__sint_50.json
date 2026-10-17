@@ -1,0 +1,15 @@
+{
+ "S": [
+  "kt"
+ ],
+ "semilla": 50,
+ "familia": "uniforme",
+ "senal_rms_test": 0.6325228557730324,
+ "B_chi2_test_theta0": 1.4198426700577422,
+ "B_chi2_test_red": 1.0016091387783355,
+ "B_epred_red": 0.34624869780322926,
+ "sistema": "Alkan_SciSignal2018",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 17.2
+}

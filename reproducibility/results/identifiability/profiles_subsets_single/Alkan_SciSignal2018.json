@@ -1,0 +1,32 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt"
+ ],
+ "n_calibracion": 10,
+ "n_datos": 1733,
+ "coste_min": 3371.8661223585455,
+ "chi2_por_gl": 1.9581104078737197,
+ "umbral_robusto": 7.519143966235084,
+ "rondas": 0,
+ "dchi2_minimo": 249.1528073703039,
+ "perfiles": [
+  {
+   "parametro": "kt",
+   "puntos_fallidos": 9,
+   "minimo_en_limite": [],
+   "dchi2_max_izq": 8124.3489556479035,
+   "dchi2_max_der": 7271.061758198406,
+   "clase": "identificable",
+   "ic_izq_log": 0.0007706114252794254,
+   "ic_der_log": 0.0006145765418787613,
+   "clase_robusto": "identificable",
+   "ic_izq_log_robusto": 0.0015089422522660443,
+   "ic_der_log_robusto": 0.0012034087230878416
+  }
+ ],
+ "n_identificables": 1,
+ "todos_identificables": true,
+ "n_identificables_robusto": 1,
+ "todos_identificables_robusto": true
+}

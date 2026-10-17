@@ -1,0 +1,15 @@
+{
+ "S": [
+  "k10"
+ ],
+ "semilla": 57,
+ "familia": "uniforme",
+ "senal_rms_test": 0.7145321613725389,
+ "B_chi2_test_theta0": 1.4952465581108143,
+ "B_chi2_test_red": 4.461869415745647,
+ "B_epred_red": 2.6838425288621806,
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "metodo": "single",
+ "prueba": "sint",
+ "segundos": 0.2
+}

@@ -1,0 +1,946 @@
+{
+ "problems": [
+  "Alkan_SciSignal2018",
+  "Borghans_BiophysChem1997",
+  "Brannmark_JBC2010",
+  "Fiedler_BMCSystBiol2016",
+  "Fujita_SciSignal2010",
+  "Giordano_Nature2020",
+  "Laske_PLOSComputBiol2019",
+  "Okuonghae_ChaosSolitonsFractals2020",
+  "Oliveira_NatCommun2021",
+  "Rahman_MBS2016",
+  "Raia_CancerResearch2011",
+  "SalazarCavazos_MBoC2020",
+  "Schwen_PONE2014",
+  "Smith_BMCSystBiol2013",
+  "Weber_BMC2015"
+ ],
+ "per_problem": {
+  "Alkan_SciSignal2018": {
+   "single": "kt",
+   "pair": [
+    "kt",
+    "k_rep_nhej"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.14980474883323497
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8095238095238095,
+     "median_50": 0.1799907550322399
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9619047619047619,
+     "median_50": 0.16847046544707228
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8285714285714286,
+     "median_50": 0.26259061044722576
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     3,
+     3
+    ],
+    "single": [
+     3,
+     3
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Borghans_BiophysChem1997": {
+   "single": "v0",
+   "pair": [
+    "Kz",
+    "K_par"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.780952380952381,
+     "median_50": 0.15942589634060886
+    },
+    "single": {
+     "pattern": "C",
+     "admissible_up_to": 0,
+     "pass_rate": 0.6761904761904762,
+     "median_50": 0.16715709159417125
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.6571428571428571,
+     "median_50": 0.4275729103065178
+    },
+    "single": {
+     "pattern": "C",
+     "admissible_up_to": 0,
+     "pass_rate": 0.5142857142857142,
+     "median_50": 0.467415957351463
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     2,
+     11
+    ],
+    "single": [
+     1,
+     11
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Brannmark_JBC2010": {
+   "single": "km2",
+   "pair": [
+    "k1f",
+    "km2"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9333333333333333,
+     "median_50": 0.07272658663738352
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9142857142857143,
+     "median_50": 0.10024013014759635
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.12590903075495552
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.18675584338467907
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     1,
+     18
+    ],
+    "single": [
+     1,
+     18
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Fiedler_BMCSystBiol2016": {
+   "single": "k10",
+   "pair": [
+    "tau2",
+    "k6"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.10482324703449807
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.1238462466950556
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.12267438788437998
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.13352369121765592
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     1,
+     6
+    ],
+    "single": [
+     1,
+     6
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Fujita_SciSignal2010": {
+   "single": "reaction_2_k1",
+   "pair": [
+    "init_AKT",
+    "reaction_6_k1"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.7238095238095238,
+     "median_50": 0.24549747390595153
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9333333333333333,
+     "median_50": 0.11700332712778894
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.6952380952380952,
+     "median_50": 0.27215182490073503
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8571428571428571,
+     "median_50": 0.15477640462859982
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     14,
+     18
+    ],
+    "single": [
+     16,
+     18
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     0,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Giordano_Nature2020": {
+   "single": "gamma_4",
+   "pair": [
+    "alpha_4",
+    "alpha_28"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9238095238095239,
+     "median_50": 0.08874596558659646
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8,
+     "median_50": 0.20469917842931165
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9714285714285714,
+     "median_50": 0.06243065081541166
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8571428571428571,
+     "median_50": 0.3330177948515562
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": null,
+    "single": null
+   },
+   "identifiable": {
+    "pair": [
+     0,
+     2
+    ],
+    "single": [
+     0,
+     1
+    ]
+   }
+  },
+  "Laske_PLOSComputBiol2019": {
+   "single": "k_imp",
+   "pair": [
+    "k_imp",
+    "k_syn_R_M"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.12305648964733218
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8,
+     "median_50": 0.17523475186675885
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9809523809523809,
+     "median_50": 0.1094962664326635
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8,
+     "median_50": 0.2701000636685209
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": null,
+    "single": null
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Okuonghae_ChaosSolitonsFractals2020": {
+   "single": "gamma_0",
+   "pair": [
+    "transmission_rate_effective",
+    "gamma_i"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.04644104279445375
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.11048993676149582
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9619047619047619,
+     "median_50": 0.0599516054602152
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9428571428571428,
+     "median_50": 0.06714309095259142
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     17,
+     20
+    ],
+    "single": [
+     18,
+     20
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     1,
+     2
+    ],
+    "single": [
+     0,
+     1
+    ]
+   }
+  },
+  "Oliveira_NatCommun2021": {
+   "single": "delta_",
+   "pair": [
+    "beta_0",
+    "h_hosp_rate"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9428571428571428,
+     "median_50": 0.16886905773106403
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9142857142857143,
+     "median_50": 0.10790103939452718
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8952380952380953,
+     "median_50": 0.050919313527578204
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8857142857142857,
+     "median_50": 0.17354800786861932
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     12,
+     20
+    ],
+    "single": [
+     12,
+     20
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     1,
+     2
+    ],
+    "single": [
+     0,
+     1
+    ]
+   }
+  },
+  "Rahman_MBS2016": {
+   "single": "infected_moderate_transmission_rate",
+   "pair": [
+    "infected_moderate_transmission_rate",
+    "infected_normal_worsen_rate"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9523809523809523,
+     "median_50": 0.04551867954995858
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8380952380952381,
+     "median_50": 0.11302807002550813
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.034615549932251376
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8285714285714286,
+     "median_50": 0.21683232648310602
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     15,
+     19
+    ],
+    "single": [
+     17,
+     19
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Raia_CancerResearch2011": {
+   "single": "init_Rec_i",
+   "pair": [
+    "SOCS3mRNA_production",
+    "init_Rec_i"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.03985506492686935
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9714285714285714,
+     "median_50": 0.03991607323854072
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9809523809523809,
+     "median_50": 0.03441418597533608
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9428571428571428,
+     "median_50": 0.046201808011834544
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     7,
+     8
+    ],
+    "single": [
+     7,
+     8
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "SalazarCavazos_MBoC2020": {
+   "single": "ratio_kpkd_Y1068__FREE",
+   "pair": [
+    "ratio_kpkd_Y1068__FREE",
+    "ratio_kpkd_YN__FREE"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8666666666666667,
+     "median_50": 0.17235766943865888
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.6666666666666666,
+     "median_50": 0.26839092281409144
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.780952380952381,
+     "median_50": 0.1534846268523647
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.6190476190476191,
+     "median_50": 0.2822808938996814
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     12,
+     18
+    ],
+    "single": [
+     3,
+     18
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Schwen_PONE2014": {
+   "single": "ini_R2fold",
+   "pair": [
+    "ini_R1",
+    "ini_R2fold"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9333333333333333,
+     "median_50": 0.1674537105566997
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.8857142857142857,
+     "median_50": 0.1928220555100062
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9714285714285714,
+     "median_50": 0.15441229321049485
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9428571428571428,
+     "median_50": 0.19309595964489595
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     0,
+     9
+    ],
+    "single": [
+     0,
+     9
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Smith_BMCSystBiol2013": {
+   "single": "k30r",
+   "pair": [
+    "k8",
+    "kminus7b"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.05816188230409024
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.08684639770188114
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.079867649045681
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 0.9904761904761905,
+     "median_50": 0.09961113763419426
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     18,
+     20
+    ],
+    "single": [
+     19,
+     20
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     1,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  },
+  "Weber_BMC2015": {
+   "single": "a21",
+   "pair": [
+    "s12",
+    "a21"
+   ],
+   "robust_paired": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.04196034791617427
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.06348695591775076
+    }
+   },
+   "robust_indep": {
+    "pair": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.05638111601406663
+    },
+    "single": {
+     "pattern": "A",
+     "admissible_up_to": 50,
+     "pass_rate": 1.0,
+     "median_50": 0.06036767246853765
+    }
+   },
+   "adm20": {
+    "pair": true,
+    "single": true
+   },
+   "synthetic": {
+    "pair": [
+     11,
+     20
+    ],
+    "single": [
+     7,
+     20
+    ]
+   },
+   "identifiable": {
+    "pair": [
+     2,
+     2
+    ],
+    "single": [
+     1,
+     1
+    ]
+   }
+  }
+ },
+ "summary": {
+  "robust_paired_admissible_up_to": {
+   "n": 15,
+   "pair_better": 1,
+   "single_better": 0,
+   "p": 1.0
+  },
+  "robust_paired_pattern_A": {
+   "pair": 15,
+   "single": 14
+  },
+  "robust_indep_admissible_up_to": {
+   "n": 15,
+   "pair_better": 1,
+   "single_better": 0,
+   "p": 1.0
+  },
+  "robust_indep_pattern_A": {
+   "pair": 15,
+   "single": 14
+  },
+  "adm20": {
+   "n": 15,
+   "pair_better": 0,
+   "single_better": 0,
+   "p": 1.0,
+   "pair": 15,
+   "single": 15
+  },
+  "synthetic": {
+   "n": 13,
+   "pair_better": 3,
+   "single_better": 4,
+   "p": 1.0,
+   "pair_cases": [
+    113,
+    190
+   ],
+   "single_cases": [
+    105,
+    190
+   ]
+  },
+  "identifiable_all": {
+   "n": 15,
+   "pair_better": 0,
+   "single_better": 2,
+   "p": 0.5,
+   "pair": 10,
+   "single": 12
+  }
+ }
+}
