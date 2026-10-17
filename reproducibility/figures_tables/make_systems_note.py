@@ -289,10 +289,14 @@ def paragraph(s):
     sel += f"; the reduced problem has {100 * (1 - (len(S) + nc) / d['p']):.0f}\\% fewer free parameters than the full one. "
     lv, pt = nivel(d), PAT[s]["patron"]
     eff, nl = efit_final(s, d)
-    efs = fmt_efit(eff) + (rf" (nonlinear re-estimation of the final subset; {100 * d['eajuste_med']:.1f}\% to first order during the selection)" if nl else "")
+    # the note on the first-order selection goes after the formula, as text (inside $...$ it loses its spaces)
+    efs = rf"$e_{{\mathrm{{fit}}}}={fmt_efit(eff)}\%$ at $\pm$5\%"
+    if nl:
+        efs += rf" after nonlinear re-estimation of the final subset ({100 * d['eajuste_med']:.1f}\% to first order during the selection)"
+    rob = PATTERN[pt] + (r" (sizes above $\pm$5\% evaluated with the first-order $e_{\mathrm{fit}}$)" if nl else "")
     met = (rf"For this subset $\kappa={d['kappa']:.1f}$ and VIF ${d['VIF']:.1f}$ (no collinearity), $R_{{\mathrm{{var}}}}={d['Rvar_%']:.0f}\%$, "
-           rf"median $\cos\Delta={d['cos_med']:.2f}$ and median $e_{{\mathrm{{fit}}}}={efs}\%$ at $\pm$5\%: " +
-           (r"the reduced model reproduces the full one, although only just within the threshold" if d["eajuste_med"] > 0.4 else r"the reduced model reproduces the full one") + rf", with guarantee {LEVEL[lv]}; robustness {PATTERN[pt]}.")
+           rf"median $\cos\Delta={d['cos_med']:.2f}$ and median {efs}: " +
+           (r"the reduced model reproduces the full one, although only just within the threshold" if d["eajuste_med"] > 0.4 else r"the reduced model reproduces the full one") + rf", with guarantee {LEVEL[lv]}; robustness {rob}.")
     lean = (f" The model was not verified in Lean because {NOT_VERIFIED[s]}." if s in NOT_VERIFIED
             else r" The hypotheses on the dynamics were verified in Lean (\sref{models}).")
     L.append(head + " " + sel + roles + " " + met)
