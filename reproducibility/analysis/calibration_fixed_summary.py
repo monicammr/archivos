@@ -49,7 +49,7 @@ for p in probs:
         rnd = [ok(A.get((p, f"rand{i}")), "rand") for i in range(20)]
         rnd = [x for x in rnd if x is not None]
         r[tag]["random_fraction"] = float(np.mean(rnd)) if rnd else None
-        r[tag]["discriminates"] = (r[tag]["empty"] is False and rnd != [] and np.mean(rnd) < 0.5)
+        r[tag]["discriminates"] = bool(r[tag]["empty"] is False and rnd != [] and np.mean(rnd) < 0.5)
     out["problems"][p] = r
 for tag in ("standard", "calfixed"):
     cnt = {}
@@ -62,7 +62,7 @@ for tag in ("standard", "calfixed"):
     cnt["discriminating_problems"] = [p for p in probs if out["problems"][p][tag]["discriminates"]]
     out["counts"][tag] = cnt
 out["processor_hours"] = round(sum(d.get("segundos", 0) for d in C.values()) / 3600, 2)
-(R / "calibration_fixed_summary.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+(R / "calibration_fixed_summary.json").write_text(json.dumps(out, indent=1, default=float), encoding="utf-8")
 
 print(f"{len(probs)} problems with calibration parameters; processor time {out['processor_hours']} h")
 print(f"{'problem':<28}{'share C':>8}  {'ours std/cal':>13}  {'calib. only':>12}  {'random std/cal':>15}")
