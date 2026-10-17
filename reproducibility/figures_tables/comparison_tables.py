@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Supplementary tables of the comparison with other criteria and of the further validations, from
-the stored results (one .tex file per table in output/tables/): tableS_profile_likelihood, tableS_selecciones,
+the stored results (one .tex file per table in output/tables/): tableS_profile_likelihood, tableS_selections,
 tableS_realdata, tableS_wilcoxon_real, tableS_admis, tableS_mcnemar, tableS_synth_methods,
 tableS_synth_stats, tableS_synth20, tableS_synth20_seeds, tableS_nested, tableS_times_method_vs_profile.
 Usage: python comparison_tables.py
@@ -103,7 +103,7 @@ for s in sorted(set(qr) | set(mb) | set(pf)):
     sel = {"ours": ref[s].get("S"), "qr": qr.get(s, {}).get("S_qr"), "brun": mb.get(s, {}).get("S_brun"),
            "morris": mb.get(s, {}).get("S_morris"), "perfil": pf.get(s, {}).get("S_perfil")}
     filas.append([corto(s)] + [(", ".join(esc(x) for x in v) if v else "--") for v in sel.values()])
-escribe("tableS_selecciones.tex", longtable(
+escribe("tableS_selections.tex", longtable(
     "@{}l>{\\raggedright}p{2.6cm}>{\\raggedright}p{2.6cm}>{\\raggedright}p{2.6cm}>{\\raggedright}p{2.6cm}>{\\raggedright\\arraybackslash}p{2.6cm}@{}",
     "Biological parameters selected by each criterion (same number $k$ for all). --, criterion not computed for the problem.",
     "tab:selecciones", ["Problem", "Ours", "Pivoted QR", "Brun", "Morris", "Profile likelihood"], filas))
