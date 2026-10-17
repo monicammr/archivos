@@ -1,7 +1,7 @@
 # Reproducibility package
 
-**Few biological parameters suffice to reproduce measured dynamics: verified parameter subset
-selection for systems biology models**
+**Few biological parameters suffice to reproduce measured dynamics: re-estimation-verified
+parameter subset selection for systems biology models**
 
 Mónica Miranda R., Carlos Salazar, César Martín, Adriana Aguirre
 (Escuela Superior Politécnica del Litoral, ESPOL). Submitted to *Scientific Reports*.

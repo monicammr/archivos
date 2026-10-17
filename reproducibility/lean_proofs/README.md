@@ -1,8 +1,7 @@
 # Formal proofs (Lean 4 + Mathlib)
 
 This folder contains **all** formal proofs that accompany the manuscript
-*"Few biological parameters suffice to reproduce measured dynamics in systems biology models:
-local sensitivity-based reduction with formally verified mathematical guarantees"*.
+*"Few biological parameters suffice to reproduce measured dynamics: re-estimation-verified parameter subset selection for systems biology models"*.
 It is a self-contained Lake project: everything can be compiled from here with one command.
 
 * **31 theory modules, 289 theorems and lemmas** (one `.lean` file per module, listed below).

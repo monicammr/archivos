@@ -191,7 +191,7 @@ Al rehacer todo con cuidado aparecieron cuatro cosas que corregí en el paper:
 4. Pulsa **Reserve DOI** (o "Get a DOI now"): Zenodo te muestra el DOI, algo como `10.5281/zenodo.1234567`.
 5. Completa los datos:
    * *Resource type*: Software.
-   * *Title*: "Reproducibility package: Few biological parameters suffice to reproduce measured dynamics in systems biology models".
+   * *Title*: "Reproducibility package: Few biological parameters suffice to reproduce measured dynamics: re-estimation-verified parameter subset selection for systems biology models".
    * *Creators*: los cuatro autores, con afiliación ESPOL (y ORCID si los tienen).
    * *Description*: puedes copiar el primer párrafo del README.
    * *License*: MIT.
