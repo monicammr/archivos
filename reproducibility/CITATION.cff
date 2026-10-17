@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this package, please cite the paper and this package."
 title: "Reproducibility package: Re-estimation-verified selection of small parameter subsets for systems biology models"
 version: 1.6.0
-date-released: 2026-10-16
+date-released: 2026-10-17
 license: MIT
 authors:
   - family-names: "Miranda R."
