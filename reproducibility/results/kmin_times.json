@@ -1,0 +1,22 @@
+{
+ "elapsed_s": 1644.0,
+ "per_problem_s": {
+  "Alkan_SciSignal2018": 527.1,
+  "Borghans_BiophysChem1997": 198.3,
+  "Brannmark_JBC2010": 255.5,
+  "Fiedler_BMCSystBiol2016": 115.4,
+  "Fujita_SciSignal2010": 147.9,
+  "Giordano_Nature2020": 60.3,
+  "Laske_PLOSComputBiol2019": 244.7,
+  "Okuonghae_ChaosSolitonsFractals2020": 15.1,
+  "Oliveira_NatCommun2021": 25.7,
+  "Rahman_MBS2016": 15.3,
+  "Raia_CancerResearch2011": 221.9,
+  "SalazarCavazos_MBoC2020": 250.6,
+  "Schwen_PONE2014": 1474.0,
+  "Smith_BMCSystBiol2013": 16761.9,
+  "Weber_BMC2015": 150.1
+ },
+ "method": "Computing time of the test of k_min = 2 (scripts/prueba_kmin.sh), written to\nresults/kmin_times.json for the Supplementary Note on computing time.\n\nMost programs record the time of every task (field \"segundos\"): robustness of each problem,\nadmissibility and synthetic tasks of criteria_tests.py, and profile points. The exception is the\nrobustness of Smith and Schwen, which was moved during the run to one process per perturbation\nsize (ROBUST_LEVEL); those processes do not record their time, which is therefore taken from the\nmodification times of their checkpoint files (partial/<problem>__L<size>.json) minus the launch\ntime, plus the time the serial runs had spent on these two problems before they were stopped.\nRun: 07:25:44 to 07:53:08 UTC on 17 October 2026 on an 88-core server (log in\nresults/logs_kmin_resumen/prueba_kmin.log).",
+ "total_cpu_h": 5.68
+}

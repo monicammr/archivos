@@ -75,6 +75,22 @@ identificabilidad, validación, comparación de criterios, robustez) para compro
 | `lean_proofs/NonVacuity.lean` | ejemplos verificados que muestran que las hipótesis de cada teorema central se pueden cumplir | descartar teoremas vacíos | — |
 | `lean_proofs/DEFINITIONS_AUDIT.md` | compara cada definición de Lean con el paper y el código | descartar que el enunciado no diga lo que el paper afirma | — |
 
+
+### 2c. Pruebas añadidas el 17 de octubre de 2026 (versión 1.6)
+
+| Programa | Qué hace | Por qué | Produce | Tiempo |
+|---|---|---|---|---|
+| `scripts/identificabilidad_criterios.sh` (usa `prepare_criteria_subsets.py`, `identifiability_profiles.py` con `ID_SUBSETS`, `compare_identifiability_criteria.py`) | calcula el perfil de verosimilitud de los parámetros que eligieron Brun, Morris, QR estándar y el perfil de verosimilitud, con el mismo procedimiento que tus subconjuntos; los cuatro criterios corren a la vez | saber si sus parámetros son tan identificables como los tuyos y si alguno logra parámetros identificables **y** suficientes a la vez | `results/subsets_*/`, `results/identifiability/profiles_subsets_*/`, `criteria_identifiability.json`; columna *Identifiable* de la Tabla 2 y nota del suplemento | ~2 h en 128 núcleos; 41 h de procesador |
+| `scripts/prueba_kmin.sh` (usa `prepare_single_subsets.py`, `robustness.py` con `ROBUST_SUBSETS`, `criteria_tests.py` con `CT_METODOS=single`, `identifiability_profiles.py`, `compare_single_vs_pair.py`; luego `kmin_times.py`) | en los 15 problemas donde un solo parámetro ya basta, pasa el mejor parámetro solo por las mismas pruebas que tu par: robustez de ±1 % a ±50 %, admisibilidad a ±20 %, predicción sintética e identificabilidad | justificar con datos el mínimo de dos parámetros (k_min = 2) | `results/subsets_single/`, `robustness*_subsets_single/`, `kmin_comparison.json`, `kmin_times.json`; nota del suplemento y limitación (iii) | 27 min en 88 núcleos; 5,7 h de procesador |
+| `figures_tables/identif_criteria_tables.py`, `kmin_tables.py` | generan las tablas del suplemento de estas dos pruebas | — | tablas S nuevas | segundos |
+| `scripts/setup_servidor.sh` | prepara un servidor Linux nuevo (clona el repositorio, instala Python y baja los modelos) | facilitar repetir las pruebas en un servidor alquilado | — | ~5 min |
+
+**Resultados.** Identificabilidad: tus parámetros, los de Brun y los del perfil son igual de identificables
+(85–86 %); Morris (80 %) y QR (76 %) menos. Identificables **y** suficientes: tú 21 de 27 problemas,
+Brun 18, Morris 14, perfil 14, QR 7. Mínimo de dos: un parámetro solo es igual de identificable y
+predice igual, pero falla en más escenarios (pasan 88 % frente a 94 %) y su error crece más con cambios
+grandes (18,7 % frente a 10,9 % a ±50 %): el segundo parámetro es un margen de seguridad.
+
 ---
 
 ## 3. Cómo ejecutarlo en tu computadora
@@ -184,7 +200,7 @@ Al rehacer todo con cuidado aparecieron cuatro cosas que corregí en el paper:
 
 1. Entra a https://zenodo.org con tu cuenta (puedes usar ORCID o GitHub).
 2. **New upload**.
-3. Arrastra el archivo `Paquete_reproducibilidad_v1.5.0_2026-10-16.zip` (está en tu carpeta de
+3. Arrastra el archivo `Paquete_reproducibilidad_v1.6.0_2026-10-17.zip` (está en tu carpeta de
    Descargas y en `zenodo/` del repositorio). Como el registro ya existe (DOI 10.5281/zenodo.23338175),
    **no crees uno nuevo**: entra al registro y pulsa **New version**; Zenodo le da un DOI nuevo a la
    versión y mantiene el historial.
@@ -195,7 +211,7 @@ Al rehacer todo con cuidado aparecieron cuatro cosas que corregí en el paper:
    * *Creators*: los cuatro autores, con afiliación ESPOL (y ORCID si los tienen).
    * *Description*: puedes copiar el primer párrafo del README.
    * *License*: MIT.
-   * *Version*: 1.5.0. El título debe ser **idéntico** al del paper (punto N9 de la auditoría).
+   * *Version*: 1.6.0. El título debe ser **idéntico** al del paper (punto N9 de la auditoría).
 6. **Antes de publicar**, pon el DOI en el paper. En `main.tex` y `supplementary.tex` (arriba del todo)
    reemplaza `10.5281/zenodo.XXXXXXX` por tu DOI en la línea `\newcommand{\zenododoi}{...}`; con eso se
    actualizan todas las menciones. Compila de nuevo.

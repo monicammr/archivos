@@ -300,3 +300,38 @@ of the region), `pasa_muestra` (condition holds on the sample), `t` (tail start)
 (epsilon or eta after the adversarial search), `pasa_final`. `_parametros.csv`: `pf` = the hypotheses
 hold on both sides for parameter `parametro` in the region of radius r (10 if no suffix).
 `certificado_train.csv`: same columns as `identifiability/certificado.csv` for the training-output subsets.
+
+
+## Version 1.6
+
+### `subsets_<criterion>/<problem>.json` (analysis/prepare_criteria_subsets.py) and `subsets_single/` (analysis/prepare_single_subsets.py)
+
+`S` (subset of the criterion, or the best single parameter), `calibracion` (calibration parameters,
+those of our selection), `admisible` (marks the problem for the profiling programs; not the
+admissibility of the subset), `origen` (source file and key) or `e_fit_5` and `S_ours` (single parameter).
+
+### `identifiability/profiles_subsets_<criterion>/` and `identifiability/profiles_subsets_single/`
+
+Same format as `identifiability/profiles/`. Only the problems whose subset differs from ours were
+profiled; the others use our profiles. `identifiability/audit2/certificado_<criterion>.csv`: same
+columns as `identifiability/certificado.csv`.
+
+### `identifiability/criteria_identifiability.json` (figures_tables/identif_criteria_tables.py)
+
+`common_problems` (the 27 problems compared) and, per criterion, `identifiable`/`selected` parameters,
+`all_identifiable`, `admissible_5`, `identifiable_and_admissible`, `identical_to_ours`, `cpu_h` and the
+exact McNemar tests against our subsets (`mcnemar_all_identifiable`, `mcnemar_both`: problems in which
+only ours or only the other criterion has the property, `p`, `p_holm`).
+
+### `robustness_subsets_single/`, `robustness_independent_subsets_single/`
+
+Same format as `robustness/` for the best single parameter. `partial/<problem>__L<size>.json`: one
+perturbation size computed in its own process (`ROBUST_LEVEL`).
+
+### `kmin_comparison.json` (analysis/compare_single_vs_pair.py), `kmin_summary.json`, `kmin_times.json` (analysis/kmin_times.py)
+
+Per problem: single parameter and pair; robustness (`pattern`, `admissible_up_to` = largest size with
+median e_fit <= tau_e, `pass_rate` = fraction of all scenarios with e_fit <= tau_e, `median_50`) with
+paired and independent directions; `adm20`; `synthetic` = (cases with e_pred <= tau_e, cases with
+signal); `identifiable` = (identifiable, selected). `summary`: sign tests over problems.
+`kmin_times.json`: elapsed time of the run and processor time per problem (seconds).

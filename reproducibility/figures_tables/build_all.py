@@ -27,6 +27,7 @@ STEPS = [
     ("Note: statements of the formal theorems (and lean_proofs/FORMULAS.md)", "make_formulas.py"),
     ("Supplementary Table S3 (Lean modules)", "make_tableS3.py"),
     ("Note: verified benchmark models (Supplementary Tables S7, S8)", "make_models.py"),
+    ("Identifiability of the subsets of every criterion (Supplementary Tables and the column of Table 2)", "identif_criteria_tables.py"),
     ("Second audit: statistics of the comparison (fixed scenarios, null controls, standard QR, training-output selection, three families of truths) and Table 2", "audit2_stats.py"),
     ("Comparison with other criteria: Fig. 3 (revised) and Fig. 4", "comparison_figures.py"),
     ("Second audit: supplementary tables (nonlinear check, admissibility per problem, synthetic families, identifiability by region)", "audit2_tables.py"),
@@ -38,6 +39,7 @@ STEPS = [
     ("Comparison with other criteria: bootstrap and McNemar statistics", "comparison_statistics.py"),
     ("Comparison with other criteria: summary of the counts quoted in the text", "comparison_summary.py"),
     ("Additional analyses of the review: robustness with independent directions, signal and amplitudes, error in noise units, settings of Lang and Raimundez", "make_review_notes.py"),
+    ("Test of the minimum subset size k_min = 2 (Supplementary Table)", "kmin_tables.py"),
     ("Computing time of every analysis (Supplementary Tables of computing time)", "make_timing_notes.py"),
 ]
 

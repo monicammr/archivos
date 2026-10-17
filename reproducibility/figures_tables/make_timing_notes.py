@@ -52,6 +52,8 @@ def summed(sub, prefix=None):
     if not d.exists():
         return {}
     for f in d.rglob("*.json"):
+        if "__single__" in f.name:        # test of k_min = 2: counted in T["kmin"]
+            continue
         rel = f.relative_to(d).parts
         s = rel[0] if len(rel) > 1 else f.stem.split("__")[0]
         try:
@@ -164,6 +166,10 @@ for _c in ("brun", "morris", "qr_gks", "perfil"):
     for _s, _t in profile_points(f"profiles_subsets_{_c}").items():
         _ic[_s] += _t
 T["ident_crit"] = dict(_ic)
+# test of the minimum subset size k_min = 2 (analysis/kmin_times.py: recorded task times, and checkpoint
+# times for the robustness of Smith and Schwen, which was split into one process per size)
+_kt = RES / "kmin_times.json"
+T["kmin"] = json.loads(_kt.read_text())["per_problem_s"] if _kt.exists() else {}
 
 LAB = {"sel_par": "Selection, parallel", "sel_1": "Selection, 1 core", "settings": "Settings (15 variants)",
        "rob": "Robustness, paired", "rob_ind": "Robustness, independent", "single": "Single parameter",
@@ -177,7 +183,7 @@ LAB = {"sel_par": "Selection, parallel", "sel_1": "Selection, 1 core", "settings
        "gks": "Pivoted QR (GKS)", "crit5f": r"Criteria, $\pm$5\%, fixed",
        "crit20f": r"Criteria, $\pm$20\%, fixed", "synlog": "Synthetic, log-uniform",
        "synsp": "Synthetic, sparse", "ident_dense": "Profiles, 20 per side",
-       "ident_train": "Profiles, training $S$", "ident_crit": "Profiles, other criteria"}
+       "ident_train": "Profiles, training $S$", "ident_crit": "Profiles, other criteria", "kmin": "Test of $k_{\\min}=2$"}
 ELAPSED = {"sel_1", "pl"}      # not added to the totals (the same computation is counted elsewhere)
 
 
@@ -203,8 +209,8 @@ table(["ext", "nest", "syn20", "syn5", "syn50", "signal", "ident"], "tableS_time
 table(["qr", "bm", "rand", "cal", "crit5", "crit20", "pl", "pl_cpu"], "tableS_time_comparison.tex",
       r"Computing time of the comparison with other criteria, for every problem: selection and validation by pivoted QR, Brun and Morris, the random and calibration-only baselines, the admissibility and synthetic tests of the subsets of all criteria ($\pm$5\%, including the synthetic seeds, and $\pm$20\%), and profile likelihood of every biological parameter of the full model (all rounds), as elapsed time with the profile points in parallel and as processor time, the sum over the points." + COMMON,
       "tab:timecomparison")
-table(["nl", "sel_fix", "sel_train", "gks", "crit5f", "crit20f", "synlog", "synsp", "ident_dense", "ident_train", "ident_crit"], "tableS_time_review.tex",
-      r"Computing time of the additional analyses, for every problem: nonlinear re-estimation of the final subset in the 15 scenarios for the problems selected with the first-order $e_{\mathrm{fit}}$; the complete selection repeated with the fixed scenario set and on the training outputs; standard pivoted QR; the admissibility tests of all criteria with the fixed scenario set at $\pm$5\% (including the synthetic seeds) and $\pm$20\%; the synthetic comparison with log-uniform and sparse truths (all criteria, ten seeds); and the identifiability profiles with 20 points per side and of the subsets selected on the training outputs; and the identifiability profiles of the subsets of Brun, Morris, pivoted QR and profile likelihood (sum over the four criteria). The check of the identifiability hypotheses over the admissible set (512 Sobol points and adversarial search for five radii) did not record times per problem and is not included; it took about 3~h of elapsed time on an 88-core server." + COMMON,
+table(["nl", "sel_fix", "sel_train", "gks", "crit5f", "crit20f", "synlog", "synsp", "ident_dense", "ident_train", "ident_crit", "kmin"], "tableS_time_review.tex",
+      r"Computing time of the additional analyses, for every problem: nonlinear re-estimation of the final subset in the 15 scenarios for the problems selected with the first-order $e_{\mathrm{fit}}$; the complete selection repeated with the fixed scenario set and on the training outputs; standard pivoted QR; the admissibility tests of all criteria with the fixed scenario set at $\pm$5\% (including the synthetic seeds) and $\pm$20\%; the synthetic comparison with log-uniform and sparse truths (all criteria, ten seeds); and the identifiability profiles with 20 points per side and of the subsets selected on the training outputs; the identifiability profiles of the subsets of Brun, Morris, pivoted QR and profile likelihood (sum over the four criteria); and the test of the minimum subset size $k_{\min}=2$ (all its tests for the best single parameters; for Smith and Schwen the robustness was split into one process per perturbation size and its time is taken from the checkpoint files, \texttt{analysis/kmin\_times.py}). The check of the identifiability hypotheses over the admissible set (512 Sobol points and adversarial search for five radii) did not record times per problem and is not included; it took about 3~h of elapsed time on an 88-core server." + COMMON,
       "tab:timereview")
 
 # summary per analysis
@@ -238,7 +244,8 @@ GROUPS = [
         (r"Synthetic experiments ($\pm$5\%, $\pm$20\%, $\pm$50\%) and true signal", ["syn20", "syn5", "syn50", "signal"]),
         ("Identifiability of the selected parameters: profiles (10 points per side)", ["ident"]),
         ("Identifiability: profiles with 20 points per side", ["ident_dense"]),
-        ("Identifiability: subsets selected on the training outputs", ["ident_train"])]),
+        ("Identifiability: subsets selected on the training outputs", ["ident_train"]),
+        ("Minimum subset size: best single parameters through robustness, admissibility at $\\pm$20\\%, synthetic and identifiability tests", ["kmin"])]),
     ("Comparison with other criteria", [
         ("Profile likelihood of the full model (processor time)", ["pl_cpu"]),
         (r"Admissibility and synthetic tests of the subsets of all criteria ($\pm$5\% and $\pm$20\%, both scenario sets)", ["crit5", "crit20", "crit5f", "crit20f"]),

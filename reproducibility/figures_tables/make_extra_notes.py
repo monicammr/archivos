@@ -2,7 +2,8 @@
 """Supplementary Notes on the numerical analyses cited in the main text, generated from the result files:
 
   suppl_simulator.tex  Verification of the simulator          (results/simulator_check/simulator_check.jsonl)
-  suppl_synthetic.tex  Synthetic prediction experiment        (results/external_validation/*.json, keys B_*)
+  suppl_synthetic_seed42.tex  first-seed version of the synthetic experiment (the note of the paper is
+                       the extended 20-seed version)
   suppl_single.tex     Single-parameter subsets               (results/single_parameter/*.json)
   suppl_settings.tex   Sensitivity to the method settings     (results/settings/<variant>/*.json)
   suppl_cost.tex       Computational cost                     (results/cost/simulation_times.json)
@@ -16,7 +17,7 @@ import math
 
 import numpy as np
 
-from common import OUT as HERE, RESULTS as RES, load as ldir
+from common import OUT as HERE, RESULTS as RES, load as ldir, load_validation
 
 TAU = math.sqrt(1 - 0.9 ** 2)
 DISPLAY = {"SalazarCavazos": "Salazar-Cavazos"}
@@ -33,7 +34,7 @@ def tex(s):
 
 SEL = ldir("selection")
 ADM = sorted((p for p, d in SEL.items() if d["admisible"]), key=str.lower)
-VAL = ldir("external_validation")
+VAL = load_validation()   # the run used by Table 1 and every comparison (common.load_validation)
 PAT = ldir("robustness")
 
 
@@ -170,7 +171,9 @@ def synthetic():
         L.append(f"{tex(short(r['p']))} & {num(r['t0'])} & {num(r['red'])} & {num(r['full'])} & {num(r['er'])} & {num(r['ef'])} & "
                  f"{'yes' if r['t0'] >= 2 else 'no'} \\\\")
     L += [r"\bottomrule \end{longtable}}", ""]
-    (HERE / "suppl_synthetic.tex").write_text("\n".join(L) + "\n")
+    # first-seed version; the Supplementary Note of the paper is the extended 20-seed version (tables from
+    # comparison_tables.py and make_review_notes.py), maintained by hand
+    (HERE / "suppl_synthetic_seed42.tex").write_text("\n".join(L) + "\n")
     return C
 
 
@@ -208,11 +211,17 @@ def single():
                 cmp_.append(r["sistema"])
                 if es < ej:
                     Sbetter.append(r["sistema"])
+        single_lower = {r["sistema"] for r in ok
+                        if isinstance((r.get("mejor_validacion") or {}).get("A_chi2_test_red"), (int, float))
+                        and isinstance(VAL.get(r["sistema"], {}).get("A_chi2_test_red"), (int, float))
+                        and r["mejor_validacion"]["A_chi2_test_red"] < VAL[r["sistema"]]["A_chi2_test_red"]}
         C = dict(tested=len(rows), ok=len(ok), comp=len(cmp_), Sbetter=len(Sbetter))
         L += [rf"A single parameter was admissible at $\pm5\%$ in {len(ok)} of the {len(rows)} problems examined. In the synthetic prediction "
               rf"experiment the selected subset $S$ predicted better than the best single parameter (smaller $e_{{\mathrm{{pred}}}}$) in "
-              rf"{len(Sbetter)} of the {len(cmp_)} problems where both could be evaluated (Supplementary Table~\ref{{tab:single}}), which "
-              r"supports the minimum size of two.", "",
+              rf"{len(Sbetter)} of the {len(cmp_)} problems where both could be evaluated (Supplementary Table~\ref{{tab:single}}), "
+              rf"but on real data the single parameter had the lower test $\chi^2/n$ in {sum(1 for p in cmp_ if p in single_lower)} of the {len(cmp_)}. "
+              r"These two comparisons are mixed; the test of \sref{kmin} shows that the second parameter acts as a margin of safety: "
+              r"a single parameter is as identifiable and predictive, but fails in more individual scenarios, especially for large changes.", "",
               r"{\small",
               r"\begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{3.0cm}rrrrrrr@{}}",
               r"\caption{Problems in which a single biological parameter $j^\ast$ is admissible: median $e_{\mathrm{fit}}$ (\%) at $\pm5\%$ and "

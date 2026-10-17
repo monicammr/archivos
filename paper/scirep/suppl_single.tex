@@ -6,7 +6,7 @@ The method requires at least $k_{\min}=2$ biological parameters. This note exami
 For every admissible problem the candidates are the ten biological parameters with the largest sensitivity energy $E_j$ and the ten with the largest finite effect $s_j$ (the two orderings of the method). Each candidate $j$ is tested alone, with the calibration parameters $\Theta_C$ re-estimated together with it as in the method: $\{j\}$ is admissible if the median $e_{\mathrm{fit}}$ over the same 15 scenarios at $\pm5\%$ is at most $\tau_e$ (without the requirement $|S|\ge2$). For the best admissible candidate $j^\ast$ (smallest median $e_{\mathrm{fit}}$) we also computed the median $e_{\mathrm{fit}}$ at $\pm10\%$ and its external validation, real and synthetic, exactly as for the selected subset $S$ (Supplementary Note~\emph{Synthetic prediction experiment}). Bachmann, Chen, Isensee and Raimundez were not included because the repeated nonlinear re-estimations are too slow.
 
 \subsection*{Results}
-A single parameter was admissible at $\pm5\%$ in 15 of the 27 problems examined. In the synthetic prediction experiment the selected subset $S$ predicted better than the best single parameter (smaller $e_{\mathrm{pred}}$) in 9 of the 15 problems where both could be evaluated (Supplementary Table~\ref{tab:single}), but on real data the single parameter had the lower test $\chi^2/n$ in 10 of the 15 (Supplementary Table~\ref{tab:single}). The evidence is therefore mixed, and the minimum size $k_{\min}=2$ should be regarded as a design choice rather than as a result.
+A single parameter was admissible at $\pm5\%$ in 15 of the 27 problems examined. In the synthetic prediction experiment the selected subset $S$ predicted better than the best single parameter (smaller $e_{\mathrm{pred}}$) in 9 of the 15 problems where both could be evaluated (Supplementary Table~\ref{tab:single}), but on real data the single parameter had the lower test $\chi^2/n$ in 10 of the 15 (Supplementary Table~\ref{tab:single}). These two comparisons are mixed; the test of \sref{kmin} shows that the second parameter acts as a margin of safety: a single parameter is as identifiable and predictive, but fails in more individual scenarios, especially for large changes.
 
 {\small
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{3.0cm}rrrrrrr@{}}
@@ -15,12 +15,12 @@ A single parameter was admissible at $\pm5\%$ in 15 of the 27 problems examined.
 Problem & $j^\ast$ & $j^\ast$ & $S$ & $j^\ast$ & $S$ & $j^\ast$ & $S$ & $e_{\mathrm{pred}}$ $j^\ast$ / $S$ \\ \midrule \endfirsthead
 \toprule Problem & $j^\ast$ & \multicolumn{7}{c}{(continued)} \\ \midrule \endhead
 Alkan & \texttt{kt} & 21 & 12 & 13 & 12 & 2.74 & 2.75 & 0.13 / 0.13 \\
-Borghans & \texttt{v0} & 10 & 4 & 14 & 8 & 0.75 & 0.74 & 1.00 / 1.04 \\
+Borghans & \texttt{v0} & 10 & 4 & 14 & 8 & 0.74 & 0.74 & 1.01 / 1.04 \\
 Brannmark & \texttt{km2} & 9 & 8 & 9 & 8 & 1.63 & 5.96 & 1.19 / 0.92 \\
 Fiedler & \texttt{k10} & 15 & 15 & 15 & 14 & 11.68 & 11.21 & 0.16 / 0.23 \\
 Fujita & \texttt{reaction\_\allowbreak{}2\_\allowbreak{}k1} & 20 & 29 & 22 & 28 & 5.96 & 5.94 & 0.53 / 0.95 \\
 Giordano & \texttt{gamma\_4} & 11 & 6 & 11 & 5 & $1.1\times10^{-8}$ & $1.0\times10^{-7}$ & 1.78 / 1,027 \\
-Laske & \texttt{k\_imp} & 16 & 10 & 16 & 10 & 0.44 & 0.76 & 3.19 / 0.50 \\
+Laske & \texttt{k\_imp} & 16 & 10 & 16 & 10 & 0.45 & 0.76 & 3.27 / 0.50 \\
 Okuonghae & \texttt{gamma\_0} & 5 & 4 & 5 & 4 & $4.1\times10^{4}$ & $4.7\times10^{4}$ & 0.30 / 0.08 \\
 Oliveira & \texttt{delta\_} & 11 & 13 & 12 & 13 & $2.0\times10^{4}$ & 912 & 0.38 / 0.29 \\
 Rahman & \texttt{infected\_\allowbreak{}moderate\_\allowbreak{}transmission\_\allowbreak{}rate} & 11 & 4 & 12 & 4 & $1.5\times10^{-3}$ & $2.0\times10^{-3}$ & 0.35 / 0.07 \\
