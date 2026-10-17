@@ -281,6 +281,10 @@ One file per problem, criterion (`metodo`: `ours`, `train`, `brun`, `morris`, `p
 | `tasa_paso`, `n_escenarios`, `escenarios_fijos`, `k`, `n_calibracion` | pass rate, valid scenarios, fixed scenario set, subset size, calibration parameters |
 | `chi2_test`, `chi2_ours`, `ratio_vs_ours` | real data: test chi2/n of the subset, of our main subset, and their ratio |
 | `familia`, `semilla`, `B_epred_red`, `B_chi2_test_theta0`, `senal_rms_test` | synthetic test: family of truths, seed, e_pred, chi2/n of theta0 on the synthetic test data (>= 2: signal), true signal in noise units |
+| `calibracion_fija` | only in `criteria_tests_calfixed/`: the calibration parameters were kept at theta0 in the scenarios |
+| `frac_cambio_calibracion`, `frac_cambio_calibracion_med` | only in `criteria_tests_calfixed/` for `ours`: per standard scenario, fraction of the squared output change produced by the calibration parameters alone, and its median |
+
+`criteria_tests_calfixed/` has the same files and fields for the admissibility test (`adm`) with the calibration parameters kept at theta0, for the 14 problems with calibration parameters. `calibration_fixed_summary.json` (analysis/calibration_fixed_summary.py) gives, per problem, `share_calibration` and, for the standard (`standard`) and the new (`calfixed`) test, the admissibility of every criterion, `efit_ours`, `random_fraction` and `discriminates` (calibration only not admissible and fewer than half of the random draws admissible); `counts` summarises them and `processor_hours` is the total time.
 
 ### `conditioning_check.json` (analysis/conditioning_check.py)
 

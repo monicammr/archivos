@@ -29,7 +29,7 @@ the published viral-load measurements of the Perelson problem) and are analysed 
 |---|---|---|---|
 | **A** | Regenerates every figure, table and Supplementary Note from the stored results (no simulation) | a few minutes | Python, LaTeX |
 | **B** | Compiles all formal proofs and checks that they use no unproved assumption | 20 min (many cores) to 2 h | Lean (elan) |
-| **C** | Re-runs the analyses from the PEtab problems and compares with the stored results | the method (selection): minutes per problem, 1.3 h of processor time for all 34; all analyses of the paper: about 680 h of processor time (about a week on 4 cores, a day on 32 cores) | Python, the benchmark (download) |
+| **C** | Re-runs the analyses from the PEtab problems and compares with the stored results | the method (selection): minutes per problem, 1.3 h of processor time for all 34; all analyses of the paper: about 697 h of processor time (about a week on 4 cores, a day on 32 cores) | Python, the benchmark (download) |
 
 Each level is independent. A reader who only wants to see where a number comes from needs level A
 (it shows that every number of the paper follows from the stored results, not that those results are
@@ -58,6 +58,8 @@ scripts/
                         likelihood (the four criteria in parallel; version 1.6)
   run_test_kmin.sh        test of the minimum subset size k_min = 2: the best single parameters through
                         robustness, +-20 % admissibility, synthetic and identifiability tests (version 1.6)
+  run_test_calibration_fixed.sh  admissibility at +-5 % with the calibration parameters kept at theta0,
+                        all subsets of the 14 problems with calibration parameters (version 1.6)
   setup_server.sh     prepares a fresh Linux server (clone, Python environment, benchmark)
 analysis/               the method and the numerical analyses (Python)
   config.py             paths and settings of the paper (delta, tau_R, tau_kappa, tau_e, seeds, ...)
@@ -93,6 +95,8 @@ analysis/               the method and the numerical analyses (Python)
                         the other criteria (input of identifiability_profiles.py, summary)
   prepare_single_subsets.py, compare_single_vs_pair.py, kmin_times.py  test of k_min = 2 (best single
                         parameters, comparison with the selected pair, computing time)
+  calibration_fixed_summary.py  summary of the test with the calibration parameters fixed
+                        (criteria_tests.py with CT_CAL_FIXED=1 produces its results)
 results/                stored results (see DATA_DICTIONARY.md)
   selection/            selected subset of each of the 34 problems
   settings/<variant>/   the same with one setting changed (15 variants, 26 problems)
@@ -139,12 +143,15 @@ results/                stored results (see DATA_DICTIONARY.md)
                         admissibility at +-20 % and synthetic tests
   kmin_comparison.json, kmin_summary.json, kmin_times.json  comparison with the pair and computing time
   logs_kmin/    logs of that run
+  criteria_tests_calfixed/, calibration_fixed_summary.json, logs_calibration_fixed/  admissibility
+                        with the calibration parameters fixed and its summary
 figures_tables/         produce the figures, tables and Supplementary Notes from results/
   build_all.py          runs all of them (level A)
   comparison_*.py       figures, tables and statistics of the comparison with other criteria
   make_review_notes.py  tables and figures of the additional analyses (B5, C3, C1, settings of Lang and Raimundez)
   identif_criteria_tables.py  identifiability of the subsets of every criterion (Suppl. Tables, Table 2 column)
   kmin_tables.py        test of k_min = 2 (Supplementary Table)
+  calibration_fixed_tables.py  admissibility with the calibration parameters fixed (Supplementary Tables)
   main_text_numbers.py       recomputes the counts quoted in the main text from results/
   make_timing_notes.py  computing time of every analysis for every problem (Suppl. Note on computing time)
   audit2_stats.py       statistics of the comparison after the second review, Table 2
@@ -305,8 +312,9 @@ python mutation_control.py           # a 1 % change of one number is detected (d
    | t | `NPROC=30 bash scripts/run_identifiability_second_review.sh` (after r and s) | Results and Suppl. Note *Identifiability over the admissible set* | ~5 h on 88 cores |
    | u | `NPROC=128 bash scripts/run_identifiability_other_criteria.sh` (after r and o-p) | Results *Identifiable and sufficient*, Table 2 (column Identifiable), Suppl. Note *Identifiability of the subsets of other criteria* | ~2 h on 128 cores (41 h of processor time) |
    | v | `NPROC=88 bash scripts/run_test_kmin.sh`, then `python kmin_times.py` (after f, e and r) | Discussion (limitation iii), Methods, Suppl. Note *Minimum subset size: one parameter or two* | ~30 min on 88 cores (5.7 h of processor time) |
+   | w | `NPROC=90 bash scripts/run_test_calibration_fixed.sh` (after s) | Results (comparison), Discussion, Methods *Calibration parameters fixed*, Suppl. Note *Admissibility with the calibration parameters fixed* | 34 min on 90 cores (16.7 h of processor time) |
 
-   Steps j, n, p, s, t, u and v distribute the work over many processes and use `fork` (Linux). The
+   Steps j, n, p, s, t, u, v and w distribute the work over many processes and use `fork` (Linux). The
    stored results of steps j-q were computed on a 128-core server shared by several computations; their
    run times (`segundos`) may therefore be inflated by resource contention. In step v the robustness of
    Smith and Schwen was split into one process per perturbation size (`ROBUST_LEVEL`) during the run;
@@ -375,6 +383,7 @@ trajectories is used (cost note), and its model is verified in Lean.
 | Identifiability over the admissible set, dense profiles, profiles of the training-output subsets (Results; Suppl. Note) | `identifiability_box.py`, `identifiability_profiles.py` (`ID_DENSE=1`, `ID_SUBSETS=...`) | `identifiability/box/`, `identifiability/audit2/`, `identifiability/profiles_dense/`, `identifiability/profiles_selection_train_fixedscen/` | `audit2_tables.py` |
 | Identifiability of the subsets of the other criteria (Results *Identifiable and sufficient*; Table 2, column Identifiable; Suppl. Note and Tables) | `prepare_criteria_subsets.py`, `identifiability_profiles.py` (`ID_SUBSETS=subsets_<criterion>`), `identifiability_conditions.py` | `subsets_*/`, `identifiability/profiles_subsets_*/`, `identifiability/criteria_identifiability.json` | `identif_criteria_tables.py`, `audit2_stats.py` |
 | Minimum subset size k_min = 2 (Discussion, limitation iii; Methods; Suppl. Note *Minimum subset size* and Table) | `prepare_single_subsets.py`, `robustness.py` (`ROBUST_SUBSETS=subsets_single`), `criteria_tests.py` (`CT_METODOS=single`), `identifiability_profiles.py`, `compare_single_vs_pair.py`, `kmin_times.py` | `subsets_single/`, `robustness*_subsets_single/`, `identifiability/profiles_subsets_single/`, `kmin_comparison.json`, `kmin_times.json` | `kmin_tables.py` |
+| Admissibility with the calibration parameters fixed (Results, Discussion, Methods; Suppl. Note and Tables) | `criteria_tests.py` (`CT_CAL_FIXED=1`), `calibration_fixed_summary.py` | `criteria_tests_calfixed/`, `calibration_fixed_summary.json` | `calibration_fixed_tables.py` |
 | Counts quoted in the main text | — | all of the above | `main_text_numbers.py` |
 | Crauste (Results, non-admissible problems) | `crauste_blowup.py` | `crauste_blowup.json` | — |
 | Computational cost (Results; Suppl. Table S15) | `timing.py` | `cost/` | `make_extra_notes.py` |
@@ -429,9 +438,15 @@ Information and are not generated.
   88-core server, 27 min, 5.7 h of processor time). It is as identifiable and predictive, but fails in
   more individual scenarios (pass rate 88 % against 94 %, P = 0.012) and degrades more for large changes
   (median e_fit at +-50 % 18.7 % against 10.9 %, P < 0.001): k_min = 2 is a safety margin.
-* **Computing time**: all analyses together 680 h of processor time; timings on shared servers are
+* **Admissibility with the calibration parameters fixed** (pre-submission review). The scenarios perturb
+  the calibration parameters too, which are then re-estimated, so part of the change can be undone by them
+  (a median of 30 % of the output change, up to 93 % in Laske). With them kept at theta0 in the 14 problems
+  that have them (`scripts/run_test_calibration_fixed.sh`, 90 cores, 34 min, 16.7 h of processor time),
+  our subsets remained admissible in 13 (Bachmann 44.1 %), calibration-only re-estimation fell from 9 to 6
+  and the admissible random draws from 220 to 192 of 280; in six problems almost any subset still passes.
+* **Computing time**: all analyses together 697 h of processor time; timings on shared servers are
   described as possibly inflated by resource contention rather than as upper bounds.
-* **Title** of the paper and of the package: *re-estimation-verified parameter subset selection*.
+* **Title** of the paper and of the package: *Re-estimation-verified selection of small parameter subsets for systems biology models*.
 
 ## Changes in version 1.5 (second review)
 

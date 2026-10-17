@@ -1,0 +1,31 @@
+% Test of the role of the calibration parameters (pre-submission review): tables from
+% figures_tables/calibration_fixed_tables.py, results of scripts/run_test_calibration_fixed.sh.
+
+\snote{calfixed}
+
+\subsection*{Question}
+In the admissibility test every parameter is perturbed, the calibration parameters $\Theta_C$ (scalings and offsets of the observables) included, and $\Theta_C$ is always re-estimated together with the subset. Part of the output change that the reduced model has to reproduce is therefore produced by $\Theta_C$ itself and can be undone by re-estimating it, which could make the test easier than it should be. The null baselines point in this direction: re-estimating $\Theta_C$ alone was admissible in 9 of the 14 comparable problems that have calibration parameters, and in these problems all random pairs were admissible too (main text, Table~2). This note measures how much of the output change is due to $\Theta_C$ and repeats the test without it.
+
+\subsection*{Design}
+For the 14 problems with calibration parameters among the 28 of the comparison (Chen, which also has them, is excluded from the comparison because of its cost), the admissibility test at $\pm$5\% was repeated with the calibration parameters kept at $\theta_0$: the 15 scenarios are those of the standard test with the components of $\Theta_C$ reset to their nominal values, so the perturbations of the biological parameters are exactly the same and the comparison is paired. The subset and $\Theta_C$ are still re-estimated, with the same settings and the same rule as in the comparison of criteria (fixed scenario set; nonlinear re-estimation, first order in Alkan, Bachmann, Isensee and Raimundez). The test was applied to our subsets, to our subsets selected on the training outputs, to the calibration parameters alone ($k=0$, without the rule $|S|\ge2$), to the 20 random $k$-subsets and to the subsets of Brun, Morris, profile likelihood and pivoted QR (27 subsets per problem, 378 single-core tasks; \texttt{analysis/criteria\_tests.py} with \texttt{CT\_CAL\_FIXED=1}, summary by \texttt{analysis/calibration\_fixed\_summary.py}). For our subsets, the fraction of $\|\Delta y_{\mathrm{full}}\|^2$ of each standard scenario that the calibration parameters alone produce (all other parameters at $\theta_0$) was also computed. In the other 14 problems of the comparison there are no calibration parameters and the test is unchanged.
+
+\subsection*{Results}
+The calibration parameters produce a median of 30\% of the output change of the standard scenarios (range 0--93\%; Supplementary Table~\ref{tab:calfixed}); their share is largest in Laske (93\%), Isensee (84\%), Smith (75\%) and Schwen (71\%). Removing their contribution raises the error of every subset, that of our subsets by a median of 4.4 percentage points (from 7.6\% to 23.0\% in Isensee and from 10.1\% to 36.6\% in Laske).
+
+Our subsets remained admissible in 13 of the 14 problems (Supplementary Table~\ref{tab:calfixedcrit}). The exception is Bachmann, whose median error, evaluated to first order, rose from 33.7\% to 44.1\%, just above $\tau_e=43.6\%$. Calibration-only re-estimation, in contrast, became inadmissible in three of the nine problems in which it passed (Fiedler, Laske and Schwen): there it had reproduced mainly its own perturbation. Brun's subsets and our training-output subsets lost one problem each, as ours (14 to 13), whereas Morris lost two (13 to 11), profile likelihood one (12 to 11 of 13) and pivoted QR three (12 to 9); and the admissible random draws fell from 220 to 192 of 280.
+
+The clearest case is Laske: with the standard scenarios all 20 random pairs and the calibration parameters alone were admissible, so the test did not separate subsets there; with the calibration parameters fixed only 2 of the 20 random pairs and not the calibration parameters alone are admissible, whereas our pair is (36.6\%). Random draws also became rarer in Bachmann (8 to 1 of 20) and Elowitz (8 to 4). With the calibration parameters fixed, the test therefore separates subsets in five of the 14 problems (Alkan, Bachmann, Borghans, Elowitz, Laske; four with the standard scenarios), and our subset is admissible in four of them.
+
+In six problems (Brannmark, Fujita, Isensee, Raia, Raimundez and Smith) the calibration parameters alone remain admissible although they are no longer perturbed, and every random pair passes. In these models re-estimating the scalings of the observables compensates for most of the change produced by the biological parameters, so the measured outputs change mainly in scale; the test does not distinguish between subsets there, and the admissibility of our subset in these problems says little about the choice of its parameters.
+
+\subsection*{Conclusion}
+The perturbation of the calibration parameters makes the test easier, by a few percentage points of $e_{\mathrm{fit}}$ in most problems and substantially where they produce most of the output change. Without this help our subsets remain admissible in 13 of 14 problems, and where the test separates subsets the selected pair is among the admissible ones. The counts of the null baselines in the main text should be read with this in mind: part of the admissibility of calibration-only re-estimation reflects its own perturbation, and in six problems almost any subset is admissible.
+
+\subsection*{Computing time}
+The 378 tasks took 16.7~h of processor time and 34~min of elapsed time on 90 cores of a 192-core server (\texttt{scripts/run\_test\_calibration\_fixed.sh}, \texttt{NPROC=90}); Smith, the slowest problem (34~min per task in the standard test), set the elapsed time.
+
+{\small
+\input{tables/tableS_calfixed.tex}
+}
+
+\input{tables/tableS_calfixed_criteria.tex}
