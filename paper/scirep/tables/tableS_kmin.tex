@@ -1,0 +1,27 @@
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.7cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{3.0cm}ccccc@{}}
+\caption{Best single parameter against the pair selected by our method, in the 15 problems in which one parameter already reaches the admissibility threshold at $\pm$5\%. Pass rate: percentage of the scenarios, over all perturbation sizes from $\pm$1\% to $\pm$50\%, with $e_{\mathrm{fit}}\le\tau_e$, with paired (P) and independent (I) directions; $e_{\mathrm{fit}}$ at $\pm$50\%: median over the 15 scenarios with independent directions (\%); $\pm$20\%: admissible at $\pm$20\%; Synthetic: cases with signal in which $e_{\mathrm{pred}}\le\tau_e$ over the 20 seeds (identifiability is reported in the text). Each cell gives pair / single.}\label{tab:kmin}\\
+\toprule
+Problem & Single parameter & Pair & Pass rate P (\%) & Pass rate I (\%) & $e_{\mathrm{fit}}$ $\pm$50\% & $\pm$20\% & Synthetic \\
+\midrule
+\endfirsthead
+\toprule
+Problem & Single parameter & Pair & Pass rate P (\%) & Pass rate I (\%) & $e_{\mathrm{fit}}$ $\pm$50\% & $\pm$20\% & Synthetic \\
+\midrule
+\endhead
+Alkan & \texttt{kt} & \texttt{kt}, \texttt{k\_\allowbreak{}rep\_\allowbreak{}nhej} & 100 / 81 & 96 / 83 & 17 / 26 & yes / yes & 3/3 / 3/3 \\
+Borghans & \texttt{v0} & \texttt{Kz}, \texttt{K\_\allowbreak{}par} & 78 / 68 & 66 / 51 & 43 / 47 & yes / yes & 2/11 / 1/11 \\
+Brannmark & \texttt{km2} & \texttt{k1f}, \texttt{km2} & 93 / 91 & 99 / 99 & 13 / 19 & yes / yes & 1/18 / 1/18 \\
+Fiedler & \texttt{k10} & \texttt{tau2}, \texttt{k6} & 100 / 100 & 99 / 99 & 12 / 13 & yes / yes & 1/6 / 1/6 \\
+Fujita & \texttt{reaction\_\allowbreak{}2\_\allowbreak{}k1} & \texttt{init\_\allowbreak{}AKT}, \texttt{reaction\_\allowbreak{}6\_\allowbreak{}k1} & 72 / 93 & 70 / 86 & 27 / 15 & yes / yes & 14/18 / 16/18 \\
+Giordano & \texttt{gamma\_\allowbreak{}4} & \texttt{alpha\_\allowbreak{}4}, \texttt{alpha\_\allowbreak{}28} & 92 / 80 & 97 / 86 & 6 / 33 & yes / yes & -- / -- \\
+Laske & \texttt{k\_\allowbreak{}imp} & \texttt{k\_\allowbreak{}imp}, \texttt{k\_\allowbreak{}syn\_\allowbreak{}R\_\allowbreak{}M} & 100 / 80 & 98 / 80 & 11 / 27 & yes / yes & -- / -- \\
+Okuonghae & \texttt{gamma\_\allowbreak{}0} & \texttt{transmission\_\allowbreak{}rate\_\allowbreak{}effective}, \texttt{gamma\_\allowbreak{}i} & 99 / 99 & 96 / 94 & 6 / 7 & yes / yes & 17/20 / 18/20 \\
+Oliveira & \texttt{delta\_\allowbreak{}} & \texttt{beta\_\allowbreak{}0}, \texttt{h\_\allowbreak{}hosp\_\allowbreak{}rate} & 94 / 91 & 90 / 89 & 5 / 17 & yes / yes & 12/20 / 12/20 \\
+Rahman & \texttt{infected\_\allowbreak{}moderate\_\allowbreak{}transmission\_\allowbreak{}rate} & \texttt{infected\_\allowbreak{}moderate\_\allowbreak{}transmission\_\allowbreak{}rate}, \texttt{infected\_\allowbreak{}normal\_\allowbreak{}worsen\_\allowbreak{}rate} & 95 / 84 & 99 / 83 & 3 / 22 & yes / yes & 15/19 / 17/19 \\
+Raia & \texttt{init\_\allowbreak{}Rec\_\allowbreak{}i} & \texttt{SOCS3mRNA\_\allowbreak{}production}, \texttt{init\_\allowbreak{}Rec\_\allowbreak{}i} & 100 / 97 & 98 / 94 & 3 / 5 & yes / yes & 7/8 / 7/8 \\
+Salazar-Cavazos & \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}Y1068\_\allowbreak{}\_\allowbreak{}FREE} & \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}Y1068\_\allowbreak{}\_\allowbreak{}FREE}, \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}YN\_\allowbreak{}\_\allowbreak{}FREE} & 87 / 67 & 78 / 62 & 15 / 28 & yes / yes & 12/18 / 3/18 \\
+Schwen & \texttt{ini\_\allowbreak{}R2fold} & \texttt{ini\_\allowbreak{}R1}, \texttt{ini\_\allowbreak{}R2fold} & 93 / 89 & 97 / 94 & 15 / 19 & yes / yes & 0/9 / 0/9 \\
+Smith & \texttt{k30r} & \texttt{k8}, \texttt{kminus7b} & 100 / 100 & 100 / 99 & 8 / 10 & yes / yes & 18/20 / 19/20 \\
+Weber & \texttt{a21} & \texttt{s12}, \texttt{a21} & 100 / 100 & 100 / 100 & 6 / 6 & yes / yes & 11/20 / 7/20 \\
+\bottomrule
+\end{longtable}

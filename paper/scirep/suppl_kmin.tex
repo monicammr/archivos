@@ -1,0 +1,21 @@
+% Test of the minimum subset size k_min = 2 (table: reproducibility/figures_tables/kmin_tables.py;
+% analyses: scripts/prueba_kmin.sh, analysis/compare_single_vs_pair.py).
+
+\snote{kmin}
+
+\emph{Question.} The method adds biological parameters until re-estimating them reproduces the full model and then removes those that are not needed, but the admissibility rule requires $|S|\ge2$, so the search cannot stop at one parameter and backward elimination cannot go below two. This is why 28 of the 31 admissible subsets have exactly two biological parameters: in those problems the size is set by the rule, not by the data, and in 15 of the 27 problems tested a single parameter already reaches the threshold (\sref{single}). This note asks whether requiring a second parameter has a measurable benefit or is an arbitrary choice.
+
+\emph{Design.} For each of these 15 problems, the best single parameter $j^\ast$ (the admissible single parameter with the smallest median $e_{\mathrm{fit}}$ at $\pm$5\%, re-estimated together with the calibration parameters) was put through the same tests as the pair selected by our method: robustness to the size of the parameter changes, from $\pm$1\% to $\pm$50\% with 15 scenarios per size and with paired and with independent directions (\sref{robust}); admissibility at $\pm$20\% with the fixed scenario set; prediction of synthetic data with 20 seeds (\sref{synth}); and practical identifiability by the profile likelihood of the reduced problem (\sref{identif}). The rule $|S|\ge2$ is not applied to $\{j^\ast\}$. Pair and single parameter are compared problem by problem with the exact sign test (\texttt{scripts/prueba\_kmin.sh}, \texttt{analysis/compare\_single\_vs\_pair.py}; about 1.5~h of elapsed time on an 88-core server, not included in the totals of \sref{time}).
+
+\emph{Results} (Supplementary Table~\ref{tab:kmin}).
+\begin{itemize}\itemsep0pt
+\item \emph{The median criterion does not distinguish one parameter from two.} With one parameter, the median $e_{\mathrm{fit}}$ stays below $\tau_e$ at every perturbation size in 14 of the 15 problems (pattern A; with the pair, 15), and both are admissible at $\pm$20\% in all 15 problems. The exception is Borghans, whose single parameter fails at $\pm$1\% and, with independent directions, at several larger sizes.
+\item \emph{Identifiability and prediction are the same.} Every selected parameter is identifiable in 12 of the 15 problems with the single parameter and in 10 with the pair ($P=0.5$): a single parameter cannot be compensated by another selected parameter. The synthetic success rate is 55\% (105 of 190 cases with signal) with the single parameter and 59\% (113 of 190) with the pair; the pair is better in 3 problems and the single parameter in 4 ($P=1$).
+\item \emph{The pair fails in fewer individual scenarios and degrades less for large changes.} Over all perturbation sizes, 94\% of the scenarios reproduce the full model with the pair and 88\% with the single parameter with paired directions (the pair is better in 10 problems, the single parameter in 1; $P=0.012$), and 92\% against 87\% with independent directions (11 against 1; $P=0.006$). At $\pm$50\% with independent directions the median $e_{\mathrm{fit}}$ is 10.9\% with the pair and 18.7\% with the single parameter, larger with the single parameter in 14 of the 15 problems ($P<0.001$; with paired directions 10.5\% against 11.7\%, 13 of 15, $P=0.007$).
+\end{itemize}
+
+\emph{Interpretation.} A second parameter is not needed for the reduced model to be admissible in the median, identifiable or predictive: in about half of the problems a single biological parameter, re-estimated with the calibration parameters, already does all three. What the second parameter adds is a margin of safety: the reduction fails in fewer individual parameter changes and its error grows less when the parameters change by large amounts. The minimum size $k_{\min}=2$ is therefore a conservative choice, supported by this margin, rather than a requirement of the method; users who prefer the smallest possible model can set $k_{\min}=1$ (\texttt{config.py}), at the cost of a reduction that is less robust to individual large changes.
+
+{\scriptsize\setlength{\tabcolsep}{2.5pt}
+\input{tables/tableS_kmin.tex}
+}
