@@ -19,6 +19,7 @@ for l in (LP / "BUILD_LOG.md").read_text(encoding="utf-8").splitlines():
     if m:
         times[m.group(1)] = times.get(m.group(1), 0.0) + float(m.group(2))
 import json, sys
+from note_edits import finalize   # editorial edits of the generated note (note_edits/)
 FID = {d["sistema"]: d for d in json.loads((RESULTS / "sbml_to_lean" / "translation_fidelity.json").read_text(encoding="utf-8"))}
 sys.path.insert(0, str(ROOT / "lean_translation"))
 
@@ -336,5 +337,5 @@ for m in models:
 
 bad = sorted({ch for l in L for ch in l if ord(ch) > 127})
 assert not bad, bad
-(HERE / "suppl_models.tex").write_text("\n".join(L) + "\n", encoding="utf-8")
+(HERE / "suppl_models.tex").write_text(finalize("suppl_models", "\n".join(L)) + "\n", encoding="utf-8")
 print(len(models), "models;", {m["name"]: (m["n"], m["p"], m["nterms"]) for m in models})

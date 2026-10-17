@@ -1,0 +1,13 @@
+[
+ {
+  "old": [
+   "In all problems with a comparable reference the median difference is below $10^{-5}$ except Chen ($1.1\\times10^{-4}$), Crauste (0.8\\%, a very stiff model), Lang, Perelson and Zheng. In Lang, an oscillating cell-cycle model simulated to $t=136{,}472$, the median difference is 2.8\\% and the peaks differ by an accumulated phase shift. In Perelson the difference is 17\\%; the initial state of the SBML model is stationary and our simulation respects it, so the discrepancy most likely lies in the reference. In Zheng the reference file contains the measured data rather than a simulation. Lang and Perelson were kept in the analysis, and their results should be read with this caveat. Problems without a comparable reference have no file in the benchmark or use different condition identifiers."
+  ],
+  "new": [
+   "In all problems with a comparable reference the median difference is below $10^{-5}$ except Chen ($1.1\\times10^{-4}$), Crauste (0.8\\%, a very stiff model), Lang, Perelson and Zheng. In Lang, an oscillating cell-cycle model simulated to $t=136{,}472$, the median difference is 2.8\\% and the peaks differ by an accumulated phase shift. In Perelson the difference is 17\\%; the initial state of the SBML model is stationary and our simulation respects it, which suggests, but does not prove, that the reference was generated with other values. In Zheng the reference file contains the measured data rather than a simulation. Problems without a comparable reference have no file in the benchmark or use different condition identifiers; for them (Fujita, Isensee, Okuonghae, Oliveira, Raia, Blasi and Zhao) this check cannot exclude an implementation error.",
+   "",
+   "Because all our criteria are evaluated on noise-scaled outputs, the relevant size of a discrepancy is its value in units of the recorded noise, $|h(\\hat y_i)-h(y^{\\mathrm{ref}}_i)|/\\sigma_i$. In these units the discrepancy is negligible in Perelson (at most $2\\times10^{-6}$, because its recorded noise is large compared with the outputs), in Crauste (at most 0.17) and in Sneyd (median $3\\times10^{-7}$; only the duplicated rows exceed one), but not in Lang: the median is 0.29, 22\\% of the measurements differ by more than one noise unit and the largest difference is 18. The results of Lang should therefore be read with this caveat. In Zheng the same quantity compares our simulation with the measured data (median 0.47), so it is a residual rather than a simulation error."
+  ],
+  "after": null
+ }
+]

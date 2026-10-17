@@ -1,0 +1,56 @@
+[
+ {
+  "old": [
+   "\\texttt{practically\\_\\allowbreak{}identifiable\\_\\allowbreak{}rel\\_\\allowbreak{}tail} & $\\displaystyle \\eta<1,\\ t^{\\ast}_{\\mathrm{rel}}\\le t_\\pm<d_\\pm,\\ \\|r(\\delta)-r_0-A\\delta\\|\\le\\eta\\|A\\delta\\|\\ \\text{on the tail}\\Rightarrow\\mathrm{PracticallyIdentifiable}$ & Main theorem with a relative remainder bound on the tail of the profile (second audit). \\\\[3pt]"
+  ],
+  "new": [
+   "\\texttt{practically\\_\\allowbreak{}identifiable\\_\\allowbreak{}rel\\_\\allowbreak{}tail} & $\\displaystyle \\eta<1,\\ t^{\\ast}_{\\mathrm{rel}}\\le t_\\pm<d_\\pm,\\ \\|r(\\delta)-r_0-A\\delta\\|\\le\\eta\\|A\\delta\\|\\ \\text{on the tail}\\Rightarrow\\mathrm{PracticallyIdentifiable}$ & Main theorem with a relative remainder bound on the tail of the profile. \\\\[3pt]"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\texttt{practically\\_\\allowbreak{}identifiable\\_\\allowbreak{}grad\\_\\allowbreak{}tail} & $\\displaystyle t^{\\ast}_\\gamma\\le t_\\pm<d_\\pm,\\ \\|r(\\delta)-r_0-A\\delta\\|\\le\\varepsilon\\ \\text{only for }\\delta\\in F,\\ \\varphi(\\delta)\\le-t_-\\vee\\varphi(\\delta)\\ge t_+\\Rightarrow\\mathrm{PracticallyIdentifiable}$ & Main theorem with the remainder bound needed only on the tail of the profile (second audit). \\\\[3pt]"
+  ],
+  "new": [
+   "\\texttt{practically\\_\\allowbreak{}identifiable\\_\\allowbreak{}grad\\_\\allowbreak{}tail} & $\\displaystyle t^{\\ast}_\\gamma\\le t_\\pm<d_\\pm,\\ \\|r(\\delta)-r_0-A\\delta\\|\\le\\varepsilon\\ \\text{only for }\\delta\\in F,\\ \\varphi(\\delta)\\le-t_-\\vee\\varphi(\\delta)\\ge t_+\\Rightarrow\\mathrm{PracticallyIdentifiable}$ & Main theorem with the remainder bound needed only on the tail of the profile. \\\\[3pt]"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "Condition C4: global existence of the nominal solution under a linear growth bound on the non-negative orthant."
+  ],
+  "new": [
+   "Global existence of the nominal solution under a linear growth bound on the non-negative orthant."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "Hypothesis 1: rate laws (mass action, Michaelis--Menten, Hill, \\dots{}) define infinitely differentiable vector fields on their domain."
+  ],
+  "new": [
+   "Model class 1: rate laws (mass action, Michaelis--Menten, Hill, \\dots{}) define infinitely differentiable vector fields on their domain."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "Hypothesis 2: systems with events at fixed times (piecewise ODEs with reset maps)."
+  ],
+  "new": [
+   "Model class 2: systems with events at fixed times (piecewise ODEs with reset maps)."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\subsubsection*{Step 6. \\texttt{Poda} (4)}"
+  ],
+  "new": [
+   "\\subsubsection*{Step 6. \\texttt{Poda} (4; \\emph{poda} is Spanish for pruning)}"
+  ],
+  "after": null
+ }
+]

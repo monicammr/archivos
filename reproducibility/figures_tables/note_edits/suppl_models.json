@@ -1,0 +1,47 @@
+[
+ {
+  "old": [
+   "\\item \\textbf{States ($n=7$):} RAF, pRAF, MEK, pMEK, ERK, pERK, $\\tau$ (tiempo)."
+  ],
+  "new": [
+   "\\item \\textbf{States ($n=7$):} RAF, pRAF, MEK, pMEK, ERK, pERK, $\\tau$ (time)."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\item \\textbf{States ($n=9$):} STAT5A, STAT5B, pApB, pApA, pBpB, nucpApA, nucpApB, nucpBpB, $\\tau$ (tiempo)."
+  ],
+  "new": [
+   "\\item \\textbf{States ($n=9$):} STAT5A, STAT5B, pApB, pApA, pBpB, nucpApA, nucpApB, nucpBpB, $\\tau$ (time)."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\item \\textbf{Liu} and \\textbf{Oliveira}: they contain events triggered by the state or by a parameter-dependent condition, not at fixed times; such events are outside Hypothesis~2 (step~18)."
+  ],
+  "new": [
+   "\\item \\textbf{Liu} and \\textbf{Oliveira}: they contain events triggered by the state or by a parameter-dependent condition, not at fixed times; such events are outside model class~2 (step~18)."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\begin{quote}\\small\\raggedright\\texttt{python verify\\_translation.py Boehm\\_JProteomeRes2014}\\end{quote}"
+  ],
+  "new": [
+   "\\begin{quote}\\small\\raggedright\\texttt{python3 verify\\_translation.py Boehm\\_JProteomeRes2014}\\end{quote}"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "and, from the folder \\texttt{lean\\_translation/}, the command"
+  ],
+  "new": [
+   "and, from the folder \\texttt{lean\\_translation/} of the reproducibility package, the command"
+  ],
+  "after": null
+ }
+]

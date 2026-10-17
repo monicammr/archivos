@@ -152,6 +152,8 @@ figures_tables/         produce the figures, tables and Supplementary Notes from
   identif_criteria_tables.py  identifiability of the subsets of every criterion (Suppl. Tables, Table 2 column)
   kmin_tables.py        test of k_min = 2 (Supplementary Table)
   calibration_fixed_tables.py  admissibility with the calibration parameters fixed (Supplementary Tables)
+  conditioning_table.py  conditioning of the final subsets with unit-length columns (Supplementary Table)
+  note_edits.py, note_edits/  editorial edits of the generated Supplementary Notes (applied automatically)
   main_text_numbers.py       recomputes the counts quoted in the main text from results/
   make_timing_notes.py  computing time of every analysis for every problem (Suppl. Note on computing time)
   audit2_stats.py       statistics of the comparison after the second review, Table 2
@@ -218,6 +220,14 @@ The output is written to `figures_tables/output/`:
 
 Each script prints the counts that the paper quotes (for example the numbers of admissible problems
 for each setting), so that they can be compared with the text.
+
+Several Supplementary Notes were edited by hand after they were generated (wording requested by the
+reviews, sections added later, cross-references). These edits are stored in `figures_tables/note_edits/`,
+one JSON file per note, and are applied by `note_edits.py` on top of the generated text, so that the
+notes written to `output/` are identical to those of the Supplementary Information; every number in
+them is still computed from `results/`. Two tables are not generated: Table 3 (what the formal
+verification guarantees), which is written by hand from the Lean development, and Supplementary Table S3
+(parameter counts), which is read from the PEtab parameter tables of the benchmark.
 
 To see where a particular number of the paper comes from, use the table
 [Where each result comes from](#where-each-result-comes-from) and open the JSON file of the problem

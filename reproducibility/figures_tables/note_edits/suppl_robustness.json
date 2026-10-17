@@ -1,0 +1,87 @@
+[
+ {
+  "old": [
+   "Lucarelli & 44 & [34, 51] & [29, 64] & 75 & 53 & 47 & [36, 53] & [24, 63] & 75 & 47 \\\\",
+   "\\bottomrule \\end{longtable}}"
+  ],
+  "new": [
+   "Lucarelli & 44 & [34, 51] & [29, 64] & 75 & 53 & 47 & [36, 53] & [24, 63] & 75 & 47 \\\\",
+   "\\bottomrule \\end{longtable}}",
+   "",
+   "\\subsection*{Independent directions at each size}",
+   "\\emph{Purpose.} The paired design above reuses the same fifteen directions at every perturbation size, so that the differences between sizes are due only to the size of the change. Its limitation is that the sizes above $\\pm5\\%$ are not tested with new random draws: a subset could appear robust because the particular fifteen directions happen to be favourable, or fragile because a few unfavourable directions are repeated at every size. To separate the effect of the size from that of the particular directions, the whole evaluation was repeated with independent directions at each size.",
+   "",
+   "\\emph{Design.} For each admissible problem, with its final subset fixed and its calibration parameters re-estimated as above, the fifteen directions at size $\\varepsilon$ were drawn with seed $42+1000\\,i$, where $i$ is the position of $\\varepsilon$ in the list of sizes, except at $\\pm5\\%$, which keeps seed 42 and therefore the scenarios of the selection. Everything else (the discarding of scenarios, the re-estimation, the first-order $e_{\\mathrm{fit}}$ of the six large admissible problems, the median and the classification into patterns) is identical to the paired design (\\texttt{robustness.py} with \\texttt{ROBUST\\_INDEP=1} in the reproducibility package; results in \\texttt{results/robustness\\_independent/}).",
+   "",
+   "\\emph{Results.} Supplementary Table~\\ref{tab:robindep} gives the pattern of every problem with both designs and the median $e_{\\mathrm{fit}}$ with independent directions at every size, and Supplementary Figure~\\ref{fig:robindep} compares the medians of the two designs at $\\pm20\\%$ and $\\pm50\\%$. Of the 31 admissible problems, the paired design classifies 26 as pattern A, 4 as B and 1 as C, and the independent design 24, 1 and 6. Twenty-two problems are of pattern A in both designs, and their medians with the two designs lie close to each other and far below the threshold. Nine problems change: Bruno, Sneyd, Zhao and Zheng (A $\\to$ C), Armistead and Elowitz (B $\\to$ A), Bertozzi and Blasi (B $\\to$ C) and Lucarelli (C $\\to$ B). All nine have medians within about ten percentage points of $\\tau_e$ at the larger sizes in at least one design, and the median at a given size can differ by up to 27 percentage points between the two sets of directions (Borghans at $\\pm50\\%$, which nevertheless keeps pattern A). Pattern C, which requires the median to cross the threshold more than once, is the typical outcome when the median fluctuates around $\\tau_e$, and it becomes more frequent with independent directions because each size then adds its own sampling fluctuation.",
+   "",
+   "\\emph{Interpretation.} The statement that most subsets remain adequate for parameter changes of up to $\\pm50\\%$ does not depend on the particular directions: it holds for the 22 problems of pattern A in both designs. For the nine problems whose pattern changes, fifteen scenarios per size are not enough to establish where admissibility is lost, and their pattern should be read as ``close to the threshold at large perturbations'' rather than as a definite collapse or recovery. Admissibility at $\\pm5\\%$, on which the selection and all other analyses rely, is not affected, because both designs use the same scenarios at that size.",
+   "",
+   "{\\footnotesize\\setlength{\\tabcolsep}{3pt}",
+   "\\input{tables/tableS_robust_indep.tex}",
+   "}",
+   "",
+   "\\begin{figure}[H]",
+   "\\centering",
+   "\\includegraphics[width=\\textwidth]{figures/figS_robust_indep.pdf}",
+   "\\caption{\\textbf{Median $e_{\\mathrm{fit}}$ with paired and with independent directions.} Each point is one admissible problem, at $\\pm20\\%$ (left) and $\\pm50\\%$ (right): median $e_{\\mathrm{fit}}$ over the scenarios with the fifteen directions of the selection rescaled to that size ($x$) and with fifteen new directions drawn for that size ($y$), coloured by the pattern obtained with independent directions. Dashed, identity; dotted, $\\tau_e=43.6\\%$. Problems far from the identity or on different sides of the threshold are labelled.}",
+   "\\label{fig:robindep}",
+   "\\end{figure}"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\begin{figure}[!htb]\\centering"
+  ],
+  "new": [
+   "\\begin{figure}[H]\\centering"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "Admissibility at $\\pm5\\%$ and the robustness patterns of the main text use the median: pattern A, $\\tilde e_{\\mathrm{fit}}\\le\\tau_e$ at every size; B, admissible up to at least $\\pm20\\%$ and not beyond; C, irregular (fails and is admissible again at a larger size); D, not admissible at $\\pm10\\%$ or less. The median requires that at least half of the scenarios are reproduced; the pass rate and the maximum show how many, and how badly the others fail."
+  ],
+  "new": [
+   "Admissibility at $\\pm5\\%$ and the robustness patterns of the main text use the median: pattern A, $\\tilde e_{\\mathrm{fit}}\\le\\tau_e$ at every size; B, admissible up to at least $\\pm10\\%$, first failing at $\\pm20\\%$ or more and not recovering; C, irregular (fails and is admissible again at a larger size); D, not admissible at $\\pm10\\%$ or less. The median requires that at least half of the scenarios are reproduced; the pass rate and the maximum show how many, and how badly the others fail."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "A scenario is discarded when the simulation fails or when the full-model change is negligible, $\\|\\Delta y^{(k)}_{\\mathrm{full}}\\|<\\max(10^{-10}\\|y(\\theta_0)\\|,10^{-6})$, because the relative errors are then undefined; the number $n\\le15$ of valid scenarios is reported for every problem and size. For Chen some simulations fail to integrate, so only 8 to 13 of the 15 scenarios are valid at each size; which scenarios fail can change slightly between runs."
+  ],
+  "new": [
+   "A scenario is discarded when the simulation fails or when the full-model change is negligible, $\\|\\Delta y^{(k)}_{\\mathrm{full}}\\|<\\max(10^{-10}\\|y(\\theta_0)\\|,10^{-6})$, because the relative errors are then undefined; the number $n\\le15$ of valid scenarios is reported for every problem and size. For Chen some simulations fail in a run-dependent way, so the set of valid scenarios (7 to 13 of 15) differs slightly between runs; the medians of this rerun differ from those of the main text by at most 1.2 percentage points and the pattern is unchanged. At $\\pm5\\%$ the scenarios are those of the selection. For the six problems decided to first order (Alkan, Bachmann, Chen, Isensee, Lucarelli, Raimundez) this analysis uses the first-order $e_{\\mathrm{fit}}$, whereas Table~1 of the main text gives the nonlinear re-estimation of the final subset; the two differ by at most 0.2 percentage points except in Isensee (9.8\\% here to first order, 11.3\\% nonlinear in Table~1). In the other problems the median $e_{\\mathrm{fit}}$ agrees with Table~1 to within $10^{-5}$. Isensee is, with Chen, the problem in which most simulations fail (only 1 to 6 of the 15 scenarios per level can be simulated), so the median is taken over very few scenarios and depends on which of them succeed; both values are far below $\\tau_e$."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "where $\\theta_0[S\\leftarrow v]$ is $\\theta_0$ with the components in $S$ replaced by $v$. The inner minimisation is a bounded nonlinear least-squares problem in $\\log|v|$ (trust-region reflective method, at most $100(|S|+1)$ function evaluations, finite-difference step $10^{-3}$), started from the scenario values (clipped to $B$) and from $\\theta_0$; the smaller result is kept. Since $v=\\theta^{(k)}_S$ is admissible when it lies in $B$, $e_{\\mathrm{fit}}\\le e_{\\mathrm{rel}}$ always holds (this is also proved in Lean, step~5). For the problems whose simulations are too slow for repeated nonlinear fits (Alkan, Bachmann, Chen, Isensee, Lang, Lucarelli, Raimundez), the first-order version is used,"
+  ],
+  "new": [
+   "where $\\theta_0[S\\leftarrow v]$ is $\\theta_0$ with the components in $S$ replaced by $v$. The inner minimisation is a bounded nonlinear least-squares problem in $\\log|v|$ (trust-region reflective method, at most $100(|S|+1)$ function evaluations, finite-difference step $10^{-3}$), started from the scenario values (clipped to $B$) and from $\\theta_0$; the smaller result is kept. Since $v=\\theta^{(k)}_S$ is admissible when it lies in $B$, $e_{\\mathrm{fit}}\\le e_{\\mathrm{rel}}$ always holds (this is also proved in Lean, step~5). For the problems whose simulations are too slow for repeated nonlinear fits (Alkan, Bachmann, Chen, Isensee, Lucarelli, Raimundez), the first-order version is used,"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "so that every parameter is multiplied by a factor between $1-\\varepsilon$ and $1+\\varepsilon$. The same fifteen directions are used at every size $\\varepsilon\\in\\{0.01,0.05,0.10,0.20,0.30,0.40,0.50\\}$; only $\\varepsilon$ changes (paired design). Differences between sizes are therefore due to the size of the change and not to different random draws, and the scenarios at $\\varepsilon=0.05$ are exactly those used to select the subset. The directions of every problem are stored in the result files (\\texttt{results/robustness/<problem>.json} of the reproducibility package, key \\texttt{u}), and the script checks that they are identical at every size."
+  ],
+  "new": [
+   "so that every parameter is multiplied by a factor between $1-\\varepsilon$ and $1+\\varepsilon$. The same fifteen directions are used at every size $\\varepsilon\\in\\{0.01,0.05,0.10,0.20,0.30,0.40,0.50\\}$; only $\\varepsilon$ changes (paired design). Differences between sizes are therefore due to the size of the change and not to different random draws, and the scenarios at $\\varepsilon=0.05$ are exactly those used to select the subset. The directions of every problem are stored in the result files (\\texttt{results/robustness/<problem>.json}, key \\texttt{u}), and the script checks that they are identical at every size."
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "This note describes in detail how the robustness of the selected subsets to the size of the parameter changes was assessed (Fig.~4 of the main text) and gives, for every admissible problem, the full distribution of the fitting error over the random scenarios, not only its median."
+  ],
+  "new": [
+   "This note describes in detail how the robustness of the selected subsets to the size of the parameter changes was assessed (Fig.~5 of the main text) and gives, for every admissible problem, the full distribution of the fitting error over the random scenarios, not only its median."
+  ],
+  "after": null
+ }
+]

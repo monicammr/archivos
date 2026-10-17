@@ -18,6 +18,7 @@ import math
 import numpy as np
 
 from common import OUT as HERE, RESULTS as RES, load as ldir, load_validation
+from note_edits import finalize   # editorial edits of the generated note (note_edits/)
 
 TAU = math.sqrt(1 - 0.9 ** 2)
 DISPLAY = {"SalazarCavazos": "Salazar-Cavazos"}
@@ -107,7 +108,7 @@ def simulator():
     L += [r"\bottomrule \end{longtable}}", "",
           r"Froehlich is not included: its 9,169 experimental conditions, each requiring a simulation of a model with 1,228 species, "
           r"made the analysis of its measured outputs infeasible with the resources available (Supplementary Note~\emph{Computational cost}).", ""]
-    (HERE / "suppl_simulator.tex").write_text("\n".join(L) + "\n")
+    (HERE / "suppl_simulator.tex").write_text(finalize("suppl_simulator", "\n".join(L)) + "\n")
 
 
 # ------------------------------------------------------------------ synthetic experiment
@@ -194,7 +195,7 @@ def single():
          r"over the same 15 scenarios at $\pm5\%$ is at most $\tau_e$ (without the requirement $|S|\ge2$). For the best admissible "
          r"candidate $j^\ast$ (smallest median $e_{\mathrm{fit}}$) we also computed the median $e_{\mathrm{fit}}$ at $\pm10\%$ and its "
          r"external validation, real and synthetic, exactly as for the selected subset $S$ (Supplementary Note~\emph{Synthetic prediction "
-         r"experiment}). " + ", ".join(sorted(short(p) for p in SLOW)) + r" were not included because the repeated nonlinear "
+         r"experiment}). " + (lambda v: ", ".join(v[:-1]) + " and " + v[-1])(sorted(short(p) for p in SLOW)) + r" were not included because the repeated nonlinear "
          r"re-estimations are too slow.", "",
          r"\subsection*{Results}"]
     C = {}
@@ -240,7 +241,7 @@ def single():
             L.append(f"{tex(short(p))} & \\texttt{{{tex(j)}}} & {pct(ej5)} & {pct(SEL[p]['eajuste_med'])} & {pct(r.get('mejor_efit_10'))} & "
                      f"{pct(r.get('S_efit_10'))} & {num(v.get('A_chi2_test_red'))} & {num(VAL.get(p, {}).get('A_chi2_test_red'))} & {ep} \\\\")
         L += [r"\bottomrule \end{longtable}}", ""]
-    (HERE / "suppl_single.tex").write_text("\n".join(L) + "\n")
+    (HERE / "suppl_single.tex").write_text(finalize("suppl_single", "\n".join(L)) + "\n")
     return C, missing
 
 
@@ -299,7 +300,7 @@ def settings():
         L.append(r"Admissible & " + " & ".join(str(T[t]["adm"]) for t, _ in SETTINGS) + r" \\")
         L.append(r"Same $S$ (of the " + str(sum(B[p]["admisible"] for p in probs)) + r" admissible) & " + " & ".join(str(T[t]["same"]) for t, _ in SETTINGS) + r" \\")
         L += [r"\bottomrule \end{longtable}}", ""]
-    (HERE / "suppl_settings.tex").write_text("\n".join(L) + "\n")
+    (HERE / "suppl_settings.tex").write_text(finalize("suppl_settings", "\n".join(L)) + "\n")
     return T, missing
 
 
@@ -333,7 +334,7 @@ def cost():
           r"For Froehlich (4,231 parameters, 1,228 species) the analysis was carried out on the state trajectories; on its measured "
           r"outputs each evaluation requires about 9,000 simulations (one per experimental condition), which was infeasible with the "
           r"resources available.", ""]
-    (HERE / "suppl_cost.tex").write_text("\n".join(L) + "\n")
+    (HERE / "suppl_cost.tex").write_text(finalize("suppl_cost", "\n".join(L)) + "\n")
     slow = sorted(short(p) for p, t in four.items() if t >= 40 and c[p]["modo"] == "salidas")
     return dict(timed=sum(1 for p in c if c[p]["modo"] == "salidas"), over40=slow)
 

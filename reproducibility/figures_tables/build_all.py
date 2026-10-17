@@ -41,6 +41,7 @@ STEPS = [
     ("Additional analyses of the review: robustness with independent directions, signal and amplitudes, error in noise units, settings of Lang and Raimundez", "make_review_notes.py"),
     ("Test of the minimum subset size k_min = 2 (Supplementary Table)", "kmin_tables.py"),
     ("Admissibility with the calibration parameters fixed (Supplementary Tables)", "calibration_fixed_tables.py"),
+    ("Conditioning of the final subsets with unit-length columns (Supplementary Table)", "conditioning_table.py"),
     ("Computing time of every analysis (Supplementary Tables of computing time)", "make_timing_notes.py"),
 ]
 

@@ -1,0 +1,56 @@
+[
+ {
+  "old": [
+   "\\bottomrule \\end{longtable}}",
+   ""
+  ],
+  "new": [
+   "\\bottomrule \\end{longtable}}",
+   "",
+   "",
+   "\\subsection*{Reproduction error in units of the noise}",
+   "\\emph{Purpose.} The admissibility threshold bounds the relative error $e_{\\mathrm{fit}}=\\|y(\\hat\\theta_{S\\cup\\Theta_C})-y(\\theta^{(k)})\\|/\\|\\Delta y_{\\mathrm{full}}\\|$, the part of the change of the model response that the reduced model cannot reproduce after re-estimation. A relative error does not say whether the remaining discrepancy matters for the data: 40\\% of a change that is itself much smaller than the measurement noise is irrelevant, whereas 5\\% of a change of a hundred noise units is not. The threshold $\\tau_e=\\sqrt{1-c^2}=0.436$ follows from the cosine requirement $c=0.9$ (Theorem~1 of the main text), which is a design choice; to judge it against the precision of the measurements we expressed the same error in absolute terms.",
+   "",
+   "\\emph{Derivation.} The outputs of the method are scaled by the recorded noise, $y_i=h(g_i)/\\sigma_i$, so a Euclidean norm of a change of $y$ is measured in noise units. For scenario $k$ at $\\pm5\\%$, with $n$ measurements,",
+   "\\[ \\text{change}_k=\\frac{\\|\\Delta y^{(k)}_{\\mathrm{full}}\\|}{\\sqrt n},\\qquad \\text{error}_k=e^{(k)}_{\\mathrm{fit}}\\,\\frac{\\|\\Delta y^{(k)}_{\\mathrm{full}}\\|}{\\sqrt n}=\\frac{\\|y(\\hat\\theta^{(k)}_{S\\cup\\Theta_C})-y(\\theta^{(k)})\\|}{\\sqrt n} \\]",
+   "are the root mean square per measurement of the change of the full model and of the error that remains after re-estimating the selected and calibration parameters, both in units of $\\sigma$. An error below one means that, on average over the measurements, the reduced model reproduces the perturbed full model to within the noise of the data. The values of $e^{(k)}_{\\mathrm{fit}}$ are those of the robustness analysis at $\\pm5\\%$ (the scenarios of the selection), and $\\|\\Delta y^{(k)}_{\\mathrm{full}}\\|$ was recomputed with the same directions (\\texttt{absolute\\_error.py} in the reproducibility package; results in \\texttt{results/absolute\\_error/}).",
+   "",
+   "\\emph{Results.} Supplementary Table~\\ref{tab:abs} gives the median change, the median error and the largest error over the scenarios for every admissible problem. The median error is below $0.1\\sigma$ in 17 of the 31 problems and below $\\sigma$ in 29, and the largest error over the scenarios is below $\\sigma$ in 27. The relative error and the absolute error answer different questions: Lucarelli, with the largest relative error (43.5\\%, on the threshold), has an absolute error of only $0.05\\sigma$, because a $\\pm5\\%$ perturbation changes its outputs by $0.13\\sigma$; in Giordano and Perelson the perturbations change the outputs by far less than the noise ($10^{-4}\\sigma$ or less), so their relative errors, although computed, have no consequence for the data. Conversely, in Okuonghae and Oliveira a $\\pm5\\%$ perturbation changes the outputs by about 30 and 120 noise units, so a small relative error (4\\% and 13\\%) still leaves an error of about one and fourteen noise units; these are also the problems in which even the published $\\theta_0$ fits the data far worse than the recorded noise (main text, \\emph{Prediction of held-out experiments}), which indicates that their recorded noise levels are much smaller than the actual scatter. An application that requires the reduced model to stay within the noise of its own data should therefore check this absolute error in addition to $e_{\\mathrm{fit}}$, or choose $c$ accordingly.",
+   "",
+   "{\\small",
+   "\\input{tables/tableS_abs.tex}",
+   "}"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\caption{Effect of each setting on every problem: $=$, same subset and admissibility as the baseline; $\\neq$, different subset (still admissible); $\\times$, not admissible; $\\circ$, not admissible in the baseline either. Columns in the order of the rows of Fig.~5 of the main text.}\\label{tab:settings}\\\\"
+  ],
+  "new": [
+   "\\caption{Effect of each setting on every problem: $=$, same subset and admissibility as the baseline; $\\neq$, different subset (still admissible); $\\times$, not admissible; $\\circ$, not admissible in the baseline either. Columns in the order of the rows of Supplementary Fig.~",
+   "\\ref{fig:settings}.}\\label{tab:settings}\\\\"
+  ],
+  "after": null
+ },
+ {
+  "old": [
+   "\\snote{settings}",
+   ""
+  ],
+  "new": [
+   "\\snote{settings}",
+   "",
+   "\\begin{figure}[H]",
+   "\\centering",
+   "\\includegraphics[width=0.75\\textwidth]{figures/fig5_settings.pdf}",
+   "\\caption{\\textbf{Sensitivity of the selection to the method settings}. The complete method was re-run on 26 problems changing one setting at a time with respect to the baseline ($\\delta=1\\%$, tolerances $10^{-7}/10^{-10}$, perturbation $\\pm$5\\%, $\\tau_R=0.89$, $\\tau_\\kappa=\\tau_{\\mathrm{VIF}}=10$, $\\tau_e=0.436$; 25 admissible problems with a mean of 2.16 selected biological parameters). Filled circles, number of the 25 problems admissible in the baseline whose selected subset is identical and still admissible; open squares, number of problems with an admissible subset; dashed line, all 26 problems. $|S|$, mean number of selected biological parameters among admissible problems, where it differs from the baseline. The admissibility threshold $\\tau_e$ (shaded) is the only setting with a large effect. Results for every problem are given in Supplementary Table~",
+   "\\ref{tab:settings}.}",
+   "\\label{fig:settings}",
+   "\\end{figure}",
+   "",
+   ""
+  ],
+  "after": null
+ }
+]

@@ -3,7 +3,7 @@
 The method requires at least $k_{\min}=2$ biological parameters. This note examines whether a single parameter could suffice.
 
 \subsection*{Design}
-For every admissible problem the candidates are the ten biological parameters with the largest sensitivity energy $E_j$ and the ten with the largest finite effect $s_j$ (the two orderings of the method). Each candidate $j$ is tested alone, with the calibration parameters $\Theta_C$ re-estimated together with it as in the method: $\{j\}$ is admissible if the median $e_{\mathrm{fit}}$ over the same 15 scenarios at $\pm5\%$ is at most $\tau_e$ (without the requirement $|S|\ge2$). For the best admissible candidate $j^\ast$ (smallest median $e_{\mathrm{fit}}$) we also computed the median $e_{\mathrm{fit}}$ at $\pm10\%$ and its external validation, real and synthetic, exactly as for the selected subset $S$ (Supplementary Note~\emph{Synthetic prediction experiment}). Bachmann, Chen, Isensee and Raimundez were not included because the repeated nonlinear re-estimations are too slow.
+For every admissible problem the candidates are the ten biological parameters with the largest sensitivity energy $E_j$ and the ten with the largest finite effect $s_j$ (the two orderings of the method). Each candidate $j$ is tested alone, with the calibration parameters $\Theta_C$ re-estimated together with it as in the method: $\{j\}$ is admissible if the median $e_{\mathrm{fit}}$ over the same 15 scenarios at $\pm5\%$ is at most $\tau_e$ (without the requirement $|S|\ge2$). For the best admissible candidate $j^\ast$ (smallest median $e_{\mathrm{fit}}$) we also computed the median $e_{\mathrm{fit}}$ at $\pm10\%$ and its external validation, real and synthetic, exactly as for the selected subset $S$ (Supplementary Note~\emph{Synthetic prediction experiment}). Bachmann, Chen, Isensee, Lang and Raimundez were not included because the repeated nonlinear re-estimations are too slow.
 
 \subsection*{Results}
 A single parameter was admissible at $\pm5\%$ in 15 of the 27 problems examined. In the synthetic prediction experiment the selected subset $S$ predicted better than the best single parameter (smaller $e_{\mathrm{pred}}$) in 9 of the 15 problems where both could be evaluated (Supplementary Table~\ref{tab:single}), but on real data the single parameter had the lower test $\chi^2/n$ in 10 of the 15 (Supplementary Table~\ref{tab:single}). These two comparisons are mixed; the test of \sref{kmin} shows that the second parameter acts as a margin of safety: a single parameter is as identifiable and predictive, but fails in more individual scenarios, especially for large changes.
@@ -28,6 +28,6 @@ Raia & \texttt{init\_Rec\_i} & 4 & 3 & 4 & 3 & 7.42 & 8.22 & 0.43 / 0.48 \\
 Salazar-Cavazos & \texttt{ratio\_\allowbreak{}kpkd\_\allowbreak{}Y1068\_\allowbreak{}\_\allowbreak{}FREE} & 30 & 19 & 29 & 19 & 100.00 & 102 & 0.79 / 0.17 \\
 Schwen & \texttt{ini\_R2fold} & 19 & 17 & 19 & 17 & 8.08 & 8.20 & 1.89 / 2.03 \\
 Smith & \texttt{k30r} & 8 & 8 & 8 & 8 & $7.1\times10^{4}$ & $1.5\times10^{4}$ & 1.00 / 0.07 \\
-Weber & \texttt{a21} & 6 & 4 & 6 & 4 & 0.99 & 1.00 & 0.94 / 0.63 \\
+Weber & \texttt{a21} & 6 & 4 & 6 & 4 & 1.00 & 1.00 & 0.94 / 0.63 \\
 \bottomrule \end{longtable}}
 

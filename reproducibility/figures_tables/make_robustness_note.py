@@ -17,6 +17,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 from common import OUT as HERE, FIG, RESULTS as RES  # noqa: E402
+from note_edits import finalize   # editorial edits of the generated note (note_edits/)
 
 NEW, SEL = RES / "robustness", RES / "selection"
 TAU = float(np.sqrt(1 - 0.9 ** 2))
@@ -233,7 +234,7 @@ def main():
             w(" & ".join(row) + r" \\")
         w(r"\bottomrule \end{longtable}}")
     txt = "\n".join(Lx) + "\n"
-    (HERE / "suppl_robustness.tex").write_text(txt)
+    (HERE / "suppl_robustness.tex").write_text(finalize("suppl_robustness", txt))
     print(f"suppl_robustness.tex: {len(D)} problems with per-scenario data, {len(missing)} missing")
 
 

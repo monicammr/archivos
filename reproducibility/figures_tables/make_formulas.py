@@ -7,6 +7,7 @@ import importlib.util
 import re
 
 from common import OUT as HERE, LEAN as LP
+from note_edits import finalize   # editorial edits of the generated note (note_edits/)
 
 
 def load(name):
@@ -105,7 +106,7 @@ for part, title, mods in fo.PARTS:
 
 bad = sorted({ch for l in L for ch in l if ord(ch) > 127})
 assert not bad, bad
-(HERE / "suppl_formulas.tex").write_text("\n".join(L) + "\n", encoding="utf-8")
+(HERE / "suppl_formulas.tex").write_text(finalize("suppl_formulas", "\n".join(L)) + "\n", encoding="utf-8")
 
 # ------------------------------------------------------------------ Markdown
 D = ["# Statements of the formal theorems", "",
