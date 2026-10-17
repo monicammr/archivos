@@ -28,3 +28,7 @@ certificados/resultados/validacion_externa_bio/respaldo/
 certificados/resultados/_logs_completos_2026-10-14/
 paper/scirep/*.fdb_latexmk
 paper/scirep/*.fls
+
+# raw server logs of the identifiability runs (gigabytes of integrator warnings); filtered *_resumen.log are kept
+reproducibility/results/logs_criterios/*.log
+!reproducibility/results/logs_criterios/*_resumen.log
