@@ -8,12 +8,12 @@
 #   A3  criteria_tests.py: admissibility of k = 0 and of 20 random k-subsets (+-5 % and +-20 %),
 #       together with the five criteria under the same (fixed-scenario) rule
 #   A6  criteria_tests.py, SINT_FAMILIA=loguniforme / dispersa: other synthetic truths (10 seeds)
-# Usage: NCORES=88 nohup bash scripts/fase_a_audit2.sh > fase_a.log 2>&1 &
+# Usage: NCORES=88 nohup bash scripts/run_second_review.sh > second_review.log 2>&1 &
 set -uo pipefail
 cd "$(dirname "$0")/../analysis"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 N=${NCORES:-$(nproc)}
-LOG=../results/logs_fase_a
+LOG=../results/logs_second_review
 mkdir -p "$LOG"
 PROBS=$(python -c "import config as C; print(' '.join(C.PROBLEMS))")
 RAND=$(python -c "print(','.join(f'rand{i}' for i in range(20)))")

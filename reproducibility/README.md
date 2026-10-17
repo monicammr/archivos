@@ -19,7 +19,8 @@ This package contains everything needed to check the results of the paper:
   (`lean_translation/`).
 
 The benchmark problems themselves are downloaded from the PEtab benchmark collection
-(`scripts/get_benchmark.sh`). The paper analyses no data from human participants.
+(`scripts/get_benchmark.sh`). No new data from human participants were collected; some benchmark data are human-derived (for example
+the published viral-load measurements of the Perelson problem) and are analysed as published.
 
 ---
 
@@ -52,13 +53,13 @@ CITATION.cff            how to cite
 scripts/
   get_benchmark.sh      downloads the 35 PEtab problems used (commit fcbddf1, about 80 MB)
   compare_results.py    compares re-computed results with the stored ones
-  fase_a_audit2.sh      runs all re-analyses of the second review (A1-A6) on a many-core server
-  identificabilidad_audit2.sh  runs the identifiability analyses of the second review
-  identificabilidad_criterios.sh  profiles of the subsets of Brun, Morris, standard QR and profile
+  run_second_review.sh      runs all re-analyses of the second review (A1-A6) on a many-core server
+  run_identifiability_second_review.sh  runs the identifiability analyses of the second review
+  run_identifiability_other_criteria.sh  profiles of the subsets of Brun, Morris, standard QR and profile
                         likelihood (the four criteria in parallel; version 1.6)
-  prueba_kmin.sh        test of the minimum subset size k_min = 2: the best single parameters through
+  run_test_kmin.sh        test of the minimum subset size k_min = 2: the best single parameters through
                         robustness, +-20 % admissibility, synthetic and identifiability tests (version 1.6)
-  setup_servidor.sh     prepares a fresh Linux server (clone, Python environment, benchmark)
+  setup_server.sh     prepares a fresh Linux server (clone, Python environment, benchmark)
 analysis/               the method and the numerical analyses (Python)
   config.py             paths and settings of the paper (delta, tau_R, tau_kappa, tau_e, seeds, ...)
   petab_problem.py      simulation of the measured outputs of a PEtab problem
@@ -132,20 +133,20 @@ results/                stored results (see DATA_DICTIONARY.md)
   subsets_brun/, subsets_morris/, subsets_qr_gks/, subsets_perfil/  subsets of the other criteria
   identifiability/profiles_subsets_<criterion>/  their profiles (every point); criteria_identifiability.json
                         (column Identifiable of Table 2); identifiability/audit2/certificado_<criterion>.csv
-  logs_criterios/*_resumen.log  logs of that run (progress and results only)
+  logs_other_criteria/*_summary.log  logs of that run (progress and results only)
   subsets_single/       best single parameter of the 15 problems in which one already suffices
   robustness_subsets_single/, robustness_independent_subsets_single/  its robustness
   identifiability/profiles_subsets_single/  its profiles; criteria_tests_*fixedscen/*__single__*  its
                         admissibility at +-20 % and synthetic tests
   kmin_comparison.json, kmin_summary.json, kmin_times.json  comparison with the pair and computing time
-  logs_kmin_resumen/    logs of that run
+  logs_kmin/    logs of that run
 figures_tables/         produce the figures, tables and Supplementary Notes from results/
   build_all.py          runs all of them (level A)
   comparison_*.py       figures, tables and statistics of the comparison with other criteria
   make_review_notes.py  tables and figures of the additional analyses (B5, C3, C1, settings of Lang and Raimundez)
   identif_criteria_tables.py  identifiability of the subsets of every criterion (Suppl. Tables, Table 2 column)
   kmin_tables.py        test of k_min = 2 (Supplementary Table)
-  cifras_texto.py       recomputes the counts quoted in the main text from results/
+  main_text_numbers.py       recomputes the counts quoted in the main text from results/
   make_timing_notes.py  computing time of every analysis for every problem (Suppl. Note on computing time)
   audit2_stats.py       statistics of the comparison after the second review, Table 2
   audit2_tables.py      supplementary tables of the second review
@@ -301,10 +302,10 @@ python mutation_control.py           # a 1 % change of one number is detected (d
    | p | `python criteria_tests.py`, then `SOLO_SINT=1 SINT_SEMILLAS=47,...,61 python criteria_tests.py` and `ADM_NIVEL=0.20 python criteria_tests.py` (after l-o) | Fig. 4a-b, Table 2, Suppl. Notes admissibility and synthetic comparison | ~1 h on 100 cores |
    | q | `REPRO_RESULTS=$PWD/../results_timing NPROC=64 python selection.py` (and with `NPROC=1`) | Fig. 4d, Suppl. Note cost | the run time is the measurement |
    | r | `python identifiability_local.py`, `NPROC=8 python identifiability_profiles.py` (Bachmann, Chen, Isensee, Lang, Raimundez and Smith: `bash identifiability_server.sh` on a server), then `python identifiability_conditions.py` (`CERT_PAR=256` to run the simulations of one problem in parallel) | Results (identifiability), Suppl. Note identifiability | ~10 min on 8 cores; ~3 h on 256 cores for the six large problems |
-   | s | `NCORES=88 bash scripts/fase_a_audit2.sh` (second review: A5 fixed scenarios, A1 selection on the training outputs, A2 nonlinear check, A4 standard QR, A3 null controls, A6 other families of truths), then `python conditioning_check.py` | Table 2, Fig. 4, Methods, Suppl. Notes *Nonlinear check*, *Selection on the training outputs, null controls and standard pivoted QR*, *Conditioning with unit-length columns* | ~6 h on 88 cores (Chen in A2 longest) |
-   | t | `NPROC=30 bash scripts/identificabilidad_audit2.sh` (after r and s) | Results and Suppl. Note *Identifiability over the admissible set* | ~5 h on 88 cores |
-   | u | `NPROC=128 bash scripts/identificabilidad_criterios.sh` (after r and o-p) | Results *Identifiable and sufficient*, Table 2 (column Identifiable), Suppl. Note *Identifiability of the subsets of other criteria* | ~2 h on 128 cores (41 h of processor time) |
-   | v | `NPROC=88 bash scripts/prueba_kmin.sh`, then `python kmin_times.py` (after f, e and r) | Discussion (limitation iii), Methods, Suppl. Note *Minimum subset size: one parameter or two* | ~30 min on 88 cores (5.7 h of processor time) |
+   | s | `NCORES=88 bash scripts/run_second_review.sh` (second review: A5 fixed scenarios, A1 selection on the training outputs, A2 nonlinear check, A4 standard QR, A3 null controls, A6 other families of truths), then `python conditioning_check.py` | Table 2, Fig. 4, Methods, Suppl. Notes *Nonlinear check*, *Selection on the training outputs, null controls and standard pivoted QR*, *Conditioning with unit-length columns* | ~6 h on 88 cores (Chen in A2 longest) |
+   | t | `NPROC=30 bash scripts/run_identifiability_second_review.sh` (after r and s) | Results and Suppl. Note *Identifiability over the admissible set* | ~5 h on 88 cores |
+   | u | `NPROC=128 bash scripts/run_identifiability_other_criteria.sh` (after r and o-p) | Results *Identifiable and sufficient*, Table 2 (column Identifiable), Suppl. Note *Identifiability of the subsets of other criteria* | ~2 h on 128 cores (41 h of processor time) |
+   | v | `NPROC=88 bash scripts/run_test_kmin.sh`, then `python kmin_times.py` (after f, e and r) | Discussion (limitation iii), Methods, Suppl. Note *Minimum subset size: one parameter or two* | ~30 min on 88 cores (5.7 h of processor time) |
 
    Steps j, n, p, s, t, u and v distribute the work over many processes and use `fork` (Linux). The
    stored results of steps j-q were computed on a 128-core server shared by several computations; their
@@ -375,7 +376,7 @@ trajectories is used (cost note), and its model is verified in Lean.
 | Identifiability over the admissible set, dense profiles, profiles of the training-output subsets (Results; Suppl. Note) | `identifiability_box.py`, `identifiability_profiles.py` (`ID_DENSE=1`, `ID_SUBSETS=...`) | `identifiability/box/`, `identifiability/audit2/`, `identifiability/profiles_dense/`, `identifiability/profiles_selection_train_fixedscen/` | `audit2_tables.py` |
 | Identifiability of the subsets of the other criteria (Results *Identifiable and sufficient*; Table 2, column Identifiable; Suppl. Note and Tables) | `prepare_criteria_subsets.py`, `identifiability_profiles.py` (`ID_SUBSETS=subsets_<criterion>`), `identifiability_conditions.py` | `subsets_*/`, `identifiability/profiles_subsets_*/`, `identifiability/criteria_identifiability.json` | `identif_criteria_tables.py`, `audit2_stats.py` |
 | Minimum subset size k_min = 2 (Discussion, limitation iii; Methods; Suppl. Note *Minimum subset size* and Table) | `prepare_single_subsets.py`, `robustness.py` (`ROBUST_SUBSETS=subsets_single`), `criteria_tests.py` (`CT_METODOS=single`), `identifiability_profiles.py`, `compare_single_vs_pair.py`, `kmin_times.py` | `subsets_single/`, `robustness*_subsets_single/`, `identifiability/profiles_subsets_single/`, `kmin_comparison.json`, `kmin_times.json` | `kmin_tables.py` |
-| Counts quoted in the main text | — | all of the above | `cifras_texto.py` |
+| Counts quoted in the main text | — | all of the above | `main_text_numbers.py` |
 | Crauste (Results, non-admissible problems) | `crauste_blowup.py` | `crauste_blowup.json` | — |
 | Computational cost (Results; Suppl. Table S15) | `timing.py` | `cost/` | `make_extra_notes.py` |
 | Simulator check (Methods; Suppl. Table S9) | `simulator_check.py` | `simulator_check/` | `make_extra_notes.py` |
@@ -395,7 +396,12 @@ Information and are not generated.
   (c = 0.9), k_min = 2, 15 scenarios at +-5 % with seed 42.
 * **Language of the result files.** Field names in `results/` are those written by the original
   programs (Spanish); `DATA_DICTIONARY.md` translates them. The programs of this package write the
-  same fields, so new and stored results can be compared directly.
+  same fields, so new and stored results can be compared directly. For the same reason a few file
+  and folder names read by the programs keep their original Spanish names: `certificado*.csv`
+  (conditions of the Lean identifiability theorem), `RESUMEN.json`/`RESUMEN.md` (summaries),
+  `minimo.npz` (optimum of a profile), the criterion key `perfil` (profile likelihood, e.g.
+  `subsets_perfil/`) and the families of synthetic truths `loguniforme` and `dispersa` (sparse).
+  All other files, scripts and folders have English names.
 * **Simulator.** libRoadRunner (CVODE, relative and absolute tolerances 1e-7 and 1e-10). Measurements at
   steady state and pre-equilibration use t = 1e5. If the integrator fails, the simulation is repeated
   piecewise with the discontinuities of the condition as breakpoints (Isensee).
@@ -414,13 +420,13 @@ Information and are not generated.
 
 * **Identifiability of the subsets of the other criteria.** The parameters chosen by Brun, Morris, standard
   pivoted QR and profile likelihood were profiled with the procedure of our subsets
-  (`scripts/identificabilidad_criterios.sh`, 128-core server, about 2 h, 41 h of processor time). Over the 27
+  (`scripts/run_identifiability_other_criteria.sh`, 128-core server, about 2 h, 41 h of processor time). Over the 27
   common problems, 86 % of our selected parameters are identifiable (Brun 85 %, profile likelihood 86 %,
   Morris 80 %, QR 76 %); identifiable and admissible: ours 21, Brun 18, Morris 14, profile likelihood 14,
   QR 7 (Holm-adjusted McNemar P = 0.38, 0.047, 0.078, 0.002). New column in Table 2, new Results section,
   new Supplementary Note.
 * **Test of the minimum subset size k_min = 2.** In the 15 problems in which one parameter already suffices,
-  the best single parameter was put through the tests of the selected pair (`scripts/prueba_kmin.sh`,
+  the best single parameter was put through the tests of the selected pair (`scripts/run_test_kmin.sh`,
   88-core server, 27 min, 5.7 h of processor time). It is as identifiable and predictive, but fails in
   more individual scenarios (pass rate 88 % against 94 %, P = 0.012) and degrades more for large changes
   (median e_fit at +-50 % 18.7 % against 10.9 %, P < 0.001): k_min = 2 is a safety margin.
@@ -483,7 +489,7 @@ Information and are not generated.
 * **Checkpoints.** Analyses that resume from checkpoints (external and nested validation, pivoted QR,
   random subsets, calibration only) identify them by problem and number of free parameters; delete the
   results and checkpoints of a problem before re-running it with a different subset.
-* `figures_tables/cifras_texto.py` recomputes the counts quoted in the main text.
+* `figures_tables/main_text_numbers.py` recomputes the counts quoted in the main text.
 
 ## Changes in version 1.2
 

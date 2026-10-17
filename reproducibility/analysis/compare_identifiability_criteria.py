@@ -2,7 +2,7 @@
 """
 Compares the practical identifiability of the parameters selected by our method and by the other
 criteria (Brun, Morris, standard pivoted QR, profile likelihood), after running
-scripts/identificabilidad_criterios.sh.
+scripts/run_identifiability_other_criteria.sh.
 
 Profiles: results/identifiability/profiles/<p>.json (our subsets) and
           results/identifiability/profiles_subsets_<criterion>/<p>.json (other criteria; only the

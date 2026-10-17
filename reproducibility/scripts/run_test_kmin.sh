@@ -4,7 +4,7 @@
 # pair (robustness to the size of the change with paired and independent directions, admissibility
 # at +-20 %, synthetic prediction with 20 seeds, identifiability by profile likelihood).
 # All analyses run at the same time and share the cores. Resumable.
-# Usage (from reproducibility/):  NPROC=88 nohup bash scripts/prueba_kmin.sh > prueba_kmin.log 2>&1 &
+# Usage (from reproducibility/):  NPROC=88 nohup bash scripts/run_test_kmin.sh > run_test_kmin.log 2>&1 &
 set -uo pipefail
 cd "$(dirname "$0")/../analysis"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1

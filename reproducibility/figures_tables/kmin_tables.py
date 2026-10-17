@@ -3,7 +3,7 @@
 Test of the minimum subset size k_min = 2 (Supplementary Note "Minimum subset size"): table of the
 best single parameter against the pair selected by our method, on the 15 problems in which one
 parameter already reaches the admissibility threshold, from results/kmin_comparison.json (written
-by analysis/compare_single_vs_pair.py after scripts/prueba_kmin.sh).
+by analysis/compare_single_vs_pair.py after scripts/run_test_kmin.sh).
 
 Writes tables/tableS_kmin.tex (in PAPER_DIR) and prints the summary quoted in the text.
 """

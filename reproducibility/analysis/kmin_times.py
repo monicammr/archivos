@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Computing time of the test of k_min = 2 (scripts/prueba_kmin.sh), written to
+Computing time of the test of k_min = 2 (scripts/run_test_kmin.sh), written to
 results/kmin_times.json for the Supplementary Note on computing time.
 
 Most programs record the time of every task (field "segundos"): robustness of each problem,
@@ -10,7 +10,7 @@ size (ROBUST_LEVEL); those processes do not record their time, which is therefor
 modification times of their checkpoint files (partial/<problem>__L<size>.json) minus the launch
 time, plus the time the serial runs had spent on these two problems before they were stopped.
 Run: 07:25:44 to 07:53:08 UTC on 17 October 2026 on an 88-core server (log in
-results/logs_kmin_resumen/prueba_kmin.log).
+results/logs_kmin/run_test_kmin.log).
 """
 import json
 from datetime import datetime, timezone

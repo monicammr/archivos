@@ -2,8 +2,8 @@
 # Prepares a fresh Linux server (e.g. vast.ai, Ubuntu) to run the analyses of the package:
 # clones the repository, creates a Python environment with the exact package versions and
 # downloads the PEtab benchmark problems. Run once, as root, from any folder:
-#   curl -sL https://raw.githubusercontent.com/monicammr/archivos/main/reproducibility/scripts/setup_servidor.sh | bash
-# or, after cloning:  bash archivos/reproducibility/scripts/setup_servidor.sh
+#   curl -sL https://raw.githubusercontent.com/monicammr/archivos/main/reproducibility/scripts/setup_server.sh | bash
+# or, after cloning:  bash archivos/reproducibility/scripts/setup_server.sh
 set -euo pipefail
 cd /root
 if [ ! -d archivos ]; then

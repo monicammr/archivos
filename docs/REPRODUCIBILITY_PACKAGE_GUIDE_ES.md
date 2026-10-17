@@ -55,7 +55,7 @@ de cómputo de cada análisis en cada problema (campo `segundos` de los resultad
 de la nota "Computing time of the analyses" del suplemento; su objetivo es mostrar que seleccionar y
 verificar un subconjunto es asequible (minutos en casi todos los problemas, mucho menos que la
 verosimilitud perfilada del modelo completo, que no fue viable en los problemas grandes).
-`figures_tables/cifras_texto.py` recalcula las cifras que cita el texto principal (admisibles,
+`figures_tables/main_text_numbers.py` recalcula las cifras que cita el texto principal (admisibles,
 identificabilidad, validación, comparación de criterios, robustez) para comprobarlas tras cualquier cambio.
 
 ### 2b. Programas añadidos en la segunda auditoría (versión 1.5)
@@ -70,7 +70,7 @@ identificabilidad, validación, comparación de criterios, robustez) para compro
 | `conditioning_check.py` | κ y VIF con columnas centradas y sin centrar | el código y Lean usan normalizaciones distintas | `results/conditioning_check.json` |
 | `identifiability_profiles.py` con `ID_DENSE=1` o `ID_SUBSETS=…` | perfiles con 20 puntos por lado, o de otros subconjuntos | ver si la clasificación depende de la resolución, y perfilar los subconjuntos de entrenamiento | `results/identifiability/profiles_dense/`, `profiles_selection_train_fixedscen/` |
 | `identifiability_box.py` | comprueba las hipótesis de los teoremas de Lean de identificabilidad en toda la región alrededor del óptimo (factor 10, 5, 3, 2 y 1,5) | antes se comprobaban solo sobre el perfil | `results/identifiability/box/`, `results/identifiability/audit2/` |
-| `scripts/fase_a_audit2.sh`, `scripts/identificabilidad_audit2.sh` | lanzan todo lo anterior en un servidor de muchos núcleos | — | — |
+| `scripts/run_second_review.sh`, `scripts/run_identifiability_second_review.sh` | lanzan todo lo anterior en un servidor de muchos núcleos | — | — |
 | `figures_tables/audit2_stats.py`, `audit2_tables.py` | estadísticas (McNemar, bootstrap, Holm), Tabla 2 y tablas nuevas del suplemento | — | Tabla 2, Fig. 4, tablas S nuevas |
 | `lean_proofs/NonVacuity.lean` | ejemplos verificados que muestran que las hipótesis de cada teorema central se pueden cumplir | descartar teoremas vacíos | — |
 | `lean_proofs/DEFINITIONS_AUDIT.md` | compara cada definición de Lean con el paper y el código | descartar que el enunciado no diga lo que el paper afirma | — |
@@ -80,10 +80,10 @@ identificabilidad, validación, comparación de criterios, robustez) para compro
 
 | Programa | Qué hace | Por qué | Produce | Tiempo |
 |---|---|---|---|---|
-| `scripts/identificabilidad_criterios.sh` (usa `prepare_criteria_subsets.py`, `identifiability_profiles.py` con `ID_SUBSETS`, `compare_identifiability_criteria.py`) | calcula el perfil de verosimilitud de los parámetros que eligieron Brun, Morris, QR estándar y el perfil de verosimilitud, con el mismo procedimiento que tus subconjuntos; los cuatro criterios corren a la vez | saber si sus parámetros son tan identificables como los tuyos y si alguno logra parámetros identificables **y** suficientes a la vez | `results/subsets_*/`, `results/identifiability/profiles_subsets_*/`, `criteria_identifiability.json`; columna *Identifiable* de la Tabla 2 y nota del suplemento | ~2 h en 128 núcleos; 41 h de procesador |
-| `scripts/prueba_kmin.sh` (usa `prepare_single_subsets.py`, `robustness.py` con `ROBUST_SUBSETS`, `criteria_tests.py` con `CT_METODOS=single`, `identifiability_profiles.py`, `compare_single_vs_pair.py`; luego `kmin_times.py`) | en los 15 problemas donde un solo parámetro ya basta, pasa el mejor parámetro solo por las mismas pruebas que tu par: robustez de ±1 % a ±50 %, admisibilidad a ±20 %, predicción sintética e identificabilidad | justificar con datos el mínimo de dos parámetros (k_min = 2) | `results/subsets_single/`, `robustness*_subsets_single/`, `kmin_comparison.json`, `kmin_times.json`; nota del suplemento y limitación (iii) | 27 min en 88 núcleos; 5,7 h de procesador |
+| `scripts/run_identifiability_other_criteria.sh` (usa `prepare_criteria_subsets.py`, `identifiability_profiles.py` con `ID_SUBSETS`, `compare_identifiability_criteria.py`) | calcula el perfil de verosimilitud de los parámetros que eligieron Brun, Morris, QR estándar y el perfil de verosimilitud, con el mismo procedimiento que tus subconjuntos; los cuatro criterios corren a la vez | saber si sus parámetros son tan identificables como los tuyos y si alguno logra parámetros identificables **y** suficientes a la vez | `results/subsets_*/`, `results/identifiability/profiles_subsets_*/`, `criteria_identifiability.json`; columna *Identifiable* de la Tabla 2 y nota del suplemento | ~2 h en 128 núcleos; 41 h de procesador |
+| `scripts/run_test_kmin.sh` (usa `prepare_single_subsets.py`, `robustness.py` con `ROBUST_SUBSETS`, `criteria_tests.py` con `CT_METODOS=single`, `identifiability_profiles.py`, `compare_single_vs_pair.py`; luego `kmin_times.py`) | en los 15 problemas donde un solo parámetro ya basta, pasa el mejor parámetro solo por las mismas pruebas que tu par: robustez de ±1 % a ±50 %, admisibilidad a ±20 %, predicción sintética e identificabilidad | justificar con datos el mínimo de dos parámetros (k_min = 2) | `results/subsets_single/`, `robustness*_subsets_single/`, `kmin_comparison.json`, `kmin_times.json`; nota del suplemento y limitación (iii) | 27 min en 88 núcleos; 5,7 h de procesador |
 | `figures_tables/identif_criteria_tables.py`, `kmin_tables.py` | generan las tablas del suplemento de estas dos pruebas | — | tablas S nuevas | segundos |
-| `scripts/setup_servidor.sh` | prepara un servidor Linux nuevo (clona el repositorio, instala Python y baja los modelos) | facilitar repetir las pruebas en un servidor alquilado | — | ~5 min |
+| `scripts/setup_server.sh` | prepara un servidor Linux nuevo (clona el repositorio, instala Python y baja los modelos) | facilitar repetir las pruebas en un servidor alquilado | — | ~5 min |
 
 **Resultados.** Identificabilidad: tus parámetros, los de Brun y los del perfil son igual de identificables
 (85–86 %); Morris (80 %) y QR (76 %) menos. Identificables **y** suficientes: tú 21 de 27 problemas,
@@ -136,8 +136,8 @@ están en la tabla del README.
 
 ```
 bash scripts/get_benchmark.sh
-NCORES=88 nohup bash scripts/fase_a_audit2.sh > fase_a.log 2>&1 &          (unas 6 h con 88 núcleos)
-NPROC=30 nohup bash scripts/identificabilidad_audit2.sh > identif.log 2>&1 &  (unas 5 h)
+NCORES=88 nohup bash scripts/run_second_review.sh > second_review.log 2>&1 &          (unas 6 h con 88 núcleos)
+NPROC=30 nohup bash scripts/run_identifiability_second_review.sh > identif.log 2>&1 &  (unas 5 h)
 cd analysis && python conditioning_check.py
 ```
 
@@ -200,7 +200,7 @@ Al rehacer todo con cuidado aparecieron cuatro cosas que corregí en el paper:
 
 1. Entra a https://zenodo.org con tu cuenta (puedes usar ORCID o GitHub).
 2. **New upload**.
-3. Arrastra el archivo `Paquete_reproducibilidad_v1.6.0_2026-10-17.zip` (está en tu carpeta de
+3. Arrastra el archivo `Reproducibility_package_v1.6.0_2026-10-17.zip` (está en tu carpeta de
    Descargas y en `zenodo/` del repositorio). Como el registro ya existe (DOI 10.5281/zenodo.23338175),
    **no crees uno nuevo**: entra al registro y pulsa **New version**; Zenodo le da un DOI nuevo a la
    versión y mantiene el historial.

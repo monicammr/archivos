@@ -8,7 +8,7 @@
 # others. Resumable: points already computed are not recomputed.
 #
 # Usage (on the server, from the folder reproducibility/):
-#   NPROC=128 nohup bash scripts/identificabilidad_criterios.sh > identif_criterios.log 2>&1 &
+#   NPROC=128 nohup bash scripts/run_identifiability_other_criteria.sh > identif_criterios.log 2>&1 &
 #   tail -f identif_criterios.log            # progress
 set -uo pipefail
 cd "$(dirname "$0")/../analysis"
@@ -16,7 +16,7 @@ export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 N=${NPROC:-32}
 CRIT="brun morris qr_gks perfil"
 PER=$(( N / 4 )); [ "$PER" -lt 1 ] && PER=1
-LOG=../results/logs_criterios
+LOG=../results/logs_other_criteria
 mkdir -p "$LOG"
 echo "$(date) start, $N processes ($PER per criterion, four criteria at the same time)"
 

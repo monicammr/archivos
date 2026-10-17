@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cifras del texto principal calculadas a partir de results/ (para comprobar el texto tras cada cambio).
 
-Uso: python cifras_texto.py
+Uso: python main_text_numbers.py
 """
 import json, math, glob, os, collections, statistics
 from pathlib import Path

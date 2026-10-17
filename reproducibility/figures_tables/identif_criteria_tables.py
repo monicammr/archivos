@@ -4,7 +4,7 @@ Identifiability of the parameters selected by every criterion (Supplementary Not
 of the subsets of other criteria" and the column "Identifiable" of Table 2).
 
 The profiles of the subsets of the other criteria were computed by
-scripts/identificabilidad_criterios.sh with exactly the procedure used for our subsets (reduced
+scripts/run_identifiability_other_criteria.sh with exactly the procedure used for our subsets (reduced
 problem: selected and calibration parameters free, all other parameters at theta0, all data;
 Delta chi2 = 3.84 on both sides). Where a criterion chose the same subset as our method, our
 profiles are used.

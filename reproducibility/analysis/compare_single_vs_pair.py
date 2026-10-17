@@ -2,7 +2,7 @@
 """
 Test of k_min = 2: compares, on the problems in which a single biological parameter already reaches
 the admissibility threshold, the best single parameter j* with the pair selected by our method,
-with the same tests (run by scripts/prueba_kmin.sh):
+with the same tests (run by scripts/run_test_kmin.sh):
 
   * robustness: pattern A-D and largest perturbation size up to which the median e_fit stays
     admissible, paired and independent directions (robustness.py);

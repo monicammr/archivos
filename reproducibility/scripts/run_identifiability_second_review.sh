@@ -5,12 +5,12 @@
 #   (b) dense profiles (20 displacements per side) of the main subsets, from the same optimum
 #   (c) hypotheses of the Lean theorems (absolute and relative remainder on the tail) over the
 #       admissible set, by sampling and adversarial search, for regions of radius 10, 5, 3, 2, 1.5
-# Usage: NPROC=30 nohup bash scripts/identificabilidad_audit2.sh > identif.log 2>&1 &
+# Usage: NPROC=30 nohup bash scripts/run_identifiability_second_review.sh > identif.log 2>&1 &
 set -uo pipefail
 cd "$(dirname "$0")/../analysis"
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 N=${NPROC:-30}
-LOG=../results/logs_fase_a
+LOG=../results/logs_second_review
 mkdir -p "$LOG"
 ID=../results/identifiability
 mkdir -p $ID/audit2

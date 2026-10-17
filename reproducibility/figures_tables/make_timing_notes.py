@@ -160,7 +160,7 @@ def profile_points(folder):
 
 T["ident_dense"] = profile_points("profiles_dense")
 T["ident_train"] = profile_points("profiles_selection_train_fixedscen")
-# identifiability of the subsets of the other criteria (scripts/identificabilidad_criterios.sh)
+# identifiability of the subsets of the other criteria (scripts/run_identifiability_other_criteria.sh)
 _ic = collections.defaultdict(float)
 for _c in ("brun", "morris", "qr_gks", "perfil"):
     for _s, _t in profile_points(f"profiles_subsets_{_c}").items():
