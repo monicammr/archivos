@@ -16,7 +16,7 @@ from common import RESULTS as R, FIG, TAB, OUT as _OUT, EXCLUDE_ADMISSIBILITY
 T = TAB
 TAU = math.sqrt(1 - 0.81)
 M = ["ours", "qr", "brun", "morris", "perfil"]
-NOM = {"ours": "Ours", "qr": "QR", "brun": "Brun", "morris": "Morris", "perfil": "Profile"}
+NOM = {"ours": "Ours", "qr": "QR (earlier)", "brun": "Brun", "morris": "Morris", "perfil": "Profile"}
 ok = lambda x: isinstance(x, (int, float)) and math.isfinite(x)
 
 
@@ -106,7 +106,7 @@ for s in sorted(set(qr) | set(mb) | set(pf)):
 escribe("tableS_selections.tex", longtable(
     "@{}l>{\\raggedright}p{2.6cm}>{\\raggedright}p{2.6cm}>{\\raggedright}p{2.6cm}>{\\raggedright}p{2.6cm}>{\\raggedright\\arraybackslash}p{2.6cm}@{}",
     "Biological parameters selected by each criterion (same number $k$ for all). --, criterion not computed for the problem.",
-    "tab:selecciones", ["Problem", "Ours", "Pivoted QR", "Brun", "Morris", "Profile likelihood"], filas))
+    "tab:selecciones", ["Problem", "Ours", "Pivoted QR (earlier)", "Brun", "Morris", "Profile likelihood"], filas))
 
 # ── 3. datos reales: χ² de prueba de todas las variantes ─────────────────────────
 cols = [("ours", lambda s: an.get(s, {}).get("chi2_test_red_original")),
@@ -180,7 +180,7 @@ for A in (A5, A20):
 filas.append(["\\midrule Admissible"] + cuenta)
 escribe("tableS_admis.tex", longtable(
     "@{}lrrrrr|rrrrr@{}",
-    "Admissibility of the subsets of every criterion: smaller of the median $e_{\\mathrm{fit}}$ and the median $e_{\\mathrm{rel}}$ over 15 scenarios (the quantity compared with $\\tau_e=0.436$ by the method), for parameter changes of $\\pm$5\\% (left) and $\\pm$20\\% (right). $\\checkmark$, admissible. The eight problems that the method treats to first order are treated in the same way for every criterion.",
+    "Admissibility of the subsets of every criterion: smaller of the median $e_{\\mathrm{fit}}$ and the median $e_{\\mathrm{rel}}$ over 15 scenarios (the quantity compared with $\\tau_e=0.436$ by the method), for parameter changes of $\\pm$5\\% (left) and $\\pm$20\\% (right). $\\checkmark$, admissible. The eight problems that the method treats to first order are treated in the same way for every criterion. Pivoted QR is the earlier, direct variant; the standard Golub--Klema--Stewart form, with the fixed scenario set, is reported in Table~2 of the main text and in Supplementary Table~\\ref{tab:admisaudit2}.",
     "tab:admis", ["Problem"] + [NOM[m] for m in M] * 2, filas,
     grupo="& \\multicolumn{5}{c|}{$\\pm$5\\%} & \\multicolumn{5}{c}{$\\pm$20\\%} \\\\"))
 
@@ -190,11 +190,11 @@ for nivel, A in (("$\\pm$5\\%", A5), ("$\\pm$20\\%", A20)):
         pares = [(A[s]["ours"]["admisible"], A[s][m]["admisible"]) for s in A if "ours" in A[s] and m in A[s]]
         b = sum(o and not x for o, x in pares); c = sum(x and not o for o, x in pares)
         p = stats.binomtest(b, b + c).pvalue if b + c else float("nan")
-        filas.append([nivel, {"qr": "Pivoted QR", "brun": "Brun", "morris": "Morris", "perfil": "Profile likelihood"}[m],
+        filas.append([nivel, {"qr": "Pivoted QR (earlier variant)", "brun": "Brun", "morris": "Morris", "perfil": "Profile likelihood"}[m],
                       str(len(pares)), str(b), str(c), f"{p:.2g}"])
 escribe("tableS_mcnemar.tex", longtable(
     "@{}llrrrr@{}",
-    "Admissibility of our subsets compared with those of each criterion: exact McNemar test over problems (problems in which only one of the two subsets is admissible).",
+    "Admissibility of our subsets compared with those of each criterion: exact McNemar test over problems (problems in which only one of the two subsets is admissible). Pivoted QR is the earlier, direct variant; the standard Golub--Klema--Stewart form, with the fixed scenario set, is reported in Table~2 of the main text and in Supplementary Table~\\ref{tab:admisaudit2}.",
     "tab:mcnemar", ["Level", "Criterion", "Problems", "Only ours admissible", "Only the other", "$p$"], filas))
 
 # ── 6. sintético: cinco criterios ─────────────────────────────────────────────────

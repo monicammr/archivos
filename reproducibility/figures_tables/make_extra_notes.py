@@ -294,9 +294,10 @@ def settings():
         for t, lab in SETTINGS:
             adm = [p for p in probs if V[t][p]["admisible"]]
             T[t] = dict(adm=len(adm), mean=float(np.mean([len(V[t][p]["S"]) for p in adm])),
-                        same=sum(1 for p in probs if sorted(V[t][p]["S"]) == sorted(B[p]["S"])))
+                        same=sum(1 for p in probs if V[t][p]["admisible"] and B[p]["admisible"]
+                                 and sorted(V[t][p]["S"]) == sorted(B[p]["S"])))
         L.append(r"Admissible & " + " & ".join(str(T[t]["adm"]) for t, _ in SETTINGS) + r" \\")
-        L.append(r"Same $S$ & " + " & ".join(str(T[t]["same"]) for t, _ in SETTINGS) + r" \\")
+        L.append(r"Same $S$ (of the " + str(sum(B[p]["admisible"] for p in probs)) + r" admissible) & " + " & ".join(str(T[t]["same"]) for t, _ in SETTINGS) + r" \\")
         L += [r"\bottomrule \end{longtable}}", ""]
     (HERE / "suppl_settings.tex").write_text("\n".join(L) + "\n")
     return T, missing

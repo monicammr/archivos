@@ -28,14 +28,16 @@ def stats(t):
     probs = sorted(V)
     adm = [p for p in probs if V[p]["admisible"]]
     return dict(n=len(probs), adm=len(adm), mean=float(np.mean([len(V[p]["S"]) for p in adm])),
-                same=sum(1 for p in probs if sorted(V[p]["S"]) == sorted(BASE[p]["S"])))
+                # same subset, admissible both in the baseline and in the variant (the "=" cells of the table)
+                same=sum(1 for p in probs if V[p]["admisible"] and BASE[p]["admisible"]
+                         and sorted(V[p]["S"]) == sorted(BASE[p]["S"])))
 
 
 T = {t: stats(t) for _, g in GROUPS for t, _ in g}
 probs = sorted(load("settings/tauK_5"))
 N = len(probs)
 badm = [p for p in probs if BASE[p]["admisible"]]
-B = dict(adm=len(badm), mean=float(np.mean([len(BASE[p]["S"]) for p in badm])), same=N)
+B = dict(adm=len(badm), mean=float(np.mean([len(BASE[p]["S"]) for p in badm])), same=len(badm))
 for t, v in T.items():
     print(f"{t:10s} adm {v['adm']} mean {v['mean']:.2f} same {v['same']}/{v['n']}")
 print("baseline", B)
@@ -48,10 +50,10 @@ for gname, g in GROUPS:
     heads.append((y, gname)); y += 1
     for t, lab in g:
         v = T[t]
-        ax.plot([v["same"], N], [y, y], color="#d0d0d0", lw=0.8, zorder=1)
+        ax.plot([v["same"], B["adm"]], [y, y], color="#d0d0d0", lw=0.8, zorder=1)
         ax.scatter(v["same"], y, s=20, color=BLUE, zorder=4)
         ax.scatter(v["adm"], y, s=55, marker="s", fc="none", ec=GREEN, lw=1.0, zorder=5)
-        txt = f"{v['same']}/{N}"
+        txt = f"{v['same']}/{B['adm']}"
         if abs(v["mean"] - B["mean"]) > 0.005:
             txt += f"   |S| {v['mean']:.2f}"
         ax.text(N + 0.7, y, txt, va="center", fontsize=6, color=GREY)
@@ -67,7 +69,7 @@ ax.set_ylim(y - 0.5, -0.8)
 ax.axvline(N, color=GREY, lw=0.6, ls=(0, (3, 2)))
 ax.set_xlim(10, N + 6.5); ax.set_xticks([10, 15, 20, 25])
 ax.spines["bottom"].set_bounds(10, N)
-ax.set_xlabel(f"Number of problems (of {N})")
+ax.set_xlabel(f"Number of problems ({N} re-run, {B['adm']} admissible in the baseline)")
 ax.scatter([], [], s=20, color=BLUE, label="same subset $S$ as baseline")
 ax.scatter([], [], s=55, marker="s", fc="none", ec=GREEN, lw=1.0, label=f"admissible (baseline {B['adm']})")
 ax.legend(loc="lower center", frameon=False, fontsize=6.3, ncol=2, bbox_to_anchor=(0.5, 1.0), handletextpad=0.2, columnspacing=1.2)
