@@ -1,13 +1,19 @@
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{4.1cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{2.5cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{3.7cm}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{3.4cm}@{}}
 \toprule
 Step of the method (modules) & Statement proved in Lean & Applies to a result when & In this study \\
 \midrule
-Ranking by energy (1, 2, 11, 13) & The first-order output error when parameters are fixed is bounded by the discarded sensitivity energy; the bound transfers to transformed outputs & $R_{\mathrm{var}}(S)\ge\tau_R$ and the model is verified & Level 3: Alkan, Perelson \\
-Selection with $\kappa$ and VIF (7--9) & The greedy subset satisfies $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$; discarding a rejected candidate permanently is correct; the linearised least-squares estimates are unique and stable & The computed $\kappa$ and VIF are below the thresholds (unit-length columns for the least-squares statement) & Selection: all 31 subsets; least squares: 30 (not Rahman) \\
+Ranking by energy (1, 2, 11, 13) & The first-order output error when parameters are fixed is bounded by the discarded sensitivity energy; the bound transfers to transformed outputs & $R_{\mathrm{var}}(S)\ge\tau_R$ and the model is verified & None: Alkan and Perelson satisfy $R_{\mathrm{var}}\ge\tau_R$, but their models are not verified \\
+\addlinespace[3pt]
+Selection with $\kappa$ and VIF (7--9) & The greedy subset satisfies $\kappa\le\tau_\kappa$ and $\mathrm{VIF}\le\tau_{\mathrm{VIF}}$; discarding a rejected candidate permanently is correct; the linearised least-squares estimates are unique and stable & The computed $\kappa$ and VIF are below the thresholds (unit-length columns for the least-squares statement) & Selection: all 31 subsets (centred columns); least squares: 30 for $\theta_S$ with $\Theta_C$ fixed (not Rahman); with $\Theta_C$ re-estimated, not satisfied in 10 \\
+\addlinespace[3pt]
 Admissibility threshold (3, 4, 20--22) & Theorem~\ref{thm:cos}: rescaling an output change with cosine $c$ leaves a relative error $\sqrt{1-c^2}=\tau_e$ & Median $\cos\Delta\ge c$ & Level 2 or 3: 17 subsets \\
-Re-estimation (5, 12) & More re-estimated parameters never increase the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the first-order $e_{\mathrm{fit}}$ differs from the exact one by a second-order term & Always (exact $e_{\mathrm{fit}}$); bound on the absolute error only (first order) & 25 admissible problems exact, 6 first order and then checked nonlinearly; Beer and Lang first order; Crauste not defined \\
-Backward elimination (6) & Theorem~\ref{thm:prune}: the result is admissible and no parameter can be removed & Always & All 31 subsets \\
-Model hypotheses (14--18, 23--31) & The solution exists on the horizon, stays non-negative and is differentiable in the parameters & Checked for each model by the Lean kernel & 28 models (27 of the 34 problems) \\
+\addlinespace[3pt]
+Re-estimation (5, 12) & More re-estimated parameters never increase the fitting error; $e_{\mathrm{fit}}\le e_{\mathrm{rel}}$; the first-order $e_{\mathrm{fit}}$ differs from the exact one by a second-order term & Exact minimum; the computed $e_{\mathrm{fit}}$ (local optimum) bounds it from above, so admissible as computed implies admissible exactly, not conversely & 25 by nonlinear re-estimation; 6 first order, then checked nonlinearly at $\pm$5\%; Beer and Lang first order; Crauste not defined \\
+\addlinespace[3pt]
+Backward elimination (6) & Theorem~\ref{thm:prune}: the result is admissible and no parameter can be removed & Relative to the implemented test, including $|S|\ge2$ & All 31 subsets (non-trivial only for Bruno, Lucarelli and Zhao) \\
+\addlinespace[3pt]
+Model hypotheses (14--18, 23--31) & The solution exists on the horizon, stays non-negative and is differentiable in the parameters & Checked by the Lean kernel at the nominal parameters and base condition (first segment of piecewise models) & 28 models (27 of the 34 problems); Crauste only for $T\le1$; the selected initial conditions of Bertozzi and Bruno are not parameters of the Lean files \\
+\addlinespace[3pt]
 Identifiability (32) & If $t^{\ast}_j$ is smaller than the distance to both bounds, $\theta_j$ is practically identifiable & $I_j$, $\gamma$ and $\varepsilon$ computed at the profile points satisfy the inequality & Hypotheses satisfied at the evaluated profile points (not a certificate): 24 parameters; all of $S$ in 7 problems \\
 \botrule
 \end{tabular}

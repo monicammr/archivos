@@ -139,7 +139,7 @@ otros = [("Pivoted QR", {s: qr[s].get("chi2_qr") for s in qr}),
          ("Random subsets (median of 20)", {s: al[s].get("chi2_rand_median") for s in al}),
          ("Calibration only ($k=0$)", {s: va[s].get("chi2_vacio") for s in va}),
          ("Full model re-estimated on training data", {s: an[s].get("chi2_test_full_train") for s in an}),
-         ("Reduced model, leakage-free nested", {s: an[s].get("chi2_test_red_nested") for s in an}),
+         ("Reduced model, nested without $\\theta_0$ anchor", {s: an[s].get("chi2_test_red_nested") for s in an}),
          ("Published estimate $\\theta_0$", {s: an[s].get("chi2_test_theta0") for s in an})]
 filas, e5 = [], math.log(1.05)
 for nom, d in otros:
@@ -275,7 +275,7 @@ for s, d in sorted(an.items()):
                   (f"{100 * (ne - f) / f:+.1f}" if ok(f) and f > 0 else "--"), (f"{ne / o:.2f}" if ok(o) and o > 0 else "--")])
 escribe("tableS_nested.tex", longtable(
     "@{}lrrrrrr@{}",
-    "Leakage-free nested validation (29 problems). $\\chi^2_{\\mathrm{orig}}$: reduced model with the non-selected parameters at $\\theta_0$; $\\chi^2_{\\mathrm{full,train}}$: full model re-estimated on the training data; $\\chi^2_{\\mathrm{nested}}$: reduced model with the non-selected parameters at $\\hat\\theta_{\\mathrm{train}}$; $\\theta_0$: published estimate. $\\Delta$\\%: nested relative to full; last column: nested over original (above 1, the nested reduced model predicts worse).",
+    "Nested validation without the $\\theta_0$ anchor (29 problems). $\\chi^2_{\\mathrm{orig}}$: reduced model with the non-selected parameters at $\\theta_0$; $\\chi^2_{\\mathrm{full,train}}$: full model re-estimated on the training data; $\\chi^2_{\\mathrm{nested}}$: reduced model with the non-selected parameters at $\\hat\\theta_{\\mathrm{train}}$; $\\theta_0$: published estimate. $\\Delta$\\%: nested relative to full; last column: nested over original (above 1, the nested reduced model predicts worse).",
     "tab:nested", ["Problem", "$\\chi^2_{\\mathrm{orig}}$", "$\\chi^2_{\\mathrm{full,train}}$", "$\\chi^2_{\\mathrm{nested}}$", "$\\theta_0$", "$\\Delta$\\%", "nested/orig"], filas,
     nota="$^\\dagger$Chen: full-model re-estimation with the finite-difference Jacobian evaluated in parallel and integrator tolerances $10^{-6}/10^{-8}$."))
 

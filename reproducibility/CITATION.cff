@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this package, please cite the paper and this package."
-title: "Reproducibility package: Few biological parameters suffice to reproduce measured dynamics: re-estimation-verified parameter subset selection for systems biology models"
+title: "Reproducibility package: Re-estimation-verified selection of small parameter subsets for systems biology models"
 version: 1.6.0
 date-released: 2026-10-16
 license: MIT
@@ -28,7 +28,7 @@ keywords:
   - formal verification
 preferred-citation:
   type: article
-  title: "Few biological parameters suffice to reproduce measured dynamics: re-estimation-verified parameter subset selection for systems biology models"
+  title: "Re-estimation-verified selection of small parameter subsets for systems biology models"
   authors:
     - family-names: "Miranda R."
       given-names: "Mónica"

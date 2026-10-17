@@ -39,8 +39,8 @@ Supplementary Figure~\ref{fig:nested_protocol} illustrates both protocols. The p
 \node[fitbox,  below=1.1cm of thetaA] (fitredA) {Fit reduced model\\[2pt]{\footnotesize $S\cup\Theta_C$ on train}};
 \node[resL,    below=0.6cm of fitredA](chi2A)   {$\chi^2_{\mathrm{orig}}$ (test set)};
 % ---- Column B: leakage-free ----
-\node[dataR, right=2.4cm of dataA] (dataB) {Training data\\[2pt]{\footnotesize test set never used}};
-\node[font=\small\bfseries] at (dataB.north |- titleA) (titleB) {(b)~Leakage-free};
+\node[dataR, right=2.4cm of dataA] (dataB) {Training data\\[2pt]{\footnotesize test set not used to fit the reduced model}};
+\node[font=\small\bfseries] at (dataB.north |- titleA) (titleB) {(b)~Without the $\theta_0$ anchor};
 \node[fitbox,   below=0.6cm of dataB]  (fitB)    {Fit full model};
 \node[parambox, below=0.6cm of fitB]   (thetaB)  {$\hat\theta_{\mathrm{train}}$\\[2pt]{\footnotesize training-only estimate}};
 \node[fitbox,   below=1.1cm of thetaB] (fitredB) {Fit reduced model\\[2pt]{\footnotesize $S\cup\Theta_C$ on train}};
@@ -66,7 +66,7 @@ Supplementary Figure~\ref{fig:nested_protocol} illustrates both protocols. The p
 \draw[->, >=Stealth, semithick, gray!70] (chi2A.south) -- (chi2A.south |- result.north);
 \draw[->, >=Stealth, semithick, gray!70] (chi2B.south) -- (chi2B.south |- result.north);
 \end{tikzpicture}
-\caption{\textbf{The two external-validation protocols.} \textbf{(a)}~In the original protocol the non-selected parameters of the reduced model are fixed at $\theta_0$, the published estimate obtained from \emph{all} data including the test set. \textbf{(b)}~In the leakage-free protocol the full model is first re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$, which then serves both as the value of the fixed parameters and as the reference for the optimisation bounds; the test set is never used to construct the reduced model. The box states the outcome: the nested reduced model reproduces the full training fit, as it must because its re-estimation starts at the training optimum, and it predicts worse than the original reduced model in 22 of 29 problems.}
+\caption{\textbf{The two external-validation protocols.} \textbf{(a)}~In the original protocol the non-selected parameters of the reduced model are fixed at $\theta_0$, the published estimate obtained from \emph{all} data including the test set. \textbf{(b)}~In the protocol without the $\theta_0$ anchor the full model is first re-estimated on the training data only, giving $\hat\theta_{\mathrm{train}}$, which then serves both as the value of the fixed parameters and as the reference for the optimisation bounds; the test set is never used to construct the reduced model. The box states the outcome: the nested reduced model reproduces the full training fit, as it must because its re-estimation starts at the training optimum, and it predicts worse than the original reduced model in 22 of 29 problems.}
 \label{fig:nested_protocol}
 \end{figure}
 
@@ -88,6 +88,6 @@ Supplementary Table~\ref{tab:nested} gives the results and Supplementary Figure~
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/figS_nested.pdf}
-\caption{\textbf{Leakage-free nested validation.} Test $\chi^2/n$ of the nested reduced model (non-selected parameters at $\hat\theta_{\mathrm{train}}$) against \textbf{a}, the full model re-estimated on the training data, with which it coincides by construction, and \textbf{b}, the original reduced model anchored at $\theta_0$; points above the diagonal predict worse without the anchor. Dashed line, $y=x$; problems that differ by more than a factor of 3 are labelled; Perelson ($\chi^2/n<10^{-12}$) lies outside the axes.}
+\caption{\textbf{Nested validation without the $\theta_0$ anchor (partial leakage control).} Test $\chi^2/n$ of the nested reduced model (non-selected parameters at $\hat\theta_{\mathrm{train}}$) against \textbf{a}, the full model re-estimated on the training data, with which it coincides by construction, and \textbf{b}, the original reduced model anchored at $\theta_0$; points above the diagonal predict worse without the anchor. Dashed line, $y=x$; problems that differ by more than a factor of 3 are labelled; Perelson ($\chi^2/n<10^{-12}$) lies outside the axes.}
 \label{fig:anidada}
 \end{figure}
