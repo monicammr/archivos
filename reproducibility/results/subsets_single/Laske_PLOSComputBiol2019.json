@@ -1,0 +1,16 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_imp"
+ ],
+ "calibracion": [
+  "vRNA_offset",
+  "Int_nuc_off"
+ ],
+ "admisible": true,
+ "e_fit_5": 0.15909983192802868,
+ "S_ours": [
+  "k_imp",
+  "k_syn_R_M"
+ ]
+}

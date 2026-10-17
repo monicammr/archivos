@@ -1,0 +1,23 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k30r"
+ ],
+ "calibracion": [
+  "sc_PI3K",
+  "sc_GLUT_2B",
+  "sc_BINS",
+  "sc_PIRS",
+  "sc_PTP",
+  "sc_GLUT_3B_120",
+  "sc_GLUT_3B_240",
+  "sc_SOD2",
+  "sc_FOXO1"
+ ],
+ "admisible": true,
+ "e_fit_5": 0.0839534229221519,
+ "S_ours": [
+  "k8",
+  "kminus7b"
+ ]
+}

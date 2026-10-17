@@ -1,0 +1,19 @@
+{
+ "sistema": "Weber_BMC2015",
+ "S": [
+  "a21"
+ ],
+ "calibracion": [
+  "scale_yCERTpRN24",
+  "scale_yPI4K3BpRN24",
+  "scale_yPKDpN0",
+  "scale_yPKDpN24",
+  "scale_yPKDpN25"
+ ],
+ "admisible": true,
+ "e_fit_5": 0.05871999920357381,
+ "S_ours": [
+  "s12",
+  "a21"
+ ]
+}

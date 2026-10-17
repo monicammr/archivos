@@ -1,0 +1,22 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "k10"
+ ],
+ "calibracion": [
+  "s_pErk_20140430_gel1",
+  "s_pErk_20140430_gel2",
+  "s_pErk_20140505_gel1",
+  "s_pErk_20140505_gel2",
+  "s_pMek_20140430_gel1",
+  "s_pMek_20140430_gel2",
+  "s_pMek_20140505_gel1",
+  "s_pMek_20140505_gel2"
+ ],
+ "admisible": true,
+ "e_fit_5": 0.14694778446357906,
+ "S_ours": [
+  "tau2",
+  "k6"
+ ]
+}

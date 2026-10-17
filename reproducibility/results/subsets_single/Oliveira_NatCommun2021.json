@@ -1,0 +1,13 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "delta_"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "e_fit_5": 0.11245676544007252,
+ "S_ours": [
+  "beta_0",
+  "h_hosp_rate"
+ ]
+}

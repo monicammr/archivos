@@ -1,0 +1,19 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "init_Rec_i"
+ ],
+ "calibracion": [
+  "scaling_CD274mRNA",
+  "scaling_IL13_cell",
+  "scaling_SOCS3mRNA",
+  "scaling_pIL4Ra",
+  "scaling_pJAK2"
+ ],
+ "admisible": true,
+ "e_fit_5": 0.04106991907229652,
+ "S_ours": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ]
+}

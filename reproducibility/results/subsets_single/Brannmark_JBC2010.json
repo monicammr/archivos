@@ -1,0 +1,17 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "km2"
+ ],
+ "calibracion": [
+  "k_IRP_1Step",
+  "k_IRSiP_1Step",
+  "k_IRSiP_2Step"
+ ],
+ "admisible": true,
+ "e_fit_5": 0.09441545970677949,
+ "S_ours": [
+  "k1f",
+  "km2"
+ ]
+}

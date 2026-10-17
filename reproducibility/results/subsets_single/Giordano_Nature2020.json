@@ -1,0 +1,13 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "gamma_4"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "e_fit_5": 0.11310110545119935,
+ "S_ours": [
+  "alpha_4",
+  "alpha_28"
+ ]
+}

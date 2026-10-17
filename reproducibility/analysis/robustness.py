@@ -47,6 +47,12 @@ OUT = CFG.ROBUSTNESS
 INDEP = os.environ.get("ROBUST_INDEP") == "1"
 if INDEP:
     OUT = CFG.RESULTS / "robustness_independent"
+# ROBUST_SUBSETS=<folder of results/>: evaluate other subsets (e.g. subsets_single, the best single
+# parameters of the test of k_min = 2); results in results/robustness[_independent]_<folder>/.
+_SUBF = os.environ.get("ROBUST_SUBSETS")
+if _SUBF:
+    SEL = CFG.RESULTS / _SUBF
+    OUT = OUT.parent / f"{OUT.name}_{_SUBF}"
 LEVELS = CFG.LEVELS
 N_SCEN, SEED = CFG.N_SCENARIOS, CFG.SEED
 seed_of = lambda level: SEED if (not INDEP or level == CFG.EPSILON) else SEED + 1000 * (LEVELS.index(level) + 1)

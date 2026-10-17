@@ -1,0 +1,13 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "gamma_0"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "e_fit_5": 0.0492045545600442,
+ "S_ours": [
+  "transmission_rate_effective",
+  "gamma_i"
+ ]
+}

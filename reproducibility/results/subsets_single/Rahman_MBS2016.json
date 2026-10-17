@@ -1,0 +1,13 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "infected_moderate_transmission_rate"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "e_fit_5": 0.1124492420745925,
+ "S_ours": [
+  "infected_moderate_transmission_rate",
+  "infected_normal_worsen_rate"
+ ]
+}

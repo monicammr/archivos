@@ -1,0 +1,16 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "v0"
+ ],
+ "calibracion": [
+  "offset",
+  "scale"
+ ],
+ "admisible": true,
+ "e_fit_5": 0.10453285938665867,
+ "S_ours": [
+  "Kz",
+  "K_par"
+ ]
+}

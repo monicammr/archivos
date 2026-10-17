@@ -1,0 +1,13 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_Y1068__FREE"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "e_fit_5": 0.2972634216589741,
+ "S_ours": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ]
+}

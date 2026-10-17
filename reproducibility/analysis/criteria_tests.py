@@ -72,7 +72,8 @@ PRUEBAS = os.environ.get("CT_PRUEBAS", "sint" if SOLO_SINT else "adm,sint").spli
 EV.CKDIR["dir"] = None
 FUENTES = {"qr": (CFG.QR_SELECTION, "S_qr"), "brun": (CFG.BRUN_MORRIS, "S_brun"),
            "morris": (CFG.BRUN_MORRIS, "S_morris"), "perfil": (CFG.PROFILE, "S_perfil"),
-           "qr_gks": (R / "qr_selection_gks", "S_qr"), "train": (R / "selection_train_fixedscen", "S")}
+           "qr_gks": (R / "qr_selection_gks", "S_qr"), "train": (R / "selection_train_fixedscen", "S"),
+           "single": (R / "subsets_single", "S")}   # best single parameter (test of k_min = 2)
 METODOS = os.environ.get("CT_METODOS", "ours,qr,brun,morris,perfil").split(",")
 _C = {}
 
