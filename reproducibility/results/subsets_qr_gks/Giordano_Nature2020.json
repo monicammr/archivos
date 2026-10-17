@@ -1,0 +1,10 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "eta_22",
+  "mu_0"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Giordano_Nature2020.json:S_qr"
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "beta_0",
+  "t_1"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Oliveira_NatCommun2021.json:S_morris"
+}

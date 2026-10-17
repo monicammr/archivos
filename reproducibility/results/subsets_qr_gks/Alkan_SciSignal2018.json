@@ -1,0 +1,21 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "p_atr_act_atm",
+  "p_dnapk_act"
+ ],
+ "calibracion": [
+  "scale_p21_mRNA_fold",
+  "scale_patm_au",
+  "scale_pchk1_au",
+  "scale_pchk2_au",
+  "scale_pdnapk_au",
+  "scale_pp53_au",
+  "scale_tp21_au",
+  "scale_tp53_au",
+  "scale_wip1_mRNA_fold",
+  "scale_yh2ax_au"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Alkan_SciSignal2018.json:S_qr"
+}

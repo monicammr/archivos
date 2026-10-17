@@ -1,0 +1,16 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "SOCS3mRNA_production",
+  "init_Rec_i"
+ ],
+ "calibracion": [
+  "scaling_CD274mRNA",
+  "scaling_IL13_cell",
+  "scaling_SOCS3mRNA",
+  "scaling_pIL4Ra",
+  "scaling_pJAK2"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Raia_CancerResearch2011.json:S_brun"
+}

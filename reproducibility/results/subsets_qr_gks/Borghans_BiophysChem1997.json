@@ -1,0 +1,13 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "Kz",
+  "Kf"
+ ],
+ "calibracion": [
+  "offset",
+  "scale"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Borghans_BiophysChem1997.json:S_qr"
+}

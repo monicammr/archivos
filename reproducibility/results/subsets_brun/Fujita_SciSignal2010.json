@@ -1,0 +1,14 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "S": [
+  "init_AKT",
+  "reaction_6_k1"
+ ],
+ "calibracion": [
+  "scaling_pAkt_tot",
+  "scaling_pEGFR_tot",
+  "scaling_pS6_tot"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Fujita_SciSignal2010.json:S_brun"
+}

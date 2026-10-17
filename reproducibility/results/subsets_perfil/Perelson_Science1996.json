@@ -1,0 +1,10 @@
+{
+ "sistema": "Perelson_Science1996",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Perelson_Science1996.json:S_perfil"
+}

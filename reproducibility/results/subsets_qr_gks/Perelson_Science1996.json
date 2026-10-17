@@ -1,0 +1,10 @@
+{
+ "sistema": "Perelson_Science1996",
+ "S": [
+  "c",
+  "delta"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Perelson_Science1996.json:S_qr"
+}

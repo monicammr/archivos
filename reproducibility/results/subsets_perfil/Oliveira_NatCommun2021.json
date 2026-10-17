@@ -1,0 +1,10 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "t_1",
+  "beta_1"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Oliveira_NatCommun2021.json:S_perfil"
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Oliveira_NatCommun2021",
+ "S": [
+  "beta_1",
+  "symptomatic_init_concentration"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Oliveira_NatCommun2021.json:S_qr"
+}

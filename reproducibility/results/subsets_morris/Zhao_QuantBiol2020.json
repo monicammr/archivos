@@ -1,0 +1,11 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "S": [
+  "R_Stage_I_China",
+  "gamma_2_Stage_I_China",
+  "R_Stage_II_China"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Zhao_QuantBiol2020.json:S_morris"
+}

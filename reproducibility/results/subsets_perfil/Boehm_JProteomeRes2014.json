@@ -1,0 +1,10 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "S": [
+  "k_phos",
+  "k_exp_homo"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Boehm_JProteomeRes2014.json:S_perfil"
+}

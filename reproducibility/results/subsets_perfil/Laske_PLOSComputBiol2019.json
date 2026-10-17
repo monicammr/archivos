@@ -1,0 +1,13 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_bind_M1",
+  "k_syn_R_M"
+ ],
+ "calibracion": [
+  "vRNA_offset",
+  "Int_nuc_off"
+ ],
+ "admisible": true,
+ "origen": "profile_likelihood/Laske_PLOSComputBiol2019.json:S_perfil"
+}

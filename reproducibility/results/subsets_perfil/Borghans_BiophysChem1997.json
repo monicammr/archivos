@@ -1,0 +1,13 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "Kz",
+  "v0"
+ ],
+ "calibracion": [
+  "offset",
+  "scale"
+ ],
+ "admisible": true,
+ "origen": "profile_likelihood/Borghans_BiophysChem1997.json:S_perfil"
+}

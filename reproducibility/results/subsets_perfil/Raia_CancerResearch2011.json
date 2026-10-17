@@ -1,0 +1,16 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "pSTAT5_dephosphorylation",
+  "pJAK2_dephosphorylation"
+ ],
+ "calibracion": [
+  "scaling_CD274mRNA",
+  "scaling_IL13_cell",
+  "scaling_SOCS3mRNA",
+  "scaling_pIL4Ra",
+  "scaling_pJAK2"
+ ],
+ "admisible": true,
+ "origen": "profile_likelihood/Raia_CancerResearch2011.json:S_perfil"
+}

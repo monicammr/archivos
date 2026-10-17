@@ -1,0 +1,13 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_syn_R_M",
+  "k_syn_R_V"
+ ],
+ "calibracion": [
+  "vRNA_offset",
+  "Int_nuc_off"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Laske_PLOSComputBiol2019.json:S_qr"
+}

@@ -1,0 +1,21 @@
+{
+ "sistema": "Alkan_SciSignal2018",
+ "S": [
+  "kt",
+  "k_damage_sn38_ssb"
+ ],
+ "calibracion": [
+  "scale_p21_mRNA_fold",
+  "scale_patm_au",
+  "scale_pchk1_au",
+  "scale_pchk2_au",
+  "scale_pdnapk_au",
+  "scale_pp53_au",
+  "scale_tp21_au",
+  "scale_tp53_au",
+  "scale_wip1_mRNA_fold",
+  "scale_yh2ax_au"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Alkan_SciSignal2018.json:S_morris"
+}

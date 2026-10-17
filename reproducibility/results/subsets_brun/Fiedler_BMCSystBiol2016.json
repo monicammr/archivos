@@ -1,0 +1,19 @@
+{
+ "sistema": "Fiedler_BMCSystBiol2016",
+ "S": [
+  "tau2",
+  "k5"
+ ],
+ "calibracion": [
+  "s_pErk_20140430_gel1",
+  "s_pErk_20140430_gel2",
+  "s_pErk_20140505_gel1",
+  "s_pErk_20140505_gel2",
+  "s_pMek_20140430_gel1",
+  "s_pMek_20140430_gel2",
+  "s_pMek_20140505_gel1",
+  "s_pMek_20140505_gel2"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Fiedler_BMCSystBiol2016.json:S_brun"
+}

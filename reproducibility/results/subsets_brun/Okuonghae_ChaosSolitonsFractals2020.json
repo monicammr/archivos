@@ -1,0 +1,10 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "transmission_rate_effective",
+  "psi"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Okuonghae_ChaosSolitonsFractals2020.json:S_brun"
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "S": [
+  "gamma_CA",
+  "R0_CA"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Bertozzi_PNAS2020.json:S_morris"
+}

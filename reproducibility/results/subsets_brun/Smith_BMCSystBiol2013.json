@@ -1,0 +1,20 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k8",
+  "k30f"
+ ],
+ "calibracion": [
+  "sc_PI3K",
+  "sc_GLUT_2B",
+  "sc_BINS",
+  "sc_PIRS",
+  "sc_PTP",
+  "sc_GLUT_3B_120",
+  "sc_GLUT_3B_240",
+  "sc_SOD2",
+  "sc_FOXO1"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Smith_BMCSystBiol2013.json:S_brun"
+}

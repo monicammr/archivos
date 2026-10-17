@@ -1,0 +1,13 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "S": [
+  "init_bcar1",
+  "kb1",
+  "init_bcry_1",
+  "init_b10_1",
+  "kc2"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Bruno_JExpBot2016.json:S_brun"
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "S": [
+  "l6",
+  "k3"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Sneyd_PNAS2002.json:S_qr"
+}

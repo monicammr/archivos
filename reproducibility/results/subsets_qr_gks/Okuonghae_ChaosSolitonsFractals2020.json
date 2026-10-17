@@ -1,0 +1,10 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "d_D",
+  "symptomatic_start"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Okuonghae_ChaosSolitonsFractals2020.json:S_qr"
+}

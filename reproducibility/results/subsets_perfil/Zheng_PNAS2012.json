@@ -1,0 +1,10 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "S": [
+  "k02_01",
+  "k01_02"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Zheng_PNAS2012.json:S_perfil"
+}

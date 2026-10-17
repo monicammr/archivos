@@ -1,0 +1,13 @@
+{
+ "sistema": "Borghans_BiophysChem1997",
+ "S": [
+  "K_par",
+  "beta_par"
+ ],
+ "calibracion": [
+  "offset",
+  "scale"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Borghans_BiophysChem1997.json:S_morris"
+}

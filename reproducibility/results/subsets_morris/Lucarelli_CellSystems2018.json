@@ -1,0 +1,18 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "S": [
+  "init_Rec",
+  "S3tot",
+  "S2tot",
+  "pRec_degind",
+  "S_dephosphos",
+  "S_phos",
+  "geneF_turn",
+  "geneF_act1",
+  "Rec_act",
+  "geneF_inh1"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Lucarelli_CellSystems2018.json:S_morris"
+}

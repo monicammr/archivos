@@ -1,0 +1,22 @@
+{
+ "sistema": "Isensee_JCB2018",
+ "S": [
+  "xi_KD_Rp_cAMPS",
+  "KD_cAMP"
+ ],
+ "calibracion": [
+  "b_Calpha_global",
+  "b_pRII_global",
+  "rel_open",
+  "s_Calpha_global",
+  "s_pRII_JI09_150302_Drg345_343_CycNuc",
+  "s_pRII_JI09_150330_Drg350_348_CycNuc",
+  "s_pRII_JI09_150330_Drg353_351_CycNuc",
+  "s_pRII_JI09_151102_Drg421_418_Age",
+  "s_pRII_Western",
+  "s_pRII_global",
+  "xi_rel_open"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Isensee_JCB2018.json:S_qr"
+}

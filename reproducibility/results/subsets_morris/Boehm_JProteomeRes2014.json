@@ -1,0 +1,10 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "S": [
+  "k_phos",
+  "k_imp_hetero"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Boehm_JProteomeRes2014.json:S_morris"
+}

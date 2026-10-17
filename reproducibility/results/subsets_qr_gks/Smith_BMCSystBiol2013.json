@@ -1,0 +1,20 @@
+{
+ "sistema": "Smith_BMCSystBiol2013",
+ "S": [
+  "k35f",
+  "k32r"
+ ],
+ "calibracion": [
+  "sc_PI3K",
+  "sc_GLUT_2B",
+  "sc_BINS",
+  "sc_PIRS",
+  "sc_PTP",
+  "sc_GLUT_3B_120",
+  "sc_GLUT_3B_240",
+  "sc_SOD2",
+  "sc_FOXO1"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Smith_BMCSystBiol2013.json:S_qr"
+}

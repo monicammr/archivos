@@ -1,0 +1,10 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "behavioural_change_rate",
+  "infected_normal_worsen_rate"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Rahman_MBS2016.json:S_perfil"
+}

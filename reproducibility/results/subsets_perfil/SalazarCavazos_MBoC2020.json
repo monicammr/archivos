@@ -1,0 +1,10 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_YN__FREE",
+  "kdephosYN__FREE"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/SalazarCavazos_MBoC2020.json:S_perfil"
+}

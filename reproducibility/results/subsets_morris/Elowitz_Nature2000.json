@@ -1,0 +1,13 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "n_Hill",
+  "tau_prot_GFP"
+ ],
+ "calibracion": [
+  "background",
+  "scale"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Elowitz_Nature2000.json:S_morris"
+}

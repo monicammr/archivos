@@ -1,0 +1,13 @@
+{
+ "sistema": "Elowitz_Nature2000",
+ "S": [
+  "eff_GFP",
+  "eff"
+ ],
+ "calibracion": [
+  "background",
+  "scale"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Elowitz_Nature2000.json:S_qr"
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "S": [
+  "l4",
+  "k_3"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Sneyd_PNAS2002.json:S_perfil"
+}

@@ -1,0 +1,10 @@
+{
+ "sistema": "Bertozzi_PNAS2020",
+ "S": [
+  "I0_CA",
+  "R0_CA"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Bertozzi_PNAS2020.json:S_perfil"
+}

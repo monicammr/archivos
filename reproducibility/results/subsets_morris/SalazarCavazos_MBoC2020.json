@@ -1,0 +1,10 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "ratio_kpkd_Y1068__FREE",
+  "ratio_kpkd_YN__FREE"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/SalazarCavazos_MBoC2020.json:S_morris"
+}

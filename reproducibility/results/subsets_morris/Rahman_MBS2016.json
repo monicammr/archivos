@@ -1,0 +1,10 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "infected_normal_transmission_rate_relative",
+  "infected_moderate_transmission_rate"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Rahman_MBS2016.json:S_morris"
+}

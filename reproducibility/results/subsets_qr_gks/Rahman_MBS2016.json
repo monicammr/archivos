@@ -1,0 +1,10 @@
+{
+ "sistema": "Rahman_MBS2016",
+ "S": [
+  "treated_moderate_improve_rate",
+  "infected_normal_transmission_rate_relative"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Rahman_MBS2016.json:S_qr"
+}

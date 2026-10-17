@@ -1,0 +1,10 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "S": [
+  "rho",
+  "kappa"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Liu_IFACPapersOnLine2025.json:S_qr"
+}

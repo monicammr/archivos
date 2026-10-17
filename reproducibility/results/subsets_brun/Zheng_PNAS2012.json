@@ -1,0 +1,10 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "S": [
+  "k01_11",
+  "k12_13"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Zheng_PNAS2012.json:S_brun"
+}

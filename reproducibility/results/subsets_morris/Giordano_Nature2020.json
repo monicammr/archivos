@@ -1,0 +1,10 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "alpha_4",
+  "alpha_0"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Giordano_Nature2020.json:S_morris"
+}

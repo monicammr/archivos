@@ -1,0 +1,10 @@
+{
+ "sistema": "SalazarCavazos_MBoC2020",
+ "S": [
+  "kdephosYN__FREE",
+  "GRB2_total__FREE"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/SalazarCavazos_MBoC2020.json:S_qr"
+}

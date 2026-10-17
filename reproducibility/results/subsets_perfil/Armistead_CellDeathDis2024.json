@@ -1,0 +1,10 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "S": [
+  "k_d",
+  "k2"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Armistead_CellDeathDis2024.json:S_perfil"
+}

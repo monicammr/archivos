@@ -1,0 +1,26 @@
+{
+ "sistema": "Schwen_PONE2014",
+ "S": [
+  "ini_R1",
+  "kon_unspec"
+ ],
+ "calibracion": [
+  "fragments",
+  "km_nExpID1",
+  "km_nExpID2",
+  "km_nExpID3",
+  "km_nExpID4",
+  "offset",
+  "offset_nExpID1",
+  "offset_nExpID2",
+  "offset_nExpID3",
+  "offset_nExpID4",
+  "scale",
+  "scaleElisa_nExpID1",
+  "scaleElisa_nExpID2",
+  "scaleElisa_nExpID3",
+  "scaleElisa_nExpID4"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Schwen_PONE2014.json:S_brun"
+}

@@ -1,0 +1,18 @@
+{
+ "sistema": "Lucarelli_CellSystems2018",
+ "S": [
+  "init_Rec",
+  "Rec_act",
+  "geneL_turn",
+  "S4tot",
+  "geneK_turn",
+  "geneJ_turn",
+  "S_phos",
+  "geneC_turn",
+  "geneA_turn",
+  "geneB_turn"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Lucarelli_CellSystems2018.json:S_perfil"
+}

@@ -1,0 +1,13 @@
+{
+ "sistema": "Bruno_JExpBot2016",
+ "S": [
+  "kc1",
+  "kc2",
+  "init_b10_1",
+  "init_bcar1",
+  "kc4"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Bruno_JExpBot2016.json:S_qr"
+}

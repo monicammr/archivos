@@ -1,0 +1,10 @@
+{
+ "sistema": "Boehm_JProteomeRes2014",
+ "S": [
+  "k_imp_homo",
+  "k_imp_hetero"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Boehm_JProteomeRes2014.json:S_qr"
+}

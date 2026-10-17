@@ -1,0 +1,11 @@
+{
+ "sistema": "Zhao_QuantBiol2020",
+ "S": [
+  "R_Stage_II_Hubei",
+  "R_Stage_II_China",
+  "gamma_2_Stage_III_Wuhan"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Zhao_QuantBiol2020.json:S_perfil"
+}

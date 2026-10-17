@@ -1,0 +1,10 @@
+{
+ "sistema": "Okuonghae_ChaosSolitonsFractals2020",
+ "S": [
+  "sigma",
+  "nu"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Okuonghae_ChaosSolitonsFractals2020.json:S_morris"
+}

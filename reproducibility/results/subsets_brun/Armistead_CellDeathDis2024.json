@@ -1,0 +1,10 @@
+{
+ "sistema": "Armistead_CellDeathDis2024",
+ "S": [
+  "k_d",
+  "k00"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Armistead_CellDeathDis2024.json:S_brun"
+}

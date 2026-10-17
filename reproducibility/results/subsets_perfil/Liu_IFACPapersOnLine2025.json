@@ -1,0 +1,10 @@
+{
+ "sistema": "Liu_IFACPapersOnLine2025",
+ "S": [
+  "kappa",
+  "rho"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Liu_IFACPapersOnLine2025.json:S_perfil"
+}

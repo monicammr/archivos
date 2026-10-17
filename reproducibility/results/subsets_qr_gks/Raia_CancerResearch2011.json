@@ -1,0 +1,16 @@
+{
+ "sistema": "Raia_CancerResearch2011",
+ "S": [
+  "pRec_degradation",
+  "SOCS3mRNA_production"
+ ],
+ "calibracion": [
+  "scaling_CD274mRNA",
+  "scaling_IL13_cell",
+  "scaling_SOCS3mRNA",
+  "scaling_pIL4Ra",
+  "scaling_pJAK2"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Raia_CancerResearch2011.json:S_qr"
+}

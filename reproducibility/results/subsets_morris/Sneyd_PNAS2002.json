@@ -1,0 +1,10 @@
+{
+ "sistema": "Sneyd_PNAS2002",
+ "S": [
+  "l2",
+  "k4"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "brun_morris/Sneyd_PNAS2002.json:S_morris"
+}

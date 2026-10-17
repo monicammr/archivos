@@ -1,0 +1,14 @@
+{
+ "sistema": "Brannmark_JBC2010",
+ "S": [
+  "k1e",
+  "k1c"
+ ],
+ "calibracion": [
+  "k_IRP_1Step",
+  "k_IRSiP_1Step",
+  "k_IRSiP_2Step"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Brannmark_JBC2010.json:S_qr"
+}

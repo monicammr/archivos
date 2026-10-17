@@ -1,0 +1,10 @@
+{
+ "sistema": "Giordano_Nature2020",
+ "S": [
+  "nu_0",
+  "rho_22"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "profile_likelihood/Giordano_Nature2020.json:S_perfil"
+}

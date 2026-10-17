@@ -1,0 +1,10 @@
+{
+ "sistema": "Zheng_PNAS2012",
+ "S": [
+  "k02_03",
+  "k00_10"
+ ],
+ "calibracion": [],
+ "admisible": true,
+ "origen": "qr_selection_gks/Zheng_PNAS2012.json:S_qr"
+}

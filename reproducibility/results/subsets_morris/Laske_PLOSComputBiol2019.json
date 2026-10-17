@@ -1,0 +1,13 @@
+{
+ "sistema": "Laske_PLOSComputBiol2019",
+ "S": [
+  "k_syn_R_M",
+  "k_bind_M1"
+ ],
+ "calibracion": [
+  "vRNA_offset",
+  "Int_nuc_off"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Laske_PLOSComputBiol2019.json:S_morris"
+}

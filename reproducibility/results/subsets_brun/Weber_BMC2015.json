@@ -1,0 +1,16 @@
+{
+ "sistema": "Weber_BMC2015",
+ "S": [
+  "a21",
+  "s12"
+ ],
+ "calibracion": [
+  "scale_yCERTpRN24",
+  "scale_yPI4K3BpRN24",
+  "scale_yPKDpN0",
+  "scale_yPKDpN24",
+  "scale_yPKDpN25"
+ ],
+ "admisible": true,
+ "origen": "brun_morris/Weber_BMC2015.json:S_brun"
+}

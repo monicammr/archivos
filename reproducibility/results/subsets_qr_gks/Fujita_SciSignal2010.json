@@ -1,0 +1,14 @@
+{
+ "sistema": "Fujita_SciSignal2010",
+ "S": [
+  "reaction_1_k1",
+  "reaction_5_k1"
+ ],
+ "calibracion": [
+  "scaling_pAkt_tot",
+  "scaling_pEGFR_tot",
+  "scaling_pS6_tot"
+ ],
+ "admisible": true,
+ "origen": "qr_selection_gks/Fujita_SciSignal2010.json:S_qr"
+}
