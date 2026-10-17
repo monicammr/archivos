@@ -133,7 +133,7 @@
    "admissible_5": 16,
    "identifiable_and_admissible": 7,
    "identical_to_ours": 1,
-   "cpu_h": 12.4,
+   "cpu_h": 14.4,
    "mcnemar_all_identifiable": {
     "only_ours": 8,
     "only_other": 1,
