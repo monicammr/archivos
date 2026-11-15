@@ -1,0 +1,34 @@
+PAPER 2 - ENVIO A SCIENTIFIC REPORTS (15 de noviembre de 2026)
+
+QUE SUBIR (en el orden en que suele pedirlo el formulario)
+1. Manuscript / Article file
+   - Si el formulario acepta PDF en el primer envio: 1_Manuscrito_Paper2.pdf
+   - Si pide el archivo fuente (LaTeX): 4_Fuente_LaTeX_manuscrito.zip
+     (main.tex, sn-jnl.cls, sn-nature.bst, references.tex, tables/, figures/).
+     Compila solo, sin el suplemento: las referencias a tablas y figuras suplementarias ya estan escritas.
+2. Figures (si las pide por separado): 5_Figuras/Figure1 ... Figure5
+   - TIFF a 300 ppp (Figure*.tif) o EPS vectorial (Figure*.eps); tambien PDF.
+   - Figure1 = metodo; Figure2 = benchmark; Figure3 = prediccion; Figure4 = comparacion de criterios;
+     Figure5 = robustez.
+   - Las tablas 1-3 NO son imagenes: van como texto editable dentro del manuscrito (asi lo pide la revista).
+3. Supplementary Information: 2_Supplementary_Information.pdf (un solo archivo PDF).
+4. Cover letter: 3_Cover_letter.pdf (o pegar su texto en el formulario).
+
+DATOS QUE PIDE EL FORMULARIO (no son archivos)
+- Titulo: Re-estimation-verified selection of small parameter subsets for systems biology models
+- Autores: Monica Miranda R. (autora de correspondencia), Carlos Salazar, Cesar Martin, Adriana Aguirre (ESPOL)
+- Resumen: copiar del PDF (187 palabras)
+- Keywords: parameter reduction, practical identifiability, sensitivity analysis, ordinary differential equations, systems biology, formal verification
+- Funding: This research received no external funding.  Competing interests: The authors declare no competing interests.
+- Data/Code availability: ya estan en el manuscrito (Zenodo doi:10.5281/zenodo.23338174).
+- Suggested reviewers: ninguno (opcional).  Related manuscripts: el articulo de IFAC (descrito en la carta).
+
+COMPROBADO CONTRA LOS LIMITES HABITUALES DE SCIENTIFIC REPORTS (verificar en la pagina oficial:
+https://www.nature.com/srep/author-instructions, porque pueden cambiar)
+- Titulo: 10 palabras (limite 20).  Resumen: 187 palabras, sin referencias (limite 200).
+- Secciones: Introduction, Results, Discussion, Methods (orden de la revista).
+- Figuras + tablas: 5 + 3 = 8 (recomendado hasta 8).  Pies de figura: el mas largo 291 palabras (limite ~350).
+- Referencias: 49 (recomendado hasta ~60), estilo numerico de Nature.
+- Texto principal: ~5 500 palabras (recomendado ~4 500; no es obligatorio; la carta lo explica).
+- Declaraciones: Data availability, Code availability, Author contributions, Funding, Ethics, Competing interests.
+- Plantilla: Springer Nature LaTeX (sn-jnl, estilo sn-nature), con numeros de linea.
