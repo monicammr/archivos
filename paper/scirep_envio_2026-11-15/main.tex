@@ -71,12 +71,6 @@ Figure~\ref{fig:pipeline} summarises the procedure; all symbols are defined in M
 
 The relative sensitivity matrix $J=\partial y/\partial\log\theta$ is computed once at $\theta_0$. In stage~1, biological parameters are added in decreasing order of their sensitivity energy $E_j=\|J_{:,j}\|^2$, a candidate being accepted only if the condition number $\kappa$ and the largest variance inflation factor (VIF) of the selected columns stay below a threshold, until a fraction $\tau_R$ of the energy is captured. A subset $S$ is admissible if, in random scenarios in which all parameters are perturbed, re-estimating $\theta_S$ and $\theta_C$ with the other parameters at $\theta_0$ gives a median relative fitting error $e_{\mathrm{fit}}\le\tau_e$, and $|S|\ge2$. The threshold $\tau_e=\sqrt{1-c^2}=0.436$ ($c=0.9$) is the smallest error attainable by rescaling an output change whose cosine similarity with the full change is $c$ (Theorem~\ref{thm:cos}). If stage~1 does not give an admissible subset, stage~2 orders the parameters by their finite-perturbation effect $s_j$ and stops at the first admissible subset. Backward elimination finally removes any parameter whose removal keeps the subset admissible (Theorem~\ref{thm:prune}).
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/fig1_pipeline.pdf}
-\caption{\textbf{Overview of the reduction method.} Biological parameters are ranked by their effect on the measured outputs and selected with conditioning control ($\kappa$ and VIF thresholds; stage~1, or stage~2 if needed, dashed). A subset is accepted when re-estimating it reproduces the full model; backward elimination then removes every parameter that is individually dispensable (the result is inclusion-minimal if the criterion is monotone; Theorem~\ref{thm:prune}), and the reduced model is validated on held-out data.}
-\label{fig:pipeline}
-\end{figure}
 
 \subsection*{Benchmark: a few biological parameters suffice in most models}\label{sec:benchmark}\pdfbookmark[1]{Benchmark: a few biological parameters suffice in most models}{bm5}
 
@@ -86,21 +80,7 @@ All 31 subsets satisfy the conditioning thresholds of the selection, which apply
 
 Re-estimation is essential. When the selected parameters are simply set to their perturbed values, the median error $e_{\mathrm{rel}}$ exceeds $\tau_e$ in 23 of the 31 admissible problems (Fig.~\ref{fig:benchmark}b; Methods, \mref{met:adm}{\emph{Admissibility and re-estimation}}); after re-estimation the median $e_{\mathrm{fit}}$ is 15\% (maximum 43.585\%, in Lucarelli, against $\tau_e=43.589\%$). The selected parameters do not replicate each perturbation; adjusting them compensates for the perturbations of all the other parameters, the property needed when the reduced model is fitted to data.
 
-\begin{figure}[p]
-\centering
-\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/fig2_benchmark.pdf}
-\caption{\textbf{Parameter reduction and recovery of the full-model output in 34 benchmark problems.} Problems are ordered by the reduction achieved; the three without an admissible subset (Crauste, Lang and Beer) are at the bottom. \textbf{a}, Estimated parameters of the full model ($p$, grey, including the noise parameters, which are kept fixed) and parameters re-estimated in the reduced model (selected biological plus calibration parameters, blue); the percentage is the reduction relative to $p$. Crauste has no admissible subset, so no reduction is shown. \textbf{b}, Median relative error over 15 random scenarios at $\pm$5\% before ($e_{\mathrm{rel}}$, open circles) and after re-estimating the retained parameters ($e_{\mathrm{fit}}$, green; stars, subsets selected with the first-order $e_{\mathrm{fit}}$, shown with the value of the nonlinear re-estimation of the final subset; for Beer and Lang, first-order value). The shaded region is the admissible region, $e_{\mathrm{fit}}\le\tau_e=43.6\%$.}
-\label{fig:benchmark}
-\end{figure}
 
-\begin{table}[p]
-\caption{\textbf{Per-problem results.} $p$, number of parameters estimated in the PEtab problem, including noise parameters, which are kept fixed (Supplementary Table~\ref{S-tab:counts}); $m$, number of measurements; $|\Theta_C|$, calibration parameters (always re-estimated); $|S|$, selected biological parameters; Stage, stage that produced the subset; $e_{\mathrm{rel}}$ and $e_{\mathrm{fit}}$, median relative error over 15 scenarios at $\pm$5\% without and with re-estimation (admissibility: $e_{\mathrm{fit}}\le 43.6\%$; italic, not admissible; $^{\ast}$, subset selected with the first-order $e_{\mathrm{fit}}$; the value shown is the nonlinear re-estimation of the final subset, except for Beer and Lang, which have no admissible subset (first-order value); $^{\dagger}$, not defined because the model has no solution on the measured horizon for 1\% parameter changes); Pattern, behaviour of the median $e_{\mathrm{fit}}$ for perturbation sizes from $\pm$1\% to $\pm$50\% (A, admissible at all sizes; B, admissible up to at least $\pm$10\%, first failing at $\pm$20\% or more and not recovering; C, irregular; D, not admissible at $\pm$10\% or less; --, not applicable); Level, level of guarantee (1, $e_{\mathrm{fit}}\le\tau_e$; 2, in addition median $\cos\Delta\ge c$; 3, in addition $R_{\mathrm{var}}\ge\tau_R$); Ident., selected parameters whose profile likelihood in the reduced problem exceeds $\Delta\chi^2=3.84$ on both sides within the bounds, out of $|S|$, and in parentheses those for which the hypotheses of the Lean identifiability theorem were satisfied at all evaluated profile points (a numerical check, not a certificate; Table~\ref{tab:lean}); Test $\chi^2/n$, mean squared noise-scaled residual on held-out experiments for the reduced and the full model, both re-estimated on the training experiments (values near 1 mean errors of the size of the noise; --, not evaluable or not run).}
-\label{tab:benchmark}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{1.2pt}
-\input{tables/table1.tex}
-\end{table}
 
 \subsection*{The selected parameters are also identifiable}\label{sec:identif}\pdfbookmark[1]{The selected parameters are also identifiable}{bm4b}
 
@@ -114,12 +94,6 @@ This comparison favours the reduced model, because $\theta_0$ was estimated from
 
 To measure prediction without this confound, synthetic data were generated from a known truth $\theta^\ast$ within $\pm$20\% of $\theta_0$ in every estimable parameter, with noise of the recorded size, and the experiment was repeated with 20 seeds (Methods, \mref{met:val-synth}{\emph{External validation}, \emph{Synthetic experiment}}; Supplementary Note \textit{Synthetic prediction experiment}); $\theta_0$ has not seen these data, although it still indicates the region of the truth, so the test is local. Among the cases in which the parameter change exceeded the noise, the reduced model reached a relative prediction error $e_{\mathrm{pred}}\le\tau_e$ in 56\% (178 of 320) and predicted at least as well as the full model in 57\% (160 of 282). The outcome was stable within each problem (Fig.~\ref{fig:validation}b): the reduced model predicted better in almost every seed of the problems in which the full model overfits (Weber 20 of 20 seeds, Zheng 18 of 20) and worse in almost every seed of others (Oliveira 0 of 20). On data that $\theta_0$ has not seen, the results show no overall predictive advantage of the reduced models over the full models, and equivalence was not tested; the reduced models predicted better where the refitted full model had a much larger test error. Success decreased with the distance of the truth from $\theta_0$ (64\%, 54\% and 51\% at $\pm$5\%, $\pm$20\% and $\pm$50\%, ten seeds) and grew with the size of the true change in noise units (Methods, \mref{met:val-signal}{\emph{External validation}, \emph{True signal}}).
 
-\begin{figure}[p]
-\centering
-\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/fig3_validation_v2.pdf}
-\caption{\textbf{Prediction of held-out experiments by the reduced and the full model.} \textbf{a}, Real data: ratio of the test $\chi^2/n$ (mean squared noise-scaled residual on the held-out experiments) of the reduced model to that of the full model re-estimated on the same training data, on a logarithmic scale ($n=26$ problems), with the non-selected parameters kept at $\theta_0$. Left of the vertical line (circles) the reduced model predicts better; the grey band marks equivalence within 5\% (squares); triangles mark worse predictions; $\blacklozenge$ flags a reduced test $\chi^2/n$ above 10, where a favourable ratio does not imply a good absolute fit. \textbf{b}, Synthetic data from a known truth, which $\theta_0$ has not seen: for each problem, fraction of the 20 seeds in which the reduced model predicted at least as well as the full model (smaller $e_{\mathrm{pred}}$), among the seeds in which the parameter change exceeded the noise (seeds won / seeds with signal on the right; problems with fewer than three such seeds are not shown). Problems are ordered by this fraction. \textbf{c}, Real data, information inherited from $\theta_0$: test $\chi^2/n$ of the published estimate $\theta_0$ without re-estimation, and of the nested reduced model (non-selected parameters fixed at a full-model fit to the training data instead of $\theta_0$), each relative to the reduced model anchored at $\theta_0$; one point per problem ($n=29$), vertical bar at the median; blue, lower by more than 5\%; red, higher by more than 5\%; grey band, within 5\%. Problems without a training/test split (Bertozzi, Blasi), without a full re-estimation (in \textbf{b}, Chen and Raimundez) or fitted far below the noise level (\textbf{a}: Giordano, Perelson, Rahman) are not shown. Per-problem values and scatter plots are given in Supplementary Notes \textit{Prediction of held-out experiments} and \textit{Nested validation without the $\theta_0$ anchor}.}
-\label{fig:validation}
-\end{figure}
 
 \subsection*{Comparison with existing selection criteria}\label{sec:comparison}\pdfbookmark[1]{Comparison with existing selection criteria}{bm6b}
 
@@ -131,21 +105,7 @@ The criteria differed in whether their subsets reproduced the full model (Fig.~\
 
 In prediction on synthetic data (Fig.~\ref{fig:comparison}b), over 281 cases with signal in 24 problems, the proposed subsets reached $e_{\mathrm{pred}}\le\tau_e$ in 56\% of the cases, Brun's in 55\%, Morris's in 48\%, those of profile likelihood in 39\% and those of pivoted QR in 30\%; resampling whole problems (Methods, \mref{met:stats}{\emph{Statistics}}), the advantage was 8 percentage points over Morris (95\% confidence interval 2--16; Holm-adjusted $P=0.010$), 17 over profile likelihood (7--28; $P=0.002$) and 26 over pivoted QR (12--40; $P<0.001$), against 1 over Brun ($-1$ to $+3$; $P=0.43$). Because these truths belong to the family of perturbations that the proposed method uses to decide admissibility, the comparison was repeated with log-uniform truths within a factor of two of $\theta_0$ and with sparse truths in which 15\% of the parameters change by $\pm$50\% (Methods, \mref{met:comp-train}{\emph{Comparison with other selection criteria}, \emph{Selection on the training outputs and other families of truths}}). The advantage over profile likelihood and pivoted QR persisted (log-uniform: 50\% against 37\% and 24\%, $P=0.018$ and $<0.001$; sparse: 54\% against 40\% and 39\%, $P=0.008$ and 0.019), that over Morris held for sparse truths (46\%, $P=0.003$) but not for log-uniform ones (47\%), and no family separated the proposed method from Brun's. Selected on the training outputs, the proposed subsets reached the threshold in 51\%, 48\% and 55\% of the cases of the three families, again more often than those of profile likelihood and pivoted QR ($P\le0.046$), without a significant difference from Brun's (equivalence was not tested). The median prediction error differed significantly only from that of pivoted QR (Supplementary Note \textit{Comparison of selection criteria on synthetic data}). What distinguishes the proposed method is thus not its ranking, which it shares with Brun's collinearity index and with orthogonalization methods\cite{bib43,bib45}, but the verification that follows it.
 
-\begin{table}[t]
-\caption{\textbf{Comparison of selection criteria and null baselines.} All criteria choose the same number $k=|S|$ of biological parameters (except the proposed subsets selected on the training outputs, whose size the method chooses), from the training outputs except for the main proposed subsets (selected on all outputs), and are evaluated with the same protocol and the fixed scenario set. Admissible: problems in which re-estimating the subset reproduces the full model (median $e_{\mathrm{fit}}\le\tau_e$) for parameter changes of $\pm$5\% and $\pm$20\%; for random subsets, median over the 20 draws; for calibration only, without the rule $|S|\ge2$. Identifiable: selected parameters whose profile likelihood in the reduced problem is bounded on both sides, and in parentheses the problems in which every selected parameter is identifiable and the subset is admissible at $\pm$5\%, over the 27 problems common to all criteria (26 for the proposed subsets selected on the training outputs). Synthetic: fraction of the cases with signal in which $e_{\mathrm{pred}}\le\tau_e$, for truths uniform within $\pm$20\% of $\theta_0$ (281 cases common to all criteria, 24 problems, 20 seeds; difference from the proposed method with a 95\% confidence interval from resampling problems), log-uniform within a factor of two (217 cases, 25 problems) and sparse (147 cases, 24 problems), ten seeds each. Real data: median ratio of the test $\chi^2/n$ to that of the proposed method (below 1, better than the proposed method) and Wilcoxon $P$ over problems (unadjusted; exploratory). Proposed (all), (train.): subsets of the proposed method selected on all outputs and on the training outputs; Profile lik., profile likelihood; Calib., calibration only. Pivoted QR is the standard Golub--Klema--Stewart subset selection; the earlier variant is reported in the Supplementary Information. Per-problem values are given in the Supplementary Notes on the comparison of selection criteria.}
-\label{tab:comparison}
-\centering
-\scriptsize
-\setlength{\tabcolsep}{1.1pt}
-\input{tables/table2_comparison.tex}
-\end{table}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/fig4_comparison.pdf}
-\caption{\textbf{The proposed method compared with four existing selection criteria and null baselines.} \textbf{a}, Number of problems in which the subset of each criterion is admissible, i.e. its re-estimation reproduces the full model, for parameter changes of $\pm$5\% (the level used by the proposed method) and $\pm$20\% (used by none); 28 problems (27 for profile likelihood and for the proposed subsets selected on the training outputs); random subsets, median over 20 draws. \textbf{b}, Fraction of synthetic cases with signal in which the subset predicts the truth within $\tau_e$, for three families of truths (filled circles, uniform within $\pm$20\% of $\theta_0$, with 95\% confidence intervals from resampling problems; squares, log-uniform; triangles, sparse); dotted line, the proposed method with uniform truths. \textbf{c}, Real data: ratio of the test $\chi^2/n$ of each criterion to that of the proposed method, one point per problem, vertical bar at the median (log scale; grey band, $\pm$5\%; values outside the axis are drawn at its edge); all criteria cluster around 1. \textbf{d}, Computation time of the proposed method (selection, admissibility test and backward elimination; the nonlinear check of the final subset in the six problems selected to first order is not included) and of profile likelihood per problem (log scales); points above the diagonal are faster with the proposed method; problems in which profile likelihood was not run because they have more than 60 free parameters (Chen and Raimundez) are shown at the top.}
-\label{fig:comparison}
-\end{figure}
 
 \subsection*{Identifiable and sufficient}\label{sec:identcrit}\pdfbookmark[1]{Identifiable and sufficient}{bm6c}
 
@@ -155,12 +115,6 @@ Every parameter selected by each criterion was profiled with the procedure used 
 
 Admissibility is decided with perturbations of $\pm$5\%. Keeping each final subset fixed, the evaluation was repeated at $\pm$1, 5, 10, 20, 30, 40 and 50\% (15 scenarios per level) and the median $e_{\mathrm{fit}}$ was classified into four patterns (A, admissible at all levels; B, failing first at $\pm$20\% or more; C, irregular; D, failing at $\pm$10\% or less; Methods, \mref{met:robust}{\emph{Robustness patterns}}). When the same fifteen directions are rescaled at every level, 26 of the 31 problems follow pattern A (Fig.~\ref{fig:robustness}), four pattern B (Armistead, Bertozzi, Blasi, Elowitz, whose errors are already 33--40\% at $\pm$5\%) and one pattern C (Lucarelli); none follows pattern D; for the problems marked in Table~\ref{tab:benchmark}, robustness beyond the nonlinear $\pm$5\% check uses the first-order $e_{\mathrm{fit}}$. With independent directions at each level, 24 problems follow pattern A, one pattern B and six pattern C, and 22 follow pattern A in both designs (five of them evaluated to first order beyond $\pm$5\%); the nine problems that change are those whose median error is close to the threshold at large perturbations (Supplementary Note \textit{Robustness to the size of parameter changes}). The median hides individual failures: at $\pm$5\% the median pass rate is 93\%, and 13 problems reproduce the full model in every valid scenario. Most reductions thus remain valid well beyond the perturbation used for selection; those with a small margin at $\pm$5\% fail for large changes.
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/fig4_robustness.pdf}
-\caption{\textbf{Robustness of the selected subsets to the size of parameter changes.} \textbf{a}, Median relative error after re-estimation ($e_{\mathrm{fit}}$) over 15 random scenarios per level as a function of the perturbation size, for the final subset of each of the 31 admissible problems, coloured by robustness pattern (A, admissible at all levels; B, first failing at $\pm$20\% or more; C, irregular); dashed line, $\tau_e=43.6\%$. \textbf{b}, Pass rate: percentage of the scenarios with $e_{\mathrm{fit}}\le\tau_e$, with the value written when it is below 100\%. The same fifteen random directions are used at every level. --, no valid scenario (Perelson at $\pm$1\%, where the output change is below the numerical noise floor).}
-\label{fig:robustness}
-\end{figure}
 
 \subsection*{Sensitivity to method settings and computational cost}\label{sec:settings}\pdfbookmark[1]{Sensitivity to method settings and computational cost}{bm8}
 
@@ -185,13 +139,6 @@ Let $\mathcal{A}$ be any admissibility predicate on finite sets and $S$ an admis
 
 Theorem~\ref{thm:cos} links $\tau_e$ to the cosine: whenever $\cos\Delta\ge c$, rescaling the reduced response gives a relative error of at most $\sqrt{1-c^2}$; admissibility ($e_{\mathrm{fit}}\le\tau_e$) does not require $\cos\Delta\ge c$ and is decided by the computed $e_{\mathrm{fit}}$. The first part of Theorem~\ref{thm:prune} makes no assumption on the predicate and so holds for it as implemented; this is the sense in which the selected subsets are minimal (relative to the implemented test, including the rule $|S|\ge2$). Minimality is relative to the criterion, which includes $|S|\ge2$, and is not minimal cardinality. The second part requires monotonicity, which was checked empirically on all 660 nested pairs of subsets evaluated during the selections (no violation; Methods, \mref{met:monotonicity}{\emph{Selection}, \emph{Monotonicity log}}). Further verified statements cover the conditioning tests, re-estimation, the transfer of error bounds to transformed outputs and the first-order approximation (Methods, \mref{met:formal-further}{\emph{Formal verification}, \emph{Further verified statements}}). A sufficient condition for practical identifiability (theorem \texttt{practically\_identifiable\_grad}) bounds the profile-likelihood interval of a parameter through the profiled information $I_j$, the residual gradient at the optimum and a bound $\varepsilon$ on the nonlinear remainder over the admissible range. Its linear version (Methods, \mref{met:identif-theorem}{\emph{Identifiability of the selected parameters}, \emph{Formal condition}}) agreed with the profile classification for all 72 selected parameters whose profile could be evaluated. With the nonlinear remainder estimated at the computed profile points, the hypotheses of the theorem were satisfied at every evaluated point for 24 parameters, and never for a parameter whose profile is not identifiable; this is a numerical check, not a certificate. Over the admissible set, as the theorem requires, the remainder bound holds only near the optimum: with two variants proved in Lean that need the bound only on the tail of the profile, sampling and adversarial search (Methods, \mref{met:identif-region}{\emph{Identifiability of the selected parameters}, \emph{Hypotheses over the admissible set}}) found the hypotheses satisfied for 9 of the 74 parameters within a factor of 1.5 of the optimum, 7 within a factor of 2 and none over the whole range of the study (an apparent case found when sampling the widest range is contradicted by the sampling of a narrower one). Identifiability over the range of the study therefore rests on the computed profiles; with twice as many profile points, the same 65 parameters were identifiable. The verification is local and concerns implications: a conclusion of Table~\ref{tab:lean} applies to a result only when the model hypotheses are verified in Lean and the computed quantities satisfy the stated inequalities (Supplementary Table~\ref{S-tab:scope}).
 
-\begin{table}[!htbp]
-\caption{\textbf{What the formal verification guarantees.} For each step of the method, the modules of the Lean development (numbers of Supplementary Table~\ref{S-tab:modules}), the statement proved for any model that satisfies the stated hypotheses, the condition under which it applies to a numerical result, and the results of this study to which it applies. Levels of guarantee and identifiability per problem are given in Table~\ref{tab:benchmark}; the formal statements are listed in Supplementary Table~\ref{S-tab:statements}, the scope of each guarantee in Supplementary Table~\ref{S-tab:scope}, and the correspondence between each claim of this paper and the Lean theorem that supports it in Supplementary Table~\ref{S-tab:claims}.}
-\label{tab:lean}
-\centering
-\scriptsize
-\input{tables/table3_lean.tex}
-\end{table}
 
 \section*{Discussion}\label{sec:discussion}\pdfbookmark[0]{Discussion}{bm10}
 
@@ -290,6 +237,10 @@ The formal development uses Lean~4 (version 4.23.0) and Mathlib\cite{bib19,bib21
 
 An AI assistant (Claude, Anthropic) was used to help write and debug analysis code and Lean proofs and to edit the manuscript text. All code, proofs and results were checked by the authors, who take full responsibility for the content.
 
+\subsection*{Ethics declarations}\pdfbookmark[1]{Ethics declarations}{bm23}
+\textbf{Ethics approval and consent to participate:} Ethics approval was not required for this secondary analysis of publicly available, de-identified data. No new data from human participants were collected for this study. All analyses used publicly available, previously published benchmark models and data (PEtab benchmark collection); some of these data are human-derived, such as the published viral-load measurements of a patient (Perelson problem) and aggregated epidemiological case counts, and were analysed secondarily, in the de-identified form in which they were published. No identifiable participant information was accessed. Ethical approval and informed consent for the original studies were the responsibility of the corresponding original investigations.\\
+\textbf{Consent for publication:} Not applicable.
+
 \backmatter
 
 \bmhead{Data availability}
@@ -297,6 +248,9 @@ The PEtab benchmark problems analysed in this study are publicly available in th
 
 \bmhead{Code availability}
 The reproducibility package (Zenodo, \href{https://doi.org/\zenododoi}{doi:\zenododoi}; folder \texttt{reproducibility/} of \url{https://github.com/monicammr/archivos}) contains the Python code of the method and of every analysis, the programs that produce every figure and table of the paper from the stored results, the translator of the SBML models into Lean, and all Lean~4 proofs (folder \texttt{lean\_proofs/}, a self-contained project that compiles with a single command, \texttt{./verify.sh}, and checks that no proof uses \texttt{sorry} or additional axioms). Its manual (\texttt{README.md}) describes three independent levels of checking: (A) regenerating every figure, table and number of the paper from the stored results, without simulation, in a few minutes, which shows that the paper follows from those results; (B) compiling all proofs from scratch with \texttt{./verify.sh}, in 20~min to 2~h, which shows that every theorem is proved with no unproved assumption; and (C) re-running the analyses from the public PEtab problems and comparing the new results with the stored ones, which shows that the stored results are those the code produces (minutes per problem for the method itself, about 697~h of processor time for all analyses of the paper). Supplementary Note \textit{Reproducibility package} describes each level in detail.
+
+
+\input{references.tex}
 
 \bmhead{Acknowledgements}
 The authors thank Escuela Superior Polit\'ecnica del Litoral (ESPOL) for institutional support.
@@ -307,15 +261,72 @@ M.M.R. and C.S. conceived the study and designed the method. M.M.R. wrote the so
 \bmhead{Funding}
 This research received no external funding.
 
-\bmhead{Ethics declarations}
-\textbf{Ethics approval and consent to participate:} Ethics approval was not required for this secondary analysis of publicly available, de-identified data. No new data from human participants were collected for this study. All analyses used publicly available, previously published benchmark models and data (PEtab benchmark collection); some of these data are human-derived, such as the published viral-load measurements of a patient (Perelson problem) and aggregated epidemiological case counts, and were analysed secondarily, in the de-identified form in which they were published. No identifiable participant information was accessed. Ethical approval and informed consent for the original studies were the responsibility of the corresponding original investigations.\\
-\textbf{Consent for publication:} Not applicable.
-
 \bmhead{Additional information}
 \textbf{Competing interests:} The authors declare no competing interests.\\
 \textbf{Correspondence} and requests for materials should be addressed to M.M.R.\\
 \textbf{Supplementary information} accompanies this paper (Supplementary Notes, Tables and Figures); Supplementary Note \textit{Concluding remarks} summarises its contents.
 
-\input{references.tex}
+\clearpage
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig1_pipeline.pdf}
+\caption{\textbf{Overview of the reduction method.} Biological parameters are ranked by their effect on the measured outputs and selected with conditioning control ($\kappa$ and VIF thresholds; stage~1, or stage~2 if needed, dashed). A subset is accepted when re-estimating it reproduces the full model; backward elimination then removes every parameter that is individually dispensable (the result is inclusion-minimal if the criterion is monotone; Theorem~\ref{thm:prune}), and the reduced model is validated on held-out data.}
+\label{fig:pipeline}
+\end{figure}
+\clearpage
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/fig2_benchmark.pdf}
+\caption{\textbf{Parameter reduction and recovery of the full-model output in 34 benchmark problems.} Problems are ordered by the reduction achieved; the three without an admissible subset (Crauste, Lang and Beer) are at the bottom. \textbf{a}, Estimated parameters of the full model ($p$, grey, including the noise parameters, which are kept fixed) and parameters re-estimated in the reduced model (selected biological plus calibration parameters, blue); the percentage is the reduction relative to $p$. Crauste has no admissible subset, so no reduction is shown. \textbf{b}, Median relative error over 15 random scenarios at $\pm$5\% before ($e_{\mathrm{rel}}$, open circles) and after re-estimating the retained parameters ($e_{\mathrm{fit}}$, green; stars, subsets selected with the first-order $e_{\mathrm{fit}}$, shown with the value of the nonlinear re-estimation of the final subset; for Beer and Lang, first-order value). The shaded region is the admissible region, $e_{\mathrm{fit}}\le\tau_e=43.6\%$.}
+\label{fig:benchmark}
+\end{figure}
+\clearpage
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{figures/fig3_validation_v2.pdf}
+\caption{\textbf{Prediction of held-out experiments by the reduced and the full model.} \textbf{a}, Real data: ratio of the test $\chi^2/n$ (mean squared noise-scaled residual on the held-out experiments) of the reduced model to that of the full model re-estimated on the same training data, on a logarithmic scale ($n=26$ problems), with the non-selected parameters kept at $\theta_0$. Left of the vertical line (circles) the reduced model predicts better; the grey band marks equivalence within 5\% (squares); triangles mark worse predictions; $\blacklozenge$ flags a reduced test $\chi^2/n$ above 10, where a favourable ratio does not imply a good absolute fit. \textbf{b}, Synthetic data from a known truth, which $\theta_0$ has not seen: for each problem, fraction of the 20 seeds in which the reduced model predicted at least as well as the full model (smaller $e_{\mathrm{pred}}$), among the seeds in which the parameter change exceeded the noise (seeds won / seeds with signal on the right; problems with fewer than three such seeds are not shown). Problems are ordered by this fraction. \textbf{c}, Real data, information inherited from $\theta_0$: test $\chi^2/n$ of the published estimate $\theta_0$ without re-estimation, and of the nested reduced model (non-selected parameters fixed at a full-model fit to the training data instead of $\theta_0$), each relative to the reduced model anchored at $\theta_0$; one point per problem ($n=29$), vertical bar at the median; blue, lower by more than 5\%; red, higher by more than 5\%; grey band, within 5\%. Problems without a training/test split (Bertozzi, Blasi), without a full re-estimation (in \textbf{b}, Chen and Raimundez) or fitted far below the noise level (\textbf{a}: Giordano, Perelson, Rahman) are not shown. Per-problem values and scatter plots are given in Supplementary Notes \textit{Prediction of held-out experiments} and \textit{Nested validation without the $\theta_0$ anchor}.}
+\label{fig:validation}
+\end{figure}
+\clearpage
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig4_comparison.pdf}
+\caption{\textbf{The proposed method compared with four existing selection criteria and null baselines.} \textbf{a}, Number of problems in which the subset of each criterion is admissible, i.e. its re-estimation reproduces the full model, for parameter changes of $\pm$5\% (the level used by the proposed method) and $\pm$20\% (used by none); 28 problems (27 for profile likelihood and for the proposed subsets selected on the training outputs); random subsets, median over 20 draws. \textbf{b}, Fraction of synthetic cases with signal in which the subset predicts the truth within $\tau_e$, for three families of truths (filled circles, uniform within $\pm$20\% of $\theta_0$, with 95\% confidence intervals from resampling problems; squares, log-uniform; triangles, sparse); dotted line, the proposed method with uniform truths. \textbf{c}, Real data: ratio of the test $\chi^2/n$ of each criterion to that of the proposed method, one point per problem, vertical bar at the median (log scale; grey band, $\pm$5\%; values outside the axis are drawn at its edge); all criteria cluster around 1. \textbf{d}, Computation time of the proposed method (selection, admissibility test and backward elimination; the nonlinear check of the final subset in the six problems selected to first order is not included) and of profile likelihood per problem (log scales); points above the diagonal are faster with the proposed method; problems in which profile likelihood was not run because they have more than 60 free parameters (Chen and Raimundez) are shown at the top.}
+\label{fig:comparison}
+\end{figure}
+\clearpage
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/fig4_robustness.pdf}
+\caption{\textbf{Robustness of the selected subsets to the size of parameter changes.} \textbf{a}, Median relative error after re-estimation ($e_{\mathrm{fit}}$) over 15 random scenarios per level as a function of the perturbation size, for the final subset of each of the 31 admissible problems, coloured by robustness pattern (A, admissible at all levels; B, first failing at $\pm$20\% or more; C, irregular); dashed line, $\tau_e=43.6\%$. \textbf{b}, Pass rate: percentage of the scenarios with $e_{\mathrm{fit}}\le\tau_e$, with the value written when it is below 100\%. The same fifteen random directions are used at every level. --, no valid scenario (Perelson at $\pm$1\%, where the output change is below the numerical noise floor).}
+\label{fig:robustness}
+\end{figure}
+\clearpage
+\begin{table}[!htbp]
+\caption{\textbf{Per-problem results.} $p$, number of parameters estimated in the PEtab problem, including noise parameters, which are kept fixed (Supplementary Table~\ref{S-tab:counts}); $m$, number of measurements; $|\Theta_C|$, calibration parameters (always re-estimated); $|S|$, selected biological parameters; Stage, stage that produced the subset; $e_{\mathrm{rel}}$ and $e_{\mathrm{fit}}$, median relative error over 15 scenarios at $\pm$5\% without and with re-estimation (admissibility: $e_{\mathrm{fit}}\le 43.6\%$; italic, not admissible; $^{\ast}$, subset selected with the first-order $e_{\mathrm{fit}}$; the value shown is the nonlinear re-estimation of the final subset, except for Beer and Lang, which have no admissible subset (first-order value); $^{\dagger}$, not defined because the model has no solution on the measured horizon for 1\% parameter changes); Pattern, behaviour of the median $e_{\mathrm{fit}}$ for perturbation sizes from $\pm$1\% to $\pm$50\% (A, admissible at all sizes; B, admissible up to at least $\pm$10\%, first failing at $\pm$20\% or more and not recovering; C, irregular; D, not admissible at $\pm$10\% or less; --, not applicable); Level, level of guarantee (1, $e_{\mathrm{fit}}\le\tau_e$; 2, in addition median $\cos\Delta\ge c$; 3, in addition $R_{\mathrm{var}}\ge\tau_R$); Ident., selected parameters whose profile likelihood in the reduced problem exceeds $\Delta\chi^2=3.84$ on both sides within the bounds, out of $|S|$, and in parentheses those for which the hypotheses of the Lean identifiability theorem were satisfied at all evaluated profile points (a numerical check, not a certificate; Table~\ref{tab:lean}); Test $\chi^2/n$, mean squared noise-scaled residual on held-out experiments for the reduced and the full model, both re-estimated on the training experiments (values near 1 mean errors of the size of the noise; --, not evaluable or not run).}
+\label{tab:benchmark}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{1.2pt}
+\input{tables/table1.tex}
+\end{table}
+\clearpage
+\begin{table}[!htbp]
+\caption{\textbf{Comparison of selection criteria and null baselines.} All criteria choose the same number $k=|S|$ of biological parameters (except the proposed subsets selected on the training outputs, whose size the method chooses), from the training outputs except for the main proposed subsets (selected on all outputs), and are evaluated with the same protocol and the fixed scenario set. Admissible: problems in which re-estimating the subset reproduces the full model (median $e_{\mathrm{fit}}\le\tau_e$) for parameter changes of $\pm$5\% and $\pm$20\%; for random subsets, median over the 20 draws; for calibration only, without the rule $|S|\ge2$. Identifiable: selected parameters whose profile likelihood in the reduced problem is bounded on both sides, and in parentheses the problems in which every selected parameter is identifiable and the subset is admissible at $\pm$5\%, over the 27 problems common to all criteria (26 for the proposed subsets selected on the training outputs). Synthetic: fraction of the cases with signal in which $e_{\mathrm{pred}}\le\tau_e$, for truths uniform within $\pm$20\% of $\theta_0$ (281 cases common to all criteria, 24 problems, 20 seeds; difference from the proposed method with a 95\% confidence interval from resampling problems), log-uniform within a factor of two (217 cases, 25 problems) and sparse (147 cases, 24 problems), ten seeds each. Real data: median ratio of the test $\chi^2/n$ to that of the proposed method (below 1, better than the proposed method) and Wilcoxon $P$ over problems (unadjusted; exploratory). Proposed (all), (train.): subsets of the proposed method selected on all outputs and on the training outputs; Profile lik., profile likelihood; Calib., calibration only. Pivoted QR is the standard Golub--Klema--Stewart subset selection; the earlier variant is reported in the Supplementary Information. Per-problem values are given in the Supplementary Notes on the comparison of selection criteria.}
+\label{tab:comparison}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{1.1pt}
+\input{tables/table2_comparison.tex}
+\end{table}
+\clearpage
+\begin{table}[!htbp]
+\caption{\textbf{What the formal verification guarantees.} For each step of the method, the modules of the Lean development (numbers of Supplementary Table~\ref{S-tab:modules}), the statement proved for any model that satisfies the stated hypotheses, the condition under which it applies to a numerical result, and the results of this study to which it applies. Levels of guarantee and identifiability per problem are given in Table~\ref{tab:benchmark}; the formal statements are listed in Supplementary Table~\ref{S-tab:statements}, the scope of each guarantee in Supplementary Table~\ref{S-tab:scope}, and the correspondence between each claim of this paper and the Lean theorem that supports it in Supplementary Table~\ref{S-tab:claims}.}
+\label{tab:lean}
+\centering
+\scriptsize
+\input{tables/table3_lean.tex}
+\end{table}
+\clearpage
 
 \end{document}

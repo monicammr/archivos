@@ -1,0 +1,57 @@
+REVISION CONTRA "Checklist for initial submissions" de Scientific Reports (15-11-2026)
+
+ARCHIVOS
+[OK] Cover letter: 3_Cover_letter.pdf (PDF permitido; solo la ve el editor).
+[OK] Manuscript file: UN solo archivo -> 1_Manuscrito_Paper2.pdf (o la fuente .tex en 4_Fuente_LaTeX_manuscrito.zip si la piden).
+[OK] Figuras: incluidas al final del manuscrito y tambien sueltas en 5_Figuras (TIFF 300 ppp / EPS / PDF).
+[OK] Tablas: dentro del manuscrito, como texto editable (no imagenes); no se suben aparte.
+[OK] Supplementary Information: un solo archivo aparte, 2_Supplementary_Information.pdf.
+
+TITULO
+[OK] Igual en manuscrito, suplemento y carta: "Re-estimation-verified selection of small parameter subsets for systems biology models".
+[TU] Pegar EXACTAMENTE ese titulo en el formulario.
+[OK] Enunciado preciso, sin juegos de palabras.
+
+AUTORES
+[OK] Autora de correspondencia con asterisco y su correo en la primera pagina.
+[OK] Afiliacion con pais (Ecuador) enlazada con numero en superindice.
+[TU] Introducir en el sistema los 4 autores con los mismos nombres, correos y afiliacion.
+[N/A] Consorcios.
+
+RESUMEN
+[OK] Sin citas, sin subtitulos, 187 palabras (limite 200).
+[TU] Pegarlo EXACTAMENTE igual en el formulario (copiar del PDF y unir las lineas).
+
+TEXTO PRINCIPAL
+[OK] Sin notas al pie. Sin control de cambios ni texto coloreado.
+
+METHODS
+[OK] Seccion Methods dentro del manuscrito con detalle suficiente (y codigo en Zenodo).
+[N/A] Experimentos con animales o personas: no hay. Hay datos publicos ya publicados (algunos de origen humano,
+      anonimizados): la declaracion de etica esta ahora DENTRO de Methods ("Ethics declarations").
+
+AUTHOR CONTRIBUTIONS
+[CORREGIDO] Ahora va DESPUES de las referencias, con la contribucion de cada autor.
+
+ADDITIONAL INFORMATION
+[CORREGIDO] "Competing interests: The authors declare no competing interests." bajo el titulo "Additional information",
+      despues de las referencias. [TU] En el formulario marcar tambien "no competing interests".
+
+LEYENDAS
+[CORREGIDO] Cada figura y tabla principal con su leyenda va al FINAL del manuscrito, despues de las referencias
+      (antes estaban dentro del texto).
+[OK] Las leyendas de figuras y tablas suplementarias estan solo en el suplemento, junto a cada imagen.
+
+DATA AVAILABILITY
+[OK] Seccion "Data availability" al final del texto, ANTES de las referencias (seguida de "Code availability").
+
+REFERENCIAS
+[OK] Lista numerada; citas en el texto con numeros entre corchetes [1].
+
+ELEMENTOS GRAFICOS
+[OK] Sin esquemas, recuadros ni resumen grafico sueltos: todo esta numerado como Figura o Tabla.
+[N/A] Geles o blots: no hay.
+[OK] Tablas editables dentro del manuscrito.
+
+SUPLEMENTO
+[OK] Se sube aparte; no esta dentro del manuscrito.
