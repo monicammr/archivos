@@ -1,0 +1,47 @@
+\documentclass[11pt]{letter}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\signature{M\'onica Miranda R.\\Faculty of Engineering, Control and Automation Systems Group\\Escuela Superior Polit\'ecnica del Litoral (ESPOL), Guayaquil, Ecuador\\mmmirand@espol.edu.ec}
+\address{Escuela Superior Polit\'ecnica del Litoral (ESPOL)\\Faculty of Engineering\\Guayaquil, Ecuador}
+
+\date{November 15, 2026}
+\begin{document}
+\begin{letter}{The Editors\\\emph{Scientific Reports}}
+
+\opening{Dear Editors,}
+
+We submit the manuscript ``Re-estimation-verified selection of small parameter subsets for systems biology models'' by M\'onica Miranda R., Carlos Salazar, C\'esar Mart\'in and Adriana Aguirre for consideration as an Article in \emph{Scientific Reports}.
+
+Dynamical models in systems biology routinely contain tens to hundreds of unknown rate constants, far more than the available data can determine. Calibrating all of them is slow, numerically unstable and yields parameter values that the data do not constrain. Existing subset-selection criteria choose a few parameters to estimate, but, to our knowledge, they do not test whether re-estimating the chosen subset actually reproduces what the full model predicts for the measured outputs. Our method closes this gap: starting from published parameter values, it ranks the biological parameters by their effect on the measured outputs, rejects redundant ones, accepts a subset only if it passes an \emph{admissibility test} (in 15 scenarios that perturb all parameters at random by up to $\pm5\%$, re-estimating only the subset, together with the measurement scaling and offset factors, must reproduce the change of the measured outputs of the full model with a median relative error of at most $0.436$), and then removes the parameters that are not needed, never going below an imposed minimum of two.
+
+We evaluated the method on 34 published models with real data from the PEtab benchmark collection, under a common protocol with null baselines and four established criteria (Brun's collinearity index, Morris screening, profile likelihood and standard pivoted QR). The main findings are:
+\begin{itemize}
+\item In 31 of the 34 problems, re-estimating a subset of usually two biological parameters (the imposed minimum; one alone would have passed in 15 of 27, and larger subsets were kept where two did not suffice) together with the calibration parameters reproduced, within the chosen tolerance, the local response of the measured outputs, as confirmed by nonlinear re-estimation; 22 subsets remained admissible up to $\pm$50\% in both robustness designs (five of them evaluated to first order beyond $\pm$5\%).
+\item With the other parameters at their published values, all selected parameters were practically identifiable in 25 problems (23 with a misfit-scaled threshold; 65 of 74 parameters, by profile likelihood).
+\item Two null baselines show where the test discriminates between subsets: re-estimating only the measurement scaling and offset factors, with no biological parameter, already passed the admissibility test in 9 of 28 problems, and a random subset of the same size passed in 16 of 28 (median over 20 draws). In those problems many subsets suffice, and we report this openly.
+\item Selected from the same training data, our subsets predicted synthetic data generated near the published values more often than pivoted QR and profile likelihood, and not detectably differently from Brun's collinearity index; on real held-out data, no criterion differed significantly from ours.
+\end{itemize}
+
+We have been careful to state the scope of these results. The ranking by sensitivity is not new, and we say so: the contribution is the verification by re-estimation, the reduction by backward elimination and the explicit reporting of the three models in which no reduction was found. We do not claim that reduced models predict better than full models on data unseen by the published estimates, and we report that the minimum subset size of two is a conservative choice, which we test explicitly. The mathematical statements on which the method relies are formally verified in the Lean~4 proof assistant (32 modules, 309 theorems and lemmas, and the hypotheses on the dynamics of 28 benchmark models at their nominal parameter values); their application to each numerical result is checked numerically, not certified, and the manuscript specifies when each formal statement applies and when it does not.
+
+We believe the work suits \emph{Scientific Reports} because the problem it addresses, too many parameters for the available data, is shared by systems biology, pharmacology and epidemiology, and because its conclusions rest on a large public benchmark and on openly reproducible analyses rather than on a single case study. A reproducibility package (Zenodo, doi:10.5281/zenodo.23338174) contains the code of the method and of every analysis, all stored results, the programs that regenerate every figure and table, and the Lean proofs, with a manual that describes three independent levels of checking.
+
+The study analyses only publicly available, previously published benchmark models and data; no new data from human participants were collected. The main text is somewhat above the recommended length because the comparison with existing criteria and the scope of the formal verification needed to be reported in the main text; detailed results are given in the Methods and in the Supplementary Information.
+
+\textbf{Suggested reviewers.} We do not suggest reviewers and leave the choice to the Editor.
+
+\textbf{Excluded reviewers.} None.
+
+\textbf{Prior discussions.} We have had no prior discussions with any Editorial Board Member of \emph{Scientific Reports} about this work.
+
+\textbf{Related submissions.} A related conference paper, ``From Simulation to Theorem: Machine-Checked Parameter Subsets for Biological ODEs'', is being submitted to the IFAC Symposium on System Identification (SysID 2027). It builds on the method of this manuscript and cites it. This manuscript verifies in Lean~4 the general theorems behind the method and checks numerically their application to each result; the conference paper proves in Lean~4, for seven benchmark models, that the specific subsets selected by the method are admissible for the exact solution of the model equations. It does not repeat the analyses of this manuscript (validation, identifiability, comparison with other selection criteria, robustness to the size of parameter changes).
+
+All authors have approved the manuscript and agree with its submission. The manuscript has not been published and is not under consideration elsewhere. The corresponding author is M\'onica Miranda R.
+
+\setlength{\longindentation}{0pt}\setlength{\indentedwidth}{\textwidth}
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

@@ -1,0 +1,22 @@
+\begin{longtable}{@{}lrrrrrr@{}}
+\caption{Real data: paired comparison of the test $\chi^2/n$ of the proposed method with each alternative over problems. Better/worse: the proposed method lower/higher by more than 5\%; equal: within 5\%. Median ratio: alternative over the proposed method (below 1, the alternative predicts better). $p$: two-sided Wilcoxon signed-rank test on the log ratios.}\label{tab:wilcoxonreal}\\
+\toprule
+The proposed method compared with & Problems & Proposed better & Proposed worse & Equal & Median ratio & $p$ \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\emph{(continued)}}\\
+\toprule
+The proposed method compared with & Problems & Proposed better & Proposed worse & Equal & Median ratio & $p$ \\
+\midrule
+\endhead
+Pivoted QR (earlier variant) & 28 & 2 & 10 & 16 & 0.99 & 0.026 \\
+Brun & 28 & 3 & 5 & 20 & 1.00 & 0.27 \\
+Morris & 28 & 4 & 6 & 18 & 1.00 & 0.46 \\
+Profile likelihood & 27 & 7 & 9 & 11 & 1.00 & 0.44 \\
+Random subsets (median of 20) & 28 & 3 & 9 & 16 & 1.00 & 0.27 \\
+Calibration only ($k=0$) & 28 & 2 & 13 & 13 & 0.99 & 0.0027 \\
+Full model re-estimated on training data & 29 & 20 & 3 & 6 & 1.23 & 8.2e-05 \\
+Reduced model, nested without $\theta_0$ anchor & 29 & 21 & 3 & 5 & 1.35 & 7.2e-05 \\
+Published estimate $\theta_0$ & 29 & 2 & 20 & 7 & 0.90 & 0.00022 \\
+\bottomrule
+\end{longtable}

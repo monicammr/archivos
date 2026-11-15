@@ -1,0 +1,88 @@
+\begingroup\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}llllccccc@{}}
+\caption{Identifiability of the selected parameters: profile classification with 10 and 20 points per side, and whether the hypotheses of the Lean theorems with the remainder bound on the tail (\texttt{practically\_identifiable\_grad\_tail} or \texttt{\_rel\_tail}) hold over the whole region within a factor $r$ of the optimum, by sampling (512 points) and adversarial search; a numerical check of the hypotheses, not a certificate.}\label{tab:identifregion}\\
+\toprule
+Problem & Parameter & Profile (10) & Profile (20) & $r=10$ & 5 & 3 & 2 & 1.5 \\
+\midrule
+\endfirsthead
+\toprule
+Problem & Parameter & Profile (10) & Profile (20) & $r=10$ & 5 & 3 & 2 & 1.5 \\
+\midrule
+\endhead
+Alkan & \texttt{k\_rep\_nhej} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Alkan & \texttt{kt} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Armistead & \texttt{k00} & identifiable & identifiable & -- & -- & -- & -- & yes \\
+Armistead & \texttt{k\_d} & identifiable & identifiable & -- & -- & -- & yes & yes \\
+Bachmann & \texttt{CISRNADelay} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bachmann & \texttt{JAK2ActEpo} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bertozzi & \texttt{I0\_NY} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bertozzi & \texttt{R0\_NY} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Blasi & \texttt{a\_basal} & identifiable & identifiable & yes & -- & yes & yes & yes \\
+Blasi & \texttt{a\_k16\_k12k16} & identifiable & identifiable & -- & -- & -- & yes & yes \\
+Boehm & \texttt{k\_imp\_hetero} & identifiable & identifiable & -- & -- & -- & yes & yes \\
+Boehm & \texttt{k\_phos} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Borghans & \texttt{K\_par} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Borghans & \texttt{Kz} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Brannmark & \texttt{k1f} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Brannmark & \texttt{km2} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bruno & \texttt{init\_bcar1} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bruno & \texttt{init\_bcar2} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bruno & \texttt{init\_bcry\_1} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bruno & \texttt{init\_zea\_1} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Bruno & \texttt{kb1} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Chen & \texttt{k106} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Chen & \texttt{k44} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Elowitz & \texttt{n\_Hill} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Elowitz & \texttt{tau\_mRNA} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Fiedler & \texttt{k6} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Fiedler & \texttt{tau2} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Fujita & \texttt{init\_AKT} & flat & flat & -- & -- & -- & -- & -- \\
+Fujita & \texttt{reaction\_6\_k1} & flat & one side & -- & -- & -- & -- & -- \\
+Giordano & \texttt{alpha\_28} & flat & flat & -- & -- & -- & -- & -- \\
+Giordano & \texttt{alpha\_4} & one side & one side & -- & -- & -- & -- & -- \\
+Isensee & \texttt{kf\_RIIp\_C\_2\_\_RII\_C\_2} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Isensee & \texttt{xi\_kf\_RII\_C\_2\_\_RII\_2} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Laske & \texttt{k\_imp} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Laske & \texttt{k\_syn\_R\_M} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Liu & \texttt{kappa} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Liu & \texttt{phi} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{S2tot} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{S3tot} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{S4tot} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{S\_dephosphos} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{S\_phos} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{geneF\_turn} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{geneH\_turn} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{geneK\_turn} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{init\_Rec} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Lucarelli & \texttt{k\_234} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Okuonghae & \texttt{gamma\_i} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Okuonghae & \texttt{transmission\_rate\_effective} & flat & flat & -- & -- & -- & -- & -- \\
+Oliveira & \texttt{beta\_0} & flat & flat & -- & -- & -- & -- & -- \\
+Oliveira & \texttt{h\_hosp\_rate} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Perelson & \texttt{c} & flat & flat & -- & -- & -- & -- & -- \\
+Perelson & \texttt{delta} & flat & flat & -- & -- & -- & -- & -- \\
+Rahman & \texttt{infected\_moderate\_transmission\_rate} & identifiable & identifiable & -- & -- & -- & yes & yes \\
+Rahman & \texttt{infected\_normal\_worsen\_rate} & identifiable & identifiable & -- & -- & -- & -- & yes \\
+Raia & \texttt{SOCS3mRNA\_production} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Raia & \texttt{init\_Rec\_i} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Raimundez & \texttt{ka\_MAPK\_\_MKN1} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Raimundez & \texttt{kdeg\_membran\_\_MKN1} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Salazar-Cavazos & \texttt{ratio\_kpkd\_Y1068\_\_FREE} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Salazar-Cavazos & \texttt{ratio\_kpkd\_YN\_\_FREE} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Schwen & \texttt{ini\_R1} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Schwen & \texttt{ini\_R2fold} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Smith & \texttt{k8} & one side & one side & -- & -- & -- & -- & -- \\
+Smith & \texttt{kminus7b} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Sneyd & \texttt{l2} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Sneyd & \texttt{l4} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Weber & \texttt{a21} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Weber & \texttt{s12} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Zhao & \texttt{R\_Stage\_II\_Wuhan} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Zhao & \texttt{R\_Stage\_I\_China} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Zhao & \texttt{gamma\_1\_Stage\_I\_Hubei} & identifiable & identifiable & -- & -- & -- & -- & -- \\
+Zheng & \texttt{k01\_02} & identifiable & identifiable & -- & -- & yes & yes & yes \\
+Zheng & \texttt{k13\_12} & identifiable & identifiable & -- & -- & yes & yes & yes \\
+\bottomrule
+\end{longtable}
+\endgroup
