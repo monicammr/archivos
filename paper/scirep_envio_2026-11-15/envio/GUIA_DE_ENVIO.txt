@@ -16,7 +16,7 @@ QUE SUBIR (en el orden en que suele pedirlo el formulario)
 
 DATOS QUE PIDE EL FORMULARIO (no son archivos)
 - Titulo: Re-estimation-verified selection of small parameter subsets for systems biology models
-- Autores: Monica Miranda R. (autora de correspondencia), Carlos Salazar, Cesar Martin, Adriana Aguirre (ESPOL)
+- Autores: Monica Miranda R. (autora de correspondencia), Carlos Salazar, Cesar Martin, Adriana Aguirre (ESPOL, Faculty of Electrical and Computer Engineering, FIEC)
 - Resumen: copiar del PDF (187 palabras)
 - Keywords: parameter reduction, practical identifiability, sensitivity analysis, ordinary differential equations, systems biology, formal verification
 - Funding: This research received no external funding.  Competing interests: The authors declare no competing interests.
